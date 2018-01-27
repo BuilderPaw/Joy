@@ -3150,7 +3150,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         txtLocation.Text = rdr["LocationOther"].ToString();
 
                         /* Camera 1 */
-                        txtCamDesc1.Text = rdr["CamDesc1"].ToString();
+                        txtCamDesc1.Text = rdr["CamDesc1"].ToString().Replace("<br />", "\n");
                         cbRecorded1.Checked = Convert.ToBoolean(rdr["CamRecorded1"]);
                         txtCamFilePath1.Text = rdr["CamFilePath1"].ToString();
                         txtCamSDate1.Text = rdr["CamSDate1"].ToString();
@@ -3163,7 +3163,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         //ddlCamETimeTC1.SelectedIndex = Int32.Parse(rdr["CamETimeTC1"].ToString());
 
                         /* Camera 2 */
-                        txtCamDesc2.Text = rdr["CamDesc2"].ToString();
+                        txtCamDesc2.Text = rdr["CamDesc2"].ToString().Replace("<br />", "\n");
                         cbRecorded2.Checked = Convert.ToBoolean(rdr["CamRecorded2"]);
                         txtCamFilePath2.Text = rdr["CamFilePath2"].ToString();
                         txtCamSDate2.Text = rdr["CamSDate2"].ToString();
@@ -3176,7 +3176,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         //ddlCamETimeTC2.SelectedIndex = Int32.Parse(rdr["CamETimeTC2"].ToString());
 
                         /* Camera 3 */
-                        txtCamDesc3.Text = rdr["CamDesc3"].ToString();
+                        txtCamDesc3.Text = rdr["CamDesc3"].ToString().Replace("<br />", "\n");
                         cbRecorded3.Checked = Convert.ToBoolean(rdr["CamRecorded3"]);
                         txtCamFilePath3.Text = rdr["CamFilePath3"].ToString();
                         txtCamSDate3.Text = rdr["CamSDate3"].ToString();
@@ -3189,7 +3189,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         //ddlCamETimeTC3.SelectedIndex = Int32.Parse(rdr["CamETimeTC3"].ToString());
 
                         /* Camera 4 */
-                        txtCamDesc4.Text = rdr["CamDesc4"].ToString();
+                        txtCamDesc4.Text = rdr["CamDesc4"].ToString().Replace("<br />", "\n");
                         cbRecorded4.Checked = Convert.ToBoolean(rdr["CamRecorded4"]);
                         txtCamFilePath4.Text = rdr["CamFilePath4"].ToString();
                         txtCamSDate4.Text = rdr["CamSDate4"].ToString();
@@ -3202,7 +3202,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         //ddlCamETimeTC4.SelectedIndex = Int32.Parse(rdr["CamETimeTC4"].ToString());
 
                         /* Camera 5 */
-                        txtCamDesc5.Text = rdr["CamDesc5"].ToString();
+                        txtCamDesc5.Text = rdr["CamDesc5"].ToString().Replace("<br />", "\n");
                         cbRecorded5.Checked = Convert.ToBoolean(rdr["CamRecorded5"]);
                         txtCamFilePath5.Text = rdr["CamFilePath5"].ToString();
                         txtCamSDate5.Text = rdr["CamSDate5"].ToString();
@@ -3215,7 +3215,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         //ddlCamETimeTC5.SelectedIndex = Int32.Parse(rdr["CamETimeTC5"].ToString());
 
                         /* Camera 6 */
-                        txtCamDesc6.Text = rdr["CamDesc6"].ToString();
+                        txtCamDesc6.Text = rdr["CamDesc6"].ToString().Replace("<br />", "\n");
                         cbRecorded6.Checked = Convert.ToBoolean(rdr["CamRecorded6"]);
                         txtCamFilePath6.Text = rdr["CamFilePath6"].ToString();
                         txtCamSDate6.Text = rdr["CamSDate6"].ToString();
@@ -3228,7 +3228,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         //ddlCamETimeTC6.SelectedIndex = Int32.Parse(rdr["CamETimeTC6"].ToString());
 
                         /* Camera 7 */
-                        txtCamDesc7.Text = rdr["CamDesc7"].ToString();
+                        txtCamDesc7.Text = rdr["CamDesc7"].ToString().Replace("<br />", "\n");
                         cbRecorded7.Checked = Convert.ToBoolean(rdr["CamRecorded7"]);
                         txtCamFilePath7.Text = rdr["CamFilePath7"].ToString();
                         txtCamSDate7.Text = rdr["CamSDate7"].ToString();
@@ -6361,7 +6361,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         }
 
         /* Camera 1 */
-        ReportIncidentMr.CamDesc1 = txtCamDesc1.Text;
+        ReportIncidentMr.CamDesc1 = txtCamDesc1.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc1 = ReportIncidentMr.CamDesc1.Replace("'", "");
         ReportIncidentMr.SDate1 = txtCamSDate1.Text;
         ReportIncidentMr.STimeH1 = ddlCamTimeH1.SelectedItem.Value;
@@ -6382,7 +6382,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         //ReportIncidentMr.TxtCamETimeTC1 = ddlCamETimeTC1.SelectedItem.Text;
         
         /* Camera 2 */
-        ReportIncidentMr.CamDesc2 = txtCamDesc2.Text;
+        ReportIncidentMr.CamDesc2 = txtCamDesc2.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc2 = ReportIncidentMr.CamDesc2.Replace("'", "");
         ReportIncidentMr.SDate2 = txtCamSDate2.Text;
         ReportIncidentMr.STimeH2 = ddlCamTimeH2.SelectedItem.Value;
@@ -6403,7 +6403,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         //ReportIncidentMr.TxtCamETimeTC2 = ddlCamETimeTC2.SelectedItem.Text;
 
         /* Camera 3 */
-        ReportIncidentMr.CamDesc3 = txtCamDesc3.Text;
+        ReportIncidentMr.CamDesc3 = txtCamDesc3.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc3 = ReportIncidentMr.CamDesc3.Replace("'", "");
         ReportIncidentMr.SDate3 = txtCamSDate3.Text;
         ReportIncidentMr.STimeH3 = ddlCamTimeH3.SelectedItem.Value;
@@ -6424,7 +6424,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         //ReportIncidentMr.TxtCamETimeTC3 = ddlCamETimeTC3.SelectedItem.Text;
 
         /* Camera 4 */
-        ReportIncidentMr.CamDesc4 = txtCamDesc4.Text;
+        ReportIncidentMr.CamDesc4 = txtCamDesc4.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc4 = ReportIncidentMr.CamDesc4.Replace("'", "");
         ReportIncidentMr.SDate4 = txtCamSDate4.Text;
         ReportIncidentMr.STimeH4 = ddlCamTimeH4.SelectedItem.Value;
@@ -6445,7 +6445,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         //ReportIncidentMr.TxtCamETimeTC4 = ddlCamETimeTC4.SelectedItem.Text;
 
         /* Camera 5 */
-        ReportIncidentMr.CamDesc5 = txtCamDesc5.Text;
+        ReportIncidentMr.CamDesc5 = txtCamDesc5.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc5 = ReportIncidentMr.CamDesc5.Replace("'", "");
         ReportIncidentMr.SDate5 = txtCamSDate5.Text;
         ReportIncidentMr.STimeH5 = ddlCamTimeH5.SelectedItem.Value;
@@ -6466,7 +6466,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         //ReportIncidentMr.TxtCamETimeTC5 = ddlCamETimeTC5.SelectedItem.Text;
 
         /* Camera 6 */
-        ReportIncidentMr.CamDesc6 = txtCamDesc6.Text;
+        ReportIncidentMr.CamDesc6 = txtCamDesc6.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc6 = ReportIncidentMr.CamDesc6.Replace("'", "");
         ReportIncidentMr.SDate6 = txtCamSDate6.Text;
         ReportIncidentMr.STimeH6 = ddlCamTimeH6.SelectedItem.Value;
@@ -6487,7 +6487,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         //ReportIncidentMr.TxtCamETimeTC6 = ddlCamETimeTC6.SelectedItem.Text;
 
         /* Camera 7 */
-        ReportIncidentMr.CamDesc7 = txtCamDesc7.Text;
+        ReportIncidentMr.CamDesc7 = txtCamDesc7.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc7 = ReportIncidentMr.CamDesc7.Replace("'", "");
         ReportIncidentMr.SDate7 = txtCamSDate7.Text;
         ReportIncidentMr.STimeH7 = ddlCamTimeH7.SelectedItem.Value;
