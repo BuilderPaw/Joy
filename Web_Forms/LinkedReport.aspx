@@ -35,7 +35,7 @@
             <asp:SqlDataSource runat="server" ID="SqlDataSource6"
                 ConnectionString="<%$ ConnectionStrings:LocalDb %>"
                 SelectCommand="SELECT s.StaffName, st.ShiftName, c.ReportName, *
-                               FROM rptMRDM rt, [Staff] s, [Shift] st, [Category] c
+                               FROM Report_MerrylandsRSLDutyManager rt, [Staff] s, [Shift] st, [Category] c
                                WHERE rt.StaffId = s.StaffId AND rt.ShiftId = st.ShiftId AND c.RCatId = rt.RCatId AND rt.ReportId = 1"></asp:SqlDataSource>
         </div>
         <asp:ImageButton ID="imgTopScreen" OnClientClick="ToTopOfPage(); return false;" runat="server" ImageUrl="~/Images/arrow-up.png" Width="25px" Style="position: fixed; top: 0%; right: 13%;" BorderStyle="None" />

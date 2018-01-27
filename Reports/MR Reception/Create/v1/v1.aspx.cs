@@ -41,7 +41,7 @@ public partial class Reports_MR_Reception_Create_v1_v1 : System.Web.UI.Page
         SearchReport.CreateReportReset(); // takes off the selected report in ddlCreateReport
 
         // get the last Report ID
-        string query = "SELECT MAX(ReportId) AS ReportId FROM dbo.rptMRRec";
+        string query = "SELECT MAX(ReportId) AS ReportId FROM dbo.Report_MerrylandsRSLReception";
         int lastRId, result, returnFlag = 2;
         DateTime temp, date = DateTime.Parse(DateTime.Now.ToShortDateString());
         Report.ErrorMessage = "";
@@ -118,7 +118,7 @@ public partial class Reports_MR_Reception_Create_v1_v1 : System.Web.UI.Page
         // insert data to table
         using (DataClassesDataContext dc = new DataClassesDataContext())
         {
-            rptMRRec dm = new rptMRRec();
+            Report_MerrylandsRSLReception dm = new Report_MerrylandsRSLReception();
             dm.ReportId = Int32.Parse(Report.LastReportId);
             dm.RCatId = 6; // MR Reception Category
             dm.StaffId = Int32.Parse(Session["currentStaffId"].ToString());
@@ -127,7 +127,7 @@ public partial class Reports_MR_Reception_Create_v1_v1 : System.Web.UI.Page
             dm.ShiftDate = shift_date.Date;
             dm.ShiftDOW = shift_DOW;
             dm.EntryDate = entry_date;
-            dm.Report_Table = "rptMRRec";
+            dm.Report_Table = "Report_MerrylandsRSLReception";
             dm.AuditVersion = 1;
             dm.ReportStat = "Awaiting Completion";
             dm.Report_Version = 1; // current version
@@ -136,7 +136,7 @@ public partial class Reports_MR_Reception_Create_v1_v1 : System.Web.UI.Page
             dm.Refusals = txtRefusals.Text.Replace("\n", "<br />").Replace("'", "");
             dm.EventsField = txtEventsField.Text.Replace("\n", "<br />").Replace("'", "");
             dm.GeneralComments = txtGeneralComms.Text.Replace("\n", "<br />").Replace("'", "");
-            dc.rptMRRecs.InsertOnSubmit(dm);
+            dc.Report_MerrylandsRSLReceptions.InsertOnSubmit(dm);
             dc.SubmitChanges();
         }
 

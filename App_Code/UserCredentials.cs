@@ -100,6 +100,8 @@ public class UserCredentials
                 groupsQuery = groupsQuery.Replace("MR Reception", "'MR Reception'");
                 groupsQuery = groupsQuery.Replace("'CU Reception' Supervisors", "'CU Reception Supervisors'");
                 groupsQuery = groupsQuery.Replace("'MR Reception' Supervisor", "'MR Reception Supervisor'");
+                groupsQuery = groupsQuery.Replace("'CU Reception'", "'CU Reception', 'CU Incident Report'"); // add a '' to all reports to make it compatible for the sql query to run 
+                groupsQuery = groupsQuery.Replace("'MR Reception'", "'MR Reception', 'MR Incident Report'");
                 groupsQuery = groupsQuery.Replace("MR Function Supervisor", "'MR Function Supervisor'");
                 groupsQuery = groupsQuery.Replace("CU Supervisors", "'CU Supervisors'");
                 groupsQuery = groupsQuery.Replace("CU Duty Managers", "'CU Duty Managers', 'CU Incident Report'");

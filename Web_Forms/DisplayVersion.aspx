@@ -84,7 +84,7 @@
                 </asp:GridView>
                 <asp:Label ID="lblSortDisplay" runat="server" Visible="false" Text="Set" />
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:LocalDb %>"
-                    SelectCommand="SELECT * FROM [rptMRDM]"></asp:SqlDataSource>
+                    SelectCommand="SELECT * FROM [Report_MerrylandsRSLDutyManager]"></asp:SqlDataSource>
             </div>
         </div>
     </form>

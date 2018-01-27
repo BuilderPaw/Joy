@@ -1997,7 +1997,7 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <asp:CheckBoxList ID="cblLocation" RepeatLayout="table" RepeatColumns="4" Font-Size="9" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="cblLocation_SelectedIndexChanged" runat="server" class="object-default">
+                        <asp:CheckBoxList ID="List_Location" RepeatLayout="table" RepeatColumns="4" Font-Size="9" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="List_Location_SelectedIndexChanged" runat="server" class="object-default">
                         </asp:CheckBoxList>
                     </td>
                 </tr>
@@ -3748,7 +3748,7 @@
                 </tr>
                 <tr id="refuseEntryReasons1" visible="false" runat="server">
                     <td colspan="4">
-                        <asp:CheckBoxList ID="cblRefuseReason" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" Font-Size="10px" RepeatLayout="table" RepeatColumns="3" RepeatDirection="vertical" runat="server" class="object-default">
+                        <asp:CheckBoxList ID="List_RefuseReason" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" Font-Size="10px" RepeatLayout="table" RepeatColumns="3" RepeatDirection="vertical" runat="server" class="object-default">
                         </asp:CheckBoxList>
                     </td>
                 </tr>
@@ -3776,7 +3776,7 @@
                 </tr>
                 <tr id="askedtoLeaveReasons1" visible="false" runat="server">
                     <td colspan="4">
-                        <asp:CheckBoxList ID="cblAskedToLeave" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" Font-Size="10px" RepeatLayout="table" RepeatColumns="5" RepeatDirection="vertical" runat="server" class="object-default">
+                        <asp:CheckBoxList ID="List_AskedToLeave" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" Font-Size="10px" RepeatLayout="table" RepeatColumns="5" RepeatDirection="vertical" runat="server" class="object-default">
                         </asp:CheckBoxList>
                     </td>
                 </tr>              
@@ -3806,7 +3806,7 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <asp:CheckBoxList ID="cblActionTaken" Font-Size="11px" AutoPostBack="true" OnSelectedIndexChanged="cblActionTaken_SelectedIndexChanged" RepeatLayout="table" RepeatColumns="4" RepeatDirection="vertical" runat="server" class="object-default">
+                        <asp:CheckBoxList ID="List_ActionTaken" Font-Size="11px" AutoPostBack="true" OnSelectedIndexChanged="List_ActionTaken_SelectedIndexChanged" RepeatLayout="table" RepeatColumns="4" RepeatDirection="vertical" runat="server" class="object-default">
                         </asp:CheckBoxList>
                     </td>
                 </tr>

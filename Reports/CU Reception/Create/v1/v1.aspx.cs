@@ -41,7 +41,7 @@ public partial class Reports_CU_Reception_Create_v1_v1 : System.Web.UI.Page
         SearchReport.CreateReportReset(); // takes off the selected report in ddlCreateReport
 
         // get the last Report ID
-        string query = "SELECT MAX(ReportId) AS ReportId FROM dbo.rptUMRec";
+        string query = "SELECT MAX(ReportId) AS ReportId FROM dbo.Report_ClubUminaReception";
         int lastRId, result, returnFlag = 2;
         DateTime temp, date = DateTime.Parse(DateTime.Now.ToShortDateString());
         Report.ErrorMessage = "";
@@ -118,7 +118,7 @@ public partial class Reports_CU_Reception_Create_v1_v1 : System.Web.UI.Page
         // insert data to table
         using (DataClassesDataContext dc = new DataClassesDataContext())
         {
-            rptUMRec dm = new rptUMRec();
+            Report_ClubUminaReception dm = new Report_ClubUminaReception();
             dm.ReportId = Int32.Parse(Report.LastReportId);
             dm.RCatId = 8; // UM Reception Category
             dm.StaffId = Int32.Parse(Session["currentStaffId"].ToString());
@@ -127,7 +127,7 @@ public partial class Reports_CU_Reception_Create_v1_v1 : System.Web.UI.Page
             dm.ShiftDate = shift_date.Date;
             dm.ShiftDOW = shift_DOW;
             dm.EntryDate = entry_date;
-            dm.Report_Table = "rptUMRec";
+            dm.Report_Table = "Report_ClubUminaReception";
             dm.AuditVersion = 1;
             dm.ReportStat = "Awaiting Completion";
             dm.Report_Version = 1; // current version
@@ -136,7 +136,7 @@ public partial class Reports_CU_Reception_Create_v1_v1 : System.Web.UI.Page
             dm.Refusals = txtRefusals.Text.Replace("\n", "<br />").Replace("'", "");
             dm.EventsField = txtEventsField.Text.Replace("\n", "<br />").Replace("'", "");
             dm.GeneralComments = txtGeneralComms.Text.Replace("\n", "<br />").Replace("'", "");
-            dc.rptUMRecs.InsertOnSubmit(dm);
+            dc.Report_ClubUminaReceptions.InsertOnSubmit(dm);
             dc.SubmitChanges();
         }
 

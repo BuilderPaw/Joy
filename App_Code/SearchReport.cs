@@ -121,9 +121,9 @@ public class SearchReport
 
         string selectQuery = "",
                startQuery = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat], [AuditVersion], [RowNum]" +
-                            " FROM [rptView] WHERE [ReportName] ",
+                            " FROM [View_Reports] WHERE [ReportName] ",
                startQuery1= "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat], [AuditVersion], ROW_NUMBER() OVER(ORDER BY ShiftDate DESC, ShiftId DESC) RowNum" +
-                            " FROM [rptView] WHERE ReportName ",
+                            " FROM [View_Reports] WHERE ReportName ",
                dateQuery = "", statusQuery = "", unreadQuery = "", reportQuery = "", authorQuery = "", cuQuery = "", mrQuery = "",
                endQuery = "ORDER BY ShiftDate DESC, ShiftId DESC, RowNum";
 
@@ -208,18 +208,18 @@ public class SearchReport
             SqlQuery sqlQuery = new SqlQuery();
             if (!string.IsNullOrEmpty(listPlayerIdIncidents)) // run all the list of incidents for the selected player id
             {
-                sqlQuery.RetrieveData("spListPlayerIdIncidents", "SearchKeyword");
+                sqlQuery.RetrieveData("Proc_ListPriorIncidents", "SearchKeyword");
             }
             else // no player id is selected, filter via keyword and report filters
             {
-                // set appropriate stored procedure (either spSearchKeywordOnAllReports - any report other than Incidents ; spSearchKeywordOnIncidentReports - Incidents ONLY)
+                // set appropriate stored procedure (either Proc_KeywordSearchAllReports - any report other than Incidents ; Proc_KeywordSearchIncidentReports - Incidents ONLY)
                 if (reportType.Contains("Incident"))
                 {
-                    sqlQuery.RetrieveData("spSearchKeywordOnIncidentReports", "SearchKeyword");
+                    sqlQuery.RetrieveData("Proc_KeywordSearchIncidentReports", "SearchKeyword");
                 }
                 else
                 {
-                    sqlQuery.RetrieveData("spSearchKeywordOnAllReports", "SearchKeyword");
+                    sqlQuery.RetrieveData("Proc_KeywordSearchAllReports", "SearchKeyword");
                 }
             }
 

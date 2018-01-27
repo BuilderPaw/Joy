@@ -1062,7 +1062,7 @@
             </tr>
             <tr>
                 <td style="font-size: 12.5px" colspan="4">
-                    <asp:CheckBoxList ID="cblLocation" Font-Size="8" onclick="return false" readonly="true" RepeatLayout="table" RepeatColumns="4" RepeatDirection="Vertical" runat="server" class="form-control">
+                    <asp:CheckBoxList ID="List_Location" Font-Size="8" onclick="return false" readonly="true" RepeatLayout="table" RepeatColumns="4" RepeatDirection="Vertical" runat="server" class="form-control">
                     </asp:CheckBoxList>
                 </td>
             </tr>
@@ -1298,7 +1298,7 @@
             </tr>
             <tr id="refuseEntryReasons1" visible="false" runat="server">
                 <td style="font-size: 12.5px" colspan="4">
-                    <asp:CheckBoxList ID="cblRefuseReason" Font-Size="8" onclick="return false" readonly="true" Visible="false" RepeatLayout="table" RepeatColumns="3" RepeatDirection="Vertical" runat="server" class="form-control">
+                    <asp:CheckBoxList ID="List_RefuseReason" Font-Size="8" onclick="return false" readonly="true" Visible="false" RepeatLayout="table" RepeatColumns="3" RepeatDirection="Vertical" runat="server" class="form-control">
                     </asp:CheckBoxList>
                 </td>
             </tr>
@@ -1326,7 +1326,7 @@
             </tr>
             <tr id="askedtoLeaveReasons1" visible="false" runat="server">
                 <td style="font-size: 12.5px" colspan="4">
-                    <asp:CheckBoxList ID="cblAskedToLeave" Font-Size="8" onclick="return false" readonly="true" Visible="false" RepeatLayout="table" RepeatColumns="5" RepeatDirection="Vertical" runat="server" class="form-control">
+                    <asp:CheckBoxList ID="List_AskedToLeave" Font-Size="8" onclick="return false" readonly="true" Visible="false" RepeatLayout="table" RepeatColumns="5" RepeatDirection="Vertical" runat="server" class="form-control">
                     </asp:CheckBoxList>
                 </td>
             </tr>           
@@ -1351,7 +1351,7 @@
             </tr>
             <tr>
                 <td style="font-size: 12.5px" colspan="4">
-                    <asp:CheckBoxList ID="cblActionTaken" Font-Size="8" onclick="return false" readonly="true" RepeatLayout="table" RepeatColumns="4" RepeatDirection="Vertical" runat="server" class="form-control">
+                    <asp:CheckBoxList ID="List_ActionTaken" Font-Size="8" onclick="return false" readonly="true" RepeatLayout="table" RepeatColumns="4" RepeatDirection="Vertical" runat="server" class="form-control">
                     </asp:CheckBoxList>
                 </td>
             </tr>
@@ -1451,8 +1451,8 @@
         </tr>
         <tr>
             <td colspan="2">
-                <asp:GridView runat="server" ID="gvRecAllegation" HeaderStyle-CssClass="gvHeader" Style="table-layout: fixed;" Width="100%" DataKeyNames="id"
-                    Font-Size="14px" AutoGenerateColumns="False" DataSourceID="sdsRecAllegation" EmptyDataText="There are No Data Records to Display.">
+                <asp:GridView runat="server" ID="gvRecommendation_Allegation" HeaderStyle-CssClass="gvHeader" Style="table-layout: fixed;" Width="100%" DataKeyNames="id"
+                    Font-Size="14px" AutoGenerateColumns="False" DataSourceID="sdsRecommendation_Allegation" EmptyDataText="There are No Data Records to Display.">
                     <EmptyDataTemplate>
                         <table style="table-layout: fixed; width: 100%;">
                             <tr>
@@ -1515,8 +1515,8 @@
         </tr>
         <tr>
             <td colspan="2">
-                <asp:GridView runat="server" ID="gvRecDiscAction" HeaderStyle-CssClass="gvHeader" Style="table-layout: fixed;" Width="100%" DataKeyNames="id"
-                    Font-Size="14px" AutoGenerateColumns="False" DataSourceID="sdsRecDiscAction" EmptyDataText="There are No Data Records to Display.">
+                <asp:GridView runat="server" ID="gvRecommendation_DisciplinaryAction" HeaderStyle-CssClass="gvHeader" Style="table-layout: fixed;" Width="100%" DataKeyNames="id"
+                    Font-Size="14px" AutoGenerateColumns="False" DataSourceID="sdsRecommendation_DisciplinaryAction" EmptyDataText="There are No Data Records to Display.">
                     <EmptyDataTemplate>
                         <table style="table-layout: fixed; width: 100%;">
                             <tr>
@@ -1582,8 +1582,8 @@
         </tr>
         <tr>
             <td colspan="2">
-                <asp:GridView runat="server" ID="gvRecJudiciary" HeaderStyle-CssClass="gvHeader" Style="table-layout: fixed;" Width="100%" DataKeyNames="id"
-                    Font-Size="14px" AutoGenerateColumns="False" DataSourceID="sdsRecJudiciary" EmptyDataText="There are No Data Records to Display.">
+                <asp:GridView runat="server" ID="gvRecommendation_Judiciary" HeaderStyle-CssClass="gvHeader" Style="table-layout: fixed;" Width="100%" DataKeyNames="id"
+                    Font-Size="14px" AutoGenerateColumns="False" DataSourceID="sdsRecommendation_Judiciary" EmptyDataText="There are No Data Records to Display.">
                     <EmptyDataTemplate>
                         <table style="table-layout: fixed; width: 100%;">
                             <tr>
@@ -1652,26 +1652,26 @@
             </td>
         </tr>
     </table>
-    <asp:SqlDataSource runat="server" ID="sdsRecAllegation"
+    <asp:SqlDataSource runat="server" ID="sdsRecommendation_Allegation"
         ConnectionString="<%$ ConnectionStrings:LocalDb %>"
-        SelectCommand="SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [recAllegation] WHERE ReportId=@ReportId"
-        OnSelecting="sdsRecAllegation_Selecting">
+        SelectCommand="SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [Recommendation_Allegation] WHERE ReportId=@ReportId"
+        OnSelecting="sdsRecommendation_Allegation_Selecting">
         <SelectParameters>
             <asp:Parameter Name="ReportId" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource runat="server" ID="sdsRecDiscAction"
+    <asp:SqlDataSource runat="server" ID="sdsRecommendation_DisciplinaryAction"
         ConnectionString="<%$ ConnectionStrings:LocalDb %>"
-        SelectCommand="SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [recDiscAction] WHERE ReportId=@ReportId"
-        OnSelecting="sdsRecDiscAction_Selecting">
+        SelectCommand="SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [Recommendation_DisciplinaryAction] WHERE ReportId=@ReportId"
+        OnSelecting="sdsRecommendation_DisciplinaryAction_Selecting">
         <SelectParameters>
             <asp:Parameter Name="ReportId" Type="Int32" />
         </SelectParameters>
     </asp:SqlDataSource>
-    <asp:SqlDataSource runat="server" ID="sdsRecJudiciary"
+    <asp:SqlDataSource runat="server" ID="sdsRecommendation_Judiciary"
         ConnectionString="<%$ ConnectionStrings:LocalDb %>"
-        SelectCommand="SELECT id, StaffId, Name, Decision, Date, ReportId, StartDate, EndDate FROM [recJudiciary] WHERE ReportId=@ReportId"
-        OnSelecting="sdsRecJudiciary_Selecting">
+        SelectCommand="SELECT id, StaffId, Name, Decision, Date, ReportId, StartDate, EndDate FROM [Recommendation_Judiciary] WHERE ReportId=@ReportId"
+        OnSelecting="sdsRecommendation_Judiciary_Selecting">
         <SelectParameters>
             <asp:Parameter Name="ReportId" Type="Int32" />
         </SelectParameters>

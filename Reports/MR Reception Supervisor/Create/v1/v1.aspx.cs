@@ -41,7 +41,7 @@ public partial class Reports_MR_Reception_Supervisor_Create_v1_v1 : System.Web.U
         SearchReport.CreateReportReset(); // takes off the selected report in ddlCreateReport
 
         // get the last Report ID
-        string query = "SELECT MAX(ReportId) AS ReportId FROM dbo.rptMRRecSup";
+        string query = "SELECT MAX(ReportId) AS ReportId FROM dbo.Report_MerrylandsRSLReceptionSupervisor";
         int lastRId, result, returnFlag = 2;
         DateTime temp, date = DateTime.Parse(DateTime.Now.ToShortDateString());
         Report.ErrorMessage = "";
@@ -118,7 +118,7 @@ public partial class Reports_MR_Reception_Supervisor_Create_v1_v1 : System.Web.U
         // insert data to table
         using (DataClassesDataContext dc = new DataClassesDataContext())
         {
-            rptMRRecSup dm = new rptMRRecSup();
+            Report_MerrylandsRSLReceptionSupervisor dm = new Report_MerrylandsRSLReceptionSupervisor();
             dm.ReportId = Int32.Parse(Report.LastReportId);
             dm.RCatId = 5; // MR Reception Supervisor Category
             dm.StaffId = Int32.Parse(Session["currentStaffId"].ToString());
@@ -127,7 +127,7 @@ public partial class Reports_MR_Reception_Supervisor_Create_v1_v1 : System.Web.U
             dm.ShiftDate = shift_date.Date;
             dm.ShiftDOW = shift_DOW;
             dm.EntryDate = entry_date;
-            dm.Report_Table = "rptMRRecSup";
+            dm.Report_Table = "Report_MerrylandsRSLReceptionSupervisor";
             dm.AuditVersion = 1;
             dm.ReportStat = "Awaiting Completion";
             dm.Report_Version = 1; // current version
@@ -136,7 +136,7 @@ public partial class Reports_MR_Reception_Supervisor_Create_v1_v1 : System.Web.U
             dm.Refusals = txtRefusals.Text.Replace("\n", "<br />").Replace("'", "");
             dm.EventsField = txtEventsField.Text.Replace("\n", "<br />").Replace("'", "");
             dm.GeneralComments = txtGeneralComms.Text.Replace("\n", "<br />").Replace("'", "");
-            dc.rptMRRecSups.InsertOnSubmit(dm);
+            dc.Report_MerrylandsRSLReceptionSupervisors.InsertOnSubmit(dm);
             dc.SubmitChanges();
         }
 

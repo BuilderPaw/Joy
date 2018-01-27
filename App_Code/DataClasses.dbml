@@ -4,30 +4,30 @@
     <Type Name="Category">
       <Column Name="RCatId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ReportName" Type="System.String" DbType="VarChar(80)" CanBeNull="true" />
-      <Association Name="Category_rptMRDM" Member="rptMRDMs" ThisKey="RCatId" OtherKey="RCatId" Type="rptMRDM" />
-      <Association Name="Category_rptUMDM" Member="rptUMDMs" ThisKey="RCatId" OtherKey="RCatId" Type="rptUMDM" />
-      <Association Name="Category_rptMRSup" Member="rptMRSups" ThisKey="RCatId" OtherKey="RCatId" Type="rptMRSup" />
-      <Association Name="Category_rptMRFuncSup" Member="rptMRFuncSups" ThisKey="RCatId" OtherKey="RCatId" Type="rptMRFuncSup" />
-      <Association Name="Category_rptMRRecSup" Member="rptMRRecSups" ThisKey="RCatId" OtherKey="RCatId" Type="rptMRRecSup" />
-      <Association Name="Category_rptMRRec" Member="rptMRRecs" ThisKey="RCatId" OtherKey="RCatId" Type="rptMRRec" />
-      <Association Name="Category_rptUMRec" Member="rptUMRecs" ThisKey="RCatId" OtherKey="RCatId" Type="rptUMRec" />
-      <Association Name="Category_rptMRIncident" Member="rptMRIncidents" ThisKey="RCatId" OtherKey="RCatId" Type="rptMRIncident" />
-      <Association Name="Category_rptUMIncident" Member="rptUMIncidents" ThisKey="RCatId" OtherKey="RCatId" Type="rptUMIncident" />
+      <Association Name="Category_Report_MerrylandsRSLDutyManager" Member="Report_MerrylandsRSLDutyManagers" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLDutyManager" />
+      <Association Name="Category_Report_ClubUminaDutyManager" Member="Report_ClubUminaDutyManagers" ThisKey="RCatId" OtherKey="RCatId" Type="Report_ClubUminaDutyManager" />
+      <Association Name="Category_Report_MerrylandsRSLSupervisor" Member="Report_MerrylandsRSLSupervisors" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLSupervisor" />
+      <Association Name="Category_Report_MerrylandsRSLFunctionSupervisor" Member="Report_MerrylandsRSLFunctionSupervisors" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLFunctionSupervisor" />
+      <Association Name="Category_Report_MerrylandsRSLReceptionSupervisor" Member="Report_MerrylandsRSLReceptionSupervisors" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLReceptionSupervisor" />
+      <Association Name="Category_Report_MerrylandsRSLReception" Member="Report_MerrylandsRSLReceptions" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLReception" />
+      <Association Name="Category_Report_ClubUminaReception" Member="Report_ClubUminaReceptions" ThisKey="RCatId" OtherKey="RCatId" Type="Report_ClubUminaReception" />
+      <Association Name="Category_Report_MerrylandsRSLIncident" Member="Report_MerrylandsRSLIncidents" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLIncident" />
+      <Association Name="Category_Report_ClubUminaIncident" Member="Report_ClubUminaIncidents" ThisKey="RCatId" OtherKey="RCatId" Type="Report_ClubUminaIncident" />
     </Type>
   </Table>
   <Table Name="dbo.Shift" Member="Shifts">
     <Type Name="Shift">
       <Column Name="ShiftId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ShiftName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
-      <Association Name="Shift_rptMRDM" Member="rptMRDMs" ThisKey="ShiftId" OtherKey="ShiftId" Type="rptMRDM" />
-      <Association Name="Shift_rptUMDM" Member="rptUMDMs" ThisKey="ShiftId" OtherKey="ShiftId" Type="rptUMDM" />
-      <Association Name="Shift_rptMRSup" Member="rptMRSups" ThisKey="ShiftId" OtherKey="ShiftId" Type="rptMRSup" />
-      <Association Name="Shift_rptMRFuncSup" Member="rptMRFuncSups" ThisKey="ShiftId" OtherKey="ShiftId" Type="rptMRFuncSup" />
-      <Association Name="Shift_rptMRRecSup" Member="rptMRRecSups" ThisKey="ShiftId" OtherKey="ShiftId" Type="rptMRRecSup" />
-      <Association Name="Shift_rptMRRec" Member="rptMRRecs" ThisKey="ShiftId" OtherKey="ShiftId" Type="rptMRRec" />
-      <Association Name="Shift_rptUMRec" Member="rptUMRecs" ThisKey="ShiftId" OtherKey="ShiftId" Type="rptUMRec" />
-      <Association Name="Shift_rptMRIncident" Member="rptMRIncidents" ThisKey="ShiftId" OtherKey="ShiftId" Type="rptMRIncident" />
-      <Association Name="Shift_rptUMIncident" Member="rptUMIncidents" ThisKey="ShiftId" OtherKey="ShiftId" Type="rptUMIncident" />
+      <Association Name="Shift_Report_MerrylandsRSLDutyManager" Member="Report_MerrylandsRSLDutyManagers" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLDutyManager" />
+      <Association Name="Shift_Report_ClubUminaDutyManager" Member="Report_ClubUminaDutyManagers" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_ClubUminaDutyManager" />
+      <Association Name="Shift_Report_MerrylandsRSLSupervisor" Member="Report_MerrylandsRSLSupervisors" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLSupervisor" />
+      <Association Name="Shift_Report_MerrylandsRSLFunctionSupervisor" Member="Report_MerrylandsRSLFunctionSupervisors" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLFunctionSupervisor" />
+      <Association Name="Shift_Report_MerrylandsRSLReceptionSupervisor" Member="Report_MerrylandsRSLReceptionSupervisors" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLReceptionSupervisor" />
+      <Association Name="Shift_Report_MerrylandsRSLReception" Member="Report_MerrylandsRSLReceptions" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLReception" />
+      <Association Name="Shift_Report_ClubUminaReception" Member="Report_ClubUminaReceptions" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_ClubUminaReception" />
+      <Association Name="Shift_Report_MerrylandsRSLIncident" Member="Report_MerrylandsRSLIncidents" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLIncident" />
+      <Association Name="Shift_Report_ClubUminaIncident" Member="Report_ClubUminaIncidents" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_ClubUminaIncident" />
     </Type>
   </Table>
   <Table Name="dbo.StaffName" Member="StaffNames">
@@ -38,8 +38,8 @@
       <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.rptMRDM" Member="rptMRDMs">
-    <Type Name="rptMRDM">
+  <Table Name="dbo.Report_MerrylandsRSLDutyManager" Member="Report_MerrylandsRSLDutyManagers">
+    <Type Name="Report_MerrylandsRSLDutyManager">
       <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -75,13 +75,13 @@
       <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="LuckyRewards" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="Compliance" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="Category_rptMRDM" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
-      <Association Name="Shift_rptMRDM" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
-      <Association Name="Staff_rptMRDM" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+      <Association Name="Category_Report_MerrylandsRSLDutyManager" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLDutyManager" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLDutyManager" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.rptUMDM" Member="rptUMDMs">
-    <Type Name="rptUMDM">
+  <Table Name="dbo.Report_ClubUminaDutyManager" Member="Report_ClubUminaDutyManagers">
+    <Type Name="Report_ClubUminaDutyManager">
       <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -117,13 +117,13 @@
       <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="LuckyRewards" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="Compliance" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="Category_rptUMDM" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
-      <Association Name="Shift_rptUMDM" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
-      <Association Name="Staff_rptUMDM" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+      <Association Name="Category_Report_ClubUminaDutyManager" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_ClubUminaDutyManager" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_ClubUminaDutyManager" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.rptMRSup" Member="rptMRSups">
-    <Type Name="rptMRSup">
+  <Table Name="dbo.Report_MerrylandsRSLSupervisor" Member="Report_MerrylandsRSLSupervisors">
+    <Type Name="Report_MerrylandsRSLSupervisor">
       <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -160,13 +160,13 @@
       <Column Name="LuckyRewards" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="RSA" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="AMLCTF" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="Category_rptMRSup" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
-      <Association Name="Shift_rptMRSup" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
-      <Association Name="Staff_rptMRSup" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+      <Association Name="Category_Report_MerrylandsRSLSupervisor" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLSupervisor" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLSupervisor" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.rptMRFuncSup" Member="rptMRFuncSups">
-    <Type Name="rptMRFuncSup">
+  <Table Name="dbo.Report_MerrylandsRSLFunctionSupervisor" Member="Report_MerrylandsRSLFunctionSupervisors">
+    <Type Name="Report_MerrylandsRSLFunctionSupervisor">
       <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -196,13 +196,13 @@
       <Column Name="BarFeedback" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="StaffIssues" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="Category_rptMRFuncSup" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
-      <Association Name="Shift_rptMRFuncSup" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
-      <Association Name="Staff_rptMRFuncSup" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+      <Association Name="Category_Report_MerrylandsRSLFunctionSupervisor" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLFunctionSupervisor" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLFunctionSupervisor" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.rptMRRecSup" Member="rptMRRecSups">
-    <Type Name="rptMRRecSup">
+  <Table Name="dbo.Report_MerrylandsRSLReceptionSupervisor" Member="Report_MerrylandsRSLReceptionSupervisors">
+    <Type Name="Report_MerrylandsRSLReceptionSupervisor">
       <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -229,13 +229,13 @@
       <Column Name="Refusals" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="EventsField" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="Category_rptMRRecSup" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
-      <Association Name="Shift_rptMRRecSup" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
-      <Association Name="Staff_rptMRRecSup" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+      <Association Name="Category_Report_MerrylandsRSLReceptionSupervisor" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLReceptionSupervisor" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLReceptionSupervisor" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.rptMRRec" Member="rptMRRecs">
-    <Type Name="rptMRRec">
+  <Table Name="dbo.Report_MerrylandsRSLReception" Member="Report_MerrylandsRSLReceptions">
+    <Type Name="Report_MerrylandsRSLReception">
       <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -262,13 +262,13 @@
       <Column Name="Refusals" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="EventsField" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="Category_rptMRRec" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
-      <Association Name="Shift_rptMRRec" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
-      <Association Name="Staff_rptMRRec" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+      <Association Name="Category_Report_MerrylandsRSLReception" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLReception" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLReception" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.rptUMRec" Member="rptUMRecs">
-    <Type Name="rptUMRec">
+  <Table Name="dbo.Report_ClubUminaReception" Member="Report_ClubUminaReceptions">
+    <Type Name="Report_ClubUminaReception">
       <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -295,9 +295,9 @@
       <Column Name="Refusals" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="EventsField" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="Category_rptUMRec" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
-      <Association Name="Shift_rptUMRec" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
-      <Association Name="Staff_rptUMRec" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+      <Association Name="Category_Report_ClubUminaReception" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_ClubUminaReception" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_ClubUminaReception" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Staff" Member="Staffs">
@@ -307,19 +307,19 @@
       <Column Name="StaffGroup" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="StaffNameId" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Active" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="Staff_rptMRDM" Member="rptMRDMs" ThisKey="StaffId" OtherKey="StaffId" Type="rptMRDM" />
-      <Association Name="Staff_rptUMDM" Member="rptUMDMs" ThisKey="StaffId" OtherKey="StaffId" Type="rptUMDM" />
-      <Association Name="Staff_rptMRSup" Member="rptMRSups" ThisKey="StaffId" OtherKey="StaffId" Type="rptMRSup" />
-      <Association Name="Staff_rptMRFuncSup" Member="rptMRFuncSups" ThisKey="StaffId" OtherKey="StaffId" Type="rptMRFuncSup" />
-      <Association Name="Staff_rptMRRecSup" Member="rptMRRecSups" ThisKey="StaffId" OtherKey="StaffId" Type="rptMRRecSup" />
-      <Association Name="Staff_rptMRRec" Member="rptMRRecs" ThisKey="StaffId" OtherKey="StaffId" Type="rptMRRec" />
-      <Association Name="Staff_rptUMRec" Member="rptUMRecs" ThisKey="StaffId" OtherKey="StaffId" Type="rptUMRec" />
-      <Association Name="Staff_rptMRIncident" Member="rptMRIncidents" ThisKey="StaffId" OtherKey="StaffId" Type="rptMRIncident" />
-      <Association Name="Staff_rptUMIncident" Member="rptUMIncidents" ThisKey="StaffId" OtherKey="StaffId" Type="rptUMIncident" />
+      <Association Name="Staff_Report_MerrylandsRSLDutyManager" Member="Report_MerrylandsRSLDutyManagers" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLDutyManager" />
+      <Association Name="Staff_Report_ClubUminaDutyManager" Member="Report_ClubUminaDutyManagers" ThisKey="StaffId" OtherKey="StaffId" Type="Report_ClubUminaDutyManager" />
+      <Association Name="Staff_Report_MerrylandsRSLSupervisor" Member="Report_MerrylandsRSLSupervisors" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLSupervisor" />
+      <Association Name="Staff_Report_MerrylandsRSLFunctionSupervisor" Member="Report_MerrylandsRSLFunctionSupervisors" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLFunctionSupervisor" />
+      <Association Name="Staff_Report_MerrylandsRSLReceptionSupervisor" Member="Report_MerrylandsRSLReceptionSupervisors" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLReceptionSupervisor" />
+      <Association Name="Staff_Report_MerrylandsRSLReception" Member="Report_MerrylandsRSLReceptions" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLReception" />
+      <Association Name="Staff_Report_ClubUminaReception" Member="Report_ClubUminaReceptions" ThisKey="StaffId" OtherKey="StaffId" Type="Report_ClubUminaReception" />
+      <Association Name="Staff_Report_MerrylandsRSLIncident" Member="Report_MerrylandsRSLIncidents" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLIncident" />
+      <Association Name="Staff_Report_ClubUminaIncident" Member="Report_ClubUminaIncidents" ThisKey="StaffId" OtherKey="StaffId" Type="Report_ClubUminaIncident" />
     </Type>
   </Table>
-  <Table Name="dbo.rptMRIncident" Member="rptMRIncidents">
-    <Type Name="rptMRIncident">
+  <Table Name="dbo.Report_MerrylandsRSLIncident" Member="Report_MerrylandsRSLIncidents">
+    <Type Name="Report_MerrylandsRSLIncident">
       <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -706,13 +706,13 @@
       <Column Name="PoliceStation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="OfficersName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="PoliceAction" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="Category_rptMRIncident" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
-      <Association Name="Shift_rptMRIncident" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
-      <Association Name="Staff_rptMRIncident" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+      <Association Name="Category_Report_MerrylandsRSLIncident" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLIncident" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLIncident" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.rptUMIncident" Member="rptUMIncidents">
-    <Type Name="rptUMIncident">
+  <Table Name="dbo.Report_ClubUminaIncident" Member="Report_ClubUminaIncidents">
+    <Type Name="Report_ClubUminaIncident">
       <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -1099,9 +1099,9 @@
       <Column Name="PoliceStation" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="OfficersName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Column Name="PoliceAction" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
-      <Association Name="Category_rptUMIncident" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
-      <Association Name="Shift_rptUMIncident" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
-      <Association Name="Staff_rptUMIncident" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+      <Association Name="Category_Report_ClubUminaIncident" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_ClubUminaIncident" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_ClubUminaIncident" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

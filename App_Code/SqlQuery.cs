@@ -28,21 +28,21 @@ public class SqlQuery
         SqlDataReader rdr = null;
         SqlCommand cmd = new SqlCommand(sqlQuery, con);
 
-        // set appropriate stored procedure (either spSearchKeywordOnAllReports - any report other than Incidents
-        if (sqlQuery.Equals("spSearchKeywordOnAllReports"))
+        // set appropriate stored procedure (either Proc_KeywordSearchAllReports - any report other than Incidents
+        if (sqlQuery.Equals("Proc_KeywordSearchAllReports"))
         {
             cmd.CommandTimeout = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SqlCommandTimeOut"]);
             string keyword = SearchReport.Keyword.ToString().Replace("+", " ");
-            cmd.CommandType = CommandType.StoredProcedure; // runs stored procedure spSearchKeywordOnAllReports
+            cmd.CommandType = CommandType.StoredProcedure; // runs stored procedure Proc_KeywordSearchAllReports
             cmd.Parameters.Add("SearchStr", SqlDbType.VarChar).Value = keyword;
         }
 
-        // spSearchKeywordOnIncidentReports - Incidents ONLY)
-        if (sqlQuery.Equals("spSearchKeywordOnIncidentReports"))
+        // Proc_KeywordSearchIncidentReports - Incidents ONLY)
+        if (sqlQuery.Equals("Proc_KeywordSearchIncidentReports"))
         {
             cmd.CommandTimeout = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SqlCommandTimeOut"]);
             string keyword = SearchReport.Keyword.Replace("+", " ");
-            cmd.CommandType = CommandType.StoredProcedure; // runs stored procedure spSearchKeywordOnIncidentReports
+            cmd.CommandType = CommandType.StoredProcedure; // runs stored procedure Proc_KeywordSearchIncidentReports
             cmd.Parameters.Add("SearchStr", SqlDbType.VarChar).Value = keyword;
             cmd.Parameters.Add("MemNo", SqlDbType.VarChar).Value = SearchReport.MemberNo;
             cmd.Parameters.Add("Location", SqlDbType.VarChar).Value = SearchReport.Location;
@@ -54,7 +54,7 @@ public class SqlQuery
         }
 
         // List all reports related to selected Player Id
-        if (sqlQuery.Equals("spListPlayerIdIncidents"))
+        if (sqlQuery.Equals("Proc_ListPriorIncidents"))
         {
             string playerId = "";
             switch (SearchReport.ListPlayerIdIncidents)
@@ -91,7 +91,7 @@ public class SqlQuery
                     break;
             }
             cmd.CommandTimeout = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SqlCommandTimeOut"]);
-            cmd.CommandType = CommandType.StoredProcedure; // runs stored procedure spListPlayerIdIncidents
+            cmd.CommandType = CommandType.StoredProcedure; // runs stored procedure Proc_ListPriorIncidents
             cmd.Parameters.Add("PlayerId", SqlDbType.VarChar).Value = playerId;
         }
 

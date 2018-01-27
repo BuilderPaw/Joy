@@ -126,10 +126,16 @@
                                         <asp:TextBox ID="txtStaffAddress1" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member13l" runat="server" visible="false" colspan="1"><b>Date of Birth : </b>
+                                        <br />
+                                        <br />
+                                        <b>Member Since : </b>
                                     </td>
                                     <td id="member13" runat="server" visible="false" colspan="1">
                                         <asp:TextBox ID="txtDOB1" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender22" runat="server" Format='dd MMMM yyyy' TargetControlID="txtDOB1" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
+                                        <br />
+                                        <br />
+                                        <asp:TextBox ID="txtMemberSince1" Enabled="false" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member15l" runat="server" visible="false" colspan="1"><b>Member Photo : </b>
                                     </td>
@@ -137,16 +143,10 @@
                                         <asp:Image ID="imgMember1" Height="110px" Width="140px" runat="server" />
                                     </td>
                                     <td id="visitor13l" runat="server" visible="false" colspan="1"><b>Date of Birth : </b>
-                                        <br />
-                                        <br />
-                                        <b>Member Since : </b>
                                     </td>
                                     <td id="visitor13" runat="server" visible="false" colspan="1">
                                         <asp:TextBox ID="txtDOBv1" OnTextChanged="TextChanged_TextChanged" runat="server" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender23" runat="server" Format='dd MMMM yyyy' TargetControlID="txtDOBv1" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
-                                        <br />
-                                        <br />
-                                        <asp:TextBox ID="txtMemberSince1" Enabled="false" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="visitor14l" runat="server" visible="false" colspan="1"><b>Proof of Identity : </b>
                                     </td>
@@ -1997,7 +1997,7 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <asp:CheckBoxList ID="cblLocation" RepeatLayout="table" RepeatColumns="4" Font-Size="9" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="cblLocation_SelectedIndexChanged" runat="server" class="object-default">
+                        <asp:CheckBoxList ID="List_Location" RepeatLayout="table" RepeatColumns="4" Font-Size="9" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="List_Location_SelectedIndexChanged" runat="server" class="object-default">
                         </asp:CheckBoxList>
                     </td>
                 </tr>
@@ -3748,7 +3748,7 @@
                 </tr>
                 <tr id="refuseEntryReasons1" visible="false" runat="server">
                     <td colspan="4">
-                        <asp:CheckBoxList ID="cblRefuseReason" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" Font-Size="10px" RepeatLayout="table" RepeatColumns="3" RepeatDirection="vertical" runat="server" class="object-default">
+                        <asp:CheckBoxList ID="List_RefuseReason" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" Font-Size="10px" RepeatLayout="table" RepeatColumns="3" RepeatDirection="vertical" runat="server" class="object-default">
                         </asp:CheckBoxList>
                     </td>
                 </tr>
@@ -3776,7 +3776,7 @@
                 </tr>
                 <tr id="askedtoLeaveReasons1" visible="false" runat="server">
                     <td colspan="4">
-                        <asp:CheckBoxList ID="cblAskedToLeave" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" Font-Size="10px" RepeatLayout="table" RepeatColumns="5" RepeatDirection="vertical" runat="server" class="object-default">
+                        <asp:CheckBoxList ID="List_AskedToLeave" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" Font-Size="10px" RepeatLayout="table" RepeatColumns="5" RepeatDirection="vertical" runat="server" class="object-default">
                         </asp:CheckBoxList>
                     </td>
                 </tr>              
@@ -3806,7 +3806,7 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <asp:CheckBoxList ID="cblActionTaken" Font-Size="11px" AutoPostBack="true" OnSelectedIndexChanged="cblActionTaken_SelectedIndexChanged" RepeatLayout="table" RepeatColumns="4" RepeatDirection="vertical" runat="server" class="object-default">
+                        <asp:CheckBoxList ID="List_ActionTaken" Font-Size="11px" AutoPostBack="true" OnSelectedIndexChanged="List_ActionTaken_SelectedIndexChanged" RepeatLayout="table" RepeatColumns="4" RepeatDirection="vertical" runat="server" class="object-default">
                         </asp:CheckBoxList>
                     </td>
                 </tr>

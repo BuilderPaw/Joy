@@ -53,7 +53,7 @@ public partial class _Default : System.Web.UI.Page
             /*start*/
             //string test1 = "CUReportsReceptionSupervisors|MRReportsReceptionSupervisor|MRReportsFunctionSupervisor|" +
             //               "CUReportsSupervisors|CUReportsReception|CUReportsDutyManagers|MRReportsUsers|" +
-            //               "MRReportsSupervisors|MRReportsReception|MRReportsDutyManagers|",
+            //               "MRReportsSupervisors|MRReportsReception|MRReportsDutyManagers|MRReportsAllegation|",
             //       test2 = "Red Geronimo", test3 = "redg", test4 = "5", test5 = "MR Duty Manager";
             //UserCredentials.Groups = test1;
             //Session["DisplayName"] = test2;
@@ -65,8 +65,20 @@ public partial class _Default : System.Web.UI.Page
 
             // Staff
             /*start*/
+            //string test1 = "MRReportsReception|",
+            //       test2 = "Lorenz Santiago", test3 = "paolos", test4 = "1", test5 = "MR Reception";
+            //UserCredentials.Groups = test1;
+            //Session["DisplayName"] = test2;
+            //UserCredentials.DisplayName = test2;
+            //Session["Username"] = test3;
+            //UserCredentials.StaffId = test4;
+            //UserCredentials.Role = test5;
+            /*end*/
+
+            // Staff
+            /*start*/
             //string test1 = "CUReportsReception|",
-            //       test2 = "Lorenz Santiago", test3 = "paolos", test4 = "1", test5 = "CU Reception";
+            //         test2 = "Red Geronimo", test3 = "redg", test4 = "5", test5 = "CU Reception";
             //UserCredentials.Groups = test1;
             //Session["DisplayName"] = test2;
             //UserCredentials.DisplayName = test2;
@@ -348,7 +360,7 @@ public partial class _Default : System.Web.UI.Page
 
         con.Open();
         SqlCommand count = new SqlCommand("SELECT COUNT(*)" +
-                           " FROM [rptView] WHERE ReportName IN('" + UserCredentials.GroupsQuery + "') AND ReportStat LIKE '%Manager%' AND" +
+                           " FROM [View_Reports] WHERE ReportName IN('" + UserCredentials.GroupsQuery + "') AND ReportStat LIKE '%Manager%' AND" +
                            " [StaffId] != '" + UserCredentials.StaffId + "'", con);
         lblNotifyManSign.Text = count.ExecuteScalar().ToString(); // set the number of notifications
         con.Close();
@@ -602,21 +614,21 @@ public partial class _Default : System.Web.UI.Page
 
         if (Report.Table.Contains("Incident"))
         {
-            if(UserCredentials.Role.Equals("MR Reception"))
+            if(UserCredentials.Role.Equals("MR Reception") || UserCredentials.Role.Equals("CU Reception"))
             {
                 tblRecords.Visible = true;
                 lblIncidentNo.Text = "Incident No. " + Report.Id;
-                sdsRecAllegation.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [recAllegation] WHERE ReportId=" + 0;
-                sdsRecDiscAction.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [recDiscAction] WHERE ReportId=" + 0;
-                sdsRecJudiciary.SelectCommand = "SELECT id, StaffId, Name, Decision, Date, ReportId, StartDate, EndDate FROM [recJudiciary] WHERE ReportId=" + Report.Id;
+                sdsRecommendation_Allegation.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [Recommendation_Allegation] WHERE ReportId=" + 0;
+                sdsRecommendation_DisciplinaryAction.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [Recommendation_DisciplinaryAction] WHERE ReportId=" + 0;
+                sdsRecommendation_Judiciary.SelectCommand = "SELECT id, StaffId, Name, Decision, Date, ReportId, StartDate, EndDate FROM [Recommendation_Judiciary] WHERE ReportId=" + Report.Id;
             }
             else
             {
                 tblRecords.Visible = true;
                 lblIncidentNo.Text = "Incident No. " + Report.Id;
-                sdsRecAllegation.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [recAllegation] WHERE ReportId=" + Report.Id;
-                sdsRecDiscAction.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [recDiscAction] WHERE ReportId=" + Report.Id;
-                sdsRecJudiciary.SelectCommand = "SELECT id, StaffId, Name, Decision, Date, ReportId, StartDate, EndDate FROM [recJudiciary] WHERE ReportId=" + Report.Id;
+                sdsRecommendation_Allegation.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [Recommendation_Allegation] WHERE ReportId=" + Report.Id;
+                sdsRecommendation_DisciplinaryAction.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [Recommendation_DisciplinaryAction] WHERE ReportId=" + Report.Id;
+                sdsRecommendation_Judiciary.SelectCommand = "SELECT id, StaffId, Name, Decision, Date, ReportId, StartDate, EndDate FROM [Recommendation_Judiciary] WHERE ReportId=" + Report.Id;
             }
         }
         else
@@ -627,9 +639,9 @@ public partial class _Default : System.Web.UI.Page
         // exit out of edit mode
         gvPendingActions.EditIndex = -1;
         gvLinkedReports.EditIndex = -1;
-        gvRecAllegation.EditIndex = -1;
-        gvRecDiscAction.EditIndex = -1;
-        gvRecJudiciary.EditIndex = -1;
+        gvRecommendation_Allegation.EditIndex = -1;
+        gvRecommendation_DisciplinaryAction.EditIndex = -1;
+        gvRecommendation_Judiciary.EditIndex = -1;
 
         FeatureNavigation(); // check whether or not the report has Attached Files, Linked Reports, and Pending Actions 
 
@@ -1626,7 +1638,7 @@ public partial class _Default : System.Web.UI.Page
             if (ReportIncidentMr.MemberPhoto1 != null)
             { // update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1638,14 +1650,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.MemberPhoto2 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.DbType = DbType.Binary;
                 par.ParameterName = "image";
@@ -1657,14 +1669,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.MemberPhoto3 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1676,14 +1688,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.MemberPhoto4 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1695,14 +1707,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.MemberPhoto5 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1714,7 +1726,7 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
@@ -1722,7 +1734,7 @@ public partial class _Default : System.Web.UI.Page
             if (ReportIncidentMr.HumanBody1 != null)
             { // update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1734,14 +1746,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.HumanBody2 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.DbType = DbType.Binary;
                 par.ParameterName = "image";
@@ -1753,14 +1765,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.HumanBody3 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1772,14 +1784,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.HumanBody4 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1791,14 +1803,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.HumanBody5 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1810,7 +1822,7 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
@@ -1820,7 +1832,7 @@ public partial class _Default : System.Web.UI.Page
             if (ReportIncidentCu.MemberPhoto1 != null)
             { // update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1832,14 +1844,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.MemberPhoto2 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.DbType = DbType.Binary;
                 par.ParameterName = "image";
@@ -1851,14 +1863,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.MemberPhoto3 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1870,14 +1882,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.MemberPhoto4 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1889,14 +1901,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.MemberPhoto5 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1908,7 +1920,7 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
@@ -1916,7 +1928,7 @@ public partial class _Default : System.Web.UI.Page
             if (ReportIncidentCu.HumanBody1 != null)
             { // update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1928,14 +1940,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.HumanBody2 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.DbType = DbType.Binary;
                 par.ParameterName = "image";
@@ -1947,14 +1959,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.HumanBody3 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1966,14 +1978,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.HumanBody4 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -1985,14 +1997,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.HumanBody5 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2004,7 +2016,7 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
@@ -2041,7 +2053,7 @@ public partial class _Default : System.Web.UI.Page
             if (ReportIncidentMr.MemberPhoto1 != null)
             { // update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2053,14 +2065,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.MemberPhoto2 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.DbType = DbType.Binary;
                 par.ParameterName = "image";
@@ -2072,14 +2084,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.MemberPhoto3 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2091,14 +2103,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.MemberPhoto4 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2110,14 +2122,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.MemberPhoto5 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2129,7 +2141,7 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET MemberPhoto5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET MemberPhoto5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
@@ -2137,7 +2149,7 @@ public partial class _Default : System.Web.UI.Page
             if (ReportIncidentMr.HumanBody1 != null)
             { // update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2149,14 +2161,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.HumanBody2 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.DbType = DbType.Binary;
                 par.ParameterName = "image";
@@ -2168,14 +2180,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.HumanBody3 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2187,14 +2199,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.HumanBody4 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2206,14 +2218,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentMr.HumanBody5 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2225,7 +2237,7 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptMRIncident SET Image5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
@@ -2235,7 +2247,7 @@ public partial class _Default : System.Web.UI.Page
             if (ReportIncidentCu.MemberPhoto1 != null)
             { // update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2247,14 +2259,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.MemberPhoto2 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.DbType = DbType.Binary;
                 par.ParameterName = "image";
@@ -2266,14 +2278,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.MemberPhoto3 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2285,14 +2297,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.MemberPhoto4 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2304,14 +2316,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.MemberPhoto5 != null)
             {// update the Member Image Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2323,7 +2335,7 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET MemberPhoto5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET MemberPhoto5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
@@ -2331,7 +2343,7 @@ public partial class _Default : System.Web.UI.Page
             if (ReportIncidentCu.HumanBody1 != null)
             { // update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image1=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2343,14 +2355,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image1=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.HumanBody2 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image2=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.DbType = DbType.Binary;
                 par.ParameterName = "image";
@@ -2362,14 +2374,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image2=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.HumanBody3 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image3=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2381,14 +2393,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image3=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.HumanBody4 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image4=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2400,14 +2412,14 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image4=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
             if (ReportIncidentCu.HumanBody5 != null)
             {// update the Human Body Photo
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image5=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 IDataParameter par = command.CreateParameter();
                 par.ParameterName = "image";
                 par.DbType = DbType.Binary;
@@ -2419,7 +2431,7 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 con.Open();
-                SqlCommand command = new SqlCommand("UPDATE rptUMIncident SET Image5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
@@ -2511,7 +2523,7 @@ public partial class _Default : System.Web.UI.Page
 
         }
     }
-    protected void gvRecAllegation_RowCommand(object sender, GridViewCommandEventArgs e)
+    protected void gvRecommendation_Allegation_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         // Retrieve controls
         GridViewRow row = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
@@ -2532,14 +2544,14 @@ public partial class _Default : System.Web.UI.Page
             }
 
             // Set parameters
-            sdsRecAllegation.InsertParameters["ReportId"].DefaultValue = Report.Id;
-            sdsRecAllegation.InsertParameters["StaffId"].DefaultValue = UserCredentials.StaffId;
-            sdsRecAllegation.InsertParameters["Statement"].DefaultValue = txtStatement1.Text;
-            sdsRecAllegation.InsertParameters["Name"].DefaultValue = UserCredentials.DisplayName;
-            sdsRecAllegation.InsertParameters["DateEntered"].DefaultValue = DateTime.Now.ToString();
+            sdsRecommendation_Allegation.InsertParameters["ReportId"].DefaultValue = Report.Id;
+            sdsRecommendation_Allegation.InsertParameters["StaffId"].DefaultValue = UserCredentials.StaffId;
+            sdsRecommendation_Allegation.InsertParameters["Statement"].DefaultValue = txtStatement1.Text;
+            sdsRecommendation_Allegation.InsertParameters["Name"].DefaultValue = UserCredentials.DisplayName;
+            sdsRecommendation_Allegation.InsertParameters["DateEntered"].DefaultValue = DateTime.Now.ToString();
 
             // Perform insert
-            sdsRecAllegation.Insert();
+            sdsRecommendation_Allegation.Insert();
             UpdateFormView();
         }
         else if (e.CommandName.Equals("FooterInsert"))
@@ -2558,14 +2570,14 @@ public partial class _Default : System.Web.UI.Page
 
 
             // Set parameters
-            sdsRecAllegation.InsertParameters["ReportId"].DefaultValue = Report.Id;
-            sdsRecAllegation.InsertParameters["StaffId"].DefaultValue = UserCredentials.StaffId;
-            sdsRecAllegation.InsertParameters["Statement"].DefaultValue = txtStatement.Text;
-            sdsRecAllegation.InsertParameters["Name"].DefaultValue = UserCredentials.DisplayName;
-            sdsRecAllegation.InsertParameters["DateEntered"].DefaultValue = DateTime.Now.ToString();
+            sdsRecommendation_Allegation.InsertParameters["ReportId"].DefaultValue = Report.Id;
+            sdsRecommendation_Allegation.InsertParameters["StaffId"].DefaultValue = UserCredentials.StaffId;
+            sdsRecommendation_Allegation.InsertParameters["Statement"].DefaultValue = txtStatement.Text;
+            sdsRecommendation_Allegation.InsertParameters["Name"].DefaultValue = UserCredentials.DisplayName;
+            sdsRecommendation_Allegation.InsertParameters["DateEntered"].DefaultValue = DateTime.Now.ToString();
 
             // Perform insert
-            sdsRecAllegation.Insert();
+            sdsRecommendation_Allegation.Insert();
             UpdateFormView();
         }
         else if (e.CommandName.Equals("Edit"))
@@ -2586,7 +2598,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else if (e.CommandName.Equals("Delete"))
         {
-            sdsRecAllegation.DeleteCommand = "DELETE FROM [recAllegation] WHERE [id] = " + lblId.Text;
+            sdsRecommendation_Allegation.DeleteCommand = "DELETE FROM [Recommendation_Allegation] WHERE [id] = " + lblId.Text;
             UpdateFormView();
         }
         else if (e.CommandName.Equals("Update"))
@@ -2596,11 +2608,11 @@ public partial class _Default : System.Web.UI.Page
             if (txtStatement.Text.Equals(""))
             {
                 alert.DisplayMessage("Action wasn't updated, please don't leave the Statement textbox empty.");
-                sdsRecAllegation.UpdateCommand = "UPDATE [recAllegation] SET [Statement] = '" + activeDescription + "' WHERE [id] = " + lblId.Text;
+                sdsRecommendation_Allegation.UpdateCommand = "UPDATE [Recommendation_Allegation] SET [Statement] = '" + activeDescription + "' WHERE [id] = " + lblId.Text;
                 return;
             }
 
-            sdsRecAllegation.UpdateCommand = "UPDATE [recAllegation] SET [Statement] = '" + txtStatement.Text + "' WHERE [id] = " + lblId.Text;
+            sdsRecommendation_Allegation.UpdateCommand = "UPDATE [Recommendation_Allegation] SET [Statement] = '" + txtStatement.Text + "' WHERE [id] = " + lblId.Text;
 
             UpdateFormView();
         }
@@ -2641,7 +2653,7 @@ public partial class _Default : System.Web.UI.Page
             e.ExceptionHandled = true;
         }
     }
-    protected void gvRecDiscAction_RowCommand(object sender, GridViewCommandEventArgs e) // Disciplinary Action
+    protected void gvRecommendation_DisciplinaryAction_RowCommand(object sender, GridViewCommandEventArgs e) // Disciplinary Action
     {
         // Retrieve controls
         GridViewRow row = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
@@ -2663,14 +2675,14 @@ public partial class _Default : System.Web.UI.Page
             }
 
             // Set parameters
-            sdsRecDiscAction.InsertParameters["ReportId"].DefaultValue = Report.Id;
-            sdsRecDiscAction.InsertParameters["StaffId"].DefaultValue = UserCredentials.StaffId;
-            sdsRecDiscAction.InsertParameters["Statement"].DefaultValue = txtStatement1.Text;
-            sdsRecDiscAction.InsertParameters["Name"].DefaultValue = UserCredentials.DisplayName;
-            sdsRecDiscAction.InsertParameters["DateEntered"].DefaultValue = DateTime.Now.ToString();
+            sdsRecommendation_DisciplinaryAction.InsertParameters["ReportId"].DefaultValue = Report.Id;
+            sdsRecommendation_DisciplinaryAction.InsertParameters["StaffId"].DefaultValue = UserCredentials.StaffId;
+            sdsRecommendation_DisciplinaryAction.InsertParameters["Statement"].DefaultValue = txtStatement1.Text;
+            sdsRecommendation_DisciplinaryAction.InsertParameters["Name"].DefaultValue = UserCredentials.DisplayName;
+            sdsRecommendation_DisciplinaryAction.InsertParameters["DateEntered"].DefaultValue = DateTime.Now.ToString();
 
             // Perform insert
-            sdsRecDiscAction.Insert();
+            sdsRecommendation_DisciplinaryAction.Insert();
             UpdateFormView();
         }
         else if (e.CommandName.Equals("FooterInsert"))
@@ -2689,14 +2701,14 @@ public partial class _Default : System.Web.UI.Page
 
 
             // Set parameters
-            sdsRecDiscAction.InsertParameters["ReportId"].DefaultValue = Report.Id;
-            sdsRecDiscAction.InsertParameters["StaffId"].DefaultValue = UserCredentials.StaffId;
-            sdsRecDiscAction.InsertParameters["Statement"].DefaultValue = txtStatement.Text;
-            sdsRecDiscAction.InsertParameters["Name"].DefaultValue = UserCredentials.DisplayName;
-            sdsRecDiscAction.InsertParameters["DateEntered"].DefaultValue = DateTime.Now.ToString();
+            sdsRecommendation_DisciplinaryAction.InsertParameters["ReportId"].DefaultValue = Report.Id;
+            sdsRecommendation_DisciplinaryAction.InsertParameters["StaffId"].DefaultValue = UserCredentials.StaffId;
+            sdsRecommendation_DisciplinaryAction.InsertParameters["Statement"].DefaultValue = txtStatement.Text;
+            sdsRecommendation_DisciplinaryAction.InsertParameters["Name"].DefaultValue = UserCredentials.DisplayName;
+            sdsRecommendation_DisciplinaryAction.InsertParameters["DateEntered"].DefaultValue = DateTime.Now.ToString();
 
             // Perform insert
-            sdsRecDiscAction.Insert();
+            sdsRecommendation_DisciplinaryAction.Insert();
             UpdateFormView();
         }
         else if (e.CommandName.Equals("Edit"))
@@ -2709,7 +2721,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else if (e.CommandName.Equals("Delete"))
         {
-            sdsRecDiscAction.DeleteCommand = "DELETE FROM [recDiscAction] WHERE [id] = " + lblId.Text;
+            sdsRecommendation_DisciplinaryAction.DeleteCommand = "DELETE FROM [Recommendation_DisciplinaryAction] WHERE [id] = " + lblId.Text;
             UpdateFormView();
         }
         else if (e.CommandName.Equals("Update"))
@@ -2718,7 +2730,7 @@ public partial class _Default : System.Web.UI.Page
             // Statement
             string currentStatement;
             con.Open();
-            SqlCommand checkExist = new SqlCommand("SELECT Statement FROM [recDiscAction] WHERE [id] = " + lblId.Text, con);
+            SqlCommand checkExist = new SqlCommand("SELECT Statement FROM [Recommendation_DisciplinaryAction] WHERE [id] = " + lblId.Text, con);
             try
             {
                 currentStatement = (string)checkExist.ExecuteScalar();
@@ -2734,15 +2746,15 @@ public partial class _Default : System.Web.UI.Page
             if (txtStatement.Text.Equals(""))
             {
                 alert.DisplayMessage("Action wasn't updated, please don't leave the Statement textbox empty.");
-                sdsRecDiscAction.UpdateCommand = "UPDATE [recDiscAction] SET [Statement] = '" + currentStatement + "' WHERE [id] = " + lblId.Text;
+                sdsRecommendation_DisciplinaryAction.UpdateCommand = "UPDATE [Recommendation_DisciplinaryAction] SET [Statement] = '" + currentStatement + "' WHERE [id] = " + lblId.Text;
                 return;
             }
 
-            sdsRecDiscAction.UpdateCommand = "UPDATE [recDiscAction] SET [Statement] = '" + txtStatement.Text + "' WHERE [id] = " + lblId.Text;
+            sdsRecommendation_DisciplinaryAction.UpdateCommand = "UPDATE [Recommendation_DisciplinaryAction] SET [Statement] = '" + txtStatement.Text + "' WHERE [id] = " + lblId.Text;
             UpdateFormView();
         }
     }
-    protected void gvRecJudiciary_RowDataBound(object sender, GridViewRowEventArgs e) // Judiciary Committee/Board Decision
+    protected void gvRecommendation_Judiciary_RowDataBound(object sender, GridViewRowEventArgs e) // Judiciary Committee/Board Decision
     {
         Button btnEdit = (Button)e.Row.FindControl("btnEdit");
         Button btnInsert1 = (Button)e.Row.FindControl("btnInsert1");
@@ -2818,7 +2830,7 @@ public partial class _Default : System.Web.UI.Page
 
         }
     }
-    protected void gvRecJudiciary_RowCommand(object sender, GridViewCommandEventArgs e)
+    protected void gvRecommendation_Judiciary_RowCommand(object sender, GridViewCommandEventArgs e)
     {
         // Retrieve controls
         GridViewRow row = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
@@ -2885,23 +2897,23 @@ public partial class _Default : System.Web.UI.Page
             }
 
             // Set parameters
-            sdsRecJudiciary.InsertParameters["ReportId"].DefaultValue = Report.Id;
-            sdsRecJudiciary.InsertParameters["StaffId"].DefaultValue = UserCredentials.StaffId;
-            sdsRecJudiciary.InsertParameters["Name"].DefaultValue = UserCredentials.DisplayName;
-            sdsRecJudiciary.InsertParameters["Decision"].DefaultValue = txtDecision1.Text;
-            sdsRecJudiciary.InsertParameters["Date"].DefaultValue = txtDate1.Text;
-            sdsRecJudiciary.InsertParameters["StartDate"].DefaultValue = txtStartDate1.Text;
+            sdsRecommendation_Judiciary.InsertParameters["ReportId"].DefaultValue = Report.Id;
+            sdsRecommendation_Judiciary.InsertParameters["StaffId"].DefaultValue = UserCredentials.StaffId;
+            sdsRecommendation_Judiciary.InsertParameters["Name"].DefaultValue = UserCredentials.DisplayName;
+            sdsRecommendation_Judiciary.InsertParameters["Decision"].DefaultValue = txtDecision1.Text;
+            sdsRecommendation_Judiciary.InsertParameters["Date"].DefaultValue = txtDate1.Text;
+            sdsRecommendation_Judiciary.InsertParameters["StartDate"].DefaultValue = txtStartDate1.Text;
             if (txtEndDate1.Text != "")
             {
-                sdsRecJudiciary.InsertParameters["EndDate"].DefaultValue = txtEndDate1.Text;
+                sdsRecommendation_Judiciary.InsertParameters["EndDate"].DefaultValue = txtEndDate1.Text;
             }
             else
             {
-                sdsRecJudiciary.InsertParameters["EndDate"].DefaultValue = null;
+                sdsRecommendation_Judiciary.InsertParameters["EndDate"].DefaultValue = null;
             }
 
             // Perform insert
-            sdsRecJudiciary.Insert();
+            sdsRecommendation_Judiciary.Insert();
             UpdateFormView();
         }
         else if (e.CommandName.Equals("Edit"))
@@ -2917,27 +2929,27 @@ public partial class _Default : System.Web.UI.Page
             // store current fields (Just in case it triggers an error message)
             // StaffId
             con.Open();
-            SqlCommand checkExist = new SqlCommand("SELECT StaffId FROM [recJudiciary] WHERE [id] = " + lblId.Text, con);
+            SqlCommand checkExist = new SqlCommand("SELECT StaffId FROM [Recommendation_Judiciary] WHERE [id] = " + lblId.Text, con);
             int currentStaffId = (int)checkExist.ExecuteScalar();
             con.Close();
             // Name
             con.Open();
-            SqlCommand checkExist1 = new SqlCommand("SELECT Name FROM [recJudiciary] WHERE [id] = " + lblId.Text, con);
+            SqlCommand checkExist1 = new SqlCommand("SELECT Name FROM [Recommendation_Judiciary] WHERE [id] = " + lblId.Text, con);
             string currentName = (string)checkExist1.ExecuteScalar();
             con.Close();
             // Decision
             con.Open();
-            SqlCommand checkExist2 = new SqlCommand("SELECT Decision FROM [recJudiciary] WHERE [id] = " + lblId.Text, con);
+            SqlCommand checkExist2 = new SqlCommand("SELECT Decision FROM [Recommendation_Judiciary] WHERE [id] = " + lblId.Text, con);
             string currentDecision = (string)checkExist2.ExecuteScalar();
             con.Close();
             // Date
             con.Open();
-            SqlCommand checkExist3 = new SqlCommand("SELECT Date FROM [recJudiciary] WHERE [id] = " + lblId.Text, con);
+            SqlCommand checkExist3 = new SqlCommand("SELECT Date FROM [Recommendation_Judiciary] WHERE [id] = " + lblId.Text, con);
             DateTime currentDate = (DateTime)checkExist3.ExecuteScalar();
             con.Close();
             // Start Date
             con.Open();
-            SqlCommand checkExist4 = new SqlCommand("SELECT StartDate FROM [recJudiciary] WHERE [id] = " + lblId.Text, con);
+            SqlCommand checkExist4 = new SqlCommand("SELECT StartDate FROM [Recommendation_Judiciary] WHERE [id] = " + lblId.Text, con);
             DateTime currentStartDate = (DateTime)checkExist4.ExecuteScalar();
             con.Close();
             // End Date
@@ -2945,7 +2957,7 @@ public partial class _Default : System.Web.UI.Page
             DateTime currentEndDate = DateTime.Now;
             int flag = 0;
             con.Open();
-            SqlCommand checkExist5 = new SqlCommand("SELECT EndDate FROM [recJudiciary] WHERE [id] = " + lblId.Text, con);
+            SqlCommand checkExist5 = new SqlCommand("SELECT EndDate FROM [Recommendation_Judiciary] WHERE [id] = " + lblId.Text, con);
             try
             {
                 currentDate = (DateTime)checkExist5.ExecuteScalar();
@@ -2966,11 +2978,11 @@ public partial class _Default : System.Web.UI.Page
                 alert.DisplayMessage("Decision can't be empty.");
                 if (flag == 0)
                 {
-                    sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = (CONVERT(DateTime,'" + currentEndDate + "',103)) WHERE [id] = " + lblId.Text;
+                    sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = (CONVERT(DateTime,'" + currentEndDate + "',103)) WHERE [id] = " + lblId.Text;
                 }
                 else
                 {
-                    sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
+                    sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
                 }
                 return;
             }
@@ -2979,11 +2991,11 @@ public partial class _Default : System.Web.UI.Page
                 alert.DisplayMessage("Date can't be empty.");
                 if (flag == 0)
                 {
-                    sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = (CONVERT(DateTime,'" + currentEndDate + "',103)) WHERE [id] = " + lblId.Text;
+                    sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = (CONVERT(DateTime,'" + currentEndDate + "',103)) WHERE [id] = " + lblId.Text;
                 }
                 else
                 {
-                    sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
+                    sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
                 }
                 return;
             }
@@ -2992,11 +3004,11 @@ public partial class _Default : System.Web.UI.Page
                 alert.DisplayMessage("Entered Date is not of type Date. Please check your input.");
                 if (flag == 0)
                 {
-                    sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = (CONVERT(DateTime,'" + currentEndDate + "',103)) WHERE [id] = " + lblId.Text;
+                    sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = (CONVERT(DateTime,'" + currentEndDate + "',103)) WHERE [id] = " + lblId.Text;
                 }
                 else
                 {
-                    sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
+                    sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
                 }
                 return;
             }
@@ -3005,11 +3017,11 @@ public partial class _Default : System.Web.UI.Page
                 alert.DisplayMessage("Start Date can't be empty.");
                 if (flag == 0)
                 {
-                    sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = (CONVERT(DateTime,'" + currentEndDate + "',103)) WHERE [id] = " + lblId.Text;
+                    sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = (CONVERT(DateTime,'" + currentEndDate + "',103)) WHERE [id] = " + lblId.Text;
                 }
                 else
                 {
-                    sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
+                    sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
                 }
                 return;
             }
@@ -3018,11 +3030,11 @@ public partial class _Default : System.Web.UI.Page
                 alert.DisplayMessage("Entered Start Date is not of type Date. Please check your input.");
                 if (flag == 0)
                 {
-                    sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = (CONVERT(DateTime,'" + currentEndDate + "',103)) WHERE [id] = " + lblId.Text;
+                    sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = (CONVERT(DateTime,'" + currentEndDate + "',103)) WHERE [id] = " + lblId.Text;
                 }
                 else
                 {
-                    sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
+                    sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
                 }
                 return;
             }
@@ -3033,11 +3045,11 @@ public partial class _Default : System.Web.UI.Page
                     alert.DisplayMessage("Entered End Date is not of type Date. Please check your input.");
                     if (flag == 0)
                     {
-                        sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = (CONVERT(DateTime,'" + currentEndDate + "',103)) WHERE [id] = " + lblId.Text;
+                        sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = (CONVERT(DateTime,'" + currentEndDate + "',103)) WHERE [id] = " + lblId.Text;
                     }
                     else
                     {
-                        sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
+                        sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + currentStaffId + ", [Name] = '" + currentName + "', [Decision] = '" + currentDecision + "', [Date] = (CONVERT(DateTime,'" + currentDate + "',103)), [StartDate] = (CONVERT(DateTime,'" + currentStartDate + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
                     }
                     return;
                 }
@@ -3045,11 +3057,11 @@ public partial class _Default : System.Web.UI.Page
 
             if (txtEndDate.Text.Equals(""))
             {
-                sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + UserCredentials.StaffId + ", [Name] = '" + UserCredentials.DisplayName + "', [Decision] = '" + txtDecision.Text + "', [Date] = (CONVERT(DateTime,'" + txtDate.Text + "',103)), [StartDate] = (CONVERT(DateTime,'" + txtStartDate.Text + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
+                sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + UserCredentials.StaffId + ", [Name] = '" + UserCredentials.DisplayName + "', [Decision] = '" + txtDecision.Text + "', [Date] = (CONVERT(DateTime,'" + txtDate.Text + "',103)), [StartDate] = (CONVERT(DateTime,'" + txtStartDate.Text + "',103)), [EndDate] = NULL WHERE [id] = " + lblId.Text;
             }
             else
             {
-                sdsRecJudiciary.UpdateCommand = "UPDATE [recJudiciary] SET [StaffId] = " + UserCredentials.StaffId + ", [Name] = '" + UserCredentials.DisplayName + "', [Decision] = '" + txtDecision.Text + "', [Date] = (CONVERT(DateTime,'" + txtDate.Text + "',103)), [StartDate] = (CONVERT(DateTime,'" + txtStartDate.Text + "',103)), [EndDate] = (CONVERT(DateTime,'" + txtEndDate.Text + "',103)) WHERE [id] = " + lblId.Text;
+                sdsRecommendation_Judiciary.UpdateCommand = "UPDATE [Recommendation_Judiciary] SET [StaffId] = " + UserCredentials.StaffId + ", [Name] = '" + UserCredentials.DisplayName + "', [Decision] = '" + txtDecision.Text + "', [Date] = (CONVERT(DateTime,'" + txtDate.Text + "',103)), [StartDate] = (CONVERT(DateTime,'" + txtStartDate.Text + "',103)), [EndDate] = (CONVERT(DateTime,'" + txtEndDate.Text + "',103)) WHERE [id] = " + lblId.Text;
             }
             UpdateFormView();
         }
@@ -3155,12 +3167,26 @@ public partial class _Default : System.Web.UI.Page
 
                 // use Array.Sort to display the Report Types accordingly
                 Array.Sort(int_groups);
+                bool incidentAdded1 = false, incidentAdded2 = false;
                 for (int i = 0; i < int_groups.Length; i++)
                 {
                     // display the reports in proper order, All MR Reports at the top followed by CU Reports
-                    if (int_groups[i] == 1 || int_groups[i] == 2)
+                    if (int_groups[i] == 1 || int_groups[i] == 2 || int_groups[i] == 5) // check if user has either Duty Mnaager, Supervisor or Reception access - Merrylands
                     {
-                        ddlReportType.Items.Add(new ListItem("MR Incident Report", "2"));
+                        if (!incidentAdded1)
+                        {
+                            ddlReportType.Items.Add(new ListItem("MR Incident Report", "2"));
+                            incidentAdded1 = true;
+                        }
+                    }
+
+                    if (int_groups[i] == 6 || int_groups[i] == 7) // check if user has either Duty Mnaager, Supervisor or Reception access - Umina
+                    {
+                        if (!incidentAdded2)
+                        {
+                            ddlReportType.Items.Add(new ListItem("CU Incident Report", "10"));
+                            incidentAdded2 = true;
+                        }
                     }
 
                     if (int_groups[i] == 1)
@@ -3185,7 +3211,6 @@ public partial class _Default : System.Web.UI.Page
                     }
                     else if (int_groups[i] == 6)
                     {
-                        ddlReportType.Items.Add(new ListItem("CU Incident Report", "10"));
                         ddlReportType.Items.Add(new ListItem("CU Duty Manager", "8"));
                     }
                     else if (int_groups[i] == 7)
@@ -3267,7 +3292,7 @@ public partial class _Default : System.Web.UI.Page
                 btnInsert1.Text = "Link a Report";
             }
             sdsLinkReports.SelectCommand = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat]," +
-                                           " [AuditVersion], [RowNum] FROM [rptView] WHERE ReportName IN ('" + UserCredentials.GroupsQuery + "') AND ([ReportStat] = " +
+                                           " [AuditVersion], [RowNum] FROM [View_Reports] WHERE ReportName IN ('" + UserCredentials.GroupsQuery + "') AND ([ReportStat] = " +
                                            "'Report Completed' OR [ReportStat] = 'Further Action Required' OR [ReportStat] = 'Awaiting Manager Sign-off') ORDER BY ShiftDate DESC, ShiftId DESC";
             UpdateFormView();
         }
@@ -3284,7 +3309,7 @@ public partial class _Default : System.Web.UI.Page
                 btnInsert.Text = "Link a Report";
             }
             sdsLinkReports.SelectCommand = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat], [AuditVersion], [RowNum]" +
-                             " FROM [rptView]" +
+                             " FROM [View_Reports]" +
                              " WHERE ReportName IN ('" + UserCredentials.GroupsQuery + "') AND ([ReportStat] = 'Report Completed' OR [ReportStat] = 'Further Action Required' OR [ReportStat] = 'Awaiting Manager Sign-off') ORDER BY ShiftDate DESC, ShiftId DESC";
             UpdateFormView();
         }
@@ -3351,7 +3376,7 @@ public partial class _Default : System.Web.UI.Page
     {
         string groups1 = UserCredentials.GroupsQuery,
                    search1 = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat], [AuditVersion], [RowNum]" +
-                                 " FROM [rptView]" +
+                                 " FROM [View_Reports]" +
                                  " WHERE ReportName IN ('" + groups1 + "') AND ([ReportStat] = 'Report Completed' OR [ReportStat] = 'Further Action Required' " +
                                  "OR [ReportStat] = 'Awaiting Manager Sign-off') " +
                                  " ORDER BY ShiftDate DESC, ShiftId DESC";
@@ -3426,26 +3451,26 @@ public partial class _Default : System.Web.UI.Page
         if (ReportType == 1 && DateGroup == 1) // search all reports the user is allowed to view
         {
             search = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat], [AuditVersion], [RowNum]" +
-                     " FROM [rptView]" +
+                     " FROM [View_Reports]" +
                      " WHERE ReportName IN('" + groups1 + "') AND ([ReportStat] = 'Report Completed' OR [ReportStat] = 'Further Action Required' OR [ReportStat] = 'Awaiting Manager Sign-off') ORDER BY ShiftDate DESC, ShiftId DESC";
         }
         else if (ReportType == 1) // search all the reports the user is allowed to view plus the filtered date entered
         {
             search = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat], [AuditVersion], [RowNum]" +
-                     " FROM [rptView]" +
+                     " FROM [View_Reports]" +
                      " WHERE ReportName IN('" + groups1 + "') AND ShiftDate BETWEEN '" + date2.ToString("yyyy-MM-dd") + "' AND '" + date1.ToString("yyyy-MM-dd") + "' AND ([ReportStat] = 'Report Completed' OR [ReportStat] = 'Further Action Required' OR [ReportStat] = 'Awaiting Manager Sign-off')" +
                      " ORDER BY ShiftDate DESC, ShiftId DESC";
         }
         else if (DateGroup == 1) // search by filtered report type through all dates
         {
             search = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat], [AuditVersion], [RowNum]" +
-                     " FROM [rptView]" +
+                     " FROM [View_Reports]" +
                      " WHERE ReportName ='" + _reportType + "' AND ([ReportStat] = 'Report Completed' OR [ReportStat] = 'Further Action Required' OR [ReportStat] = 'Awaiting Manager Sign-off') ORDER BY ShiftDate DESC, ShiftId DESC";
         }
         else // search by user's filter
         {
             search = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat], [AuditVersion], [RowNum]" +
-                     " FROM [rptView]" +
+                     " FROM [View_Reports]" +
                      " WHERE ReportName ='" + _reportType + "' AND ShiftDate BETWEEN '" + date2.ToString("yyyy-MM-dd") + "' AND '" + date1.ToString("yyyy-MM-dd") + "' AND ([ReportStat] = 'Report Completed' OR [ReportStat] = 'Further Action Required' OR [ReportStat] = 'Awaiting Manager Sign-off')" +
                      " ORDER BY ShiftDate DESC, ShiftId DESC";
         }
@@ -3526,7 +3551,7 @@ public partial class _Default : System.Web.UI.Page
         else
         {
             sdsLinkReports.SelectCommand = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat], [AuditVersion], [RowNum]" +
-                         " FROM [rptView]" +
+                         " FROM [View_Reports]" +
                          " WHERE ReportName IN ('" + UserCredentials.GroupsQuery + "') AND ([ReportStat] = 'Report Completed' OR [ReportStat] = 'Further Action Required' " +
                          "OR [ReportStat] = 'Awaiting Manager Sign-off') ORDER BY ShiftDate DESC, ShiftId DESC";
         }
@@ -3543,7 +3568,7 @@ public partial class _Default : System.Web.UI.Page
         else
         {
             sdsLinkReports.SelectCommand = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat], [AuditVersion], [RowNum]" +
-                         " FROM [rptView]" +
+                         " FROM [View_Reports]" +
                          " WHERE ReportName IN ('" + UserCredentials.GroupsQuery + "') AND ([ReportStat] = 'Report Completed' OR [ReportStat] = 'Further Action Required' " +
                          "OR [ReportStat] = 'Awaiting Manager Sign-off') ORDER BY ShiftDate DESC, ShiftId DESC";
         }
@@ -3602,7 +3627,7 @@ public partial class _Default : System.Web.UI.Page
     {
         if (Report.Name.Contains("Incident"))
         {
-            if (UserCredentials.Role.Equals("MR Reception") || UserCredentials.Role.Equals("CU Reception"))
+            if (Report.SelectedStaffId != UserCredentials.StaffId && (UserCredentials.Role.Equals("MR Reception") || UserCredentials.Role.Equals("CU Reception")))
             {
                 HideAttachedFiles();
                 btnLinkAttachedFiles.Visible = false;
@@ -4554,7 +4579,7 @@ public partial class _Default : System.Web.UI.Page
         }
 
         ddlPerson.Items.Clear();
-        using (SqlCommand cmd = new SqlCommand("SELECT * FROM [staffView] WHERE [StaffGroup] = '" + ddlGroup.SelectedItem.Text + "' ORDER BY [StaffName]"))
+        using (SqlCommand cmd = new SqlCommand("SELECT * FROM [View_Staff] WHERE [StaffGroup] = '" + ddlGroup.SelectedItem.Text + "' ORDER BY [StaffName]"))
         {
             cmd.CommandType = CommandType.Text;
             cmd.Connection = con;

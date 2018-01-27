@@ -17,10 +17,10 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         if (!IsPostBack)
         {
             // add the check box items for Location
-            cblLocation.Items.Clear();
+            List_Location.Items.Clear();
             using (SqlCommand cmd = new SqlCommand())
             {
-                cmd.CommandText = "SELECT * FROM [dbo].[cblLocation] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                cmd.CommandText = "SELECT * FROM [dbo].[List_Location] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                 cmd.Connection = con;
                 con.Open();
                 using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -30,7 +30,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         ListItem item = new ListItem();
                         item.Text = sdr["Description"].ToString();
                         item.Value = sdr["LocationID"].ToString();
-                        cblLocation.Items.Add(item);
+                        List_Location.Items.Add(item);
                     }
                 }
                 con.Close();
@@ -40,7 +40,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             cblWhatHappened1.Items.Clear();
             using (SqlCommand cmd = new SqlCommand())
             {
-                cmd.CommandText = "SELECT * FROM [dbo].[cblIncidentType] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                cmd.CommandText = "SELECT * FROM [dbo].[List_IncidentType] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                 cmd.Connection = con;
                 con.Open();
                 using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -57,10 +57,10 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             }
 
             // add the check box items for Asked to Leave
-            cblAskedToLeave.Items.Clear();
+            List_AskedToLeave.Items.Clear();
             using (SqlCommand cmd = new SqlCommand())
             {
-                cmd.CommandText = "SELECT * FROM [dbo].[cblAskedToLeave] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                cmd.CommandText = "SELECT * FROM [dbo].[List_AskedToLeave] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                 cmd.Connection = con;
                 con.Open();
                 using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -70,17 +70,17 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         ListItem item = new ListItem();
                         item.Text = sdr["Description"].ToString();
                         item.Value = sdr["AskedToLeaveID"].ToString();
-                        cblAskedToLeave.Items.Add(item);
+                        List_AskedToLeave.Items.Add(item);
                     }
                 }
                 con.Close();
             }
 
             // add the check box items for Refuse Reason
-            cblRefuseReason.Items.Clear();
+            List_RefuseReason.Items.Clear();
             using (SqlCommand cmd = new SqlCommand())
             {
-                cmd.CommandText = "SELECT * FROM [dbo].[cblRefuseReason] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                cmd.CommandText = "SELECT * FROM [dbo].[List_RefuseReason] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                 cmd.Connection = con;
                 con.Open();
                 using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -90,17 +90,17 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         ListItem item = new ListItem();
                         item.Text = sdr["Description"].ToString();
                         item.Value = sdr["RefuseReasonID"].ToString();
-                        cblRefuseReason.Items.Add(item);
+                        List_RefuseReason.Items.Add(item);
                     }
                 }
                 con.Close();
             }
 
             // add the check box items for Action Taken
-            cblActionTaken.Items.Clear();
+            List_ActionTaken.Items.Clear();
             using (SqlCommand cmd = new SqlCommand())
             {
-                cmd.CommandText = "SELECT * FROM [dbo].[cblActionTaken] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'None of the above' THEN 1 ELSE 0 END, [Description]";
+                cmd.CommandText = "SELECT * FROM [dbo].[List_ActionTaken] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'None of the above' THEN 1 ELSE 0 END, [Description]";
                 cmd.Connection = con;
                 con.Open();
                 using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -110,7 +110,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         ListItem item = new ListItem();
                         item.Text = sdr["Description"].ToString();
                         item.Value = sdr["ActionID"].ToString();
-                        cblActionTaken.Items.Add(item);
+                        List_ActionTaken.Items.Add(item);
                     }
                 }
                 con.Close();
@@ -282,19 +282,19 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             returnedFlag = 1;
 
         }*/
-        if (cblLocation.SelectedValue == String.Empty)
+        if (List_Location.SelectedValue == String.Empty)
         {
             if (txtLocation.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the location in this Incident Report.";
-                cblLocation.Focus();
+                List_Location.Focus();
                 returnedFlag = 1;
 
             }
         }
         else
         {
-            foreach (ListItem item in cblLocation.Items)
+            foreach (ListItem item in List_Location.Items)
             {
                 if (item.ToString() == "Other")
                 {
@@ -365,10 +365,10 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     if (item.Selected)
                     {
-                        if (cblRefuseReason.SelectedValue == String.Empty)
+                        if (List_RefuseReason.SelectedValue == String.Empty)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify reason for refusing entry.";
-                            cblRefuseReason.Focus();
+                            List_RefuseReason.Focus();
                             returnedFlag = 1;
 
                         }
@@ -378,10 +378,10 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     if (item.Selected)
                     {
-                        if (cblAskedToLeave.SelectedValue == String.Empty)
+                        if (List_AskedToLeave.SelectedValue == String.Empty)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify reason for asking the patron to leave the premises.";
-                            cblAskedToLeave.Focus();
+                            List_AskedToLeave.Focus();
                             returnedFlag = 1;
 
                         }
@@ -723,15 +723,15 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
 
                             }
                         }
-                        if (cblActionTaken.SelectedValue == String.Empty)
+                        if (List_ActionTaken.SelectedValue == String.Empty)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Action Taken is mandatory for this Incident.";
-                            cblActionTaken.Focus();
+                            List_ActionTaken.Focus();
                             returnedFlag = 1;
                         }
                         else
                         {
-                            foreach (ListItem item1 in cblActionTaken.Items)
+                            foreach (ListItem item1 in List_ActionTaken.Items)
                             {
                                 if (item1.ToString() == "Other")
                                 {
@@ -2716,7 +2716,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         SqlDataReader rdr = null;
         SqlCommand cmd;
 
-        if (method.Equals("SearchMember"))
+        if (method.Contains("Member"))
         {
             cmd = new SqlCommand(sqlCommand, con1);
         }
@@ -2727,7 +2727,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
 
         try
         {
-            if (method.Equals("SearchMember"))
+            if (method.Contains("Member"))
             {
                 con1.Open();
             }
@@ -3117,6 +3117,99 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                             LinkButton5.Visible = true;
                         }
                     }
+                    if (method.Equals("MemberPhoto"))
+                    {
+                        if (Report.MemberNumberChanged.Equals("1"))
+                        {
+                            ReportIncidentMr.PlayerId1 = rdr["PlayerId"].ToString();
+                            ReportIncidentMr.ViewPlayerId1 = rdr["PlayerId"].ToString();
+
+                            try
+                            {
+                                memberPhoto1 = (byte[])rdr["PlayerImage"];
+                                // load image from database
+                                string strBase64 = Convert.ToBase64String(memberPhoto1, 0, memberPhoto1.Length);
+                                imgMember1.ImageUrl = "data:image/jpeg;base64," + strBase64;
+                            }
+                            catch
+                            {
+                                memberPhoto1 = null;
+                                imgMember1.ImageUrl = "~/Images/no-image.png";
+                            }
+                        }
+                        else if (Report.MemberNumberChanged.Equals("2"))
+                        {
+                            ReportIncidentMr.PlayerId2 = rdr["PlayerId"].ToString();
+                            ReportIncidentMr.ViewPlayerId2 = rdr["PlayerId"].ToString();
+
+                            try
+                            {
+                                memberPhoto2 = (byte[])rdr["PlayerImage"];
+                                // load image from database
+                                string strBase64 = Convert.ToBase64String(memberPhoto2, 0, memberPhoto2.Length);
+                                imgMember2.ImageUrl = "data:image/jpeg;base64," + strBase64;
+                            }
+                            catch
+                            {
+                                memberPhoto2 = null;
+                                imgMember2.ImageUrl = "~/Images/no-image.png";
+                            }
+                        }
+                        else if (Report.MemberNumberChanged.Equals("3"))
+                        {
+                            ReportIncidentMr.PlayerId3 = rdr["PlayerId"].ToString();
+                            ReportIncidentMr.ViewPlayerId3 = rdr["PlayerId"].ToString();
+
+                            try
+                            {
+                                memberPhoto3 = (byte[])rdr["PlayerImage"];
+                                // load image from database
+                                string strBase64 = Convert.ToBase64String(memberPhoto3, 0, memberPhoto3.Length);
+                                imgMember3.ImageUrl = "data:image/jpeg;base64," + strBase64;
+                            }
+                            catch
+                            {
+                                memberPhoto3 = null;
+                                imgMember3.ImageUrl = "~/Images/no-image.png";
+                            }
+                        }
+                        else if (Report.MemberNumberChanged.Equals("4"))
+                        {
+                            ReportIncidentMr.PlayerId4 = rdr["PlayerId"].ToString();
+                            ReportIncidentMr.ViewPlayerId4 = rdr["PlayerId"].ToString();
+
+                            try
+                            {
+                                memberPhoto4 = (byte[])rdr["PlayerImage"];
+                                // load image from database
+                                string strBase64 = Convert.ToBase64String(memberPhoto4, 0, memberPhoto4.Length);
+                                imgMember4.ImageUrl = "data:image/jpeg;base64," + strBase64;
+                            }
+                            catch
+                            {
+                                memberPhoto4 = null;
+                                imgMember4.ImageUrl = "~/Images/no-image.png";
+                            }
+                        }
+                        else if (Report.MemberNumberChanged.Equals("5"))
+                        {
+                            ReportIncidentMr.PlayerId5 = rdr["PlayerId"].ToString();
+                            ReportIncidentMr.ViewPlayerId5 = rdr["PlayerId"].ToString();
+
+                            try
+                            {
+                                memberPhoto5 = (byte[])rdr["PlayerImage"];
+                                // load image from database
+                                string strBase64 = Convert.ToBase64String(memberPhoto5, 0, memberPhoto5.Length);
+                                imgMember5.ImageUrl = "data:image/jpeg;base64," + strBase64;
+                            }
+                            catch
+                            {
+                                memberPhoto5 = null;
+                                imgMember5.ImageUrl = "~/Images/no-image.png";
+                            }
+                        }
+                    }
                 }
             }
             else // if Search Member doesn't have the member details
@@ -3216,7 +3309,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             {
                 rdr.Close();
             }
-            if (method.Equals("SearchMember"))
+            if (method.Contains("Member"))
             {
                 if (con1 != null)
                 {
@@ -4928,7 +5021,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     refuseEntryReasons.Visible = false;
                     refuseEntryReasons1.Visible = false;
-                    cblRefuseReason.ClearSelection();
+                    List_RefuseReason.ClearSelection();
                 }
             }
             if (item.ToString() == "Asked to Leave")
@@ -4942,14 +5035,14 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     askedtoLeaveReasons.Visible = false;
                     askedtoLeaveReasons1.Visible = false;
-                    cblAskedToLeave.ClearSelection();
+                    List_AskedToLeave.ClearSelection();
                 }
             }
         }
     }
-    protected void cblActionTaken_SelectedIndexChanged(object sender, EventArgs e)
+    protected void List_ActionTaken_SelectedIndexChanged(object sender, EventArgs e)
     {
-        foreach (ListItem item in cblActionTaken.Items)
+        foreach (ListItem item in List_ActionTaken.Items)
         {
             if (item.ToString() == "Other")
             {
@@ -4967,9 +5060,9 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             }
         }
     }
-    protected void cblLocation_SelectedIndexChanged(object sender, EventArgs e)
+    protected void List_Location_SelectedIndexChanged(object sender, EventArgs e)
     {
-        foreach (ListItem item in cblLocation.Items)
+        foreach (ListItem item in List_Location.Items)
         {
             if (item.ToString() == "Other")
             {
@@ -5055,7 +5148,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         SearchReport.CreateReportReset(); // takes off the selected report in ddlCreateReport
 
         string WhatHappened, Location, RefuseReason = "", AskedLeaveReason = "", ActionTaken = "",
-               query = "SELECT MAX(ReportId) AS ReportId FROM dbo.rptUMIncident";
+               query = "SELECT MAX(ReportId) AS ReportId FROM dbo.Report_ClubUminaIncident";
         int lastRId;
 
         con.Open();
@@ -5096,11 +5189,11 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         // if Refuse Entry option is not empty
         // store in a string all the selected item in the checkboxlist
         // Create the list to store.
-        if (cblRefuseReason.SelectedValue != String.Empty)
+        if (List_RefuseReason.SelectedValue != String.Empty)
         {
             List<String> YrStrList2 = new List<string>();
             // Loop through each item.
-            foreach (ListItem item in cblRefuseReason.Items)
+            foreach (ListItem item in List_RefuseReason.Items)
             {
                 if (item.Selected)
                 {
@@ -5115,11 +5208,11 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         // if Asked To Leave option is not empty
         // store in a string all the selected item in the checkboxlist
         // Create the list to store.
-        if (cblAskedToLeave.SelectedValue != String.Empty)
+        if (List_AskedToLeave.SelectedValue != String.Empty)
         {
             List<String> YrStrList3 = new List<string>();
             // Loop through each item.
-            foreach (ListItem item in cblAskedToLeave.Items)
+            foreach (ListItem item in List_AskedToLeave.Items)
             {
                 if (item.Selected)
                 {
@@ -5135,7 +5228,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         // Create the list to store.
         List<String> YrStrList1 = new List<string>();
         // Loop through each item.
-        foreach (ListItem item in cblLocation.Items)
+        foreach (ListItem item in List_Location.Items)
         {
             if (item.Selected)
             {
@@ -5154,7 +5247,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         // Create the list to store.
         List<String> YrStrList4 = new List<string>();
         // Loop through each item.
-        foreach (ListItem item in cblActionTaken.Items)
+        foreach (ListItem item in List_ActionTaken.Items)
         {
             if (item.Selected)
             {
@@ -5195,7 +5288,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         // insert data to table
         using (DataClassesDataContext dc = new DataClassesDataContext())
         {
-            rptUMIncident dm = new rptUMIncident();
+            Report_ClubUminaIncident dm = new Report_ClubUminaIncident();
             dm.ReportId = Int32.Parse(Report.LastReportId);
             dm.RCatId = 9;
             dm.StaffId = Int32.Parse(Session["currentStaffId"].ToString());
@@ -5204,7 +5297,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             dm.ShiftDate = shift_date.Date;
             dm.ShiftDOW = shift_DOW;
             dm.EntryDate = entry_date;
-            dm.Report_Table = "rptUMIncident";
+            dm.Report_Table = "Report_ClubUminaIncident";
             dm.AuditVersion = 1;
             dm.ReportStat = "Awaiting Completion";
             dm.Report_Version = 1; // current version
@@ -5244,9 +5337,10 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     dm.PlayerId1 = ReportIncidentCu.PlayerId1;
                     dm.MemberNo1 = txtMemberNo1.Text;
+                    // get the member photo again to store it in the database
                     Report.MemberNumberChanged = "1";
                     string cmdQuery = SearchMember(txtMemberNo1.Text);
-                    readFiles(cmdQuery, "SearchMember");
+                    readFiles(cmdQuery, "MemberPhoto");
                     dm.MemberPhoto1 = memberPhoto1;
                     dm.MemberDOB1 = txtDOB1.Text;
                     dm.MemberAddress1 = txtAddress1.Text;
@@ -5324,9 +5418,10 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     dm.PlayerId2 = ReportIncidentCu.PlayerId2;
                     dm.MemberNo2 = txtMemberNo2.Text;
+                    // get the member photo again to store it in the database
                     Report.MemberNumberChanged = "2";
                     string cmdQuery = SearchMember(txtMemberNo2.Text);
-                    readFiles(cmdQuery, "SearchMember");
+                    readFiles(cmdQuery, "MemberPhoto");
                     dm.MemberPhoto2 = memberPhoto2;
                     dm.MemberDOB2 = txtDOB2.Text;
                     dm.MemberAddress2 = txtAddress2.Text;
@@ -5404,9 +5499,10 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     dm.PlayerId3 = ReportIncidentCu.PlayerId3;
                     dm.MemberNo3 = txtMemberNo3.Text;
+                    // get the member photo again to store it in the database
                     Report.MemberNumberChanged = "3";
                     string cmdQuery = SearchMember(txtMemberNo3.Text);
-                    readFiles(cmdQuery, "SearchMember");
+                    readFiles(cmdQuery, "MemberPhoto");
                     dm.MemberPhoto3 = memberPhoto3;
                     dm.MemberDOB3 = txtDOB3.Text;
                     dm.MemberAddress3 = txtAddress3.Text;
@@ -5484,9 +5580,10 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     dm.PlayerId4 = ReportIncidentCu.PlayerId4;
                     dm.MemberNo4 = txtMemberNo4.Text;
+                    // get the member photo again to store it in the database
                     Report.MemberNumberChanged = "4";
                     string cmdQuery = SearchMember(txtMemberNo4.Text);
-                    readFiles(cmdQuery, "SearchMember");
+                    readFiles(cmdQuery, "MemberPhoto");
                     dm.MemberPhoto4 = memberPhoto4;
                     dm.MemberDOB4 = txtDOB4.Text;
                     dm.MemberAddress4 = txtAddress4.Text;
@@ -5564,9 +5661,10 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     dm.PlayerId5 = ReportIncidentCu.PlayerId5;
                     dm.MemberNo5 = txtMemberNo5.Text;
+                    // get the member photo again to store it in the database
                     Report.MemberNumberChanged = "5";
                     string cmdQuery = SearchMember(txtMemberNo5.Text);
-                    readFiles(cmdQuery, "SearchMember");
+                    readFiles(cmdQuery, "MemberPhoto");
                     dm.MemberPhoto5 = memberPhoto5;
                     dm.MemberDOB5 = txtDOB5.Text;
                     dm.MemberAddress5 = txtAddress5.Text;
@@ -5848,7 +5946,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             }
 
 
-            dc.rptUMIncidents.InsertOnSubmit(dm);
+            dc.Report_ClubUminaIncidents.InsertOnSubmit(dm);
             dc.SubmitChanges();
         }
 

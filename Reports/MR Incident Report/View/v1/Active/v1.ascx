@@ -1053,7 +1053,7 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <asp:CheckBoxList ID="cblLocation" onclick="return false" readonly="true" Font-Size="8" RepeatLayout="table" RepeatColumns="4" RepeatDirection="vertical" runat="server" class="form-control">
+                    <asp:CheckBoxList ID="List_Location" onclick="return false" readonly="true" Font-Size="8" RepeatLayout="table" RepeatColumns="4" RepeatDirection="vertical" runat="server" class="form-control">
                     </asp:CheckBoxList>
                 </td>
             </tr>
@@ -1289,7 +1289,7 @@
             </tr>
             <tr id="refuseEntryReasons1" visible="false" runat="server">
                 <td colspan="4">
-                    <asp:CheckBoxList ID="cblRefuseReason" Font-Size="8" onclick="return false" readonly="true" Visible="false" RepeatLayout="table" RepeatColumns="3" RepeatDirection="vertical" runat="server" class="form-control">
+                    <asp:CheckBoxList ID="List_RefuseReason" Font-Size="8" onclick="return false" readonly="true" Visible="false" RepeatLayout="table" RepeatColumns="3" RepeatDirection="vertical" runat="server" class="form-control">
                     </asp:CheckBoxList>
                 </td>
             </tr>
@@ -1317,7 +1317,7 @@
             </tr>
             <tr id="askedtoLeaveReasons1" visible="false" runat="server">
                 <td colspan="4">
-                    <asp:CheckBoxList ID="cblAskedToLeave" Font-Size="8" onclick="return false" readonly="true" Visible="false" RepeatLayout="table" RepeatColumns="5" RepeatDirection="vertical" runat="server" class="form-control">
+                    <asp:CheckBoxList ID="List_AskedToLeave" Font-Size="8" onclick="return false" readonly="true" Visible="false" RepeatLayout="table" RepeatColumns="5" RepeatDirection="vertical" runat="server" class="form-control">
                     </asp:CheckBoxList>
                 </td>
             </tr>           
@@ -1342,7 +1342,7 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <asp:CheckBoxList ID="cblActionTaken" Font-Size="11px" onclick="return false" readonly="true" RepeatLayout="table" RepeatColumns="4" RepeatDirection="vertical" runat="server" class="form-control">
+                    <asp:CheckBoxList ID="List_ActionTaken" Font-Size="11px" onclick="return false" readonly="true" RepeatLayout="table" RepeatColumns="4" RepeatDirection="vertical" runat="server" class="form-control">
                     </asp:CheckBoxList>
                 </td>
             </tr>

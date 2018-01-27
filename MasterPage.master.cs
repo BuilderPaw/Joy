@@ -60,12 +60,27 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 if (!UserCredentials.Groups.Contains("MRReportsSeniorManagers")) // if user is not a member of Senior Managers
                 {
                     Array.Sort(reportList); // sort report list in order
+                    bool incidentAdded1 = false, incidentAdded2 = false;
                     for (int i = 0; i < reportList.Length; i++) // display the reports in proper order, All MR Reports at the top followed by CU Reports
                     {
-                        if (reportList[i] == 1 || reportList[i] == 2)                            // if Duty Manager or Supervisor
+                        if (reportList[i] == 1 || reportList[i] == 2 || reportList[i] == 5)     // if Duty Manager or Supervisor or Reception Staff - Merrylands
                         {
-                            ddlCreateReport.Items.Add(new ListItem("MR Incident Report", "1"));
-                            ddlSearchReport.Items.Add(new ListItem("MR Incident Report", "2"));
+                            if (!incidentAdded1)
+                            {
+                                ddlCreateReport.Items.Add(new ListItem("MR Incident Report", "1"));
+                                ddlSearchReport.Items.Add(new ListItem("MR Incident Report", "2"));
+                                incidentAdded1 = true;
+                            }
+                        }
+
+                        if (reportList[i] == 6 || reportList[i] == 7)                           // if Duty Manager or Reception Staff - Umina
+                        {
+                            if (!incidentAdded2)
+                            {
+                                ddlCreateReport.Items.Add(new ListItem("CU Incident Report", "9"));
+                                ddlSearchReport.Items.Add(new ListItem("CU Incident Report", "10"));
+                                incidentAdded2 = true;
+                            }
                         }
 
                         if (reportList[i] == 1)                                                 // MR Duty Manager 
@@ -95,9 +110,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                         }
                         else if (reportList[i] == 6)                                            // CU Duty Manager
                         {
-                            ddlCreateReport.Items.Add(new ListItem("CU Incident Report", "9"));
                             ddlCreateReport.Items.Add(new ListItem("CU Duty Managers", "7"));
-                            ddlSearchReport.Items.Add(new ListItem("CU Incident Report", "10"));
                             ddlSearchReport.Items.Add(new ListItem("CU Duty Manager", "8"));
                         }
                         else if (reportList[i] == 7)                                            // CU Reception
@@ -130,7 +143,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 }
 
                 ddlStaffId.Items.Clear();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [staffView] WHERE [StaffGroup] IN ('" + UserCredentials.GroupsQuery + "') ORDER BY StaffName")) // populate the staff dropdownlist
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [View_Staff] WHERE [StaffGroup] IN ('" + UserCredentials.GroupsQuery + "') ORDER BY StaffName")) // populate the staff dropdownlist
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -205,7 +218,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                         cbArchivedStaff.Checked = false;
                         SearchReport.ArchivedStaff = false;
                         ddlStaffId.Items.Clear();
-                        using (SqlCommand cmd = new SqlCommand("SELECT * FROM [staffView] WHERE [StaffGroup] IN ('" + UserCredentials.GroupsQuery + "') ORDER BY StaffName")) // populate the staff dropdownlist
+                        using (SqlCommand cmd = new SqlCommand("SELECT * FROM [View_Staff] WHERE [StaffGroup] IN ('" + UserCredentials.GroupsQuery + "') ORDER BY StaffName")) // populate the staff dropdownlist
                         {
                             cmd.CommandType = CommandType.Text;
                             cmd.Connection = con;
@@ -339,7 +352,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             SearchReport.ArchivedStaff = false;
             ddlStaffId.Items.Clear();
-            using (SqlCommand cmd = new SqlCommand("SELECT * FROM [staffView] WHERE [StaffGroup] IN ('" + UserCredentials.GroupsQuery + "') ORDER BY StaffName")) // populate the staff dropdownlist
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM [View_Staff] WHERE [StaffGroup] IN ('" + UserCredentials.GroupsQuery + "') ORDER BY StaffName")) // populate the staff dropdownlist
             {
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = con;
@@ -558,7 +571,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             {
                 siteId = "2";
             }
-            using (SqlCommand cmd = new SqlCommand("SELECT IncidentId, Description FROM [cblIncidentType] WHERE [SiteId]=" + siteId + " AND [Active]=1 ORDER BY Description")) // populate the Incident Happened Dropdownlist
+            using (SqlCommand cmd = new SqlCommand("SELECT IncidentId, Description FROM [List_IncidentType] WHERE [SiteId]=" + siteId + " AND [Active]=1 ORDER BY Description")) // populate the Incident Happened Dropdownlist
             {
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = con;
@@ -571,7 +584,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             }
             ddlIncidentHappened.Items.Insert(0, new ListItem("All", "")); // add blank item at index 0
 
-            using (SqlCommand cmd = new SqlCommand("SELECT LocationId, Description FROM [cblLocation] WHERE [SiteId]=" + siteId + " AND [Active]=1 ORDER BY Description")) // populate the Location Dropdownlist
+            using (SqlCommand cmd = new SqlCommand("SELECT LocationId, Description FROM [List_Location] WHERE [SiteId]=" + siteId + " AND [Active]=1 ORDER BY Description")) // populate the Location Dropdownlist
             {
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = con;
@@ -584,7 +597,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             }
             ddlLocation.Items.Insert(0, new ListItem("All", "")); // add blank item at index 0
 
-            using (SqlCommand cmd = new SqlCommand("SELECT ActionId, Description FROM [cblActionTaken] WHERE [SiteId]=" + siteId + " AND [Active]=1 ORDER BY Description")) // populate the Action Taken Dropdownlist
+            using (SqlCommand cmd = new SqlCommand("SELECT ActionId, Description FROM [List_ActionTaken] WHERE [SiteId]=" + siteId + " AND [Active]=1 ORDER BY Description")) // populate the Action Taken Dropdownlist
             {
                 cmd.CommandType = CommandType.Text;
                 cmd.Connection = con;

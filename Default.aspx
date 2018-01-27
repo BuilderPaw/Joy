@@ -78,7 +78,7 @@
             ConnectionString="<%$ ConnectionStrings:LocalDb %>"
             SelectCommand="SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table],
                           [Report_Version], [ReportStat], [AuditVersion], [RowNum]
-                          FROM [rptView]
+                          FROM [View_Reports]
                           ORDER BY [ShiftDate] DESC, [ShiftId] DESC, RowNum"></asp:SqlDataSource>
         <asp:GridView ID="gvUserReports" runat="server" HeaderStyle-CssClass="report-gridview-header" RowStyle-CssClass="report-gridview-row"
             SortedAscendingHeaderStyle-CssClass="one" SortedDescendingHeaderStyle-CssClass="one"
@@ -250,7 +250,7 @@
             ConnectionString="<%$ ConnectionStrings:LocalDb %>"
             OnSelecting="OnSelecting"
             SelectCommand="SELECT rt.StaffName, st.ShiftName, c.ReportName, *
-                       FROM rptMRIncident rt, [Staff] s, [Shift] st, [Category] c
+                       FROM Report_MerrylandsRSLIncident rt, [Staff] s, [Shift] st, [Category] c
                        WHERE rt.StaffId = s.StaffId AND rt.ShiftId = st.ShiftId AND c.RCatId = rt.RCatId AND rt.ReportId = @ReportId">
             <SelectParameters>
                 <asp:Parameter Name="ReportId" Type="Int32" />
@@ -322,7 +322,7 @@
                               ,[ReportStat]
                               ,[AuditVersion]
                               ,[RowNum]
-                          FROM [dbo].[rptView]
+                          FROM [dbo].[View_Reports]
                           ORDER BY [ShiftDate] DESC, [ShiftId] DESC"></asp:SqlDataSource>
         <div id="divLinkedReports">
             <asp:Label ID="lblLinkedReports" runat="server" Style="position: relative; top: 15px; left: 90px;" Visible="false" Font-Bold="true" Text="Linked Reports"></asp:Label>
@@ -744,12 +744,12 @@
                 </Columns>
             </asp:GridView>
         </div>
-        <asp:SqlDataSource runat="server" ID="sdsRecAllegation"
+        <asp:SqlDataSource runat="server" ID="sdsRecommendation_Allegation"
             ConnectionString="<%$ ConnectionStrings:LocalDb %>"
-            SelectCommand="SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [recAllegation] WHERE ReportId=@ReportId"
-            DeleteCommand="DELETE FROM [recAllegation] WHERE [id] = @id"
-            UpdateCommand="UPDATE [recAllegation] SET [Statement] = @Statement WHERE [id] = @id"
-            InsertCommand="INSERT INTO [recAllegation] ([ReportId], [StaffId], [Name], [Statement], [DateEntered]) VALUES (@ReportId, @StaffId, @Name, @Statement, @DateEntered)"
+            SelectCommand="SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [Recommendation_Allegation] WHERE ReportId=@ReportId"
+            DeleteCommand="DELETE FROM [Recommendation_Allegation] WHERE [id] = @id"
+            UpdateCommand="UPDATE [Recommendation_Allegation] SET [Statement] = @Statement WHERE [id] = @id"
+            InsertCommand="INSERT INTO [Recommendation_Allegation] ([ReportId], [StaffId], [Name], [Statement], [DateEntered]) VALUES (@ReportId, @StaffId, @Name, @Statement, @DateEntered)"
             OnInserted="OnInserted_JudiciaryRecord"
             OnSelecting="OnSelecting">
             <SelectParameters>
@@ -769,12 +769,12 @@
                 <asp:Parameter Name="DateEntered" Type="DateTime" />
             </InsertParameters>
         </asp:SqlDataSource>
-        <asp:SqlDataSource runat="server" ID="sdsRecDiscAction"
+        <asp:SqlDataSource runat="server" ID="sdsRecommendation_DisciplinaryAction"
             ConnectionString="<%$ ConnectionStrings:LocalDb %>"
-            SelectCommand="SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [recDiscAction] WHERE ReportId=@ReportId"
-            DeleteCommand="DELETE FROM [recDiscAction] WHERE [id] = @id"
-            UpdateCommand="UPDATE [recDiscAction] SET [Statement] = @Statement WHERE [id] = @id"
-            InsertCommand="INSERT INTO [recDiscAction] ([ReportId], [StaffId], [Name], [Statement], [DateEntered]) VALUES (@ReportId, @StaffId, @Name, @Statement, @DateEntered)"
+            SelectCommand="SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [Recommendation_DisciplinaryAction] WHERE ReportId=@ReportId"
+            DeleteCommand="DELETE FROM [Recommendation_DisciplinaryAction] WHERE [id] = @id"
+            UpdateCommand="UPDATE [Recommendation_DisciplinaryAction] SET [Statement] = @Statement WHERE [id] = @id"
+            InsertCommand="INSERT INTO [Recommendation_DisciplinaryAction] ([ReportId], [StaffId], [Name], [Statement], [DateEntered]) VALUES (@ReportId, @StaffId, @Name, @Statement, @DateEntered)"
             OnInserted="OnInserted_JudiciaryRecord"
             OnSelecting="OnSelecting">
             <SelectParameters>
@@ -794,11 +794,11 @@
                 <asp:Parameter Name="DateEntered" Type="DateTime" />
             </InsertParameters>
         </asp:SqlDataSource>
-        <asp:SqlDataSource runat="server" ID="sdsRecJudiciary"
+        <asp:SqlDataSource runat="server" ID="sdsRecommendation_Judiciary"
             ConnectionString="<%$ ConnectionStrings:LocalDb %>"
-            SelectCommand="SELECT id, StaffId, Name, Decision, Date, ReportId, StartDate, EndDate FROM [recJudiciary] WHERE ReportId=@ReportId"
-            UpdateCommand="UPDATE [recJudiciary] SET [StaffId] = @StaffId, [Name] = @Name, [Decision] = @Decision, [Date] = @Date, [StartDate] = @StartDate, [EndDate] = @EndDate WHERE [id] = @id"
-            InsertCommand="INSERT INTO [recJudiciary] ([ReportId], [StaffId], [Name], [Decision], [Date], [StartDate], [EndDate]) VALUES (@ReportId, @StaffId, @Name, @Decision, @Date, @StartDate, @EndDate)"
+            SelectCommand="SELECT id, StaffId, Name, Decision, Date, ReportId, StartDate, EndDate FROM [Recommendation_Judiciary] WHERE ReportId=@ReportId"
+            UpdateCommand="UPDATE [Recommendation_Judiciary] SET [StaffId] = @StaffId, [Name] = @Name, [Decision] = @Decision, [Date] = @Date, [StartDate] = @StartDate, [EndDate] = @EndDate WHERE [id] = @id"
+            InsertCommand="INSERT INTO [Recommendation_Judiciary] ([ReportId], [StaffId], [Name], [Decision], [Date], [StartDate], [EndDate]) VALUES (@ReportId, @StaffId, @Name, @Decision, @Date, @StartDate, @EndDate)"
             OnInserted="OnInserted_JudiciaryRecord"
             OnSelecting="OnSelecting">
             <SelectParameters>
@@ -834,9 +834,9 @@
             </tr>
             <tr>
                 <td colspan="2" style="background-color: #A0A0A0;">
-                    <asp:GridView runat="server" ID="gvRecAllegation" HeaderStyle-CssClass="report-gridview-header" RowStyle-CssClass="report-gridview-row" Style="table-layout: fixed; border: none;" Width="100%" DataKeyNames="id"
-                        Font-Size="14px" AutoGenerateColumns="False" DataSourceID="sdsRecAllegation" EmptyDataText="No data to display."
-                        OnRowCommand="gvRecAllegation_RowCommand" OnRowDeleted="OnRowDeleted" OnRowUpdated="OnRowUpdated_JudiciaryRecord"
+                    <asp:GridView runat="server" ID="gvRecommendation_Allegation" HeaderStyle-CssClass="report-gridview-header" RowStyle-CssClass="report-gridview-row" Style="table-layout: fixed; border: none;" Width="100%" DataKeyNames="id"
+                        Font-Size="14px" AutoGenerateColumns="False" DataSourceID="sdsRecommendation_Allegation" EmptyDataText="No data to display."
+                        OnRowCommand="gvRecommendation_Allegation_RowCommand" OnRowDeleted="OnRowDeleted" OnRowUpdated="OnRowUpdated_JudiciaryRecord"
                         OnRowDataBound="OnRowDataBound_JudiciaryRecord" ShowFooter="true">
                         <EmptyDataTemplate>
                             <table style="table-layout: fixed; width: 100%;">
@@ -926,9 +926,9 @@
             </tr>
             <tr>
                 <td colspan="2" style="background-color: #A0A0A0;">
-                    <asp:GridView runat="server" ID="gvRecDiscAction" HeaderStyle-CssClass="report-gridview-header" RowStyle-CssClass="report-gridview-row" Style="table-layout: fixed; border: none;" Width="100%" DataKeyNames="id"
-                        Font-Size="14px" AutoGenerateColumns="False" DataSourceID="sdsRecDiscAction" EmptyDataText="No data to Display."
-                        OnRowCommand="gvRecDiscAction_RowCommand" OnRowDeleted="OnRowDeleted" OnRowUpdated="OnRowUpdated_JudiciaryRecord"
+                    <asp:GridView runat="server" ID="gvRecommendation_DisciplinaryAction" HeaderStyle-CssClass="report-gridview-header" RowStyle-CssClass="report-gridview-row" Style="table-layout: fixed; border: none;" Width="100%" DataKeyNames="id"
+                        Font-Size="14px" AutoGenerateColumns="False" DataSourceID="sdsRecommendation_DisciplinaryAction" EmptyDataText="No data to Display."
+                        OnRowCommand="gvRecommendation_DisciplinaryAction_RowCommand" OnRowDeleted="OnRowDeleted" OnRowUpdated="OnRowUpdated_JudiciaryRecord"
                         OnRowDataBound="OnRowDataBound_JudiciaryRecord" ShowFooter="true">
                         <EmptyDataTemplate>
                             <table style="table-layout: fixed; width: 100%;">
@@ -1018,10 +1018,10 @@
             </tr>
             <tr>
                 <td colspan="2" style="background-color: #A0A0A0;">
-                    <asp:GridView runat="server" ID="gvRecJudiciary" HeaderStyle-CssClass="report-gridview-header" RowStyle-CssClass="report-gridview-row" Style="table-layout: fixed; border: none;" Width="100%" DataKeyNames="id"
-                        Font-Size="14px" AutoGenerateColumns="False" DataSourceID="sdsRecJudiciary" EmptyDataText="There are No Data Records to Display."
-                        OnRowCommand="gvRecJudiciary_RowCommand" OnRowUpdated="OnRowUpdated_JudiciaryRecord"
-                        OnRowDataBound="gvRecJudiciary_RowDataBound">
+                    <asp:GridView runat="server" ID="gvRecommendation_Judiciary" HeaderStyle-CssClass="report-gridview-header" RowStyle-CssClass="report-gridview-row" Style="table-layout: fixed; border: none;" Width="100%" DataKeyNames="id"
+                        Font-Size="14px" AutoGenerateColumns="False" DataSourceID="sdsRecommendation_Judiciary" EmptyDataText="There are No Data Records to Display."
+                        OnRowCommand="gvRecommendation_Judiciary_RowCommand" OnRowUpdated="OnRowUpdated_JudiciaryRecord"
+                        OnRowDataBound="gvRecommendation_Judiciary_RowDataBound">
                         <EmptyDataTemplate>
                             <table style="table-layout: fixed; width: 100%;">
                                 <tr>

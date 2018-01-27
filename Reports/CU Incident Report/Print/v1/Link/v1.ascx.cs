@@ -16,7 +16,7 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
     {
         if (Report.LinkedTable.Contains("Incident"))
         {
-            if (UserCredentials.GroupsQuery.Contains("Duty Manager") && Report.LinkedTable.Contains("Incident")) // if it is a member of Duty Manager display the Incident Report
+            if (Report.SelectedStaffId == UserCredentials.StaffId || UserCredentials.GroupsQuery.Contains("Duty Manager") && Report.LinkedTable.Contains("Incident")) // if it is a member of Duty Manager display the Incident Report
             {
                 incidentReport.Visible = true;
                 readFiles(Report.LinkedReport, "getFields");
@@ -32,19 +32,19 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
             readFiles(Report.LinkedReport, "getFields");
         }
 
-        if (UserCredentials.Role.Equals("MR Reception"))
+        if (UserCredentials.Role.Equals("MR Reception") || UserCredentials.Role.Equals("CU Reception"))
         {
             lblIncidentNo.Text = "Incident No. " + Session["LinkRId"];
-            sdsRecAllegation.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [recAllegation] WHERE ReportId=" + 0;
-            sdsRecDiscAction.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [recDiscAction] WHERE ReportId=" + 0;
-            sdsRecJudiciary.SelectCommand = "SELECT id, StaffId, Name, Decision, Date, ReportId, StartDate, EndDate FROM [recJudiciary] WHERE ReportId=" + Session["LinkRId"];
+            sdsRecommendation_Allegation.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [Recommendation_Allegation] WHERE ReportId=" + 0;
+            sdsRecommendation_DisciplinaryAction.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [Recommendation_DisciplinaryAction] WHERE ReportId=" + 0;
+            sdsRecommendation_Judiciary.SelectCommand = "SELECT id, StaffId, Name, Decision, Date, ReportId, StartDate, EndDate FROM [Recommendation_Judiciary] WHERE ReportId=" + Session["LinkRId"];
         }
         else
         {
             lblIncidentNo.Text = "Incident No. " + Session["LinkRId"];
-            sdsRecAllegation.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [recAllegation] WHERE ReportId=" + Session["LinkRId"];
-            sdsRecDiscAction.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [recDiscAction] WHERE ReportId=" + Session["LinkRId"];
-            sdsRecJudiciary.SelectCommand = "SELECT id, StaffId, Name, Decision, Date, ReportId, StartDate, EndDate FROM [recJudiciary] WHERE ReportId=" + Session["LinkRId"];
+            sdsRecommendation_Allegation.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [Recommendation_Allegation] WHERE ReportId=" + Session["LinkRId"];
+            sdsRecommendation_DisciplinaryAction.SelectCommand = "SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [Recommendation_DisciplinaryAction] WHERE ReportId=" + Session["LinkRId"];
+            sdsRecommendation_Judiciary.SelectCommand = "SELECT id, StaffId, Name, Decision, Date, ReportId, StartDate, EndDate FROM [Recommendation_Judiciary] WHERE ReportId=" + Session["LinkRId"];
         }
     }
 
@@ -241,11 +241,11 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
                         {
                             actionTakenVariable = actionTakenVariable.Remove(actionTakenVariable.Length - 1); // take off the ','. creates exceptions in passing the values to the dropdown list
 
-                            cmdQuery3 = "SELECT * FROM [dbo].[cblActionTaken] WHERE [SiteID] = 2 AND ([Active] = 1 OR [ActionID] IN (" + actionTakenVariable + ")) ORDER BY CASE WHEN [Description] = 'None of the above' THEN 1 ELSE 0 END, [Description]";
+                            cmdQuery3 = "SELECT * FROM [dbo].[List_ActionTaken] WHERE [SiteID] = 2 AND ([Active] = 1 OR [ActionID] IN (" + actionTakenVariable + ")) ORDER BY CASE WHEN [Description] = 'None of the above' THEN 1 ELSE 0 END, [Description]";
                         }
                         else
                         {
-                            cmdQuery3 = "SELECT * FROM [dbo].[cblActionTaken] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'None of the above' THEN 1 ELSE 0 END, [Description]";
+                            cmdQuery3 = "SELECT * FROM [dbo].[List_ActionTaken] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'None of the above' THEN 1 ELSE 0 END, [Description]";
                         }
 
                         using (SqlCommand command = new SqlCommand())
@@ -260,7 +260,7 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
                                     ListItem item = new ListItem();
                                     item.Text = sdr["Description"].ToString();
                                     item.Value = sdr["ActionId"].ToString();
-                                    cblActionTaken.Items.Add(item);
+                                    List_ActionTaken.Items.Add(item);
                                 }
                             }
                             connection.Close();
@@ -270,7 +270,7 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
                         if (!String.IsNullOrEmpty(rdr["ActionTaken"].ToString()))
                         {
                             string[] arrActionTaken = rdr["ActionTaken"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                            foreach (ListItem item in cblActionTaken.Items)
+                            foreach (ListItem item in List_ActionTaken.Items)
                             {
                                 for (int i = 0; i < arrActionTaken.Length; i++)
                                 {
@@ -293,11 +293,11 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
 
                         if (!string.IsNullOrEmpty(refuseEntryVariable))
                         {
-                            cmdQuery4 = "SELECT * FROM [dbo].[cblRefuseReason] WHERE [SiteID] = 2 AND ([Active] = 1 OR [RefuseReasonID] IN (" + refuseEntryVariable + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            cmdQuery4 = "SELECT * FROM [dbo].[List_RefuseReason] WHERE [SiteID] = 2 AND ([Active] = 1 OR [RefuseReasonID] IN (" + refuseEntryVariable + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
                         else
                         {
-                            cmdQuery4 = "SELECT * FROM [dbo].[cblRefuseReason] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            cmdQuery4 = "SELECT * FROM [dbo].[List_RefuseReason] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
 
                         using (SqlCommand command = new SqlCommand())
@@ -312,7 +312,7 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
                                     ListItem item = new ListItem();
                                     item.Text = sdr["Description"].ToString();
                                     item.Value = sdr["RefuseReasonID"].ToString();
-                                    cblRefuseReason.Items.Add(item);
+                                    List_RefuseReason.Items.Add(item);
                                 }
                             }
                             connection.Close();
@@ -323,9 +323,9 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
                         {
                             refuseEntryReasons.Visible = true;
                             refuseEntryReasons1.Visible = true;
-                            cblRefuseReason.Visible = true;
+                            List_RefuseReason.Visible = true;
                             string[] arrRefuseReason = rdr["HappenedRefuseEntry"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                            foreach (ListItem item in cblRefuseReason.Items)
+                            foreach (ListItem item in List_RefuseReason.Items)
                             {
                                 for (int i = 0; i < arrRefuseReason.Length; i++)
                                 {
@@ -363,11 +363,11 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
 
                         if (!string.IsNullOrEmpty(askedToLeaveVariable))
                         {
-                            cmdQuery5 = "SELECT * FROM [dbo].[cblAskedToLeave] WHERE [SiteID] = 2 AND ([Active] = 1 OR [AskedToLeaveID] IN (" + askedToLeaveVariable + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            cmdQuery5 = "SELECT * FROM [dbo].[List_AskedToLeave] WHERE [SiteID] = 2 AND ([Active] = 1 OR [AskedToLeaveID] IN (" + askedToLeaveVariable + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
                         else
                         {
-                            cmdQuery5 = "SELECT * FROM [dbo].[cblAskedToLeave] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            cmdQuery5 = "SELECT * FROM [dbo].[List_AskedToLeave] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
 
                         using (SqlCommand command = new SqlCommand())
@@ -382,7 +382,7 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
                                     ListItem item = new ListItem();
                                     item.Text = sdr["Description"].ToString();
                                     item.Value = sdr["AskedToLeaveID"].ToString();
-                                    cblAskedToLeave.Items.Add(item);
+                                    List_AskedToLeave.Items.Add(item);
                                 }
                             }
                             connection.Close();
@@ -392,9 +392,9 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
                         {
                             askedtoLeaveReasons.Visible = true;
                             askedtoLeaveReasons1.Visible = true;
-                            cblAskedToLeave.Visible = true;
+                            List_AskedToLeave.Visible = true;
                             string[] arrAskedToLeave = rdr["HappenedAskedToLeave"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                            foreach (ListItem item in cblAskedToLeave.Items)
+                            foreach (ListItem item in List_AskedToLeave.Items)
                             {
                                 for (int i = 0; i < arrAskedToLeave.Length; i++)
                                 {
@@ -1289,11 +1289,11 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
                         {
                             incidentVariable = incidentVariable.Remove(incidentVariable.Length - 1); // take off the ','. creates exceptions in passing the values to the dropdown list
 
-                            cmdQuery1 = "SELECT * FROM [dbo].[cblIncidentType] WHERE [SiteID] = 2 AND ([Active] = 1 OR [IncidentID] IN (" + incidentVariable + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            cmdQuery1 = "SELECT * FROM [dbo].[List_IncidentType] WHERE [SiteID] = 2 AND ([Active] = 1 OR [IncidentID] IN (" + incidentVariable + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
                         else
                         {
-                            cmdQuery1 = "SELECT * FROM [dbo].[cblIncidentType] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            cmdQuery1 = "SELECT * FROM [dbo].[List_IncidentType] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
 
                         using (SqlCommand command = new SqlCommand())
@@ -1333,11 +1333,11 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
                         {
                             locationVariable = locationVariable.Remove(locationVariable.Length - 1); // take off the ','. creates exceptions in passing the values to the dropdown list
 
-                            cmdQuery2 = "SELECT * FROM [dbo].[cblLocation] WHERE [SiteID] = 2 AND ([Active] = 1 OR [LocationID] IN (" + locationVariable + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            cmdQuery2 = "SELECT * FROM [dbo].[List_Location] WHERE [SiteID] = 2 AND ([Active] = 1 OR [LocationID] IN (" + locationVariable + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
                         else
                         {
-                            cmdQuery2 = "SELECT * FROM [dbo].[cblLocation] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            cmdQuery2 = "SELECT * FROM [dbo].[List_Location] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
 
                         using (SqlCommand command = new SqlCommand())
@@ -1352,14 +1352,14 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
                                     ListItem item = new ListItem();
                                     item.Text = sdr["Description"].ToString();
                                     item.Value = sdr["LocationId"].ToString();
-                                    cblLocation.Items.Add(item);
+                                    List_Location.Items.Add(item);
                                 }
                             }
                             connection.Close();
                         }
 
                         string[] arrLocation = rdr["Location"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                        foreach (ListItem item in cblLocation.Items)
+                        foreach (ListItem item in List_Location.Items)
                         {
                             for (int i = 0; i < arrLocation.Length; i++)
                             {
@@ -1529,17 +1529,17 @@ public partial class Reports_CU_Incident_Report_Print_v1_Link_v1 : System.Web.UI
         ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", message, true);
     }
 
-    protected void sdsRecAllegation_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    protected void sdsRecommendation_Allegation_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
         e.Command.Parameters["@ReportId"].Value = Session["LinkRId"];
     } // Used for setting the Select Parameter
       // Disciplinary Action
-    protected void sdsRecDiscAction_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    protected void sdsRecommendation_DisciplinaryAction_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
         e.Command.Parameters["@ReportId"].Value = Session["LinkRId"];
     } // Used for setting the Select Parameter
       // Judiciary Committee/Board Decision
-    protected void sdsRecJudiciary_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
+    protected void sdsRecommendation_Judiciary_Selecting(object sender, SqlDataSourceSelectingEventArgs e)
     {
         e.Command.Parameters["@ReportId"].Value = Session["LinkRId"];
     } // Used for setting the Select Parameter

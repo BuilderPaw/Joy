@@ -145,7 +145,7 @@
                                             <br />
                                             <b>Address : </b>
                                             <br />
-                                            <asp:TextBox ID="txtAddress1" Enabled="false" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                            <asp:TextBox ID="txtAddress1" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                         </td>
                                         <td id="member14l" runat="server" visible="false" colspan="1"><b>Member Photo : </b>
                                             <br />
@@ -478,7 +478,7 @@
                                             <br />
                                             <b>Address : </b>
                                             <br />
-                                            <asp:TextBox ID="txtAddress2" Enabled="false" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                            <asp:TextBox ID="txtAddress2" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                         </td>
                                         <td id="member24l" runat="server" visible="false" colspan="1"><b>Member Photo : </b>
                                             <br />
@@ -815,7 +815,7 @@
                                             <br />
                                             <b>Address : </b>
                                             <br />
-                                            <asp:TextBox ID="txtAddress3" Enabled="false" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                            <asp:TextBox ID="txtAddress3" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                         </td>
                                         <td id="member34l" runat="server" visible="false" colspan="1"><b>Member Photo : </b>
                                             <br />
@@ -1152,7 +1152,7 @@
                                             <br />
                                             <b>Address : </b>
                                             <br />
-                                            <asp:TextBox ID="txtAddress4" Enabled="false" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                            <asp:TextBox ID="txtAddress4" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                         </td>
                                         <td id="member44l" runat="server" visible="false" colspan="1"><b>Member Photo : </b>
                                             <br />
@@ -1489,7 +1489,7 @@
                                             <br />
                                             <b>Address : </b>
                                             <br />
-                                            <asp:TextBox ID="txtAddress5" Enabled="false" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                            <asp:TextBox ID="txtAddress5" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                         </td>
                                         <td id="member54l" runat="server" visible="false" colspan="1"><b>Member Photo : </b>
                                             <br />
@@ -1936,7 +1936,7 @@
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <asp:CheckBoxList ID="cblLocation" RepeatLayout="table" RepeatColumns="4" Font-Size="8" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="cblLocation_SelectedIndexChanged" runat="server" class="object-default">
+                            <asp:CheckBoxList ID="List_Location" RepeatLayout="table" RepeatColumns="4" Font-Size="8" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="List_Location_SelectedIndexChanged" runat="server" class="object-default">
                             </asp:CheckBoxList>
                         </td>
                     </tr>
@@ -3687,7 +3687,7 @@
                     </tr>
                     <tr id="refuseEntryReasons1" visible="false" runat="server">
                         <td colspan="4">
-                            <asp:CheckBoxList ID="cblRefuseReason" Font-Size="11px" RepeatLayout="table" RepeatColumns="3" RepeatDirection="vertical" runat="server" class="object-default">
+                            <asp:CheckBoxList ID="List_RefuseReason" Font-Size="11px" RepeatLayout="table" RepeatColumns="3" RepeatDirection="vertical" runat="server" class="object-default">
                             </asp:CheckBoxList>
                         </td>
                     </tr>
@@ -3715,7 +3715,7 @@
                     </tr>
                     <tr id="askedtoLeaveReasons1" visible="false" runat="server">
                         <td colspan="4">
-                            <asp:CheckBoxList ID="cblAskedToLeave" Font-Size="11px" RepeatLayout="table" RepeatColumns="5" RepeatDirection="vertical" runat="server" class="object-default">
+                            <asp:CheckBoxList ID="List_AskedToLeave" Font-Size="11px" RepeatLayout="table" RepeatColumns="5" RepeatDirection="vertical" runat="server" class="object-default">
                             </asp:CheckBoxList>
                         </td>
                     </tr>                   
@@ -3745,7 +3745,7 @@
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <asp:CheckBoxList ID="cblActionTaken" Font-Size="11px" RepeatLayout="table" RepeatColumns="4" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="cblActionTaken_SelectedIndexChanged" runat="server" class="object-default">
+                            <asp:CheckBoxList ID="List_ActionTaken" Font-Size="11px" RepeatLayout="table" RepeatColumns="4" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="List_ActionTaken_SelectedIndexChanged" runat="server" class="object-default">
                             </asp:CheckBoxList>
                         </td>
                     </tr>

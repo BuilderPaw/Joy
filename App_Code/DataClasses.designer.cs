@@ -38,36 +38,36 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertStaffName(StaffName instance);
   partial void UpdateStaffName(StaffName instance);
   partial void DeleteStaffName(StaffName instance);
-  partial void InsertrptMRDM(rptMRDM instance);
-  partial void UpdaterptMRDM(rptMRDM instance);
-  partial void DeleterptMRDM(rptMRDM instance);
-  partial void InsertrptUMDM(rptUMDM instance);
-  partial void UpdaterptUMDM(rptUMDM instance);
-  partial void DeleterptUMDM(rptUMDM instance);
-  partial void InsertrptMRSup(rptMRSup instance);
-  partial void UpdaterptMRSup(rptMRSup instance);
-  partial void DeleterptMRSup(rptMRSup instance);
-  partial void InsertrptMRFuncSup(rptMRFuncSup instance);
-  partial void UpdaterptMRFuncSup(rptMRFuncSup instance);
-  partial void DeleterptMRFuncSup(rptMRFuncSup instance);
-  partial void InsertrptMRRecSup(rptMRRecSup instance);
-  partial void UpdaterptMRRecSup(rptMRRecSup instance);
-  partial void DeleterptMRRecSup(rptMRRecSup instance);
-  partial void InsertrptMRRec(rptMRRec instance);
-  partial void UpdaterptMRRec(rptMRRec instance);
-  partial void DeleterptMRRec(rptMRRec instance);
-  partial void InsertrptUMRec(rptUMRec instance);
-  partial void UpdaterptUMRec(rptUMRec instance);
-  partial void DeleterptUMRec(rptUMRec instance);
+  partial void InsertReport_MerrylandsRSLDutyManager(Report_MerrylandsRSLDutyManager instance);
+  partial void UpdateReport_MerrylandsRSLDutyManager(Report_MerrylandsRSLDutyManager instance);
+  partial void DeleteReport_MerrylandsRSLDutyManager(Report_MerrylandsRSLDutyManager instance);
+  partial void InsertReport_ClubUminaDutyManager(Report_ClubUminaDutyManager instance);
+  partial void UpdateReport_ClubUminaDutyManager(Report_ClubUminaDutyManager instance);
+  partial void DeleteReport_ClubUminaDutyManager(Report_ClubUminaDutyManager instance);
+  partial void InsertReport_MerrylandsRSLSupervisor(Report_MerrylandsRSLSupervisor instance);
+  partial void UpdateReport_MerrylandsRSLSupervisor(Report_MerrylandsRSLSupervisor instance);
+  partial void DeleteReport_MerrylandsRSLSupervisor(Report_MerrylandsRSLSupervisor instance);
+  partial void InsertReport_MerrylandsRSLFunctionSupervisor(Report_MerrylandsRSLFunctionSupervisor instance);
+  partial void UpdateReport_MerrylandsRSLFunctionSupervisor(Report_MerrylandsRSLFunctionSupervisor instance);
+  partial void DeleteReport_MerrylandsRSLFunctionSupervisor(Report_MerrylandsRSLFunctionSupervisor instance);
+  partial void InsertReport_MerrylandsRSLReceptionSupervisor(Report_MerrylandsRSLReceptionSupervisor instance);
+  partial void UpdateReport_MerrylandsRSLReceptionSupervisor(Report_MerrylandsRSLReceptionSupervisor instance);
+  partial void DeleteReport_MerrylandsRSLReceptionSupervisor(Report_MerrylandsRSLReceptionSupervisor instance);
+  partial void InsertReport_MerrylandsRSLReception(Report_MerrylandsRSLReception instance);
+  partial void UpdateReport_MerrylandsRSLReception(Report_MerrylandsRSLReception instance);
+  partial void DeleteReport_MerrylandsRSLReception(Report_MerrylandsRSLReception instance);
+  partial void InsertReport_ClubUminaReception(Report_ClubUminaReception instance);
+  partial void UpdateReport_ClubUminaReception(Report_ClubUminaReception instance);
+  partial void DeleteReport_ClubUminaReception(Report_ClubUminaReception instance);
   partial void InsertStaff(Staff instance);
   partial void UpdateStaff(Staff instance);
   partial void DeleteStaff(Staff instance);
-  partial void InsertrptMRIncident(rptMRIncident instance);
-  partial void UpdaterptMRIncident(rptMRIncident instance);
-  partial void DeleterptMRIncident(rptMRIncident instance);
-  partial void InsertrptUMIncident(rptUMIncident instance);
-  partial void UpdaterptUMIncident(rptUMIncident instance);
-  partial void DeleterptUMIncident(rptUMIncident instance);
+  partial void InsertReport_MerrylandsRSLIncident(Report_MerrylandsRSLIncident instance);
+  partial void UpdateReport_MerrylandsRSLIncident(Report_MerrylandsRSLIncident instance);
+  partial void DeleteReport_MerrylandsRSLIncident(Report_MerrylandsRSLIncident instance);
+  partial void InsertReport_ClubUminaIncident(Report_ClubUminaIncident instance);
+  partial void UpdateReport_ClubUminaIncident(Report_ClubUminaIncident instance);
+  partial void DeleteReport_ClubUminaIncident(Report_ClubUminaIncident instance);
   #endregion
 	
 	public DataClassesDataContext() : 
@@ -124,59 +124,59 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
-	public System.Data.Linq.Table<rptMRDM> rptMRDMs
+	public System.Data.Linq.Table<Report_MerrylandsRSLDutyManager> Report_MerrylandsRSLDutyManagers
 	{
 		get
 		{
-			return this.GetTable<rptMRDM>();
+			return this.GetTable<Report_MerrylandsRSLDutyManager>();
 		}
 	}
 	
-	public System.Data.Linq.Table<rptUMDM> rptUMDMs
+	public System.Data.Linq.Table<Report_ClubUminaDutyManager> Report_ClubUminaDutyManagers
 	{
 		get
 		{
-			return this.GetTable<rptUMDM>();
+			return this.GetTable<Report_ClubUminaDutyManager>();
 		}
 	}
 	
-	public System.Data.Linq.Table<rptMRSup> rptMRSups
+	public System.Data.Linq.Table<Report_MerrylandsRSLSupervisor> Report_MerrylandsRSLSupervisors
 	{
 		get
 		{
-			return this.GetTable<rptMRSup>();
+			return this.GetTable<Report_MerrylandsRSLSupervisor>();
 		}
 	}
 	
-	public System.Data.Linq.Table<rptMRFuncSup> rptMRFuncSups
+	public System.Data.Linq.Table<Report_MerrylandsRSLFunctionSupervisor> Report_MerrylandsRSLFunctionSupervisors
 	{
 		get
 		{
-			return this.GetTable<rptMRFuncSup>();
+			return this.GetTable<Report_MerrylandsRSLFunctionSupervisor>();
 		}
 	}
 	
-	public System.Data.Linq.Table<rptMRRecSup> rptMRRecSups
+	public System.Data.Linq.Table<Report_MerrylandsRSLReceptionSupervisor> Report_MerrylandsRSLReceptionSupervisors
 	{
 		get
 		{
-			return this.GetTable<rptMRRecSup>();
+			return this.GetTable<Report_MerrylandsRSLReceptionSupervisor>();
 		}
 	}
 	
-	public System.Data.Linq.Table<rptMRRec> rptMRRecs
+	public System.Data.Linq.Table<Report_MerrylandsRSLReception> Report_MerrylandsRSLReceptions
 	{
 		get
 		{
-			return this.GetTable<rptMRRec>();
+			return this.GetTable<Report_MerrylandsRSLReception>();
 		}
 	}
 	
-	public System.Data.Linq.Table<rptUMRec> rptUMRecs
+	public System.Data.Linq.Table<Report_ClubUminaReception> Report_ClubUminaReceptions
 	{
 		get
 		{
-			return this.GetTable<rptUMRec>();
+			return this.GetTable<Report_ClubUminaReception>();
 		}
 	}
 	
@@ -188,19 +188,19 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
-	public System.Data.Linq.Table<rptMRIncident> rptMRIncidents
+	public System.Data.Linq.Table<Report_MerrylandsRSLIncident> Report_MerrylandsRSLIncidents
 	{
 		get
 		{
-			return this.GetTable<rptMRIncident>();
+			return this.GetTable<Report_MerrylandsRSLIncident>();
 		}
 	}
 	
-	public System.Data.Linq.Table<rptUMIncident> rptUMIncidents
+	public System.Data.Linq.Table<Report_ClubUminaIncident> Report_ClubUminaIncidents
 	{
 		get
 		{
-			return this.GetTable<rptUMIncident>();
+			return this.GetTable<Report_ClubUminaIncident>();
 		}
 	}
 }
@@ -215,23 +215,23 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private string _ReportName;
 	
-	private EntitySet<rptMRDM> _rptMRDMs;
+	private EntitySet<Report_MerrylandsRSLDutyManager> _Report_MerrylandsRSLDutyManagers;
 	
-	private EntitySet<rptUMDM> _rptUMDMs;
+	private EntitySet<Report_ClubUminaDutyManager> _Report_ClubUminaDutyManagers;
 	
-	private EntitySet<rptMRSup> _rptMRSups;
+	private EntitySet<Report_MerrylandsRSLSupervisor> _Report_MerrylandsRSLSupervisors;
 	
-	private EntitySet<rptMRFuncSup> _rptMRFuncSups;
+	private EntitySet<Report_MerrylandsRSLFunctionSupervisor> _Report_MerrylandsRSLFunctionSupervisors;
 	
-	private EntitySet<rptMRRecSup> _rptMRRecSups;
+	private EntitySet<Report_MerrylandsRSLReceptionSupervisor> _Report_MerrylandsRSLReceptionSupervisors;
 	
-	private EntitySet<rptMRRec> _rptMRRecs;
+	private EntitySet<Report_MerrylandsRSLReception> _Report_MerrylandsRSLReceptions;
 	
-	private EntitySet<rptUMRec> _rptUMRecs;
+	private EntitySet<Report_ClubUminaReception> _Report_ClubUminaReceptions;
 	
-	private EntitySet<rptMRIncident> _rptMRIncidents;
+	private EntitySet<Report_MerrylandsRSLIncident> _Report_MerrylandsRSLIncidents;
 	
-	private EntitySet<rptUMIncident> _rptUMIncidents;
+	private EntitySet<Report_ClubUminaIncident> _Report_ClubUminaIncidents;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -245,15 +245,15 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public Category()
 	{
-		this._rptMRDMs = new EntitySet<rptMRDM>(new Action<rptMRDM>(this.attach_rptMRDMs), new Action<rptMRDM>(this.detach_rptMRDMs));
-		this._rptUMDMs = new EntitySet<rptUMDM>(new Action<rptUMDM>(this.attach_rptUMDMs), new Action<rptUMDM>(this.detach_rptUMDMs));
-		this._rptMRSups = new EntitySet<rptMRSup>(new Action<rptMRSup>(this.attach_rptMRSups), new Action<rptMRSup>(this.detach_rptMRSups));
-		this._rptMRFuncSups = new EntitySet<rptMRFuncSup>(new Action<rptMRFuncSup>(this.attach_rptMRFuncSups), new Action<rptMRFuncSup>(this.detach_rptMRFuncSups));
-		this._rptMRRecSups = new EntitySet<rptMRRecSup>(new Action<rptMRRecSup>(this.attach_rptMRRecSups), new Action<rptMRRecSup>(this.detach_rptMRRecSups));
-		this._rptMRRecs = new EntitySet<rptMRRec>(new Action<rptMRRec>(this.attach_rptMRRecs), new Action<rptMRRec>(this.detach_rptMRRecs));
-		this._rptUMRecs = new EntitySet<rptUMRec>(new Action<rptUMRec>(this.attach_rptUMRecs), new Action<rptUMRec>(this.detach_rptUMRecs));
-		this._rptMRIncidents = new EntitySet<rptMRIncident>(new Action<rptMRIncident>(this.attach_rptMRIncidents), new Action<rptMRIncident>(this.detach_rptMRIncidents));
-		this._rptUMIncidents = new EntitySet<rptUMIncident>(new Action<rptUMIncident>(this.attach_rptUMIncidents), new Action<rptUMIncident>(this.detach_rptUMIncidents));
+		this._Report_MerrylandsRSLDutyManagers = new EntitySet<Report_MerrylandsRSLDutyManager>(new Action<Report_MerrylandsRSLDutyManager>(this.attach_Report_MerrylandsRSLDutyManagers), new Action<Report_MerrylandsRSLDutyManager>(this.detach_Report_MerrylandsRSLDutyManagers));
+		this._Report_ClubUminaDutyManagers = new EntitySet<Report_ClubUminaDutyManager>(new Action<Report_ClubUminaDutyManager>(this.attach_Report_ClubUminaDutyManagers), new Action<Report_ClubUminaDutyManager>(this.detach_Report_ClubUminaDutyManagers));
+		this._Report_MerrylandsRSLSupervisors = new EntitySet<Report_MerrylandsRSLSupervisor>(new Action<Report_MerrylandsRSLSupervisor>(this.attach_Report_MerrylandsRSLSupervisors), new Action<Report_MerrylandsRSLSupervisor>(this.detach_Report_MerrylandsRSLSupervisors));
+		this._Report_MerrylandsRSLFunctionSupervisors = new EntitySet<Report_MerrylandsRSLFunctionSupervisor>(new Action<Report_MerrylandsRSLFunctionSupervisor>(this.attach_Report_MerrylandsRSLFunctionSupervisors), new Action<Report_MerrylandsRSLFunctionSupervisor>(this.detach_Report_MerrylandsRSLFunctionSupervisors));
+		this._Report_MerrylandsRSLReceptionSupervisors = new EntitySet<Report_MerrylandsRSLReceptionSupervisor>(new Action<Report_MerrylandsRSLReceptionSupervisor>(this.attach_Report_MerrylandsRSLReceptionSupervisors), new Action<Report_MerrylandsRSLReceptionSupervisor>(this.detach_Report_MerrylandsRSLReceptionSupervisors));
+		this._Report_MerrylandsRSLReceptions = new EntitySet<Report_MerrylandsRSLReception>(new Action<Report_MerrylandsRSLReception>(this.attach_Report_MerrylandsRSLReceptions), new Action<Report_MerrylandsRSLReception>(this.detach_Report_MerrylandsRSLReceptions));
+		this._Report_ClubUminaReceptions = new EntitySet<Report_ClubUminaReception>(new Action<Report_ClubUminaReception>(this.attach_Report_ClubUminaReceptions), new Action<Report_ClubUminaReception>(this.detach_Report_ClubUminaReceptions));
+		this._Report_MerrylandsRSLIncidents = new EntitySet<Report_MerrylandsRSLIncident>(new Action<Report_MerrylandsRSLIncident>(this.attach_Report_MerrylandsRSLIncidents), new Action<Report_MerrylandsRSLIncident>(this.detach_Report_MerrylandsRSLIncidents));
+		this._Report_ClubUminaIncidents = new EntitySet<Report_ClubUminaIncident>(new Action<Report_ClubUminaIncident>(this.attach_Report_ClubUminaIncidents), new Action<Report_ClubUminaIncident>(this.detach_Report_ClubUminaIncidents));
 		OnCreated();
 	}
 	
@@ -297,120 +297,120 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptMRDM", Storage="_rptMRDMs", ThisKey="RCatId", OtherKey="RCatId")]
-	public EntitySet<rptMRDM> rptMRDMs
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLDutyManager", Storage="_Report_MerrylandsRSLDutyManagers", ThisKey="RCatId", OtherKey="RCatId")]
+	public EntitySet<Report_MerrylandsRSLDutyManager> Report_MerrylandsRSLDutyManagers
 	{
 		get
 		{
-			return this._rptMRDMs;
+			return this._Report_MerrylandsRSLDutyManagers;
 		}
 		set
 		{
-			this._rptMRDMs.Assign(value);
+			this._Report_MerrylandsRSLDutyManagers.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptUMDM", Storage="_rptUMDMs", ThisKey="RCatId", OtherKey="RCatId")]
-	public EntitySet<rptUMDM> rptUMDMs
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_ClubUminaDutyManager", Storage="_Report_ClubUminaDutyManagers", ThisKey="RCatId", OtherKey="RCatId")]
+	public EntitySet<Report_ClubUminaDutyManager> Report_ClubUminaDutyManagers
 	{
 		get
 		{
-			return this._rptUMDMs;
+			return this._Report_ClubUminaDutyManagers;
 		}
 		set
 		{
-			this._rptUMDMs.Assign(value);
+			this._Report_ClubUminaDutyManagers.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptMRSup", Storage="_rptMRSups", ThisKey="RCatId", OtherKey="RCatId")]
-	public EntitySet<rptMRSup> rptMRSups
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLSupervisor", Storage="_Report_MerrylandsRSLSupervisors", ThisKey="RCatId", OtherKey="RCatId")]
+	public EntitySet<Report_MerrylandsRSLSupervisor> Report_MerrylandsRSLSupervisors
 	{
 		get
 		{
-			return this._rptMRSups;
+			return this._Report_MerrylandsRSLSupervisors;
 		}
 		set
 		{
-			this._rptMRSups.Assign(value);
+			this._Report_MerrylandsRSLSupervisors.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptMRFuncSup", Storage="_rptMRFuncSups", ThisKey="RCatId", OtherKey="RCatId")]
-	public EntitySet<rptMRFuncSup> rptMRFuncSups
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLFunctionSupervisor", Storage="_Report_MerrylandsRSLFunctionSupervisors", ThisKey="RCatId", OtherKey="RCatId")]
+	public EntitySet<Report_MerrylandsRSLFunctionSupervisor> Report_MerrylandsRSLFunctionSupervisors
 	{
 		get
 		{
-			return this._rptMRFuncSups;
+			return this._Report_MerrylandsRSLFunctionSupervisors;
 		}
 		set
 		{
-			this._rptMRFuncSups.Assign(value);
+			this._Report_MerrylandsRSLFunctionSupervisors.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptMRRecSup", Storage="_rptMRRecSups", ThisKey="RCatId", OtherKey="RCatId")]
-	public EntitySet<rptMRRecSup> rptMRRecSups
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLReceptionSupervisor", Storage="_Report_MerrylandsRSLReceptionSupervisors", ThisKey="RCatId", OtherKey="RCatId")]
+	public EntitySet<Report_MerrylandsRSLReceptionSupervisor> Report_MerrylandsRSLReceptionSupervisors
 	{
 		get
 		{
-			return this._rptMRRecSups;
+			return this._Report_MerrylandsRSLReceptionSupervisors;
 		}
 		set
 		{
-			this._rptMRRecSups.Assign(value);
+			this._Report_MerrylandsRSLReceptionSupervisors.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptMRRec", Storage="_rptMRRecs", ThisKey="RCatId", OtherKey="RCatId")]
-	public EntitySet<rptMRRec> rptMRRecs
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLReception", Storage="_Report_MerrylandsRSLReceptions", ThisKey="RCatId", OtherKey="RCatId")]
+	public EntitySet<Report_MerrylandsRSLReception> Report_MerrylandsRSLReceptions
 	{
 		get
 		{
-			return this._rptMRRecs;
+			return this._Report_MerrylandsRSLReceptions;
 		}
 		set
 		{
-			this._rptMRRecs.Assign(value);
+			this._Report_MerrylandsRSLReceptions.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptUMRec", Storage="_rptUMRecs", ThisKey="RCatId", OtherKey="RCatId")]
-	public EntitySet<rptUMRec> rptUMRecs
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_ClubUminaReception", Storage="_Report_ClubUminaReceptions", ThisKey="RCatId", OtherKey="RCatId")]
+	public EntitySet<Report_ClubUminaReception> Report_ClubUminaReceptions
 	{
 		get
 		{
-			return this._rptUMRecs;
+			return this._Report_ClubUminaReceptions;
 		}
 		set
 		{
-			this._rptUMRecs.Assign(value);
+			this._Report_ClubUminaReceptions.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptMRIncident", Storage="_rptMRIncidents", ThisKey="RCatId", OtherKey="RCatId")]
-	public EntitySet<rptMRIncident> rptMRIncidents
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLIncident", Storage="_Report_MerrylandsRSLIncidents", ThisKey="RCatId", OtherKey="RCatId")]
+	public EntitySet<Report_MerrylandsRSLIncident> Report_MerrylandsRSLIncidents
 	{
 		get
 		{
-			return this._rptMRIncidents;
+			return this._Report_MerrylandsRSLIncidents;
 		}
 		set
 		{
-			this._rptMRIncidents.Assign(value);
+			this._Report_MerrylandsRSLIncidents.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptUMIncident", Storage="_rptUMIncidents", ThisKey="RCatId", OtherKey="RCatId")]
-	public EntitySet<rptUMIncident> rptUMIncidents
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_ClubUminaIncident", Storage="_Report_ClubUminaIncidents", ThisKey="RCatId", OtherKey="RCatId")]
+	public EntitySet<Report_ClubUminaIncident> Report_ClubUminaIncidents
 	{
 		get
 		{
-			return this._rptUMIncidents;
+			return this._Report_ClubUminaIncidents;
 		}
 		set
 		{
-			this._rptUMIncidents.Assign(value);
+			this._Report_ClubUminaIncidents.Assign(value);
 		}
 	}
 	
@@ -434,109 +434,109 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	private void attach_rptMRDMs(rptMRDM entity)
+	private void attach_Report_MerrylandsRSLDutyManagers(Report_MerrylandsRSLDutyManager entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = this;
 	}
 	
-	private void detach_rptMRDMs(rptMRDM entity)
+	private void detach_Report_MerrylandsRSLDutyManagers(Report_MerrylandsRSLDutyManager entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = null;
 	}
 	
-	private void attach_rptUMDMs(rptUMDM entity)
+	private void attach_Report_ClubUminaDutyManagers(Report_ClubUminaDutyManager entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = this;
 	}
 	
-	private void detach_rptUMDMs(rptUMDM entity)
+	private void detach_Report_ClubUminaDutyManagers(Report_ClubUminaDutyManager entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = null;
 	}
 	
-	private void attach_rptMRSups(rptMRSup entity)
+	private void attach_Report_MerrylandsRSLSupervisors(Report_MerrylandsRSLSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = this;
 	}
 	
-	private void detach_rptMRSups(rptMRSup entity)
+	private void detach_Report_MerrylandsRSLSupervisors(Report_MerrylandsRSLSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = null;
 	}
 	
-	private void attach_rptMRFuncSups(rptMRFuncSup entity)
+	private void attach_Report_MerrylandsRSLFunctionSupervisors(Report_MerrylandsRSLFunctionSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = this;
 	}
 	
-	private void detach_rptMRFuncSups(rptMRFuncSup entity)
+	private void detach_Report_MerrylandsRSLFunctionSupervisors(Report_MerrylandsRSLFunctionSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = null;
 	}
 	
-	private void attach_rptMRRecSups(rptMRRecSup entity)
+	private void attach_Report_MerrylandsRSLReceptionSupervisors(Report_MerrylandsRSLReceptionSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = this;
 	}
 	
-	private void detach_rptMRRecSups(rptMRRecSup entity)
+	private void detach_Report_MerrylandsRSLReceptionSupervisors(Report_MerrylandsRSLReceptionSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = null;
 	}
 	
-	private void attach_rptMRRecs(rptMRRec entity)
+	private void attach_Report_MerrylandsRSLReceptions(Report_MerrylandsRSLReception entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = this;
 	}
 	
-	private void detach_rptMRRecs(rptMRRec entity)
+	private void detach_Report_MerrylandsRSLReceptions(Report_MerrylandsRSLReception entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = null;
 	}
 	
-	private void attach_rptUMRecs(rptUMRec entity)
+	private void attach_Report_ClubUminaReceptions(Report_ClubUminaReception entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = this;
 	}
 	
-	private void detach_rptUMRecs(rptUMRec entity)
+	private void detach_Report_ClubUminaReceptions(Report_ClubUminaReception entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = null;
 	}
 	
-	private void attach_rptMRIncidents(rptMRIncident entity)
+	private void attach_Report_MerrylandsRSLIncidents(Report_MerrylandsRSLIncident entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = this;
 	}
 	
-	private void detach_rptMRIncidents(rptMRIncident entity)
+	private void detach_Report_MerrylandsRSLIncidents(Report_MerrylandsRSLIncident entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = null;
 	}
 	
-	private void attach_rptUMIncidents(rptUMIncident entity)
+	private void attach_Report_ClubUminaIncidents(Report_ClubUminaIncident entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = this;
 	}
 	
-	private void detach_rptUMIncidents(rptUMIncident entity)
+	private void detach_Report_ClubUminaIncidents(Report_ClubUminaIncident entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = null;
@@ -553,23 +553,23 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private string _ShiftName;
 	
-	private EntitySet<rptMRDM> _rptMRDMs;
+	private EntitySet<Report_MerrylandsRSLDutyManager> _Report_MerrylandsRSLDutyManagers;
 	
-	private EntitySet<rptUMDM> _rptUMDMs;
+	private EntitySet<Report_ClubUminaDutyManager> _Report_ClubUminaDutyManagers;
 	
-	private EntitySet<rptMRSup> _rptMRSups;
+	private EntitySet<Report_MerrylandsRSLSupervisor> _Report_MerrylandsRSLSupervisors;
 	
-	private EntitySet<rptMRFuncSup> _rptMRFuncSups;
+	private EntitySet<Report_MerrylandsRSLFunctionSupervisor> _Report_MerrylandsRSLFunctionSupervisors;
 	
-	private EntitySet<rptMRRecSup> _rptMRRecSups;
+	private EntitySet<Report_MerrylandsRSLReceptionSupervisor> _Report_MerrylandsRSLReceptionSupervisors;
 	
-	private EntitySet<rptMRRec> _rptMRRecs;
+	private EntitySet<Report_MerrylandsRSLReception> _Report_MerrylandsRSLReceptions;
 	
-	private EntitySet<rptUMRec> _rptUMRecs;
+	private EntitySet<Report_ClubUminaReception> _Report_ClubUminaReceptions;
 	
-	private EntitySet<rptMRIncident> _rptMRIncidents;
+	private EntitySet<Report_MerrylandsRSLIncident> _Report_MerrylandsRSLIncidents;
 	
-	private EntitySet<rptUMIncident> _rptUMIncidents;
+	private EntitySet<Report_ClubUminaIncident> _Report_ClubUminaIncidents;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -583,15 +583,15 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public Shift()
 	{
-		this._rptMRDMs = new EntitySet<rptMRDM>(new Action<rptMRDM>(this.attach_rptMRDMs), new Action<rptMRDM>(this.detach_rptMRDMs));
-		this._rptUMDMs = new EntitySet<rptUMDM>(new Action<rptUMDM>(this.attach_rptUMDMs), new Action<rptUMDM>(this.detach_rptUMDMs));
-		this._rptMRSups = new EntitySet<rptMRSup>(new Action<rptMRSup>(this.attach_rptMRSups), new Action<rptMRSup>(this.detach_rptMRSups));
-		this._rptMRFuncSups = new EntitySet<rptMRFuncSup>(new Action<rptMRFuncSup>(this.attach_rptMRFuncSups), new Action<rptMRFuncSup>(this.detach_rptMRFuncSups));
-		this._rptMRRecSups = new EntitySet<rptMRRecSup>(new Action<rptMRRecSup>(this.attach_rptMRRecSups), new Action<rptMRRecSup>(this.detach_rptMRRecSups));
-		this._rptMRRecs = new EntitySet<rptMRRec>(new Action<rptMRRec>(this.attach_rptMRRecs), new Action<rptMRRec>(this.detach_rptMRRecs));
-		this._rptUMRecs = new EntitySet<rptUMRec>(new Action<rptUMRec>(this.attach_rptUMRecs), new Action<rptUMRec>(this.detach_rptUMRecs));
-		this._rptMRIncidents = new EntitySet<rptMRIncident>(new Action<rptMRIncident>(this.attach_rptMRIncidents), new Action<rptMRIncident>(this.detach_rptMRIncidents));
-		this._rptUMIncidents = new EntitySet<rptUMIncident>(new Action<rptUMIncident>(this.attach_rptUMIncidents), new Action<rptUMIncident>(this.detach_rptUMIncidents));
+		this._Report_MerrylandsRSLDutyManagers = new EntitySet<Report_MerrylandsRSLDutyManager>(new Action<Report_MerrylandsRSLDutyManager>(this.attach_Report_MerrylandsRSLDutyManagers), new Action<Report_MerrylandsRSLDutyManager>(this.detach_Report_MerrylandsRSLDutyManagers));
+		this._Report_ClubUminaDutyManagers = new EntitySet<Report_ClubUminaDutyManager>(new Action<Report_ClubUminaDutyManager>(this.attach_Report_ClubUminaDutyManagers), new Action<Report_ClubUminaDutyManager>(this.detach_Report_ClubUminaDutyManagers));
+		this._Report_MerrylandsRSLSupervisors = new EntitySet<Report_MerrylandsRSLSupervisor>(new Action<Report_MerrylandsRSLSupervisor>(this.attach_Report_MerrylandsRSLSupervisors), new Action<Report_MerrylandsRSLSupervisor>(this.detach_Report_MerrylandsRSLSupervisors));
+		this._Report_MerrylandsRSLFunctionSupervisors = new EntitySet<Report_MerrylandsRSLFunctionSupervisor>(new Action<Report_MerrylandsRSLFunctionSupervisor>(this.attach_Report_MerrylandsRSLFunctionSupervisors), new Action<Report_MerrylandsRSLFunctionSupervisor>(this.detach_Report_MerrylandsRSLFunctionSupervisors));
+		this._Report_MerrylandsRSLReceptionSupervisors = new EntitySet<Report_MerrylandsRSLReceptionSupervisor>(new Action<Report_MerrylandsRSLReceptionSupervisor>(this.attach_Report_MerrylandsRSLReceptionSupervisors), new Action<Report_MerrylandsRSLReceptionSupervisor>(this.detach_Report_MerrylandsRSLReceptionSupervisors));
+		this._Report_MerrylandsRSLReceptions = new EntitySet<Report_MerrylandsRSLReception>(new Action<Report_MerrylandsRSLReception>(this.attach_Report_MerrylandsRSLReceptions), new Action<Report_MerrylandsRSLReception>(this.detach_Report_MerrylandsRSLReceptions));
+		this._Report_ClubUminaReceptions = new EntitySet<Report_ClubUminaReception>(new Action<Report_ClubUminaReception>(this.attach_Report_ClubUminaReceptions), new Action<Report_ClubUminaReception>(this.detach_Report_ClubUminaReceptions));
+		this._Report_MerrylandsRSLIncidents = new EntitySet<Report_MerrylandsRSLIncident>(new Action<Report_MerrylandsRSLIncident>(this.attach_Report_MerrylandsRSLIncidents), new Action<Report_MerrylandsRSLIncident>(this.detach_Report_MerrylandsRSLIncidents));
+		this._Report_ClubUminaIncidents = new EntitySet<Report_ClubUminaIncident>(new Action<Report_ClubUminaIncident>(this.attach_Report_ClubUminaIncidents), new Action<Report_ClubUminaIncident>(this.detach_Report_ClubUminaIncidents));
 		OnCreated();
 	}
 	
@@ -635,120 +635,120 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptMRDM", Storage="_rptMRDMs", ThisKey="ShiftId", OtherKey="ShiftId")]
-	public EntitySet<rptMRDM> rptMRDMs
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLDutyManager", Storage="_Report_MerrylandsRSLDutyManagers", ThisKey="ShiftId", OtherKey="ShiftId")]
+	public EntitySet<Report_MerrylandsRSLDutyManager> Report_MerrylandsRSLDutyManagers
 	{
 		get
 		{
-			return this._rptMRDMs;
+			return this._Report_MerrylandsRSLDutyManagers;
 		}
 		set
 		{
-			this._rptMRDMs.Assign(value);
+			this._Report_MerrylandsRSLDutyManagers.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptUMDM", Storage="_rptUMDMs", ThisKey="ShiftId", OtherKey="ShiftId")]
-	public EntitySet<rptUMDM> rptUMDMs
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_ClubUminaDutyManager", Storage="_Report_ClubUminaDutyManagers", ThisKey="ShiftId", OtherKey="ShiftId")]
+	public EntitySet<Report_ClubUminaDutyManager> Report_ClubUminaDutyManagers
 	{
 		get
 		{
-			return this._rptUMDMs;
+			return this._Report_ClubUminaDutyManagers;
 		}
 		set
 		{
-			this._rptUMDMs.Assign(value);
+			this._Report_ClubUminaDutyManagers.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptMRSup", Storage="_rptMRSups", ThisKey="ShiftId", OtherKey="ShiftId")]
-	public EntitySet<rptMRSup> rptMRSups
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLSupervisor", Storage="_Report_MerrylandsRSLSupervisors", ThisKey="ShiftId", OtherKey="ShiftId")]
+	public EntitySet<Report_MerrylandsRSLSupervisor> Report_MerrylandsRSLSupervisors
 	{
 		get
 		{
-			return this._rptMRSups;
+			return this._Report_MerrylandsRSLSupervisors;
 		}
 		set
 		{
-			this._rptMRSups.Assign(value);
+			this._Report_MerrylandsRSLSupervisors.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptMRFuncSup", Storage="_rptMRFuncSups", ThisKey="ShiftId", OtherKey="ShiftId")]
-	public EntitySet<rptMRFuncSup> rptMRFuncSups
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLFunctionSupervisor", Storage="_Report_MerrylandsRSLFunctionSupervisors", ThisKey="ShiftId", OtherKey="ShiftId")]
+	public EntitySet<Report_MerrylandsRSLFunctionSupervisor> Report_MerrylandsRSLFunctionSupervisors
 	{
 		get
 		{
-			return this._rptMRFuncSups;
+			return this._Report_MerrylandsRSLFunctionSupervisors;
 		}
 		set
 		{
-			this._rptMRFuncSups.Assign(value);
+			this._Report_MerrylandsRSLFunctionSupervisors.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptMRRecSup", Storage="_rptMRRecSups", ThisKey="ShiftId", OtherKey="ShiftId")]
-	public EntitySet<rptMRRecSup> rptMRRecSups
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLReceptionSupervisor", Storage="_Report_MerrylandsRSLReceptionSupervisors", ThisKey="ShiftId", OtherKey="ShiftId")]
+	public EntitySet<Report_MerrylandsRSLReceptionSupervisor> Report_MerrylandsRSLReceptionSupervisors
 	{
 		get
 		{
-			return this._rptMRRecSups;
+			return this._Report_MerrylandsRSLReceptionSupervisors;
 		}
 		set
 		{
-			this._rptMRRecSups.Assign(value);
+			this._Report_MerrylandsRSLReceptionSupervisors.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptMRRec", Storage="_rptMRRecs", ThisKey="ShiftId", OtherKey="ShiftId")]
-	public EntitySet<rptMRRec> rptMRRecs
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLReception", Storage="_Report_MerrylandsRSLReceptions", ThisKey="ShiftId", OtherKey="ShiftId")]
+	public EntitySet<Report_MerrylandsRSLReception> Report_MerrylandsRSLReceptions
 	{
 		get
 		{
-			return this._rptMRRecs;
+			return this._Report_MerrylandsRSLReceptions;
 		}
 		set
 		{
-			this._rptMRRecs.Assign(value);
+			this._Report_MerrylandsRSLReceptions.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptUMRec", Storage="_rptUMRecs", ThisKey="ShiftId", OtherKey="ShiftId")]
-	public EntitySet<rptUMRec> rptUMRecs
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_ClubUminaReception", Storage="_Report_ClubUminaReceptions", ThisKey="ShiftId", OtherKey="ShiftId")]
+	public EntitySet<Report_ClubUminaReception> Report_ClubUminaReceptions
 	{
 		get
 		{
-			return this._rptUMRecs;
+			return this._Report_ClubUminaReceptions;
 		}
 		set
 		{
-			this._rptUMRecs.Assign(value);
+			this._Report_ClubUminaReceptions.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptMRIncident", Storage="_rptMRIncidents", ThisKey="ShiftId", OtherKey="ShiftId")]
-	public EntitySet<rptMRIncident> rptMRIncidents
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLIncident", Storage="_Report_MerrylandsRSLIncidents", ThisKey="ShiftId", OtherKey="ShiftId")]
+	public EntitySet<Report_MerrylandsRSLIncident> Report_MerrylandsRSLIncidents
 	{
 		get
 		{
-			return this._rptMRIncidents;
+			return this._Report_MerrylandsRSLIncidents;
 		}
 		set
 		{
-			this._rptMRIncidents.Assign(value);
+			this._Report_MerrylandsRSLIncidents.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptUMIncident", Storage="_rptUMIncidents", ThisKey="ShiftId", OtherKey="ShiftId")]
-	public EntitySet<rptUMIncident> rptUMIncidents
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_ClubUminaIncident", Storage="_Report_ClubUminaIncidents", ThisKey="ShiftId", OtherKey="ShiftId")]
+	public EntitySet<Report_ClubUminaIncident> Report_ClubUminaIncidents
 	{
 		get
 		{
-			return this._rptUMIncidents;
+			return this._Report_ClubUminaIncidents;
 		}
 		set
 		{
-			this._rptUMIncidents.Assign(value);
+			this._Report_ClubUminaIncidents.Assign(value);
 		}
 	}
 	
@@ -772,109 +772,109 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	private void attach_rptMRDMs(rptMRDM entity)
+	private void attach_Report_MerrylandsRSLDutyManagers(Report_MerrylandsRSLDutyManager entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = this;
 	}
 	
-	private void detach_rptMRDMs(rptMRDM entity)
+	private void detach_Report_MerrylandsRSLDutyManagers(Report_MerrylandsRSLDutyManager entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = null;
 	}
 	
-	private void attach_rptUMDMs(rptUMDM entity)
+	private void attach_Report_ClubUminaDutyManagers(Report_ClubUminaDutyManager entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = this;
 	}
 	
-	private void detach_rptUMDMs(rptUMDM entity)
+	private void detach_Report_ClubUminaDutyManagers(Report_ClubUminaDutyManager entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = null;
 	}
 	
-	private void attach_rptMRSups(rptMRSup entity)
+	private void attach_Report_MerrylandsRSLSupervisors(Report_MerrylandsRSLSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = this;
 	}
 	
-	private void detach_rptMRSups(rptMRSup entity)
+	private void detach_Report_MerrylandsRSLSupervisors(Report_MerrylandsRSLSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = null;
 	}
 	
-	private void attach_rptMRFuncSups(rptMRFuncSup entity)
+	private void attach_Report_MerrylandsRSLFunctionSupervisors(Report_MerrylandsRSLFunctionSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = this;
 	}
 	
-	private void detach_rptMRFuncSups(rptMRFuncSup entity)
+	private void detach_Report_MerrylandsRSLFunctionSupervisors(Report_MerrylandsRSLFunctionSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = null;
 	}
 	
-	private void attach_rptMRRecSups(rptMRRecSup entity)
+	private void attach_Report_MerrylandsRSLReceptionSupervisors(Report_MerrylandsRSLReceptionSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = this;
 	}
 	
-	private void detach_rptMRRecSups(rptMRRecSup entity)
+	private void detach_Report_MerrylandsRSLReceptionSupervisors(Report_MerrylandsRSLReceptionSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = null;
 	}
 	
-	private void attach_rptMRRecs(rptMRRec entity)
+	private void attach_Report_MerrylandsRSLReceptions(Report_MerrylandsRSLReception entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = this;
 	}
 	
-	private void detach_rptMRRecs(rptMRRec entity)
+	private void detach_Report_MerrylandsRSLReceptions(Report_MerrylandsRSLReception entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = null;
 	}
 	
-	private void attach_rptUMRecs(rptUMRec entity)
+	private void attach_Report_ClubUminaReceptions(Report_ClubUminaReception entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = this;
 	}
 	
-	private void detach_rptUMRecs(rptUMRec entity)
+	private void detach_Report_ClubUminaReceptions(Report_ClubUminaReception entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = null;
 	}
 	
-	private void attach_rptMRIncidents(rptMRIncident entity)
+	private void attach_Report_MerrylandsRSLIncidents(Report_MerrylandsRSLIncident entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = this;
 	}
 	
-	private void detach_rptMRIncidents(rptMRIncident entity)
+	private void detach_Report_MerrylandsRSLIncidents(Report_MerrylandsRSLIncident entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = null;
 	}
 	
-	private void attach_rptUMIncidents(rptUMIncident entity)
+	private void attach_Report_ClubUminaIncidents(Report_ClubUminaIncident entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = this;
 	}
 	
-	private void detach_rptUMIncidents(rptUMIncident entity)
+	private void detach_Report_ClubUminaIncidents(Report_ClubUminaIncident entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = null;
@@ -1015,8 +1015,8 @@ public partial class StaffName : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.rptMRDM")]
-public partial class rptMRDM : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Report_MerrylandsRSLDutyManager")]
+public partial class Report_MerrylandsRSLDutyManager : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -1173,7 +1173,7 @@ public partial class rptMRDM : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnComplianceChanged();
     #endregion
 	
-	public rptMRDM()
+	public Report_MerrylandsRSLDutyManager()
 	{
 		this._Category = default(EntityRef<Category>);
 		this._Shift = default(EntityRef<Shift>);
@@ -1893,7 +1893,7 @@ public partial class rptMRDM : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptMRDM", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLDutyManager", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
 	public Category Category
 	{
 		get
@@ -1910,12 +1910,12 @@ public partial class rptMRDM : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Category.Entity = null;
-					previousValue.rptMRDMs.Remove(this);
+					previousValue.Report_MerrylandsRSLDutyManagers.Remove(this);
 				}
 				this._Category.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRDMs.Add(this);
+					value.Report_MerrylandsRSLDutyManagers.Add(this);
 					this._RCatId = value.RCatId;
 				}
 				else
@@ -1927,7 +1927,7 @@ public partial class rptMRDM : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptMRDM", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLDutyManager", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
 	public Shift Shift
 	{
 		get
@@ -1944,12 +1944,12 @@ public partial class rptMRDM : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Shift.Entity = null;
-					previousValue.rptMRDMs.Remove(this);
+					previousValue.Report_MerrylandsRSLDutyManagers.Remove(this);
 				}
 				this._Shift.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRDMs.Add(this);
+					value.Report_MerrylandsRSLDutyManagers.Add(this);
 					this._ShiftId = value.ShiftId;
 				}
 				else
@@ -1961,7 +1961,7 @@ public partial class rptMRDM : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptMRDM", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLDutyManager", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
 	public Staff Staff
 	{
 		get
@@ -1978,12 +1978,12 @@ public partial class rptMRDM : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Staff.Entity = null;
-					previousValue.rptMRDMs.Remove(this);
+					previousValue.Report_MerrylandsRSLDutyManagers.Remove(this);
 				}
 				this._Staff.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRDMs.Add(this);
+					value.Report_MerrylandsRSLDutyManagers.Add(this);
 					this._StaffId = value.StaffId;
 				}
 				else
@@ -2016,8 +2016,8 @@ public partial class rptMRDM : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.rptUMDM")]
-public partial class rptUMDM : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Report_ClubUminaDutyManager")]
+public partial class Report_ClubUminaDutyManager : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -2174,7 +2174,7 @@ public partial class rptUMDM : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnComplianceChanged();
     #endregion
 	
-	public rptUMDM()
+	public Report_ClubUminaDutyManager()
 	{
 		this._Category = default(EntityRef<Category>);
 		this._Shift = default(EntityRef<Shift>);
@@ -2894,7 +2894,7 @@ public partial class rptUMDM : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptUMDM", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_ClubUminaDutyManager", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
 	public Category Category
 	{
 		get
@@ -2911,12 +2911,12 @@ public partial class rptUMDM : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Category.Entity = null;
-					previousValue.rptUMDMs.Remove(this);
+					previousValue.Report_ClubUminaDutyManagers.Remove(this);
 				}
 				this._Category.Entity = value;
 				if ((value != null))
 				{
-					value.rptUMDMs.Add(this);
+					value.Report_ClubUminaDutyManagers.Add(this);
 					this._RCatId = value.RCatId;
 				}
 				else
@@ -2928,7 +2928,7 @@ public partial class rptUMDM : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptUMDM", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_ClubUminaDutyManager", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
 	public Shift Shift
 	{
 		get
@@ -2945,12 +2945,12 @@ public partial class rptUMDM : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Shift.Entity = null;
-					previousValue.rptUMDMs.Remove(this);
+					previousValue.Report_ClubUminaDutyManagers.Remove(this);
 				}
 				this._Shift.Entity = value;
 				if ((value != null))
 				{
-					value.rptUMDMs.Add(this);
+					value.Report_ClubUminaDutyManagers.Add(this);
 					this._ShiftId = value.ShiftId;
 				}
 				else
@@ -2962,7 +2962,7 @@ public partial class rptUMDM : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptUMDM", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_ClubUminaDutyManager", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
 	public Staff Staff
 	{
 		get
@@ -2979,12 +2979,12 @@ public partial class rptUMDM : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Staff.Entity = null;
-					previousValue.rptUMDMs.Remove(this);
+					previousValue.Report_ClubUminaDutyManagers.Remove(this);
 				}
 				this._Staff.Entity = value;
 				if ((value != null))
 				{
-					value.rptUMDMs.Add(this);
+					value.Report_ClubUminaDutyManagers.Add(this);
 					this._StaffId = value.StaffId;
 				}
 				else
@@ -3017,8 +3017,8 @@ public partial class rptUMDM : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.rptMRSup")]
-public partial class rptMRSup : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Report_MerrylandsRSLSupervisor")]
+public partial class Report_MerrylandsRSLSupervisor : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -3179,7 +3179,7 @@ public partial class rptMRSup : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnAMLCTFChanged();
     #endregion
 	
-	public rptMRSup()
+	public Report_MerrylandsRSLSupervisor()
 	{
 		this._Category = default(EntityRef<Category>);
 		this._Shift = default(EntityRef<Shift>);
@@ -3919,7 +3919,7 @@ public partial class rptMRSup : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptMRSup", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLSupervisor", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
 	public Category Category
 	{
 		get
@@ -3936,12 +3936,12 @@ public partial class rptMRSup : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Category.Entity = null;
-					previousValue.rptMRSups.Remove(this);
+					previousValue.Report_MerrylandsRSLSupervisors.Remove(this);
 				}
 				this._Category.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRSups.Add(this);
+					value.Report_MerrylandsRSLSupervisors.Add(this);
 					this._RCatId = value.RCatId;
 				}
 				else
@@ -3953,7 +3953,7 @@ public partial class rptMRSup : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptMRSup", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLSupervisor", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
 	public Shift Shift
 	{
 		get
@@ -3970,12 +3970,12 @@ public partial class rptMRSup : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Shift.Entity = null;
-					previousValue.rptMRSups.Remove(this);
+					previousValue.Report_MerrylandsRSLSupervisors.Remove(this);
 				}
 				this._Shift.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRSups.Add(this);
+					value.Report_MerrylandsRSLSupervisors.Add(this);
 					this._ShiftId = value.ShiftId;
 				}
 				else
@@ -3987,7 +3987,7 @@ public partial class rptMRSup : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptMRSup", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLSupervisor", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
 	public Staff Staff
 	{
 		get
@@ -4004,12 +4004,12 @@ public partial class rptMRSup : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Staff.Entity = null;
-					previousValue.rptMRSups.Remove(this);
+					previousValue.Report_MerrylandsRSLSupervisors.Remove(this);
 				}
 				this._Staff.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRSups.Add(this);
+					value.Report_MerrylandsRSLSupervisors.Add(this);
 					this._StaffId = value.StaffId;
 				}
 				else
@@ -4042,8 +4042,8 @@ public partial class rptMRSup : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.rptMRFuncSup")]
-public partial class rptMRFuncSup : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Report_MerrylandsRSLFunctionSupervisor")]
+public partial class Report_MerrylandsRSLFunctionSupervisor : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -4176,7 +4176,7 @@ public partial class rptMRFuncSup : INotifyPropertyChanging, INotifyPropertyChan
     partial void OnGeneralCommentsChanged();
     #endregion
 	
-	public rptMRFuncSup()
+	public Report_MerrylandsRSLFunctionSupervisor()
 	{
 		this._Category = default(EntityRef<Category>);
 		this._Shift = default(EntityRef<Shift>);
@@ -4776,7 +4776,7 @@ public partial class rptMRFuncSup : INotifyPropertyChanging, INotifyPropertyChan
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptMRFuncSup", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLFunctionSupervisor", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
 	public Category Category
 	{
 		get
@@ -4793,12 +4793,12 @@ public partial class rptMRFuncSup : INotifyPropertyChanging, INotifyPropertyChan
 				if ((previousValue != null))
 				{
 					this._Category.Entity = null;
-					previousValue.rptMRFuncSups.Remove(this);
+					previousValue.Report_MerrylandsRSLFunctionSupervisors.Remove(this);
 				}
 				this._Category.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRFuncSups.Add(this);
+					value.Report_MerrylandsRSLFunctionSupervisors.Add(this);
 					this._RCatId = value.RCatId;
 				}
 				else
@@ -4810,7 +4810,7 @@ public partial class rptMRFuncSup : INotifyPropertyChanging, INotifyPropertyChan
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptMRFuncSup", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLFunctionSupervisor", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
 	public Shift Shift
 	{
 		get
@@ -4827,12 +4827,12 @@ public partial class rptMRFuncSup : INotifyPropertyChanging, INotifyPropertyChan
 				if ((previousValue != null))
 				{
 					this._Shift.Entity = null;
-					previousValue.rptMRFuncSups.Remove(this);
+					previousValue.Report_MerrylandsRSLFunctionSupervisors.Remove(this);
 				}
 				this._Shift.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRFuncSups.Add(this);
+					value.Report_MerrylandsRSLFunctionSupervisors.Add(this);
 					this._ShiftId = value.ShiftId;
 				}
 				else
@@ -4844,7 +4844,7 @@ public partial class rptMRFuncSup : INotifyPropertyChanging, INotifyPropertyChan
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptMRFuncSup", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLFunctionSupervisor", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
 	public Staff Staff
 	{
 		get
@@ -4861,12 +4861,12 @@ public partial class rptMRFuncSup : INotifyPropertyChanging, INotifyPropertyChan
 				if ((previousValue != null))
 				{
 					this._Staff.Entity = null;
-					previousValue.rptMRFuncSups.Remove(this);
+					previousValue.Report_MerrylandsRSLFunctionSupervisors.Remove(this);
 				}
 				this._Staff.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRFuncSups.Add(this);
+					value.Report_MerrylandsRSLFunctionSupervisors.Add(this);
 					this._StaffId = value.StaffId;
 				}
 				else
@@ -4899,8 +4899,8 @@ public partial class rptMRFuncSup : INotifyPropertyChanging, INotifyPropertyChan
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.rptMRRecSup")]
-public partial class rptMRRecSup : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Report_MerrylandsRSLReceptionSupervisor")]
+public partial class Report_MerrylandsRSLReceptionSupervisor : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -5021,7 +5021,7 @@ public partial class rptMRRecSup : INotifyPropertyChanging, INotifyPropertyChang
     partial void OnGeneralCommentsChanged();
     #endregion
 	
-	public rptMRRecSup()
+	public Report_MerrylandsRSLReceptionSupervisor()
 	{
 		this._Category = default(EntityRef<Category>);
 		this._Shift = default(EntityRef<Shift>);
@@ -5561,7 +5561,7 @@ public partial class rptMRRecSup : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptMRRecSup", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLReceptionSupervisor", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
 	public Category Category
 	{
 		get
@@ -5578,12 +5578,12 @@ public partial class rptMRRecSup : INotifyPropertyChanging, INotifyPropertyChang
 				if ((previousValue != null))
 				{
 					this._Category.Entity = null;
-					previousValue.rptMRRecSups.Remove(this);
+					previousValue.Report_MerrylandsRSLReceptionSupervisors.Remove(this);
 				}
 				this._Category.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRRecSups.Add(this);
+					value.Report_MerrylandsRSLReceptionSupervisors.Add(this);
 					this._RCatId = value.RCatId;
 				}
 				else
@@ -5595,7 +5595,7 @@ public partial class rptMRRecSup : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptMRRecSup", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLReceptionSupervisor", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
 	public Shift Shift
 	{
 		get
@@ -5612,12 +5612,12 @@ public partial class rptMRRecSup : INotifyPropertyChanging, INotifyPropertyChang
 				if ((previousValue != null))
 				{
 					this._Shift.Entity = null;
-					previousValue.rptMRRecSups.Remove(this);
+					previousValue.Report_MerrylandsRSLReceptionSupervisors.Remove(this);
 				}
 				this._Shift.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRRecSups.Add(this);
+					value.Report_MerrylandsRSLReceptionSupervisors.Add(this);
 					this._ShiftId = value.ShiftId;
 				}
 				else
@@ -5629,7 +5629,7 @@ public partial class rptMRRecSup : INotifyPropertyChanging, INotifyPropertyChang
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptMRRecSup", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLReceptionSupervisor", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
 	public Staff Staff
 	{
 		get
@@ -5646,12 +5646,12 @@ public partial class rptMRRecSup : INotifyPropertyChanging, INotifyPropertyChang
 				if ((previousValue != null))
 				{
 					this._Staff.Entity = null;
-					previousValue.rptMRRecSups.Remove(this);
+					previousValue.Report_MerrylandsRSLReceptionSupervisors.Remove(this);
 				}
 				this._Staff.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRRecSups.Add(this);
+					value.Report_MerrylandsRSLReceptionSupervisors.Add(this);
 					this._StaffId = value.StaffId;
 				}
 				else
@@ -5684,8 +5684,8 @@ public partial class rptMRRecSup : INotifyPropertyChanging, INotifyPropertyChang
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.rptMRRec")]
-public partial class rptMRRec : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Report_MerrylandsRSLReception")]
+public partial class Report_MerrylandsRSLReception : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -5806,7 +5806,7 @@ public partial class rptMRRec : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnGeneralCommentsChanged();
     #endregion
 	
-	public rptMRRec()
+	public Report_MerrylandsRSLReception()
 	{
 		this._Category = default(EntityRef<Category>);
 		this._Shift = default(EntityRef<Shift>);
@@ -6346,7 +6346,7 @@ public partial class rptMRRec : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptMRRec", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLReception", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
 	public Category Category
 	{
 		get
@@ -6363,12 +6363,12 @@ public partial class rptMRRec : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Category.Entity = null;
-					previousValue.rptMRRecs.Remove(this);
+					previousValue.Report_MerrylandsRSLReceptions.Remove(this);
 				}
 				this._Category.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRRecs.Add(this);
+					value.Report_MerrylandsRSLReceptions.Add(this);
 					this._RCatId = value.RCatId;
 				}
 				else
@@ -6380,7 +6380,7 @@ public partial class rptMRRec : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptMRRec", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLReception", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
 	public Shift Shift
 	{
 		get
@@ -6397,12 +6397,12 @@ public partial class rptMRRec : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Shift.Entity = null;
-					previousValue.rptMRRecs.Remove(this);
+					previousValue.Report_MerrylandsRSLReceptions.Remove(this);
 				}
 				this._Shift.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRRecs.Add(this);
+					value.Report_MerrylandsRSLReceptions.Add(this);
 					this._ShiftId = value.ShiftId;
 				}
 				else
@@ -6414,7 +6414,7 @@ public partial class rptMRRec : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptMRRec", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLReception", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
 	public Staff Staff
 	{
 		get
@@ -6431,12 +6431,12 @@ public partial class rptMRRec : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Staff.Entity = null;
-					previousValue.rptMRRecs.Remove(this);
+					previousValue.Report_MerrylandsRSLReceptions.Remove(this);
 				}
 				this._Staff.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRRecs.Add(this);
+					value.Report_MerrylandsRSLReceptions.Add(this);
 					this._StaffId = value.StaffId;
 				}
 				else
@@ -6469,8 +6469,8 @@ public partial class rptMRRec : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.rptUMRec")]
-public partial class rptUMRec : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Report_ClubUminaReception")]
+public partial class Report_ClubUminaReception : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -6591,7 +6591,7 @@ public partial class rptUMRec : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnGeneralCommentsChanged();
     #endregion
 	
-	public rptUMRec()
+	public Report_ClubUminaReception()
 	{
 		this._Category = default(EntityRef<Category>);
 		this._Shift = default(EntityRef<Shift>);
@@ -7131,7 +7131,7 @@ public partial class rptUMRec : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptUMRec", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_ClubUminaReception", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
 	public Category Category
 	{
 		get
@@ -7148,12 +7148,12 @@ public partial class rptUMRec : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Category.Entity = null;
-					previousValue.rptUMRecs.Remove(this);
+					previousValue.Report_ClubUminaReceptions.Remove(this);
 				}
 				this._Category.Entity = value;
 				if ((value != null))
 				{
-					value.rptUMRecs.Add(this);
+					value.Report_ClubUminaReceptions.Add(this);
 					this._RCatId = value.RCatId;
 				}
 				else
@@ -7165,7 +7165,7 @@ public partial class rptUMRec : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptUMRec", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_ClubUminaReception", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
 	public Shift Shift
 	{
 		get
@@ -7182,12 +7182,12 @@ public partial class rptUMRec : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Shift.Entity = null;
-					previousValue.rptUMRecs.Remove(this);
+					previousValue.Report_ClubUminaReceptions.Remove(this);
 				}
 				this._Shift.Entity = value;
 				if ((value != null))
 				{
-					value.rptUMRecs.Add(this);
+					value.Report_ClubUminaReceptions.Add(this);
 					this._ShiftId = value.ShiftId;
 				}
 				else
@@ -7199,7 +7199,7 @@ public partial class rptUMRec : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptUMRec", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_ClubUminaReception", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
 	public Staff Staff
 	{
 		get
@@ -7216,12 +7216,12 @@ public partial class rptUMRec : INotifyPropertyChanging, INotifyPropertyChanged
 				if ((previousValue != null))
 				{
 					this._Staff.Entity = null;
-					previousValue.rptUMRecs.Remove(this);
+					previousValue.Report_ClubUminaReceptions.Remove(this);
 				}
 				this._Staff.Entity = value;
 				if ((value != null))
 				{
-					value.rptUMRecs.Add(this);
+					value.Report_ClubUminaReceptions.Add(this);
 					this._StaffId = value.StaffId;
 				}
 				else
@@ -7270,23 +7270,23 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private System.Nullable<bool> _Active;
 	
-	private EntitySet<rptMRDM> _rptMRDMs;
+	private EntitySet<Report_MerrylandsRSLDutyManager> _Report_MerrylandsRSLDutyManagers;
 	
-	private EntitySet<rptUMDM> _rptUMDMs;
+	private EntitySet<Report_ClubUminaDutyManager> _Report_ClubUminaDutyManagers;
 	
-	private EntitySet<rptMRSup> _rptMRSups;
+	private EntitySet<Report_MerrylandsRSLSupervisor> _Report_MerrylandsRSLSupervisors;
 	
-	private EntitySet<rptMRFuncSup> _rptMRFuncSups;
+	private EntitySet<Report_MerrylandsRSLFunctionSupervisor> _Report_MerrylandsRSLFunctionSupervisors;
 	
-	private EntitySet<rptMRRecSup> _rptMRRecSups;
+	private EntitySet<Report_MerrylandsRSLReceptionSupervisor> _Report_MerrylandsRSLReceptionSupervisors;
 	
-	private EntitySet<rptMRRec> _rptMRRecs;
+	private EntitySet<Report_MerrylandsRSLReception> _Report_MerrylandsRSLReceptions;
 	
-	private EntitySet<rptUMRec> _rptUMRecs;
+	private EntitySet<Report_ClubUminaReception> _Report_ClubUminaReceptions;
 	
-	private EntitySet<rptMRIncident> _rptMRIncidents;
+	private EntitySet<Report_MerrylandsRSLIncident> _Report_MerrylandsRSLIncidents;
 	
-	private EntitySet<rptUMIncident> _rptUMIncidents;
+	private EntitySet<Report_ClubUminaIncident> _Report_ClubUminaIncidents;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -7306,15 +7306,15 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public Staff()
 	{
-		this._rptMRDMs = new EntitySet<rptMRDM>(new Action<rptMRDM>(this.attach_rptMRDMs), new Action<rptMRDM>(this.detach_rptMRDMs));
-		this._rptUMDMs = new EntitySet<rptUMDM>(new Action<rptUMDM>(this.attach_rptUMDMs), new Action<rptUMDM>(this.detach_rptUMDMs));
-		this._rptMRSups = new EntitySet<rptMRSup>(new Action<rptMRSup>(this.attach_rptMRSups), new Action<rptMRSup>(this.detach_rptMRSups));
-		this._rptMRFuncSups = new EntitySet<rptMRFuncSup>(new Action<rptMRFuncSup>(this.attach_rptMRFuncSups), new Action<rptMRFuncSup>(this.detach_rptMRFuncSups));
-		this._rptMRRecSups = new EntitySet<rptMRRecSup>(new Action<rptMRRecSup>(this.attach_rptMRRecSups), new Action<rptMRRecSup>(this.detach_rptMRRecSups));
-		this._rptMRRecs = new EntitySet<rptMRRec>(new Action<rptMRRec>(this.attach_rptMRRecs), new Action<rptMRRec>(this.detach_rptMRRecs));
-		this._rptUMRecs = new EntitySet<rptUMRec>(new Action<rptUMRec>(this.attach_rptUMRecs), new Action<rptUMRec>(this.detach_rptUMRecs));
-		this._rptMRIncidents = new EntitySet<rptMRIncident>(new Action<rptMRIncident>(this.attach_rptMRIncidents), new Action<rptMRIncident>(this.detach_rptMRIncidents));
-		this._rptUMIncidents = new EntitySet<rptUMIncident>(new Action<rptUMIncident>(this.attach_rptUMIncidents), new Action<rptUMIncident>(this.detach_rptUMIncidents));
+		this._Report_MerrylandsRSLDutyManagers = new EntitySet<Report_MerrylandsRSLDutyManager>(new Action<Report_MerrylandsRSLDutyManager>(this.attach_Report_MerrylandsRSLDutyManagers), new Action<Report_MerrylandsRSLDutyManager>(this.detach_Report_MerrylandsRSLDutyManagers));
+		this._Report_ClubUminaDutyManagers = new EntitySet<Report_ClubUminaDutyManager>(new Action<Report_ClubUminaDutyManager>(this.attach_Report_ClubUminaDutyManagers), new Action<Report_ClubUminaDutyManager>(this.detach_Report_ClubUminaDutyManagers));
+		this._Report_MerrylandsRSLSupervisors = new EntitySet<Report_MerrylandsRSLSupervisor>(new Action<Report_MerrylandsRSLSupervisor>(this.attach_Report_MerrylandsRSLSupervisors), new Action<Report_MerrylandsRSLSupervisor>(this.detach_Report_MerrylandsRSLSupervisors));
+		this._Report_MerrylandsRSLFunctionSupervisors = new EntitySet<Report_MerrylandsRSLFunctionSupervisor>(new Action<Report_MerrylandsRSLFunctionSupervisor>(this.attach_Report_MerrylandsRSLFunctionSupervisors), new Action<Report_MerrylandsRSLFunctionSupervisor>(this.detach_Report_MerrylandsRSLFunctionSupervisors));
+		this._Report_MerrylandsRSLReceptionSupervisors = new EntitySet<Report_MerrylandsRSLReceptionSupervisor>(new Action<Report_MerrylandsRSLReceptionSupervisor>(this.attach_Report_MerrylandsRSLReceptionSupervisors), new Action<Report_MerrylandsRSLReceptionSupervisor>(this.detach_Report_MerrylandsRSLReceptionSupervisors));
+		this._Report_MerrylandsRSLReceptions = new EntitySet<Report_MerrylandsRSLReception>(new Action<Report_MerrylandsRSLReception>(this.attach_Report_MerrylandsRSLReceptions), new Action<Report_MerrylandsRSLReception>(this.detach_Report_MerrylandsRSLReceptions));
+		this._Report_ClubUminaReceptions = new EntitySet<Report_ClubUminaReception>(new Action<Report_ClubUminaReception>(this.attach_Report_ClubUminaReceptions), new Action<Report_ClubUminaReception>(this.detach_Report_ClubUminaReceptions));
+		this._Report_MerrylandsRSLIncidents = new EntitySet<Report_MerrylandsRSLIncident>(new Action<Report_MerrylandsRSLIncident>(this.attach_Report_MerrylandsRSLIncidents), new Action<Report_MerrylandsRSLIncident>(this.detach_Report_MerrylandsRSLIncidents));
+		this._Report_ClubUminaIncidents = new EntitySet<Report_ClubUminaIncident>(new Action<Report_ClubUminaIncident>(this.attach_Report_ClubUminaIncidents), new Action<Report_ClubUminaIncident>(this.detach_Report_ClubUminaIncidents));
 		OnCreated();
 	}
 	
@@ -7418,120 +7418,120 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptMRDM", Storage="_rptMRDMs", ThisKey="StaffId", OtherKey="StaffId")]
-	public EntitySet<rptMRDM> rptMRDMs
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLDutyManager", Storage="_Report_MerrylandsRSLDutyManagers", ThisKey="StaffId", OtherKey="StaffId")]
+	public EntitySet<Report_MerrylandsRSLDutyManager> Report_MerrylandsRSLDutyManagers
 	{
 		get
 		{
-			return this._rptMRDMs;
+			return this._Report_MerrylandsRSLDutyManagers;
 		}
 		set
 		{
-			this._rptMRDMs.Assign(value);
+			this._Report_MerrylandsRSLDutyManagers.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptUMDM", Storage="_rptUMDMs", ThisKey="StaffId", OtherKey="StaffId")]
-	public EntitySet<rptUMDM> rptUMDMs
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_ClubUminaDutyManager", Storage="_Report_ClubUminaDutyManagers", ThisKey="StaffId", OtherKey="StaffId")]
+	public EntitySet<Report_ClubUminaDutyManager> Report_ClubUminaDutyManagers
 	{
 		get
 		{
-			return this._rptUMDMs;
+			return this._Report_ClubUminaDutyManagers;
 		}
 		set
 		{
-			this._rptUMDMs.Assign(value);
+			this._Report_ClubUminaDutyManagers.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptMRSup", Storage="_rptMRSups", ThisKey="StaffId", OtherKey="StaffId")]
-	public EntitySet<rptMRSup> rptMRSups
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLSupervisor", Storage="_Report_MerrylandsRSLSupervisors", ThisKey="StaffId", OtherKey="StaffId")]
+	public EntitySet<Report_MerrylandsRSLSupervisor> Report_MerrylandsRSLSupervisors
 	{
 		get
 		{
-			return this._rptMRSups;
+			return this._Report_MerrylandsRSLSupervisors;
 		}
 		set
 		{
-			this._rptMRSups.Assign(value);
+			this._Report_MerrylandsRSLSupervisors.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptMRFuncSup", Storage="_rptMRFuncSups", ThisKey="StaffId", OtherKey="StaffId")]
-	public EntitySet<rptMRFuncSup> rptMRFuncSups
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLFunctionSupervisor", Storage="_Report_MerrylandsRSLFunctionSupervisors", ThisKey="StaffId", OtherKey="StaffId")]
+	public EntitySet<Report_MerrylandsRSLFunctionSupervisor> Report_MerrylandsRSLFunctionSupervisors
 	{
 		get
 		{
-			return this._rptMRFuncSups;
+			return this._Report_MerrylandsRSLFunctionSupervisors;
 		}
 		set
 		{
-			this._rptMRFuncSups.Assign(value);
+			this._Report_MerrylandsRSLFunctionSupervisors.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptMRRecSup", Storage="_rptMRRecSups", ThisKey="StaffId", OtherKey="StaffId")]
-	public EntitySet<rptMRRecSup> rptMRRecSups
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLReceptionSupervisor", Storage="_Report_MerrylandsRSLReceptionSupervisors", ThisKey="StaffId", OtherKey="StaffId")]
+	public EntitySet<Report_MerrylandsRSLReceptionSupervisor> Report_MerrylandsRSLReceptionSupervisors
 	{
 		get
 		{
-			return this._rptMRRecSups;
+			return this._Report_MerrylandsRSLReceptionSupervisors;
 		}
 		set
 		{
-			this._rptMRRecSups.Assign(value);
+			this._Report_MerrylandsRSLReceptionSupervisors.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptMRRec", Storage="_rptMRRecs", ThisKey="StaffId", OtherKey="StaffId")]
-	public EntitySet<rptMRRec> rptMRRecs
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLReception", Storage="_Report_MerrylandsRSLReceptions", ThisKey="StaffId", OtherKey="StaffId")]
+	public EntitySet<Report_MerrylandsRSLReception> Report_MerrylandsRSLReceptions
 	{
 		get
 		{
-			return this._rptMRRecs;
+			return this._Report_MerrylandsRSLReceptions;
 		}
 		set
 		{
-			this._rptMRRecs.Assign(value);
+			this._Report_MerrylandsRSLReceptions.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptUMRec", Storage="_rptUMRecs", ThisKey="StaffId", OtherKey="StaffId")]
-	public EntitySet<rptUMRec> rptUMRecs
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_ClubUminaReception", Storage="_Report_ClubUminaReceptions", ThisKey="StaffId", OtherKey="StaffId")]
+	public EntitySet<Report_ClubUminaReception> Report_ClubUminaReceptions
 	{
 		get
 		{
-			return this._rptUMRecs;
+			return this._Report_ClubUminaReceptions;
 		}
 		set
 		{
-			this._rptUMRecs.Assign(value);
+			this._Report_ClubUminaReceptions.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptMRIncident", Storage="_rptMRIncidents", ThisKey="StaffId", OtherKey="StaffId")]
-	public EntitySet<rptMRIncident> rptMRIncidents
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLIncident", Storage="_Report_MerrylandsRSLIncidents", ThisKey="StaffId", OtherKey="StaffId")]
+	public EntitySet<Report_MerrylandsRSLIncident> Report_MerrylandsRSLIncidents
 	{
 		get
 		{
-			return this._rptMRIncidents;
+			return this._Report_MerrylandsRSLIncidents;
 		}
 		set
 		{
-			this._rptMRIncidents.Assign(value);
+			this._Report_MerrylandsRSLIncidents.Assign(value);
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptUMIncident", Storage="_rptUMIncidents", ThisKey="StaffId", OtherKey="StaffId")]
-	public EntitySet<rptUMIncident> rptUMIncidents
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_ClubUminaIncident", Storage="_Report_ClubUminaIncidents", ThisKey="StaffId", OtherKey="StaffId")]
+	public EntitySet<Report_ClubUminaIncident> Report_ClubUminaIncidents
 	{
 		get
 		{
-			return this._rptUMIncidents;
+			return this._Report_ClubUminaIncidents;
 		}
 		set
 		{
-			this._rptUMIncidents.Assign(value);
+			this._Report_ClubUminaIncidents.Assign(value);
 		}
 	}
 	
@@ -7555,117 +7555,117 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	private void attach_rptMRDMs(rptMRDM entity)
+	private void attach_Report_MerrylandsRSLDutyManagers(Report_MerrylandsRSLDutyManager entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = this;
 	}
 	
-	private void detach_rptMRDMs(rptMRDM entity)
+	private void detach_Report_MerrylandsRSLDutyManagers(Report_MerrylandsRSLDutyManager entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = null;
 	}
 	
-	private void attach_rptUMDMs(rptUMDM entity)
+	private void attach_Report_ClubUminaDutyManagers(Report_ClubUminaDutyManager entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = this;
 	}
 	
-	private void detach_rptUMDMs(rptUMDM entity)
+	private void detach_Report_ClubUminaDutyManagers(Report_ClubUminaDutyManager entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = null;
 	}
 	
-	private void attach_rptMRSups(rptMRSup entity)
+	private void attach_Report_MerrylandsRSLSupervisors(Report_MerrylandsRSLSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = this;
 	}
 	
-	private void detach_rptMRSups(rptMRSup entity)
+	private void detach_Report_MerrylandsRSLSupervisors(Report_MerrylandsRSLSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = null;
 	}
 	
-	private void attach_rptMRFuncSups(rptMRFuncSup entity)
+	private void attach_Report_MerrylandsRSLFunctionSupervisors(Report_MerrylandsRSLFunctionSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = this;
 	}
 	
-	private void detach_rptMRFuncSups(rptMRFuncSup entity)
+	private void detach_Report_MerrylandsRSLFunctionSupervisors(Report_MerrylandsRSLFunctionSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = null;
 	}
 	
-	private void attach_rptMRRecSups(rptMRRecSup entity)
+	private void attach_Report_MerrylandsRSLReceptionSupervisors(Report_MerrylandsRSLReceptionSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = this;
 	}
 	
-	private void detach_rptMRRecSups(rptMRRecSup entity)
+	private void detach_Report_MerrylandsRSLReceptionSupervisors(Report_MerrylandsRSLReceptionSupervisor entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = null;
 	}
 	
-	private void attach_rptMRRecs(rptMRRec entity)
+	private void attach_Report_MerrylandsRSLReceptions(Report_MerrylandsRSLReception entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = this;
 	}
 	
-	private void detach_rptMRRecs(rptMRRec entity)
+	private void detach_Report_MerrylandsRSLReceptions(Report_MerrylandsRSLReception entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = null;
 	}
 	
-	private void attach_rptUMRecs(rptUMRec entity)
+	private void attach_Report_ClubUminaReceptions(Report_ClubUminaReception entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = this;
 	}
 	
-	private void detach_rptUMRecs(rptUMRec entity)
+	private void detach_Report_ClubUminaReceptions(Report_ClubUminaReception entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = null;
 	}
 	
-	private void attach_rptMRIncidents(rptMRIncident entity)
+	private void attach_Report_MerrylandsRSLIncidents(Report_MerrylandsRSLIncident entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = this;
 	}
 	
-	private void detach_rptMRIncidents(rptMRIncident entity)
+	private void detach_Report_MerrylandsRSLIncidents(Report_MerrylandsRSLIncident entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = null;
 	}
 	
-	private void attach_rptUMIncidents(rptUMIncident entity)
+	private void attach_Report_ClubUminaIncidents(Report_ClubUminaIncident entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = this;
 	}
 	
-	private void detach_rptUMIncidents(rptUMIncident entity)
+	private void detach_Report_ClubUminaIncidents(Report_ClubUminaIncident entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = null;
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.rptMRIncident")]
-public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Report_MerrylandsRSLIncident")]
+public partial class Report_MerrylandsRSLIncident : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -9226,7 +9226,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
     partial void OnPoliceActionChanged();
     #endregion
 	
-	public rptMRIncident()
+	public Report_MerrylandsRSLIncident()
 	{
 		this._Category = default(EntityRef<Category>);
 		this._Shift = default(EntityRef<Shift>);
@@ -9806,7 +9806,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto1", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto1", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto1
 	{
 		get
@@ -10566,7 +10566,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image1", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image1", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image1
 	{
 		get
@@ -10686,7 +10686,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto2", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto2", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto2
 	{
 		get
@@ -11446,7 +11446,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image2", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image2", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image2
 	{
 		get
@@ -11566,7 +11566,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto3", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto3", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto3
 	{
 		get
@@ -12326,7 +12326,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image3", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image3", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image3
 	{
 		get
@@ -12446,7 +12446,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto4", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto4", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto4
 	{
 		get
@@ -13206,7 +13206,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image4", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image4", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image4
 	{
 		get
@@ -13326,7 +13326,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto5", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto5", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto5
 	{
 		get
@@ -14086,7 +14086,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image5", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image5", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image5
 	{
 		get
@@ -16966,7 +16966,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptMRIncident", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLIncident", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
 	public Category Category
 	{
 		get
@@ -16983,12 +16983,12 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 				if ((previousValue != null))
 				{
 					this._Category.Entity = null;
-					previousValue.rptMRIncidents.Remove(this);
+					previousValue.Report_MerrylandsRSLIncidents.Remove(this);
 				}
 				this._Category.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRIncidents.Add(this);
+					value.Report_MerrylandsRSLIncidents.Add(this);
 					this._RCatId = value.RCatId;
 				}
 				else
@@ -17000,7 +17000,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptMRIncident", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLIncident", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
 	public Shift Shift
 	{
 		get
@@ -17017,12 +17017,12 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 				if ((previousValue != null))
 				{
 					this._Shift.Entity = null;
-					previousValue.rptMRIncidents.Remove(this);
+					previousValue.Report_MerrylandsRSLIncidents.Remove(this);
 				}
 				this._Shift.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRIncidents.Add(this);
+					value.Report_MerrylandsRSLIncidents.Add(this);
 					this._ShiftId = value.ShiftId;
 				}
 				else
@@ -17034,7 +17034,7 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptMRIncident", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLIncident", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
 	public Staff Staff
 	{
 		get
@@ -17051,12 +17051,12 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 				if ((previousValue != null))
 				{
 					this._Staff.Entity = null;
-					previousValue.rptMRIncidents.Remove(this);
+					previousValue.Report_MerrylandsRSLIncidents.Remove(this);
 				}
 				this._Staff.Entity = value;
 				if ((value != null))
 				{
-					value.rptMRIncidents.Add(this);
+					value.Report_MerrylandsRSLIncidents.Add(this);
 					this._StaffId = value.StaffId;
 				}
 				else
@@ -17089,8 +17089,8 @@ public partial class rptMRIncident : INotifyPropertyChanging, INotifyPropertyCha
 	}
 }
 
-[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.rptUMIncident")]
-public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyChanged
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Report_ClubUminaIncident")]
+public partial class Report_ClubUminaIncident : INotifyPropertyChanging, INotifyPropertyChanged
 {
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
@@ -18651,7 +18651,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
     partial void OnPoliceActionChanged();
     #endregion
 	
-	public rptUMIncident()
+	public Report_ClubUminaIncident()
 	{
 		this._Category = default(EntityRef<Category>);
 		this._Shift = default(EntityRef<Shift>);
@@ -19231,7 +19231,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto1", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto1", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto1
 	{
 		get
@@ -19991,7 +19991,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image1", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image1", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image1
 	{
 		get
@@ -20111,7 +20111,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto2", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto2", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto2
 	{
 		get
@@ -20871,7 +20871,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image2", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image2", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image2
 	{
 		get
@@ -20991,7 +20991,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto3", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto3", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto3
 	{
 		get
@@ -21751,7 +21751,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image3", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image3", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image3
 	{
 		get
@@ -21871,7 +21871,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto4", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto4", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto4
 	{
 		get
@@ -22631,7 +22631,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image4", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image4", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image4
 	{
 		get
@@ -22751,7 +22751,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto5", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto5", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto5
 	{
 		get
@@ -23511,7 +23511,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image5", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image5", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image5
 	{
 		get
@@ -26391,7 +26391,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_rptUMIncident", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_ClubUminaIncident", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
 	public Category Category
 	{
 		get
@@ -26408,12 +26408,12 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 				if ((previousValue != null))
 				{
 					this._Category.Entity = null;
-					previousValue.rptUMIncidents.Remove(this);
+					previousValue.Report_ClubUminaIncidents.Remove(this);
 				}
 				this._Category.Entity = value;
 				if ((value != null))
 				{
-					value.rptUMIncidents.Add(this);
+					value.Report_ClubUminaIncidents.Add(this);
 					this._RCatId = value.RCatId;
 				}
 				else
@@ -26425,7 +26425,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_rptUMIncident", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_ClubUminaIncident", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
 	public Shift Shift
 	{
 		get
@@ -26442,12 +26442,12 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 				if ((previousValue != null))
 				{
 					this._Shift.Entity = null;
-					previousValue.rptUMIncidents.Remove(this);
+					previousValue.Report_ClubUminaIncidents.Remove(this);
 				}
 				this._Shift.Entity = value;
 				if ((value != null))
 				{
-					value.rptUMIncidents.Add(this);
+					value.Report_ClubUminaIncidents.Add(this);
 					this._ShiftId = value.ShiftId;
 				}
 				else
@@ -26459,7 +26459,7 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_rptUMIncident", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_ClubUminaIncident", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
 	public Staff Staff
 	{
 		get
@@ -26476,12 +26476,12 @@ public partial class rptUMIncident : INotifyPropertyChanging, INotifyPropertyCha
 				if ((previousValue != null))
 				{
 					this._Staff.Entity = null;
-					previousValue.rptUMIncidents.Remove(this);
+					previousValue.Report_ClubUminaIncidents.Remove(this);
 				}
 				this._Staff.Entity = value;
 				if ((value != null))
 				{
-					value.rptUMIncidents.Add(this);
+					value.Report_ClubUminaIncidents.Add(this);
 					this._StaffId = value.StaffId;
 				}
 				else

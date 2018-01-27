@@ -79,33 +79,33 @@ public partial class Web_Forms_DisplayVersion : System.Web.UI.Page
                         // display the reports in proper order, All MR Reports at the top followed by CU Reports
                         if (int_groups[i] == 1)
                         {
-                            ddlReport.Items.Add(new ListItem("MR Incident Report", "rptMRIncident"));
-                            ddlReport.Items.Add(new ListItem("MR Duty Managers", "rptMRDM"));
+                            ddlReport.Items.Add(new ListItem("MR Incident Report", "Report_MerrylandsRSLIncident"));
+                            ddlReport.Items.Add(new ListItem("MR Duty Managers", "Report_MerrylandsRSLDutyManager"));
                         }
                         else if (int_groups[i] == 2)
                         {
-                            ddlReport.Items.Add(new ListItem("MR Supervisors", "rptMRSup"));
+                            ddlReport.Items.Add(new ListItem("MR Supervisors", "Report_MerrylandsRSLSupervisor"));
                         }
                         else if (int_groups[i] == 3)
                         {
-                            ddlReport.Items.Add(new ListItem("MR Function Supervisor", "rptMRFuncSup"));
+                            ddlReport.Items.Add(new ListItem("MR Function Supervisor", "Report_MerrylandsRSLFunctionSupervisor"));
                         }
                         else if (int_groups[i] == 4)
                         {
-                            ddlReport.Items.Add(new ListItem("MR Reception Supervisor", "rptMRRecSup"));
+                            ddlReport.Items.Add(new ListItem("MR Reception Supervisor", "Report_MerrylandsRSLReceptionSupervisor"));
                         }
                         else if (int_groups[i] == 5)
                         {
-                            ddlReport.Items.Add(new ListItem("MR Reception", "rptMRRec"));
+                            ddlReport.Items.Add(new ListItem("MR Reception", "Report_MerrylandsRSLReception"));
                         }
                         else if (int_groups[i] == 6)
                         {
-                            ddlReport.Items.Add(new ListItem("CU Incident Report", "rptUMIncident"));
-                            ddlReport.Items.Add(new ListItem("CU Duty Managers", "rptUMDM"));
+                            ddlReport.Items.Add(new ListItem("CU Incident Report", "Report_ClubUminaIncident"));
+                            ddlReport.Items.Add(new ListItem("CU Duty Managers", "Report_ClubUminaDutyManager"));
                         }
                         else if (int_groups[i] == 7)
                         {
-                            ddlReport.Items.Add(new ListItem("CU Reception", "rptUMRec"));
+                            ddlReport.Items.Add(new ListItem("CU Reception", "Report_ClubUminaReception"));
                         }
                     }
                 }
@@ -113,22 +113,22 @@ public partial class Web_Forms_DisplayVersion : System.Web.UI.Page
                 {
                     // add all reports
                     // MR Duty Manager & Incident Report
-                    ddlReport.Items.Add(new ListItem("MR Incident Report", "rptMRIncident"));
+                    ddlReport.Items.Add(new ListItem("MR Incident Report", "Report_MerrylandsRSLIncident"));
                     // CU Incident Report
-                    ddlReport.Items.Add(new ListItem("CU Incident Report", "rptUMIncident"));
-                    ddlReport.Items.Add(new ListItem("MR Duty Managers", "rptMRDM"));
+                    ddlReport.Items.Add(new ListItem("CU Incident Report", "Report_ClubUminaIncident"));
+                    ddlReport.Items.Add(new ListItem("MR Duty Managers", "Report_MerrylandsRSLDutyManager"));
                     // MR Supervisor
-                    ddlReport.Items.Add(new ListItem("MR Supervisors", "rptMRSup"));
+                    ddlReport.Items.Add(new ListItem("MR Supervisors", "Report_MerrylandsRSLSupervisor"));
                     // MR Function Supervisor
-                    ddlReport.Items.Add(new ListItem("MR Function Supervisor", "rptMRFuncSup"));
+                    ddlReport.Items.Add(new ListItem("MR Function Supervisor", "Report_MerrylandsRSLFunctionSupervisor"));
                     // MR Reception Supervisor
-                    ddlReport.Items.Add(new ListItem("MR Reception Supervisor", "rptMRRecSup"));
+                    ddlReport.Items.Add(new ListItem("MR Reception Supervisor", "Report_MerrylandsRSLReceptionSupervisor"));
                     // MR Reception
-                    ddlReport.Items.Add(new ListItem("MR Reception", "rptMRRec"));
+                    ddlReport.Items.Add(new ListItem("MR Reception", "Report_MerrylandsRSLReception"));
                     // CU Duty Manager
-                    ddlReport.Items.Add(new ListItem("CU Duty Managers", "rptUMDM"));
+                    ddlReport.Items.Add(new ListItem("CU Duty Managers", "Report_ClubUminaDutyManager"));
                     // CU Reception
-                    ddlReport.Items.Add(new ListItem("CU Reception", "rptUMRec"));
+                    ddlReport.Items.Add(new ListItem("CU Reception", "Report_ClubUminaReception"));
                 }
             }
         }

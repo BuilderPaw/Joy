@@ -19,10 +19,10 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
     {
         if (Report.PopulateFields) // checks whether or not the method reads the fields from the database
         {
-            cblLocation.Items.Clear();
-            cblAskedToLeave.Items.Clear();
-            cblActionTaken.Items.Clear();
-            cblRefuseReason.Items.Clear();
+            List_Location.Items.Clear();
+            List_AskedToLeave.Items.Clear();
+            List_ActionTaken.Items.Clear();
+            List_RefuseReason.Items.Clear();
             cblWhatHappened1.Items.Clear();
             ReadFields(Report.ActiveReport, "GetFields");
             Report.PopulateFields = false;
@@ -127,18 +127,18 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             returnedFlag = true;
 
         }*/
-        if (cblLocation.SelectedValue == String.Empty)
+        if (List_Location.SelectedValue == String.Empty)
         {
             if (txtLocation.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the location in this Incident Report.";
-                cblLocation.Focus();
+                List_Location.Focus();
                 returnedFlag = true;
             }
         }
         else
         {
-            foreach (ListItem item in cblLocation.Items)
+            foreach (ListItem item in List_Location.Items)
             {
                 if (item.ToString() == "Other")
                 {
@@ -200,10 +200,10 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 {
                     if (item.Selected)
                     {
-                        if (cblRefuseReason.SelectedValue == String.Empty)
+                        if (List_RefuseReason.SelectedValue == String.Empty)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify reason for refusing entry.";
-                            cblRefuseReason.Focus();
+                            List_RefuseReason.Focus();
                             returnedFlag = true;
                         }
                     }
@@ -212,10 +212,10 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 {
                     if (item.Selected)
                     {
-                        if (cblAskedToLeave.SelectedValue == String.Empty)
+                        if (List_AskedToLeave.SelectedValue == String.Empty)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify reason for asking the patron to leave the premises.";
-                            cblAskedToLeave.Focus();
+                            List_AskedToLeave.Focus();
                             returnedFlag = true;
                         }
                     }
@@ -564,15 +564,15 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                                 acdPerson.SelectedIndex = 4;
                             }
                         }
-                        if (cblActionTaken.SelectedValue == String.Empty)
+                        if (List_ActionTaken.SelectedValue == String.Empty)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Action Taken is mandatory for this Incident.";
-                            cblActionTaken.Focus();
+                            List_ActionTaken.Focus();
                             returnedFlag = true;
                         }
                         else
                         {
-                            foreach (ListItem item1 in cblActionTaken.Items)
+                            foreach (ListItem item1 in List_ActionTaken.Items)
                             {
                                 if (item1.ToString() == "Other")
                                 {
@@ -2632,7 +2632,6 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             txtLastName1.Enabled = false;
                             txtAge1.Enabled = false;
                             txtDOB1.Enabled = false;
-                            txtAddress1.Enabled = false;
 
                             // member's fields
                             cbCardHeld1.Checked = Convert.ToBoolean(rdr["CardHeld1"]);
@@ -2696,7 +2695,6 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             txtLastName2.Enabled = false;
                             txtAge2.Enabled = false;
                             txtDOB2.Enabled = false;
-                            txtAddress2.Enabled = false;
 
                             // member's fields
                             cbCardHeld2.Checked = Convert.ToBoolean(rdr["CardHeld2"]);
@@ -2755,7 +2753,6 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             txtLastName3.Enabled = false;
                             txtAge3.Enabled = false;
                             txtDOB3.Enabled = false;
-                            txtAddress3.Enabled = false;
 
                             // member's fields
                             cbCardHeld3.Checked = Convert.ToBoolean(rdr["CardHeld3"]);
@@ -2814,7 +2811,6 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             txtLastName4.Enabled = false;
                             txtAge4.Enabled = false;
                             txtDOB4.Enabled = false;
-                            txtAddress4.Enabled = false;
 
                             // member's fields
                             cbCardHeld4.Checked = Convert.ToBoolean(rdr["CardHeld4"]);
@@ -2873,7 +2869,6 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             txtLastName5.Enabled = false;
                             txtAge5.Enabled = false;
                             txtDOB5.Enabled = false;
-                            txtAddress5.Enabled = false;
 
                             // member's fields
                             cbCardHeld5.Checked = Convert.ToBoolean(rdr["CardHeld5"]);
@@ -2932,12 +2927,12 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         {
                             incidentType = incidentType.Remove(incidentType.Length - 1); // take off the ','. creates exceptions in passing the values to the dropdown list
                             // order by query sets the Other value from Description field to be in the last of the the list 
-                            populateIncidentList = "SELECT * FROM [dbo].[cblIncidentType] WHERE [SiteID] = 1 AND ([Active] = 1 OR [IncidentID] IN (" + incidentType + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            populateIncidentList = "SELECT * FROM [dbo].[List_IncidentType] WHERE [SiteID] = 1 AND ([Active] = 1 OR [IncidentID] IN (" + incidentType + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
                         else
                         {
                             // order by query sets the Other value from Description field to be in the last of the the list
-                            populateIncidentList = "SELECT * FROM [dbo].[cblIncidentType] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            populateIncidentList = "SELECT * FROM [dbo].[List_IncidentType] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
                         // populate the incident type list
                         using (SqlCommand command = new SqlCommand())
@@ -2995,12 +2990,12 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (!string.IsNullOrEmpty(refuseEntry))
                         {
                             // order by query sets the Other value from Description field to be in the last of the the list
-                            populateRefuseEntry = "SELECT * FROM [dbo].[cblRefuseReason] WHERE [SiteID] = 1 AND ([Active] = 1 OR [RefuseReasonID] IN (" + refuseEntry + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            populateRefuseEntry = "SELECT * FROM [dbo].[List_RefuseReason] WHERE [SiteID] = 1 AND ([Active] = 1 OR [RefuseReasonID] IN (" + refuseEntry + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
                         else
                         {
                             // order by query sets the Other value from Description field to be in the last of the the list
-                            populateRefuseEntry = "SELECT * FROM [dbo].[cblRefuseReason] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            populateRefuseEntry = "SELECT * FROM [dbo].[List_RefuseReason] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
                         // populate the refuse entry list
                         using (SqlCommand command = new SqlCommand())
@@ -3015,7 +3010,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                                     ListItem item = new ListItem();
                                     item.Text = sdr["Description"].ToString();
                                     item.Value = sdr["RefuseReasonID"].ToString();
-                                    cblRefuseReason.Items.Add(item);
+                                    List_RefuseReason.Items.Add(item);
                                 }
                             }
                             connection.Close();
@@ -3025,11 +3020,11 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         {
                             refuseEntryReasons.Visible = true;
                             refuseEntryReasons1.Visible = true;
-                            cblRefuseReason.Visible = true;
+                            List_RefuseReason.Visible = true;
                             
                             // tick the checkbox for selected refuse entry reasons
                             string[] arrRefuseReason = rdr["HappenedRefuseEntry"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                            foreach (ListItem item in cblRefuseReason.Items)
+                            foreach (ListItem item in List_RefuseReason.Items)
                             {
                                 for (int i = 0; i < arrRefuseReason.Length; i++)
                                 {
@@ -3045,12 +3040,12 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (!string.IsNullOrEmpty(askedToLeave))
                         {
                             // order by query sets the Other value from Description field to be in the last of the the list
-                            populateAskedToLeave = "SELECT * FROM [dbo].[cblAskedToLeave] WHERE [SiteID] = 1 AND ([Active] = 1 OR [AskedToLeaveID] IN (" + askedToLeave + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            populateAskedToLeave = "SELECT * FROM [dbo].[List_AskedToLeave] WHERE [SiteID] = 1 AND ([Active] = 1 OR [AskedToLeaveID] IN (" + askedToLeave + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
                         else
                         {
                             // order by query sets the Other value from Description field to be in the last of the the list
-                            populateAskedToLeave = "SELECT * FROM [dbo].[cblAskedToLeave] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            populateAskedToLeave = "SELECT * FROM [dbo].[List_AskedToLeave] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
                         // populate the asked to leave list
                         using (SqlCommand command = new SqlCommand())
@@ -3065,7 +3060,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                                     ListItem item = new ListItem();
                                     item.Text = sdr["Description"].ToString();
                                     item.Value = sdr["AskedToLeaveID"].ToString();
-                                    cblAskedToLeave.Items.Add(item);
+                                    List_AskedToLeave.Items.Add(item);
                                 }
                             }
                             connection.Close();
@@ -3075,11 +3070,11 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         {
                             askedtoLeaveReasons.Visible = true;
                             askedtoLeaveReasons1.Visible = true;
-                            cblAskedToLeave.Visible = true;
+                            List_AskedToLeave.Visible = true;
                             
                             // tick the checkbox for selected asked to leave reasons
                             string[] arrAskedToLeave = rdr["HappenedAskedToLeave"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                            foreach (ListItem item in cblAskedToLeave.Items)
+                            foreach (ListItem item in List_AskedToLeave.Items)
                             {
                                 for (int i = 0; i < arrAskedToLeave.Length; i++)
                                 {
@@ -3098,12 +3093,12 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         {
                             location = location.Remove(location.Length - 1); // take off the ','. creates exceptions in passing the values to the dropdown list
                             // order by query sets the Other value from Description field to be in the last of the the list 
-                            populateLocationList = "SELECT * FROM [dbo].[cblLocation] WHERE [SiteID] = 1 AND ([Active] = 1 OR [LocationID] IN (" + location + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            populateLocationList = "SELECT * FROM [dbo].[List_Location] WHERE [SiteID] = 1 AND ([Active] = 1 OR [LocationID] IN (" + location + ")) ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
                         else
                         {
                             // order by query sets the Other value from Description field to be in the last of the the list
-                            populateLocationList = "SELECT * FROM [dbo].[cblLocation] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            populateLocationList = "SELECT * FROM [dbo].[List_Location] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                         }
                         // populate the location list
                         using (SqlCommand command = new SqlCommand())
@@ -3118,14 +3113,14 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                                     ListItem item = new ListItem();
                                     item.Text = sdr["Description"].ToString();
                                     item.Value = sdr["LocationId"].ToString();
-                                    cblLocation.Items.Add(item);
+                                    List_Location.Items.Add(item);
                                 }
                             }
                             connection.Close();
                         }
                         // tick the checkbox for selected location
                         string[] arrLocation = rdr["Location"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                        foreach (ListItem item in cblLocation.Items)
+                        foreach (ListItem item in List_Location.Items)
                         {
                             for (int i = 0; i < arrLocation.Length; i++)
                             {
@@ -3136,7 +3131,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             }
                         }
                         // display location:other textbox if other is selected in location field
-                        foreach (ListItem item in cblLocation.Items)
+                        foreach (ListItem item in List_Location.Items)
                         {
                             if (item.ToString() == "Other")
                             {
@@ -3252,12 +3247,12 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         {
                             actionTaken = actionTaken.Remove(actionTaken.Length - 1); // take off the ','. creates exceptions in passing the values to the dropdown list
                             // order by query sets the Other value from Description field to be in the last of the the list
-                            populateActionTaken = "SELECT * FROM [dbo].[cblActionTaken] WHERE [SiteID] = 1 AND ([Active] = 1 OR [ActionID] IN (" + actionTaken + ")) ORDER BY CASE WHEN [Description] = 'None of the above' THEN 1 ELSE 0 END, [Description]";
+                            populateActionTaken = "SELECT * FROM [dbo].[List_ActionTaken] WHERE [SiteID] = 1 AND ([Active] = 1 OR [ActionID] IN (" + actionTaken + ")) ORDER BY CASE WHEN [Description] = 'None of the above' THEN 1 ELSE 0 END, [Description]";
                         }
                         else
                         {
                             // order by query sets the Other value from Description field to be in the last of the the list
-                            populateActionTaken = "SELECT * FROM [dbo].[cblActionTaken] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'None of the above' THEN 1 ELSE 0 END, [Description]";
+                            populateActionTaken = "SELECT * FROM [dbo].[List_ActionTaken] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'None of the above' THEN 1 ELSE 0 END, [Description]";
                         }
                         // populate the action taken list
                         using (SqlCommand command = new SqlCommand())
@@ -3272,7 +3267,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                                     ListItem item = new ListItem();
                                     item.Text = sdr["Description"].ToString();
                                     item.Value = sdr["ActionId"].ToString();
-                                    cblActionTaken.Items.Add(item);
+                                    List_ActionTaken.Items.Add(item);
                                 }
                             }
                             connection.Close();
@@ -3281,7 +3276,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (!String.IsNullOrEmpty(rdr["ActionTaken"].ToString()))
                         {
                             string[] arrActionTaken = rdr["ActionTaken"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                            foreach (ListItem item in cblActionTaken.Items)
+                            foreach (ListItem item in List_ActionTaken.Items)
                             {
                                 for (int i = 0; i < arrActionTaken.Length; i++)
                                 {
@@ -5519,7 +5514,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         string Location;
         List<String> YrStrList1 = new List<string>();
         // Loop through each item.
-        foreach (ListItem item in cblLocation.Items)
+        foreach (ListItem item in List_Location.Items)
         {
             if (item.Selected)
             {
@@ -5552,7 +5547,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         List<String> YrStrList4 = new List<string>();
 
         // Loop through each item.
-        foreach (ListItem item in cblActionTaken.Items)
+        foreach (ListItem item in List_ActionTaken.Items)
         {
             if (item.Selected)
             {
@@ -5588,10 +5583,10 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         }
 
         // check if Refuse Entry is not empty
-        if (cblRefuseReason.SelectedValue != String.Empty)
+        if (List_RefuseReason.SelectedValue != String.Empty)
         {
             // Loop through each item.
-            foreach (ListItem item in cblRefuseReason.Items)
+            foreach (ListItem item in List_RefuseReason.Items)
             {
                 if (item.Selected)
                 {
@@ -5606,10 +5601,10 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         }
 
         // check if Asked To Leave is not empty
-        if (cblAskedToLeave.SelectedValue != String.Empty)
+        if (List_AskedToLeave.SelectedValue != String.Empty)
         {
             // Loop through each item.
-            foreach (ListItem item in cblAskedToLeave.Items)
+            foreach (ListItem item in List_AskedToLeave.Items)
             {
                 if (item.Selected)
                 {
@@ -9427,7 +9422,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             Image1.Visible = false;
             btnDelete1.Visible = false;
             con.Open();
-            SqlCommand cmd2 = new SqlCommand("UPDATE rptMRIncident SET Image1=NULL WHERE ReportId='" + Report.Id + "'", con);
+            SqlCommand cmd2 = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image1=NULL WHERE ReportId='" + Report.Id + "'", con);
             cmd2.ExecuteNonQuery();
             con.Close();
             acdPerson.SelectedIndex = 0;
@@ -9439,7 +9434,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             Image2.Visible = false;
             btnDelete2.Visible = false;
             con.Open();
-            SqlCommand cmd2 = new SqlCommand("UPDATE rptMRIncident SET Image2=NULL WHERE ReportId='" + Report.Id + "'", con);
+            SqlCommand cmd2 = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image2=NULL WHERE ReportId='" + Report.Id + "'", con);
             cmd2.ExecuteNonQuery();
             con.Close();
             acdPerson.SelectedIndex = 1;
@@ -9451,7 +9446,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             Image3.Visible = false;
             btnDelete3.Visible = false;
             con.Open();
-            SqlCommand cmd2 = new SqlCommand("UPDATE rptMRIncident SET Image3=NULL WHERE ReportId='" + Report.Id + "'", con);
+            SqlCommand cmd2 = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image3=NULL WHERE ReportId='" + Report.Id + "'", con);
             cmd2.ExecuteNonQuery();
             con.Close();
             acdPerson.SelectedIndex = 2;
@@ -9463,7 +9458,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             Image4.Visible = false;
             btnDelete4.Visible = false;
             con.Open();
-            SqlCommand cmd2 = new SqlCommand("UPDATE rptMRIncident SET Image4=NULL WHERE ReportId='" + Report.Id + "'", con);
+            SqlCommand cmd2 = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image4=NULL WHERE ReportId='" + Report.Id + "'", con);
             cmd2.ExecuteNonQuery();
             con.Close();
             acdPerson.SelectedIndex = 3;
@@ -9475,7 +9470,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             Image5.Visible = false;
             btnDelete5.Visible = false;
             con.Open();
-            SqlCommand cmd2 = new SqlCommand("UPDATE rptMRIncident SET Image5=NULL WHERE ReportId='" + Report.Id + "'", con);
+            SqlCommand cmd2 = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET Image5=NULL WHERE ReportId='" + Report.Id + "'", con);
             cmd2.ExecuteNonQuery();
             con.Close();
             acdPerson.SelectedIndex = 4;
@@ -9932,13 +9927,13 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 {
                     refuseEntryReasons.Visible = true;
                     refuseEntryReasons1.Visible = true;
-                    cblRefuseReason.Focus();
+                    List_RefuseReason.Focus();
                 }
                 else
                 {
                     refuseEntryReasons.Visible = false;
                     refuseEntryReasons1.Visible = false;
-                    cblRefuseReason.ClearSelection();
+                    List_RefuseReason.ClearSelection();
                 }
             }
             if (item.ToString() == "Asked to Leave")
@@ -9947,13 +9942,13 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 {
                     askedtoLeaveReasons.Visible = true;
                     askedtoLeaveReasons1.Visible = true;
-                    cblAskedToLeave.Focus();
+                    List_AskedToLeave.Focus();
                 }
                 else
                 {
                     askedtoLeaveReasons.Visible = false;
                     askedtoLeaveReasons1.Visible = false;
-                    cblAskedToLeave.ClearSelection();
+                    List_AskedToLeave.ClearSelection();
                 }
             }
         }
@@ -9964,9 +9959,9 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             return;
         }
     }
-    protected void cblActionTaken_SelectedIndexChanged(object sender, EventArgs e)
+    protected void List_ActionTaken_SelectedIndexChanged(object sender, EventArgs e)
     {
-        foreach (ListItem item in cblActionTaken.Items)
+        foreach (ListItem item in List_ActionTaken.Items)
         {
             if (item.ToString() == "Other")
             {
@@ -9992,9 +9987,9 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             return;
         }
     }
-    protected void cblLocation_SelectedIndexChanged(object sender, EventArgs e)
+    protected void List_Location_SelectedIndexChanged(object sender, EventArgs e)
     {
-        foreach (ListItem item in cblLocation.Items)
+        foreach (ListItem item in List_Location.Items)
         {
             if (item.ToString() == "Other")
             {
