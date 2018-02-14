@@ -37,16 +37,16 @@ public partial class _Default : System.Web.UI.Page
         {   // for testing - see Web.config
             // Administrator
             /*start*/
-            string test1 = "CUReportsReceptionSupervisors|MRReportsReceptionSupervisor|MRReportsFunctionSupervisor|" +
-                           "MRReportsSeniorManagers|CUReportsSupervisors|CUReportsReception|CUReportsDutyManagers|MRReportsUsers|" +
-                           "MRReportsSupervisors|MRReportsReception|MRReportsDutyManagers|MRReportsAllegation|",
-                   test2 = "Lorenz Santiago", test3 = "paolos", test4 = "1", test5 = "MR Senior Managers";
-            UserCredentials.Groups = test1;
-            Session["DisplayName"] = test2;
-            UserCredentials.DisplayName = test2;
-            Session["Username"] = test3;
-            UserCredentials.StaffId = test4;
-            UserCredentials.Role = test5;
+            //string test1 = "CUReportsReceptionSupervisors|MRReportsReceptionSupervisor|MRReportsFunctionSupervisor|" +
+            //               "MRReportsSeniorManagers|CUReportsSupervisors|CUReportsReception|CUReportsDutyManagers|MRReportsUsers|" +
+            //               "MRReportsSupervisors|MRReportsReception|MRReportsDutyManagers|MRReportsAllegation|",
+            //       test2 = "Lorenz Santiago", test3 = "paolos", test4 = "1", test5 = "MR Senior Managers";
+            //UserCredentials.Groups = test1;
+            //Session["DisplayName"] = test2;
+            //UserCredentials.DisplayName = test2;
+            //Session["Username"] = test3;
+            //UserCredentials.StaffId = test4;
+            //UserCredentials.Role = test5;
             /*end*/
 
             // Duty Manager
@@ -65,14 +65,14 @@ public partial class _Default : System.Web.UI.Page
 
             // Staff
             /*start*/
-            //string test1 = "MRReportsReception|",
-            //       test2 = "Lorenz Santiago", test3 = "paolos", test4 = "1", test5 = "MR Reception";
-            //UserCredentials.Groups = test1;
-            //Session["DisplayName"] = test2;
-            //UserCredentials.DisplayName = test2;
-            //Session["Username"] = test3;
-            //UserCredentials.StaffId = test4;
-            //UserCredentials.Role = test5;
+            string test1 = "MRReportsReception|",
+                   test2 = "Lorenz Santiago", test3 = "paolos", test4 = "1", test5 = "MR Reception";
+            UserCredentials.Groups = test1;
+            Session["DisplayName"] = test2;
+            UserCredentials.DisplayName = test2;
+            Session["Username"] = test3;
+            UserCredentials.StaffId = test4;
+            UserCredentials.Role = test5;
             /*end*/
 
             // Staff
@@ -4551,8 +4551,22 @@ public partial class _Default : System.Web.UI.Page
         {
             ddlPerson.Enabled = true;
             ddlPerson.Style.Add("background-color", "#ffffff");
-            // populate Person Drop Down List
-            SelectedGroup(cbToPerson, ddlPerson, ddlGroup, cblGroup);
+            // populate Person Dropdown List - All available active staff
+            ddlPerson.Items.Clear();
+            using (SqlCommand cmd = new SqlCommand("SELECT * FROM [View_Staff] ORDER BY [StaffName]"))
+            {
+                cmd.CommandType = CommandType.Text;
+                cmd.Connection = con;
+                con.Open();
+                ddlPerson.DataSource = cmd.ExecuteReader();
+                ddlPerson.DataTextField = "StaffName";
+                ddlPerson.DataValueField = "StaffId";
+                ddlPerson.DataBind();
+                con.Close();
+            }
+
+            // populate Person Dropdown List depending on Groups selected
+            // SelectedGroup(cbToPerson, ddlPerson, ddlGroup, cblGroup);
         }
         else
         {
