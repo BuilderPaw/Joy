@@ -130,7 +130,7 @@
                 </td>
             </tr>
             <tr>
-                <th colspan="4">Golden Rewards</th>
+                <th colspan="4">Lucky Rewards</th>
             </tr>
             <tr>
                 <td colspan="4">

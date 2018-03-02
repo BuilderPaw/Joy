@@ -126,7 +126,7 @@
                 </td>
             </tr>
             <tr>
-                <th colspan="4">Golden Rewards</th>
+                <th colspan="4">Lucky Rewards</th>
             </tr>
             <tr>
                 <td style="font-size: 12.5px;" colspan="4">

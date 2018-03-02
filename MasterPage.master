@@ -12,6 +12,7 @@
     <script type="text/javascript" src="Scripts/JavaScript.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
     <link rel="stylesheet" href="/CSS/MasterStyle.css" type="text/css" />
+    <meta http-equiv="refresh" content="1800">
     <script type="text/javascript">
         //Bind back button to prevent escaping the page with backspace
         $(document).unbind('keydown').bind('keydown', function (event) {
