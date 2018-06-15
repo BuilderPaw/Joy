@@ -104,6 +104,7 @@ public class UserCredentials
                 groupsQuery = groupsQuery.Replace("'MR Reception'", "'MR Reception', 'MR Incident Report'");
                 groupsQuery = groupsQuery.Replace("MR Function Supervisor", "'MR Function Supervisor'");
                 groupsQuery = groupsQuery.Replace("CU Supervisors", "'CU Supervisors'");
+                groupsQuery = groupsQuery.Replace("MR Override","'MR Override'");
                 groupsQuery = groupsQuery.Replace("CU Duty Managers", "'CU Duty Managers', 'CU Incident Report'");
                 groupsQuery = groupsQuery.Replace("MR Users", "'MR Users'");
                 groupsQuery = groupsQuery.Replace("MR Allegation", "'MR Allegation'");

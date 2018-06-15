@@ -58,7 +58,7 @@ public partial class _Default : System.Web.UI.Page
             /*start*/
             string test1 = "MRReportsReceptionSupervisor|MRReportsFunctionSupervisor|" +
                            "MRReportsSeniorManagers|MRReportsUsers|" +
-                           "MRReportsSupervisors|MRReportsReception|MRReportsDutyManagers|MRReportsAllegation|",
+                           "MRReportsSupervisors|MRReportsReception|MRReportsDutyManagers|MRReportsAllegation|MRReportsOverride|",
                    test2 = "Lorenz Santiago", test3 = "paolos", test4 = "1", test5 = "MR Senior Managers";
             UserCredentials.Groups = test1;
             Session["DisplayName"] = test2;
@@ -470,8 +470,14 @@ public partial class _Default : System.Web.UI.Page
 
     protected void CheckMode() // check which mode to use, is a user/manager/staff
     {
-        if (Report.SelectedStaffId.Equals(UserCredentials.StaffId)) // user is the owner of the report
+        if (Report.SelectedStaffId.Equals(UserCredentials.StaffId) || UserCredentials.Groups.Contains("Override")) // user is the owner of the report
         {
+            //if (UserCredentials.Groups.Contains("Override"))
+            //{
+            //    if (!Report.SelectedStaffId.Equals(UserCredentials.StaffId)){
+            //        UserCredentials.StaffId = Report.SelectedStaffId;
+            //    }
+            //}
             UserMode();
         }
         else
@@ -1470,7 +1476,7 @@ public partial class _Default : System.Web.UI.Page
             }
 
             // set the updated user signature string
-            string updateUserSign = UserCredentials.DisplayName + " " + Convert.ToDateTime(DateTime.Now).ToString("dd/MM/yyyy HH:mm");
+            string updateUserSign = Report.SelectedStaffName + " " + Convert.ToDateTime(DateTime.Now).ToString("dd/MM/yyyy HH:mm");
 
             // insert staff signature
             con.Open();
@@ -1501,7 +1507,7 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void EditMode()
     {
-        if (Report.SelectedStaffId.Equals(UserCredentials.StaffId))
+        if (Report.SelectedStaffId.Equals(UserCredentials.StaffId) || UserCredentials.Groups.Contains("Override"))
         {
             tblComment.Visible = false;         // hide comment section (just in case opened)
             tblReportObjects.Visible = true;    // show all report objects
