@@ -154,6 +154,8 @@ public partial class Reports_CU_Duty_Managers_Create_v1_v1 : System.Web.UI.Page
         ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect",
         "alert('Report Submitted.'); window.location='" +
         Request.ApplicationPath + "Default.aspx';", true);
+        SearchReport.SetAccordion = "1";
+        SearchReport.RunOnStart = true;
     }
 
     protected void btnReset_Click(object sender, EventArgs e)

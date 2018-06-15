@@ -33,7 +33,14 @@ public partial class Reports_CU_Incident_Report_View_v1_v1 : System.Web.UI.UserC
         }
         else
         {
-            myValue = Convert.ToDateTime(myValue).ToString("dddd, dd MMMM yyyy");
+            try
+            {
+                myValue = Convert.ToDateTime(myValue).ToString("dddd, dd MMMM yyyy");
+            }
+            catch
+            {
+                return " ";
+            }
         }
         return myValue.ToString();
     }

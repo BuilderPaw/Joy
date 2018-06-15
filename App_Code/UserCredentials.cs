@@ -107,6 +107,8 @@ public class UserCredentials
                 groupsQuery = groupsQuery.Replace("CU Duty Managers", "'CU Duty Managers', 'CU Incident Report'");
                 groupsQuery = groupsQuery.Replace("MR Users", "'MR Users'");
                 groupsQuery = groupsQuery.Replace("MR Allegation", "'MR Allegation'");
+                groupsQuery = groupsQuery.Replace("MR Operations", "'MR Operations'");
+                groupsQuery = groupsQuery.Replace("CU ClubManager", "'CU Club Manager'");
                 groupsQuery = groupsQuery.Replace("MR Supervisors", "'MR Supervisors', 'MR Incident Report'");
                 groupsQuery = groupsQuery.Replace("MR Duty Managers", "'MR Duty Managers', 'MR Incident Report'");
                 groupsQuery = groupsQuery.Replace("MR SeniorManagers", "'MR Senior Managers'"); // if user is a Senior Manager create an If/Else statement to replace 'MR Duty Managers', 'MR Incident Report' to just 'MR Duty Managers' and add 'MR Incident Report' after 'MR Senior Managers'

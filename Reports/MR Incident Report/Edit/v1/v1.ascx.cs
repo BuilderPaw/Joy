@@ -28,6 +28,12 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             Report.PopulateFields = false;
             tblHuman.Visible = false;
             section1.Visible = false;
+            // validate objects in the form
+            bool returnedValue = checkFields();
+            if (returnedValue == true)
+            {
+                return;
+            }
         }
     }
 
@@ -44,19 +50,19 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         if (ddlShift.SelectedItem.Value.ToString() == "-1")
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Shift.";
-            ddlShift.Focus();
+
             returnedFlag = true;
         }
         if (txtDatePicker.Text == "")
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Shift Date shouldn't be empty.";
-            txtDatePicker.Focus();
+
             returnedFlag = true;
         }
         if (!DateTime.TryParse(txtDatePicker.Text, out temp))
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Shifts Date entry is not in date format please select an appropriate date.";
-            txtDatePicker.Focus();
+
             returnedFlag = true;
         }
         else
@@ -66,7 +72,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (result > 0)
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                txtDatePicker.Focus();
+
                 returnedFlag = true;
             }
         }
@@ -86,13 +92,13 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         if (txtDate1.Text == "")
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Incident Date shouldn't be empty.";
-            txtDate1.Focus();
+
             returnedFlag = true;
         }
         if (!DateTime.TryParse(txtDate1.Text, out temp))
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Incidents Date entry is not in date format please select an appropriate date.";
-            txtDate1.Focus();
+
             returnedFlag = true;
         }
         else
@@ -103,7 +109,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (result > 0)
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                txtDate1.Focus();
+
                 returnedFlag = true;
             }
         }
@@ -111,19 +117,19 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         if (ddlHour.SelectedItem.Value.ToString() == "-1")
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour of the Incident.";
-            ddlHour.Focus();
+
             returnedFlag = true;
         }
         if (ddlMinutes.SelectedItem.Value.ToString() == "-1")
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes of the Incident.";
-            ddlMinutes.Focus();
+
             returnedFlag = true;
         }
         /*if (ddlTimeCon.SelectedItem.Value.ToString() == "-1")
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Time Convention of the Incident");
-            ddlTimeCon.Focus();
+
             returnedFlag = true;
 
         }*/
@@ -132,7 +138,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtLocation.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the location in this Incident Report.";
-                List_Location.Focus();
+
                 returnedFlag = true;
             }
         }
@@ -147,7 +153,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (txtLocation.Text == "")
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify additional Other Location.";
-                            txtLocation.Focus();
+
                             returnedFlag = true;
                         }
                     }
@@ -158,14 +164,14 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         if (txtDetails.Text == "")
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Incidents Full Details shouldn't be empty.";
-            txtDetails.Focus();
+
             returnedFlag = true;
         }
 
         if (cblWhatHappened1.SelectedValue == String.Empty)
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select what happened in this Incident Report.";
-            cblWhatHappened1.Focus();
+
             returnedFlag = true;
         }
         else
@@ -179,7 +185,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (txtOthers.Text == "")
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify additional details in the Incident.";
-                            txtOthers.Focus();
+
                             returnedFlag = true;
                         }
                     }
@@ -191,7 +197,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (txtOtherSerious.Text == "")
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify Serious details in the Incident.";
-                            txtOtherSerious.Focus();
+
                             returnedFlag = true;
                         }
                     }
@@ -203,7 +209,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (List_RefuseReason.SelectedValue == String.Empty)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify reason for refusing entry.";
-                            List_RefuseReason.Focus();
+
                             returnedFlag = true;
                         }
                     }
@@ -215,7 +221,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (List_AskedToLeave.SelectedValue == String.Empty)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify reason for asking the patron to leave the premises.";
-                            List_AskedToLeave.Focus();
+
                             returnedFlag = true;
                         }
                     }
@@ -233,7 +239,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtHeight1.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Height is mandatory for Person 1.";
-                                txtHeight1.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 0;
                             }
@@ -241,7 +247,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtHair1.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Hair is mandatory for Person 1.";
-                                txtHair1.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 0;
                             }
@@ -249,7 +255,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtClothingTop1.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Clothing Top is mandatory for Person 1.";
-                                txtClothingTop1.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 0;
                             }
@@ -257,7 +263,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtClothingBottom1.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Clothing Bottom is mandatory for Person 1.";
-                                txtClothingBottom1.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 0;
                             }
@@ -265,7 +271,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtShoes1.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Shoes is mandatory for Person 1.";
-                                txtShoes1.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 0;
                             }
@@ -273,7 +279,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtDistFeatures1.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Distinct Features is mandatory for Person 1.";
-                                txtDistFeatures1.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 0;
                             }
@@ -281,7 +287,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtWeapon1.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Weapon is mandatory for Person 1.";
-                                txtWeapon1.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 0;
                             }
@@ -289,7 +295,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtInjuryDesc1.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Injury Description is mandatory for Person 1.";
-                                txtInjuryDesc1.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 0;
                             }
@@ -304,7 +310,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtHeight2.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Height is mandatory for Person 2.";
-                                txtHeight2.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 1;
                             }
@@ -312,7 +318,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtHair2.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Hair is mandatory for Person 2.";
-                                txtHair2.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 1;
                             }
@@ -320,7 +326,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtClothingTop2.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Clothing Top is mandatory for Person 2.";
-                                txtClothingTop2.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 1;
                             }
@@ -328,7 +334,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtClothingBottom2.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Clothing Bottom is mandatory for Person 2.";
-                                txtClothingBottom2.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 1;
                             }
@@ -336,7 +342,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtShoes2.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Shoes is mandatory for Person 2.";
-                                txtShoes2.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 1;
                             }
@@ -344,7 +350,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtDistFeatures2.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Distinct Features is mandatory for Person 2.";
-                                txtDistFeatures2.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 1;
 
@@ -353,7 +359,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtWeapon2.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Weapon is mandatory for Person 2.";
-                                txtWeapon2.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 1;
                             }
@@ -361,7 +367,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtInjuryDesc2.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Injury Description is mandatory for Person 2.";
-                                txtInjuryDesc2.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 1;
                             }
@@ -371,7 +377,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtHeight3.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Height is mandatory for Person 3.";
-                                txtHeight3.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 2;
                             }
@@ -379,7 +385,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtHair3.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Hair is mandatory for Person 3.";
-                                txtHair3.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 2;
                             }
@@ -387,7 +393,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtClothingTop3.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Clothing Top is mandatory for Person 3.";
-                                txtClothingTop3.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 2;
                             }
@@ -395,7 +401,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtClothingBottom3.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Clothing Bottom is mandatory for Person 3.";
-                                txtClothingBottom3.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 2;
                             }
@@ -403,7 +409,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtShoes3.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Shoes is mandatory for Person 3.";
-                                txtShoes3.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 2;
                             }
@@ -411,7 +417,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtDistFeatures3.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Distinct Features is mandatory for Person 3.";
-                                txtDistFeatures3.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 2;
                             }
@@ -419,7 +425,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtWeapon3.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Weapon is mandatory for Person 3.";
-                                txtWeapon3.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 2;
                             }
@@ -427,7 +433,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtInjuryDesc3.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Injury Description is mandatory for Person 3.";
-                                txtInjuryDesc3.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 2;
                             }
@@ -437,7 +443,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtHeight4.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Height is mandatory for Person 4.";
-                                txtHeight4.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 3;
                             }
@@ -445,7 +451,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtHair4.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Hair is mandatory for Person 4.";
-                                txtHair4.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 3;
                             }
@@ -453,7 +459,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtClothingTop4.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Clothing Top is mandatory for Person 4.";
-                                txtClothingTop4.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 3;
                             }
@@ -461,7 +467,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtClothingBottom4.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Clothing Bottom is mandatory for Person 4.";
-                                txtClothingBottom4.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 3;
                             }
@@ -469,7 +475,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtShoes4.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Shoes is mandatory for Person 4.";
-                                txtShoes4.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 3;
                             }
@@ -477,7 +483,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtDistFeatures4.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Distinct Features is mandatory for Person 4.";
-                                txtDistFeatures4.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 3;
                             }
@@ -485,7 +491,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtWeapon4.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Weapon is mandatory for Person 4.";
-                                txtWeapon4.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 3;
                             }
@@ -493,7 +499,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtInjuryDesc4.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Injury Description is mandatory for Person 4.";
-                                txtInjuryDesc4.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 3;
                             }
@@ -503,7 +509,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtHeight5.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Height is mandatory for Person 5.";
-                                txtHeight5.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 4;
                             }
@@ -511,7 +517,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtHair5.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Hair is mandatory for Person 5.";
-                                txtHair5.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 4;
                             }
@@ -519,7 +525,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtClothingTop5.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Clothing Top is mandatory for Person 5.";
-                                txtClothingTop5.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 4;
                             }
@@ -527,7 +533,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtClothingBottom5.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Clothing Bottom is mandatory for Person 5.";
-                                txtClothingBottom5.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 4;
                             }
@@ -535,7 +541,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtShoes5.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Shoes is mandatory for Person 5.";
-                                txtShoes5.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 4;
                             }
@@ -543,7 +549,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtDistFeatures5.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Distinct Features is mandatory for Person 5.";
-                                txtDistFeatures5.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 4;
                             }
@@ -551,7 +557,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtWeapon5.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Weapon is mandatory for Person 5.";
-                                txtWeapon5.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 4;
                             }
@@ -559,7 +565,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtInjuryDesc5.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Injury Description is mandatory for Person 5.";
-                                txtInjuryDesc5.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 4;
                             }
@@ -567,7 +573,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (List_ActionTaken.SelectedValue == String.Empty)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Action Taken is mandatory for this Incident.";
-                            List_ActionTaken.Focus();
+
                             returnedFlag = true;
                         }
                         else
@@ -581,7 +587,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                                         if (txtActionTakenOther.Text == "")
                                         {
                                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify other - action taken in the Incident.";
-                                            txtActionTakenOther.Focus();
+
                                             returnedFlag = true;
                                         }
                                     }
@@ -599,7 +605,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtFirstName1.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's First Name shouldn't be empty.";
-                                txtFirstName1.Focus();
+
                                 acdPerson.SelectedIndex = 0;
                                 returnedFlag = true;
                             }
@@ -607,7 +613,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtLastName1.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's Last Name shouldn't be empty.";
-                                txtLastName1.Focus();
+
                                 acdPerson.SelectedIndex = 0;
                                 returnedFlag = true;
                             }
@@ -615,7 +621,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtContact1.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 1.";
-                                txtContact1.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 0;
                             }
@@ -623,7 +629,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtAge1.Text == "" && ddlAgeGroup1.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Person 1's Age.";
-                                txtAge1.Focus();
+
                                 acdPerson.SelectedIndex = 0;
                                 returnedFlag = true;
                             }
@@ -631,7 +637,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (ddlGender1.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select Person 1's Gender.";
-                                ddlGender1.Focus();
+
                                 acdPerson.SelectedIndex = 0;
                                 returnedFlag = true;
                             }
@@ -646,28 +652,28 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtFirstName2.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's First Name shouldn't be empty.";
-                                txtFirstName2.Focus();
+
                                 acdPerson.SelectedIndex = 1;
                                 returnedFlag = true;
                             }
                             if (txtLastName2.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's Last Name shouldn't be empty.";
-                                txtLastName2.Focus();
+
                                 acdPerson.SelectedIndex = 1;
                                 returnedFlag = true;
                             }
                             if (txtContact2.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 2.";
-                                txtContact2.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 1;
                             }
                             if (txtAge2.Text == "" && ddlAgeGroup2.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Person 2's Age.";
-                                txtAge2.Focus();
+
                                 acdPerson.SelectedIndex = 1;
                                 returnedFlag = true;
 
@@ -675,7 +681,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (ddlGender2.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select Person 2's Gender.";
-                                ddlGender2.Focus();
+
                                 acdPerson.SelectedIndex = 1;
                                 returnedFlag = true;
 
@@ -686,28 +692,28 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtFirstName3.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's First Name shouldn't be empty.";
-                                txtFirstName3.Focus();
+
                                 acdPerson.SelectedIndex = 2;
                                 returnedFlag = true;
                             }
                             if (txtLastName3.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's Last Name shouldn't be empty.";
-                                txtLastName3.Focus();
+
                                 acdPerson.SelectedIndex = 2;
                                 returnedFlag = true;
                             }
                             if (txtContact3.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 3.";
-                                txtContact3.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 2;
                             }
                             if (txtAge3.Text == "" && ddlAgeGroup3.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Person 3's Age.";
-                                txtAge3.Focus();
+
                                 acdPerson.SelectedIndex = 2;
                                 returnedFlag = true;
 
@@ -715,7 +721,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (ddlGender3.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select Person 3's Gender.";
-                                ddlGender3.Focus();
+
                                 acdPerson.SelectedIndex = 2;
                                 returnedFlag = true;
 
@@ -726,28 +732,28 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtFirstName4.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's First Name shouldn't be empty.";
-                                txtFirstName4.Focus();
+
                                 acdPerson.SelectedIndex = 3;
                                 returnedFlag = true;
                             }
                             if (txtLastName4.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's Last Name shouldn't be empty.";
-                                txtLastName4.Focus();
+
                                 acdPerson.SelectedIndex = 3;
                                 returnedFlag = true;
                             }
                             if (txtContact4.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 4.";
-                                txtContact4.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 3;
                             }
                             if (txtAge4.Text == "" && ddlAgeGroup4.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Person 4's Age.";
-                                txtAge4.Focus();
+
                                 acdPerson.SelectedIndex = 3;
                                 returnedFlag = true;
 
@@ -755,7 +761,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (ddlGender4.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select Person 4's Gender.";
-                                ddlGender4.Focus();
+
                                 acdPerson.SelectedIndex = 3;
                                 returnedFlag = true;
 
@@ -766,28 +772,28 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (txtFirstName5.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's First Name shouldn't be empty.";
-                                txtFirstName5.Focus();
+
                                 acdPerson.SelectedIndex = 4;
                                 returnedFlag = true;
                             }
                             if (txtLastName5.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's Last Name shouldn't be empty.";
-                                txtLastName5.Focus();
+
                                 acdPerson.SelectedIndex = 4;
                                 returnedFlag = true;
                             }
                             if (txtContact5.Text == "")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 5.";
-                                txtContact5.Focus();
+
                                 returnedFlag = true;
                                 acdPerson.SelectedIndex = 4;
                             }
                             if (txtAge5.Text == "" && ddlAgeGroup5.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Person 5's Age.";
-                                txtAge5.Focus();
+
                                 acdPerson.SelectedIndex = 4;
                                 returnedFlag = true;
 
@@ -795,7 +801,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                             if (ddlGender5.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select Person 5's Gender.";
-                                ddlGender5.Focus();
+
                                 acdPerson.SelectedIndex = 4;
                                 returnedFlag = true;
 
@@ -809,7 +815,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         if (txtAllegation.Text == "")
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Incidents Allegation shouldn't be empty.";
-            txtAllegation.Focus();
+
             returnedFlag = true;
         }
 
@@ -819,7 +825,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtSecurityName.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Security name shouldn't be empty.";
-                txtSecurityName.Focus();
+
                 returnedFlag = true;
             }
         }
@@ -830,19 +836,19 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtPoliceStation.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Police Station shouldn't be empty.";
-                txtPoliceStation.Focus();
+
                 returnedFlag = true;
             }
             if (txtOfficersName.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Officer's Name shouldn't be empty.";
-                txtOfficersName.Focus();
+
                 returnedFlag = true;
             }
             if (txtPoliceAction.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Police's action shouldn't be empty.";
-                txtPoliceAction.Focus();
+
                 returnedFlag = true;
             }
         }
@@ -864,21 +870,21 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtCamDesc1.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 1 should not be empty. If there's no Camera Footage taken please enter N/A in the textbox.";
-                txtCamDesc1.Focus();
+
                 returnedFlag = true;
 
             }
             if (txtCamSDate1.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 1's Start Date shouldn't be empty.";
-                txtCamSDate1.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamSDate1.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 1's Date entry is not in date format please select an appropriate date.";
-                txtCamSDate1.Focus();
+
                 returnedFlag = true;
 
             }
@@ -890,7 +896,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamSDate1.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -898,35 +904,35 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamTimeH1.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 1.";
-                ddlCamTimeH1.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamTimeM1.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 1.";
-                ddlCamTimeM1.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamTimeTC1.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 1.";
-                ddlCamTimeTC1.Focus();
+
                 returnedFlag = true;
 
             }*/
             if (txtCamEDate1.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 1's End Date shouldn't be empty.";
-                txtCamEDate1.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamEDate1.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 1's Date entry is not in date format please select an appropriate date.";
-                txtCamEDate1.Focus();
+
                 returnedFlag = true;
 
             }
@@ -939,7 +945,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamEDate1.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -947,21 +953,21 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamETimeH1.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 1.";
-                ddlCamETimeH1.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamETimeM1.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 1.";
-                ddlCamETimeM1.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamETimeTC1.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 1.";
-                ddlCamETimeTC1.Focus();
+
                 returnedFlag = true;
 
             }*/
@@ -971,28 +977,28 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtCamDesc2.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2 should not be empty. If there's no Camera Footage taken please enter N/A in the textbox.";
-                txtCamDesc2.Focus();
+
                 returnedFlag = true;
 
             }
             if (txtCamSDate2.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's Start Date shouldn't be empty.";
-                txtCamSDate2.Focus();
+
                 returnedFlag = true;
 
             }
             if (txtCamSDate2.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's Start Date shouldn't be empty.";
-                txtCamSDate2.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamSDate2.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's Date entry is not in date format please select an appropriate date.";
-                txtCamSDate2.Focus();
+
                 returnedFlag = true;
 
             }
@@ -1005,7 +1011,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamSDate2.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -1013,35 +1019,35 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamTimeH2.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 2.";
-                ddlCamTimeH2.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamTimeM2.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 2.";
-                ddlCamTimeM2.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamTimeTC2.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 2.";
-                ddlCamTimeTC2.Focus();
+
                 returnedFlag = true;
 
             }*/
             if (txtCamEDate2.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's End Date shouldn't be empty.";
-                txtCamEDate2.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamEDate2.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's Date entry is not in date format please select an appropriate date.";
-                txtCamEDate2.Focus();
+
                 returnedFlag = true;
 
             }
@@ -1054,7 +1060,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamEDate2.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -1062,21 +1068,21 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamETimeH2.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 2.";
-                ddlCamETimeH2.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamETimeM2.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 2.";
-                ddlCamETimeM2.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamETimeTC2.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 2.";
-                ddlCamETimeTC2.Focus();
+
                 returnedFlag = true;
 
             }*/
@@ -1086,28 +1092,28 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtCamDesc3.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3 should not be empty. If there's no Camera Footage taken please enter N/A in the textbox.";
-                txtCamDesc3.Focus();
+
                 returnedFlag = true;
 
             }
             if (txtCamSDate3.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's Start Date shouldn't be empty.";
-                txtCamSDate3.Focus();
+
                 returnedFlag = true;
 
             }
             if (txtCamSDate3.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's Start Date shouldn't be empty.";
-                txtCamSDate3.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamSDate3.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's Date entry is not in date format please select an appropriate date.";
-                txtCamSDate3.Focus();
+
                 returnedFlag = true;
 
             }
@@ -1120,7 +1126,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamSDate3.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -1128,35 +1134,35 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamTimeH3.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 3.";
-                ddlCamTimeH3.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamTimeM3.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 3.";
-                ddlCamTimeM3.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamTimeTC3.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 3.";
-                ddlCamTimeTC3.Focus();
+
                 returnedFlag = true;
 
             }*/
             if (txtCamEDate3.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's End Date shouldn't be empty.";
-                txtCamEDate3.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamEDate3.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's Date entry is not in date format please select an appropriate date.";
-                txtCamEDate3.Focus();
+
                 returnedFlag = true;
 
             }
@@ -1168,7 +1174,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamEDate3.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -1176,21 +1182,21 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamETimeH3.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 3.";
-                ddlCamETimeH3.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamETimeM3.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 3.";
-                ddlCamETimeM3.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamETimeTC3.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 3.";
-                ddlCamETimeTC3.Focus();
+
                 returnedFlag = true;
 
             }*/
@@ -1200,28 +1206,28 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtCamDesc4.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4 should not be empty. If there's no Camera Footage taken please enter N/A in the textbox.";
-                txtCamDesc4.Focus();
+
                 returnedFlag = true;
 
             }
             if (txtCamSDate4.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's Start Date shouldn't be empty.";
-                txtCamSDate4.Focus();
+
                 returnedFlag = true;
 
             }
             if (txtCamSDate4.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's Start Date shouldn't be empty.";
-                txtCamSDate4.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamSDate4.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's Date entry is not in date format please select an appropriate date.";
-                txtCamSDate4.Focus();
+
                 returnedFlag = true;
 
             }
@@ -1234,7 +1240,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamSDate4.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -1242,35 +1248,35 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamTimeH4.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 4.";
-                ddlCamTimeH4.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamTimeM4.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 4.";
-                ddlCamTimeM4.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamTimeTC4.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 4.";
-                ddlCamTimeTC4.Focus();
+
                 returnedFlag = true;
 
             }*/
             if (txtCamEDate4.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's End Date shouldn't be empty.";
-                txtCamEDate4.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamEDate4.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's Date entry is not in date format please select an appropriate date.";
-                txtCamEDate4.Focus();
+
                 returnedFlag = true;
 
             }
@@ -1282,7 +1288,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamEDate4.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -1290,21 +1296,21 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamETimeH4.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 4.";
-                ddlCamETimeH4.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamETimeM4.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 4.";
-                ddlCamETimeM4.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamETimeTC4.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 4.";
-                ddlCamETimeTC4.Focus();
+
                 returnedFlag = true;
 
             }*/
@@ -1314,28 +1320,28 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtCamDesc5.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5 should not be empty. If there's no Camera Footage taken please enter N/A in the textbox.";
-                txtCamDesc5.Focus();
+
                 returnedFlag = true;
 
             }
             if (txtCamSDate5.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's Start Date shouldn't be empty.";
-                txtCamSDate5.Focus();
+
                 returnedFlag = true;
 
             }
             if (txtCamSDate5.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's Start Date shouldn't be empty.";
-                txtCamSDate5.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamSDate5.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's Date entry is not in date format please select an appropriate date.";
-                txtCamSDate5.Focus();
+
                 returnedFlag = true;
 
             }
@@ -1347,7 +1353,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamSDate5.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -1355,35 +1361,35 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamTimeH5.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 5.";
-                ddlCamTimeH5.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamTimeM5.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 5.";
-                ddlCamTimeM5.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamTimeTC5.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 5.";
-                ddlCamTimeTC5.Focus();
+
                 returnedFlag = true;
 
             }*/
             if (txtCamEDate5.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's End Date shouldn't be empty.";
-                txtCamEDate5.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamEDate5.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's Date entry is not in date format please select an appropriate date.";
-                txtCamEDate5.Focus();
+
                 returnedFlag = true;
 
             }
@@ -1395,7 +1401,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamEDate5.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -1403,21 +1409,21 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamETimeH5.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 5.";
-                ddlCamETimeH5.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamETimeM5.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 5.";
-                ddlCamETimeM5.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamETimeTC5.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 5.";
-                ddlCamETimeTC5.Focus();
+
                 returnedFlag = true;
 
             }*/
@@ -1427,28 +1433,28 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtCamDesc6.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6 should not be empty. If there's no Camera Footage taken please enter N/A in the textbox.";
-                txtCamDesc6.Focus();
+
                 returnedFlag = true;
 
             }
             if (txtCamSDate6.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's Start Date shouldn't be empty.";
-                txtCamSDate6.Focus();
+
                 returnedFlag = true;
 
             }
             if (txtCamSDate6.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's Start Date shouldn't be empty.";
-                txtCamSDate6.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamSDate6.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's Date entry is not in date format please select an appropriate date.";
-                txtCamSDate6.Focus();
+
                 returnedFlag = true;
 
             }
@@ -1460,7 +1466,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamSDate6.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -1468,35 +1474,35 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamTimeH6.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 6.";
-                ddlCamTimeH6.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamTimeM6.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 6.";
-                ddlCamTimeM6.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamTimeTC6.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 6.";
-                ddlCamTimeTC6.Focus();
+
                 returnedFlag = true;
 
             }*/
             if (txtCamEDate6.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's End Date shouldn't be empty.";
-                txtCamEDate6.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamEDate6.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's Date entry is not in date format please select an appropriate date.";
-                txtCamEDate6.Focus();
+
                 returnedFlag = true;
 
             }
@@ -1508,7 +1514,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamEDate6.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -1516,21 +1522,21 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamETimeH6.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 6.";
-                ddlCamETimeH6.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamETimeM6.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 6.";
-                ddlCamETimeM6.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamETimeTC6.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 6.";
-                ddlCamETimeTC6.Focus();
+
                 returnedFlag = true;
 
             }*/
@@ -1540,28 +1546,28 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtCamDesc7.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7 should not be empty. If there's no Camera Footage taken please enter N/A in the textbox.";
-                txtCamDesc7.Focus();
+
                 returnedFlag = true;
 
             }
             if (txtCamSDate7.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's Start Date shouldn't be empty.";
-                txtCamSDate7.Focus();
+
                 returnedFlag = true;
 
             }
             if (txtCamSDate7.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's Start Date shouldn't be empty.";
-                txtCamSDate7.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamSDate7.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's Date entry is not in date format please select an appropriate date.";
-                txtCamSDate7.Focus();
+
                 returnedFlag = true;
 
             }
@@ -1573,7 +1579,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamSDate7.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -1581,35 +1587,35 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamTimeH7.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 7.";
-                ddlCamTimeH7.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamTimeM7.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 7.";
-                ddlCamTimeM7.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamTimeTC7.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 7.";
-                ddlCamTimeTC7.Focus();
+
                 returnedFlag = true;
 
             }*/
             if (txtCamEDate7.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's End Date shouldn't be empty.";
-                txtCamEDate7.Focus();
+
                 returnedFlag = true;
 
             }
             if (!DateTime.TryParse(txtCamEDate7.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's Date entry is not in date format please select an appropriate date.";
-                txtCamEDate7.Focus();
+
                 returnedFlag = true;
 
             }
@@ -1621,7 +1627,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtCamEDate7.Focus();
+
                     returnedFlag = true;
 
                 }
@@ -1629,21 +1635,21 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlCamETimeH7.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 7.";
-                ddlCamETimeH7.Focus();
+
                 returnedFlag = true;
 
             }
             if (ddlCamETimeM7.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 7.";
-                ddlCamETimeM7.Focus();
+
                 returnedFlag = true;
 
             }
             /*if (ddlCamETimeTC7.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 7.";
-                ddlCamETimeTC7.Focus();
+
                 returnedFlag = true;
 
             }*/
@@ -1665,35 +1671,35 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (Report.MemberNumberChanged.Equals("1"))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Member Not Found! Please enter another Member No. for Person 1.";
-                txtMemberNo1.Focus();
+
                 acdPerson.SelectedIndex = 0;
                 returnedFlag = true;
             }
             else if (Report.MemberNumberChanged.Equals("2"))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Member Not Found! Please enter another Member No. for Person 2.";
-                txtMemberNo2.Focus();
+
                 acdPerson.SelectedIndex = 1;
                 returnedFlag = true;
             }
             else if (Report.MemberNumberChanged.Equals("3"))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Member Not Found! Please enter another Member No. for Person 3.";
-                txtMemberNo3.Focus();
+
                 acdPerson.SelectedIndex = 2;
                 returnedFlag = true;
             }
             else if (Report.MemberNumberChanged.Equals("4"))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Member Not Found! Please enter another Member No. for Person 4";
-                txtMemberNo4.Focus();
+
                 acdPerson.SelectedIndex = 3;
                 returnedFlag = true;
             }
             else if (Report.MemberNumberChanged.Equals("5"))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Member Not Found! Please enter another Member No. for Person 5.";
-                txtMemberNo5.Focus();
+
                 acdPerson.SelectedIndex = 4;
                 returnedFlag = true;
             }
@@ -1705,7 +1711,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPartyType1.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select one Party Type for Person 1.";
-                ddlPartyType1.Focus();
+
                 acdPerson.SelectedIndex = 0;
                 returnedFlag = true;
             }
@@ -1715,14 +1721,14 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtMemberNo1.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Member No for Person 1.";
-                    txtMemberNo1.Focus();
+
                     acdPerson.SelectedIndex = 0;
                     returnedFlag = true;
                 }
                 if (txtAddress1.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 1.";
-                    txtAddress1.Focus();
+
                     acdPerson.SelectedIndex = 0;
                     returnedFlag = true;
                 }
@@ -1731,7 +1737,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (!DateTime.TryParse(txtDOB1.Text, out temp))
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's DOB is not in date format please select an appropriate date.";
-                        txtDOB1.Focus();
+
                         acdPerson.SelectedIndex = 0;
                         returnedFlag = true;
                     }
@@ -1742,7 +1748,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (result > 0)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                            txtDOB1.Focus();
+
                             acdPerson.SelectedIndex = 0;
                             returnedFlag = true;
                         }
@@ -1756,7 +1762,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (txtSignInBy1.Text == "")
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter who signed in Person 1 .";
-                        txtSignInBy1.Focus();
+
                         acdPerson.SelectedIndex = 0;
                         returnedFlag = true;
                     }
@@ -1764,14 +1770,14 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtIDProof1.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Proof of Identity for Person 1.";
-                    txtIDProof1.Focus();
+
                     acdPerson.SelectedIndex = 0;
                     returnedFlag = true;
                 }
                 if (txtAddressv1.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 1.";
-                    txtAddressv1.Focus();
+
                     acdPerson.SelectedIndex = 0;
                     returnedFlag = true;
                 }
@@ -1780,7 +1786,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (!DateTime.TryParse(txtDOBv1.Text, out temp))
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's DOB is not in date format please select an appropriate date.";
-                        txtDOBv1.Focus();
+
                         acdPerson.SelectedIndex = 0;
                         returnedFlag = true;
 
@@ -1792,7 +1798,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (result > 0)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                            txtDOBv1.Focus();
+
                             acdPerson.SelectedIndex = 0;
                             returnedFlag = true;
 
@@ -1805,7 +1811,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtStaffEmpNo1.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Staff Employee No for Person 1.";
-                    txtStaffEmpNo1.Focus();
+
                     acdPerson.SelectedIndex = 0;
                     returnedFlag = true;
 
@@ -1813,7 +1819,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtStaffAddress1.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 1.";
-                    txtStaffAddress1.Focus();
+
                     acdPerson.SelectedIndex = 0;
                     returnedFlag = true;
 
@@ -1823,7 +1829,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtPDate1.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's Date entry shouldn't be empty.";
-                txtPDate1.Focus();
+
                 acdPerson.SelectedIndex = 0;
                 returnedFlag = true;
 
@@ -1831,7 +1837,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (!DateTime.TryParse(txtPDate1.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's Date entry is not in date format please select an appropriate date.";
-                txtPDate1.Focus();
+
                 acdPerson.SelectedIndex = 0;
                 returnedFlag = true;
 
@@ -1844,7 +1850,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtPDate1.Focus();
+
                     acdPerson.SelectedIndex = 0;
                     returnedFlag = true;
 
@@ -1853,7 +1859,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPTimeH1.SelectedItem.Value.ToString() == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 1.";
-                ddlPTimeH1.Focus();
+
                 acdPerson.SelectedIndex = 0;
                 returnedFlag = true;
 
@@ -1861,7 +1867,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPTimeM1.SelectedItem.Value.ToString() == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 1.";
-                ddlPTimeM1.Focus();
+
                 acdPerson.SelectedIndex = 0;
                 returnedFlag = true;
 
@@ -1873,7 +1879,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPartyType2.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select one Party Type for Person 2.";
-                ddlPartyType2.Focus();
+
                 acdPerson.SelectedIndex = 1;
                 returnedFlag = true;
 
@@ -1884,7 +1890,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtMemberNo2.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Member No for Person 2.";
-                    txtMemberNo2.Focus();
+
                     acdPerson.SelectedIndex = 1;
                     returnedFlag = true;
 
@@ -1892,7 +1898,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtAddress2.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 2.";
-                    txtAddress2.Focus();
+
                     acdPerson.SelectedIndex = 1;
                     returnedFlag = true;
 
@@ -1902,7 +1908,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (!DateTime.TryParse(txtDOB2.Text, out temp))
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's DOB is not in date format please select an appropriate date.";
-                        txtDOB2.Focus();
+
                         acdPerson.SelectedIndex = 1;
                         returnedFlag = true;
 
@@ -1914,7 +1920,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (result > 0)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                            txtDOB2.Focus();
+
                             acdPerson.SelectedIndex = 1;
                             returnedFlag = true;
 
@@ -1929,7 +1935,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (txtSignInBy2.Text == "")
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter who signed in Person 2.";
-                        txtSignInBy2.Focus();
+
                         acdPerson.SelectedIndex = 1;
                         returnedFlag = true;
 
@@ -1938,7 +1944,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtIDProof2.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Proof of Identity for Person 2.";
-                    txtIDProof2.Focus();
+
                     acdPerson.SelectedIndex = 1;
                     returnedFlag = true;
 
@@ -1946,7 +1952,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtAddressv2.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 2.";
-                    txtAddressv2.Focus();
+
                     acdPerson.SelectedIndex = 1;
                     returnedFlag = true;
 
@@ -1956,7 +1962,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (!DateTime.TryParse(txtDOBv2.Text, out temp))
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's DOB is not in date format please select an appropriate date.";
-                        txtDOBv2.Focus();
+
                         acdPerson.SelectedIndex = 1;
                         returnedFlag = true;
 
@@ -1968,7 +1974,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (result > 0)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                            txtDOBv2.Focus();
+
                             acdPerson.SelectedIndex = 1;
                             returnedFlag = true;
 
@@ -1981,7 +1987,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtStaffEmpNo2.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Staff Employee No for Person 2.";
-                    txtStaffEmpNo2.Focus();
+
                     acdPerson.SelectedIndex = 1;
                     returnedFlag = true;
 
@@ -1989,7 +1995,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtStaffAddress2.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 2.";
-                    txtStaffAddress2.Focus();
+
                     acdPerson.SelectedIndex = 1;
                     returnedFlag = true;
 
@@ -1999,7 +2005,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtPDate2.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's Date entry shouldn't be empty.";
-                txtPDate2.Focus();
+
                 acdPerson.SelectedIndex = 1;
                 returnedFlag = true;
 
@@ -2007,7 +2013,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (!DateTime.TryParse(txtPDate2.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's Date entry is not in date format please select an appropriate date.";
-                txtPDate2.Focus();
+
                 acdPerson.SelectedIndex = 1;
                 returnedFlag = true;
 
@@ -2020,7 +2026,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtPDate2.Focus();
+
                     acdPerson.SelectedIndex = 1;
                     returnedFlag = true;
 
@@ -2029,7 +2035,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPTimeH2.SelectedItem.Value.ToString() == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 2.";
-                ddlPTimeH2.Focus();
+
                 acdPerson.SelectedIndex = 1;
                 returnedFlag = true;
 
@@ -2037,7 +2043,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPTimeM2.SelectedItem.Value.ToString() == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 2.";
-                ddlPTimeM2.Focus();
+
                 acdPerson.SelectedIndex = 1;
                 returnedFlag = true;
 
@@ -2049,7 +2055,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPartyType3.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select one Party Type for Person 3.";
-                ddlPartyType3.Focus();
+
                 acdPerson.SelectedIndex = 2;
                 returnedFlag = true;
 
@@ -2060,7 +2066,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtMemberNo3.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Member No for Person 3.";
-                    txtMemberNo3.Focus();
+
                     acdPerson.SelectedIndex = 2;
                     returnedFlag = true;
 
@@ -2068,7 +2074,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtAddress3.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 3.";
-                    txtAddress3.Focus();
+
                     acdPerson.SelectedIndex = 2;
                     returnedFlag = true;
 
@@ -2078,7 +2084,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (!DateTime.TryParse(txtDOB3.Text, out temp))
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's DOB is not in date format please select an appropriate date.";
-                        txtDOB3.Focus();
+
                         acdPerson.SelectedIndex = 2;
                         returnedFlag = true;
 
@@ -2090,7 +2096,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (result > 0)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                            txtDOB3.Focus();
+
                             acdPerson.SelectedIndex = 2;
                             returnedFlag = true;
 
@@ -2105,7 +2111,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (txtSignInBy3.Text == "")
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter who signed in Person 3 .";
-                        txtSignInBy3.Focus();
+
                         acdPerson.SelectedIndex = 2;
                         returnedFlag = true;
 
@@ -2114,7 +2120,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtIDProof3.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Proof of Identity for Person 3.";
-                    txtIDProof3.Focus();
+
                     acdPerson.SelectedIndex = 2;
                     returnedFlag = true;
 
@@ -2122,7 +2128,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtAddressv3.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 3.";
-                    txtAddressv3.Focus();
+
                     acdPerson.SelectedIndex = 2;
                     returnedFlag = true;
 
@@ -2132,7 +2138,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (!DateTime.TryParse(txtDOBv3.Text, out temp))
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's DOB is not in date format please select an appropriate date.";
-                        txtDOBv3.Focus();
+
                         acdPerson.SelectedIndex = 2;
                         returnedFlag = true;
 
@@ -2144,7 +2150,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (result > 0)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                            txtDOBv3.Focus();
+
                             acdPerson.SelectedIndex = 2;
                             returnedFlag = true;
 
@@ -2157,7 +2163,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtStaffEmpNo3.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Staff Employee No for Person 3.";
-                    txtStaffEmpNo3.Focus();
+
                     acdPerson.SelectedIndex = 2;
                     returnedFlag = true;
 
@@ -2165,7 +2171,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtStaffAddress3.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 3.";
-                    txtStaffAddress3.Focus();
+
                     acdPerson.SelectedIndex = 2;
                     returnedFlag = true;
 
@@ -2175,7 +2181,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtPDate3.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's Date entry shouldn't be empty.";
-                txtPDate3.Focus();
+
                 acdPerson.SelectedIndex = 2;
                 returnedFlag = true;
 
@@ -2183,7 +2189,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (!DateTime.TryParse(txtPDate3.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's Date entry is not in date format please select an appropriate date.";
-                txtPDate3.Focus();
+
                 acdPerson.SelectedIndex = 2;
                 returnedFlag = true;
 
@@ -2196,7 +2202,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtPDate3.Focus();
+
                     acdPerson.SelectedIndex = 2;
                     returnedFlag = true;
 
@@ -2205,7 +2211,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPTimeH3.SelectedItem.Value.ToString() == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 3.";
-                ddlPTimeH3.Focus();
+
                 acdPerson.SelectedIndex = 2;
                 returnedFlag = true;
 
@@ -2213,7 +2219,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPTimeM3.SelectedItem.Value.ToString() == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 3.";
-                ddlPTimeM3.Focus();
+
                 acdPerson.SelectedIndex = 2;
                 returnedFlag = true;
 
@@ -2225,7 +2231,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPartyType4.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select one Party Type for Person 4.";
-                ddlPartyType4.Focus();
+
                 acdPerson.SelectedIndex = 3;
                 returnedFlag = true;
 
@@ -2236,7 +2242,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtMemberNo4.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Member No for Person 4.";
-                    txtMemberNo4.Focus();
+
                     acdPerson.SelectedIndex = 3;
                     returnedFlag = true;
 
@@ -2244,7 +2250,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtAddress4.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 4.";
-                    txtAddress4.Focus();
+
                     acdPerson.SelectedIndex = 3;
                     returnedFlag = true;
 
@@ -2254,7 +2260,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (!DateTime.TryParse(txtDOB4.Text, out temp))
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's DOB is not in date format please select an appropriate date.";
-                        txtDOB4.Focus();
+
                         acdPerson.SelectedIndex = 3;
                         returnedFlag = true;
 
@@ -2266,7 +2272,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (result > 0)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                            txtDOB4.Focus();
+
                             acdPerson.SelectedIndex = 3;
                             returnedFlag = true;
 
@@ -2281,7 +2287,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (txtSignInBy4.Text == "")
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter who signed in Person 4 .";
-                        txtSignInBy4.Focus();
+
                         acdPerson.SelectedIndex = 3;
                         returnedFlag = true;
 
@@ -2290,7 +2296,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtIDProof4.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Proof of Identity for Person 4.";
-                    txtIDProof4.Focus();
+
                     acdPerson.SelectedIndex = 3;
                     returnedFlag = true;
 
@@ -2298,7 +2304,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtAddressv4.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 4.";
-                    txtAddressv4.Focus();
+
                     acdPerson.SelectedIndex = 3;
                     returnedFlag = true;
 
@@ -2308,7 +2314,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (!DateTime.TryParse(txtDOBv4.Text, out temp))
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's DOB is not in date format please select an appropriate date.";
-                        txtDOBv4.Focus();
+
                         acdPerson.SelectedIndex = 3;
                         returnedFlag = true;
 
@@ -2320,7 +2326,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (result > 0)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                            txtDOBv4.Focus();
+
                             acdPerson.SelectedIndex = 3;
                             returnedFlag = true;
 
@@ -2333,7 +2339,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtStaffEmpNo4.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Staff Employee No for Person 4.";
-                    txtStaffEmpNo4.Focus();
+
                     acdPerson.SelectedIndex = 3;
                     returnedFlag = true;
 
@@ -2341,7 +2347,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtStaffAddress4.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 4.";
-                    txtStaffAddress4.Focus();
+
                     acdPerson.SelectedIndex = 3;
                     returnedFlag = true;
 
@@ -2351,7 +2357,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtPDate4.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's Date entry shouldn't be empty.";
-                txtPDate4.Focus();
+
                 acdPerson.SelectedIndex = 3;
                 returnedFlag = true;
 
@@ -2359,7 +2365,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (!DateTime.TryParse(txtPDate4.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's Date entry is not in date format please select an appropriate date.";
-                txtPDate4.Focus();
+
                 acdPerson.SelectedIndex = 3;
                 returnedFlag = true;
 
@@ -2372,7 +2378,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtPDate4.Focus();
+
                     acdPerson.SelectedIndex = 3;
                     returnedFlag = true;
 
@@ -2381,7 +2387,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPTimeH4.SelectedItem.Value.ToString() == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 4.";
-                ddlPTimeH4.Focus();
+
                 acdPerson.SelectedIndex = 3;
                 returnedFlag = true;
 
@@ -2389,7 +2395,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPTimeM4.SelectedItem.Value.ToString() == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 4.";
-                ddlPTimeM4.Focus();
+
                 acdPerson.SelectedIndex = 3;
                 returnedFlag = true;
 
@@ -2401,7 +2407,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPartyType5.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select one Party Type for Person 5.";
-                ddlPartyType5.Focus();
+
                 acdPerson.SelectedIndex = 4;
                 returnedFlag = true;
 
@@ -2412,7 +2418,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtMemberNo5.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Member No for Person 5.";
-                    txtMemberNo5.Focus();
+
                     acdPerson.SelectedIndex = 4;
                     returnedFlag = true;
 
@@ -2420,7 +2426,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtAddress5.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 5.";
-                    txtAddress5.Focus();
+
                     acdPerson.SelectedIndex = 4;
                     returnedFlag = true;
 
@@ -2430,7 +2436,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (!DateTime.TryParse(txtDOB5.Text, out temp))
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's DOB is not in date format please select an appropriate date.";
-                        txtDOB5.Focus();
+
                         acdPerson.SelectedIndex = 4;
                         returnedFlag = true;
 
@@ -2442,7 +2448,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (result > 0)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                            txtDOB5.Focus();
+
                             acdPerson.SelectedIndex = 4;
                             returnedFlag = true;
                         }
@@ -2456,7 +2462,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (txtSignInBy5.Text == "")
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter who signed in Person 5 .";
-                        txtSignInBy5.Focus();
+
                         acdPerson.SelectedIndex = 4;
                         returnedFlag = true;
 
@@ -2465,7 +2471,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtIDProof5.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Proof of Identity for Person 5.";
-                    txtIDProof5.Focus();
+
                     acdPerson.SelectedIndex = 4;
                     returnedFlag = true;
 
@@ -2473,7 +2479,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtAddressv5.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 5.";
-                    txtAddressv5.Focus();
+
                     acdPerson.SelectedIndex = 4;
                     returnedFlag = true;
 
@@ -2483,7 +2489,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     if (!DateTime.TryParse(txtDOBv5.Text, out temp))
                     {
                         Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's DOB is not in date format please select an appropriate date.";
-                        txtDOBv5.Focus();
+
                         acdPerson.SelectedIndex = 4;
                         returnedFlag = true;
 
@@ -2495,7 +2501,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         if (result > 0)
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                            txtDOBv5.Focus();
+
                             acdPerson.SelectedIndex = 4;
                             returnedFlag = true;
                         }
@@ -2507,7 +2513,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtStaffEmpNo5.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Staff Employee No for Person 5.";
-                    txtStaffEmpNo5.Focus();
+
                     acdPerson.SelectedIndex = 4;
                     returnedFlag = true;
 
@@ -2515,7 +2521,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (txtStaffAddress5.Text == "")
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Address for Person 5.";
-                    txtStaffAddress5.Focus();
+
                     acdPerson.SelectedIndex = 4;
                     returnedFlag = true;
 
@@ -2525,7 +2531,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (txtPDate5.Text == "")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's Date entry shouldn't be empty.";
-                txtPDate5.Focus();
+
                 acdPerson.SelectedIndex = 4;
                 returnedFlag = true;
 
@@ -2533,7 +2539,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (!DateTime.TryParse(txtPDate5.Text, out temp))
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's Date entry is not in date format please select an appropriate date.";
-                txtPDate5.Focus();
+
                 acdPerson.SelectedIndex = 4;
                 returnedFlag = true;
 
@@ -2546,7 +2552,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 if (result > 0)
                 {
                     Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtPDate5.Focus();
+
                     acdPerson.SelectedIndex = 4;
                     returnedFlag = true;
 
@@ -2555,7 +2561,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPTimeH5.SelectedItem.Value.ToString() == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 5.";
-                ddlPTimeH5.Focus();
+
                 acdPerson.SelectedIndex = 4;
                 returnedFlag = true;
 
@@ -2563,7 +2569,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             if (ddlPTimeM5.SelectedItem.Value.ToString() == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 5.";
-                ddlPTimeM5.Focus();
+
                 returnedFlag = true;
                 acdPerson.SelectedIndex = 4;
 
@@ -9641,6 +9647,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             // show the added Camera form
             tblCamera1.Visible = true;
             tblAddCam2.Visible = true;
+            txtCamDesc1.Text = "Camera No. ";
         }
         else
         {
@@ -9679,6 +9686,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         tblAddCam2.Visible = false;
         // show the added Camera form
         tblCamera2.Visible = true;
+        txtCamDesc2.Text = "Camera No. ";
         tblAddCam3.Visible = true;
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -9693,6 +9701,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         tblAddCam3.Visible = false;
         // show the added Camera form
         tblCamera3.Visible = true;
+        txtCamDesc3.Text = "Camera No. ";
         tblAddCam4.Visible = true;
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -9707,6 +9716,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         tblAddCam4.Visible = false;
         // show the added Camera form
         tblCamera4.Visible = true;
+        txtCamDesc4.Text = "Camera No. ";
         tblAddCam5.Visible = true;
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -9721,6 +9731,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         tblAddCam5.Visible = false;
         // show the added Camera form
         tblCamera5.Visible = true;
+        txtCamDesc5.Text = "Camera No. ";
         tblAddCam6.Visible = true;
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -9735,6 +9746,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         tblAddCam6.Visible = false;
         // show the added Camera form
         tblCamera6.Visible = true;
+        txtCamDesc6.Text = "Camera No. ";
         tblAddCam7.Visible = true;
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -9749,6 +9761,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         tblAddCam7.Visible = false;
         // show the added Camera form
         tblCamera7.Visible = true;
+        txtCamDesc7.Text = "Camera No. ";
         tblDelCam7.Visible = true;
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -10168,7 +10181,14 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
     protected bool checkFields()
     {
         Report.ErrorMessage = ""; // stores the last known error message
-        bool returnedValue = validateForm();
+        bool returnedValue = false;
+
+        if (ddlShift.SelectedItem.Value.ToString() == "-1")
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Shift.";
+            ddlShift.Focus();
+            returnedValue = true;
+        }
 
         // sets Returned Flag to either 1 or 2 (with / without error) and reloads editButton from Default.aspx
         if (returnedValue == true)
@@ -10179,6 +10199,18 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         else
         {
             Report.HasErrorMessage = false; // allows the update query to run (no errors)
+            Report.ErrorMessage = ""; // stores the last known error message
+        }
+
+        bool returnedValue1 = validateForm();
+        // sets Returned Flag to either 1 or 2 (with / without error) and reloads editButton from Default.aspx
+        if (returnedValue1 == true)
+        {
+            Report.HasErrorMessage1 = true; // does not trigger update query in Default because of the error
+        }
+        else
+        {
+            Report.HasErrorMessage1 = false; // allows the update query to run (no errors)
             Report.ErrorMessage = ""; // stores the last known error message
         }
         Report.RunEditMode = true; // reloads editButton method from Default.aspx

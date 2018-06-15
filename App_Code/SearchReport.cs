@@ -198,7 +198,10 @@ public class SearchReport
         }
 
 
-        if (!hasKeyword && WhatHappened.Equals("0") && Location.Equals("0") && ActionTaken.Equals("0") && MemberNo.Equals("0") && FirstName.Equals("0") && LastName.Equals("0") && Alias.Equals("0")) // if Keyword and advanced filters are empty
+        if (!hasKeyword && (WhatHappened.Equals("0") || string.IsNullOrEmpty(WhatHappened)) && (Location.Equals("0") || string.IsNullOrEmpty(Location))
+            && (ActionTaken.Equals("0") || string.IsNullOrEmpty(ActionTaken)) && (MemberNo.Equals("0") || string.IsNullOrEmpty(MemberNo))
+            && (FirstName.Equals("0") || string.IsNullOrEmpty(FirstName)) && (LastName.Equals("0") || string.IsNullOrEmpty(LastName))
+            && (Alias.Equals("0") || string.IsNullOrEmpty(Alias))) // if Keyword and advanced filters are empty
         {
             selectQuery = startQuery + reportQuery + dateQuery + mrQuery + cuQuery + statusQuery + authorQuery + unreadQuery + endQuery;
         }

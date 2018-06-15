@@ -104,6 +104,11 @@ public class SqlQuery
             {
                 while (rdr.Read())
                 {
+                    if (data.Equals("UpdateStaffSign")) // script written to revert Update mistake
+                    {
+                        Report.EntryDate = rdr["ModifyDate"].ToString();
+                        Report.SelectedStaffName = rdr["StaffName"].ToString();
+                    }
                     if (data.Equals("SearchKeyword"))
                     {
                         // get table name and report id, save it as a string together with the sql query (adding a union) and make it look like the view from MRSLDB

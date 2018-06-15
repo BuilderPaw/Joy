@@ -253,7 +253,7 @@ public class Report
                 "', TxtCamETimeH5='" + ReportIncidentMr.TxtCamETimeH5 + "', TxtCamETimeM5='" + ReportIncidentMr.TxtCamETimeM5 + "', TxtCamETimeTC5='" + ReportIncidentMr.TxtCamETimeTC5 + "', TxtCamSTimeH6='" + ReportIncidentMr.TxtCamSTimeH6 + "', TxtCamSTimeM6='" + ReportIncidentMr.TxtCamSTimeM6 + "', TxtCamSTimeTC6='" + ReportIncidentMr.TxtCamSTimeTC6 +
                 "', TxtCamETimeH6='" + ReportIncidentMr.TxtCamETimeH6 + "', TxtCamETimeM6='" + ReportIncidentMr.TxtCamETimeM6 + "', TxtCamETimeTC6='" + ReportIncidentMr.TxtCamETimeTC6 + "', TxtCamSTimeH7='" + ReportIncidentMr.TxtCamSTimeH7 + "', TxtCamSTimeM7='" + ReportIncidentMr.TxtCamSTimeM7 + "', TxtCamSTimeTC7='" + ReportIncidentMr.TxtCamSTimeTC7 +
                 "', TxtCamETimeH7='" + ReportIncidentMr.TxtCamETimeH7 + "', TxtCamETimeM7='" + ReportIncidentMr.TxtCamETimeM7 + "', TxtCamETimeTC7='" + ReportIncidentMr.TxtCamETimeTC7 + "', TxtTimeH='" + ReportIncidentMr.TxtTimeH + "', TxtTimeM='" + ReportIncidentMr.TxtTimeM + "', TxtTimeTC='" + ReportIncidentMr.TxtTimeTC + "', PlayerId1='" + ReportIncidentMr.PlayerId1 +
-                "', PlayerId2='" + ReportIncidentMr.PlayerId2 + "', PlayerId3='" + ReportIncidentMr.PlayerId3 + "', PlayerId4='" + ReportIncidentMr.PlayerId4 + "', PlayerId5='" + ReportIncidentMr.PlayerId5 + "', Alias1='"+ ReportIncidentMr.Alias1 + "', Alias2='" + ReportIncidentMr.Alias2 + "', Alias3='" + ReportIncidentMr.Alias3 + "', Alias4='" + ReportIncidentMr.Alias4 +
+                "', PlayerId2='" + ReportIncidentMr.PlayerId2 + "', PlayerId3='" + ReportIncidentMr.PlayerId3 + "', PlayerId4='" + ReportIncidentMr.PlayerId4 + "', PlayerId5='" + ReportIncidentMr.PlayerId5 + "', Alias1='" + ReportIncidentMr.Alias1 + "', Alias2='" + ReportIncidentMr.Alias2 + "', Alias3='" + ReportIncidentMr.Alias3 + "', Alias4='" + ReportIncidentMr.Alias4 +
                 "', Alias5='" + ReportIncidentMr.Alias5 + "', MemberSince1='" + ReportIncidentMr.MemberSince1 + "', MemberSince2='" + ReportIncidentMr.MemberSince2 + "', MemberSince3='" + ReportIncidentMr.MemberSince3 + "', MemberSince4='" + ReportIncidentMr.MemberSince4 + "', MemberSince5='" + ReportIncidentMr.MemberSince5 + "' WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
         }
 
@@ -787,12 +787,30 @@ public class Report
 
     public static string ManagerSignQuery() // list of reports that needs manager sign-off
     {
-            string managerSign = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table]," +
-            " [Report_Version], [ReportStat], [AuditVersion], ROW_NUMBER() OVER (ORDER BY [ShiftDate] DESC, [ShiftId] DESC) AS [RowNum]" +
-            " FROM [View_Reports] WHERE ReportName IN('" + UserCredentials.GroupsQuery + "') AND ReportStat LIKE '%Manager%' AND" +
-            " [StaffName] != '" + UserCredentials.DisplayName + "'";
+        string keepSite;
+        if (UserCredentials.Groups.Contains("MRReportsOperations") && UserCredentials.Groups.Contains("CUReportsClubManager"))
+        {
+            keepSite = "";
+        }
+        else if (UserCredentials.Groups.Contains("CUReportsClubManager"))
+        {
+            keepSite = " AND ReportName NOT LIKE '%MR%'";
+        }
+        else if (UserCredentials.Groups.Contains("MRReportsOperations"))
+        {
+            keepSite = " AND ReportName NOT LIKE '%CU%' or ([StaffId] = '1038' and ReportStat LIKE '%Manager%')";
+        }
+        else
+        {
+            keepSite = "";
+        }
 
-            return managerSign;
+        string managerSign = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table]," +
+        " [Report_Version], [ReportStat], [AuditVersion], ROW_NUMBER() OVER (ORDER BY [ShiftDate] DESC, [ShiftId] DESC) AS [RowNum]" +
+        " FROM [View_Reports] WHERE ReportName IN('" + UserCredentials.GroupsQuery + "') AND ReportStat LIKE '%Manager%' AND" +
+        " [StaffName] != '" + UserCredentials.DisplayName + "'" + keepSite;
+
+        return managerSign;
     }
 
     public static bool ManagerSignOffRequired // check if report needs a manager sign off
@@ -1223,6 +1241,25 @@ public class Report
         set
         {
             HttpContext.Current.Session["RHasErrorMessage"] = value;
+        }
+    }
+
+    public static bool HasErrorMessage1 // checks if there is an error message to display (before signing report)
+    {
+        get
+        {
+            if (HttpContext.Current.Session["RHasErrorMessage1"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return (bool)HttpContext.Current.Session["RHasErrorMessage1"];
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["RHasErrorMessage1"] = value;
         }
     }
 

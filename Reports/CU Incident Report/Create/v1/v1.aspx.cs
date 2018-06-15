@@ -1830,7 +1830,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         // Person 1
         if (acpPerson1.Visible == true)
         {
-            
+
             if (ddlPartyType1.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select one Party Type for Person 1.";
@@ -2011,7 +2011,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         // Person 2
         if (acpPerson2.Visible == true)
         {
-            
+
             if (ddlPartyType2.SelectedItem.Value == "-1")
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select one Party Type for Person 2.";
@@ -2193,7 +2193,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         // Person 3
         if (acpPerson3.Visible == true)
         {
-            
+
             if (ddlPartyType3.SelectedItem.Text == "Member")
             {
                 if (txtMemberNo3.Text == "")
@@ -5266,7 +5266,14 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         DateTime entry_date = DateTime.Now;
 
         // validate objects in the form
-        int returnedValue = validateForm();
+        int returnedValue = 0;
+        if (ddlShift.SelectedItem.Value == "-1")
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select Shift.";
+            ddlShift.Focus();
+            returnedValue = 1;
+        }
+
         if (returnedValue == 1)
         {
             showAlert(Report.ErrorMessage);
@@ -5962,6 +5969,8 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect",
         "alert('Report Submitted.'); window.location='" +
         Request.ApplicationPath + "Default.aspx';", true);
+        SearchReport.SetAccordion = "1";
+        SearchReport.RunOnStart = true;
     }
 
     // Once Member had a Textchanged, trigger this

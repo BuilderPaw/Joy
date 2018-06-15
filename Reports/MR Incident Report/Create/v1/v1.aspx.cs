@@ -219,7 +219,6 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select Shift.";
             ddlShift.Focus();
             returnedFlag = 1;
-
         }
 
         // check if returnedFlag is already set 1
@@ -5267,13 +5266,21 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         DateTime entry_date = DateTime.Now;
 
         // validate objects in the form
-        int returnedValue = validateForm();
+        int returnedValue = 0;
+        if (ddlShift.SelectedItem.Value == "-1")
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select Shift.";
+            ddlShift.Focus();
+            returnedValue = 1;
+        }
+
         if (returnedValue == 1)
         {
             showAlert(Report.ErrorMessage);
             Report.ErrorMessage = "";
             return;
         }
+
 
         // change the format of the shift date to timestamp format
         DateTime shift_date = DateTime.Parse(txtDatePicker.Text);
@@ -5962,6 +5969,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect",
         "alert('Report Submitted.'); window.location='" +
         Request.ApplicationPath + "Default.aspx';", true);
+        SearchReport.SetAccordion = "1";
+        SearchReport.RunOnStart = true;
     }
 
     // Once Member had a Textchanged, trigger this

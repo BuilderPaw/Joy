@@ -38,12 +38,12 @@
             <table class="navigation-table">
                 <tr>
                     <td>
-                        <asp:Button ID="btnNavHome" runat="server" CssClass="btn" Width="118px" BackColor="#285e8e" OnClick="btnNavHome_Click" Text="Home" />
+                        <asp:Button ID="btnNavHome" runat="server" CssClass="btn" Width="100%" BackColor="#285e8e" OnClick="btnNavHome_Click" Text="Home" />
                     </td>
                     <td>
                         <div class="navigation-div">
                             <div>
-                                <asp:Button ID="btnNavActionsAssigned" runat="server" CssClass="btn" Width="290px" OnClick="btnNavActionsAssigned_Click" Text="Actions Assigned" />
+                                <asp:Button ID="btnNavActionsAssigned" runat="server" CssClass="btn" Width="100%" OnClick="btnNavActionsAssigned_Click" Text="Actions Assigned" />
                             </div>
                             <div class="navigation-notification-div">
                                 <asp:Label ID="lblNotifyAssigned" runat="server" CssClass="navigation-notification-label" Text="1"></asp:Label>
@@ -53,17 +53,17 @@
                     <td>
                         <div class="navigation-div">
                             <div>
-                                <asp:Button ID="btnNavReportActions" runat="server" CssClass="btn" Width="290px" OnClick="btnNavReportActions_Click" Text="Report Actions" />
+                                <asp:Button ID="btnNavReportActions" runat="server" CssClass="btn" Width="100%" OnClick="btnNavReportActions_Click" Text="Report Actions" />
                             </div>
                             <div class="navigation-notification-div">
                                 <asp:Label ID="lblNotifyActions" runat="server" CssClass="navigation-notification-label" Text="2"></asp:Label>
                             </div>
                         </div>
                     </td>
-                    <td>
+                    <td id="tdManagerSign" runat="server">
                         <div class="navigation-div">
                             <div>
-                                <asp:Button ID="btnNavManagerSign" runat="server" CssClass="btn" Width="240px" OnClick="btnNavManagerSign_Click" Text="Manager Sign-off Required" />
+                                <asp:Button ID="btnNavManagerSign" runat="server" CssClass="btn" Width="100%" OnClick="btnNavManagerSign_Click" Text="Manager Sign-off Required" />
                             </div>
                             <div class="navigation-notification-div">
                                 <asp:Label ID="lblNotifyManSign" runat="server" CssClass="navigation-notification-label" Text="3"></asp:Label>

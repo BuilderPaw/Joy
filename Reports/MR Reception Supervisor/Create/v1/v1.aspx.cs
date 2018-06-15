@@ -145,6 +145,8 @@ public partial class Reports_MR_Reception_Supervisor_Create_v1_v1 : System.Web.U
         ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect",
         "alert('Report Submitted.'); window.location='" +
         Request.ApplicationPath + "Default.aspx';", true);
+        SearchReport.SetAccordion = "1";
+        SearchReport.RunOnStart = true;
     }
 
     protected void btnReset_Click(object sender, EventArgs e)

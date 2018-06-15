@@ -34,19 +34,38 @@ public partial class _Default : System.Web.UI.Page
         }
 
         if (!IsPostBack)
-        {   // for testing - see Web.config
+        {
+            /* Script Written to revert Update Mistake
+            int updateId = 2134;
+
+            while (updateId < 4717){
+                sqlQuery.RetrieveData("SELECT * FROM Report_MerrylandsRSLIncident WHERE RID=" + updateId.ToString(), "UpdateStaffSign");
+                DateTime date = Convert.ToDateTime(Report.EntryDate);
+                string thisDate = date.ToString("dd/MM/yyyy HH:mm");
+                string staffSign = Report.SelectedStaffName + " " + thisDate;
+
+                // update readby from selected report id
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET StaffSign='" + staffSign + "' WHERE RId=" + updateId, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
+                updateId++;
+            }
+            */
+
+            // for testing - see Web.config
             // Administrator
             /*start*/
-            //string test1 = "CUReportsReceptionSupervisors|MRReportsReceptionSupervisor|MRReportsFunctionSupervisor|" +
-            //               "MRReportsSeniorManagers|CUReportsSupervisors|CUReportsReception|CUReportsDutyManagers|MRReportsUsers|" +
-            //               "MRReportsSupervisors|MRReportsReception|MRReportsDutyManagers|MRReportsAllegation|",
-            //       test2 = "Lorenz Santiago", test3 = "paolos", test4 = "1", test5 = "MR Senior Managers";
-            //UserCredentials.Groups = test1;
-            //Session["DisplayName"] = test2;
-            //UserCredentials.DisplayName = test2;
-            //Session["Username"] = test3;
-            //UserCredentials.StaffId = test4;
-            //UserCredentials.Role = test5;
+            string test1 = "MRReportsReceptionSupervisor|MRReportsFunctionSupervisor|" +
+                           "MRReportsSeniorManagers|MRReportsUsers|" +
+                           "MRReportsSupervisors|MRReportsReception|MRReportsDutyManagers|MRReportsAllegation|",
+                   test2 = "Lorenz Santiago", test3 = "paolos", test4 = "1", test5 = "MR Senior Managers";
+            UserCredentials.Groups = test1;
+            Session["DisplayName"] = test2;
+            UserCredentials.DisplayName = test2;
+            Session["Username"] = test3;
+            UserCredentials.StaffId = test4;
+            UserCredentials.Role = test5;
             /*end*/
 
             // Duty Manager
@@ -65,14 +84,14 @@ public partial class _Default : System.Web.UI.Page
 
             // Staff
             /*start*/
-            string test1 = "MRReportsReception|",
-                   test2 = "Lorenz Santiago", test3 = "paolos", test4 = "1", test5 = "MR Reception";
-            UserCredentials.Groups = test1;
-            Session["DisplayName"] = test2;
-            UserCredentials.DisplayName = test2;
-            Session["Username"] = test3;
-            UserCredentials.StaffId = test4;
-            UserCredentials.Role = test5;
+            //string test1 = "MRReportsReception|",
+            //       test2 = "Lorenz Santiago", test3 = "paolos", test4 = "1", test5 = "MR Reception";
+            //UserCredentials.Groups = test1;
+            //Session["DisplayName"] = test2;
+            //UserCredentials.DisplayName = test2;
+            //Session["Username"] = test3;
+            //UserCredentials.StaffId = test4;
+            //UserCredentials.Role = test5;
             /*end*/
 
             // Staff
@@ -358,10 +377,33 @@ public partial class _Default : System.Web.UI.Page
     {
         bool hasNotification;
 
+        if (!UserCredentials.Groups.Contains("MRReportsSeniorManagers"))
+        {
+            tdManagerSign.Style.Add("display", "none"); // hide Manager section
+        };
+
+        string keepSite;
+        if (UserCredentials.Groups.Contains("MRReportsOperations") && UserCredentials.Groups.Contains("CUReportsClubManager"))
+        {
+            keepSite = "";
+        }
+        else if (UserCredentials.Groups.Contains("CUReportsClubManager"))
+        {
+            keepSite = " AND ReportName NOT LIKE '%MR%'";
+        }
+        else if(UserCredentials.Groups.Contains("MRReportsOperations"))
+        {
+            keepSite = " AND ReportName NOT LIKE '%CU%' or ([StaffId] = '1038' and ReportStat LIKE '%Manager%')";
+        }
+        else
+        {
+            keepSite = "";
+        }
+
         con.Open();
         SqlCommand count = new SqlCommand("SELECT COUNT(*)" +
-                           " FROM [View_Reports] WHERE ReportName IN('" + UserCredentials.GroupsQuery + "') AND ReportStat LIKE '%Manager%' AND" +
-                           " [StaffId] != '" + UserCredentials.StaffId + "'", con);
+                           " FROM [View_Reports] WHERE ReportName IN ('" + UserCredentials.GroupsQuery + "') AND ReportStat LIKE '%Manager%' AND" +
+                           " [StaffId] != '" + UserCredentials.StaffId + "'" + keepSite, con);
         lblNotifyManSign.Text = count.ExecuteScalar().ToString(); // set the number of notifications
         con.Close();
 
@@ -1410,6 +1452,14 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
+            if (Report.HasErrorMessage1) // don't update if error exist
+            {
+                HideUserSign();
+                // display a message box
+                alert.DisplayMessage(Report.ErrorMessage);
+                return;
+            }
+
             // check if report has already been signed
             sqlQuery.RetrieveData(Report.ActiveReport, "HasUserSign");
             if (Report.HasUserSign)

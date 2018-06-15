@@ -1042,7 +1042,7 @@
             </tr>
             <tr>
                 <td style="border-right: 1px solid black" colspan="2">
-                    <%# Convert.ToDateTime(Eval("Date")).ToString("dddd, dd MMMM yyyy") %> - <%# Eval("TxtTimeH") %>:<%# Eval("TxtTimeM") %>
+                    <%# ProcessMyDataItem(Eval("Date")) %> - <%# Eval("TxtTimeH") %>:<%# Eval("TxtTimeM") %>
                     <!--<%# Eval("TxtTimeTC") %>-->
                 </td>
                 <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <%# Eval("NoOfPerson") %>
