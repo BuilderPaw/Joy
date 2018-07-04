@@ -56,16 +56,14 @@ public partial class _Default : System.Web.UI.Page
             // for testing - see Web.config
             // Administrator
             /*start*/
-            string test1 = "MRReportsReceptionSupervisor|MRReportsFunctionSupervisor|" +
-                           "MRReportsSeniorManagers|MRReportsUsers|" +
-                           "MRReportsSupervisors|MRReportsReception|MRReportsDutyManagers|MRReportsAllegation|MRReportsOverride|",
-                   test2 = "Lorenz Santiago", test3 = "paolos", test4 = "1", test5 = "MR Senior Managers";
-            UserCredentials.Groups = test1;
-            Session["DisplayName"] = test2;
-            UserCredentials.DisplayName = test2;
-            Session["Username"] = test3;
-            UserCredentials.StaffId = test4;
-            UserCredentials.Role = test5;
+            //string test1 = "MRReportsIncident|",
+            //       test2 = "Lorenz Santiago", test3 = "paolos", test4 = "1", test5 = "MR Senior Managers";
+            //UserCredentials.Groups = test1;
+            //Session["DisplayName"] = test2;
+            //UserCredentials.DisplayName = test2;
+            //Session["Username"] = test3;
+            //UserCredentials.StaffId = test4;
+            //UserCredentials.Role = test5;
             /*end*/
 
             // Duty Manager
@@ -1146,7 +1144,7 @@ public partial class _Default : System.Web.UI.Page
 
         // update readby from selected report id
         con.Open();
-        SqlCommand cmd = new SqlCommand("UPDATE " + Report.Table + " SET ReadBy='" + updateRead + "', ReadByList='" + Report.ReadListStaffId + UserCredentials.StaffId + "," + "' WHERE ReportId='" + Report.Id + "' AND AuditVersion='" + Report.AuditVersion + "'", con);
+        SqlCommand cmd = new SqlCommand("UPDATE " + Report.Table + " SET ReadBy='" + updateRead + "', ReadByList='" + Report.ReadListStaffId + Report.SelectedStaffId + "," + "' WHERE ReportId='" + Report.Id + "' AND AuditVersion='" + Report.AuditVersion + "'", con);
         cmd.ExecuteNonQuery();
         con.Close();
 
@@ -3219,6 +3217,11 @@ public partial class _Default : System.Web.UI.Page
                         int_groups[j] = 7;
                         j++;
                     }
+                    else if (array_groups[i].ToString().Equals("MRReportsIncident"))
+                    {
+                        int_groups[j] = 8;
+                        j++;
+                    }
                 }
 
                 // use Array.Sort to display the Report Types accordingly
@@ -3227,7 +3230,7 @@ public partial class _Default : System.Web.UI.Page
                 for (int i = 0; i < int_groups.Length; i++)
                 {
                     // display the reports in proper order, All MR Reports at the top followed by CU Reports
-                    if (int_groups[i] == 1 || int_groups[i] == 2 || int_groups[i] == 5) // check if user has either Duty Mnaager, Supervisor or Reception access - Merrylands
+                    if (int_groups[i] == 1 || int_groups[i] == 2 || int_groups[i] == 5 || int_groups[i] == 8) // check if user has either Duty Manager, Supervisor or Reception or Contractor access - Merrylands
                     {
                         if (!incidentAdded1)
                         {

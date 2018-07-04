@@ -42,13 +42,35 @@ public class AuthenticateUser
             }
             catch (Exception ex)
             {
-                throw new Exception("Error authenticating user. " + ex.Message);
+                string checkIfUsernameExist = string.Concat("SELECT COUNT(*) FROM Staff WHERE Username='", username, "'");
+                RunStoredProcedure rsp = new RunStoredProcedure();
+                int count = rsp.ReturnInteger(checkIfUsernameExist);
+
+                if (count > 0) // write an if statement to check whether the username exist in the database
+                {
+                    string getPassword = string.Concat("SELECT Password FROM Staff WHERE Active=1 AND Username='", username, "'");
+                    string encryptedPassword = rsp.ReturnString(getPassword);
+                    string decryptedPassword = rsp.DecryptPassword(encryptedPassword);
+
+                    if (string.Equals(decryptedPassword, password)) // if it is, check if there is any password stored and match if exist return true
+                    {
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else // else throw the exception
+                {
+                    throw new Exception("Error authenticating user. " + ex.Message);
+                }
             }
             return true;
         }
     }
 
-    public string GetGroups()
+    public string GetGroups(string username)
     {
         DirectorySearcher search = new DirectorySearcher(path);
         search.Filter = "(cn=" + filterAttribute + ")";
@@ -84,7 +106,26 @@ public class AuthenticateUser
             }
             catch (Exception ex)
             {
-                throw new Exception("Error obtaining group names. " + ex.Message);
+                RunStoredProcedure rsp = new RunStoredProcedure();
+                string getGroupNames = string.Concat("SELECT GroupNames FROM Staff WHERE Active=1 AND Username='", username, "'");
+                string groups = rsp.ReturnString(getGroupNames);
+
+                if (!string.IsNullOrEmpty(groups))
+                {
+                    string getStaffNameId = string.Concat("SELECT StaffNameId FROM Staff WHERE Active=1 AND Username='", username, "'");
+                    int staffNameId = rsp.ReturnInteger(getStaffNameId);
+
+                    string getName = string.Concat("SELECT Name FROM StaffName WHERE Active=1 AND StaffNameId=", staffNameId, "");
+                    string name = rsp.ReturnString(getName);
+
+                    groupNames.Append(groups);
+                    groupNames.Append("|");
+                    groupNames.Append(name);
+                }
+                else
+                {
+                    throw new Exception("Error obtaining group names. " + ex.Message);
+                }
             }
             return groupNames.ToString();
         }

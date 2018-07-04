@@ -314,6 +314,10 @@ public class SqlQuery
                     {
                         staffRole = "CU Reception";
                     }
+                    else if (UserCredentials.Groups.Contains("MRReportsIncident"))
+                    {
+                        staffRole = "MR Contractor";
+                    }
 
                     // get the last Staff Name ID stored in the database
                     con1.Open();
@@ -413,17 +417,21 @@ public class SqlQuery
         {
             staffRole = "CU Reception";
         }
+        else if (UserCredentials.Groups.Contains("MRReportsIncident"))
+        {
+            staffRole = "MR Contractor";
+        }
 
         con1.Open(); // Update Staff Role in the database
         SqlCommand updateRole = new SqlCommand("UPDATE [Staff] SET [StaffGroup]='" + staffRole + "' WHERE StaffId=" + UserCredentials.StaffId, con1);
         updateRole.ExecuteNonQuery();
         con1.Close();
 
-        //// update password in the database
-        //con1.Open(); // Update Staff Role in the database
-        //SqlCommand updatePassword = new SqlCommand("UPDATE [Staff] SET [Password]='" + UserCredentials.Password + "' WHERE StaffId=" + UserCredentials.StaffId, con1);
-        //updatePassword.ExecuteNonQuery();
-        //con1.Close();
+        // update group names
+        con1.Open(); // Update Staff Role in the database
+        SqlCommand updateGroups = new SqlCommand("UPDATE [Staff] SET [GroupNames]='" + UserCredentials.Groups + "' WHERE StaffId=" + UserCredentials.StaffId, con1);
+        updateGroups.ExecuteNonQuery();
+        con1.Close();
 
         UserCredentials.Role = staffRole;
     }

@@ -28,11 +28,10 @@ public partial class UserLogin : System.Web.UI.Page
             {
                 if (true == authUser.IsAuthenticated("MRSLGROUP", txtUsername.Text, txtPassword.Text)) // check if login details are valid - checking from Active Directory User Account details
                 {
-                    groups = authUser.GetGroups(); // retrieve user groups + display name
+                    groups = authUser.GetGroups(txtUsername.Text); // retrieve user groups + display name
                     groupArray = groups.Split(new string[] { "|" }, StringSplitOptions.RemoveEmptyEntries);
                     Session["Username"] = txtUsername.Text;
                     UserCredentials.Username = txtUsername.Text; // record username
-                    //UserCredentials.Password = EncryptPassword(txtPassword.Text); // record password
 
                     displayName = groupArray[groupArray.Length - 1];
                     Session["DisplayName"] = displayName;
@@ -53,6 +52,12 @@ public partial class UserLogin : System.Web.UI.Page
 
                     sqlQuery.RetrieveData(query, data); // run this method again just in case the Staff Name has just been created
 
+                    RunStoredProcedure rsp = new RunStoredProcedure();
+                    // encrypt password
+                    string encryptedPassword = rsp.EncryptPassword(txtPassword.Text);
+                    // update password stored in the database
+                    rsp.UpdatePassword(txtUsername.Text, encryptedPassword);
+
                     bool isCookiePersistent = false; // Create the ticket, and add the groups.
                     FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1,txtUsername.Text, DateTime.Now, DateTime.Now.AddMinutes(120), isCookiePersistent, groups);
 
@@ -67,28 +72,68 @@ public partial class UserLogin : System.Web.UI.Page
                 }
                 else
                 {
-                    errorLabel.Text = "Invalid details. Please check your username and password.";
+                    bool passwordGiven = CheckIfPasswordIsGiven();
+
+                    if (!passwordGiven)
+                    {
+                        errorLabel.Text = "Invalid details. Please check your username and password.";
+                    }
                 }
             }
         }
         catch (Exception ex)
         {
-            errorLabel.Text = "Error logging in user. " + ex.Message;
+            bool passwordGiven = CheckIfPasswordIsGiven();
+
+            if (!passwordGiven)
+            {
+                errorLabel.Text = "Error logging in user. " + ex.Message;
+            }
         }
     }
 
-    //public static string EncryptPassword(string password) // encrypts password
-    //{
-    //    try
-    //    {
-    //        byte[] encryptedByte = new byte[password.Length];
-    //        encryptedByte = Encoding.UTF8.GetBytes(password);
-    //        string encrypted = Convert.ToBase64String(encryptedByte);
-    //        return encrypted;
-    //    }
-    //    catch (Exception ex)
-    //    {
-    //        throw new Exception("Error: " + ex.Message);
-    //    }
-    //}   
+    private bool CheckIfPasswordIsGiven()
+    {
+        bool passwordGiven = true;
+
+        RunStoredProcedure rsp = new RunStoredProcedure();
+        string getPassword = string.Concat("SELECT Password FROM Staff WHERE Active=1 AND Username='", txtUsername.Text, "'");
+        string password = rsp.ReturnString(getPassword);
+
+        if (string.Equals(password, txtPassword.Text))
+        {
+            // hide the current objetcs displayed and display a textbox to write their new password
+            divLogin.Visible = false;
+            divNewPassword.Visible = true;
+            txtNewPassword.Focus();
+            passwordGiven = true;
+        }
+        else
+        {
+            passwordGiven = false;
+        }
+
+        return passwordGiven;
+    }
+
+    protected void btnUpdatePassword_Click(object sender, EventArgs e)
+    {
+        // once the new password is submitted, redirect them to the default url
+        // update the password for this user
+        RunStoredProcedure rsp = new RunStoredProcedure();
+        // join these two methods together
+        // encrypt password
+        string encryptedPassword = rsp.EncryptPassword(txtNewPassword.Text);
+        // update password stored in the database
+        rsp.UpdatePassword(txtUsername.Text, encryptedPassword);
+        //ClientScript.RegisterStartupScript(this.GetType(), "myalert", "alert('Password updated');location.href='/Web_Forms/Default.aspx';", true); // show alert textbox first then redirect to default url
+
+        AlertMessage alert = new AlertMessage();
+        alert.DisplayMessage("Password updated!");
+
+        // hide the current objetcs displayed and display a textbox to write their new password
+        divLogin.Visible = true;
+        divNewPassword.Visible = false;
+        txtUsername.Focus();
+    }
 }

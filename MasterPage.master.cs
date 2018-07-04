@@ -22,24 +22,24 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        accordion.Visible = true; // directly display homepage
-        imgBtnLogo.Visible = true;
-        username.Visible = true;
+        //accordion.Visible = true; // directly display homepage
+        //imgBtnLogo.Visible = true;
+        //username.Visible = true;
 
-        //if (HttpContext.Current.User.Identity.IsAuthenticated) // show login prompt and hide header objects
-        //{
-        //    // display the accordion when user has logged in
-        //    accordion.Visible = true;
-        //    username.Visible = true;
-        //    imgBtnLogo.Visible = true;
-        //}
-        //else
-        //{
-        //    // hide accordion on login page
-        //    accordion.Visible = false;
-        //    username.Visible = false;
-        //    imgBtnLogo.Visible = false;
-        //}
+        if (HttpContext.Current.User.Identity.IsAuthenticated) // show login prompt and hide header objects
+        {
+            // display the accordion when user has logged in
+            accordion.Visible = true;
+            username.Visible = true;
+            imgBtnLogo.Visible = true;
+        }
+        else
+        {
+            // hide accordion on login page
+            accordion.Visible = false;
+            username.Visible = false;
+            imgBtnLogo.Visible = false;
+        }
 
         if (!IsPostBack)
         {
@@ -63,7 +63,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     bool incidentAdded1 = false, incidentAdded2 = false;
                     for (int i = 0; i < reportList.Length; i++) // display the reports in proper order, All MR Reports at the top followed by CU Reports
                     {
-                        if (reportList[i] == 1 || reportList[i] == 2 || reportList[i] == 5)     // if Duty Manager or Supervisor or Reception Staff - Merrylands
+                        if (reportList[i] == 1 || reportList[i] == 2 || reportList[i] == 5 || reportList[i] == 8)     // if Duty Manager or Supervisor or Reception or Contractor Staff - Merrylands
                         {
                             if (!incidentAdded1)
                             {

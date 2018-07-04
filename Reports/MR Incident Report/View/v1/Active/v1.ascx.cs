@@ -14,7 +14,7 @@ public partial class Reports_MR_Incident_Report_View_v1_v1 : System.Web.UI.UserC
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Report.SelectedStaffId == UserCredentials.StaffId || UserCredentials.GroupsQuery.Contains("Supervisor") || UserCredentials.GroupsQuery.Contains("Duty Manager") || UserCredentials.GroupsQuery.Contains("Senior Manager")) // if it is a member of Duty or Senior Manager display the Incident Report
+        if (Report.SelectedStaffId == UserCredentials.StaffId || UserCredentials.GroupsQuery.Contains("Supervisor") || UserCredentials.GroupsQuery.Contains("Duty Manager") || UserCredentials.GroupsQuery.Contains("Senior Manager") || UserCredentials.GroupsQuery.Contains("Override")) // if it is a member of Duty or Senior Manager display the Incident Report
         {
             incidentReport.Visible = true;
             readFiles(Report.ActiveReport, "getFields");

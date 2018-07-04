@@ -1,13 +1,27 @@
 ﻿/* UserLogin Page */
+/*----------------login----------------*/
+
+.login-header {
+    margin-top: 1px;
+    margin-left: 10px;
+    color: teal;
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.login-textbox {
+    margin: 0 auto;
+}
+
 .login {
     border: solid 1px;
     padding: 3%;
     margin-left: 50%;
-    padding-top: 4%;
-    width: 20%;
+    padding-top:4%;
+    width:20%;
     margin-top: 7%;
     text-align: center;
-    background-color:aliceblue;
+    background-color: aliceblue;
 }
 /*/UserLogin Page */
 

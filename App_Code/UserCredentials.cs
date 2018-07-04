@@ -56,6 +56,11 @@ public class UserCredentials
                 reportList[j] = 7;
                 j++;
             }
+            else if (group[i].ToString().Equals("MRReportsIncident"))
+            {
+                reportList[j] = 8;
+                j++;
+            }
         }
         return reportList;
     }
@@ -98,6 +103,7 @@ public class UserCredentials
                 groupsQuery = groupsQuery.Replace("DutyManager", "Duty Manager");
                 groupsQuery = groupsQuery.Replace("CU Reception", "'CU Reception'"); // add a '' to all reports to make it compatible for the sql query to run 
                 groupsQuery = groupsQuery.Replace("MR Reception", "'MR Reception'");
+                groupsQuery = groupsQuery.Replace("MR Incident", "'MR Incident Report'");
                 groupsQuery = groupsQuery.Replace("'CU Reception' Supervisors", "'CU Reception Supervisors'");
                 groupsQuery = groupsQuery.Replace("'MR Reception' Supervisor", "'MR Reception Supervisor'");
                 groupsQuery = groupsQuery.Replace("'CU Reception'", "'CU Reception', 'CU Incident Report'"); // add a '' to all reports to make it compatible for the sql query to run 
