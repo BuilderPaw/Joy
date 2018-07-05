@@ -1144,7 +1144,7 @@ public partial class _Default : System.Web.UI.Page
 
         // update readby from selected report id
         con.Open();
-        SqlCommand cmd = new SqlCommand("UPDATE " + Report.Table + " SET ReadBy='" + updateRead + "', ReadByList='" + Report.ReadListStaffId + Report.SelectedStaffId + "," + "' WHERE ReportId='" + Report.Id + "' AND AuditVersion='" + Report.AuditVersion + "'", con);
+        SqlCommand cmd = new SqlCommand("UPDATE " + Report.Table + " SET ReadBy='" + updateRead + "', ReadByList='" + Report.ReadListStaffId + UserCredentials.StaffId + "," + "' WHERE ReportId='" + Report.Id + "' AND AuditVersion='" + Report.AuditVersion + "'", con);
         cmd.ExecuteNonQuery();
         con.Close();
 
