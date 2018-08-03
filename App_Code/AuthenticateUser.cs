@@ -30,6 +30,17 @@ public class AuthenticateUser
                 search.Filter = "(SAMAccountName=" + username + ")";
                 search.PropertiesToLoad.Add("cn");
 
+                // we were having issues with search.FindAll() method listed below and it takes 15 seconds to load
+                // below is the error message that is displayed
+                // ExtendedErrorMessage = "8009030C: LdapErr: DSID-0C0904DC, comment: AcceptSecurityContext error, data 52e, v1db1"
+                // possible solution reference : https://social.technet.microsoft.com/Forums/windowsserver/en-US/2786da89-3dc7-43d9-8a75-3db54825ff36/solved-ldap-authentication-error-code-49-80090308-comment-acceptsecuritycontext-error-data?forum=winserverDS 
+                // solution implemented: create an exception for local users not found in active directory
+                // reference: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/creating-and-throwing-exceptions
+                if (username.ToLower().Equals("malb"))
+                {
+                    throw new SystemException("user is not found in active directory");
+                }
+
                 foreach (SearchResult result in search.FindAll())
                 {
                     if (null != result)
