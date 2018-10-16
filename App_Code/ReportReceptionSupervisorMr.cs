@@ -23,7 +23,7 @@ public class ReportReceptionSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RRSMSignIn"].ToString();
+                return HttpContext.Current.Session["RRSMSignIn"].ToString().Replace("'", "^");
             }
         }
         set
@@ -41,7 +41,7 @@ public class ReportReceptionSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RRSMRefusals"].ToString();
+                return HttpContext.Current.Session["RRSMRefusals"].ToString().Replace("'", "^");
             }
         }
         set
@@ -59,7 +59,7 @@ public class ReportReceptionSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RRSMEvents"].ToString();
+                return HttpContext.Current.Session["RRSMEvents"].ToString().Replace("'", "^");
             }
         }
         set
@@ -77,7 +77,7 @@ public class ReportReceptionSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RRSMGenComm"].ToString();
+                return HttpContext.Current.Session["RRSMGenComm"].ToString().Replace("'", "^");
             }
         }
         set

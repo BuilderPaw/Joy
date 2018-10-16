@@ -2613,24 +2613,24 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                 {
                     if (method.Equals("GetFields"))
                     {
-                        lblReportName.Text = rdr["ReportName"].ToString();
-                        lblReportId.Text = rdr["ReportId"].ToString();
-                        lblStaffName.Text = rdr["StaffName"].ToString();
-                        Report.SelectedStaffId = rdr["StaffId"].ToString();
-                        ddlShift.SelectedIndex = Int32.Parse(rdr["ShiftId"].ToString());
-                        Report.ShiftId = ddlShift.SelectedIndex.ToString();
+                        lblReportName.Text = rdr["ReportName"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        lblReportId.Text = rdr["ReportId"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        lblStaffName.Text = rdr["StaffName"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        Report.SelectedStaffId = rdr["StaffId"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlShift.SelectedIndex = Int32.Parse(rdr["ShiftId"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        Report.ShiftId = ddlShift.SelectedIndex.ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtDatePicker.Text = Convert.ToDateTime(rdr["ShiftDate"]).ToString("dddd, dd MMMM yyyy");
-                        Report.ShiftDate = DateTime.Parse(txtDatePicker.Text).ToString();
-                        Report.ShiftDOW = DateTime.Parse(Report.ShiftDate.ToString()).DayOfWeek.ToString();
+                        Report.ShiftDate = DateTime.Parse(txtDatePicker.Text).ToString().Replace("<br />", "\n").Replace("^", "'");
+                        Report.ShiftDOW = DateTime.Parse(Report.ShiftDate.ToString().Replace("<br />", "\n").Replace("^", "'")).DayOfWeek.ToString().Replace("<br />", "\n").Replace("^", "'");
                         lblEntryDetails.Text = Convert.ToDateTime(rdr["EntryDate"]).ToString("dd/MM/yyyy HH:mm");
-                        Report.EntryDate = Convert.ToDateTime(rdr["EntryDate"]).ToString();
+                        Report.EntryDate = Convert.ToDateTime(rdr["EntryDate"]).ToString().Replace("<br />", "\n").Replace("^", "'");
 
                         /* Person 1 */
-                        txtFirstName1.Text = rdr["FirstName1"].ToString();
-                        txtLastName1.Text = rdr["LastName1"].ToString();
-                        txtContact1.Text = rdr["Contact1"].ToString();
-                        txtAlias1.Text = rdr["Alias1"].ToString();
-                        ddlPartyType1.SelectedIndex = Int32.Parse(rdr["PartyType1"].ToString());
+                        txtFirstName1.Text = rdr["FirstName1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtLastName1.Text = rdr["LastName1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtContact1.Text = rdr["Contact1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtAlias1.Text = rdr["Alias1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlPartyType1.SelectedIndex = Int32.Parse(rdr["PartyType1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         if (ddlPartyType1.SelectedItem.Value == "1") // if person is a member, don't allow user to edit the following objects
                         {
                             txtFirstName1.Enabled = false;
@@ -2640,60 +2640,60 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
                             // member's fields
                             cbCardHeld1.Checked = Convert.ToBoolean(rdr["CardHeld1"]);
-                            ReportIncidentCu.PlayerId1 = rdr["PlayerId1"].ToString();
-                            txtMemberNo1.Text = rdr["MemberNo1"].ToString();
-                            txtDOB1.Text = rdr["MemberDOB1"].ToString();
-                            txtAddress1.Text = rdr["MemberAddress1"].ToString();
-                            txtMemberSince1.Text = rdr["MemberSince1"].ToString();
+                            ReportIncidentCu.PlayerId1 = rdr["PlayerId1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtMemberNo1.Text = rdr["MemberNo1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtDOB1.Text = rdr["MemberDOB1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtAddress1.Text = rdr["MemberAddress1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtMemberSince1.Text = rdr["MemberSince1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
                         if (ddlPartyType1.SelectedItem.Value == "2") // if person is a visitor read following objects
                         {
                             // visitor's fields
                             cbSignInSlip1.Checked = Convert.ToBoolean(rdr["SignInSlip1"]);
-                            txtSignInBy1.Text = rdr["SignedInBy1"].ToString();
-                            txtDOBv1.Text = rdr["VisitorDOB1"].ToString();
-                            txtIDProof1.Text = rdr["VisitorProofID1"].ToString();
-                            txtAddressv1.Text = rdr["VisitorAddress1"].ToString();
+                            txtSignInBy1.Text = rdr["SignedInBy1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtDOBv1.Text = rdr["VisitorDOB1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtIDProof1.Text = rdr["VisitorProofID1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtAddressv1.Text = rdr["VisitorAddress1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
                         if (ddlPartyType1.SelectedItem.Value == "3") // if person is a staff read following objects
                         {
                             // staff's fields
-                            txtStaffEmpNo1.Text = rdr["StaffEmpNo1"].ToString();
-                            txtStaffAddress1.Text = rdr["StaffAddress1"].ToString();
+                            txtStaffEmpNo1.Text = rdr["StaffEmpNo1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtStaffAddress1.Text = rdr["StaffAddress1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
 
                         // display label 'Number of Persons Involved' (noOfPerson) and the label of the actual number of persons involved (noPerson1)
                         noOfPerson.Visible = true;
-                        lblNoOfPerson.Text = rdr["NoOfPerson"].ToString();
+                        lblNoOfPerson.Text = rdr["NoOfPerson"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         noOfPerson1.Visible = true;
 
-                        txtPDate1.Text = rdr["PDate1"].ToString();
-                        ddlPTimeH1.SelectedIndex = Int32.Parse(rdr["PTimeH1"].ToString());
-                        ddlPTimeM1.SelectedIndex = Int32.Parse(rdr["PTimeM1"].ToString());
-                        //ddlPTimeTC1.SelectedIndex = Int32.Parse(rdr["PTimeTC1"].ToString());
+                        txtPDate1.Text = rdr["PDate1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlPTimeH1.SelectedIndex = Int32.Parse(rdr["PTimeH1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlPTimeM1.SelectedIndex = Int32.Parse(rdr["PTimeM1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlPTimeTC1.SelectedIndex = Int32.Parse(rdr["PTimeTC1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         cbWitness1.Checked = Convert.ToBoolean(rdr["Witness1"]);
-                        txtAge1.Text = rdr["Age1"].ToString();
-                        ddlAgeGroup1.SelectedIndex = Int32.Parse(rdr["AgeGroup1"].ToString());
-                        txtWeight1.Text = rdr["Weight1"].ToString();
-                        txtHeight1.Text = rdr["Height1"].ToString();
-                        txtHair1.Text = rdr["Hair1"].ToString();
-                        txtClothingTop1.Text = rdr["ClothingTop1"].ToString();
-                        txtClothingBottom1.Text = rdr["ClothingBottom1"].ToString();
-                        txtShoes1.Text = rdr["Shoes1"].ToString();
-                        txtWeapon1.Text = rdr["Weapon1"].ToString();
-                        ddlGender1.SelectedIndex = Int32.Parse(rdr["Gender1"].ToString());
-                        txtDistFeatures1.Text = rdr["DistFeatures1"].ToString().Replace("<br />", "\n");
-                        txtInjuryDesc1.Text = rdr["InjuryDesc1"].ToString().Replace("<br />", "\n");
-                        txtInjuryCause1.Text = rdr["CauseInjury1"].ToString().Replace("<br />", "\n");
-                        txtIncidentComm1.Text = rdr["Comments1"].ToString().Replace("<br />", "\n");
+                        txtAge1.Text = rdr["Age1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlAgeGroup1.SelectedIndex = Int32.Parse(rdr["AgeGroup1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtWeight1.Text = rdr["Weight1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtHeight1.Text = rdr["Height1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtHair1.Text = rdr["Hair1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtClothingTop1.Text = rdr["ClothingTop1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtClothingBottom1.Text = rdr["ClothingBottom1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtShoes1.Text = rdr["Shoes1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtWeapon1.Text = rdr["Weapon1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlGender1.SelectedIndex = Int32.Parse(rdr["Gender1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtDistFeatures1.Text = rdr["DistFeatures1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtInjuryDesc1.Text = rdr["InjuryDesc1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtInjuryCause1.Text = rdr["CauseInjury1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtIncidentComm1.Text = rdr["Comments1"].ToString().Replace("<br />", "\n").Replace("^", "'");
 
                         /* Person 2 */
-                        txtFirstName2.Text = rdr["FirstName2"].ToString();
-                        txtLastName2.Text = rdr["LastName2"].ToString();
-                        txtAlias2.Text = rdr["Alias2"].ToString();
-                        txtContact2.Text = rdr["Contact2"].ToString();
-                        ddlPartyType2.SelectedIndex = Int32.Parse(rdr["PartyType2"].ToString());
+                        txtFirstName2.Text = rdr["FirstName2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtLastName2.Text = rdr["LastName2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtAlias2.Text = rdr["Alias2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtContact2.Text = rdr["Contact2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlPartyType2.SelectedIndex = Int32.Parse(rdr["PartyType2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         if (ddlPartyType2.SelectedItem.Value == "1") // if person is a member, don't allow user to edit the following objects
                         {
                             txtFirstName2.Enabled = false;
@@ -2703,55 +2703,55 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
                             // member's fields
                             cbCardHeld2.Checked = Convert.ToBoolean(rdr["CardHeld2"]);
-                            ReportIncidentCu.PlayerId2 = rdr["PlayerId2"].ToString();
-                            txtMemberNo2.Text = rdr["MemberNo2"].ToString();
-                            txtDOB2.Text = rdr["MemberDOB2"].ToString();
-                            txtAddress2.Text = rdr["MemberAddress2"].ToString();
-                            txtMemberSince2.Text = rdr["MemberSince2"].ToString();
+                            ReportIncidentCu.PlayerId2 = rdr["PlayerId2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtMemberNo2.Text = rdr["MemberNo2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtDOB2.Text = rdr["MemberDOB2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtAddress2.Text = rdr["MemberAddress2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtMemberSince2.Text = rdr["MemberSince2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
                         if (ddlPartyType2.SelectedItem.Value == "2") // if person is a visitor read following objects
                         {
                             // visitor's fields
                             cbSignInSlip2.Checked = Convert.ToBoolean(rdr["SignInSlip2"]);
-                            txtSignInBy2.Text = rdr["SignedInBy2"].ToString();
-                            txtDOBv2.Text = rdr["VisitorDOB2"].ToString();
-                            txtIDProof2.Text = rdr["VisitorProofID2"].ToString();
-                            txtAddressv2.Text = rdr["VisitorAddress2"].ToString();
+                            txtSignInBy2.Text = rdr["SignedInBy2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtDOBv2.Text = rdr["VisitorDOB2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtIDProof2.Text = rdr["VisitorProofID2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtAddressv2.Text = rdr["VisitorAddress2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
                         if (ddlPartyType2.SelectedItem.Value == "3") // if person is a staff read following objects
                         {
                             // staff's fields
-                            txtStaffEmpNo2.Text = rdr["StaffEmpNo2"].ToString();
-                            txtStaffAddress2.Text = rdr["StaffAddress2"].ToString();
+                            txtStaffEmpNo2.Text = rdr["StaffEmpNo2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtStaffAddress2.Text = rdr["StaffAddress2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
 
-                        txtPDate2.Text = rdr["PDate2"].ToString();
-                        ddlPTimeH2.SelectedIndex = Int32.Parse(rdr["PTimeH2"].ToString());
-                        ddlPTimeM2.SelectedIndex = Int32.Parse(rdr["PTimeM2"].ToString());
-                        //ddlPTimeTC2.SelectedIndex = Int32.Parse(rdr["PTimeTC2"].ToString());
+                        txtPDate2.Text = rdr["PDate2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlPTimeH2.SelectedIndex = Int32.Parse(rdr["PTimeH2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlPTimeM2.SelectedIndex = Int32.Parse(rdr["PTimeM2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlPTimeTC2.SelectedIndex = Int32.Parse(rdr["PTimeTC2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         cbWitness2.Checked = Convert.ToBoolean(rdr["Witness2"]);
-                        txtAge2.Text = rdr["Age2"].ToString();
-                        ddlAgeGroup2.SelectedIndex = Int32.Parse(rdr["AgeGroup2"].ToString());
-                        txtWeight2.Text = rdr["Weight2"].ToString();
-                        txtHeight2.Text = rdr["Height2"].ToString();
-                        txtHair2.Text = rdr["Hair2"].ToString();
-                        txtClothingTop2.Text = rdr["ClothingTop2"].ToString();
-                        txtClothingBottom2.Text = rdr["ClothingBottom2"].ToString();
-                        txtShoes2.Text = rdr["Shoes2"].ToString();
-                        txtWeapon2.Text = rdr["Weapon2"].ToString();
-                        ddlGender2.SelectedIndex = Int32.Parse(rdr["Gender2"].ToString());
-                        txtDistFeatures2.Text = rdr["DistFeatures2"].ToString().Replace("<br />", "\n");
-                        txtInjuryDesc2.Text = rdr["InjuryDesc2"].ToString().Replace("<br />", "\n");
-                        txtInjuryCause2.Text = rdr["CauseInjury2"].ToString().Replace("<br />", "\n");
-                        txtIncidentComm2.Text = rdr["Comments2"].ToString().Replace("<br />", "\n");
+                        txtAge2.Text = rdr["Age2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlAgeGroup2.SelectedIndex = Int32.Parse(rdr["AgeGroup2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtWeight2.Text = rdr["Weight2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtHeight2.Text = rdr["Height2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtHair2.Text = rdr["Hair2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtClothingTop2.Text = rdr["ClothingTop2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtClothingBottom2.Text = rdr["ClothingBottom2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtShoes2.Text = rdr["Shoes2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtWeapon2.Text = rdr["Weapon2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlGender2.SelectedIndex = Int32.Parse(rdr["Gender2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtDistFeatures2.Text = rdr["DistFeatures2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtInjuryDesc2.Text = rdr["InjuryDesc2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtInjuryCause2.Text = rdr["CauseInjury2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtIncidentComm2.Text = rdr["Comments2"].ToString().Replace("<br />", "\n").Replace("^", "'");
 
                         /* Person 3 */
-                        txtFirstName3.Text = rdr["FirstName3"].ToString();
-                        txtLastName3.Text = rdr["LastName3"].ToString();
-                        txtAlias3.Text = rdr["Alias3"].ToString();
-                        txtContact3.Text = rdr["Contact3"].ToString();
-                        ddlPartyType3.SelectedIndex = Int32.Parse(rdr["PartyType3"].ToString());
+                        txtFirstName3.Text = rdr["FirstName3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtLastName3.Text = rdr["LastName3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtAlias3.Text = rdr["Alias3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtContact3.Text = rdr["Contact3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlPartyType3.SelectedIndex = Int32.Parse(rdr["PartyType3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         if (ddlPartyType3.SelectedItem.Value == "1") // if person is a member, don't allow user to edit the following objects
                         {
                             txtFirstName3.Enabled = false;
@@ -2761,55 +2761,55 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
                             // member's fields
                             cbCardHeld3.Checked = Convert.ToBoolean(rdr["CardHeld3"]);
-                            ReportIncidentCu.PlayerId3 = rdr["PlayerId3"].ToString();
-                            txtMemberNo3.Text = rdr["MemberNo3"].ToString();
-                            txtDOB3.Text = rdr["MemberDOB3"].ToString();
-                            txtAddress3.Text = rdr["MemberAddress3"].ToString();
-                            txtMemberSince3.Text = rdr["MemberSince3"].ToString();
+                            ReportIncidentCu.PlayerId3 = rdr["PlayerId3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtMemberNo3.Text = rdr["MemberNo3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtDOB3.Text = rdr["MemberDOB3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtAddress3.Text = rdr["MemberAddress3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtMemberSince3.Text = rdr["MemberSince3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
                         if (ddlPartyType3.SelectedItem.Value == "2") // if person is a visitor read following objects
                         {
                             // visitor's fields
                             cbSignInSlip3.Checked = Convert.ToBoolean(rdr["SignInSlip3"]);
-                            txtSignInBy3.Text = rdr["SignedInBy3"].ToString();
-                            txtDOBv3.Text = rdr["VisitorDOB3"].ToString();
-                            txtIDProof3.Text = rdr["VisitorProofID3"].ToString();
-                            txtAddressv3.Text = rdr["VisitorAddress3"].ToString();
+                            txtSignInBy3.Text = rdr["SignedInBy3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtDOBv3.Text = rdr["VisitorDOB3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtIDProof3.Text = rdr["VisitorProofID3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtAddressv3.Text = rdr["VisitorAddress3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
                         if (ddlPartyType3.SelectedItem.Value == "3") // if person is a staff read following objects
                         {
                             // staff's fields
-                            txtStaffEmpNo3.Text = rdr["StaffEmpNo3"].ToString();
-                            txtStaffAddress3.Text = rdr["StaffAddress3"].ToString();
+                            txtStaffEmpNo3.Text = rdr["StaffEmpNo3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtStaffAddress3.Text = rdr["StaffAddress3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
 
-                        txtPDate3.Text = rdr["PDate3"].ToString();
-                        ddlPTimeH3.SelectedIndex = Int32.Parse(rdr["PTimeH3"].ToString());
-                        ddlPTimeM3.SelectedIndex = Int32.Parse(rdr["PTimeM3"].ToString());
-                        //ddlPTimeTC3.SelectedIndex = Int32.Parse(rdr["PTimeTC3"].ToString());
+                        txtPDate3.Text = rdr["PDate3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlPTimeH3.SelectedIndex = Int32.Parse(rdr["PTimeH3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlPTimeM3.SelectedIndex = Int32.Parse(rdr["PTimeM3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlPTimeTC3.SelectedIndex = Int32.Parse(rdr["PTimeTC3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         cbWitness3.Checked = Convert.ToBoolean(rdr["Witness3"]);
-                        txtAge3.Text = rdr["Age3"].ToString();
-                        ddlAgeGroup3.SelectedIndex = Int32.Parse(rdr["AgeGroup3"].ToString());
-                        txtWeight3.Text = rdr["Weight3"].ToString();
-                        txtHeight3.Text = rdr["Height3"].ToString();
-                        txtHair3.Text = rdr["Hair3"].ToString();
-                        txtClothingTop3.Text = rdr["ClothingTop3"].ToString();
-                        txtClothingBottom3.Text = rdr["ClothingBottom3"].ToString();
-                        txtShoes3.Text = rdr["Shoes3"].ToString();
-                        txtWeapon3.Text = rdr["Weapon3"].ToString();
-                        ddlGender3.SelectedIndex = Int32.Parse(rdr["Gender3"].ToString());
-                        txtDistFeatures3.Text = rdr["DistFeatures3"].ToString().Replace("<br />", "\n");
-                        txtInjuryDesc3.Text = rdr["InjuryDesc3"].ToString().Replace("<br />", "\n");
-                        txtInjuryCause3.Text = rdr["CauseInjury3"].ToString().Replace("<br />", "\n");
-                        txtIncidentComm3.Text = rdr["Comments3"].ToString().Replace("<br />", "\n");
+                        txtAge3.Text = rdr["Age3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlAgeGroup3.SelectedIndex = Int32.Parse(rdr["AgeGroup3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtWeight3.Text = rdr["Weight3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtHeight3.Text = rdr["Height3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtHair3.Text = rdr["Hair3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtClothingTop3.Text = rdr["ClothingTop3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtClothingBottom3.Text = rdr["ClothingBottom3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtShoes3.Text = rdr["Shoes3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtWeapon3.Text = rdr["Weapon3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlGender3.SelectedIndex = Int32.Parse(rdr["Gender3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtDistFeatures3.Text = rdr["DistFeatures3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtInjuryDesc3.Text = rdr["InjuryDesc3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtInjuryCause3.Text = rdr["CauseInjury3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtIncidentComm3.Text = rdr["Comments3"].ToString().Replace("<br />", "\n").Replace("^", "'");
 
                         /* Person 4 */
-                        txtFirstName4.Text = rdr["FirstName4"].ToString();
-                        txtLastName4.Text = rdr["LastName4"].ToString();
-                        txtAlias4.Text = rdr["Alias4"].ToString();
-                        txtContact4.Text = rdr["Contact4"].ToString();
-                        ddlPartyType4.SelectedIndex = Int32.Parse(rdr["PartyType4"].ToString());
+                        txtFirstName4.Text = rdr["FirstName4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtLastName4.Text = rdr["LastName4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtAlias4.Text = rdr["Alias4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtContact4.Text = rdr["Contact4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlPartyType4.SelectedIndex = Int32.Parse(rdr["PartyType4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         if (ddlPartyType4.SelectedItem.Value == "1") // if person is a member, don't allow user to edit the following objects
                         {
                             txtFirstName4.Enabled = false;
@@ -2819,55 +2819,55 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
                             // member's fields
                             cbCardHeld4.Checked = Convert.ToBoolean(rdr["CardHeld4"]);
-                            ReportIncidentCu.PlayerId4 = rdr["PlayerId4"].ToString();
-                            txtMemberNo4.Text = rdr["MemberNo4"].ToString();
-                            txtDOB4.Text = rdr["MemberDOB4"].ToString();
-                            txtAddress4.Text = rdr["MemberAddress4"].ToString();
-                            txtMemberSince4.Text = rdr["MemberSince4"].ToString();
+                            ReportIncidentCu.PlayerId4 = rdr["PlayerId4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtMemberNo4.Text = rdr["MemberNo4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtDOB4.Text = rdr["MemberDOB4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtAddress4.Text = rdr["MemberAddress4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtMemberSince4.Text = rdr["MemberSince4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
                         if (ddlPartyType4.SelectedItem.Value == "2") // if person is a visitor read following objects
                         {
                             // visitor's fields
                             cbSignInSlip4.Checked = Convert.ToBoolean(rdr["SignInSlip4"]);
-                            txtSignInBy4.Text = rdr["SignedInBy4"].ToString();
-                            txtDOBv4.Text = rdr["VisitorDOB4"].ToString();
-                            txtIDProof4.Text = rdr["VisitorProofID4"].ToString();
-                            txtAddressv4.Text = rdr["VisitorAddress4"].ToString();
+                            txtSignInBy4.Text = rdr["SignedInBy4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtDOBv4.Text = rdr["VisitorDOB4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtIDProof4.Text = rdr["VisitorProofID4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtAddressv4.Text = rdr["VisitorAddress4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
                         if (ddlPartyType4.SelectedItem.Value == "3") // if person is a staff read following objects
                         {
                             // staff's fields
-                            txtStaffEmpNo4.Text = rdr["StaffEmpNo4"].ToString();
-                            txtStaffAddress4.Text = rdr["StaffAddress4"].ToString();
+                            txtStaffEmpNo4.Text = rdr["StaffEmpNo4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtStaffAddress4.Text = rdr["StaffAddress4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
 
-                        txtPDate4.Text = rdr["PDate4"].ToString();
-                        ddlPTimeH4.SelectedIndex = Int32.Parse(rdr["PTimeH4"].ToString());
-                        ddlPTimeM4.SelectedIndex = Int32.Parse(rdr["PTimeM4"].ToString());
-                        //ddlPTimeTC4.SelectedIndex = Int32.Parse(rdr["PTimeTC4"].ToString());
+                        txtPDate4.Text = rdr["PDate4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlPTimeH4.SelectedIndex = Int32.Parse(rdr["PTimeH4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlPTimeM4.SelectedIndex = Int32.Parse(rdr["PTimeM4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlPTimeTC4.SelectedIndex = Int32.Parse(rdr["PTimeTC4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         cbWitness4.Checked = Convert.ToBoolean(rdr["Witness4"]);
-                        txtAge4.Text = rdr["Age4"].ToString();
-                        ddlAgeGroup4.SelectedIndex = Int32.Parse(rdr["AgeGroup4"].ToString());
-                        txtWeight4.Text = rdr["Weight4"].ToString();
-                        txtHeight4.Text = rdr["Height4"].ToString();
-                        txtHair4.Text = rdr["Hair4"].ToString();
-                        txtClothingTop4.Text = rdr["ClothingTop4"].ToString();
-                        txtClothingBottom4.Text = rdr["ClothingBottom4"].ToString();
-                        txtShoes4.Text = rdr["Shoes4"].ToString();
-                        txtWeapon4.Text = rdr["Weapon4"].ToString();
-                        ddlGender4.SelectedIndex = Int32.Parse(rdr["Gender4"].ToString());
-                        txtDistFeatures4.Text = rdr["DistFeatures4"].ToString().Replace("<br />", "\n");
-                        txtInjuryDesc4.Text = rdr["InjuryDesc4"].ToString().Replace("<br />", "\n");
-                        txtInjuryCause4.Text = rdr["CauseInjury4"].ToString().Replace("<br />", "\n");
-                        txtIncidentComm4.Text = rdr["Comments4"].ToString().Replace("<br />", "\n");
+                        txtAge4.Text = rdr["Age4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlAgeGroup4.SelectedIndex = Int32.Parse(rdr["AgeGroup4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtWeight4.Text = rdr["Weight4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtHeight4.Text = rdr["Height4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtHair4.Text = rdr["Hair4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtClothingTop4.Text = rdr["ClothingTop4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtClothingBottom4.Text = rdr["ClothingBottom4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtShoes4.Text = rdr["Shoes4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtWeapon4.Text = rdr["Weapon4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlGender4.SelectedIndex = Int32.Parse(rdr["Gender4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtDistFeatures4.Text = rdr["DistFeatures4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtInjuryDesc4.Text = rdr["InjuryDesc4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtInjuryCause4.Text = rdr["CauseInjury4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtIncidentComm4.Text = rdr["Comments4"].ToString().Replace("<br />", "\n").Replace("^", "'");
 
                         /* Person 5 */
-                        txtFirstName5.Text = rdr["FirstName5"].ToString();
-                        txtLastName5.Text = rdr["LastName5"].ToString();
-                        txtAlias5.Text = rdr["Alias5"].ToString();
-                        txtContact5.Text = rdr["Contact5"].ToString();
-                        ddlPartyType5.SelectedIndex = Int32.Parse(rdr["PartyType5"].ToString());
+                        txtFirstName5.Text = rdr["FirstName5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtLastName5.Text = rdr["LastName5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtAlias5.Text = rdr["Alias5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtContact5.Text = rdr["Contact5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlPartyType5.SelectedIndex = Int32.Parse(rdr["PartyType5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         if (ddlPartyType5.SelectedItem.Value == "1") // if person is a member, don't allow user to edit the following objects
                         {
                             txtFirstName5.Enabled = false;
@@ -2877,56 +2877,56 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
                             // member's fields
                             cbCardHeld5.Checked = Convert.ToBoolean(rdr["CardHeld5"]);
-                            ReportIncidentCu.PlayerId5 = rdr["PlayerId5"].ToString();
-                            txtMemberNo5.Text = rdr["MemberNo5"].ToString();
-                            txtDOB5.Text = rdr["MemberDOB5"].ToString();
-                            txtAddress5.Text = rdr["MemberAddress5"].ToString();
-                            txtMemberSince5.Text = rdr["MemberSince5"].ToString();
+                            ReportIncidentCu.PlayerId5 = rdr["PlayerId5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtMemberNo5.Text = rdr["MemberNo5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtDOB5.Text = rdr["MemberDOB5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtAddress5.Text = rdr["MemberAddress5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtMemberSince5.Text = rdr["MemberSince5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
                         if (ddlPartyType5.SelectedItem.Value == "2") // if person is a visitor read following objects
                         {
                             // visitor's fields
                             cbSignInSlip5.Checked = Convert.ToBoolean(rdr["SignInSlip5"]);
-                            txtSignInBy5.Text = rdr["SignedInBy5"].ToString();
-                            txtDOBv5.Text = rdr["VisitorDOB5"].ToString();
-                            txtIDProof5.Text = rdr["VisitorProofID5"].ToString();
-                            txtAddressv5.Text = rdr["VisitorAddress5"].ToString();
+                            txtSignInBy5.Text = rdr["SignedInBy5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtDOBv5.Text = rdr["VisitorDOB5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtIDProof5.Text = rdr["VisitorProofID5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtAddressv5.Text = rdr["VisitorAddress5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
                         if (ddlPartyType5.SelectedItem.Value == "3") // if person is a staff read following objects
                         {
                             // staff's fields
-                            txtStaffEmpNo5.Text = rdr["StaffEmpNo5"].ToString();
-                            txtStaffAddress5.Text = rdr["StaffAddress5"].ToString();
+                            txtStaffEmpNo5.Text = rdr["StaffEmpNo5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                            txtStaffAddress5.Text = rdr["StaffAddress5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
 
-                        txtPDate5.Text = rdr["PDate5"].ToString();
-                        ddlPTimeH5.SelectedIndex = Int32.Parse(rdr["PTimeH5"].ToString());
-                        ddlPTimeM5.SelectedIndex = Int32.Parse(rdr["PTimeM5"].ToString());
-                        //ddlPTimeTC5.SelectedIndex = Int32.Parse(rdr["PTimeTC5"].ToString());
+                        txtPDate5.Text = rdr["PDate5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlPTimeH5.SelectedIndex = Int32.Parse(rdr["PTimeH5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlPTimeM5.SelectedIndex = Int32.Parse(rdr["PTimeM5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlPTimeTC5.SelectedIndex = Int32.Parse(rdr["PTimeTC5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         cbWitness5.Checked = Convert.ToBoolean(rdr["Witness5"]);
-                        txtAge5.Text = rdr["Age5"].ToString();
-                        ddlAgeGroup5.SelectedIndex = Int32.Parse(rdr["AgeGroup5"].ToString());
-                        txtWeight5.Text = rdr["Weight5"].ToString();
-                        txtHeight5.Text = rdr["Height5"].ToString();
-                        txtHair5.Text = rdr["Hair5"].ToString();
-                        txtClothingTop5.Text = rdr["ClothingTop5"].ToString();
-                        txtClothingBottom5.Text = rdr["ClothingBottom5"].ToString();
-                        txtShoes5.Text = rdr["Shoes5"].ToString();
-                        txtWeapon5.Text = rdr["Weapon5"].ToString();
-                        ddlGender5.SelectedIndex = Int32.Parse(rdr["Gender5"].ToString());
-                        txtDistFeatures5.Text = rdr["DistFeatures5"].ToString().Replace("<br />", "\n");
-                        txtInjuryDesc5.Text = rdr["InjuryDesc5"].ToString().Replace("<br />", "\n");
-                        txtInjuryCause5.Text = rdr["CauseInjury5"].ToString().Replace("<br />", "\n");
-                        txtIncidentComm5.Text = rdr["Comments5"].ToString().Replace("<br />", "\n");
+                        txtAge5.Text = rdr["Age5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlAgeGroup5.SelectedIndex = Int32.Parse(rdr["AgeGroup5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtWeight5.Text = rdr["Weight5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtHeight5.Text = rdr["Height5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtHair5.Text = rdr["Hair5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtClothingTop5.Text = rdr["ClothingTop5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtClothingBottom5.Text = rdr["ClothingBottom5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtShoes5.Text = rdr["Shoes5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtWeapon5.Text = rdr["Weapon5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlGender5.SelectedIndex = Int32.Parse(rdr["Gender5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtDistFeatures5.Text = rdr["DistFeatures5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtInjuryDesc5.Text = rdr["InjuryDesc5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtInjuryCause5.Text = rdr["CauseInjury5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtIncidentComm5.Text = rdr["Comments5"].ToString().Replace("<br />", "\n").Replace("^", "'");
 
-                        txtDate1.Text = rdr["Date"].ToString();
-                        ddlHour.SelectedIndex = Int32.Parse(rdr["TimeH"].ToString());
-                        ddlMinutes.SelectedIndex = Int32.Parse(rdr["TimeM"].ToString());
-                        // ddlTimeCon.SelectedIndex = Int32.Parse(rdr["TimeTC"].ToString()); // Take off the AM/PM dropdownlist
+                        txtDate1.Text = rdr["Date"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlHour.SelectedIndex = Int32.Parse(rdr["TimeH"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlMinutes.SelectedIndex = Int32.Parse(rdr["TimeM"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        // ddlTimeCon.SelectedIndex = Int32.Parse(rdr["TimeTC"].ToString().Replace("<br />", "\n").Replace("^", "'")); // Take off the AM/PM dropdownlist
 
                         /* Populate the Checkbox list for Incident Type and tick selected checkbox from the report */
-                        string incidentType = rdr["IncidentHappened"].ToString(), populateIncidentList;
+                        string incidentType = rdr["IncidentHappened"].ToString().Replace("<br />", "\n").Replace("^", "'"), populateIncidentList;
                         // set query to populate the incident type list
                         if (!string.IsNullOrEmpty(incidentType))
                         {
@@ -2950,48 +2950,82 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                                 while (sdr.Read())
                                 {
                                     ListItem item = new ListItem();
-                                    item.Text = sdr["Description"].ToString();
-                                    item.Value = sdr["IncidentId"].ToString();
+                                    item.Text = sdr["Description"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                                    item.Value = sdr["IncidentId"].ToString().Replace("<br />", "\n").Replace("^", "'");
                                     cblWhatHappened1.Items.Add(item);
                                 }
                             }
                             connection.Close();
                         }
                         // tick the checkbox for selected incident type
-                        string[] arrWhatHappened = rdr["IncidentHappened"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                        string[] arrWhatHappened = rdr["IncidentHappened"].ToString().Replace("<br />", "\n").Replace("^", "'").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                         foreach (ListItem item in cblWhatHappened1.Items)
                         {
                             for (int i = 0; i < arrWhatHappened.Length; i++)
                             {
-                                if (arrWhatHappened[i].ToString().Equals(item.Value))
+                                if (arrWhatHappened[i].ToString().Replace("<br />", "\n").Replace("^", "'").Equals(item.Value))
                                 {
                                     item.Selected = true;
+
+                                    // display necessary rows if selected
+                                    if (item.ToString().Replace("<br />", "\n").Replace("^", "'") == "Other")
+                                    {
+                                        if (item.Selected)
+                                        {
+                                            additionalDetails.Visible = true;
+                                            additionalDetails1.Visible = true;
+                                        }
+                                    }
+                                    if (item.ToString().Replace("<br />", "\n").Replace("^", "'") == "Other - Serious")
+                                    {
+                                        if (item.Selected)
+                                        {
+                                            seriousOther.Visible = true;
+                                            seriousOther1.Visible = true;
+                                        }
+                                    }
+                                    if (item.ToString().Replace("<br />", "\n").Replace("^", "'") == "Refused Entry")
+                                    {
+                                        if (item.Selected)
+                                        {
+                                            refuseEntryReasons.Visible = true;
+                                            refuseEntryReasons1.Visible = true;
+                                        }
+                                    }
+                                    if (item.ToString().Replace("<br />", "\n").Replace("^", "'") == "Asked to Leave")
+                                    {
+                                        if (item.Selected)
+                                        {
+                                            askedtoLeaveReasons.Visible = true;
+                                            askedtoLeaveReasons1.Visible = true;
+                                        }
+                                    }
                                 }
                             }
                         }
                         // check if action taken:other textbox is not empty
-                        if (!String.IsNullOrEmpty(rdr["ActionTakenOther"].ToString()))
+                        if (!String.IsNullOrEmpty(rdr["ActionTakenOther"].ToString().Replace("<br />", "\n").Replace("^", "'")))
                         {
                             actionTakenOther.Visible = true;
                             actionTakenOther1.Visible = true;
-                            txtActionTakenOther.Text = rdr["ActionTakenOther"].ToString().Replace("<br />", "\n");
+                            txtActionTakenOther.Text = rdr["ActionTakenOther"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
                         // check if incident type:other textbox is not empty
-                        if (!String.IsNullOrEmpty(rdr["HappenedOther"].ToString()))
+                        if (!String.IsNullOrEmpty(rdr["HappenedOther"].ToString().Replace("<br />", "\n").Replace("^", "'")))
                         {
                             additionalDetails.Visible = true;
                             additionalDetails1.Visible = true;
-                            txtOthers.Text = rdr["HappenedOther"].ToString().Replace("<br />", "\n");
+                            txtOthers.Text = rdr["HappenedOther"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
                         // check if incident type:other serious textbox is not empty
-                        if (!String.IsNullOrEmpty(rdr["HappenedSerious"].ToString()))
+                        if (!String.IsNullOrEmpty(rdr["HappenedSerious"].ToString().Replace("<br />", "\n").Replace("^", "'")))
                         {
                             seriousOther.Visible = true;
                             seriousOther1.Visible = true;
-                            txtOtherSerious.Text = rdr["HappenedSerious"].ToString().Replace("<br />", "\n");
+                            txtOtherSerious.Text = rdr["HappenedSerious"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         }
                         // populate the checkbox list for incident type:refuse entry field and tick necessary checkbox
-                        string refuseEntry = rdr["HappenedRefuseEntry"].ToString(), populateRefuseEntry;
+                        string refuseEntry = rdr["HappenedRefuseEntry"].ToString().Replace("<br />", "\n").Replace("^", "'"), populateRefuseEntry;
                         if (!string.IsNullOrEmpty(refuseEntry))
                         {
                             // order by query sets the Other value from Description field to be in the last of the the list
@@ -3013,27 +3047,27 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                                 while (sdr.Read())
                                 {
                                     ListItem item = new ListItem();
-                                    item.Text = sdr["Description"].ToString();
-                                    item.Value = sdr["RefuseReasonID"].ToString();
+                                    item.Text = sdr["Description"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                                    item.Value = sdr["RefuseReasonID"].ToString().Replace("<br />", "\n").Replace("^", "'");
                                     List_RefuseReason.Items.Add(item);
                                 }
                             }
                             connection.Close();
                         }
                         // if refuse entry field has value display the objects
-                        if (!String.IsNullOrEmpty(rdr["HappenedRefuseEntry"].ToString()))
+                        if (!String.IsNullOrEmpty(rdr["HappenedRefuseEntry"].ToString().Replace("<br />", "\n").Replace("^", "'")))
                         {
                             refuseEntryReasons.Visible = true;
                             refuseEntryReasons1.Visible = true;
                             List_RefuseReason.Visible = true;
 
                             // tick the checkbox for selected refuse entry reasons
-                            string[] arrRefuseReason = rdr["HappenedRefuseEntry"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                            string[] arrRefuseReason = rdr["HappenedRefuseEntry"].ToString().Replace("<br />", "\n").Replace("^", "'").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                             foreach (ListItem item in List_RefuseReason.Items)
                             {
                                 for (int i = 0; i < arrRefuseReason.Length; i++)
                                 {
-                                    if (arrRefuseReason[i].ToString().Equals(item.Value))
+                                    if (arrRefuseReason[i].ToString().Replace("<br />", "\n").Replace("^", "'").Equals(item.Value))
                                     {
                                         item.Selected = true;
                                     }
@@ -3041,7 +3075,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                             }
                         }
                         // populate the checkbox list for incident type:asked to leave field and tick necessary checkbox
-                        string askedToLeave = rdr["HappenedAskedToLeave"].ToString(), populateAskedToLeave;
+                        string askedToLeave = rdr["HappenedAskedToLeave"].ToString().Replace("<br />", "\n").Replace("^", "'"), populateAskedToLeave;
                         if (!string.IsNullOrEmpty(askedToLeave))
                         {
                             // order by query sets the Other value from Description field to be in the last of the the list
@@ -3063,27 +3097,27 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                                 while (sdr.Read())
                                 {
                                     ListItem item = new ListItem();
-                                    item.Text = sdr["Description"].ToString();
-                                    item.Value = sdr["AskedToLeaveID"].ToString();
+                                    item.Text = sdr["Description"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                                    item.Value = sdr["AskedToLeaveID"].ToString().Replace("<br />", "\n").Replace("^", "'");
                                     List_AskedToLeave.Items.Add(item);
                                 }
                             }
                             connection.Close();
                         }
                         // check if Asked To Leave is not empty
-                        if (!String.IsNullOrEmpty(rdr["HappenedAskedToLeave"].ToString()))
+                        if (!String.IsNullOrEmpty(rdr["HappenedAskedToLeave"].ToString().Replace("<br />", "\n").Replace("^", "'")))
                         {
                             askedtoLeaveReasons.Visible = true;
                             askedtoLeaveReasons1.Visible = true;
                             List_AskedToLeave.Visible = true;
 
                             // tick the checkbox for selected asked to leave reasons
-                            string[] arrAskedToLeave = rdr["HappenedAskedToLeave"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                            string[] arrAskedToLeave = rdr["HappenedAskedToLeave"].ToString().Replace("<br />", "\n").Replace("^", "'").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                             foreach (ListItem item in List_AskedToLeave.Items)
                             {
                                 for (int i = 0; i < arrAskedToLeave.Length; i++)
                                 {
-                                    if (arrAskedToLeave[i].ToString().Equals(item.Value))
+                                    if (arrAskedToLeave[i].ToString().Replace("<br />", "\n").Replace("^", "'").Equals(item.Value))
                                     {
                                         item.Selected = true;
                                     }
@@ -3092,7 +3126,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                         }
 
                         /* Populate the Checkbox list for Location and tick necessary checkbox */
-                        string location = rdr["Location"].ToString(), populateLocationList;
+                        string location = rdr["Location"].ToString().Replace("<br />", "\n").Replace("^", "'"), populateLocationList;
                         // set query to populate the location list
                         if (!string.IsNullOrEmpty(location))
                         {
@@ -3116,20 +3150,20 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                                 while (sdr.Read())
                                 {
                                     ListItem item = new ListItem();
-                                    item.Text = sdr["Description"].ToString();
-                                    item.Value = sdr["LocationId"].ToString();
+                                    item.Text = sdr["Description"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                                    item.Value = sdr["LocationId"].ToString().Replace("<br />", "\n").Replace("^", "'");
                                     List_Location.Items.Add(item);
                                 }
                             }
                             connection.Close();
                         }
                         // tick the checkbox for selected location
-                        string[] arrLocation = rdr["Location"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                        string[] arrLocation = rdr["Location"].ToString().Replace("<br />", "\n").Replace("^", "'").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                         foreach (ListItem item in List_Location.Items)
                         {
                             for (int i = 0; i < arrLocation.Length; i++)
                             {
-                                if (arrLocation[i].ToString().Equals(item.Value))
+                                if (arrLocation[i].ToString().Replace("<br />", "\n").Replace("^", "'").Equals(item.Value))
                                 {
                                     item.Selected = true;
                                 }
@@ -3138,7 +3172,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                         // display location:other textbox if other is selected in location field
                         foreach (ListItem item in List_Location.Items)
                         {
-                            if (item.ToString() == "Other")
+                            if (item.ToString().Replace("<br />", "\n").Replace("^", "'") == "Other")
                             {
                                 if (item.Selected)
                                 {
@@ -3152,101 +3186,101 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                                 }
                             }
                         }
-                        txtLocation.Text = rdr["LocationOther"].ToString();
+                        txtLocation.Text = rdr["LocationOther"].ToString().Replace("<br />", "\n").Replace("^", "'");
 
                         /* Camera 1 */
-                        txtCamDesc1.Text = rdr["CamDesc1"].ToString().Replace("<br />", "\n");
+                        txtCamDesc1.Text = rdr["CamDesc1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded1.Checked = Convert.ToBoolean(rdr["CamRecorded1"]);
-                        txtCamFilePath1.Text = rdr["CamFilePath1"].ToString();
-                        txtCamSDate1.Text = rdr["CamSDate1"].ToString();
-                        ddlCamTimeH1.SelectedIndex = Int32.Parse(rdr["CamSTimeH1"].ToString());
-                        ddlCamTimeM1.SelectedIndex = Int32.Parse(rdr["CamSTimeM1"].ToString());
-                        //ddlCamTimeTC1.SelectedIndex = Int32.Parse(rdr["CamSTimeTC1"].ToString());
-                        txtCamEDate1.Text = rdr["CamEDate1"].ToString();
-                        ddlCamETimeH1.SelectedIndex = Int32.Parse(rdr["CamETimeH1"].ToString());
-                        ddlCamETimeM1.SelectedIndex = Int32.Parse(rdr["CamETimeM1"].ToString());
-                        //ddlCamETimeTC1.SelectedIndex = Int32.Parse(rdr["CamETimeTC1"].ToString());
+                        txtCamFilePath1.Text = rdr["CamFilePath1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtCamSDate1.Text = rdr["CamSDate1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamTimeH1.SelectedIndex = Int32.Parse(rdr["CamSTimeH1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamTimeM1.SelectedIndex = Int32.Parse(rdr["CamSTimeM1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeTC1.SelectedIndex = Int32.Parse(rdr["CamSTimeTC1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtCamEDate1.Text = rdr["CamEDate1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamETimeH1.SelectedIndex = Int32.Parse(rdr["CamETimeH1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamETimeM1.SelectedIndex = Int32.Parse(rdr["CamETimeM1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeTC1.SelectedIndex = Int32.Parse(rdr["CamETimeTC1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Camera 2 */
-                        txtCamDesc2.Text = rdr["CamDesc2"].ToString().Replace("<br />", "\n");
+                        txtCamDesc2.Text = rdr["CamDesc2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded2.Checked = Convert.ToBoolean(rdr["CamRecorded2"]);
-                        txtCamFilePath2.Text = rdr["CamFilePath2"].ToString();
-                        txtCamSDate2.Text = rdr["CamSDate2"].ToString();
-                        ddlCamTimeH2.SelectedIndex = Int32.Parse(rdr["CamSTimeH2"].ToString());
-                        ddlCamTimeM2.SelectedIndex = Int32.Parse(rdr["CamSTimeM2"].ToString());
-                        //ddlCamTimeTC2.SelectedIndex = Int32.Parse(rdr["CamSTimeTC2"].ToString());
-                        txtCamEDate2.Text = rdr["CamEDate2"].ToString();
-                        ddlCamETimeH2.SelectedIndex = Int32.Parse(rdr["CamETimeH2"].ToString());
-                        ddlCamETimeM2.SelectedIndex = Int32.Parse(rdr["CamETimeM2"].ToString());
-                        //ddlCamETimeTC2.SelectedIndex = Int32.Parse(rdr["CamETimeTC2"].ToString());
+                        txtCamFilePath2.Text = rdr["CamFilePath2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtCamSDate2.Text = rdr["CamSDate2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamTimeH2.SelectedIndex = Int32.Parse(rdr["CamSTimeH2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamTimeM2.SelectedIndex = Int32.Parse(rdr["CamSTimeM2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeTC2.SelectedIndex = Int32.Parse(rdr["CamSTimeTC2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtCamEDate2.Text = rdr["CamEDate2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamETimeH2.SelectedIndex = Int32.Parse(rdr["CamETimeH2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamETimeM2.SelectedIndex = Int32.Parse(rdr["CamETimeM2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeTC2.SelectedIndex = Int32.Parse(rdr["CamETimeTC2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Camera 3 */
-                        txtCamDesc3.Text = rdr["CamDesc3"].ToString().Replace("<br />", "\n");
+                        txtCamDesc3.Text = rdr["CamDesc3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded3.Checked = Convert.ToBoolean(rdr["CamRecorded3"]);
-                        txtCamFilePath3.Text = rdr["CamFilePath3"].ToString();
-                        txtCamSDate3.Text = rdr["CamSDate3"].ToString();
-                        ddlCamTimeH3.SelectedIndex = Int32.Parse(rdr["CamSTimeH3"].ToString());
-                        ddlCamTimeM3.SelectedIndex = Int32.Parse(rdr["CamSTimeM3"].ToString());
-                        //ddlCamTimeTC3.SelectedIndex = Int32.Parse(rdr["CamSTimeTC3"].ToString());
-                        txtCamEDate3.Text = rdr["CamEDate3"].ToString();
-                        ddlCamETimeH3.SelectedIndex = Int32.Parse(rdr["CamETimeH3"].ToString());
-                        ddlCamETimeM3.SelectedIndex = Int32.Parse(rdr["CamETimeM3"].ToString());
-                        //ddlCamETimeTC3.SelectedIndex = Int32.Parse(rdr["CamETimeTC3"].ToString());
+                        txtCamFilePath3.Text = rdr["CamFilePath3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtCamSDate3.Text = rdr["CamSDate3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamTimeH3.SelectedIndex = Int32.Parse(rdr["CamSTimeH3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamTimeM3.SelectedIndex = Int32.Parse(rdr["CamSTimeM3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeTC3.SelectedIndex = Int32.Parse(rdr["CamSTimeTC3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtCamEDate3.Text = rdr["CamEDate3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamETimeH3.SelectedIndex = Int32.Parse(rdr["CamETimeH3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamETimeM3.SelectedIndex = Int32.Parse(rdr["CamETimeM3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeTC3.SelectedIndex = Int32.Parse(rdr["CamETimeTC3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Camera 4 */
-                        txtCamDesc4.Text = rdr["CamDesc4"].ToString().Replace("<br />", "\n");
+                        txtCamDesc4.Text = rdr["CamDesc4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded4.Checked = Convert.ToBoolean(rdr["CamRecorded4"]);
-                        txtCamFilePath4.Text = rdr["CamFilePath4"].ToString();
-                        txtCamSDate4.Text = rdr["CamSDate4"].ToString();
-                        ddlCamTimeH4.SelectedIndex = Int32.Parse(rdr["CamSTimeH4"].ToString());
-                        ddlCamTimeM4.SelectedIndex = Int32.Parse(rdr["CamSTimeM4"].ToString());
-                        //ddlCamTimeTC4.SelectedIndex = Int32.Parse(rdr["CamSTimeTC4"].ToString());
-                        txtCamEDate4.Text = rdr["CamEDate4"].ToString();
-                        ddlCamETimeH4.SelectedIndex = Int32.Parse(rdr["CamETimeH4"].ToString());
-                        ddlCamETimeM4.SelectedIndex = Int32.Parse(rdr["CamETimeM4"].ToString());
-                        //ddlCamETimeTC4.SelectedIndex = Int32.Parse(rdr["CamETimeTC4"].ToString());
+                        txtCamFilePath4.Text = rdr["CamFilePath4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtCamSDate4.Text = rdr["CamSDate4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamTimeH4.SelectedIndex = Int32.Parse(rdr["CamSTimeH4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamTimeM4.SelectedIndex = Int32.Parse(rdr["CamSTimeM4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeTC4.SelectedIndex = Int32.Parse(rdr["CamSTimeTC4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtCamEDate4.Text = rdr["CamEDate4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamETimeH4.SelectedIndex = Int32.Parse(rdr["CamETimeH4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamETimeM4.SelectedIndex = Int32.Parse(rdr["CamETimeM4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeTC4.SelectedIndex = Int32.Parse(rdr["CamETimeTC4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Camera 5 */
-                        txtCamDesc5.Text = rdr["CamDesc5"].ToString().Replace("<br />", "\n");
+                        txtCamDesc5.Text = rdr["CamDesc5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded5.Checked = Convert.ToBoolean(rdr["CamRecorded5"]);
-                        txtCamFilePath5.Text = rdr["CamFilePath5"].ToString();
-                        txtCamSDate5.Text = rdr["CamSDate5"].ToString();
-                        ddlCamTimeH5.SelectedIndex = Int32.Parse(rdr["CamSTimeH5"].ToString());
-                        ddlCamTimeM5.SelectedIndex = Int32.Parse(rdr["CamSTimeM5"].ToString());
-                        //ddlCamTimeTC5.SelectedIndex = Int32.Parse(rdr["CamSTimeTC5"].ToString());
-                        txtCamEDate5.Text = rdr["CamEDate5"].ToString();
-                        ddlCamETimeH5.SelectedIndex = Int32.Parse(rdr["CamETimeH5"].ToString());
-                        ddlCamETimeM5.SelectedIndex = Int32.Parse(rdr["CamETimeM5"].ToString());
-                        //ddlCamETimeTC5.SelectedIndex = Int32.Parse(rdr["CamETimeTC5"].ToString());
+                        txtCamFilePath5.Text = rdr["CamFilePath5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtCamSDate5.Text = rdr["CamSDate5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamTimeH5.SelectedIndex = Int32.Parse(rdr["CamSTimeH5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamTimeM5.SelectedIndex = Int32.Parse(rdr["CamSTimeM5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeTC5.SelectedIndex = Int32.Parse(rdr["CamSTimeTC5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtCamEDate5.Text = rdr["CamEDate5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamETimeH5.SelectedIndex = Int32.Parse(rdr["CamETimeH5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamETimeM5.SelectedIndex = Int32.Parse(rdr["CamETimeM5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeTC5.SelectedIndex = Int32.Parse(rdr["CamETimeTC5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Camera 6 */
-                        txtCamDesc6.Text = rdr["CamDesc6"].ToString().Replace("<br />", "\n");
+                        txtCamDesc6.Text = rdr["CamDesc6"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded6.Checked = Convert.ToBoolean(rdr["CamRecorded6"]);
-                        txtCamFilePath6.Text = rdr["CamFilePath6"].ToString();
-                        txtCamSDate6.Text = rdr["CamSDate6"].ToString();
-                        ddlCamTimeH6.SelectedIndex = Int32.Parse(rdr["CamSTimeH6"].ToString());
-                        ddlCamTimeM6.SelectedIndex = Int32.Parse(rdr["CamSTimeM6"].ToString());
-                        //ddlCamTimeTC6.SelectedIndex = Int32.Parse(rdr["CamSTimeTC6"].ToString());
-                        txtCamEDate6.Text = rdr["CamEDate6"].ToString();
-                        ddlCamETimeH6.SelectedIndex = Int32.Parse(rdr["CamETimeH6"].ToString());
-                        ddlCamETimeM6.SelectedIndex = Int32.Parse(rdr["CamETimeM6"].ToString());
-                        //ddlCamETimeTC6.SelectedIndex = Int32.Parse(rdr["CamETimeTC6"].ToString());
+                        txtCamFilePath6.Text = rdr["CamFilePath6"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtCamSDate6.Text = rdr["CamSDate6"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamTimeH6.SelectedIndex = Int32.Parse(rdr["CamSTimeH6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamTimeM6.SelectedIndex = Int32.Parse(rdr["CamSTimeM6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeTC6.SelectedIndex = Int32.Parse(rdr["CamSTimeTC6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtCamEDate6.Text = rdr["CamEDate6"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamETimeH6.SelectedIndex = Int32.Parse(rdr["CamETimeH6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamETimeM6.SelectedIndex = Int32.Parse(rdr["CamETimeM6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeTC6.SelectedIndex = Int32.Parse(rdr["CamETimeTC6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Camera 7 */
-                        txtCamDesc7.Text = rdr["CamDesc7"].ToString().Replace("<br />", "\n");
+                        txtCamDesc7.Text = rdr["CamDesc7"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded7.Checked = Convert.ToBoolean(rdr["CamRecorded7"]);
-                        txtCamFilePath7.Text = rdr["CamFilePath7"].ToString();
-                        txtCamSDate7.Text = rdr["CamSDate7"].ToString();
-                        ddlCamTimeH7.SelectedIndex = Int32.Parse(rdr["CamSTimeH7"].ToString());
-                        ddlCamTimeM7.SelectedIndex = Int32.Parse(rdr["CamSTimeM7"].ToString());
-                        //ddlCamTimeTC7.SelectedIndex = Int32.Parse(rdr["CamSTimeTC7"].ToString());
-                        txtCamEDate7.Text = rdr["CamEDate7"].ToString();
-                        ddlCamETimeH7.SelectedIndex = Int32.Parse(rdr["CamETimeH7"].ToString());
-                        ddlCamETimeM7.SelectedIndex = Int32.Parse(rdr["CamETimeM7"].ToString());
-                        //ddlCamETimeTC7.SelectedIndex = Int32.Parse(rdr["CamETimeTC7"].ToString());
+                        txtCamFilePath7.Text = rdr["CamFilePath7"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtCamSDate7.Text = rdr["CamSDate7"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamTimeH7.SelectedIndex = Int32.Parse(rdr["CamSTimeH7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamTimeM7.SelectedIndex = Int32.Parse(rdr["CamSTimeM7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeTC7.SelectedIndex = Int32.Parse(rdr["CamSTimeTC7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        txtCamEDate7.Text = rdr["CamEDate7"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlCamETimeH7.SelectedIndex = Int32.Parse(rdr["CamETimeH7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlCamETimeM7.SelectedIndex = Int32.Parse(rdr["CamETimeM7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeTC7.SelectedIndex = Int32.Parse(rdr["CamETimeTC7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Populate the Checkbox list for Action Taken and tick necessary checkbox */
-                        string actionTaken = rdr["ActionTaken"].ToString(), populateActionTaken;
+                        string actionTaken = rdr["ActionTaken"].ToString().Replace("<br />", "\n").Replace("^", "'"), populateActionTaken;
                         // set query to populate the action taken list
                         if (!string.IsNullOrEmpty(actionTaken))
                         {
@@ -3270,37 +3304,47 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                                 while (sdr.Read())
                                 {
                                     ListItem item = new ListItem();
-                                    item.Text = sdr["Description"].ToString();
-                                    item.Value = sdr["ActionId"].ToString();
+                                    item.Text = sdr["Description"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                                    item.Value = sdr["ActionId"].ToString().Replace("<br />", "\n").Replace("^", "'");
                                     List_ActionTaken.Items.Add(item);
                                 }
                             }
                             connection.Close();
                         }
                         // check if action taken is not empty and tick the checkbox for selected action taken
-                        if (!String.IsNullOrEmpty(rdr["ActionTaken"].ToString()))
+                        if (!String.IsNullOrEmpty(rdr["ActionTaken"].ToString().Replace("<br />", "\n").Replace("^", "'")))
                         {
-                            string[] arrActionTaken = rdr["ActionTaken"].ToString().Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                            string[] arrActionTaken = rdr["ActionTaken"].ToString().Replace("<br />", "\n").Replace("^", "'").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
                             foreach (ListItem item in List_ActionTaken.Items)
                             {
                                 for (int i = 0; i < arrActionTaken.Length; i++)
                                 {
-                                    if (arrActionTaken[i].ToString().Equals(item.Value))
+                                    if (arrActionTaken[i].ToString().Replace("<br />", "\n").Replace("^", "'").Equals(item.Value))
                                     {
                                         item.Selected = true;
+
+                                        // display necessary rows if selected
+                                        if (item.ToString().Replace("<br />", "\n").Replace("^", "'") == "Other")
+                                        {
+                                            if (item.Selected)
+                                            {
+                                                actionTakenOther.Visible = true;
+                                                actionTakenOther1.Visible = true;
+                                            }
+                                        }
                                     }
                                 }
                             }
                         }
 
-                        txtDetails.Text = rdr["Details"].ToString().Replace("<br />", "\n");
-                        txtAllegation.Text = rdr["Allegation"].ToString().Replace("<br />", "\n");
+                        txtDetails.Text = rdr["Details"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtAllegation.Text = rdr["Allegation"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbSecurity.Checked = Convert.ToBoolean(rdr["SecurityAttend"]);
-                        txtSecurityName.Text = rdr["SecurityName"].ToString();
+                        txtSecurityName.Text = rdr["SecurityName"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbPolice.Checked = Convert.ToBoolean(rdr["PoliceNotify"]);
-                        txtPoliceStation.Text = rdr["PoliceStation"].ToString().Replace("<br />", "\n");
-                        txtOfficersName.Text = rdr["OfficersName"].ToString().Replace("<br />", "\n");
-                        txtPoliceAction.Text = rdr["PoliceAction"].ToString().Replace("<br />", "\n");
+                        txtPoliceStation.Text = rdr["PoliceStation"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtOfficersName.Text = rdr["OfficersName"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtPoliceAction.Text = rdr["PoliceAction"].ToString().Replace("<br />", "\n").Replace("^", "'");
 
                         // set Image labels to set whether the program shows the Image controls or not 
                         // show image Human Body Form if not empty
@@ -3957,6 +4001,11 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                         {
                             Report.HasChange = true; flag = 1;
                             Report.WhereChangeHappened = "ActionTaken";
+                        }
+                        if (ReportIncidentMr.ActionTakenOther.ToString() != rdr["ActionTakenOther"].ToString())
+                        {
+                            Report.HasChange = true; flag = 1;
+                            Report.WhereChangeHappened = "ActionTakenOther";
                         }
                         if (ReportIncidentCu.Details.ToString() != rdr["Details"].ToString())
                         {
@@ -5538,11 +5587,11 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
         ReportIncidentCu.Location = Location;
         ReportIncidentCu.LocationOther = txtLocation.Text;
-        ReportIncidentCu.LocationOther = ReportIncidentCu.LocationOther.Replace("'", "");
+        ReportIncidentCu.LocationOther = ReportIncidentCu.LocationOther;
         ReportIncidentCu.Details = txtDetails.Text.Replace("\n", "<br />");
-        ReportIncidentCu.Details = ReportIncidentCu.Details.Replace("'", "");
+        ReportIncidentCu.Details = ReportIncidentCu.Details;
         ReportIncidentCu.Allegation = txtAllegation.Text.Replace("\n", "<br />");
-        ReportIncidentCu.Allegation = ReportIncidentCu.Allegation.Replace("'", "");
+        ReportIncidentCu.Allegation = ReportIncidentCu.Allegation;
         // store in a string all the selected item in the checkboxlist
         // Create the list to store.
         string WhatHappened, RefuseReason = "", AskedLeave = "", ActionTaken = "";
@@ -5625,45 +5674,45 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
         ReportIncidentCu.ActionTaken = ActionTaken;
         ReportIncidentCu.ActionTakenOther = txtActionTakenOther.Text.Replace("\n", "<br />");
-        ReportIncidentCu.ActionTakenOther = ReportIncidentCu.ActionTakenOther.Replace("'", "");
+        ReportIncidentCu.ActionTakenOther = ReportIncidentCu.ActionTakenOther;
         ReportIncidentCu.WhatHappened = WhatHappened;
         ReportIncidentCu.HappenedOther = txtOthers.Text.Replace("\n", "<br />");
-        ReportIncidentCu.HappenedOther = ReportIncidentCu.HappenedOther.Replace("'", "");
+        ReportIncidentCu.HappenedOther = ReportIncidentCu.HappenedOther;
         ReportIncidentCu.HappenedSerious = txtOtherSerious.Text.Replace("\n", "<br />");
-        ReportIncidentCu.HappenedSerious = ReportIncidentCu.HappenedSerious.Replace("'", "");
+        ReportIncidentCu.HappenedSerious = ReportIncidentCu.HappenedSerious;
         ReportIncidentCu.HappenedRefuseEntry = RefuseReason;
         ReportIncidentCu.HappenedAskedLeave = AskedLeave;
         ReportIncidentCu.SecurityAttend = cbSecurity.Checked.ToString();
         ReportIncidentCu.SecurityName = txtSecurityName.Text;
-        ReportIncidentCu.SecurityName = ReportIncidentCu.SecurityName.Replace("'", "");
+        ReportIncidentCu.SecurityName = ReportIncidentCu.SecurityName;
         ReportIncidentCu.PoliceNotified = cbPolice.Checked.ToString();
         ReportIncidentCu.PoliceAction = txtPoliceAction.Text;
-        ReportIncidentCu.PoliceAction = ReportIncidentCu.PoliceAction.Replace("\n", "<br />").Replace("'", "");
+        ReportIncidentCu.PoliceAction = ReportIncidentCu.PoliceAction.Replace("\n", "<br />");
         ReportIncidentCu.OfficersName = txtOfficersName.Text;
-        ReportIncidentCu.OfficersName = ReportIncidentCu.OfficersName.Replace("\n", "<br />").Replace("'", "");
+        ReportIncidentCu.OfficersName = ReportIncidentCu.OfficersName.Replace("\n", "<br />");
         ReportIncidentCu.PoliceStation = txtPoliceStation.Text;
-        ReportIncidentCu.PoliceStation = ReportIncidentCu.PoliceStation.Replace("\n", "<br />").Replace("'", "");
+        ReportIncidentCu.PoliceStation = ReportIncidentCu.PoliceStation.Replace("\n", "<br />");
         ReportIncidentCu.NoOfPerson = lblNoOfPerson.Text;
 
         if (acpPerson1.Visible == true)
         {
             ReportIncidentCu.First1 = txtFirstName1.Text;
-            ReportIncidentCu.First1 = ReportIncidentCu.First1.Replace("'", "");
+            ReportIncidentCu.First1 = ReportIncidentCu.First1;
             ReportIncidentCu.Last1 = txtLastName1.Text;
-            ReportIncidentCu.Last1 = ReportIncidentCu.Last1.Replace("'", "");
+            ReportIncidentCu.Last1 = ReportIncidentCu.Last1;
             ReportIncidentCu.Alias1 = txtAlias1.Text;
-            ReportIncidentCu.Alias1 = ReportIncidentCu.Alias1.Replace("'", "");
+            ReportIncidentCu.Alias1 = ReportIncidentCu.Alias1;
             ReportIncidentCu.Contact1 = txtContact1.Text;
-            ReportIncidentCu.Contact1 = ReportIncidentCu.Contact1.Replace("'", "");
+            ReportIncidentCu.Contact1 = ReportIncidentCu.Contact1;
             ReportIncidentCu.Type1 = ddlPartyType1.SelectedItem.Value;
             if (ddlPartyType1.SelectedItem.Value == "1")
             {
                 ReportIncidentCu.Member1 = txtMemberNo1.Text;
-                ReportIncidentCu.Member1 = ReportIncidentCu.Member1.Replace("'", "");
+                ReportIncidentCu.Member1 = ReportIncidentCu.Member1;
                 ReportIncidentCu.MDOB1 = txtDOB1.Text;
                 ReportIncidentCu.MemberSince1 = txtMemberSince1.Text;
                 ReportIncidentCu.MAddress1 = txtAddress1.Text;
-                ReportIncidentCu.MAddress1 = ReportIncidentCu.MAddress1.Replace("'", "");
+                ReportIncidentCu.MAddress1 = ReportIncidentCu.MAddress1;
                 ReportIncidentCu.Card1 = cbCardHeld1.Checked.ToString();
                 ReportIncidentCu.SignInSlip1 = "false";
 
@@ -5679,9 +5728,9 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             else if (ddlPartyType1.SelectedItem.Value == "3")
             {
                 ReportIncidentCu.StaffEmp1 = txtStaffEmpNo1.Text;
-                ReportIncidentCu.StaffEmp1 = ReportIncidentCu.StaffEmp1.Replace("'", "");
+                ReportIncidentCu.StaffEmp1 = ReportIncidentCu.StaffEmp1;
                 ReportIncidentCu.StaffAddress1 = txtStaffAddress1.Text;
-                ReportIncidentCu.StaffAddress1 = ReportIncidentCu.StaffAddress1.Replace("'", "");
+                ReportIncidentCu.StaffAddress1 = ReportIncidentCu.StaffAddress1;
                 ReportIncidentCu.Card1 = "false";
                 ReportIncidentCu.SignInSlip1 = "false";
 
@@ -5701,12 +5750,12 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                 ReportIncidentCu.Card1 = "false";
                 ReportIncidentCu.SignInSlip1 = cbSignInSlip1.Checked.ToString();
                 ReportIncidentCu.SignInBy1 = txtSignInBy1.Text;
-                ReportIncidentCu.SignInBy1 = ReportIncidentCu.SignInBy1.Replace("'", "");
+                ReportIncidentCu.SignInBy1 = ReportIncidentCu.SignInBy1;
                 ReportIncidentCu.VDOB1 = txtDOBv1.Text;
                 ReportIncidentCu.VAddress1 = txtAddressv1.Text;
-                ReportIncidentCu.VAddress1 = ReportIncidentCu.VAddress1.Replace("'", "");
+                ReportIncidentCu.VAddress1 = ReportIncidentCu.VAddress1;
                 ReportIncidentCu.VProofID1 = txtIDProof1.Text;
-                ReportIncidentCu.VProofID1 = ReportIncidentCu.VProofID1.Replace("'", "");
+                ReportIncidentCu.VProofID1 = ReportIncidentCu.VProofID1;
 
                 // empty other selections (Member and Staff)
                 ReportIncidentCu.Member1 = "";
@@ -5743,33 +5792,33 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             ReportIncidentCu.PTimeM1 = ddlPTimeM1.SelectedItem.Value;
             //ReportIncidentCu.PTimeTC1 = ddlPTimeTC1.SelectedItem.Value;
             ReportIncidentCu.Age1 = txtAge1.Text;
-            ReportIncidentCu.Age1 = ReportIncidentCu.Age1.Replace("'", "");
+            ReportIncidentCu.Age1 = ReportIncidentCu.Age1;
             ReportIncidentCu.AgeGroup1 = ddlAgeGroup1.SelectedItem.Value;
-            ReportIncidentCu.AgeGroup1 = ReportIncidentCu.AgeGroup1.Replace("'", "");
+            ReportIncidentCu.AgeGroup1 = ReportIncidentCu.AgeGroup1;
             ReportIncidentCu.Height1 = txtHeight1.Text;
-            ReportIncidentCu.Height1 = ReportIncidentCu.Height1.Replace("'", "");
+            ReportIncidentCu.Height1 = ReportIncidentCu.Height1;
             ReportIncidentCu.Weight1 = txtWeight1.Text;
-            ReportIncidentCu.Weight1 = ReportIncidentCu.Weight1.Replace("'", "");
+            ReportIncidentCu.Weight1 = ReportIncidentCu.Weight1;
             ReportIncidentCu.Hair1 = txtHair1.Text;
-            ReportIncidentCu.Hair1 = ReportIncidentCu.Hair1.Replace("'", "");
+            ReportIncidentCu.Hair1 = ReportIncidentCu.Hair1;
             ReportIncidentCu.ClothingTop1 = txtClothingTop1.Text;
-            ReportIncidentCu.ClothingTop1 = ReportIncidentCu.ClothingTop1.Replace("'", "");
+            ReportIncidentCu.ClothingTop1 = ReportIncidentCu.ClothingTop1;
             ReportIncidentCu.ClothingBottom1 = txtClothingBottom1.Text;
-            ReportIncidentCu.ClothingBottom1 = ReportIncidentCu.ClothingBottom1.Replace("'", "");
+            ReportIncidentCu.ClothingBottom1 = ReportIncidentCu.ClothingBottom1;
             ReportIncidentCu.Shoes1 = txtShoes1.Text;
-            ReportIncidentCu.Shoes1 = ReportIncidentCu.Shoes1.Replace("'", "");
+            ReportIncidentCu.Shoes1 = ReportIncidentCu.Shoes1;
             ReportIncidentCu.Weapon1 = txtWeapon1.Text;
-            ReportIncidentCu.Weapon1 = ReportIncidentCu.Weapon1.Replace("'", "");
+            ReportIncidentCu.Weapon1 = ReportIncidentCu.Weapon1;
             ReportIncidentCu.Gender1 = ddlGender1.SelectedItem.Value;
-            ReportIncidentCu.Gender1 = ReportIncidentCu.Gender1.Replace("'", "");
+            ReportIncidentCu.Gender1 = ReportIncidentCu.Gender1;
             ReportIncidentCu.DistFeat1 = txtDistFeatures1.Text;
-            ReportIncidentCu.DistFeat1 = ReportIncidentCu.DistFeat1.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.DistFeat1 = ReportIncidentCu.DistFeat1.Replace("\n", "<br />");
             ReportIncidentCu.InjuryDesc1 = txtInjuryDesc1.Text;
-            ReportIncidentCu.InjuryDesc1 = ReportIncidentCu.InjuryDesc1.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryDesc1 = ReportIncidentCu.InjuryDesc1.Replace("\n", "<br />");
             ReportIncidentCu.InjuryCause1 = txtInjuryCause1.Text;
-            ReportIncidentCu.InjuryCause1 = ReportIncidentCu.InjuryCause1.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryCause1 = ReportIncidentCu.InjuryCause1.Replace("\n", "<br />");
             ReportIncidentCu.InjuryComm1 = txtIncidentComm1.Text;
-            ReportIncidentCu.InjuryComm1 = ReportIncidentCu.InjuryComm1.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryComm1 = ReportIncidentCu.InjuryComm1.Replace("\n", "<br />");
             ReportIncidentCu.TxtPartyType1 = ddlPartyType1.SelectedItem.Text;
             ReportIncidentCu.TxtPTimeH1 = ddlPTimeH1.SelectedItem.Text;
             ReportIncidentCu.TxtPTimeM1 = ddlPTimeM1.SelectedItem.Text;
@@ -5792,22 +5841,22 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         if (acpPerson2.Visible == true)
         {
             ReportIncidentCu.First2 = txtFirstName2.Text;
-            ReportIncidentCu.First2 = ReportIncidentCu.First2.Replace("'", "");
+            ReportIncidentCu.First2 = ReportIncidentCu.First2;
             ReportIncidentCu.Last2 = txtLastName2.Text;
-            ReportIncidentCu.Last2 = ReportIncidentCu.Last2.Replace("'", "");
+            ReportIncidentCu.Last2 = ReportIncidentCu.Last2;
             ReportIncidentCu.Alias2 = txtAlias2.Text;
-            ReportIncidentCu.Alias2 = ReportIncidentCu.Alias2.Replace("'", "");
+            ReportIncidentCu.Alias2 = ReportIncidentCu.Alias2;
             ReportIncidentCu.Contact2 = txtContact2.Text;
-            ReportIncidentCu.Contact2 = ReportIncidentCu.Contact2.Replace("'", "");
+            ReportIncidentCu.Contact2 = ReportIncidentCu.Contact2;
             ReportIncidentCu.Type2 = ddlPartyType2.SelectedItem.Value;
             if (ddlPartyType2.SelectedItem.Value == "1")
             {
                 ReportIncidentCu.Member2 = txtMemberNo2.Text;
-                ReportIncidentCu.Member2 = ReportIncidentCu.Member2.Replace("'", "");
+                ReportIncidentCu.Member2 = ReportIncidentCu.Member2;
                 ReportIncidentCu.MDOB2 = txtDOB2.Text;
                 ReportIncidentCu.MemberSince2 = txtMemberSince2.Text;
                 ReportIncidentCu.MAddress2 = txtAddress2.Text;
-                ReportIncidentCu.MAddress2 = ReportIncidentCu.MAddress2.Replace("'", "");
+                ReportIncidentCu.MAddress2 = ReportIncidentCu.MAddress2;
                 ReportIncidentCu.Card2 = cbCardHeld2.Checked.ToString();
                 ReportIncidentCu.SignInSlip2 = "false";
 
@@ -5823,9 +5872,9 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             else if (ddlPartyType2.SelectedItem.Value == "3")
             {
                 ReportIncidentCu.StaffEmp2 = txtStaffEmpNo2.Text;
-                ReportIncidentCu.StaffEmp2 = ReportIncidentCu.StaffEmp2.Replace("'", "");
+                ReportIncidentCu.StaffEmp2 = ReportIncidentCu.StaffEmp2;
                 ReportIncidentCu.StaffAddress2 = txtStaffAddress2.Text;
-                ReportIncidentCu.StaffAddress2 = ReportIncidentCu.StaffAddress2.Replace("'", "");
+                ReportIncidentCu.StaffAddress2 = ReportIncidentCu.StaffAddress2;
                 ReportIncidentCu.Card2 = "false";
                 ReportIncidentCu.SignInSlip2 = "false";
 
@@ -5845,12 +5894,12 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                 ReportIncidentCu.Card2 = "false";
                 ReportIncidentCu.SignInSlip2 = cbSignInSlip2.Checked.ToString();
                 ReportIncidentCu.SignInBy2 = txtSignInBy2.Text;
-                ReportIncidentCu.SignInBy2 = ReportIncidentCu.SignInBy2.Replace("'", "");
+                ReportIncidentCu.SignInBy2 = ReportIncidentCu.SignInBy2;
                 ReportIncidentCu.VDOB2 = txtDOBv2.Text;
                 ReportIncidentCu.VAddress2 = txtAddressv2.Text;
-                ReportIncidentCu.VAddress2 = ReportIncidentCu.VAddress2.Replace("'", "");
+                ReportIncidentCu.VAddress2 = ReportIncidentCu.VAddress2;
                 ReportIncidentCu.VProofID2 = txtIDProof2.Text;
-                ReportIncidentCu.VProofID2 = ReportIncidentCu.VProofID2.Replace("'", "");
+                ReportIncidentCu.VProofID2 = ReportIncidentCu.VProofID2;
 
                 // empty other selections (Member and Staff)
                 ReportIncidentCu.Member2 = "";
@@ -5887,33 +5936,33 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             ReportIncidentCu.PTimeM2 = ddlPTimeM2.SelectedItem.Value;
             //ReportIncidentCu.PTimeTC2 = ddlPTimeTC2.SelectedItem.Value;
             ReportIncidentCu.Age2 = txtAge2.Text;
-            ReportIncidentCu.Age2 = ReportIncidentCu.Age2.Replace("'", "");
+            ReportIncidentCu.Age2 = ReportIncidentCu.Age2;
             ReportIncidentCu.AgeGroup2 = ddlAgeGroup2.SelectedItem.Value;
-            ReportIncidentCu.AgeGroup2 = ReportIncidentCu.AgeGroup2.Replace("'", "");
+            ReportIncidentCu.AgeGroup2 = ReportIncidentCu.AgeGroup2;
             ReportIncidentCu.Height2 = txtHeight2.Text;
-            ReportIncidentCu.Height2 = ReportIncidentCu.Height2.Replace("'", "");
+            ReportIncidentCu.Height2 = ReportIncidentCu.Height2;
             ReportIncidentCu.Weight2 = txtWeight2.Text;
-            ReportIncidentCu.Weight2 = ReportIncidentCu.Weight2.Replace("'", "");
+            ReportIncidentCu.Weight2 = ReportIncidentCu.Weight2;
             ReportIncidentCu.Hair2 = txtHair2.Text;
-            ReportIncidentCu.Hair2 = ReportIncidentCu.Hair2.Replace("'", "");
+            ReportIncidentCu.Hair2 = ReportIncidentCu.Hair2;
             ReportIncidentCu.ClothingTop2 = txtClothingTop2.Text;
-            ReportIncidentCu.ClothingTop2 = ReportIncidentCu.ClothingTop2.Replace("'", "");
+            ReportIncidentCu.ClothingTop2 = ReportIncidentCu.ClothingTop2;
             ReportIncidentCu.ClothingBottom2 = txtClothingBottom2.Text;
-            ReportIncidentCu.ClothingBottom2 = ReportIncidentCu.ClothingBottom2.Replace("'", "");
+            ReportIncidentCu.ClothingBottom2 = ReportIncidentCu.ClothingBottom2;
             ReportIncidentCu.Shoes2 = txtShoes2.Text;
-            ReportIncidentCu.Shoes2 = ReportIncidentCu.Shoes2.Replace("'", "");
+            ReportIncidentCu.Shoes2 = ReportIncidentCu.Shoes2;
             ReportIncidentCu.Weapon2 = txtWeapon2.Text;
-            ReportIncidentCu.Weapon2 = ReportIncidentCu.Weapon2.Replace("'", "");
+            ReportIncidentCu.Weapon2 = ReportIncidentCu.Weapon2;
             ReportIncidentCu.Gender2 = ddlGender2.SelectedItem.Value;
-            ReportIncidentCu.Gender2 = ReportIncidentCu.Gender2.Replace("'", "");
+            ReportIncidentCu.Gender2 = ReportIncidentCu.Gender2;
             ReportIncidentCu.DistFeat2 = txtDistFeatures2.Text;
-            ReportIncidentCu.DistFeat2 = ReportIncidentCu.DistFeat2.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.DistFeat2 = ReportIncidentCu.DistFeat2.Replace("\n", "<br />");
             ReportIncidentCu.InjuryDesc2 = txtInjuryDesc2.Text;
-            ReportIncidentCu.InjuryDesc2 = ReportIncidentCu.InjuryDesc2.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryDesc2 = ReportIncidentCu.InjuryDesc2.Replace("\n", "<br />");
             ReportIncidentCu.InjuryCause2 = txtInjuryCause2.Text;
-            ReportIncidentCu.InjuryCause2 = ReportIncidentCu.InjuryCause2.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryCause2 = ReportIncidentCu.InjuryCause2.Replace("\n", "<br />");
             ReportIncidentCu.InjuryComm2 = txtIncidentComm2.Text;
-            ReportIncidentCu.InjuryComm2 = ReportIncidentCu.InjuryComm2.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryComm2 = ReportIncidentCu.InjuryComm2.Replace("\n", "<br />");
             ReportIncidentCu.TxtPartyType2 = ddlPartyType2.SelectedItem.Text;
             ReportIncidentCu.TxtPTimeH2 = ddlPTimeH2.SelectedItem.Text;
             ReportIncidentCu.TxtPTimeM2 = ddlPTimeM2.SelectedItem.Text;
@@ -5935,22 +5984,22 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         if (acpPerson3.Visible == true)
         {
             ReportIncidentCu.First3 = txtFirstName3.Text;
-            ReportIncidentCu.First3 = ReportIncidentCu.First3.Replace("'", "");
+            ReportIncidentCu.First3 = ReportIncidentCu.First3;
             ReportIncidentCu.Last3 = txtLastName3.Text;
-            ReportIncidentCu.Last3 = ReportIncidentCu.Last3.Replace("'", "");
+            ReportIncidentCu.Last3 = ReportIncidentCu.Last3;
             ReportIncidentCu.Alias3 = txtAlias3.Text;
-            ReportIncidentCu.Alias3 = ReportIncidentCu.Alias3.Replace("'", "");
+            ReportIncidentCu.Alias3 = ReportIncidentCu.Alias3;
             ReportIncidentCu.Contact3 = txtContact3.Text;
-            ReportIncidentCu.Contact3 = ReportIncidentCu.Contact3.Replace("'", "");
+            ReportIncidentCu.Contact3 = ReportIncidentCu.Contact3;
             ReportIncidentCu.Type3 = ddlPartyType3.SelectedItem.Value;
             if (ddlPartyType3.SelectedItem.Value == "1")
             {
                 ReportIncidentCu.Member3 = txtMemberNo3.Text;
-                ReportIncidentCu.Member3 = ReportIncidentCu.Member3.Replace("'", "");
+                ReportIncidentCu.Member3 = ReportIncidentCu.Member3;
                 ReportIncidentCu.MDOB3 = txtDOB3.Text;
                 ReportIncidentCu.MemberSince3 = txtMemberSince3.Text;
                 ReportIncidentCu.MAddress3 = txtAddress3.Text;
-                ReportIncidentCu.MAddress3 = ReportIncidentCu.MAddress3.Replace("'", "");
+                ReportIncidentCu.MAddress3 = ReportIncidentCu.MAddress3;
                 ReportIncidentCu.Card3 = cbCardHeld3.Checked.ToString();
                 ReportIncidentCu.SignInSlip3 = "false";
 
@@ -5966,9 +6015,9 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             else if (ddlPartyType3.SelectedItem.Value == "3")
             {
                 ReportIncidentCu.StaffEmp3 = txtStaffEmpNo3.Text;
-                ReportIncidentCu.StaffEmp3 = ReportIncidentCu.StaffEmp3.Replace("'", "");
+                ReportIncidentCu.StaffEmp3 = ReportIncidentCu.StaffEmp3;
                 ReportIncidentCu.StaffAddress3 = txtStaffAddress3.Text;
-                ReportIncidentCu.StaffAddress3 = ReportIncidentCu.StaffAddress3.Replace("'", "");
+                ReportIncidentCu.StaffAddress3 = ReportIncidentCu.StaffAddress3;
                 ReportIncidentCu.Card3 = "false";
                 ReportIncidentCu.SignInSlip3 = "false";
 
@@ -5988,12 +6037,12 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                 ReportIncidentCu.Card3 = "false";
                 ReportIncidentCu.SignInSlip3 = cbSignInSlip3.Checked.ToString();
                 ReportIncidentCu.SignInBy3 = txtSignInBy3.Text;
-                ReportIncidentCu.SignInBy3 = ReportIncidentCu.SignInBy3.Replace("'", "");
+                ReportIncidentCu.SignInBy3 = ReportIncidentCu.SignInBy3;
                 ReportIncidentCu.VDOB3 = txtDOBv3.Text;
                 ReportIncidentCu.VAddress3 = txtAddressv3.Text;
-                ReportIncidentCu.VAddress3 = ReportIncidentCu.VAddress3.Replace("'", "");
+                ReportIncidentCu.VAddress3 = ReportIncidentCu.VAddress3;
                 ReportIncidentCu.VProofID3 = txtIDProof3.Text;
-                ReportIncidentCu.VProofID3 = ReportIncidentCu.VProofID3.Replace("'", "");
+                ReportIncidentCu.VProofID3 = ReportIncidentCu.VProofID3;
 
                 // empty other selections (Member and Staff)
                 ReportIncidentCu.Member3 = "";
@@ -6030,33 +6079,33 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             ReportIncidentCu.PTimeM3 = ddlPTimeM3.SelectedItem.Value;
             //ReportIncidentCu.PTimeTC3 = ddlPTimeTC3.SelectedItem.Value;
             ReportIncidentCu.Age3 = txtAge3.Text;
-            ReportIncidentCu.Age3 = ReportIncidentCu.Age3.Replace("'", "");
+            ReportIncidentCu.Age3 = ReportIncidentCu.Age3;
             ReportIncidentCu.AgeGroup3 = ddlAgeGroup3.SelectedItem.Value;
-            ReportIncidentCu.AgeGroup3 = ReportIncidentCu.AgeGroup3.Replace("'", "");
+            ReportIncidentCu.AgeGroup3 = ReportIncidentCu.AgeGroup3;
             ReportIncidentCu.Height3 = txtHeight3.Text;
-            ReportIncidentCu.Height3 = ReportIncidentCu.Height3.Replace("'", "");
+            ReportIncidentCu.Height3 = ReportIncidentCu.Height3;
             ReportIncidentCu.Weight3 = txtWeight3.Text;
-            ReportIncidentCu.Weight3 = ReportIncidentCu.Weight3.Replace("'", "");
+            ReportIncidentCu.Weight3 = ReportIncidentCu.Weight3;
             ReportIncidentCu.Hair3 = txtHair3.Text;
-            ReportIncidentCu.Hair3 = ReportIncidentCu.Hair3.Replace("'", "");
+            ReportIncidentCu.Hair3 = ReportIncidentCu.Hair3;
             ReportIncidentCu.ClothingTop3 = txtClothingTop3.Text;
-            ReportIncidentCu.ClothingTop3 = ReportIncidentCu.ClothingTop3.Replace("'", "");
+            ReportIncidentCu.ClothingTop3 = ReportIncidentCu.ClothingTop3;
             ReportIncidentCu.ClothingBottom3 = txtClothingBottom3.Text;
-            ReportIncidentCu.ClothingBottom3 = ReportIncidentCu.ClothingBottom3.Replace("'", "");
+            ReportIncidentCu.ClothingBottom3 = ReportIncidentCu.ClothingBottom3;
             ReportIncidentCu.Shoes3 = txtShoes3.Text;
-            ReportIncidentCu.Shoes3 = ReportIncidentCu.Shoes3.Replace("'", "");
+            ReportIncidentCu.Shoes3 = ReportIncidentCu.Shoes3;
             ReportIncidentCu.Weapon3 = txtWeapon3.Text;
-            ReportIncidentCu.Weapon3 = ReportIncidentCu.Weapon3.Replace("'", "");
+            ReportIncidentCu.Weapon3 = ReportIncidentCu.Weapon3;
             ReportIncidentCu.Gender3 = ddlGender3.SelectedItem.Value;
-            ReportIncidentCu.Gender3 = ReportIncidentCu.Gender3.Replace("'", "");
+            ReportIncidentCu.Gender3 = ReportIncidentCu.Gender3;
             ReportIncidentCu.DistFeat3 = txtDistFeatures3.Text;
-            ReportIncidentCu.DistFeat3 = ReportIncidentCu.DistFeat3.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.DistFeat3 = ReportIncidentCu.DistFeat3.Replace("\n", "<br />");
             ReportIncidentCu.InjuryDesc3 = txtInjuryDesc3.Text;
-            ReportIncidentCu.InjuryDesc3 = ReportIncidentCu.InjuryDesc3.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryDesc3 = ReportIncidentCu.InjuryDesc3.Replace("\n", "<br />");
             ReportIncidentCu.InjuryCause3 = txtInjuryCause3.Text;
-            ReportIncidentCu.InjuryCause3 = ReportIncidentCu.InjuryCause3.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryCause3 = ReportIncidentCu.InjuryCause3.Replace("\n", "<br />");
             ReportIncidentCu.InjuryComm3 = txtIncidentComm3.Text;
-            ReportIncidentCu.InjuryComm3 = ReportIncidentCu.InjuryComm3.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryComm3 = ReportIncidentCu.InjuryComm3.Replace("\n", "<br />");
             ReportIncidentCu.TxtPartyType3 = ddlPartyType3.SelectedItem.Text;
             ReportIncidentCu.TxtPTimeH3 = ddlPTimeH3.SelectedItem.Text;
             ReportIncidentCu.TxtPTimeM3 = ddlPTimeM3.SelectedItem.Text;
@@ -6079,22 +6128,22 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         if (acpPerson4.Visible == true)
         {
             ReportIncidentCu.First4 = txtFirstName4.Text;
-            ReportIncidentCu.First4 = ReportIncidentCu.First4.Replace("'", "");
+            ReportIncidentCu.First4 = ReportIncidentCu.First4;
             ReportIncidentCu.Last4 = txtLastName4.Text;
-            ReportIncidentCu.Last4 = ReportIncidentCu.Last4.Replace("'", "");
+            ReportIncidentCu.Last4 = ReportIncidentCu.Last4;
             ReportIncidentCu.Alias4 = txtAlias4.Text;
-            ReportIncidentCu.Alias4 = ReportIncidentCu.Alias4.Replace("'", "");
+            ReportIncidentCu.Alias4 = ReportIncidentCu.Alias4;
             ReportIncidentCu.Contact4 = txtContact4.Text;
-            ReportIncidentCu.Contact4 = ReportIncidentCu.Contact4.Replace("'", "");
+            ReportIncidentCu.Contact4 = ReportIncidentCu.Contact4;
             ReportIncidentCu.Type4 = ddlPartyType4.SelectedItem.Value;
             if (ddlPartyType4.SelectedItem.Value == "1")
             {
                 ReportIncidentCu.Member4 = txtMemberNo4.Text;
-                ReportIncidentCu.Member4 = ReportIncidentCu.Member4.Replace("'", "");
+                ReportIncidentCu.Member4 = ReportIncidentCu.Member4;
                 ReportIncidentCu.MDOB4 = txtDOB4.Text;
                 ReportIncidentCu.MemberSince4 = txtMemberSince4.Text;
                 ReportIncidentCu.MAddress4 = txtAddress4.Text;
-                ReportIncidentCu.MAddress4 = ReportIncidentCu.MAddress4.Replace("'", "");
+                ReportIncidentCu.MAddress4 = ReportIncidentCu.MAddress4;
                 ReportIncidentCu.Card4 = cbCardHeld4.Checked.ToString();
                 ReportIncidentCu.SignInSlip4 = "false";
 
@@ -6110,9 +6159,9 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             else if (ddlPartyType4.SelectedItem.Value == "3")
             {
                 ReportIncidentCu.StaffEmp4 = txtStaffEmpNo4.Text;
-                ReportIncidentCu.StaffEmp4 = ReportIncidentCu.StaffEmp4.Replace("'", "");
+                ReportIncidentCu.StaffEmp4 = ReportIncidentCu.StaffEmp4;
                 ReportIncidentCu.StaffAddress4 = txtStaffAddress4.Text;
-                ReportIncidentCu.StaffAddress4 = ReportIncidentCu.StaffAddress4.Replace("'", "");
+                ReportIncidentCu.StaffAddress4 = ReportIncidentCu.StaffAddress4;
                 ReportIncidentCu.Card4 = "false";
                 ReportIncidentCu.SignInSlip4 = "false";
 
@@ -6132,12 +6181,12 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                 ReportIncidentCu.Card4 = "false";
                 ReportIncidentCu.SignInSlip4 = cbSignInSlip4.Checked.ToString();
                 ReportIncidentCu.SignInBy4 = txtSignInBy4.Text;
-                ReportIncidentCu.SignInBy4 = ReportIncidentCu.SignInBy4.Replace("'", "");
+                ReportIncidentCu.SignInBy4 = ReportIncidentCu.SignInBy4;
                 ReportIncidentCu.VDOB4 = txtDOBv4.Text;
                 ReportIncidentCu.VAddress4 = txtAddressv4.Text;
-                ReportIncidentCu.VAddress4 = ReportIncidentCu.VAddress4.Replace("'", "");
+                ReportIncidentCu.VAddress4 = ReportIncidentCu.VAddress4;
                 ReportIncidentCu.VProofID4 = txtIDProof4.Text;
-                ReportIncidentCu.VProofID4 = ReportIncidentCu.VProofID4.Replace("'", "");
+                ReportIncidentCu.VProofID4 = ReportIncidentCu.VProofID4;
 
                 // empty other selections (Member and Staff)
                 ReportIncidentCu.Member4 = "";
@@ -6174,33 +6223,33 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             ReportIncidentCu.PTimeM4 = ddlPTimeM4.SelectedItem.Value;
             //ReportIncidentCu.PTimeTC4 = ddlPTimeTC4.SelectedItem.Value;
             ReportIncidentCu.Age4 = txtAge4.Text;
-            ReportIncidentCu.Age4 = ReportIncidentCu.Age4.Replace("'", "");
+            ReportIncidentCu.Age4 = ReportIncidentCu.Age4;
             ReportIncidentCu.AgeGroup4 = ddlAgeGroup4.SelectedItem.Value;
-            ReportIncidentCu.AgeGroup4 = ReportIncidentCu.AgeGroup4.Replace("'", "");
+            ReportIncidentCu.AgeGroup4 = ReportIncidentCu.AgeGroup4;
             ReportIncidentCu.Height4 = txtHeight4.Text;
-            ReportIncidentCu.Height4 = ReportIncidentCu.Height4.Replace("'", "");
+            ReportIncidentCu.Height4 = ReportIncidentCu.Height4;
             ReportIncidentCu.Weight4 = txtWeight4.Text;
-            ReportIncidentCu.Weight4 = ReportIncidentCu.Weight4.Replace("'", "");
+            ReportIncidentCu.Weight4 = ReportIncidentCu.Weight4;
             ReportIncidentCu.Hair4 = txtHair4.Text;
-            ReportIncidentCu.Hair4 = ReportIncidentCu.Hair4.Replace("'", "");
+            ReportIncidentCu.Hair4 = ReportIncidentCu.Hair4;
             ReportIncidentCu.ClothingTop4 = txtClothingTop4.Text;
-            ReportIncidentCu.ClothingTop4 = ReportIncidentCu.ClothingTop4.Replace("'", "");
+            ReportIncidentCu.ClothingTop4 = ReportIncidentCu.ClothingTop4;
             ReportIncidentCu.ClothingBottom4 = txtClothingBottom4.Text;
-            ReportIncidentCu.ClothingBottom4 = ReportIncidentCu.ClothingBottom4.Replace("'", "");
+            ReportIncidentCu.ClothingBottom4 = ReportIncidentCu.ClothingBottom4;
             ReportIncidentCu.Shoes4 = txtShoes4.Text;
-            ReportIncidentCu.Shoes4 = ReportIncidentCu.Shoes4.Replace("'", "");
+            ReportIncidentCu.Shoes4 = ReportIncidentCu.Shoes4;
             ReportIncidentCu.Weapon4 = txtWeapon4.Text;
-            ReportIncidentCu.Weapon4 = ReportIncidentCu.Weapon4.Replace("'", "");
+            ReportIncidentCu.Weapon4 = ReportIncidentCu.Weapon4;
             ReportIncidentCu.Gender4 = ddlGender4.SelectedItem.Value;
-            ReportIncidentCu.Gender4 = ReportIncidentCu.Gender4.Replace("'", "");
+            ReportIncidentCu.Gender4 = ReportIncidentCu.Gender4;
             ReportIncidentCu.DistFeat4 = txtDistFeatures4.Text;
-            ReportIncidentCu.DistFeat4 = ReportIncidentCu.DistFeat4.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.DistFeat4 = ReportIncidentCu.DistFeat4.Replace("\n", "<br />");
             ReportIncidentCu.InjuryDesc4 = txtInjuryDesc4.Text;
-            ReportIncidentCu.InjuryDesc4 = ReportIncidentCu.InjuryDesc4.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryDesc4 = ReportIncidentCu.InjuryDesc4.Replace("\n", "<br />");
             ReportIncidentCu.InjuryCause4 = txtInjuryCause4.Text;
-            ReportIncidentCu.InjuryCause4 = ReportIncidentCu.InjuryCause4.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryCause4 = ReportIncidentCu.InjuryCause4.Replace("\n", "<br />");
             ReportIncidentCu.InjuryComm4 = txtIncidentComm4.Text;
-            ReportIncidentCu.InjuryComm4 = ReportIncidentCu.InjuryComm4.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryComm4 = ReportIncidentCu.InjuryComm4.Replace("\n", "<br />");
             ReportIncidentCu.TxtPartyType4 = ddlPartyType4.SelectedItem.Text;
             ReportIncidentCu.TxtPTimeH4 = ddlPTimeH4.SelectedItem.Text;
             ReportIncidentCu.TxtPTimeM4 = ddlPTimeM4.SelectedItem.Text;
@@ -6223,22 +6272,22 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         if (acpPerson5.Visible == true)
         {
             ReportIncidentCu.First5 = txtFirstName5.Text;
-            ReportIncidentCu.First5 = ReportIncidentCu.First5.Replace("'", "");
+            ReportIncidentCu.First5 = ReportIncidentCu.First5;
             ReportIncidentCu.Last5 = txtLastName5.Text;
-            ReportIncidentCu.Last5 = ReportIncidentCu.Last5.Replace("'", "");
+            ReportIncidentCu.Last5 = ReportIncidentCu.Last5;
             ReportIncidentCu.Alias5 = txtAlias5.Text;
-            ReportIncidentCu.Alias5 = ReportIncidentCu.Alias5.Replace("'", "");
+            ReportIncidentCu.Alias5 = ReportIncidentCu.Alias5;
             ReportIncidentCu.Contact5 = txtContact5.Text;
-            ReportIncidentCu.Contact5 = ReportIncidentCu.Contact5.Replace("'", "");
+            ReportIncidentCu.Contact5 = ReportIncidentCu.Contact5;
             ReportIncidentCu.Type5 = ddlPartyType5.SelectedItem.Value;
             if (ddlPartyType5.SelectedItem.Value == "1")
             {
                 ReportIncidentCu.Member5 = txtMemberNo5.Text;
-                ReportIncidentCu.Member5 = ReportIncidentCu.Member5.Replace("'", "");
+                ReportIncidentCu.Member5 = ReportIncidentCu.Member5;
                 ReportIncidentCu.MDOB5 = txtDOB5.Text;
                 ReportIncidentCu.MemberSince5 = txtMemberSince5.Text;
                 ReportIncidentCu.MAddress5 = txtAddress5.Text;
-                ReportIncidentCu.MAddress5 = ReportIncidentCu.MAddress5.Replace("'", "");
+                ReportIncidentCu.MAddress5 = ReportIncidentCu.MAddress5;
                 ReportIncidentCu.Card5 = cbCardHeld5.Checked.ToString();
                 ReportIncidentCu.SignInSlip5 = "false";
 
@@ -6254,9 +6303,9 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             else if (ddlPartyType5.SelectedItem.Value == "3")
             {
                 ReportIncidentCu.StaffEmp5 = txtStaffEmpNo5.Text;
-                ReportIncidentCu.StaffEmp5 = ReportIncidentCu.StaffEmp5.Replace("'", "");
+                ReportIncidentCu.StaffEmp5 = ReportIncidentCu.StaffEmp5;
                 ReportIncidentCu.StaffAddress5 = txtStaffAddress5.Text;
-                ReportIncidentCu.StaffAddress5 = ReportIncidentCu.StaffAddress5.Replace("'", "");
+                ReportIncidentCu.StaffAddress5 = ReportIncidentCu.StaffAddress5;
                 ReportIncidentCu.Card5 = "false";
                 ReportIncidentCu.SignInSlip5 = "false";
 
@@ -6276,12 +6325,12 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                 ReportIncidentCu.Card5 = "false";
                 ReportIncidentCu.SignInSlip5 = cbSignInSlip5.Checked.ToString();
                 ReportIncidentCu.SignInBy5 = txtSignInBy5.Text;
-                ReportIncidentCu.SignInBy5 = ReportIncidentCu.SignInBy5.Replace("'", "");
+                ReportIncidentCu.SignInBy5 = ReportIncidentCu.SignInBy5;
                 ReportIncidentCu.VDOB5 = txtDOBv5.Text;
                 ReportIncidentCu.VAddress5 = txtAddressv5.Text;
-                ReportIncidentCu.VAddress5 = ReportIncidentCu.VAddress5.Replace("'", "");
+                ReportIncidentCu.VAddress5 = ReportIncidentCu.VAddress5;
                 ReportIncidentCu.VProofID5 = txtIDProof5.Text;
-                ReportIncidentCu.VProofID5 = ReportIncidentCu.VProofID5.Replace("'", "");
+                ReportIncidentCu.VProofID5 = ReportIncidentCu.VProofID5;
 
                 // empty other selections (Member and Staff)
                 ReportIncidentCu.Member5 = "";
@@ -6318,33 +6367,33 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             ReportIncidentCu.PTimeM5 = ddlPTimeM5.SelectedItem.Value;
             //ReportIncidentCu.PTimeTC5 = ddlPTimeTC5.SelectedItem.Value;
             ReportIncidentCu.Age5 = txtAge5.Text;
-            ReportIncidentCu.Age5 = ReportIncidentCu.Age5.Replace("'", "");
+            ReportIncidentCu.Age5 = ReportIncidentCu.Age5;
             ReportIncidentCu.AgeGroup5 = ddlAgeGroup5.SelectedItem.Value;
-            ReportIncidentCu.AgeGroup5 = ReportIncidentCu.AgeGroup5.Replace("'", "");
+            ReportIncidentCu.AgeGroup5 = ReportIncidentCu.AgeGroup5;
             ReportIncidentCu.Height5 = txtHeight5.Text;
-            ReportIncidentCu.Height5 = ReportIncidentCu.Height5.Replace("'", "");
+            ReportIncidentCu.Height5 = ReportIncidentCu.Height5;
             ReportIncidentCu.Weight5 = txtWeight5.Text;
-            ReportIncidentCu.Weight5 = ReportIncidentCu.Weight5.Replace("'", "");
+            ReportIncidentCu.Weight5 = ReportIncidentCu.Weight5;
             ReportIncidentCu.Hair5 = txtHair5.Text;
-            ReportIncidentCu.Hair5 = ReportIncidentCu.Hair5.Replace("'", "");
+            ReportIncidentCu.Hair5 = ReportIncidentCu.Hair5;
             ReportIncidentCu.ClothingTop5 = txtClothingTop5.Text;
-            ReportIncidentCu.ClothingTop5 = ReportIncidentCu.ClothingTop5.Replace("'", "");
+            ReportIncidentCu.ClothingTop5 = ReportIncidentCu.ClothingTop5;
             ReportIncidentCu.ClothingBottom5 = txtClothingBottom5.Text;
-            ReportIncidentCu.ClothingBottom5 = ReportIncidentCu.ClothingBottom5.Replace("'", "");
+            ReportIncidentCu.ClothingBottom5 = ReportIncidentCu.ClothingBottom5;
             ReportIncidentCu.Shoes5 = txtShoes5.Text;
-            ReportIncidentCu.Shoes5 = ReportIncidentCu.Shoes5.Replace("'", "");
+            ReportIncidentCu.Shoes5 = ReportIncidentCu.Shoes5;
             ReportIncidentCu.Weapon5 = txtWeapon5.Text;
-            ReportIncidentCu.Weapon5 = ReportIncidentCu.Weapon5.Replace("'", "");
+            ReportIncidentCu.Weapon5 = ReportIncidentCu.Weapon5;
             ReportIncidentCu.Gender5 = ddlGender5.SelectedItem.Value;
-            ReportIncidentCu.Gender5 = ReportIncidentCu.Gender5.Replace("'", "");
+            ReportIncidentCu.Gender5 = ReportIncidentCu.Gender5;
             ReportIncidentCu.DistFeat5 = txtDistFeatures5.Text;
-            ReportIncidentCu.DistFeat5 = ReportIncidentCu.DistFeat5.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.DistFeat5 = ReportIncidentCu.DistFeat5.Replace("\n", "<br />");
             ReportIncidentCu.InjuryDesc5 = txtInjuryDesc5.Text;
-            ReportIncidentCu.InjuryDesc5 = ReportIncidentCu.InjuryDesc5.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryDesc5 = ReportIncidentCu.InjuryDesc5.Replace("\n", "<br />");
             ReportIncidentCu.InjuryCause5 = txtInjuryCause5.Text;
-            ReportIncidentCu.InjuryCause5 = ReportIncidentCu.InjuryCause5.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryCause5 = ReportIncidentCu.InjuryCause5.Replace("\n", "<br />");
             ReportIncidentCu.InjuryComm5 = txtIncidentComm5.Text;
-            ReportIncidentCu.InjuryComm5 = ReportIncidentCu.InjuryComm5.Replace("\n", "<br />").Replace("'", "");
+            ReportIncidentCu.InjuryComm5 = ReportIncidentCu.InjuryComm5.Replace("\n", "<br />");
             ReportIncidentCu.TxtPartyType5 = ddlPartyType5.SelectedItem.Text;
             ReportIncidentCu.TxtPTimeH5 = ddlPTimeH5.SelectedItem.Text;
             ReportIncidentCu.TxtPTimeM5 = ddlPTimeM5.SelectedItem.Text;
@@ -6366,7 +6415,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
         /* Camera 1 */
         ReportIncidentCu.CamDesc1 = txtCamDesc1.Text.Replace("\n", "<br />");
-        ReportIncidentCu.CamDesc1 = ReportIncidentCu.CamDesc1.Replace("'", "");
+        ReportIncidentCu.CamDesc1 = ReportIncidentCu.CamDesc1;
         ReportIncidentCu.SDate1 = txtCamSDate1.Text;
         ReportIncidentCu.STimeH1 = ddlCamTimeH1.SelectedItem.Value;
         ReportIncidentCu.STimeM1 = ddlCamTimeM1.SelectedItem.Value;
@@ -6376,7 +6425,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         ReportIncidentCu.ETimeM1 = ddlCamETimeM1.SelectedItem.Value;
         //ReportIncidentCu.ETimeTC1 = ddlCamETimeTC1.SelectedItem.Value;
         ReportIncidentCu.FilePath1 = txtCamFilePath1.Text;
-        ReportIncidentCu.FilePath1 = ReportIncidentCu.FilePath1.Replace("'", "");
+        ReportIncidentCu.FilePath1 = ReportIncidentCu.FilePath1;
         ReportIncidentCu.CamRec1 = cbRecorded1.Checked.ToString();
         ReportIncidentCu.TxtCamSTimeH1 = ddlCamTimeH1.SelectedItem.Text;
         ReportIncidentCu.TxtCamSTimeM1 = ddlCamTimeM1.SelectedItem.Text;
@@ -6387,7 +6436,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
         /* Camera 2 */
         ReportIncidentCu.CamDesc2 = txtCamDesc2.Text.Replace("\n", "<br />");
-        ReportIncidentCu.CamDesc2 = ReportIncidentCu.CamDesc2.Replace("'", "");
+        ReportIncidentCu.CamDesc2 = ReportIncidentCu.CamDesc2;
         ReportIncidentCu.SDate2 = txtCamSDate2.Text;
         ReportIncidentCu.STimeH2 = ddlCamTimeH2.SelectedItem.Value;
         ReportIncidentCu.STimeM2 = ddlCamTimeM2.SelectedItem.Value;
@@ -6397,7 +6446,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         ReportIncidentCu.ETimeM2 = ddlCamETimeM2.SelectedItem.Value;
         //ReportIncidentCu.ETimeTC2 = ddlCamETimeTC2.SelectedItem.Value;
         ReportIncidentCu.FilePath2 = txtCamFilePath2.Text;
-        ReportIncidentCu.FilePath2 = ReportIncidentCu.FilePath2.Replace("'", "");
+        ReportIncidentCu.FilePath2 = ReportIncidentCu.FilePath2;
         ReportIncidentCu.CamRec2 = cbRecorded2.Checked.ToString();
         ReportIncidentCu.TxtCamSTimeH2 = ddlCamTimeH2.SelectedItem.Text;
         ReportIncidentCu.TxtCamSTimeM2 = ddlCamTimeM2.SelectedItem.Text;
@@ -6408,7 +6457,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
         /* Camera 3 */
         ReportIncidentCu.CamDesc3 = txtCamDesc3.Text.Replace("\n", "<br />");
-        ReportIncidentCu.CamDesc3 = ReportIncidentCu.CamDesc3.Replace("'", "");
+        ReportIncidentCu.CamDesc3 = ReportIncidentCu.CamDesc3;
         ReportIncidentCu.SDate3 = txtCamSDate3.Text;
         ReportIncidentCu.STimeH3 = ddlCamTimeH3.SelectedItem.Value;
         ReportIncidentCu.STimeM3 = ddlCamTimeM3.SelectedItem.Value;
@@ -6418,7 +6467,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         ReportIncidentCu.ETimeM3 = ddlCamETimeM3.SelectedItem.Value;
         //ReportIncidentCu.ETimeTC3 = ddlCamETimeTC3.SelectedItem.Value;
         ReportIncidentCu.FilePath3 = txtCamFilePath3.Text;
-        ReportIncidentCu.FilePath3 = ReportIncidentCu.FilePath3.Replace("'", "");
+        ReportIncidentCu.FilePath3 = ReportIncidentCu.FilePath3;
         ReportIncidentCu.CamRec3 = cbRecorded3.Checked.ToString();
         ReportIncidentCu.TxtCamSTimeH3 = ddlCamTimeH3.SelectedItem.Text;
         ReportIncidentCu.TxtCamSTimeM3 = ddlCamTimeM3.SelectedItem.Text;
@@ -6429,7 +6478,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
         /* Camera 4 */
         ReportIncidentCu.CamDesc4 = txtCamDesc4.Text.Replace("\n", "<br />");
-        ReportIncidentCu.CamDesc4 = ReportIncidentCu.CamDesc4.Replace("'", "");
+        ReportIncidentCu.CamDesc4 = ReportIncidentCu.CamDesc4;
         ReportIncidentCu.SDate4 = txtCamSDate4.Text;
         ReportIncidentCu.STimeH4 = ddlCamTimeH4.SelectedItem.Value;
         ReportIncidentCu.STimeM4 = ddlCamTimeM4.SelectedItem.Value;
@@ -6439,7 +6488,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         ReportIncidentCu.ETimeM4 = ddlCamETimeM4.SelectedItem.Value;
         //ReportIncidentCu.ETimeTC4 = ddlCamETimeTC4.SelectedItem.Value;
         ReportIncidentCu.FilePath4 = txtCamFilePath4.Text;
-        ReportIncidentCu.FilePath4 = ReportIncidentCu.FilePath4.Replace("'", "");
+        ReportIncidentCu.FilePath4 = ReportIncidentCu.FilePath4;
         ReportIncidentCu.CamRec4 = cbRecorded4.Checked.ToString();
         ReportIncidentCu.TxtCamSTimeH4 = ddlCamTimeH4.SelectedItem.Text;
         ReportIncidentCu.TxtCamSTimeM4 = ddlCamTimeM4.SelectedItem.Text;
@@ -6450,7 +6499,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
         /* Camera 5 */
         ReportIncidentCu.CamDesc5 = txtCamDesc5.Text.Replace("\n", "<br />");
-        ReportIncidentCu.CamDesc5 = ReportIncidentCu.CamDesc5.Replace("'", "");
+        ReportIncidentCu.CamDesc5 = ReportIncidentCu.CamDesc5;
         ReportIncidentCu.SDate5 = txtCamSDate5.Text;
         ReportIncidentCu.STimeH5 = ddlCamTimeH5.SelectedItem.Value;
         ReportIncidentCu.STimeM5 = ddlCamTimeM5.SelectedItem.Value;
@@ -6460,7 +6509,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         ReportIncidentCu.ETimeM5 = ddlCamETimeM5.SelectedItem.Value;
         //ReportIncidentCu.ETimeTC5 = ddlCamETimeTC5.SelectedItem.Value;
         ReportIncidentCu.FilePath5 = txtCamFilePath5.Text;
-        ReportIncidentCu.FilePath5 = ReportIncidentCu.FilePath5.Replace("'", "");
+        ReportIncidentCu.FilePath5 = ReportIncidentCu.FilePath5;
         ReportIncidentCu.CamRec5 = cbRecorded5.Checked.ToString();
         ReportIncidentCu.TxtCamSTimeH5 = ddlCamTimeH5.SelectedItem.Text;
         ReportIncidentCu.TxtCamSTimeM5 = ddlCamTimeM5.SelectedItem.Text;
@@ -6471,7 +6520,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
         /* Camera 6 */
         ReportIncidentCu.CamDesc6 = txtCamDesc6.Text.Replace("\n", "<br />");
-        ReportIncidentCu.CamDesc6 = ReportIncidentCu.CamDesc6.Replace("'", "");
+        ReportIncidentCu.CamDesc6 = ReportIncidentCu.CamDesc6;
         ReportIncidentCu.SDate6 = txtCamSDate6.Text;
         ReportIncidentCu.STimeH6 = ddlCamTimeH6.SelectedItem.Value;
         ReportIncidentCu.STimeM6 = ddlCamTimeM6.SelectedItem.Value;
@@ -6481,7 +6530,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         ReportIncidentCu.ETimeM6 = ddlCamETimeM6.SelectedItem.Value;
         //ReportIncidentCu.ETimeTC6 = ddlCamETimeTC6.SelectedItem.Value;
         ReportIncidentCu.FilePath6 = txtCamFilePath6.Text;
-        ReportIncidentCu.FilePath6 = ReportIncidentCu.FilePath6.Replace("'", "");
+        ReportIncidentCu.FilePath6 = ReportIncidentCu.FilePath6;
         ReportIncidentCu.CamRec6 = cbRecorded6.Checked.ToString();
         ReportIncidentCu.TxtCamSTimeH6 = ddlCamTimeH6.SelectedItem.Text;
         ReportIncidentCu.TxtCamSTimeM6 = ddlCamTimeM6.SelectedItem.Text;
@@ -6492,7 +6541,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
         /* Camera 7 */
         ReportIncidentCu.CamDesc7 = txtCamDesc7.Text.Replace("\n", "<br />");
-        ReportIncidentCu.CamDesc7 = ReportIncidentCu.CamDesc7.Replace("'", "");
+        ReportIncidentCu.CamDesc7 = ReportIncidentCu.CamDesc7;
         ReportIncidentCu.SDate7 = txtCamSDate7.Text;
         ReportIncidentCu.STimeH7 = ddlCamTimeH7.SelectedItem.Value;
         ReportIncidentCu.STimeM7 = ddlCamTimeM7.SelectedItem.Value;
@@ -6502,7 +6551,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         ReportIncidentCu.ETimeM7 = ddlCamETimeM7.SelectedItem.Value;
         //ReportIncidentCu.ETimeTC7 = ddlCamETimeTC7.SelectedItem.Value;
         ReportIncidentCu.FilePath7 = txtCamFilePath7.Text;
-        ReportIncidentCu.FilePath7 = ReportIncidentCu.FilePath7.Replace("'", "");
+        ReportIncidentCu.FilePath7 = ReportIncidentCu.FilePath7;
         ReportIncidentCu.CamRec7 = cbRecorded7.Checked.ToString();
         ReportIncidentCu.TxtCamSTimeH7 = ddlCamTimeH7.SelectedItem.Text;
         ReportIncidentCu.TxtCamSTimeM7 = ddlCamTimeM7.SelectedItem.Text;

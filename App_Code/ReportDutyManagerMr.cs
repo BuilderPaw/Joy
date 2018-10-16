@@ -24,7 +24,7 @@ public class ReportDutyManagerMr
             }
             else
             {
-                return HttpContext.Current.Session["RDMMSupervisors"].ToString();
+                return HttpContext.Current.Session["RDMMSupervisors"].ToString().Replace("'", "^");
             }
         }
         set
@@ -42,7 +42,7 @@ public class ReportDutyManagerMr
             }
             else
             {
-                return HttpContext.Current.Session["RDMMWhs"].ToString();
+                return HttpContext.Current.Session["RDMMWhs"].ToString().Replace("'", "^");
             }
         }
         set
@@ -60,7 +60,7 @@ public class ReportDutyManagerMr
             }
             else
             {
-                return HttpContext.Current.Session["RDMMCost"].ToString();
+                return HttpContext.Current.Session["RDMMCost"].ToString().Replace("'", "^");
             }
         }
         set
@@ -78,7 +78,7 @@ public class ReportDutyManagerMr
             }
             else
             {
-                return HttpContext.Current.Session["RDMMClubPres"].ToString();
+                return HttpContext.Current.Session["RDMMClubPres"].ToString().Replace("'", "^");
             }
         }
         set
@@ -96,7 +96,7 @@ public class ReportDutyManagerMr
             }
             else
             {
-                return HttpContext.Current.Session["RDMMClubMain"].ToString();
+                return HttpContext.Current.Session["RDMMClubMain"].ToString().Replace("'", "^");
             }
         }
         set
@@ -114,7 +114,7 @@ public class ReportDutyManagerMr
             }
             else
             {
-                return HttpContext.Current.Session["RDMMAbsenteeism"].ToString();
+                return HttpContext.Current.Session["RDMMAbsenteeism"].ToString().Replace("'", "^");
             }
         }
         set
@@ -132,7 +132,7 @@ public class ReportDutyManagerMr
             }
             else
             {
-                return HttpContext.Current.Session["RDMMStaffIssues"].ToString();
+                return HttpContext.Current.Session["RDMMStaffIssues"].ToString().Replace("'", "^");
             }
         }
         set
@@ -150,7 +150,7 @@ public class ReportDutyManagerMr
             }
             else
             {
-                return HttpContext.Current.Session["RDMMGaming"].ToString();
+                return HttpContext.Current.Session["RDMMGaming"].ToString().Replace("'", "^");
             }
         }
         set
@@ -168,7 +168,7 @@ public class ReportDutyManagerMr
             }
             else
             {
-                return HttpContext.Current.Session["RDMMKeySec"].ToString();
+                return HttpContext.Current.Session["RDMMKeySec"].ToString().Replace("'", "^");
             }
         }
         set
@@ -186,7 +186,7 @@ public class ReportDutyManagerMr
             }
             else
             {
-                return HttpContext.Current.Session["RDMMCameras"].ToString();
+                return HttpContext.Current.Session["RDMMCameras"].ToString().Replace("'", "^");
             }
         }
         set
@@ -204,7 +204,7 @@ public class ReportDutyManagerMr
             }
             else
             {
-                return HttpContext.Current.Session["RDMMGeneralComms"].ToString();
+                return HttpContext.Current.Session["RDMMGeneralComms"].ToString().Replace("'", "^");
             }
         }
         set
@@ -222,7 +222,7 @@ public class ReportDutyManagerMr
             }
             else
             {
-                return HttpContext.Current.Session["RDMMLuckyRewards"].ToString();
+                return HttpContext.Current.Session["RDMMLuckyRewards"].ToString().Replace("'", "^");
             }
         }
         set
@@ -240,7 +240,7 @@ public class ReportDutyManagerMr
             }
             else
             {
-                return HttpContext.Current.Session["RDMMCompliance"].ToString();
+                return HttpContext.Current.Session["RDMMCompliance"].ToString().Replace("'", "^");
             }
         }
         set

@@ -124,7 +124,7 @@ public class SearchReport
                             " FROM [View_Reports] WHERE [ReportName] ",
                startQuery1= "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat], [AuditVersion], ROW_NUMBER() OVER(ORDER BY ShiftDate DESC, ShiftId DESC) RowNum" +
                             " FROM [View_Reports] WHERE ReportName ",
-               dateQuery = "", statusQuery = "", unreadQuery = "", reportQuery = "", authorQuery = "", cuQuery = "", mrQuery = "",
+               reportIdQuery = "", dateQuery = "", statusQuery = "", unreadQuery = "", reportQuery = "", authorQuery = "", cuQuery = "", mrQuery = "",
                endQuery = "ORDER BY ShiftDate DESC, ShiftId DESC, RowNum";
 
         if (report == 1) // no report type filter
@@ -134,6 +134,15 @@ public class SearchReport
         else // has report type filter
         {
             reportQuery = "= '" + reportType + "' AND ";
+        }
+
+        if (string.IsNullOrWhiteSpace(ReportId))
+        {
+            reportIdQuery = " ";
+        }
+        else
+        {
+            reportIdQuery = "ReportId =" + ReportId + " AND ";
         }
 
         if(dateGroup != 1) // has date filter
@@ -203,7 +212,7 @@ public class SearchReport
             && (FirstName.Equals("0") || string.IsNullOrEmpty(FirstName)) && (LastName.Equals("0") || string.IsNullOrEmpty(LastName))
             && (Alias.Equals("0") || string.IsNullOrEmpty(Alias))) // if Keyword and advanced filters are empty
         {
-            selectQuery = startQuery + reportQuery + dateQuery + mrQuery + cuQuery + statusQuery + authorQuery + unreadQuery + endQuery;
+            selectQuery = startQuery + reportQuery + reportIdQuery + dateQuery + mrQuery + cuQuery + statusQuery + authorQuery + unreadQuery + endQuery;
         }
         else // keyword filter and advanced filter has been entered
         {
@@ -239,7 +248,7 @@ public class SearchReport
             GlobalSearchId = ""; // to avoid this variable from getting appended
             ListPlayerIdIncidents = ""; // reset this variable to be reused again in searching incident reports related to player id selected
 
-            selectQuery = startQuery1 + reportQuery + dateQuery + mrQuery + cuQuery + statusQuery + authorQuery + keywordQuery + unreadQuery + endQuery;
+            selectQuery = startQuery1 + reportQuery + reportIdQuery + dateQuery + mrQuery + cuQuery + statusQuery + authorQuery + keywordQuery + unreadQuery + endQuery;
         }
         return selectQuery;
     }
@@ -450,6 +459,25 @@ public class SearchReport
         set
         {
             HttpContext.Current.Session["SRKeyword"] = value;
+        }
+    }
+
+    public static string ReportId
+    {
+        get
+        {
+            if (HttpContext.Current.Session["SRReportId"] == null)
+            {
+                return "";
+            }
+            else
+            {
+                return HttpContext.Current.Session["SRReportId"].ToString();
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["SRReportId"] = value;
         }
     }
 

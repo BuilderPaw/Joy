@@ -5321,25 +5321,25 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             dm.Location = Location;
             dm.LocationOther = txtLocation.Text;
             dm.ActionTaken = ActionTaken;
-            dm.Details = txtDetails.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.Allegation = txtAllegation.Text.Replace("\n", "<br />").Replace("'", "");
+            dm.Details = txtDetails.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.Allegation = txtAllegation.Text.Replace("\n", "<br />").Replace("'", "^");
             dm.IncidentHappened = WhatHappened;
-            dm.ActionTakenOther = txtActionTakenOther.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.HappenedOther = txtOthers.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.HappenedSerious = txtOtherSerious.Text.Replace("\n", "<br />").Replace("'", "");
+            dm.ActionTakenOther = txtActionTakenOther.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.HappenedOther = txtOthers.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.HappenedSerious = txtOtherSerious.Text.Replace("\n", "<br />").Replace("'", "^");
             dm.HappenedRefuseEntry = RefuseReason;
             dm.HappenedAskedToLeave = AskedLeaveReason;
             dm.SecurityAttend = cbSecurity.Checked;
-            dm.SecurityName = txtSecurityName.Text.Replace("\n", "<br />").Replace("'", "");
+            dm.SecurityName = txtSecurityName.Text.Replace("\n", "<br />").Replace("'", "^");
             dm.PoliceNotify = cbPolice.Checked;
-            dm.PoliceAction = txtPoliceAction.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.OfficersName = txtOfficersName.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.PoliceStation = txtPoliceStation.Text.Replace("\n", "<br />").Replace("'", "");
+            dm.PoliceAction = txtPoliceAction.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.OfficersName = txtOfficersName.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.PoliceStation = txtPoliceStation.Text.Replace("\n", "<br />").Replace("'", "^");
             // Submit Person Form if visible
             if (acpPerson1.Visible == true)
             {
-                dm.FirstName1 = txtFirstName1.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.LastName1 = txtLastName1.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.FirstName1 = txtFirstName1.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.LastName1 = txtLastName1.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.PartyType1 = ddlPartyType1.SelectedItem.Value;
                 if (ddlPartyType1.SelectedItem.Value == "1")
                 {
@@ -5358,8 +5358,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 }
                 else if (ddlPartyType1.SelectedItem.Value == "3")
                 {
-                    dm.StaffEmpNo1 = txtStaffEmpNo1.Text.Replace("\n", "<br />").Replace("'", "");
-                    dm.StaffAddress1 = txtStaffAddress1.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.StaffEmpNo1 = txtStaffEmpNo1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.StaffAddress1 = txtStaffAddress1.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.CardHeld1 = false;
                     dm.SignInSlip1 = false;
                 }
@@ -5367,10 +5367,10 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     dm.CardHeld1 = false;
                     dm.SignInSlip1 = cbSignInSlip1.Checked;
-                    dm.SignedInBy1 = txtSignInBy1.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.SignedInBy1 = txtSignInBy1.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.VisitorDOB1 = txtDOBv1.Text;
-                    dm.VisitorAddress1 = txtAddressv1.Text.Replace("\n", "<br />").Replace("'", "");
-                    dm.VisitorProofID1 = txtIDProof1.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.VisitorAddress1 = txtAddressv1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.VisitorProofID1 = txtIDProof1.Text.Replace("\n", "<br />").Replace("'", "^");
                 }
                 else
                 {
@@ -5378,26 +5378,26 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                     dm.SignInSlip1 = false;
                 }
                 dm.Witness1 = cbWitness1.Checked;
-                dm.Alias1 = txtAlias1.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Contact1 = txtContact1.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Alias1 = txtAlias1.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Contact1 = txtContact1.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.PDate1 = txtPDate1.Text;
                 dm.PTimeH1 = ddlPTimeH1.SelectedItem.Value;
                 dm.PTimeM1 = ddlPTimeM1.SelectedItem.Value;
                 //dm.PTimeTC1 = ddlPTimeTC1.SelectedItem.Value;
-                dm.Age1 = txtAge1.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Age1 = txtAge1.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.AgeGroup1 = ddlAgeGroup1.SelectedItem.Value;
-                dm.Weight1 = txtWeight1.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Height1 = txtHeight1.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Hair1 = txtHair1.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.ClothingTop1 = txtClothingTop1.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.ClothingBottom1 = txtClothingBottom1.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Shoes1 = txtShoes1.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Weapon1 = txtWeapon1.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Weight1 = txtWeight1.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Height1 = txtHeight1.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Hair1 = txtHair1.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.ClothingTop1 = txtClothingTop1.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.ClothingBottom1 = txtClothingBottom1.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Shoes1 = txtShoes1.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Weapon1 = txtWeapon1.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.Gender1 = ddlGender1.SelectedItem.Value;
-                dm.DistFeatures1 = txtDistFeatures1.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.InjuryDesc1 = txtInjuryDesc1.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.CauseInjury1 = txtInjuryCause1.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Comments1 = txtIncidentComm1.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.DistFeatures1 = txtDistFeatures1.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.InjuryDesc1 = txtInjuryDesc1.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.CauseInjury1 = txtInjuryCause1.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Comments1 = txtIncidentComm1.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.TxtPartyType1 = ddlPartyType1.SelectedItem.Text;
                 dm.TxtPTimeH1 = ddlPTimeH1.SelectedItem.Text;
                 dm.TxtPTimeM1 = ddlPTimeM1.SelectedItem.Text;
@@ -5419,8 +5419,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
 
             if (acpPerson2.Visible == true)
             {
-                dm.FirstName2 = txtFirstName2.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.LastName2 = txtLastName2.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.FirstName2 = txtFirstName2.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.LastName2 = txtLastName2.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.PartyType2 = ddlPartyType2.SelectedItem.Value;
                 if (ddlPartyType2.SelectedItem.Value == "1")
                 {
@@ -5439,8 +5439,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 }
                 else if (ddlPartyType2.SelectedItem.Value == "3")
                 {
-                    dm.StaffEmpNo2 = txtStaffEmpNo2.Text.Replace("\n", "<br />").Replace("'", "");
-                    dm.StaffAddress2 = txtStaffAddress2.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.StaffEmpNo2 = txtStaffEmpNo2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.StaffAddress2 = txtStaffAddress2.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.CardHeld2 = false;
                     dm.SignInSlip2 = false;
                 }
@@ -5448,10 +5448,10 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     dm.CardHeld2 = false;
                     dm.SignInSlip2 = cbSignInSlip2.Checked;
-                    dm.SignedInBy2 = txtSignInBy2.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.SignedInBy2 = txtSignInBy2.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.VisitorDOB2 = txtDOBv2.Text;
-                    dm.VisitorAddress2 = txtAddressv2.Text.Replace("\n", "<br />").Replace("'", "");
-                    dm.VisitorProofID2 = txtIDProof2.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.VisitorAddress2 = txtAddressv2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.VisitorProofID2 = txtIDProof2.Text.Replace("\n", "<br />").Replace("'", "^");
                 }
                 else
                 {
@@ -5459,26 +5459,26 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                     dm.SignInSlip2 = false;
                 }
                 dm.Witness2 = cbWitness2.Checked;
-                dm.Alias2 = txtAlias2.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Contact2 = txtContact2.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Alias2 = txtAlias2.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Contact2 = txtContact2.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.PDate2 = txtPDate2.Text;
                 dm.PTimeH2 = ddlPTimeH2.SelectedItem.Value;
                 dm.PTimeM2 = ddlPTimeM2.SelectedItem.Value;
                 //dm.PTimeTC2 = ddlPTimeTC2.SelectedItem.Value;
-                dm.Age2 = txtAge2.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Age2 = txtAge2.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.AgeGroup2 = ddlAgeGroup2.SelectedItem.Value;
-                dm.Weight2 = txtWeight2.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Height2 = txtHeight2.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Hair2 = txtHair2.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.ClothingTop2 = txtClothingTop2.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.ClothingBottom2 = txtClothingBottom2.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Shoes2 = txtShoes2.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Weapon2 = txtWeapon2.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Weight2 = txtWeight2.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Height2 = txtHeight2.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Hair2 = txtHair2.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.ClothingTop2 = txtClothingTop2.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.ClothingBottom2 = txtClothingBottom2.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Shoes2 = txtShoes2.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Weapon2 = txtWeapon2.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.Gender2 = ddlGender2.SelectedItem.Value;
-                dm.DistFeatures2 = txtDistFeatures2.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.InjuryDesc2 = txtInjuryDesc2.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.CauseInjury2 = txtInjuryCause2.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Comments2 = txtIncidentComm2.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.DistFeatures2 = txtDistFeatures2.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.InjuryDesc2 = txtInjuryDesc2.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.CauseInjury2 = txtInjuryCause2.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Comments2 = txtIncidentComm2.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.TxtPartyType2 = ddlPartyType2.SelectedItem.Text;
                 dm.TxtPTimeH2 = ddlPTimeH2.SelectedItem.Text;
                 dm.TxtPTimeM2 = ddlPTimeM2.SelectedItem.Text;
@@ -5500,8 +5500,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
 
             if (acpPerson3.Visible == true)
             {
-                dm.FirstName3 = txtFirstName3.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.LastName3 = txtLastName3.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.FirstName3 = txtFirstName3.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.LastName3 = txtLastName3.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.PartyType3 = ddlPartyType3.SelectedItem.Value;
                 if (ddlPartyType3.SelectedItem.Value == "1")
                 {
@@ -5520,8 +5520,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 }
                 else if (ddlPartyType3.SelectedItem.Value == "3")
                 {
-                    dm.StaffEmpNo3 = txtStaffEmpNo3.Text.Replace("\n", "<br />").Replace("'", "");
-                    dm.StaffAddress3 = txtStaffAddress3.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.StaffEmpNo3 = txtStaffEmpNo3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.StaffAddress3 = txtStaffAddress3.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.CardHeld3 = false;
                     dm.SignInSlip3 = false;
                 }
@@ -5529,10 +5529,10 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     dm.CardHeld3 = false;
                     dm.SignInSlip3 = cbSignInSlip3.Checked;
-                    dm.SignedInBy3 = txtSignInBy3.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.SignedInBy3 = txtSignInBy3.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.VisitorDOB3 = txtDOBv3.Text;
-                    dm.VisitorAddress3 = txtAddressv3.Text.Replace("\n", "<br />").Replace("'", "");
-                    dm.VisitorProofID3 = txtIDProof3.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.VisitorAddress3 = txtAddressv3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.VisitorProofID3 = txtIDProof3.Text.Replace("\n", "<br />").Replace("'", "^");
                 }
                 else
                 {
@@ -5540,26 +5540,26 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                     dm.SignInSlip3 = false;
                 }
                 dm.Witness3 = cbWitness3.Checked;
-                dm.Alias3 = txtAlias3.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Contact3 = txtContact3.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Alias3 = txtAlias3.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Contact3 = txtContact3.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.PDate3 = txtPDate3.Text;
                 dm.PTimeH3 = ddlPTimeH3.SelectedItem.Value;
                 dm.PTimeM3 = ddlPTimeM3.SelectedItem.Value;
                 //dm.PTimeTC3 = ddlPTimeTC3.SelectedItem.Value;
-                dm.Age3 = txtAge3.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Age3 = txtAge3.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.AgeGroup3 = ddlAgeGroup3.SelectedItem.Value;
-                dm.Weight3 = txtWeight3.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Height3 = txtHeight3.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Hair3 = txtHair3.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.ClothingTop3 = txtClothingTop3.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.ClothingBottom3 = txtClothingBottom3.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Shoes3 = txtShoes3.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Weapon3 = txtWeapon3.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Weight3 = txtWeight3.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Height3 = txtHeight3.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Hair3 = txtHair3.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.ClothingTop3 = txtClothingTop3.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.ClothingBottom3 = txtClothingBottom3.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Shoes3 = txtShoes3.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Weapon3 = txtWeapon3.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.Gender3 = ddlGender3.SelectedItem.Value;
-                dm.DistFeatures3 = txtDistFeatures3.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.InjuryDesc3 = txtInjuryDesc3.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.CauseInjury3 = txtInjuryCause3.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Comments3 = txtIncidentComm3.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.DistFeatures3 = txtDistFeatures3.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.InjuryDesc3 = txtInjuryDesc3.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.CauseInjury3 = txtInjuryCause3.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Comments3 = txtIncidentComm3.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.TxtPartyType3 = ddlPartyType3.SelectedItem.Text;
                 dm.TxtPTimeH3 = ddlPTimeH3.SelectedItem.Text;
                 dm.TxtPTimeM3 = ddlPTimeM3.SelectedItem.Text;
@@ -5581,8 +5581,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
 
             if (acpPerson4.Visible == true)
             {
-                dm.FirstName4 = txtFirstName4.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.LastName4 = txtLastName4.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.FirstName4 = txtFirstName4.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.LastName4 = txtLastName4.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.PartyType4 = ddlPartyType4.SelectedItem.Value;
                 if (ddlPartyType4.SelectedItem.Value == "1")
                 {
@@ -5601,8 +5601,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 }
                 else if (ddlPartyType4.SelectedItem.Value == "3")
                 {
-                    dm.StaffEmpNo4 = txtStaffEmpNo4.Text.Replace("\n", "<br />").Replace("'", "");
-                    dm.StaffAddress4 = txtStaffAddress4.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.StaffEmpNo4 = txtStaffEmpNo4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.StaffAddress4 = txtStaffAddress4.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.CardHeld4 = false;
                     dm.SignInSlip4 = false;
                 }
@@ -5610,10 +5610,10 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     dm.CardHeld4 = false;
                     dm.SignInSlip4 = cbSignInSlip4.Checked;
-                    dm.SignedInBy4 = txtSignInBy4.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.SignedInBy4 = txtSignInBy4.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.VisitorDOB4 = txtDOBv4.Text;
-                    dm.VisitorAddress4 = txtAddressv4.Text.Replace("\n", "<br />").Replace("'", "");
-                    dm.VisitorProofID4 = txtIDProof4.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.VisitorAddress4 = txtAddressv4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.VisitorProofID4 = txtIDProof4.Text.Replace("\n", "<br />").Replace("'", "^");
                 }
                 else
                 {
@@ -5621,26 +5621,26 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                     dm.SignInSlip4 = false;
                 }
                 dm.Witness4 = cbWitness4.Checked;
-                dm.Alias4 = txtAlias4.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Contact4 = txtContact4.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Alias4 = txtAlias4.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Contact4 = txtContact4.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.PDate4 = txtPDate4.Text;
                 dm.PTimeH4 = ddlPTimeH4.SelectedItem.Value;
                 dm.PTimeM4 = ddlPTimeM4.SelectedItem.Value;
                 //dm.PTimeTC4 = ddlPTimeTC4.SelectedItem.Value;
-                dm.Age4 = txtAge4.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Age4 = txtAge4.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.AgeGroup4 = ddlAgeGroup4.SelectedItem.Value;
-                dm.Weight4 = txtWeight4.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Height4 = txtHeight4.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Hair4 = txtHair4.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.ClothingTop4 = txtClothingTop4.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.ClothingBottom4 = txtClothingBottom4.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Shoes4 = txtShoes4.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Weapon4 = txtWeapon4.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Weight4 = txtWeight4.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Height4 = txtHeight4.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Hair4 = txtHair4.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.ClothingTop4 = txtClothingTop4.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.ClothingBottom4 = txtClothingBottom4.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Shoes4 = txtShoes4.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Weapon4 = txtWeapon4.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.Gender4 = ddlGender4.SelectedItem.Value;
-                dm.DistFeatures4 = txtDistFeatures4.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.InjuryDesc4 = txtInjuryDesc4.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.CauseInjury4 = txtInjuryCause4.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Comments4 = txtIncidentComm4.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.DistFeatures4 = txtDistFeatures4.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.InjuryDesc4 = txtInjuryDesc4.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.CauseInjury4 = txtInjuryCause4.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Comments4 = txtIncidentComm4.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.TxtPartyType4 = ddlPartyType4.SelectedItem.Text;
                 dm.TxtPTimeH4 = ddlPTimeH4.SelectedItem.Text;
                 dm.TxtPTimeM4 = ddlPTimeM4.SelectedItem.Text;
@@ -5662,8 +5662,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
 
             if (acpPerson5.Visible == true)
             {
-                dm.FirstName5 = txtFirstName5.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.LastName5 = txtLastName5.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.FirstName5 = txtFirstName5.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.LastName5 = txtLastName5.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.PartyType5 = ddlPartyType5.SelectedItem.Value;
                 if (ddlPartyType5.SelectedItem.Value == "1")
                 {
@@ -5682,8 +5682,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 }
                 else if (ddlPartyType5.SelectedItem.Value == "3")
                 {
-                    dm.StaffEmpNo5 = txtStaffEmpNo5.Text.Replace("\n", "<br />").Replace("'", "");
-                    dm.StaffAddress5 = txtStaffAddress5.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.StaffEmpNo5 = txtStaffEmpNo5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.StaffAddress5 = txtStaffAddress5.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.CardHeld5 = false;
                     dm.SignInSlip5 = false;
                 }
@@ -5691,10 +5691,10 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     dm.CardHeld5 = false;
                     dm.SignInSlip5 = cbSignInSlip5.Checked;
-                    dm.SignedInBy5 = txtSignInBy5.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.SignedInBy5 = txtSignInBy5.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.VisitorDOB5 = txtDOBv5.Text;
-                    dm.VisitorAddress5 = txtAddressv5.Text.Replace("\n", "<br />").Replace("'", "");
-                    dm.VisitorProofID5 = txtIDProof5.Text.Replace("\n", "<br />").Replace("'", "");
+                    dm.VisitorAddress5 = txtAddressv5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.VisitorProofID5 = txtIDProof5.Text.Replace("\n", "<br />").Replace("'", "^");
                 }
                 else
                 {
@@ -5702,26 +5702,26 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                     dm.SignInSlip5 = false;
                 }
                 dm.Witness5 = cbWitness5.Checked;
-                dm.Alias5 = txtAlias5.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Contact5 = txtContact5.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Alias5 = txtAlias5.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Contact5 = txtContact5.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.PDate5 = txtPDate5.Text;
                 dm.PTimeH5 = ddlPTimeH5.SelectedItem.Value;
                 dm.PTimeM5 = ddlPTimeM5.SelectedItem.Value;
                 //dm.PTimeTC5 = ddlPTimeTC5.SelectedItem.Value;
-                dm.Age5 = txtAge5.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Age5 = txtAge5.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.AgeGroup5 = ddlAgeGroup5.SelectedItem.Value;
-                dm.Weight5 = txtWeight5.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Height5 = txtHeight5.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Hair5 = txtHair5.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.ClothingTop5 = txtClothingTop5.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.ClothingBottom5 = txtClothingBottom5.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Shoes5 = txtShoes5.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Weapon5 = txtWeapon5.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.Weight5 = txtWeight5.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Height5 = txtHeight5.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Hair5 = txtHair5.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.ClothingTop5 = txtClothingTop5.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.ClothingBottom5 = txtClothingBottom5.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Shoes5 = txtShoes5.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Weapon5 = txtWeapon5.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.Gender5 = ddlGender5.SelectedItem.Value;
-                dm.DistFeatures5 = txtDistFeatures5.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.InjuryDesc5 = txtInjuryDesc5.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.CauseInjury5 = txtInjuryCause5.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.Comments5 = txtIncidentComm5.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.DistFeatures5 = txtDistFeatures5.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.InjuryDesc5 = txtInjuryDesc5.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.CauseInjury5 = txtInjuryCause5.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Comments5 = txtIncidentComm5.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.TxtPartyType5 = ddlPartyType5.SelectedItem.Text;
                 dm.TxtPTimeH5 = ddlPTimeH5.SelectedItem.Text;
                 dm.TxtPTimeM5 = ddlPTimeM5.SelectedItem.Text;
@@ -5744,8 +5744,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             // Submit Camera Forms if visible
             if (tblCamera1.Visible == true)
             {
-                dm.CamDesc1 = txtCamDesc1.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.CamSDate1 = txtCamSDate1.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.CamDesc1 = txtCamDesc1.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.CamSDate1 = txtCamSDate1.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.CamSTimeH1 = ddlCamTimeH1.SelectedItem.Value;
                 dm.CamSTimeM1 = ddlCamTimeM1.SelectedItem.Value;
                 //dm.CamSTimeTC1 = ddlCamTimeTC1.SelectedItem.Value;
@@ -5774,8 +5774,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             }
             if (tblCamera2.Visible == true)
             {
-                dm.CamDesc2 = txtCamDesc2.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.CamSDate2 = txtCamSDate2.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.CamDesc2 = txtCamDesc2.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.CamSDate2 = txtCamSDate2.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.CamSTimeH2 = ddlCamTimeH2.SelectedItem.Value;
                 dm.CamSTimeM2 = ddlCamTimeM2.SelectedItem.Value;
                 //dm.CamSTimeTC2 = ddlCamTimeTC2.SelectedItem.Value;
@@ -5804,8 +5804,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             }
             if (tblCamera3.Visible == true)
             {
-                dm.CamDesc3 = txtCamDesc3.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.CamSDate3 = txtCamSDate3.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.CamDesc3 = txtCamDesc3.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.CamSDate3 = txtCamSDate3.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.CamSTimeH3 = ddlCamTimeH3.SelectedItem.Value;
                 dm.CamSTimeM3 = ddlCamTimeM3.SelectedItem.Value;
                 //dm.CamSTimeTC3 = ddlCamTimeTC3.SelectedItem.Value;
@@ -5834,8 +5834,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             }
             if (tblCamera4.Visible == true)
             {
-                dm.CamDesc4 = txtCamDesc4.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.CamSDate4 = txtCamSDate4.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.CamDesc4 = txtCamDesc4.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.CamSDate4 = txtCamSDate4.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.CamSTimeH4 = ddlCamTimeH4.SelectedItem.Value;
                 dm.CamSTimeM4 = ddlCamTimeM4.SelectedItem.Value;
                 //dm.CamSTimeTC4 = ddlCamTimeTC4.SelectedItem.Value;
@@ -5864,8 +5864,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             }
             if (tblCamera5.Visible == true)
             {
-                dm.CamDesc5 = txtCamDesc5.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.CamSDate5 = txtCamSDate5.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.CamDesc5 = txtCamDesc5.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.CamSDate5 = txtCamSDate5.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.CamSTimeH5 = ddlCamTimeH5.SelectedItem.Value;
                 dm.CamSTimeM5 = ddlCamTimeM5.SelectedItem.Value;
                 //dm.CamSTimeTC5 = ddlCamTimeTC5.SelectedItem.Value;
@@ -5894,8 +5894,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             }
             if (tblCamera6.Visible == true)
             {
-                dm.CamDesc6 = txtCamDesc6.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.CamSDate6 = txtCamSDate6.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.CamDesc6 = txtCamDesc6.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.CamSDate6 = txtCamSDate6.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.CamSTimeH6 = ddlCamTimeH6.SelectedItem.Value;
                 dm.CamSTimeM6 = ddlCamTimeM6.SelectedItem.Value;
                 //dm.CamSTimeTC6 = ddlCamTimeTC6.SelectedItem.Value;
@@ -5924,8 +5924,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             }
             if (tblCamera7.Visible == true)
             {
-                dm.CamDesc7 = txtCamDesc7.Text.Replace("\n", "<br />").Replace("'", "");
-                dm.CamSDate7 = txtCamSDate7.Text.Replace("\n", "<br />").Replace("'", "");
+                dm.CamDesc7 = txtCamDesc7.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.CamSDate7 = txtCamSDate7.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.CamSTimeH7 = ddlCamTimeH7.SelectedItem.Value;
                 dm.CamSTimeM7 = ddlCamTimeM7.SelectedItem.Value;
                 //dm.CamSTimeTC7 = ddlCamTimeTC7.SelectedItem.Value;

@@ -24,7 +24,7 @@ public class ReportFunctionSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RFSMFunctionName"].ToString();
+                return HttpContext.Current.Session["RFSMFunctionName"].ToString().Replace("'", "^");
             }
         }
         set
@@ -42,7 +42,7 @@ public class ReportFunctionSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RFSMNoOfGuests"].ToString();
+                return HttpContext.Current.Session["RFSMNoOfGuests"].ToString().Replace("'", "^");
             }
         }
         set
@@ -60,7 +60,7 @@ public class ReportFunctionSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RFSMSetup"].ToString();
+                return HttpContext.Current.Session["RFSMSetup"].ToString().Replace("'", "^");
             }
         }
         set
@@ -78,7 +78,7 @@ public class ReportFunctionSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RFSMMenuFeed"].ToString();
+                return HttpContext.Current.Session["RFSMMenuFeed"].ToString().Replace("'", "^");
             }
         }
         set
@@ -96,7 +96,7 @@ public class ReportFunctionSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RFSMBarFeed"].ToString();
+                return HttpContext.Current.Session["RFSMBarFeed"].ToString().Replace("'", "^");
             }
         }
         set
@@ -114,7 +114,7 @@ public class ReportFunctionSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RFSMStaffIss"].ToString();
+                return HttpContext.Current.Session["RFSMStaffIss"].ToString().Replace("'", "^");
             }
         }
         set
@@ -132,7 +132,7 @@ public class ReportFunctionSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RFSMGenComm"].ToString();
+                return HttpContext.Current.Session["RFSMGenComm"].ToString().Replace("'", "^");
             }
         }
         set

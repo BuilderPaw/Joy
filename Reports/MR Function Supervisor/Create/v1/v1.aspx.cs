@@ -132,13 +132,13 @@ public partial class Reports_MR_Function_Supervisor_Create_v1_v1 : System.Web.UI
             dm.ReportStat = "Awaiting Completion";
             dm.Report_Version = 1; // current version
             dm.ReadByList = "," + UserCredentials.StaffId + ",";
-            dm.FunctionName = txtFunctionName.Text.Replace("\n","<br />").Replace("'", "");
-            dm.NumberOfGuests = txtNoOfGuests.Text.Replace("\n","<br />").Replace("'", "");
-            dm.Setup = txtSetup.Text.Replace("\n","<br />").Replace("'", "");
-            dm.MenuFeedback = txtMenuFeedback.Text.Replace("\n","<br />").Replace("'", "");
-            dm.BarFeedback = txtBarFeedback.Text.Replace("\n","<br />").Replace("'", "");
-            dm.StaffIssues = txtStaffIssues.Text.Replace("\n","<br />").Replace("'", "");
-            dm.GeneralComments = txtGenComms.Text.Replace("\n","<br />").Replace("'", "");
+            dm.FunctionName = txtFunctionName.Text.Replace("\n","<br />").Replace("'", "^");;
+            dm.NumberOfGuests = txtNoOfGuests.Text.Replace("\n","<br />").Replace("'", "^");;
+            dm.Setup = txtSetup.Text.Replace("\n","<br />").Replace("'", "^");;
+            dm.MenuFeedback = txtMenuFeedback.Text.Replace("\n","<br />").Replace("'", "^");;
+            dm.BarFeedback = txtBarFeedback.Text.Replace("\n","<br />").Replace("'", "^");;
+            dm.StaffIssues = txtStaffIssues.Text.Replace("\n","<br />").Replace("'", "^");;
+            dm.GeneralComments = txtGenComms.Text.Replace("\n","<br />").Replace("'", "^");;
             dc.Report_MerrylandsRSLFunctionSupervisors.InsertOnSubmit(dm);
             dc.SubmitChanges();
         }

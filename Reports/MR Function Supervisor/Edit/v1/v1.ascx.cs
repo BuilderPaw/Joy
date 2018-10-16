@@ -42,13 +42,13 @@ public partial class Reports_MR_Function_Supervisor_Edit_v1_v1 : System.Web.UI.U
                         Report.ShiftDOW = DateTime.Parse(Report.ShiftDate.ToString()).DayOfWeek.ToString();
                         lblEntryDetails.Text = Convert.ToDateTime(rdr["EntryDate"]).ToString("dd/MM/yyyy HH:mm");
                         Report.EntryDate = Convert.ToDateTime(rdr["EntryDate"]).ToString();
-                        txtFunctionName.Text = rdr["FunctionName"].ToString().Replace("<br />", "\n");
-                        txtNoOfGuests.Text = rdr["NumberOfGuests"].ToString().Replace("<br />", "\n");
-                        txtSetup.Text = rdr["Setup"].ToString().Replace("<br />", "\n");
-                        txtMenuFeedback.Text = rdr["MenuFeedback"].ToString().Replace("<br />", "\n");
-                        txtBarFeedback.Text = rdr["BarFeedback"].ToString().Replace("<br />", "\n");
-                        txtStaffIssues.Text = rdr["StaffIssues"].ToString().Replace("<br />", "\n");
-                        txtGeneralComms.Text = rdr["GeneralComments"].ToString().Replace("<br />", "\n");
+                        txtFunctionName.Text = rdr["FunctionName"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtNoOfGuests.Text = rdr["NumberOfGuests"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtSetup.Text = rdr["Setup"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtMenuFeedback.Text = rdr["MenuFeedback"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtBarFeedback.Text = rdr["BarFeedback"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtStaffIssues.Text = rdr["StaffIssues"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtGeneralComms.Text = rdr["GeneralComments"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         // set the Global variable to the current fields
                         SetStaticVariable();
                         Report.RunEditMode = true;
@@ -201,12 +201,12 @@ public partial class Reports_MR_Function_Supervisor_Edit_v1_v1 : System.Web.UI.U
 
     protected void SetStaticVariable()
     {
-        ReportFunctionSupervisorMr.FunctionName = txtFunctionName.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportFunctionSupervisorMr.NoOfGuests = txtNoOfGuests.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportFunctionSupervisorMr.Setup = txtSetup.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportFunctionSupervisorMr.MenuFeed = txtMenuFeedback.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportFunctionSupervisorMr.BarFeed = txtBarFeedback.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportFunctionSupervisorMr.StaffIss = txtStaffIssues.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportFunctionSupervisorMr.GenComm = txtGeneralComms.Text.Replace("\n", "<br />").Replace("'", "");
+        ReportFunctionSupervisorMr.FunctionName = txtFunctionName.Text.Replace("\n", "<br />");
+        ReportFunctionSupervisorMr.NoOfGuests = txtNoOfGuests.Text.Replace("\n", "<br />");
+        ReportFunctionSupervisorMr.Setup = txtSetup.Text.Replace("\n", "<br />");
+        ReportFunctionSupervisorMr.MenuFeed = txtMenuFeedback.Text.Replace("\n", "<br />");
+        ReportFunctionSupervisorMr.BarFeed = txtBarFeedback.Text.Replace("\n", "<br />");
+        ReportFunctionSupervisorMr.StaffIss = txtStaffIssues.Text.Replace("\n", "<br />");
+        ReportFunctionSupervisorMr.GenComm = txtGeneralComms.Text.Replace("\n", "<br />");
     }
 }

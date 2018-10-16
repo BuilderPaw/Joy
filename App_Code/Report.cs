@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient; // SQL Connection
 using System.Linq;
 using System.Web;
 
@@ -172,6 +173,13 @@ public class Report
                 " '" + ReportDutyManagerMr.StaffIssues + "', '" + ReportDutyManagerMr.Gaming + "', '" + ReportDutyManagerMr.KeySec + "', '" + ReportDutyManagerMr.Cameras + "', '" + ReportDutyManagerMr.GenComm + "', '" + ReportDutyManagerMr.LuckyRewards + "',  '" + ReportDutyManagerMr.Compliance + "', " + UserCredentials.StaffId + ");";
         }
 
+        if (Name.Equals("MR Duty Managers") && Version.ToString() == "2") // MR Duty Manager Version 1
+        {
+            insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, Supervisors, Whs, CostSavings, ClubPresent, ClubMaintenance, Absenteeism, StaffIssues, Gaming, KeySecurity, Cameras" +
+                ", LastChanged) VALUES(" + Id + ", 2, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion + ", 'Report_MerrylandsRSLDutyManager', 2, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportDutyManagerMr.Sup + "', '" + ReportDutyManagerMr.Whs + "', '" + ReportDutyManagerMr.Cost + "', '" + ReportDutyManagerMr.ClubPres + "', '" + ReportDutyManagerMr.ClubMain + "', '" + ReportDutyManagerMr.Absent + "'," +
+                " '" + ReportDutyManagerMr.StaffIssues + "', '" + ReportDutyManagerMr.Gaming + "', '" + ReportDutyManagerMr.KeySec + "', '" + ReportDutyManagerMr.Cameras + "', " + UserCredentials.StaffId + ");";
+        }
+
         if (Name.Equals("MR Reception") && Version.ToString() == "1") // MR Reception Version 1
         {
             insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, SignInSlip, Refusals, EventsField, GeneralComments, LastChanged) " +
@@ -308,6 +316,13 @@ public class Report
             updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', Supervisors='" + ReportDutyManagerMr.Sup + "', Whs='" + ReportDutyManagerMr.Whs + "', CostSavings='" + ReportDutyManagerMr.Cost + "', ClubPresent='" + ReportDutyManagerMr.ClubPres + "'," +
                 " ClubMaintenance='" + ReportDutyManagerMr.ClubMain + "', Absenteeism='" + ReportDutyManagerMr.Absent + "', StaffIssues='" + ReportDutyManagerMr.StaffIssues + "', Gaming='" + ReportDutyManagerMr.Gaming + "', KeySecurity='" + ReportDutyManagerMr.KeySec + "'," +
                 " Cameras='" + ReportDutyManagerMr.Cameras + "', GeneralComments='" + ReportDutyManagerMr.GenComm + "', LuckyRewards='" + ReportDutyManagerMr.LuckyRewards + "', Compliance='" + ReportDutyManagerMr.Compliance + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
+        }
+
+        if (Name.Equals("MR Duty Managers") && Version.ToString() == "2") // MR Duty Managers Version 1
+        {
+            updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', Supervisors='" + ReportDutyManagerMr.Sup + "', Whs='" + ReportDutyManagerMr.Whs + "', CostSavings='" + ReportDutyManagerMr.Cost + "', ClubPresent='" + ReportDutyManagerMr.ClubPres + "'," +
+                " ClubMaintenance='" + ReportDutyManagerMr.ClubMain + "', Absenteeism='" + ReportDutyManagerMr.Absent + "', StaffIssues='" + ReportDutyManagerMr.StaffIssues + "', Gaming='" + ReportDutyManagerMr.Gaming + "', KeySecurity='" + ReportDutyManagerMr.KeySec + "', Cameras='" + ReportDutyManagerMr.Cameras +
+                "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
         }
 
         if (Name.Equals("CU Duty Managers") && Version.ToString() == "1") // UM Duty Managers Version 1
@@ -788,17 +803,18 @@ public class Report
     public static string ManagerSignQuery() // list of reports that needs manager sign-off
     {
         string keepSite;
+
         if (UserCredentials.Groups.Contains("MRReportsOperations") && UserCredentials.Groups.Contains("CUReportsClubManager"))
         {
             keepSite = "";
         }
         else if (UserCredentials.Groups.Contains("CUReportsClubManager"))
         {
-            keepSite = " AND ReportName NOT LIKE '%MR%'";
+            keepSite = " AND ReportName NOT LIKE '%MR%'"; // only show Club Umina Reports
         }
         else if (UserCredentials.Groups.Contains("MRReportsOperations"))
         {
-            keepSite = " AND ReportName NOT LIKE '%CU%' or ([StaffId] = '1038' and ReportStat LIKE '%Manager%')";
+            keepSite = " AND ReportName NOT LIKE '%CU%' or ([StaffId] = '" + ClubManagerUmina + "' and ReportStat LIKE '%Manager%')"; // only show Merrylands RSL Club Reports plus reports of the Club Manager of Club Umina
         }
         else
         {
@@ -808,7 +824,7 @@ public class Report
         string managerSign = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table]," +
         " [Report_Version], [ReportStat], [AuditVersion], ROW_NUMBER() OVER (ORDER BY [ShiftDate] DESC, [ShiftId] DESC) AS [RowNum]" +
         " FROM [View_Reports] WHERE ReportName IN('" + UserCredentials.GroupsQuery + "') AND ReportStat LIKE '%Manager%' AND" +
-        " [StaffName] != '" + UserCredentials.DisplayName + "'" + keepSite;
+        " [StaffId] != '" + UserCredentials.StaffId + "'" + keepSite;
 
         return managerSign;
     }
@@ -1320,5 +1336,60 @@ public class Report
         }
     }
 
+    public static string PageSize // used to hold the value of the size of the page
+    {
+        get
+        {
+            if (HttpContext.Current.Session["RPageSize"] == null)
+            {
+                return "10";
+            }
+            else
+            {
+                return HttpContext.Current.Session["RPageSize"].ToString();
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["RPageSize"] = value;
+        }
+    }
 
+    public static int HasDisplayedUnsignedReport // used to hold to check if program have already displayed an alert message to user for any existing Awaiting Completion reports to be signed
+    {
+        get
+        {
+            if (HttpContext.Current.Session["RHasDisplayedUnsignedReport"] == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return (int)HttpContext.Current.Session["RHasDisplayedUnsignedReport"];
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["RHasDisplayedUnsignedReport"] = value;
+        }
+    }
+
+    public static string ClubManagerUmina
+    {
+        get
+        {
+            if (HttpContext.Current.Session["RClubManagerUmina"] == null)
+            {
+                return "1";
+            }
+            else
+            {
+                return HttpContext.Current.Session["RClubManagerUmina"].ToString();
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["RClubManagerUmina"] = value;
+        }
+    }
 }

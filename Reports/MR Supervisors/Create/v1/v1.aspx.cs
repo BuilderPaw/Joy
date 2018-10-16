@@ -133,20 +133,20 @@ public partial class Reports_MR_Supervisors_Create_v1_v1 : System.Web.UI.Page
             dm.ReportStat = "Awaiting Completion";
             dm.Report_Version = 1; // current version
             dm.ReadByList = "," + UserCredentials.StaffId + ",";
-            dm.SignInSlip = txtSignInSlip.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.Reception = txtReception.Text.Replace("\n","<br />").Replace("'", "");
-            dm.Gaming = txtGaming.Text.Replace("\n","<br />").Replace("'", "");
-            dm.Bar = txtBar.Text.Replace("\n","<br />").Replace("'", "");
-            dm.TabKeno = txtTABKeno.Text.Replace("\n","<br />").Replace("'", "");
-            dm.HouseKeeping = txtHouseKeep.Text.Replace("\n","<br />").Replace("'", "");
-            dm.Bistro = txtBistro.Text.Replace("\n","<br />").Replace("'", "");
-            dm.FoodHygiene = txtFoodHygiene.Text.Replace("\n","<br />").Replace("'", "");
-            dm.Events = txtEvents.Text.Replace("\n","<br />").Replace("'", "");
-            dm.CustomerService = txtCustomerServ.Text.Replace("\n","<br />").Replace("'", "");
-            dm.GeneralComments = txtGenComm.Text.Replace("\n","<br />").Replace("'", "");
-            dm.LuckyRewards = txtLuckyRewards.Text.Replace("\n","<br />").Replace("'", "");
-            dm.RSA = txtRSA.Text.Replace("\n","<br />").Replace("'", "");
-            dm.AMLCTF = txtAMLCTF.Text.Replace("\n","<br />").Replace("'", "");
+            dm.SignInSlip = txtSignInSlip.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.Reception = txtReception.Text.Replace("\n","<br />").Replace("'", "^");
+            dm.Gaming = txtGaming.Text.Replace("\n","<br />").Replace("'", "^");
+            dm.Bar = txtBar.Text.Replace("\n","<br />").Replace("'", "^");
+            dm.TabKeno = txtTABKeno.Text.Replace("\n","<br />").Replace("'", "^");
+            dm.HouseKeeping = txtHouseKeep.Text.Replace("\n","<br />").Replace("'", "^");
+            dm.Bistro = txtBistro.Text.Replace("\n","<br />").Replace("'", "^");
+            dm.FoodHygiene = txtFoodHygiene.Text.Replace("\n","<br />").Replace("'", "^");
+            dm.Events = txtEvents.Text.Replace("\n","<br />").Replace("'", "^");
+            dm.CustomerService = txtCustomerServ.Text.Replace("\n","<br />").Replace("'", "^");
+            dm.GeneralComments = txtGenComm.Text.Replace("\n","<br />").Replace("'", "^");
+            dm.LuckyRewards = txtLuckyRewards.Text.Replace("\n","<br />").Replace("'", "^");
+            dm.RSA = txtRSA.Text.Replace("\n","<br />").Replace("'", "^");
+            dm.AMLCTF = txtAMLCTF.Text.Replace("\n","<br />").Replace("'", "^");
             dc.Report_MerrylandsRSLSupervisors.InsertOnSubmit(dm);
             dc.SubmitChanges();
         }

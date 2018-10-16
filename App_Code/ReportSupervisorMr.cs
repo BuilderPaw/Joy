@@ -24,7 +24,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMSignInSlip"].ToString();
+                return HttpContext.Current.Session["RSMSignInSlip"].ToString().Replace("'", "^");
             }
         }
         set
@@ -42,7 +42,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMReception"].ToString();
+                return HttpContext.Current.Session["RSMReception"].ToString().Replace("'", "^");
             }
         }
         set
@@ -60,7 +60,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMGaming"].ToString();
+                return HttpContext.Current.Session["RSMGaming"].ToString().Replace("'", "^");
             }
         }
         set
@@ -78,7 +78,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMBar"].ToString();
+                return HttpContext.Current.Session["RSMBar"].ToString().Replace("'", "^");
             }
         }
         set
@@ -96,7 +96,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMTabKeno"].ToString();
+                return HttpContext.Current.Session["RSMTabKeno"].ToString().Replace("'", "^");
             }
         }
         set
@@ -114,7 +114,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMHouseKeeping"].ToString();
+                return HttpContext.Current.Session["RSMHouseKeeping"].ToString().Replace("'", "^");
             }
         }
         set
@@ -132,7 +132,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMBistro"].ToString();
+                return HttpContext.Current.Session["RSMBistro"].ToString().Replace("'", "^");
             }
         }
         set
@@ -150,7 +150,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMFoodHygiene"].ToString();
+                return HttpContext.Current.Session["RSMFoodHygiene"].ToString().Replace("'", "^");
             }
         }
         set
@@ -168,7 +168,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMEvents"].ToString();
+                return HttpContext.Current.Session["RSMEvents"].ToString().Replace("'", "^");
             }
         }
         set
@@ -186,7 +186,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMCustomerService"].ToString();
+                return HttpContext.Current.Session["RSMCustomerService"].ToString().Replace("'", "^");
             }
         }
         set
@@ -204,7 +204,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMGeneralComments"].ToString();
+                return HttpContext.Current.Session["RSMGeneralComments"].ToString().Replace("'", "^");
             }
         }
         set
@@ -222,7 +222,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMLuckyRewards"].ToString();
+                return HttpContext.Current.Session["RSMLuckyRewards"].ToString().Replace("'", "^");
             }
         }
         set
@@ -240,7 +240,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMRSA"].ToString();
+                return HttpContext.Current.Session["RSMRSA"].ToString().Replace("'", "^");
             }
         }
         set
@@ -258,7 +258,7 @@ public class ReportSupervisorMr
             }
             else
             {
-                return HttpContext.Current.Session["RSMAMLCTF"].ToString();
+                return HttpContext.Current.Session["RSMAMLCTF"].ToString().Replace("'", "^");
             }
         }
         set

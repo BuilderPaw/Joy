@@ -161,7 +161,7 @@ public partial class _Default : System.Web.UI.Page
         if (string.IsNullOrEmpty(selectQuery))
         {
             sdsUserReports.SelectCommand = Report.SelectQuery;
-            alert.DisplayMessage("No documents found. Please try again");
+            //alert.DisplayMessage("No documents found. Please try again");
             SearchReport.SetAccordion = "1";
             return;
         }
@@ -197,10 +197,18 @@ public partial class _Default : System.Web.UI.Page
         { // don't reset if it is coming from ShowList method
             Report.SelectQuery = Report.DefaultSelectQuery;
             SearchReport.ResetNavigation(); // reset any filters selected
+            btnSignAsManager.Visible = false;
+            btnMarkAsRead.Visible = false;
         }
 
         sdsUserReports.SelectCommand = Report.SelectQuery;
         gvUserReports.DataBind();
+
+        int rowCount = gvUserReports.Rows.Count;
+        if(rowCount == 0)
+        {
+            btnMarkAsRead.Visible = false;
+        }
 
         Report.CurrentNavigationTab = "1";
     }
@@ -214,6 +222,8 @@ public partial class _Default : System.Web.UI.Page
         if (clickedFrom.Equals("NavigationTab"))
         { // don't reset if it is coming from ShowList method
             Report.SortReset(); // reset sort static properties
+            btnMarkAsRead.Visible = false;
+            btnSignAsManager.Visible = false;
         }
 
         string selectQuery = "SELECT [ReportId], [Report_Table], [Version], [AuditVersion], [ReportName], [ReportStat], [StaffAuthor], [StaffSelected]," +
@@ -233,7 +243,6 @@ public partial class _Default : System.Web.UI.Page
         {
             con.Close();
         }
-
 
         ActionsAssignedNotification(); // show number of notification in the navigation tab
 
@@ -280,9 +289,10 @@ public partial class _Default : System.Web.UI.Page
         if (clickedFrom.Equals("NavigationTab"))
         { // don't reset if it is coming from ShowList method
             Report.SortReset(); // reset sort static properties
+            btnMarkAsRead.Visible = false;
+            btnSignAsManager.Visible = false;
         }
         ReportActionsNotification(); // show number of notification in the navigation tab
-
 
         string selectQuery = "SELECT [ReportId], [Report_Table], [Version], [AuditVersion], [ReportName], [ReportStat], [StaffAuthor], [StaffSelected], [StaffId], [StaffName]," +
                 " [Description], [SubmittedTo], [SubmittedBy], [SubmittedDate], [Completed], [CompletedDate], ROW_NUMBER() OVER (ORDER BY [SubmittedDate] DESC) AS [RowNum]" +
@@ -352,6 +362,7 @@ public partial class _Default : System.Web.UI.Page
         if (clickedFrom.Equals("NavigationTab"))
         { // don't reset if it is coming from ShowList method
             Report.SortReset(); // reset sort static properties
+            btnMarkAsRead.Visible = false;
         }
         bool hasNotification = ManagerSignNotification(); // show number of notification in the navigation tab
 
@@ -369,16 +380,22 @@ public partial class _Default : System.Web.UI.Page
         sdsUserReports.SelectCommand = Report.ManagerSignQuery();
         Report.SelectQuery = sdsUserReports.SelectCommand.ToString();
         gvUserReports.DataBind();
+
+        int rowCount = gvUserReports.Rows.Count;
+        if (rowCount == 0)
+        {
+            btnSignAsManager.Visible = false;
+        }
+
         Report.CurrentNavigationTab = "4";
     }
     protected bool ManagerSignNotification() // count all reports that needs manager signature
     {
         bool hasNotification;
 
-        if (!UserCredentials.Groups.Contains("MRReportsSeniorManagers"))
-        {
-            tdManagerSign.Style.Add("display", "none"); // hide Manager section
-        };
+        if (UserCredentials.Groups.Contains("MRReportsSeniorManagers") || UserCredentials.Groups.Contains("MRReportsOperations")) { }
+        // hide Manager section
+        else { tdManagerSign.Style.Add("display", "none"); }
 
         string keepSite;
         if (UserCredentials.Groups.Contains("MRReportsOperations") && UserCredentials.Groups.Contains("CUReportsClubManager"))
@@ -391,7 +408,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else if(UserCredentials.Groups.Contains("MRReportsOperations"))
         {
-            keepSite = " AND ReportName NOT LIKE '%CU%' or ([StaffId] = '1038' and ReportStat LIKE '%Manager%')";
+            keepSite = " AND ReportName NOT LIKE '%CU%' or ([StaffId] = '" + Report.ClubManagerUmina + "' and ReportStat LIKE '%Manager%')";
         }
         else
         {
@@ -480,7 +497,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
-            if (UserCredentials.Groups.Contains("MRReportsSeniorManagers") || UserCredentials.Groups.Contains("DutyManagers")) // user is a manager
+            if (UserCredentials.Groups.Contains("MRReportsSeniorManagers") || UserCredentials.Groups.Contains("MRReportsOperations")) // user is a senior manager or an operations staff
             {
                 ManagerMode();
             }
@@ -821,6 +838,8 @@ public partial class _Default : System.Web.UI.Page
         gvUserReports.Visible = false;
         gvActionReports.Visible = false;
         fvReport.Visible = true;
+        btnMarkAsRead.Visible = false;
+        btnSignAsManager.Visible = false;
 
         phUserControl.Visible = false; // hide the Placeholder (EditItemTemplate)
         Report.PopulateFields = true;  // responsible for reading files in Edit.ascx Incident Report (If IsPostBack - Edit.ascx - Incident Report)
@@ -877,7 +896,6 @@ public partial class _Default : System.Web.UI.Page
         gvUserReports.PageIndex = e.NewPageIndex;
         gvUserReports.DataBind();
     }
-
     protected void gvUserReports_Sorting(object sender, GridViewSortEventArgs e)
     {
         gvUserReports.PageIndex = 0; // displays the first page of the list
@@ -937,6 +955,23 @@ public partial class _Default : System.Web.UI.Page
         sdsUserReports.SelectCommand = Report.SelectQuery;
         gvUserReports.DataBind();
     }
+    protected void gvUserReports_RowCreated(object sender, GridViewRowEventArgs e)
+    {
+        if (UserCredentials.Groups.Contains("Override") || (!UserCredentials.Groups.Contains("Senior") && !UserCredentials.StaffId.Equals("1")))
+        {
+            // hide checkboxes - user that are in override group cannot mark reports as read
+            if (e.Row.RowType == DataControlRowType.Header || e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Cells[0].Visible = false;
+            }
+        }
+
+        if (e.Row.RowType == DataControlRowType.Header)
+        {
+            DropDownList ddlPageSize = (DropDownList)e.Row.FindControl("ddlPageSize");
+            ddlPageSize.SelectedValue = Report.PageSize;
+        }
+    }
 
     protected void gvActionReports_PageIndexChanging(object sender, GridViewPageEventArgs e)
     {
@@ -944,7 +979,6 @@ public partial class _Default : System.Web.UI.Page
         gvActionReports.PageIndex = e.NewPageIndex;
         gvActionReports.DataBind();
     }
-
     protected void gvActionReports_Sorting(object sender, GridViewSortEventArgs e)
     {
         gvActionReports.PageIndex = 0; // displays the first page of the list
@@ -1123,7 +1157,7 @@ public partial class _Default : System.Web.UI.Page
                 return;
             }
         }
-        else // coming from Add Comment OnClick event
+        else if (comingFrom.Equals("Comments"))// coming from Add Comment OnClick event
         {
             if (hasRead)
             {
@@ -1132,24 +1166,30 @@ public partial class _Default : System.Web.UI.Page
             }
         }
 
-        // set the updated readby string
-        if (string.IsNullOrEmpty(Report.ReadList))
-        { // if there's no read by list posted yet
-            updateRead = UserCredentials.DisplayName + " " + Convert.ToDateTime(dateEntered).ToString("dd/MM/yyyy HH:mm");
-        }
-        else
-        { // append readby to existing one
-            updateRead = Report.ReadList + ", " + UserCredentials.DisplayName + " " + Convert.ToDateTime(dateEntered).ToString("dd/MM/yyyy HH:mm");
+        if (!hasRead)
+        {
+            // set the updated readby string
+            if (string.IsNullOrEmpty(Report.ReadList))
+            { // if there's no read by list posted yet
+                updateRead = UserCredentials.DisplayName + " " + Convert.ToDateTime(dateEntered).ToString("dd/MM/yyyy HH:mm");
+            }
+            else
+            { // append readby to existing one
+                updateRead = Report.ReadList + ", " + UserCredentials.DisplayName + " " + Convert.ToDateTime(dateEntered).ToString("dd/MM/yyyy HH:mm");
+            }
+
+            // update readby from selected report id
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE " + Report.Table + " SET ReadBy='" + updateRead + "', ReadByList='" + Report.ReadListStaffId + UserCredentials.StaffId + "," + "' WHERE ReportId='" + Report.Id + "' AND AuditVersion='" + Report.AuditVersion + "'", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
         }
 
-        // update readby from selected report id
-        con.Open();
-        SqlCommand cmd = new SqlCommand("UPDATE " + Report.Table + " SET ReadBy='" + updateRead + "', ReadByList='" + Report.ReadListStaffId + UserCredentials.StaffId + "," + "' WHERE ReportId='" + Report.Id + "' AND AuditVersion='" + Report.AuditVersion + "'", con);
-        cmd.ExecuteNonQuery();
-        con.Close();
-
-        // update the form view report
-        UpdateFormView();
+        if (!comingFrom.Equals("MarkAsRead"))
+        {
+            // update the form view report
+            UpdateFormView();
+        }
     }
 
     protected void btnComment_Click(object sender, EventArgs e) // update comment written in the report selected
@@ -1180,7 +1220,7 @@ public partial class _Default : System.Web.UI.Page
         }
 
         // take off any apostrophe's in the comment section
-        updateComment = updateComment.Replace("'", "");
+        updateComment = updateComment.Replace("'", "^");
 
         // update comment from selected report id
         con.Open();
@@ -1495,8 +1535,6 @@ public partial class _Default : System.Web.UI.Page
     protected void btnCancelUserSign_Click(object sender, EventArgs e)
     {
         HideUserSign();
-        CheckMode();
-        ViewReport(Report.ActiveReport);
     }
 
     protected void btnEdit_Click(object sender, EventArgs e)
@@ -2517,6 +2555,12 @@ public partial class _Default : System.Web.UI.Page
 
                 }
             }
+
+            if (e.Row.RowState == DataControlRowState.Edit)
+            {
+                txtStatement.Text = txtStatement.Text.Replace("^", "'");
+            }
+
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 if (!UserCredentials.GroupsQuery.Contains("Allegation") || Report.Status.Equals("Awaiting Completion"))
@@ -2590,7 +2634,7 @@ public partial class _Default : System.Web.UI.Page
         if (e.CommandName.Equals("EmptyDataTemplateInsert"))
         {
             // check if control has ' and if it is null
-            txtStatement1.Text = txtStatement1.Text.Replace("'", "");
+            txtStatement1.Text = txtStatement1.Text.Replace("'", "^");
             if (txtStatement1.Text == "")
             {
                 alert.DisplayMessage("Action required description can't be empty.");
@@ -2614,7 +2658,7 @@ public partial class _Default : System.Web.UI.Page
             TextBox txtStatement2 = (TextBox)row.FindControl("txtStatement");
 
             // check if control has ' and if it is null
-            txtStatement2.Text = txtStatement2.Text.Replace("'", "");
+            txtStatement2.Text = txtStatement2.Text.Replace("'", "^");
             if (txtStatement2.Text == "")
             {
                 alert.DisplayMessage("Action required Statement can't be empty.");
@@ -2658,7 +2702,7 @@ public partial class _Default : System.Web.UI.Page
         else if (e.CommandName.Equals("Update"))
         {
             // check if control has ' and if it is null
-            txtStatement.Text = txtStatement.Text.Replace("'", "");
+            txtStatement.Text = txtStatement.Text.Replace("'", "^");
             if (txtStatement.Text.Equals(""))
             {
                 alert.DisplayMessage("Action wasn't updated, please don't leave the Statement textbox empty.");
@@ -2719,7 +2763,7 @@ public partial class _Default : System.Web.UI.Page
         if (e.CommandName.Equals("EmptyDataTemplateInsert"))
         {
             // check if control has ' and if it is null
-            txtStatement1.Text = txtStatement1.Text.Replace("'", "");
+            txtStatement1.Text = txtStatement1.Text.Replace("'", "^");
             if (txtStatement1.Text == "")
             {
                 alert.DisplayMessage("Action required description can't be empty.");
@@ -2745,7 +2789,7 @@ public partial class _Default : System.Web.UI.Page
             TextBox txtStatement2 = (TextBox)row.FindControl("txtStatement");
 
             // check if control has ' and if it is null
-            txtStatement2.Text = txtStatement2.Text.Replace("'", "");
+            txtStatement2.Text = txtStatement2.Text.Replace("'", "^");
             if (txtStatement2.Text == "")
             {
                 alert.DisplayMessage("Action required Statement can't be empty.");
@@ -2796,7 +2840,7 @@ public partial class _Default : System.Web.UI.Page
             con.Close();
 
             // check if control has ' and if it is null
-            txtStatement.Text = txtStatement.Text.Replace("'", "");
+            txtStatement.Text = txtStatement.Text.Replace("'", "^");
             if (txtStatement.Text.Equals(""))
             {
                 alert.DisplayMessage("Action wasn't updated, please don't leave the Statement textbox empty.");
@@ -2839,6 +2883,12 @@ public partial class _Default : System.Web.UI.Page
 
                 }
             }
+
+            if (e.Row.RowState == DataControlRowState.Edit)
+            {
+                txtDecision.Text = txtDecision.Text.Replace("^", "'");
+            }
+
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 if (!UserCredentials.GroupsQuery.Contains("Allegation") || Report.Status.Equals("Awaiting Completion"))
@@ -2906,10 +2956,10 @@ public partial class _Default : System.Web.UI.Page
         if (e.CommandName.Equals("EmptyDataTemplateInsert"))
         {
             // check if control has ' and if it is null
-            txtDecision1.Text = txtDecision1.Text.Replace("'", "");
-            txtDate1.Text = txtDate1.Text.Replace("'", "");
-            txtStartDate1.Text = txtStartDate1.Text.Replace("'", "");
-            txtEndDate1.Text = txtEndDate1.Text.Replace("'", "");
+            txtDecision1.Text = txtDecision1.Text.Replace("'", "^");
+            txtDate1.Text = txtDate1.Text.Replace("'", "^");
+            txtStartDate1.Text = txtStartDate1.Text.Replace("'", "^");
+            txtEndDate1.Text = txtEndDate1.Text.Replace("'", "^");
             if (txtDecision1.Text == "")
             {
                 alert.DisplayMessage("Description can't be empty.");
@@ -3023,10 +3073,10 @@ public partial class _Default : System.Web.UI.Page
             con.Close();
 
             // check if control has ' and if it is null
-            txtDecision.Text = txtDecision.Text.Replace("'", "");
-            txtDate.Text = txtDate.Text.Replace("'", "");
-            txtStartDate.Text = txtStartDate.Text.Replace("'", "");
-            txtEndDate.Text = txtEndDate.Text.Replace("'", "");
+            txtDecision.Text = txtDecision.Text.Replace("'", "^");
+            txtDate.Text = txtDate.Text.Replace("'", "^");
+            txtStartDate.Text = txtStartDate.Text.Replace("'", "^");
+            txtEndDate.Text = txtEndDate.Text.Replace("'", "^");
             if (txtDecision.Text == "")
             {
                 alert.DisplayMessage("Decision can't be empty.");
@@ -3903,7 +3953,7 @@ public partial class _Default : System.Web.UI.Page
         if (e.CommandName.Equals("EmptyDataTemplateInsert"))
         {
             // check if control has ' and if it is null
-            txtDescription1.Text = txtDescription1.Text.Replace("'", "");
+            txtDescription1.Text = txtDescription1.Text.Replace("'", "^");
             if (txtDescription1.Text == "")
             {
                 alert.DisplayMessage("Action required description can't be empty.");
@@ -3963,7 +4013,7 @@ public partial class _Default : System.Web.UI.Page
             sdsPendingActions.InsertParameters["StaffPersonId"].DefaultValue = staffPersonId;
             sdsPendingActions.InsertParameters["StaffPerson"].DefaultValue = staffPerson;
             sdsPendingActions.InsertParameters["StaffGroup"].DefaultValue = selectedRole;
-            sdsPendingActions.InsertParameters["Description"].DefaultValue = txtDescription1.Text.Replace("\n", "<br />").Replace("'", "");
+            sdsPendingActions.InsertParameters["Description"].DefaultValue = txtDescription1.Text.Replace("\n", "<br />").Replace("'", "^");
             sdsPendingActions.InsertParameters["SubmittedBy"].DefaultValue = UserCredentials.DisplayName;
             sdsPendingActions.InsertParameters["SubmittedTo"].DefaultValue = submittedTo;
             sdsPendingActions.InsertParameters["SubmittedDate"].DefaultValue = DateTime.Now.ToString();
@@ -3982,7 +4032,7 @@ public partial class _Default : System.Web.UI.Page
             TextBox txtDescription2 = (TextBox)row.FindControl("txtDescription");
 
             // check if control has ' and if it is null
-            txtDescription2.Text = txtDescription2.Text.Replace("'", "");
+            txtDescription2.Text = txtDescription2.Text.Replace("'", "^");
             if (txtDescription2.Text == "")
             {
                 alert.DisplayMessage("Action required description can't be empty.");
@@ -4042,7 +4092,7 @@ public partial class _Default : System.Web.UI.Page
             sdsPendingActions.InsertParameters["StaffPersonId"].DefaultValue = staffPersonId;
             sdsPendingActions.InsertParameters["StaffPerson"].DefaultValue = staffPerson;
             sdsPendingActions.InsertParameters["StaffGroup"].DefaultValue = selectedRole;
-            sdsPendingActions.InsertParameters["Description"].DefaultValue = txtDescription2.Text.Replace("\n", "<br />").Replace("'", "");
+            sdsPendingActions.InsertParameters["Description"].DefaultValue = txtDescription2.Text.Replace("\n", "<br />").Replace("'", "^");
             sdsPendingActions.InsertParameters["SubmittedBy"].DefaultValue = UserCredentials.DisplayName;
             sdsPendingActions.InsertParameters["SubmittedTo"].DefaultValue = submittedTo;
             sdsPendingActions.InsertParameters["SubmittedDate"].DefaultValue = DateTime.Now.ToString();
@@ -4082,7 +4132,7 @@ public partial class _Default : System.Web.UI.Page
             int completed = 0;
 
             // check if control has ' and if it is null
-            txtDescription.Text = txtDescription.Text.Replace("'", "");
+            txtDescription.Text = txtDescription.Text.Replace("'", "^");
             if (txtDescription.Equals(""))
             {
                 alert.DisplayMessage("Action wasn't updated, please don't leave the description textbox empty.");
@@ -4097,11 +4147,11 @@ public partial class _Default : System.Web.UI.Page
 
             if (completedDate.Equals("")) // Update the description
             {
-                sdsPendingActions.UpdateCommand = "UPDATE [ActionRequired] SET [ReportId] = " + Report.Id + ", [Description] = '" + txtDescription.Text.Replace("\n", "<br />").Replace("'", "") + "', [Completed] = " + completed + ", [Comments] = '" + txtComments.Text.Replace("\n", "<br />").Replace("'", "") + "' WHERE [id] = " + lblId.Text;
+                sdsPendingActions.UpdateCommand = "UPDATE [ActionRequired] SET [ReportId] = " + Report.Id + ", [Description] = '" + txtDescription.Text.Replace("\n", "<br />").Replace("'", "^") + "', [Completed] = " + completed + ", [Comments] = '" + txtComments.Text.Replace("\n", "<br />").Replace("'", "^") + "' WHERE [id] = " + lblId.Text;
             }
             else // update the completed bit, completed date, and who completed the action
             {
-                sdsPendingActions.UpdateCommand = "UPDATE [ActionRequired] SET [ReportId] = " + Report.Id + ", [Description] = '" + txtDescription.Text.Replace("\n", "<br />").Replace("'", "") + "', [Completed] = " + completed + ", [CompletedDate] = (CONVERT(DateTime, '" + completedDate + "', 103)), [CompletedBy] = '" + UserCredentials.DisplayName + "', [Comments] = '" + txtComments.Text.Replace("\n", "<br />").Replace("'", "") + "' WHERE [id] = " + lblId.Text;
+                sdsPendingActions.UpdateCommand = "UPDATE [ActionRequired] SET [ReportId] = " + Report.Id + ", [Description] = '" + txtDescription.Text.Replace("\n", "<br />").Replace("'", "^") + "', [Completed] = " + completed + ", [CompletedDate] = (CONVERT(DateTime, '" + completedDate + "', 103)), [CompletedBy] = '" + UserCredentials.DisplayName + "', [Comments] = '" + txtComments.Text.Replace("\n", "<br />").Replace("'", "^") + "' WHERE [id] = " + lblId.Text;
             }
             UpdateFormView();
         }
@@ -4114,6 +4164,7 @@ public partial class _Default : System.Web.UI.Page
         Button btnInsert1 = (Button)e.Row.FindControl("btnInsert1");
         TextBox txtDescription = (TextBox)e.Row.FindControl("txtDescription");
         TextBox txtDescription1 = (TextBox)e.Row.FindControl("txtDescription1");
+        TextBox txtComments = (TextBox)e.Row.FindControl("txtComments");
         Label lblDescriptionHead = (Label)e.Row.FindControl("lblDescriptionHead");
         CheckBox cbCompleted = (CheckBox)e.Row.FindControl("cbCompleted");
         Label lblStaffId = (Label)e.Row.FindControl("lblStaffId");
@@ -4140,6 +4191,20 @@ public partial class _Default : System.Web.UI.Page
 
         try
         {
+            if (e.Row.RowState == (DataControlRowState.Edit | DataControlRowState.Alternate ) || e.Row.RowState == DataControlRowState.Edit)
+            {
+                try
+                {
+                    txtDescription.Text = txtDescription.Text.Replace("^", "'");
+                    txtComments.Text = txtComments.Text.Replace("^", "'");
+                    txtDescription1.Text = txtDescription1.Text.Replace("^", "'");
+                }
+                catch
+                {
+
+                }
+            }
+
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 if (!UserCredentials.Role.Equals("MR Senior Managers"))
@@ -4664,6 +4729,200 @@ public partial class _Default : System.Web.UI.Page
             con.Close();
         }
         UpdateFormView();
+    }
+
+    // mark a list of reports as read
+    protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+    {
+        CheckBox chckheader = (CheckBox)gvUserReports.HeaderRow.FindControl("CheckBox1");
+
+        foreach (GridViewRow row in gvUserReports.Rows)
+        {
+            CheckBox chckrw = (CheckBox)row.FindControl("CheckBox2");
+            if (chckheader.Checked == true)
+            {
+                chckrw.Checked = true;
+                if (Report.CurrentNavigationTab.Equals("1"))
+                {
+                    btnMarkAsRead.Visible = true;
+                }
+                if (Report.CurrentNavigationTab.Equals("4"))
+                {
+                    btnSignAsManager.Visible = true;
+                }
+            }
+            else
+            {
+                chckrw.Checked = false;
+                if (Report.CurrentNavigationTab.Equals("1"))
+                {
+                    btnMarkAsRead.Visible = false;
+                }
+                if (Report.CurrentNavigationTab.Equals("4"))
+                {
+                    btnSignAsManager.Visible = false;
+                }
+            }
+        }
+    }
+    protected void CheckBox2_CheckedChanged(object sender, EventArgs e)
+    {
+        bool isChecked = false;
+        foreach (GridViewRow row in gvUserReports.Rows)
+        {
+            CheckBox chckrw = (CheckBox)row.FindControl("CheckBox2");
+            if (chckrw.Checked == true)
+            {
+                isChecked = true;
+            }
+        }
+
+        if (isChecked && Report.CurrentNavigationTab.Equals("1"))
+        {
+            btnMarkAsRead.Visible = true;
+        }
+        else
+        {
+            btnMarkAsRead.Visible = false;
+        }
+
+        if (isChecked && Report.CurrentNavigationTab.Equals("4"))
+        {
+            btnSignAsManager.Visible = true;
+        }
+        else
+        {
+            btnSignAsManager.Visible = false;
+        }
+    }
+    protected void btnMarkAsRead_Click(object sender, EventArgs e)
+    {
+        foreach (GridViewRow row in gvUserReports.Rows)
+        {
+            var check = row.FindControl("CheckBox2") as CheckBox;
+            if (check.Checked)
+            {
+                if (UserCredentials.StaffId != "0") // don't execute if program can't retrieve user's staff id
+                {
+                    Label lblID = (Label)row.FindControl("lblReportId");
+                    Label lblTable = (Label)row.FindControl("lblReportTable");
+                    Label lblAuditVersion = (Label)row.FindControl("lblAuditVersion");
+
+                    Report.Id = lblID.Text;                                         // set the selected ReportId
+                    Report.Table = lblTable.Text;                                   // set the selected Report_Table
+                    Report.AuditVersion = lblAuditVersion.Text;                     // set the selected Audit Version
+
+                    Report.ActiveReport = "SELECT rt.StaffId, rt.StaffName, rt.ShiftId, st.ShiftName, c.ReportName, *" + // update the active report 
+                                          " FROM " + Report.Table + " rt, [Staff] s, [Shift] st, [Category] c" +
+                                          " WHERE rt.StaffId = s.StaffId AND rt.ShiftId = st.ShiftId AND c.RCatId = rt.RCatId AND rt.ReportId=" + Report.Id +
+                                          " AND rt.AuditVersion=" + Report.AuditVersion;
+
+                    UpdateReadList("MarkAsRead");
+
+                    ManagerSignNotification();
+                    ActionsAssignedNotification();
+                    ReportActionsNotification();
+
+                    DefaultList("ShowList");
+                }
+            }
+        }
+    }
+    protected void btnSignAsManager_Click(object sender, EventArgs e)
+    {
+        body.Style.Add("opacity", "0.15");
+        signAsManager.Visible = true;
+        cbSignAsManager.Checked = false;
+    }
+    protected void btnSignAsManagerBox_Click(object sender, EventArgs e)
+    {
+        if (cbSignAsManager.Checked == false)
+        {
+            alert.DisplayMessage("Please tick the checkbox to digitally sign the reports.");
+            cbSignAsManager.Focus();
+            return;
+        }
+        else
+        {
+            foreach (GridViewRow row in gvUserReports.Rows)
+            {
+                var check = row.FindControl("CheckBox2") as CheckBox;
+                if (check.Checked)
+                {
+                    if (UserCredentials.StaffId != "0") // don't execute if program can't retrieve user's staff id
+                    {
+                        Label lblID = (Label)row.FindControl("lblReportId");
+                        Label lblTable = (Label)row.FindControl("lblReportTable");
+                        Label lblAuditVersion = (Label)row.FindControl("lblAuditVersion");
+                        Label lblReportName = (Label)row.FindControl("lblReportType");
+
+                        Report.Id = lblID.Text;                                         // set the selected ReportId
+                        Report.Table = lblTable.Text;                                   // set the selected Report_Table
+                        Report.AuditVersion = lblAuditVersion.Text;                     // set the selected Audit Version
+                        Report.Name = lblReportName.Text;                                // set the selected Report Name
+
+                        Report.ActiveReport = "SELECT rt.StaffId, rt.StaffName, rt.ShiftId, st.ShiftName, c.ReportName, *" + // update the active report 
+                                              " FROM " + Report.Table + " rt, [Staff] s, [Shift] st, [Category] c" +
+                                              " WHERE rt.StaffId = s.StaffId AND rt.ShiftId = st.ShiftId AND c.RCatId = rt.RCatId AND rt.ReportId=" + Report.Id +
+                                              " AND rt.AuditVersion=" + Report.AuditVersion;
+
+                        // check if report has already been signed
+                        sqlQuery.RetrieveData(Report.ActiveReport, "HasManagerSign");
+                        if (!Report.HasManagerSign)
+                        {
+                            // set the updated manager signature string
+                            string updateManagerSign = UserCredentials.DisplayName + " " + Convert.ToDateTime(DateTime.Now).ToString("dd/MM/yyyy HH:mm");
+
+                            // insert manager signature
+                            con.Open();
+                            SqlCommand updateSign = new SqlCommand("UPDATE " + Report.Table + " SET ManagerSign='" + updateManagerSign + "', ManagerSignId='" + UserCredentials.StaffId + "," + "' WHERE ReportId='" + Report.Id + "' AND AuditVersion='" + Report.AuditVersion + "'", con);
+                            updateSign.ExecuteNonQuery();
+                            con.Close();
+
+                            UpdateStatus();
+
+                            body.Style.Add("opacity", "1");
+                            signAsManager.Visible = false;
+                            ManagerSignNotification();
+                            ActionsAssignedNotification();
+                            ReportActionsNotification();
+                            ManagerSign("ShowList"); // update the current gridview list
+                        }
+                    }
+                }
+            }
+        }
+    }
+    protected void cbSignAsManager_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbSignAsManager.Checked)
+        {
+            btnSignAsManagerBox.OnClientClick = "ShowProgress()";
+        }
+        else
+        {
+            btnSignAsManagerBox.OnClientClick = "HideProgress()";
+        }
+    }
+    protected void btnCancelAsManager_Click(object sender, EventArgs e)
+    {
+        body.Style.Add("opacity", "1");
+        signAsManager.Visible = false;
+    }
+
+    protected void ddlPageSize_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        gvUserReports.PageIndex = 0; // displays the first page of the list
+
+        foreach (TableCell headerCell in gvUserReports.HeaderRow.Cells)
+        {
+            DropDownList ddlPageSize = headerCell.FindControl("ddlPageSize") as DropDownList;
+            Report.PageSize = ddlPageSize.SelectedValue;
+            gvUserReports.PageSize = Convert.ToInt32(ddlPageSize.SelectedValue);
+        }
+
+        sdsUserReports.SelectCommand = Report.SelectQuery;
+        gvUserReports.DataBind();
     }
 
     [WebMethod()] // method responsible for saving the Human Body Image to server directory - MR-WEB01

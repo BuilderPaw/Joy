@@ -132,10 +132,10 @@ public partial class Reports_CU_Reception_Create_v1_v1 : System.Web.UI.Page
             dm.ReportStat = "Awaiting Completion";
             dm.Report_Version = 1; // current version
             dm.ReadByList = "," + UserCredentials.StaffId + ",";
-            dm.SignInSlip = txtSignInSlip.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.Refusals = txtRefusals.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.EventsField = txtEventsField.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.GeneralComments = txtGeneralComms.Text.Replace("\n", "<br />").Replace("'", "");
+            dm.SignInSlip = txtSignInSlip.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.Refusals = txtRefusals.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.EventsField = txtEventsField.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.GeneralComments = txtGeneralComms.Text.Replace("\n", "<br />").Replace("'", "^");
             dc.Report_ClubUminaReceptions.InsertOnSubmit(dm);
             dc.SubmitChanges();
         }

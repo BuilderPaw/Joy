@@ -7,7 +7,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <script type="text/javascript" src="Scripts/jsHumanBody.js"></script>
-    <script type="text/javascript"> 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
         function ToAttachedFiles(sender, args) {
             $('html, body').animate({
                 scrollTop: $("#divAttachedFiles").offset().top
@@ -83,12 +84,30 @@
         <asp:GridView ID="gvUserReports" runat="server" HeaderStyle-CssClass="report-gridview-header" RowStyle-CssClass="report-gridview-row"
             SortedAscendingHeaderStyle-CssClass="one" SortedDescendingHeaderStyle-CssClass="one"
             DataKeyNames="ReportId" DataSourceID="sdsUserReports" AutoGenerateColumns="False" PageSize="10" AllowPaging="True" AllowSorting="true"
-            OnRowCommand="SelectedReport" OnPageIndexChanging="gvUserReports_PageIndexChanging" OnSorting="gvUserReports_Sorting" EmptyDataText="There are no reports to display.">
+            OnRowCommand="SelectedReport" OnRowCreated="gvUserReports_RowCreated" OnPageIndexChanging="gvUserReports_PageIndexChanging" OnSorting="gvUserReports_Sorting" EmptyDataText="There are no reports to display.">
             <Columns>
+               <asp:TemplateField HeaderText=" " HeaderStyle-BackColor="#555555" >
+                    <HeaderTemplate>
+                        <asp:CheckBox ID="CheckBox1" AutoPostBack="true" OnCheckedChanged="CheckBox1_CheckedChanged" runat="server" />
+                    </HeaderTemplate>
+                    <ItemTemplate>
+                        <asp:CheckBox ID="CheckBox2" AutoPostBack="true" OnCheckedChanged="CheckBox2_CheckedChanged" runat="server" />
+                    </ItemTemplate>                    
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText=" " HeaderStyle-BackColor="#555555" >
+                    <HeaderTemplate>
+                        <asp:DropDownList ID="ddlPageSize" runat="server" AutoPostBack="true" OnSelectedIndexChanged="ddlPageSize_SelectedIndexChanged"
+                            style="width: 100%; height: 100%; padding: 6px 12px; font-size: 14px; line-height: 1.428571429; color: #555555; vertical-align: middle; 
+                            background-color: #ffffff; border: 1px solid #cccccc; border-radius: 4px; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); 
+                            box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; 
+                            transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;">
+                            <asp:ListItem Value="10" Text="10" />
+                            <asp:ListItem Value="20" Text="20" />
+                        </asp:DropDownList>
+                    </HeaderTemplate>
                     <ItemTemplate>
                         <asp:Button ID="btnSelect" runat="server" CssClass="btn" CommandName="Select" Text="View" />
-                    </ItemTemplate>
+                    </ItemTemplate>                    
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Report ID" HeaderStyle-BackColor="#555555" SortExpression="ReportId">
                     <ItemTemplate>
@@ -152,6 +171,8 @@
                 </asp:TemplateField>
             </Columns>
         </asp:GridView>
+        <asp:Button ID="btnMarkAsRead" OnClientClick="ShowProgress()" Visible="false" style="width:120px; height:55px; margin-top:2%; margin-left:5%;" runat="server" CssClass="btn" Text="Mark as Read" OnClick="btnMarkAsRead_Click" />        
+        <asp:Button ID="btnSignAsManager" Visible="false" style="width:130px; height:55px; margin-top:2%; margin-left:5%;" runat="server" CssClass="btn" Text="Sign as Manager" OnClick="btnSignAsManager_Click" />
         <asp:SqlDataSource ID="sdsActionReports" runat="server"
             ConnectionString="<%$ ConnectionStrings:LocalDb %>"
             SelectCommand="SELECT [ReportId], [Report_Table], [Version], [AuditVersion], [ReportName], [ReportStat], [StaffAuthor], [StaffSelected], [StaffId], [StaffName], [Description], [SubmittedTo], [SubmittedBy], [SubmittedDate], [Completed], [CompletedDate], ROW_NUMBER() OVER (ORDER BY [SubmittedDate] DESC) AS [RowNum] FROM [ActionRequired]"></asp:SqlDataSource>
@@ -211,7 +232,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Description" HeaderStyle-BackColor="#555555" ItemStyle-Width="260px" SortExpression="Description">
                     <ItemTemplate>
-                        <%# Eval("Description") %>
+                        <%# (string.IsNullOrWhiteSpace(Eval("Description").ToString())) ? Eval("Description") : (Eval("Description").ToString()).Replace("^", "'") %>
                     </ItemTemplate>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="Submitted To" HeaderStyle-BackColor="#555555" ItemStyle-Width="260px" SortExpression="SubmittedTo">
@@ -635,7 +656,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Description" ItemStyle-Width="250px">
                         <ItemTemplate>
-                            <%# Eval("Description") %>
+                            <%# (string.IsNullOrWhiteSpace(Eval("Description").ToString())) ? Eval("Description") : (Eval("Description").ToString()).Replace("^", "'") %>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtDescription" class="object-default" TextMode="MultiLine" Height="50" Width="250" runat="server" Text='<%# RemoveBreakLine(Eval("Description")) %>' />
@@ -732,7 +753,7 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="Action Notes" ItemStyle-Width="250px" >
                         <ItemTemplate>
-                            <%# Eval("Comments") %>
+                            <%# (string.IsNullOrWhiteSpace(Eval("Comments").ToString())) ? Eval("Comments") : (Eval("Comments").ToString()).Replace("^", "'") %>
                         </ItemTemplate>
                         <EditItemTemplate>
                             <asp:TextBox ID="txtComments" class="object-default" TextMode="MultiLine" Width="250" runat="server" Text='<%# RemoveBreakLine(Eval("Comments")) %>' />
@@ -906,7 +927,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Statement" ItemStyle-Width="500" ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
-                                    <%# Eval("Statement") %>
+                                    <%# (string.IsNullOrWhiteSpace(Eval("Statement").ToString())) ? Eval("Statement") : (Eval("Statement").ToString()).Replace("^", "'") %>
                                 </ItemTemplate>
                                 <EditItemTemplate>
                                     <asp:TextBox ID="txtStatement" class="object-default" TextMode="MultiLine" Height="50" runat="server" Text='<%# Bind("Statement") %>' />
@@ -998,7 +1019,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Statement" ItemStyle-Width="500" ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
-                                    <%# Eval("Statement") %>
+                                    <%# (string.IsNullOrWhiteSpace(Eval("Statement").ToString())) ? Eval("Statement") : (Eval("Statement").ToString()).Replace("^", "'") %>
                                 </ItemTemplate>
                                 <EditItemTemplate>
                                     <asp:TextBox ID="txtStatement" class="object-default" TextMode="MultiLine" Height="50" runat="server" Text='<%# Bind("Statement") %>' />
@@ -1101,7 +1122,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="Decision" ItemStyle-Width="500" ItemStyle-HorizontalAlign="Center">
                                 <ItemTemplate>
-                                    <%# Eval("Decision") %>
+                                    <%# (string.IsNullOrWhiteSpace(Eval("Decision").ToString())) ? Eval("Decision") : (Eval("Decision").ToString()).Replace("^", "'") %>
                                 </ItemTemplate>
                                 <EditItemTemplate>
                                     <asp:TextBox ID="txtDecision" class="object-default" TextMode="MultiLine" Height="50" runat="server" Text='<%# Bind("Decision") %>' />
@@ -1227,6 +1248,18 @@
             <asp:Button ID="btnManagerSign" runat="server" CssClass="btn digital-signature-button" OnClick="btnManagerSign_Click" Text="Accept" />
             &nbsp;&nbsp;&nbsp;
             <asp:Button ID="btnCancelManagerSign" runat="server" CssClass="btn digital-signature-button" OnClick="btnCancelManagerSign_Click" Text="Cancel" />
+        </div>
+        <div id="signAsManager" class="digital-signature" visible="false" runat="server">
+            <asp:CheckBox ID="cbSignAsManager" runat="server" AutoPostBack="true" OnCheckedChanged="cbSignAsManager_CheckedChanged" CssClass="digital-signature-checkbox" />
+            <p class="digital-signature-paragraph">By ticking the checkbox, you agree that all reports have been reviewed and you are satisfied as to its accuracy</p>
+            <br />
+            <br />
+            <asp:Button ID="btnSignAsManagerBox" runat="server" CssClass="btn digital-signature-button" OnClick="btnSignAsManagerBox_Click" Text="Accept" />
+            &nbsp;&nbsp;&nbsp;
+            <asp:Button ID="btnCancelAsManager" runat="server" CssClass="btn digital-signature-button" OnClick="btnCancelAsManager_Click" Text="Cancel" />
+        </div>
+        <div class="loading">
+            <asp:Image ID="imgLoading" runat="server" ImageUrl="~/Images/loading.gif" />
         </div>
     </div>
 </asp:Content>

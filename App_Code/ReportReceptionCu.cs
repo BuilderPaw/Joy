@@ -23,7 +23,7 @@ public class ReportReceptionCu
             }
             else
             {
-                return HttpContext.Current.Session["RRCSignIn"].ToString();
+                return HttpContext.Current.Session["RRCSignIn"].ToString().Replace("'", "^");
             }
         }
         set
@@ -41,7 +41,7 @@ public class ReportReceptionCu
             }
             else
             {
-                return HttpContext.Current.Session["RRCRefusals"].ToString();
+                return HttpContext.Current.Session["RRCRefusals"].ToString().Replace("'", "^");
             }
         }
         set
@@ -59,7 +59,7 @@ public class ReportReceptionCu
             }
             else
             {
-                return HttpContext.Current.Session["RRCEvents"].ToString();
+                return HttpContext.Current.Session["RRCEvents"].ToString().Replace("'", "^");
             }
         }
         set
@@ -77,7 +77,7 @@ public class ReportReceptionCu
             }
             else
             {
-                return HttpContext.Current.Session["RRCGenComm"].ToString();
+                return HttpContext.Current.Session["RRCGenComm"].ToString().Replace("'", "^");
             }
         }
         set

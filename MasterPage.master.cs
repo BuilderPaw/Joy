@@ -22,10 +22,6 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        //accordion.Visible = true; // directly display homepage
-        //imgBtnLogo.Visible = true;
-        //username.Visible = true;
-
         if (HttpContext.Current.User.Identity.IsAuthenticated) // show login prompt and hide header objects
         {
             // display the accordion when user has logged in
@@ -44,6 +40,24 @@ public partial class MasterPage : System.Web.UI.MasterPage
         if (!IsPostBack)
         {
             //SetVenue();
+
+            // display an alert message if user has any existing report
+            if (UserCredentials.StaffId != "0")
+            {
+                if (Report.HasDisplayedUnsignedReport <3)
+                {
+                    con.Open();
+                    SqlCommand count = new SqlCommand("SELECT COUNT(*) FROM [View_Reports] WHERE ReportStat LIKE '%Completion%' and StaffId=" + UserCredentials.StaffId, con);
+                    int numberOfReportsUnsigned = Int32.Parse(count.ExecuteScalar().ToString()); // set the number of assigned actions
+                    con.Close();
+
+                    if (numberOfReportsUnsigned > 0)
+                    {
+                        alert.DisplayMessage("*Please ensure to sign all Awaiting Completion status reports. You have " + numberOfReportsUnsigned + " report(s) unsigned.");
+                    }
+                    Report.HasDisplayedUnsignedReport++;
+                }
+            }
 
             // populate dropdownlist based on user priviledges
             if (!string.IsNullOrWhiteSpace(UserCredentials.Groups)) // check if user group is not empty
@@ -243,6 +257,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
                         txtKeyword.Text = Request.QueryString["Keyword"].ToString();
                     }
 
+                    if (string.IsNullOrWhiteSpace(SearchReport.ReportId))
+                    {
+                        txtReportId.Text = "";
+                    }
+                    else
+                    {
+                        txtReportId.Text = SearchReport.ReportId;
+                    }
+
                     if (ddlDateGroup.SelectedValue == "7") // if Custom Date is selected in Date Filter
                     {
                         txtStartDate.Text = SearchReport.StartDate;
@@ -426,10 +449,20 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         string keyword = txtKeyword.Text;
 
+        if (txtReportId.Equals(""))
+        {
+            SearchReport.ReportId = "";
+        }
+        else
+        {
+            SearchReport.ReportId = txtReportId.Text;
+        }
+
         if (cbUnreadList.Checked)
         {
             SearchReport.UnreadList = true;
-        }else
+        }
+        else
         {
             SearchReport.UnreadList = false;
         }
@@ -535,6 +568,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
         SearchReport.StartDate = txtStartDate.Text;
         SearchReport.EndDate = txtEndDate.Text;
+        Report.PageSize = "10";
 
         Response.Redirect("~/Default.aspx?ReportType=" + ddlSearchReport.SelectedItem.Value + "&DateGroup=" + ddlDateGroup.SelectedItem.Value + "&Staff=" + ddlStaffId.SelectedItem.Value + "&ReportStatus=" + ddlReportStat.SelectedItem.Value + "&Keyword=" + keyword, false); // send the parameters to Default.aspx to populate the Gridview
     }
@@ -567,7 +601,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
             if (ddlSearchReport.SelectedItem.Text.Contains("MR"))
             {
                 siteId = "1";
-            }else
+            }
+            else
             {
                 siteId = "2";
             }
@@ -637,11 +672,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
         SqlCommand data = new SqlCommand("SELECT MAX(VersionNo) AS 'latestVersion'" + // get the latest version of selected report
                                                " FROM dbo.[Version]" +
                                                " WHERE RCatId = " + ddlCreateReport.SelectedItem.Value, con);
-        int version = (int)data.ExecuteScalar();
+        var version = data.ExecuteScalar();
         con.Close();
 
         Response.Redirect("~/Reports/" + ddlCreateReport.SelectedItem.ToString() + "/Create/v" + version.ToString() + "/v" + version.ToString() + ".aspx", false); // display the appropriate Report to create 
-        SearchReport.SetAccordion = "0"; // set accordion active selected index back to Reports Pane
+        SearchReport.SetAccordion = "0"; // set accordion active selected index back to Reports Panel
         SearchReport.CreateReport = ddlCreateReport.SelectedItem.Value.ToString();
     }
 
@@ -683,6 +718,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         SearchReport.ArchivedStaff = false;
         SearchReport.CUOnly = false;
         SearchReport.MROnly = false;
+        Report.PageSize = "10";
         DefaultSearch();
     }
 
@@ -692,6 +728,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         SearchReport.Location = "0";
         SearchReport.MemberNo = "0";
         SearchReport.ActionTaken = "0";
+        SearchReport.ReportId = "";
 
         Report.PopulateFields = true;  // counts the number of times ReadFiles method is called in Incident Report. It should only run one time (Run like an initial Post Back)
         Report.RunEditMode = false;    // tells whether or not to run the editButton() in Default.aspx

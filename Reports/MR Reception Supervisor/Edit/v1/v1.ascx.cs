@@ -43,10 +43,10 @@ public partial class Reports_MR_Reception_Supervisor_Edit_v1_v1 : System.Web.UI.
                         Report.ShiftDOW = DateTime.Parse(Report.ShiftDate.ToString()).DayOfWeek.ToString();
                         lblEntryDetails.Text = Convert.ToDateTime(rdr["EntryDate"]).ToString("dd/MM/yyyy HH:mm");
                         Report.EntryDate = Convert.ToDateTime(rdr["EntryDate"]).ToString();
-                        txtSignInSlip.Text = rdr["SignInSlip"].ToString().Replace("<br />", "\n");
-                        txtRefusals.Text = rdr["Refusals"].ToString().Replace("<br />", "\n");
-                        txtEventsField.Text = rdr["EventsField"].ToString().Replace("<br />", "\n");
-                        txtGeneralComms.Text = rdr["GeneralComments"].ToString().Replace("<br />", "\n");
+                        txtSignInSlip.Text = rdr["SignInSlip"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtRefusals.Text = rdr["Refusals"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtEventsField.Text = rdr["EventsField"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtGeneralComms.Text = rdr["GeneralComments"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         // set the Global variable to the current fields
                         SetStaticVariable();
                         Report.RunEditMode = true;
@@ -181,9 +181,9 @@ public partial class Reports_MR_Reception_Supervisor_Edit_v1_v1 : System.Web.UI.
 
     protected void SetStaticVariable()
     {
-        ReportReceptionSupervisorMr.SignIn = txtSignInSlip.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportReceptionSupervisorMr.Refusals = txtRefusals.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportReceptionSupervisorMr.Events = txtEventsField.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportReceptionSupervisorMr.GenComm = txtGeneralComms.Text.Replace("\n", "<br />").Replace("'", "");
+        ReportReceptionSupervisorMr.SignIn = txtSignInSlip.Text.Replace("\n", "<br />");
+        ReportReceptionSupervisorMr.Refusals = txtRefusals.Text.Replace("\n", "<br />");
+        ReportReceptionSupervisorMr.Events = txtEventsField.Text.Replace("\n", "<br />");
+        ReportReceptionSupervisorMr.GenComm = txtGeneralComms.Text.Replace("\n", "<br />");
     }
 }

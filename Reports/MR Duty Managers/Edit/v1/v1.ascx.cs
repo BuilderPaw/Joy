@@ -43,19 +43,19 @@ public partial class Reports_MR_Duty_Managers_Edit_v1_v1 : System.Web.UI.UserCon
                         Report.ShiftDOW = DateTime.Parse(Report.ShiftDate.ToString()).DayOfWeek.ToString();
                         lblEntryDetails.Text = Convert.ToDateTime(rdr["EntryDate"]).ToString("dd/MM/yyyy HH:mm");
                         Report.EntryDate = Convert.ToDateTime(rdr["EntryDate"]).ToString();
-                        txtSupervisors.Text = rdr["Supervisors"].ToString().Replace("<br />", "\n").Replace("'", "");
-                        txtWhs.Text = rdr["Whs"].ToString().Replace("<br />", "\n").Replace("'", "");
-                        txtCostSavings.Text = rdr["CostSavings"].ToString().Replace("<br />", "\n").Replace("'", "");
-                        txtClubPres.Text = rdr["ClubPresent"].ToString().Replace("<br />", "\n").Replace("'", "");
-                        txtClubMain.Text = rdr["ClubMaintenance"].ToString().Replace("<br />", "\n").Replace("'", "");
-                        txtAbsenteeism.Text = rdr["Absenteeism"].ToString().Replace("<br />", "\n").Replace("'", "");
-                        txtStaffIssues.Text = rdr["StaffIssues"].ToString().Replace("<br />", "\n").Replace("'", "");
-                        txtGaming.Text = rdr["Gaming"].ToString().Replace("<br />", "\n").Replace("'", "");
-                        txtKeySec.Text = rdr["KeySecurity"].ToString().Replace("<br />", "\n").Replace("'", "");
-                        txtCameras.Text = rdr["Cameras"].ToString().Replace("<br />", "\n").Replace("'", "");
-                        txtGenComm.Text = rdr["GeneralComments"].ToString().Replace("<br />", "\n").Replace("'", "");
-                        txtLuckyRewards.Text = rdr["LuckyRewards"].ToString().Replace("<br />", "\n").Replace("'", "");
-                        txtCompliance.Text = rdr["Compliance"].ToString().Replace("<br />", "\n").Replace("'", "");
+                        txtSupervisors.Text = rdr["Supervisors"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtWhs.Text = rdr["Whs"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtCostSavings.Text = rdr["CostSavings"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtClubPres.Text = rdr["ClubPresent"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtClubMain.Text = rdr["ClubMaintenance"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtAbsenteeism.Text = rdr["Absenteeism"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtStaffIssues.Text = rdr["StaffIssues"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtGaming.Text = rdr["Gaming"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtKeySec.Text = rdr["KeySecurity"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtCameras.Text = rdr["Cameras"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtGenComm.Text = rdr["GeneralComments"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtLuckyRewards.Text = rdr["LuckyRewards"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtCompliance.Text = rdr["Compliance"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         // set the Global variables to the current fields
                         SetStaticVariable();
                         Report.RunEditMode = true;
@@ -234,18 +234,18 @@ public partial class Reports_MR_Duty_Managers_Edit_v1_v1 : System.Web.UI.UserCon
 
     protected void SetStaticVariable()
     {
-        ReportDutyManagerMr.Sup = txtSupervisors.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportDutyManagerMr.Whs = txtWhs.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportDutyManagerMr.Cost = txtCostSavings.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportDutyManagerMr.ClubPres = txtClubPres.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportDutyManagerMr.ClubMain = txtClubMain.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportDutyManagerMr.Absent = txtAbsenteeism.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportDutyManagerMr.StaffIssues = txtStaffIssues.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportDutyManagerMr.Gaming = txtGaming.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportDutyManagerMr.KeySec = txtKeySec.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportDutyManagerMr.Cameras = txtCameras.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportDutyManagerMr.GenComm = txtGenComm.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportDutyManagerMr.LuckyRewards = txtLuckyRewards.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportDutyManagerMr.Compliance = txtCompliance.Text.Replace("\n", "<br />").Replace("'", "");
+        ReportDutyManagerMr.Sup = txtSupervisors.Text.Replace("\n", "<br />");
+        ReportDutyManagerMr.Whs = txtWhs.Text.Replace("\n", "<br />");
+        ReportDutyManagerMr.Cost = txtCostSavings.Text.Replace("\n", "<br />");
+        ReportDutyManagerMr.ClubPres = txtClubPres.Text.Replace("\n", "<br />");
+        ReportDutyManagerMr.ClubMain = txtClubMain.Text.Replace("\n", "<br />");
+        ReportDutyManagerMr.Absent = txtAbsenteeism.Text.Replace("\n", "<br />");
+        ReportDutyManagerMr.StaffIssues = txtStaffIssues.Text.Replace("\n", "<br />");
+        ReportDutyManagerMr.Gaming = txtGaming.Text.Replace("\n", "<br />");
+        ReportDutyManagerMr.KeySec = txtKeySec.Text.Replace("\n", "<br />");
+        ReportDutyManagerMr.Cameras = txtCameras.Text.Replace("\n", "<br />");
+        ReportDutyManagerMr.GenComm = txtGenComm.Text.Replace("\n", "<br />");
+        ReportDutyManagerMr.LuckyRewards = txtLuckyRewards.Text.Replace("\n", "<br />");
+        ReportDutyManagerMr.Compliance = txtCompliance.Text.Replace("\n", "<br />");
     }
 }

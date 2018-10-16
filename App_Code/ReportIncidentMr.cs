@@ -23,7 +23,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMemberSince1"].ToString();
+                return HttpContext.Current.Session["RIMMemberSince1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -41,7 +41,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMemberSince2"].ToString();
+                return HttpContext.Current.Session["RIMMemberSince2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -59,7 +59,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMemberSince3"].ToString();
+                return HttpContext.Current.Session["RIMMemberSince3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -77,7 +77,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMemberSince4"].ToString();
+                return HttpContext.Current.Session["RIMMemberSince4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -95,7 +95,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMemberSince5"].ToString();
+                return HttpContext.Current.Session["RIMMemberSince5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -114,7 +114,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMViewPlayerId1"].ToString();
+                return HttpContext.Current.Session["RIMViewPlayerId1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -133,7 +133,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMViewPlayerId2"].ToString();
+                return HttpContext.Current.Session["RIMViewPlayerId2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -152,7 +152,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMViewPlayerId3"].ToString();
+                return HttpContext.Current.Session["RIMViewPlayerId3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -171,7 +171,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMViewPlayerId4"].ToString();
+                return HttpContext.Current.Session["RIMViewPlayerId4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -190,7 +190,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMViewPlayerId5"].ToString();
+                return HttpContext.Current.Session["RIMViewPlayerId5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -209,7 +209,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPlayerId1"].ToString();
+                return HttpContext.Current.Session["RIMPlayerId1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -228,7 +228,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPlayerId2"].ToString();
+                return HttpContext.Current.Session["RIMPlayerId2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -247,7 +247,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPlayerId3"].ToString();
+                return HttpContext.Current.Session["RIMPlayerId3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -266,7 +266,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPlayerId4"].ToString();
+                return HttpContext.Current.Session["RIMPlayerId4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -285,7 +285,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPlayerId5"].ToString();
+                return HttpContext.Current.Session["RIMPlayerId5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -399,7 +399,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMImage1"].ToString();
+                return HttpContext.Current.Session["RIMImage1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -417,7 +417,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMImage2"].ToString();
+                return HttpContext.Current.Session["RIMImage2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -435,7 +435,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMImage3"].ToString();
+                return HttpContext.Current.Session["RIMImage3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -453,7 +453,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMImage4"].ToString();
+                return HttpContext.Current.Session["RIMImage4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -471,7 +471,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMImage5"].ToString();
+                return HttpContext.Current.Session["RIMImage5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -490,7 +490,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMLastErrorMsg"].ToString();
+                return HttpContext.Current.Session["RIMLastErrorMsg"].ToString().Replace("'", "^");
             }
         }
         set
@@ -509,7 +509,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtTimeH"].ToString();
+                return HttpContext.Current.Session["RIMTxtTimeH"].ToString().Replace("'", "^");
             }
         }
         set
@@ -527,7 +527,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtTimeM"].ToString();
+                return HttpContext.Current.Session["RIMTxtTimeM"].ToString().Replace("'", "^");
             }
         }
         set
@@ -545,7 +545,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtTimeTC"].ToString();
+                return HttpContext.Current.Session["RIMTxtTimeTC"].ToString().Replace("'", "^");
             }
         }
         set
@@ -563,7 +563,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeH1"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeH1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -581,7 +581,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeM1"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeM1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -599,7 +599,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeTC1"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeTC1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -617,7 +617,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeH1"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeH1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -635,7 +635,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeM1"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeM1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -653,7 +653,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeTC1"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeTC1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -671,7 +671,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeH2"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeH2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -689,7 +689,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeM2"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeM2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -707,7 +707,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeTC2"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeTC2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -725,7 +725,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeH2"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeH2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -743,7 +743,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeM2"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeM2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -761,7 +761,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeTC2"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeTC2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -779,7 +779,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeH3"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeH3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -797,7 +797,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeM3"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeM3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -815,7 +815,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeTC3"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeTC3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -833,7 +833,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeH3"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeH3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -851,7 +851,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeM3"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeM3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -869,7 +869,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeTC3"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeTC3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -887,7 +887,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeH4"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeH4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -905,7 +905,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeM4"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeM4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -923,7 +923,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeTC4"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeTC4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -941,7 +941,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeH4"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeH4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -959,7 +959,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeM4"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeM4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -977,7 +977,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeTC4"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeTC4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -995,7 +995,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeH5"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeH5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1013,7 +1013,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeM5"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeM5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1031,7 +1031,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeTC5"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeTC5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1049,7 +1049,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeH5"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeH5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1067,7 +1067,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeM5"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeM5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1085,7 +1085,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeTC5"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeTC5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1103,7 +1103,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeH6"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeH6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1121,7 +1121,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeM6"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeM6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1139,7 +1139,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeTC6"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeTC6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1157,7 +1157,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeH6"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeH6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1175,7 +1175,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeM6"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeM6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1193,7 +1193,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeTC6"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeTC6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1211,7 +1211,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeH7"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeH7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1229,7 +1229,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeM7"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeM7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1247,7 +1247,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamSTimeTC7"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamSTimeTC7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1265,7 +1265,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeH7"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeH7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1283,7 +1283,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeM7"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeM7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1301,7 +1301,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtCamETimeTC7"].ToString();
+                return HttpContext.Current.Session["RIMTxtCamETimeTC7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1319,7 +1319,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMNoOfPerson"].ToString();
+                return HttpContext.Current.Session["RIMNoOfPerson"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1337,7 +1337,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPartyType1"].ToString();
+                return HttpContext.Current.Session["RIMTxtPartyType1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1355,7 +1355,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeH1"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeH1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1373,7 +1373,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeM1"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeM1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1391,7 +1391,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeTC1"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeTC1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1409,7 +1409,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtGender1"].ToString();
+                return HttpContext.Current.Session["RIMTxtGender1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1427,7 +1427,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPartyType2"].ToString();
+                return HttpContext.Current.Session["RIMTxtPartyType2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1445,7 +1445,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeH2"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeH2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1463,7 +1463,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeM2"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeM2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1481,7 +1481,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeTC2"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeTC2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1499,7 +1499,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtGender2"].ToString();
+                return HttpContext.Current.Session["RIMTxtGender2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1517,7 +1517,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPartyType3"].ToString();
+                return HttpContext.Current.Session["RIMTxtPartyType3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1535,7 +1535,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeH3"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeH3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1553,7 +1553,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeM3"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeM3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1571,7 +1571,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeTC3"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeTC3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1589,7 +1589,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtGender3"].ToString();
+                return HttpContext.Current.Session["RIMTxtGender3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1607,7 +1607,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPartyType4"].ToString();
+                return HttpContext.Current.Session["RIMTxtPartyType4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1625,7 +1625,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeH4"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeH4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1643,7 +1643,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeM4"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeM4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1661,7 +1661,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeTC4"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeTC4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1679,7 +1679,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtGender4"].ToString();
+                return HttpContext.Current.Session["RIMTxtGender4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1697,7 +1697,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPartyType5"].ToString();
+                return HttpContext.Current.Session["RIMTxtPartyType5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1715,7 +1715,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeH5"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeH5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1733,7 +1733,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeM5"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeM5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1751,7 +1751,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtPTimeTC5"].ToString();
+                return HttpContext.Current.Session["RIMTxtPTimeTC5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1769,7 +1769,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTxtGender5"].ToString();
+                return HttpContext.Current.Session["RIMTxtGender5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1788,7 +1788,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMStaffEmp1"].ToString();
+                return HttpContext.Current.Session["RIMStaffEmp1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1806,7 +1806,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMStaffEmp2"].ToString();
+                return HttpContext.Current.Session["RIMStaffEmp2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1824,7 +1824,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMStaffEmp3"].ToString();
+                return HttpContext.Current.Session["RIMStaffEmp3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1842,7 +1842,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMStaffEmp4"].ToString();
+                return HttpContext.Current.Session["RIMStaffEmp4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1860,7 +1860,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMStaffEmp5"].ToString();
+                return HttpContext.Current.Session["RIMStaffEmp5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1878,7 +1878,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMActionTakenOther"].ToString();
+                return HttpContext.Current.Session["RIMActionTakenOther"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1896,7 +1896,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHappenedOther"].ToString();
+                return HttpContext.Current.Session["RIMHappenedOther"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1914,7 +1914,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHappenedSerious"].ToString();
+                return HttpContext.Current.Session["RIMHappenedSerious"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1932,7 +1932,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHappenedRefuseEntry"].ToString();
+                return HttpContext.Current.Session["RIMHappenedRefuseEntry"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1950,7 +1950,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHappenedAskedLeave"].ToString();
+                return HttpContext.Current.Session["RIMHappenedAskedLeave"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1968,7 +1968,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAllegation"].ToString();
+                return HttpContext.Current.Session["RIMAllegation"].ToString().Replace("'", "^");
             }
         }
         set
@@ -1986,7 +1986,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVDOB1"].ToString();
+                return HttpContext.Current.Session["RIMVDOB1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2004,7 +2004,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMDOB1"].ToString();
+                return HttpContext.Current.Session["RIMMDOB1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2022,7 +2022,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVAddress1"].ToString();
+                return HttpContext.Current.Session["RIMVAddress1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2040,7 +2040,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMAddress1"].ToString();
+                return HttpContext.Current.Session["RIMMAddress1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2058,7 +2058,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVProofID1"].ToString();
+                return HttpContext.Current.Session["RIMVProofID1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2076,7 +2076,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMStaffAddress1"].ToString();
+                return HttpContext.Current.Session["RIMStaffAddress1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2094,7 +2094,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVDOB2"].ToString();
+                return HttpContext.Current.Session["RIMVDOB2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2112,7 +2112,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMDOB2"].ToString();
+                return HttpContext.Current.Session["RIMMDOB2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2130,7 +2130,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVAddress2"].ToString();
+                return HttpContext.Current.Session["RIMVAddress2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2148,7 +2148,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMAddress2"].ToString();
+                return HttpContext.Current.Session["RIMMAddress2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2166,7 +2166,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVProofID2"].ToString();
+                return HttpContext.Current.Session["RIMVProofID2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2184,7 +2184,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMStaffAddress2"].ToString();
+                return HttpContext.Current.Session["RIMStaffAddress2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2202,7 +2202,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVDOB3"].ToString();
+                return HttpContext.Current.Session["RIMVDOB3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2220,7 +2220,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMDOB3"].ToString();
+                return HttpContext.Current.Session["RIMMDOB3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2238,7 +2238,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVAddress3"].ToString();
+                return HttpContext.Current.Session["RIMVAddress3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2256,7 +2256,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMAddress3"].ToString();
+                return HttpContext.Current.Session["RIMMAddress3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2274,7 +2274,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVProofID3"].ToString();
+                return HttpContext.Current.Session["RIMVProofID3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2292,7 +2292,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMStaffAddress3"].ToString();
+                return HttpContext.Current.Session["RIMStaffAddress3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2310,7 +2310,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVDOB4"].ToString();
+                return HttpContext.Current.Session["RIMVDOB4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2328,7 +2328,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMDOB4"].ToString();
+                return HttpContext.Current.Session["RIMMDOB4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2346,7 +2346,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVAddress4"].ToString();
+                return HttpContext.Current.Session["RIMVAddress4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2364,7 +2364,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMAddress4"].ToString();
+                return HttpContext.Current.Session["RIMMAddress4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2382,7 +2382,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVProofID4"].ToString();
+                return HttpContext.Current.Session["RIMVProofID4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2400,7 +2400,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMStaffAddress4"].ToString();
+                return HttpContext.Current.Session["RIMStaffAddress4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2418,7 +2418,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVDOB5"].ToString();
+                return HttpContext.Current.Session["RIMVDOB5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2436,7 +2436,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMDOB5"].ToString();
+                return HttpContext.Current.Session["RIMMDOB5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2454,7 +2454,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVAddress5"].ToString();
+                return HttpContext.Current.Session["RIMVAddress5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2472,7 +2472,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMAddress5"].ToString();
+                return HttpContext.Current.Session["RIMMAddress5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2490,7 +2490,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMVProofID5"].ToString();
+                return HttpContext.Current.Session["RIMVProofID5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2508,7 +2508,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMStaffAddress5"].ToString();
+                return HttpContext.Current.Session["RIMStaffAddress5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2526,7 +2526,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMFirst1"].ToString();
+                return HttpContext.Current.Session["RIMFirst1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2544,7 +2544,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMLast1"].ToString();
+                return HttpContext.Current.Session["RIMLast1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2562,7 +2562,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMContact1"].ToString();
+                return HttpContext.Current.Session["RIMContact1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2580,7 +2580,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMType1"].ToString();
+                return HttpContext.Current.Session["RIMType1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2598,7 +2598,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWitness1"].ToString();
+                return HttpContext.Current.Session["RIMWitness1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2616,7 +2616,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMember1"].ToString();
+                return HttpContext.Current.Session["RIMMember1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2634,7 +2634,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSignInSlip1"].ToString();
+                return HttpContext.Current.Session["RIMSignInSlip1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2652,7 +2652,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPDate1"].ToString();
+                return HttpContext.Current.Session["RIMPDate1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2670,7 +2670,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCard1"].ToString();
+                return HttpContext.Current.Session["RIMCard1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2688,7 +2688,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSignInBy1"].ToString();
+                return HttpContext.Current.Session["RIMSignInBy1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2706,7 +2706,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeH1"].ToString();
+                return HttpContext.Current.Session["RIMPTimeH1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2724,7 +2724,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeM1"].ToString();
+                return HttpContext.Current.Session["RIMPTimeM1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2742,7 +2742,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeTC1"].ToString();
+                return HttpContext.Current.Session["RIMPTimeTC1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2760,7 +2760,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAge1"].ToString();
+                return HttpContext.Current.Session["RIMAge1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2778,7 +2778,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAgeGroup1"].ToString();
+                return HttpContext.Current.Session["RIMAgeGroup1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2796,7 +2796,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWeight1"].ToString();
+                return HttpContext.Current.Session["RIMWeight1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2814,7 +2814,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHeight1"].ToString();
+                return HttpContext.Current.Session["RIMHeight1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2832,7 +2832,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHair1"].ToString();
+                return HttpContext.Current.Session["RIMHair1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2850,7 +2850,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMClothingTop1"].ToString();
+                return HttpContext.Current.Session["RIMClothingTop1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2868,7 +2868,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMClothingBottom1"].ToString();
+                return HttpContext.Current.Session["RIMClothingBottom1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2886,7 +2886,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMShoes1"].ToString();
+                return HttpContext.Current.Session["RIMShoes1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2904,7 +2904,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWeapon1"].ToString();
+                return HttpContext.Current.Session["RIMWeapon1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2922,7 +2922,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMGender1"].ToString();
+                return HttpContext.Current.Session["RIMGender1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2940,7 +2940,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMDistFeat1"].ToString();
+                return HttpContext.Current.Session["RIMDistFeat1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2958,7 +2958,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryDesc1"].ToString();
+                return HttpContext.Current.Session["RIMInjuryDesc1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2976,7 +2976,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryCause1"].ToString();
+                return HttpContext.Current.Session["RIMInjuryCause1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -2994,7 +2994,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryComm1"].ToString();
+                return HttpContext.Current.Session["RIMInjuryComm1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3012,7 +3012,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMFirst2"].ToString();
+                return HttpContext.Current.Session["RIMFirst2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3030,7 +3030,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMLast2"].ToString();
+                return HttpContext.Current.Session["RIMLast2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3048,7 +3048,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMContact2"].ToString();
+                return HttpContext.Current.Session["RIMContact2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3066,7 +3066,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMType2"].ToString();
+                return HttpContext.Current.Session["RIMType2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3084,7 +3084,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWitness2"].ToString();
+                return HttpContext.Current.Session["RIMWitness2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3102,7 +3102,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMember2"].ToString();
+                return HttpContext.Current.Session["RIMMember2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3120,7 +3120,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSignInSlip2"].ToString();
+                return HttpContext.Current.Session["RIMSignInSlip2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3138,7 +3138,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPDate2"].ToString();
+                return HttpContext.Current.Session["RIMPDate2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3156,7 +3156,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCard2"].ToString();
+                return HttpContext.Current.Session["RIMCard2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3174,7 +3174,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSignInBy2"].ToString();
+                return HttpContext.Current.Session["RIMSignInBy2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3192,7 +3192,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeH2"].ToString();
+                return HttpContext.Current.Session["RIMPTimeH2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3210,7 +3210,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeM2"].ToString();
+                return HttpContext.Current.Session["RIMPTimeM2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3228,7 +3228,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeTC2"].ToString();
+                return HttpContext.Current.Session["RIMPTimeTC2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3246,7 +3246,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAge2"].ToString();
+                return HttpContext.Current.Session["RIMAge2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3264,7 +3264,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAgeGroup2"].ToString();
+                return HttpContext.Current.Session["RIMAgeGroup2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3282,7 +3282,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWeight2"].ToString();
+                return HttpContext.Current.Session["RIMWeight2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3300,7 +3300,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHeight2"].ToString();
+                return HttpContext.Current.Session["RIMHeight2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3318,7 +3318,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHair2"].ToString();
+                return HttpContext.Current.Session["RIMHair2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3336,7 +3336,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMClothingTop2"].ToString();
+                return HttpContext.Current.Session["RIMClothingTop2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3354,7 +3354,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMClothingBottom2"].ToString();
+                return HttpContext.Current.Session["RIMClothingBottom2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3372,7 +3372,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMShoes2"].ToString();
+                return HttpContext.Current.Session["RIMShoes2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3390,7 +3390,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWeapon2"].ToString();
+                return HttpContext.Current.Session["RIMWeapon2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3408,7 +3408,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMGender2"].ToString();
+                return HttpContext.Current.Session["RIMGender2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3426,7 +3426,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMDistFeat2"].ToString();
+                return HttpContext.Current.Session["RIMDistFeat2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3444,7 +3444,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryDesc2"].ToString();
+                return HttpContext.Current.Session["RIMInjuryDesc2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3462,7 +3462,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryCause2"].ToString();
+                return HttpContext.Current.Session["RIMInjuryCause2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3480,7 +3480,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryComm2"].ToString();
+                return HttpContext.Current.Session["RIMInjuryComm2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3498,7 +3498,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMFirst3"].ToString();
+                return HttpContext.Current.Session["RIMFirst3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3516,7 +3516,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMLast3"].ToString();
+                return HttpContext.Current.Session["RIMLast3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3534,7 +3534,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMContact3"].ToString();
+                return HttpContext.Current.Session["RIMContact3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3552,7 +3552,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMType3"].ToString();
+                return HttpContext.Current.Session["RIMType3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3570,7 +3570,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWitness3"].ToString();
+                return HttpContext.Current.Session["RIMWitness3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3588,7 +3588,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMember3"].ToString();
+                return HttpContext.Current.Session["RIMMember3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3606,7 +3606,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSignInSlip3"].ToString();
+                return HttpContext.Current.Session["RIMSignInSlip3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3624,7 +3624,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPDate3"].ToString();
+                return HttpContext.Current.Session["RIMPDate3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3642,7 +3642,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCard3"].ToString();
+                return HttpContext.Current.Session["RIMCard3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3660,7 +3660,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSignInBy3"].ToString();
+                return HttpContext.Current.Session["RIMSignInBy3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3678,7 +3678,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeH3"].ToString();
+                return HttpContext.Current.Session["RIMPTimeH3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3696,7 +3696,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeM3"].ToString();
+                return HttpContext.Current.Session["RIMPTimeM3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3714,7 +3714,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeTC3"].ToString();
+                return HttpContext.Current.Session["RIMPTimeTC3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3732,7 +3732,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAge3"].ToString();
+                return HttpContext.Current.Session["RIMAge3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3750,7 +3750,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAgeGroup3"].ToString();
+                return HttpContext.Current.Session["RIMAgeGroup3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3768,7 +3768,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWeight3"].ToString();
+                return HttpContext.Current.Session["RIMWeight3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3786,7 +3786,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHeight3"].ToString();
+                return HttpContext.Current.Session["RIMHeight3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3804,7 +3804,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHair3"].ToString();
+                return HttpContext.Current.Session["RIMHair3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3822,7 +3822,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMClothingTop3"].ToString();
+                return HttpContext.Current.Session["RIMClothingTop3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3840,7 +3840,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMClothingBottom3"].ToString();
+                return HttpContext.Current.Session["RIMClothingBottom3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3858,7 +3858,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMShoes3"].ToString();
+                return HttpContext.Current.Session["RIMShoes3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3876,7 +3876,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWeapon3"].ToString();
+                return HttpContext.Current.Session["RIMWeapon3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3894,7 +3894,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMGender3"].ToString();
+                return HttpContext.Current.Session["RIMGender3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3912,7 +3912,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMDistFeat3"].ToString();
+                return HttpContext.Current.Session["RIMDistFeat3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3930,7 +3930,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryDesc3"].ToString();
+                return HttpContext.Current.Session["RIMInjuryDesc3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3948,7 +3948,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryCause3"].ToString();
+                return HttpContext.Current.Session["RIMInjuryCause3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3966,7 +3966,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryComm3"].ToString();
+                return HttpContext.Current.Session["RIMInjuryComm3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -3984,7 +3984,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMFirst4"].ToString();
+                return HttpContext.Current.Session["RIMFirst4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4002,7 +4002,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMLast4"].ToString();
+                return HttpContext.Current.Session["RIMLast4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4020,7 +4020,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMContact4"].ToString();
+                return HttpContext.Current.Session["RIMContact4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4038,7 +4038,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMType4"].ToString();
+                return HttpContext.Current.Session["RIMType4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4056,7 +4056,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWitness4"].ToString();
+                return HttpContext.Current.Session["RIMWitness4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4074,7 +4074,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMember4"].ToString();
+                return HttpContext.Current.Session["RIMMember4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4092,7 +4092,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSignInSlip4"].ToString();
+                return HttpContext.Current.Session["RIMSignInSlip4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4110,7 +4110,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPDate4"].ToString();
+                return HttpContext.Current.Session["RIMPDate4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4128,7 +4128,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCard4"].ToString();
+                return HttpContext.Current.Session["RIMCard4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4146,7 +4146,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSignInBy4"].ToString();
+                return HttpContext.Current.Session["RIMSignInBy4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4164,7 +4164,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeH4"].ToString();
+                return HttpContext.Current.Session["RIMPTimeH4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4182,7 +4182,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeM4"].ToString();
+                return HttpContext.Current.Session["RIMPTimeM4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4200,7 +4200,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeTC4"].ToString();
+                return HttpContext.Current.Session["RIMPTimeTC4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4218,7 +4218,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAge4"].ToString();
+                return HttpContext.Current.Session["RIMAge4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4236,7 +4236,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAgeGroup4"].ToString();
+                return HttpContext.Current.Session["RIMAgeGroup4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4254,7 +4254,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWeight4"].ToString();
+                return HttpContext.Current.Session["RIMWeight4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4272,7 +4272,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHeight4"].ToString();
+                return HttpContext.Current.Session["RIMHeight4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4290,7 +4290,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHair4"].ToString();
+                return HttpContext.Current.Session["RIMHair4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4308,7 +4308,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMClothingTop4"].ToString();
+                return HttpContext.Current.Session["RIMClothingTop4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4326,7 +4326,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMClothingBottom4"].ToString();
+                return HttpContext.Current.Session["RIMClothingBottom4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4344,7 +4344,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMShoes4"].ToString();
+                return HttpContext.Current.Session["RIMShoes4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4362,7 +4362,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWeapon4"].ToString();
+                return HttpContext.Current.Session["RIMWeapon4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4380,7 +4380,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMGender4"].ToString();
+                return HttpContext.Current.Session["RIMGender4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4398,7 +4398,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMDistFeat4"].ToString();
+                return HttpContext.Current.Session["RIMDistFeat4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4416,7 +4416,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryDesc4"].ToString();
+                return HttpContext.Current.Session["RIMInjuryDesc4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4434,7 +4434,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryCause4"].ToString();
+                return HttpContext.Current.Session["RIMInjuryCause4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4452,7 +4452,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryComm4"].ToString();
+                return HttpContext.Current.Session["RIMInjuryComm4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4470,7 +4470,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMFirst5"].ToString();
+                return HttpContext.Current.Session["RIMFirst5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4488,7 +4488,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMLast5"].ToString();
+                return HttpContext.Current.Session["RIMLast5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4506,7 +4506,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMContact5"].ToString();
+                return HttpContext.Current.Session["RIMContact5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4524,7 +4524,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMType5"].ToString();
+                return HttpContext.Current.Session["RIMType5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4542,7 +4542,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWitness5"].ToString();
+                return HttpContext.Current.Session["RIMWitness5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4560,7 +4560,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMember5"].ToString();
+                return HttpContext.Current.Session["RIMMember5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4578,7 +4578,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSignInSlip5"].ToString();
+                return HttpContext.Current.Session["RIMSignInSlip5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4596,7 +4596,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPDate5"].ToString();
+                return HttpContext.Current.Session["RIMPDate5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4614,7 +4614,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCard5"].ToString();
+                return HttpContext.Current.Session["RIMCard5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4632,7 +4632,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSignInBy5"].ToString();
+                return HttpContext.Current.Session["RIMSignInBy5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4650,7 +4650,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeH5"].ToString();
+                return HttpContext.Current.Session["RIMPTimeH5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4668,7 +4668,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeM5"].ToString();
+                return HttpContext.Current.Session["RIMPTimeM5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4686,7 +4686,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPTimeTC5"].ToString();
+                return HttpContext.Current.Session["RIMPTimeTC5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4704,7 +4704,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAge5"].ToString();
+                return HttpContext.Current.Session["RIMAge5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4722,7 +4722,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAgeGroup5"].ToString();
+                return HttpContext.Current.Session["RIMAgeGroup5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4740,7 +4740,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWeight5"].ToString();
+                return HttpContext.Current.Session["RIMWeight5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4758,7 +4758,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHeight5"].ToString();
+                return HttpContext.Current.Session["RIMHeight5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4776,7 +4776,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHair5"].ToString();
+                return HttpContext.Current.Session["RIMHair5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4794,7 +4794,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMClothingTop5"].ToString();
+                return HttpContext.Current.Session["RIMClothingTop5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4812,7 +4812,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMClothingBottom5"].ToString();
+                return HttpContext.Current.Session["RIMClothingBottom5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4830,7 +4830,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMShoes5"].ToString();
+                return HttpContext.Current.Session["RIMShoes5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4848,7 +4848,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWeapon5"].ToString();
+                return HttpContext.Current.Session["RIMWeapon5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4866,7 +4866,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMGender5"].ToString();
+                return HttpContext.Current.Session["RIMGender5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4884,7 +4884,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMDistFeat5"].ToString();
+                return HttpContext.Current.Session["RIMDistFeat5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4902,7 +4902,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryDesc5"].ToString();
+                return HttpContext.Current.Session["RIMInjuryDesc5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4920,7 +4920,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryCause5"].ToString();
+                return HttpContext.Current.Session["RIMInjuryCause5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4938,7 +4938,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMInjuryComm5"].ToString();
+                return HttpContext.Current.Session["RIMInjuryComm5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4956,7 +4956,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMDate"].ToString();
+                return HttpContext.Current.Session["RIMDate"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4974,7 +4974,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMHour"].ToString();
+                return HttpContext.Current.Session["RIMHour"].ToString().Replace("'", "^");
             }
         }
         set
@@ -4992,7 +4992,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMMinute"].ToString();
+                return HttpContext.Current.Session["RIMMinute"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5010,7 +5010,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMTC"].ToString();
+                return HttpContext.Current.Session["RIMTC"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5028,7 +5028,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMLocation"].ToString();
+                return HttpContext.Current.Session["RIMLocation"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5046,7 +5046,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMLocationOther"].ToString();
+                return HttpContext.Current.Session["RIMLocationOther"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5064,7 +5064,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamDesc1"].ToString();
+                return HttpContext.Current.Session["RIMCamDesc1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5082,7 +5082,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamRec1"].ToString();
+                return HttpContext.Current.Session["RIMCamRec1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5100,7 +5100,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMFilePath1"].ToString();
+                return HttpContext.Current.Session["RIMFilePath1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5118,7 +5118,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSDate1"].ToString();
+                return HttpContext.Current.Session["RIMSDate1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5136,7 +5136,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeH1"].ToString();
+                return HttpContext.Current.Session["RIMSTimeH1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5154,7 +5154,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeM1"].ToString();
+                return HttpContext.Current.Session["RIMSTimeM1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5172,7 +5172,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeTC1"].ToString();
+                return HttpContext.Current.Session["RIMSTimeTC1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5190,7 +5190,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMEDate1"].ToString();
+                return HttpContext.Current.Session["RIMEDate1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5208,7 +5208,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeH1"].ToString();
+                return HttpContext.Current.Session["RIMETimeH1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5226,7 +5226,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeM1"].ToString();
+                return HttpContext.Current.Session["RIMETimeM1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5244,7 +5244,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeTC1"].ToString();
+                return HttpContext.Current.Session["RIMETimeTC1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5262,7 +5262,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamDesc2"].ToString();
+                return HttpContext.Current.Session["RIMCamDesc2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5280,7 +5280,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamRec2"].ToString();
+                return HttpContext.Current.Session["RIMCamRec2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5298,7 +5298,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMFilePath2"].ToString();
+                return HttpContext.Current.Session["RIMFilePath2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5316,7 +5316,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSDate2"].ToString();
+                return HttpContext.Current.Session["RIMSDate2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5334,7 +5334,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeH2"].ToString();
+                return HttpContext.Current.Session["RIMSTimeH2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5352,7 +5352,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeM2"].ToString();
+                return HttpContext.Current.Session["RIMSTimeM2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5370,7 +5370,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeTC2"].ToString();
+                return HttpContext.Current.Session["RIMSTimeTC2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5388,7 +5388,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMEDate2"].ToString();
+                return HttpContext.Current.Session["RIMEDate2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5406,7 +5406,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeH2"].ToString();
+                return HttpContext.Current.Session["RIMETimeH2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5424,7 +5424,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeM2"].ToString();
+                return HttpContext.Current.Session["RIMETimeM2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5442,7 +5442,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeTC2"].ToString();
+                return HttpContext.Current.Session["RIMETimeTC2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5460,7 +5460,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamDesc3"].ToString();
+                return HttpContext.Current.Session["RIMCamDesc3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5478,7 +5478,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamRec3"].ToString();
+                return HttpContext.Current.Session["RIMCamRec3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5496,7 +5496,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMFilePath3"].ToString();
+                return HttpContext.Current.Session["RIMFilePath3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5514,7 +5514,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSDate3"].ToString();
+                return HttpContext.Current.Session["RIMSDate3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5532,7 +5532,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeH3"].ToString();
+                return HttpContext.Current.Session["RIMSTimeH3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5550,7 +5550,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeM3"].ToString();
+                return HttpContext.Current.Session["RIMSTimeM3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5568,7 +5568,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeTC3"].ToString();
+                return HttpContext.Current.Session["RIMSTimeTC3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5586,7 +5586,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMEDate3"].ToString();
+                return HttpContext.Current.Session["RIMEDate3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5604,7 +5604,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeH3"].ToString();
+                return HttpContext.Current.Session["RIMETimeH3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5622,7 +5622,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeM3"].ToString();
+                return HttpContext.Current.Session["RIMETimeM3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5640,7 +5640,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeTC3"].ToString();
+                return HttpContext.Current.Session["RIMETimeTC3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5658,7 +5658,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamDesc4"].ToString();
+                return HttpContext.Current.Session["RIMCamDesc4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5676,7 +5676,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamRec4"].ToString();
+                return HttpContext.Current.Session["RIMCamRec4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5694,7 +5694,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMFilePath4"].ToString();
+                return HttpContext.Current.Session["RIMFilePath4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5712,7 +5712,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSDate4"].ToString();
+                return HttpContext.Current.Session["RIMSDate4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5730,7 +5730,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeH4"].ToString();
+                return HttpContext.Current.Session["RIMSTimeH4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5748,7 +5748,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeM4"].ToString();
+                return HttpContext.Current.Session["RIMSTimeM4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5766,7 +5766,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeTC4"].ToString();
+                return HttpContext.Current.Session["RIMSTimeTC4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5784,7 +5784,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMEDate4"].ToString();
+                return HttpContext.Current.Session["RIMEDate4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5802,7 +5802,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeH4"].ToString();
+                return HttpContext.Current.Session["RIMETimeH4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5820,7 +5820,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeM4"].ToString();
+                return HttpContext.Current.Session["RIMETimeM4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5838,7 +5838,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeTC4"].ToString();
+                return HttpContext.Current.Session["RIMETimeTC4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5856,7 +5856,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamDesc5"].ToString();
+                return HttpContext.Current.Session["RIMCamDesc5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5874,7 +5874,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamRec5"].ToString();
+                return HttpContext.Current.Session["RIMCamRec5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5892,7 +5892,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMFilePath5"].ToString();
+                return HttpContext.Current.Session["RIMFilePath5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5910,7 +5910,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSDate5"].ToString();
+                return HttpContext.Current.Session["RIMSDate5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5928,7 +5928,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeH5"].ToString();
+                return HttpContext.Current.Session["RIMSTimeH5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5946,7 +5946,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeM5"].ToString();
+                return HttpContext.Current.Session["RIMSTimeM5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5964,7 +5964,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeTC5"].ToString();
+                return HttpContext.Current.Session["RIMSTimeTC5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -5982,7 +5982,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMEDate5"].ToString();
+                return HttpContext.Current.Session["RIMEDate5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6000,7 +6000,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeH5"].ToString();
+                return HttpContext.Current.Session["RIMETimeH5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6018,7 +6018,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeM5"].ToString();
+                return HttpContext.Current.Session["RIMETimeM5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6036,7 +6036,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeTC5"].ToString();
+                return HttpContext.Current.Session["RIMETimeTC5"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6054,7 +6054,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamDesc6"].ToString();
+                return HttpContext.Current.Session["RIMCamDesc6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6072,7 +6072,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamRec6"].ToString();
+                return HttpContext.Current.Session["RIMCamRec6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6090,7 +6090,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMFilePath6"].ToString();
+                return HttpContext.Current.Session["RIMFilePath6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6108,7 +6108,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSDate6"].ToString();
+                return HttpContext.Current.Session["RIMSDate6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6126,7 +6126,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeH6"].ToString();
+                return HttpContext.Current.Session["RIMSTimeH6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6144,7 +6144,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeM6"].ToString();
+                return HttpContext.Current.Session["RIMSTimeM6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6162,7 +6162,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeTC6"].ToString();
+                return HttpContext.Current.Session["RIMSTimeTC6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6180,7 +6180,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMEDate6"].ToString();
+                return HttpContext.Current.Session["RIMEDate6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6198,7 +6198,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeH6"].ToString();
+                return HttpContext.Current.Session["RIMETimeH6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6216,7 +6216,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeM6"].ToString();
+                return HttpContext.Current.Session["RIMETimeM6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6234,7 +6234,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeTC6"].ToString();
+                return HttpContext.Current.Session["RIMETimeTC6"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6252,7 +6252,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamDesc7"].ToString();
+                return HttpContext.Current.Session["RIMCamDesc7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6270,7 +6270,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMCamRec7"].ToString();
+                return HttpContext.Current.Session["RIMCamRec7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6288,7 +6288,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMFilePath7"].ToString();
+                return HttpContext.Current.Session["RIMFilePath7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6306,7 +6306,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSDate7"].ToString();
+                return HttpContext.Current.Session["RIMSDate7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6324,7 +6324,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeH7"].ToString();
+                return HttpContext.Current.Session["RIMSTimeH7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6342,7 +6342,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeM7"].ToString();
+                return HttpContext.Current.Session["RIMSTimeM7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6360,7 +6360,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSTimeTC7"].ToString();
+                return HttpContext.Current.Session["RIMSTimeTC7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6378,7 +6378,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMEDate7"].ToString();
+                return HttpContext.Current.Session["RIMEDate7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6396,7 +6396,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeH7"].ToString();
+                return HttpContext.Current.Session["RIMETimeH7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6414,7 +6414,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeM7"].ToString();
+                return HttpContext.Current.Session["RIMETimeM7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6432,7 +6432,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMETimeTC7"].ToString();
+                return HttpContext.Current.Session["RIMETimeTC7"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6450,7 +6450,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMWhatHappened"].ToString();
+                return HttpContext.Current.Session["RIMWhatHappened"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6468,7 +6468,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMActionTaken"].ToString();
+                return HttpContext.Current.Session["RIMActionTaken"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6486,7 +6486,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMDetails"].ToString();
+                return HttpContext.Current.Session["RIMDetails"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6504,7 +6504,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSecurityAttend"].ToString();
+                return HttpContext.Current.Session["RIMSecurityAttend"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6522,7 +6522,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMSecurityName"].ToString();
+                return HttpContext.Current.Session["RIMSecurityName"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6540,7 +6540,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPoliceNotified"].ToString();
+                return HttpContext.Current.Session["RIMPoliceNotified"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6558,7 +6558,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPoliceStation"].ToString();
+                return HttpContext.Current.Session["RIMPoliceStation"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6577,7 +6577,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMOfficersName"].ToString();
+                return HttpContext.Current.Session["RIMOfficersName"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6595,7 +6595,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMPoliceAction"].ToString();
+                return HttpContext.Current.Session["RIMPoliceAction"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6708,7 +6708,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAlias1"].ToString();
+                return HttpContext.Current.Session["RIMAlias1"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6726,7 +6726,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAlias2"].ToString();
+                return HttpContext.Current.Session["RIMAlias2"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6744,7 +6744,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAlias3"].ToString();
+                return HttpContext.Current.Session["RIMAlias3"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6762,7 +6762,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAlias4"].ToString();
+                return HttpContext.Current.Session["RIMAlias4"].ToString().Replace("'", "^");
             }
         }
         set
@@ -6780,7 +6780,7 @@ public class ReportIncidentMr
             }
             else
             {
-                return HttpContext.Current.Session["RIMAlias5"].ToString();
+                return HttpContext.Current.Session["RIMAlias5"].ToString().Replace("'", "^");
             }
         }
         set

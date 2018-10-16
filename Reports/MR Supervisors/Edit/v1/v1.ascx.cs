@@ -43,20 +43,20 @@ public partial class Reports_MR_Supervisors_Edit_v1_v1 : System.Web.UI.UserContr
                         Report.ShiftDOW = DateTime.Parse(Report.ShiftDate.ToString()).DayOfWeek.ToString();
                         lblEntryDetails.Text = Convert.ToDateTime(rdr["EntryDate"]).ToString("dd/MM/yyyy HH:mm");
                         Report.EntryDate = Convert.ToDateTime(rdr["EntryDate"]).ToString();
-                        txtSignInSlip.Text = rdr["SignInSlip"].ToString().Replace("<br />", "\n");
-                        txtReception.Text = rdr["Reception"].ToString().Replace("<br />", "\n");
-                        txtGaming.Text = rdr["Gaming"].ToString().Replace("<br />", "\n");
-                        txtBar.Text = rdr["Bar"].ToString().Replace("<br />", "\n");
-                        txtTABKeno.Text = rdr["TABKeno"].ToString().Replace("<br />", "\n");
-                        txtHouseKeep.Text = rdr["HouseKeeping"].ToString().Replace("<br />", "\n");
-                        txtBistro.Text = rdr["Bistro"].ToString().Replace("<br />", "\n");
-                        txtFoodHygiene.Text = rdr["FoodHygiene"].ToString().Replace("<br />", "\n");
-                        txtEvents.Text = rdr["Events"].ToString().Replace("<br />", "\n");
-                        txtCustomerServ.Text = rdr["CustomerService"].ToString().Replace("<br />", "\n");
-                        txtGenComm.Text = rdr["GeneralComments"].ToString().Replace("<br />", "\n");
-                        txtLuckyRewards.Text = rdr["LuckyRewards"].ToString().Replace("<br />", "\n");
-                        txtRSA.Text = rdr["RSA"].ToString().Replace("<br />", "\n");
-                        txtAMLCTF.Text = rdr["AMLCTF"].ToString().Replace("<br />", "\n");
+                        txtSignInSlip.Text = rdr["SignInSlip"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtReception.Text = rdr["Reception"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtGaming.Text = rdr["Gaming"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtBar.Text = rdr["Bar"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtTABKeno.Text = rdr["TABKeno"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtHouseKeep.Text = rdr["HouseKeeping"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtBistro.Text = rdr["Bistro"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtFoodHygiene.Text = rdr["FoodHygiene"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtEvents.Text = rdr["Events"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtCustomerServ.Text = rdr["CustomerService"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtGenComm.Text = rdr["GeneralComments"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtLuckyRewards.Text = rdr["LuckyRewards"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtRSA.Text = rdr["RSA"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        txtAMLCTF.Text = rdr["AMLCTF"].ToString().Replace("<br />", "\n").Replace("^", "'");
 
                         // set the Global variables to the current fields
                         SetStaticVariable();
@@ -245,19 +245,19 @@ public partial class Reports_MR_Supervisors_Edit_v1_v1 : System.Web.UI.UserContr
 
     protected void SetStaticVariable()
     {
-        ReportSupervisorMr.SignInSlip = txtSignInSlip.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportSupervisorMr.Reception = txtReception.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportSupervisorMr.Gaming = txtGaming.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportSupervisorMr.Bar = txtBar.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportSupervisorMr.TabKeno = txtTABKeno.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportSupervisorMr.HouseKeeping = txtHouseKeep.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportSupervisorMr.Bistro = txtBistro.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportSupervisorMr.FoodHygiene = txtFoodHygiene.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportSupervisorMr.Events = txtEvents.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportSupervisorMr.CustomerService = txtCustomerServ.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportSupervisorMr.GenComm = txtGenComm.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportSupervisorMr.LuckyRewards = txtLuckyRewards.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportSupervisorMr.RSA = txtRSA.Text.Replace("\n", "<br />").Replace("'", "");
-        ReportSupervisorMr.AMLCTF = txtAMLCTF.Text.Replace("\n", "<br />").Replace("'", "");
+        ReportSupervisorMr.SignInSlip = txtSignInSlip.Text.Replace("\n", "<br />");
+        ReportSupervisorMr.Reception = txtReception.Text.Replace("\n", "<br />");
+        ReportSupervisorMr.Gaming = txtGaming.Text.Replace("\n", "<br />");
+        ReportSupervisorMr.Bar = txtBar.Text.Replace("\n", "<br />");
+        ReportSupervisorMr.TabKeno = txtTABKeno.Text.Replace("\n", "<br />");
+        ReportSupervisorMr.HouseKeeping = txtHouseKeep.Text.Replace("\n", "<br />");
+        ReportSupervisorMr.Bistro = txtBistro.Text.Replace("\n", "<br />");
+        ReportSupervisorMr.FoodHygiene = txtFoodHygiene.Text.Replace("\n", "<br />");
+        ReportSupervisorMr.Events = txtEvents.Text.Replace("\n", "<br />");
+        ReportSupervisorMr.CustomerService = txtCustomerServ.Text.Replace("\n", "<br />");
+        ReportSupervisorMr.GenComm = txtGenComm.Text.Replace("\n", "<br />");
+        ReportSupervisorMr.LuckyRewards = txtLuckyRewards.Text.Replace("\n", "<br />");
+        ReportSupervisorMr.RSA = txtRSA.Text.Replace("\n", "<br />");
+        ReportSupervisorMr.AMLCTF = txtAMLCTF.Text.Replace("\n", "<br />");
     }
 }

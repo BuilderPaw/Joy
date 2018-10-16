@@ -132,19 +132,19 @@ public partial class Reports_MR_Duty_Managers_Create_v1_v1 : System.Web.UI.Page
             dm.ReportStat = "Awaiting Completion";
             dm.Report_Version = 1; // current version
             dm.ReadByList = "," + UserCredentials.StaffId + ",";
-            dm.Supervisors = txtSupervisors.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.Whs = txtWHS.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.CostSavings = txtCostSavings.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.ClubPresent = txtClubPres.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.ClubMaintenance = txtClubMaint.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.Absenteeism = txtAbsenteeism.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.StaffIssues = txtStaffIssues.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.Gaming = txtGaming.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.KeySecurity = txtKeySec.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.Cameras = txtCameras.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.GeneralComments = txtGenComm.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.LuckyRewards = txtLuckyRewards.Text.Replace("\n", "<br />").Replace("'", "");
-            dm.Compliance = txtCompliance.Text.Replace("\n", "<br />").Replace("'", "");
+            dm.Supervisors = txtSupervisors.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.Whs = txtWHS.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.CostSavings = txtCostSavings.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.ClubPresent = txtClubPres.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.ClubMaintenance = txtClubMaint.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.Absenteeism = txtAbsenteeism.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.StaffIssues = txtStaffIssues.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.Gaming = txtGaming.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.KeySecurity = txtKeySec.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.Cameras = txtCameras.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.GeneralComments = txtGenComm.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.LuckyRewards = txtLuckyRewards.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.Compliance = txtCompliance.Text.Replace("\n", "<br />").Replace("'", "^");
             dc.Report_MerrylandsRSLDutyManagers.InsertOnSubmit(dm);
             dc.SubmitChanges();
         }
