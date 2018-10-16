@@ -122,12 +122,15 @@ public class SqlQuery
                         string staffName = (string)checkExist.ExecuteScalar();
                         con1.Close();
 
-                        // store the Staff Id current Club Umina Manager to be used in ManagerSignQuery method in Report.cs and ManagerSignNotification method in Default.aspx.cs
-                        con1.Open();
-                        SqlCommand cuManager = new SqlCommand("SELECT StaffId FROM [Staff] WHERE GroupNames LIKE '%CUReportsClubManager%'", con1);
-                        Report.ClubManagerUmina = cuManager.ExecuteScalar().ToString();
-                        con1.Close();
-
+                        try
+                        {
+                            // store the Staff Id current Club Umina Manager to be used in ManagerSignQuery method in Report.cs and ManagerSignNotification method in Default.aspx.cs
+                            con1.Open();
+                            SqlCommand cuManager = new SqlCommand("SELECT StaffId FROM [Staff] WHERE GroupNames LIKE '%CUReportsClubManager%'", con1);
+                            Report.ClubManagerUmina = cuManager.ExecuteScalar().ToString();
+                            con1.Close();
+                        }
+                        catch { }
 
                         if (UserCredentials.DisplayName.Equals(staffName)) // if staff is up-to-date, continue
                         {                     

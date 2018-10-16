@@ -153,6 +153,7 @@ public partial class Reports_MR_Duty_Managers_Create_v2_v2 : System.Web.UI.Page
         Request.ApplicationPath + "Default.aspx';", true);
         SearchReport.SetAccordion = "1";
         SearchReport.RunOnStart = true;
+        SearchReport.FromCreateReport = true;
     }
 
     protected void btnReset_Click(object sender, EventArgs e)

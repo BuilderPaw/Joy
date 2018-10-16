@@ -644,4 +644,23 @@ public class SearchReport
             HttpContext.Current.Session["SRRunOnStart"] = value;
         }
     }
+
+    public static bool FromCreateReport // check whether or not postback came from Creating a Report
+    {
+        get
+        {
+            if (HttpContext.Current.Session["SRCreateReport"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return (bool)HttpContext.Current.Session["SRCreateReport"];
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["SRCreateReport"] = value;
+        }
+    }
 }

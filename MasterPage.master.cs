@@ -346,6 +346,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 if (SearchReport.RunOnStart == true)
                 {
                     DefaultSearch();
+                    if (SearchReport.FromCreateReport) // check if postback came from creating a report
+                    {
+                        SearchReport.UnreadList = false;
+                        SearchReport.FromCreateReport = false;
+                    }
+                    else
+                    {
+                        SearchReport.UnreadList = true;
+                    }
                     SearchReport.RunOnStart = false;
                 }
             }
@@ -678,6 +687,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         Response.Redirect("~/Reports/" + ddlCreateReport.SelectedItem.ToString() + "/Create/v" + version.ToString() + "/v" + version.ToString() + ".aspx", false); // display the appropriate Report to create 
         SearchReport.SetAccordion = "0"; // set accordion active selected index back to Reports Panel
         SearchReport.CreateReport = ddlCreateReport.SelectedItem.Value.ToString();
+        Report.PageSize = "10";
     }
 
     protected void ddlDateGroup_SelectedIndexChanged(object sender, EventArgs e)

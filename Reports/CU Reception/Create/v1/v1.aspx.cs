@@ -147,6 +147,7 @@ public partial class Reports_CU_Reception_Create_v1_v1 : System.Web.UI.Page
         Request.ApplicationPath + "Default.aspx';", true);
         SearchReport.SetAccordion = "1";
         SearchReport.RunOnStart = true;
+        SearchReport.FromCreateReport = true;
     }
 
     protected void btnReset_Click(object sender, EventArgs e)

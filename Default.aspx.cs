@@ -4827,6 +4827,7 @@ public partial class _Default : System.Web.UI.Page
                 }
             }
         }
+        btnMarkAsRead.Visible = false;
     }
     protected void btnSignAsManager_Click(object sender, EventArgs e)
     {

@@ -5971,6 +5971,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         Request.ApplicationPath + "Default.aspx';", true);
         SearchReport.SetAccordion = "1";
         SearchReport.RunOnStart = true;
+        SearchReport.FromCreateReport = true;
     }
 
     // Once Member had a Textchanged, trigger this
