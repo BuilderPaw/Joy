@@ -1228,6 +1228,93 @@ public partial class _Default : System.Web.UI.Page
         cmd.ExecuteNonQuery();
         con.Close();
 
+        // check if updateComment variable has a character @
+        // if it doesn't, continue. If it has, split updateComment to array of strings (split by character @)
+        // check each array and remove everything after the white space
+        var recentComment = txtComment.Text + "<br/>Commented by " + UserCredentials.DisplayName + " " + Convert.ToDateTime(dateEntered).ToString("dd/MM/yyyy HH:mm");
+        if (recentComment.Contains("@"))
+        {
+            var array = recentComment.Split('@'); // split recentComment with character @
+            array = array.Where(x => !string.IsNullOrEmpty(x)).ToArray(); // remove any null or empty array
+
+            for (int i = 0; i < array.Length; i++) // loop through all arrays and remove strings after a space character or  breakline
+            {
+                try
+                {
+                    array[i] = array[i].Substring(0, array[i].IndexOf(" ")).ToLower();
+                    array[i] = array[i].Substring(0, array[i].IndexOf("<br/>")).ToLower();
+                }
+                catch { }
+            }
+
+            // remove with value character -
+            array = array.Where(val => val != "-").ToArray();
+
+            // remove any duplicates
+            var taggedUsers = array.Distinct().ToArray();
+
+            foreach (string s in taggedUsers)
+            {
+                sqlQuery.RetrieveData("SELECT Username FROM Staff WHERE Username='" + s + "'", "CheckUsername");
+                if (Report.WrongUsername) // send me an email to program creator if comment has a wrong tag input
+                {
+                    try // enclose in a try catch just in case program is running in test database
+                    {
+                        con.Open();
+                        SqlCommand wrongUsername = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', " +
+                            "@blind_copy_recipients='paolos@mrsl.com.au', @subject = 'Notification | " + Report.Name + " Report " +
+                            Report.Id + "', @body = '<div style=''font-family:arial;''><H3>Comments Section - Wrong Username in - " + s + "</H3>" + recentComment +
+                            "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'", con);
+                        wrongUsername.ExecuteNonQuery();
+                        con.Close();
+                    }
+                    catch { }
+                    Report.WrongUsername = false;
+                    taggedUsers = taggedUsers.Where(val => val != s).ToArray();
+                }
+            }
+
+            for (int i = 0; i < taggedUsers.Length; i++) // loop through all arrays and remove strings after a space character or  breakline
+            {
+                if (taggedUsers[i].Equals("bobbys")) // bobbys and malb are licensing contractors. Since they are not within the club email 
+                {
+                    taggedUsers[i] = "bobby.las@bigpond.com";
+                }
+                else if (taggedUsers[i].Equals("malb"))
+                {
+                    taggedUsers[i] = "mj.brammer@bigpond.com";
+                }
+                else
+                {
+                    taggedUsers[i] = taggedUsers[i] + "@mrsl.com.au";
+                }
+            }
+
+            var bcc = string.Join(";", taggedUsers);
+
+            // get the report owner's username
+            var user = sqlQuery.RetrieveData("SELECT Username FROM Staff WHERE StaffId='" + Report.SelectedStaffId + "'", "CheckUsername");
+            var username = user[0].ToString() + "@mrsl.com.au";
+            bcc = bcc + ";" + username;
+            var users = bcc.Split(';');
+            // remove any duplicates
+            users = users.Distinct().ToArray();
+            bcc = string.Join(";", users);
+
+            // send updated comment to owner of report
+            try // enclose in a try catch just in case program is running in test database
+            {
+                con.Open();
+                SqlCommand query = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;" +
+                    bcc + "', @subject = 'Notification | " + Report.Name + " Report " + Report.Id + 
+                    "', @body = '<div style=''font-family:arial;''><H3>Comments Update</H3>" + recentComment + 
+                    "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'", con);
+                query.ExecuteNonQuery();
+                con.Close();
+            }
+            catch { }
+        }
+
         // clear the add comment textbox
         txtComment.Text = "";
 
@@ -3973,6 +4060,8 @@ public partial class _Default : System.Web.UI.Page
                 }
             }
 
+            var bcc = "";
+
             // set to whom the action is submitted to
             string staffPersonId = "", staffPerson = "", submittedTo = "";
             if (cbToPerson.Checked == true)
@@ -3980,12 +4069,32 @@ public partial class _Default : System.Web.UI.Page
                 staffPersonId = ddlPerson.SelectedItem.Value;
                 staffPerson = ddlPerson.SelectedItem.Text;
                 submittedTo = ddlPerson.SelectedItem.Text;
+
+                var user = sqlQuery.RetrieveData("SELECT s.Username FROM Staff s INNER JOIN StaffName sn ON sn.StaffId=s.StaffId WHERE Name='" + submittedTo + "'", "CheckUsername");
+                bcc += user[0].ToString() + "@mrsl.com.au;";
             }
             else
             {
                 staffPersonId = "";
                 staffPerson = "";
                 submittedTo = ddlGroup.SelectedItem.Text;
+
+                if (ddlGroup.SelectedItem.Text.Contains("MR Duty"))
+                {
+                    bcc += "Dutymanagers_MR@mrsl.com.au;";
+                }
+                if (ddlGroup.SelectedItem.Text.Contains("CU Duty"))
+                {
+                    bcc += "Dutymanagers_UM@mrsl.com.au;";
+                }
+                if (ddlGroup.SelectedItem.Text.Contains("MR Reception"))
+                {
+                    bcc += "Reception_MR@mrsl.com.au;";
+                }
+                if (ddlGroup.SelectedItem.Text.Contains("MR Supervisors"))
+                {
+                    bcc += "Supervisors_MR@mrsl.com.au;";
+                }
             }
 
             string selectedRole = "";
@@ -4022,6 +4131,19 @@ public partial class _Default : System.Web.UI.Page
             sdsPendingActions.InsertParameters["Comments"].DefaultValue = "";
             sdsPendingActions.InsertParameters["ToPerson"].DefaultValue = Convert.ToString(cbToPerson.Checked);
 
+            // send updated action to owner of report
+            try // enclose in a try catch just in case program is running in test database
+            {
+                con.Open();
+                SqlCommand query = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;" +
+                    bcc + "', @subject = 'Notification | " + Report.Name + " Report " + Report.Id +
+                    "', @body = '<div style=''font-family:arial;''><H3>Pending Actions</H3>" + txtDescription1.Text +
+                    "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'", con);
+                query.ExecuteNonQuery();
+                con.Close();
+            }
+            catch { }
+
             // Perform insert
             sdsPendingActions.Insert();
             UpdateFormView();
@@ -4052,6 +4174,8 @@ public partial class _Default : System.Web.UI.Page
                 }
             }
 
+            var bcc = "";
+
             // set to whom the action is submitted to
             string staffPersonId = "", staffPerson = "", submittedTo = "";
             if (cbToPerson.Checked == true)
@@ -4059,12 +4183,32 @@ public partial class _Default : System.Web.UI.Page
                 staffPersonId = ddlPerson.SelectedItem.Value;
                 staffPerson = ddlPerson.SelectedItem.Text;
                 submittedTo = ddlPerson.SelectedItem.Text;
+
+                var user = sqlQuery.RetrieveData("SELECT s.Username FROM Staff s INNER JOIN StaffName sn ON sn.StaffId=s.StaffId WHERE Name='" + submittedTo + "'", "CheckUsername");
+                bcc += user[0].ToString() + "@mrsl.com.au;";
             }
             else
             {
                 staffPersonId = "";
                 staffPerson = "";
                 submittedTo = ddlGroup.SelectedItem.Text;
+
+                if (ddlGroup.SelectedItem.Text.Contains("MR Duty"))
+                {
+                    bcc += "Dutymanagers_MR@mrsl.com.au;";
+                }
+                if (ddlGroup.SelectedItem.Text.Contains("CU Duty"))
+                {
+                    bcc += "Dutymanagers_UM@mrsl.com.au;";
+                }
+                if (ddlGroup.SelectedItem.Text.Contains("MR Reception"))
+                {
+                    bcc += "Reception_MR@mrsl.com.au;";
+                }
+                if (ddlGroup.SelectedItem.Text.Contains("MR Supervisors"))
+                {
+                    bcc += "Supervisors_MR@mrsl.com.au;";
+                }
             }
 
             string selectedRole = "";
@@ -4100,6 +4244,19 @@ public partial class _Default : System.Web.UI.Page
             sdsPendingActions.InsertParameters["CompletedDate"].DefaultValue = "";
             sdsPendingActions.InsertParameters["Comments"].DefaultValue = "";
             sdsPendingActions.InsertParameters["ToPerson"].DefaultValue = Convert.ToString(cbToPerson.Checked);
+
+            // send updated action to owner of report
+            try // enclose in a try catch just in case program is running in test database
+            {
+                con.Open();
+                SqlCommand query = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;" +
+                    bcc + "', @subject = 'Notification | " + Report.Name + " Report " + Report.Id +
+                    "', @body = '<div style=''font-family:arial;''><H3>Pending Actions</H3>" + txtDescription2.Text +
+                    "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'", con);
+                query.ExecuteNonQuery();
+                con.Close();
+            }
+            catch { }
 
             // Perform insert
             sdsPendingActions.Insert();
@@ -4153,6 +4310,7 @@ public partial class _Default : System.Web.UI.Page
             {
                 sdsPendingActions.UpdateCommand = "UPDATE [ActionRequired] SET [ReportId] = " + Report.Id + ", [Description] = '" + txtDescription.Text.Replace("\n", "<br />").Replace("'", "^") + "', [Completed] = " + completed + ", [CompletedDate] = (CONVERT(DateTime, '" + completedDate + "', 103)), [CompletedBy] = '" + UserCredentials.DisplayName + "', [Comments] = '" + txtComments.Text.Replace("\n", "<br />").Replace("'", "^") + "' WHERE [id] = " + lblId.Text;
             }
+
             UpdateFormView();
         }
     }

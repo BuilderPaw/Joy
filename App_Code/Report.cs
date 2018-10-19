@@ -1392,4 +1392,23 @@ public class Report
             HttpContext.Current.Session["RClubManagerUmina"] = value;
         }
     }
+
+    public static bool WrongUsername // checks if username entered in the comment section is wrong
+    {
+        get
+        {
+            if (HttpContext.Current.Session["RWrongUsername"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return (bool)HttpContext.Current.Session["RWrongUsername"];
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["RWrongUsername"] = value;
+        }
+    }
 }

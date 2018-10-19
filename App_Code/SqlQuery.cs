@@ -272,6 +272,10 @@ public class SqlQuery
                             Report.HasPendingAction = true;
                         }
                     }
+                    if (data.Equals("CheckUsername")) // get report owner's username
+                    {
+                        returnData[0] = rdr["Username"].ToString();
+                    }
                 }
             }
             else // if there is no data to read
@@ -372,6 +376,10 @@ public class SqlQuery
                 if (data.Equals("HasPendingAction"))
                 {
                     Report.HasPendingAction = false;
+                }
+                if (data.Equals("CheckUsername"))
+                {
+                    Report.WrongUsername = true;
                 }
             }
         }
