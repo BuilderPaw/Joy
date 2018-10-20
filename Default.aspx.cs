@@ -1274,7 +1274,7 @@ public partial class _Default : System.Web.UI.Page
                 }
             }
 
-            for (int i = 0; i < taggedUsers.Length; i++) // loop through all arrays and remove strings after a space character or  breakline
+            for (int i = 0; i < taggedUsers.Length; i++) // loop through all arrays and remove strings after a space character or breakline
             {
                 if (taggedUsers[i].Equals("bobbys")) // bobbys and malb are licensing contractors. Since they are not within the club email 
                 {
@@ -1290,18 +1290,11 @@ public partial class _Default : System.Web.UI.Page
                 }
             }
 
+            // remove any duplicates
+            taggedUsers = taggedUsers.Distinct().ToArray();
             var bcc = string.Join(";", taggedUsers);
 
-            // get the report owner's username
-            var user = sqlQuery.RetrieveData("SELECT Username FROM Staff WHERE StaffId='" + Report.SelectedStaffId + "'", "CheckUsername");
-            var username = user[0].ToString() + "@mrsl.com.au";
-            bcc = bcc + ";" + username;
-            var users = bcc.Split(';');
-            // remove any duplicates
-            users = users.Distinct().ToArray();
-            bcc = string.Join(";", users);
-
-            // send updated comment to owner of report
+            // send updated comment to anyone who was tagged
             try // enclose in a try catch just in case program is running in test database
             {
                 con.Open();
@@ -1314,6 +1307,23 @@ public partial class _Default : System.Web.UI.Page
             }
             catch { }
         }
+
+        // send the updated comment to writer of the report
+        try // enclose in a try catch just in case program is running in test database
+        {
+            // get the report owner's username
+            var user = sqlQuery.RetrieveData("SELECT Username FROM Staff WHERE StaffId='" + Report.SelectedStaffId + "'", "CheckUsername");
+            var username = user[0].ToString();
+            
+            con.Open();
+            SqlCommand query = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='" + username + "@mrsl.com.au;" +
+                "', @subject = 'Notification | " + Report.Name + " Report " + Report.Id +
+                "', @body = '<div style=''font-family:arial;''><H3>Comments Update</H3>" + updateComment +
+                "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'", con);
+            query.ExecuteNonQuery();
+            con.Close();
+        }
+        catch { }
 
         // clear the add comment textbox
         txtComment.Text = "";
@@ -4079,6 +4089,10 @@ public partial class _Default : System.Web.UI.Page
                 staffPerson = "";
                 submittedTo = ddlGroup.SelectedItem.Text;
 
+                if (ddlGroup.SelectedItem.Text.Contains("Senior"))
+                {
+                    bcc += "SeniorManagers@mrsl.com.au;";
+                }
                 if (ddlGroup.SelectedItem.Text.Contains("MR Duty"))
                 {
                     bcc += "Dutymanagers_MR@mrsl.com.au;";
@@ -4193,6 +4207,10 @@ public partial class _Default : System.Web.UI.Page
                 staffPerson = "";
                 submittedTo = ddlGroup.SelectedItem.Text;
 
+                if (ddlGroup.SelectedItem.Text.Contains("Senior"))
+                {
+                    bcc += "SeniorManagers@mrsl.com.au;";
+                }
                 if (ddlGroup.SelectedItem.Text.Contains("MR Duty"))
                 {
                     bcc += "Dutymanagers_MR@mrsl.com.au;";
