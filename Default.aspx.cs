@@ -113,11 +113,14 @@ public partial class _Default : System.Web.UI.Page
             //string testTest = ShowThis(testThis);
 
             // populate User Reports Gridview depending on the available unread reports the user has access to
-            SearchReport searchReport = new SearchReport();
-            Report.SelectQuery = searchReport.Search(1, 1, "", 1, "", "");
+            if (string.IsNullOrWhiteSpace(Request.QueryString["ReportType"]))
+            {
+                SearchReport searchReport = new SearchReport();
+                Report.SelectQuery = searchReport.Search(1, 1, "", 1, "", "");
 
-            sdsUserReports.SelectCommand = Report.SelectQuery;
-            Report.DefaultSelectQuery = Report.SelectQuery;
+                sdsUserReports.SelectCommand = Report.SelectQuery;
+                Report.DefaultSelectQuery = Report.SelectQuery;
+            }
 
             // populate the notifications in the navigation tab
             ActionsAssignedNotification();
@@ -161,7 +164,7 @@ public partial class _Default : System.Web.UI.Page
         if (string.IsNullOrEmpty(selectQuery))
         {
             sdsUserReports.SelectCommand = Report.SelectQuery;
-            //alert.DisplayMessage("No documents found. Please try again");
+            alert.DisplayMessage("No documents found. Please try again");
             SearchReport.SetAccordion = "1";
             return;
         }
