@@ -396,7 +396,7 @@ public partial class _Default : System.Web.UI.Page
     {
         bool hasNotification;
 
-        if (UserCredentials.Groups.Contains("MRReportsSeniorManagers") || UserCredentials.Groups.Contains("MRReportsOperations")) { }
+        if (UserCredentials.Groups.Contains("CUReportsClubManager") || UserCredentials.Groups.Contains("MRReportsOperations")) { }
         // hide Manager section
         else { tdManagerSign.Style.Add("display", "none"); }
 
@@ -500,7 +500,7 @@ public partial class _Default : System.Web.UI.Page
         }
         else
         {
-            if (UserCredentials.Groups.Contains("MRReportsSeniorManagers") || UserCredentials.Groups.Contains("MRReportsOperations")) // user is a senior manager or an operations staff
+            if (UserCredentials.Groups.Contains("CUReportsClubManager") || UserCredentials.Groups.Contains("MRReportsOperations")) // user is a senior manager or an operations staff
             {
                 ManagerMode();
             }
@@ -1412,7 +1412,7 @@ public partial class _Default : System.Web.UI.Page
 
             UpdateStatus();
 
-            alert.DisplayMessage("Report has been signed.");
+            //alert.DisplayMessage("Report has been signed.");
 
             if (Report.CurrentNavigationTab.Equals("4"))
             {
@@ -1627,7 +1627,7 @@ public partial class _Default : System.Web.UI.Page
 
             phUserControl.Visible = false; // hide the Placeholder (EditItemTemplate)
 
-            alert.DisplayMessage("Report has been signed.");
+            //alert.DisplayMessage("Report has been signed.");
 
             HideUserSign();
         }
@@ -5071,6 +5071,7 @@ public partial class _Default : System.Web.UI.Page
                     }
                 }
             }
+            btnSignAsManager.Visible = false;
         }
     }
     protected void cbSignAsManager_CheckedChanged(object sender, EventArgs e)

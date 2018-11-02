@@ -157,7 +157,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 }
 
                 ddlStaffId.Items.Clear();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [View_Staff] WHERE [StaffGroup] IN ('" + UserCredentials.GroupsQuery + "') ORDER BY StaffName")) // populate the staff dropdownlist
+                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [View_Staff] ORDER BY [StaffName]")) // populate the staff dropdownlist
                 {
                     cmd.CommandType = CommandType.Text;
                     cmd.Connection = con;
@@ -214,7 +214,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                         SearchReport.ArchivedStaff = true;
 
                         ddlStaffId.Items.Clear();
-                        using (SqlCommand cmd = new SqlCommand("SELECT s.StaffId, sn.Name AS StaffName, s.Username, s.StaffGroup FROM dbo.Staff AS s INNER JOIN dbo.StaffName AS sn ON s.StaffId = sn.StaffId WHERE (sn.Active = 1) AND (s.Active = 0) AND [StaffGroup] IN ('" + UserCredentials.GroupsQuery + "') ORDER BY StaffName")) // populate the staff dropdownlist
+                        using (SqlCommand cmd = new SqlCommand("SELECT s.StaffId, sn.Name AS StaffName, s.Username, s.StaffGroup FROM dbo.Staff AS s INNER JOIN dbo.StaffName AS sn ON s.StaffId = sn.StaffId WHERE (sn.Active = 1) AND (s.Active = 0) ORDER BY StaffName")) // populate the staff dropdownlist
                         {
                             cmd.CommandType = CommandType.Text;
                             cmd.Connection = con;
