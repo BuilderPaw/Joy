@@ -225,11 +225,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                         }
                     }
                 }
-                if (item.ToString() == "Violence" || item.ToString() == "Fail to Quit" || item.ToString() == "Aggression" || item.ToString() == "Quarrelsome" || item.ToString() == "Improper Conduct"
-                     || item.ToString() == "Asked to Leave" || item.ToString() == "Forced Removal" || item.ToString() == "Assault Patron" || item.ToString() == "Assault Staff"
-                     || item.ToString() == "Assault Security" || item.ToString() == "Injury Patron" || item.ToString() == "Injury Staff" || item.ToString() == "Injury Security"
-                     || item.ToString() == "First Aid" || item.ToString() == "First Aid - Refused" || item.ToString() == "Ambulance" || item.ToString() == "Hospital"
-                     || item.ToString() == "Illicit Substances" || item.ToString() == "Suspected Illegal Activity" || item.ToString() == "Soliciting" || item.ToString() == "Other - Serious")
+                if (item.ToString() == "Assault Patron" || item.ToString() == "Assault Staff" || item.ToString() == "Assault Security")
                 {
                     if (item.Selected)
                     {
