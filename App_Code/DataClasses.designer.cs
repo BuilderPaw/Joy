@@ -21,7 +21,7 @@ using System.Reflection;
 
 
 
-[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="ReportingProgram")]
+[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="LocalDb")]
 public partial class DataClassesDataContext : System.Data.Linq.DataContext
 {
 	
@@ -68,6 +68,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertReport_ClubUminaIncident(Report_ClubUminaIncident instance);
   partial void UpdateReport_ClubUminaIncident(Report_ClubUminaIncident instance);
   partial void DeleteReport_ClubUminaIncident(Report_ClubUminaIncident instance);
+  partial void InsertBillPayment(BillPayment instance);
+  partial void UpdateBillPayment(BillPayment instance);
+  partial void DeleteBillPayment(BillPayment instance);
   #endregion
 	
 	public DataClassesDataContext() : 
@@ -201,6 +204,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<Report_ClubUminaIncident>();
+		}
+	}
+	
+	public System.Data.Linq.Table<BillPayment> BillPayments
+	{
+		get
+		{
+			return this.GetTable<BillPayment>();
 		}
 	}
 }
@@ -7288,6 +7299,8 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<Report_ClubUminaIncident> _Report_ClubUminaIncidents;
 	
+	private EntitySet<BillPayment> _BillPayments;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -7315,6 +7328,7 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 		this._Report_ClubUminaReceptions = new EntitySet<Report_ClubUminaReception>(new Action<Report_ClubUminaReception>(this.attach_Report_ClubUminaReceptions), new Action<Report_ClubUminaReception>(this.detach_Report_ClubUminaReceptions));
 		this._Report_MerrylandsRSLIncidents = new EntitySet<Report_MerrylandsRSLIncident>(new Action<Report_MerrylandsRSLIncident>(this.attach_Report_MerrylandsRSLIncidents), new Action<Report_MerrylandsRSLIncident>(this.detach_Report_MerrylandsRSLIncidents));
 		this._Report_ClubUminaIncidents = new EntitySet<Report_ClubUminaIncident>(new Action<Report_ClubUminaIncident>(this.attach_Report_ClubUminaIncidents), new Action<Report_ClubUminaIncident>(this.detach_Report_ClubUminaIncidents));
+		this._BillPayments = new EntitySet<BillPayment>(new Action<BillPayment>(this.attach_BillPayments), new Action<BillPayment>(this.detach_BillPayments));
 		OnCreated();
 	}
 	
@@ -7535,6 +7549,19 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_BillPayment", Storage="_BillPayments", ThisKey="StaffId", OtherKey="StaffId")]
+	public EntitySet<BillPayment> BillPayments
+	{
+		get
+		{
+			return this._BillPayments;
+		}
+		set
+		{
+			this._BillPayments.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -7658,6 +7685,18 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 	
 	private void detach_Report_ClubUminaIncidents(Report_ClubUminaIncident entity)
+	{
+		this.SendPropertyChanging();
+		entity.Staff = null;
+	}
+	
+	private void attach_BillPayments(BillPayment entity)
+	{
+		this.SendPropertyChanging();
+		entity.Staff = this;
+	}
+	
+	private void detach_BillPayments(BillPayment entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = null;
@@ -9806,7 +9845,7 @@ public partial class Report_MerrylandsRSLIncident : INotifyPropertyChanging, INo
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto1", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto1", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto1
 	{
 		get
@@ -10566,7 +10605,7 @@ public partial class Report_MerrylandsRSLIncident : INotifyPropertyChanging, INo
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image1", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image1", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image1
 	{
 		get
@@ -10686,7 +10725,7 @@ public partial class Report_MerrylandsRSLIncident : INotifyPropertyChanging, INo
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto2", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto2", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto2
 	{
 		get
@@ -11446,7 +11485,7 @@ public partial class Report_MerrylandsRSLIncident : INotifyPropertyChanging, INo
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image2", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image2", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image2
 	{
 		get
@@ -11566,7 +11605,7 @@ public partial class Report_MerrylandsRSLIncident : INotifyPropertyChanging, INo
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto3", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto3", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto3
 	{
 		get
@@ -12326,7 +12365,7 @@ public partial class Report_MerrylandsRSLIncident : INotifyPropertyChanging, INo
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image3", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image3", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image3
 	{
 		get
@@ -12446,7 +12485,7 @@ public partial class Report_MerrylandsRSLIncident : INotifyPropertyChanging, INo
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto4", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto4", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto4
 	{
 		get
@@ -13206,7 +13245,7 @@ public partial class Report_MerrylandsRSLIncident : INotifyPropertyChanging, INo
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image4", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image4", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image4
 	{
 		get
@@ -13326,7 +13365,7 @@ public partial class Report_MerrylandsRSLIncident : INotifyPropertyChanging, INo
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto5", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto5", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto5
 	{
 		get
@@ -14086,7 +14125,7 @@ public partial class Report_MerrylandsRSLIncident : INotifyPropertyChanging, INo
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image5", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image5", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image5
 	{
 		get
@@ -19231,7 +19270,7 @@ public partial class Report_ClubUminaIncident : INotifyPropertyChanging, INotify
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto1", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto1", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto1
 	{
 		get
@@ -19991,7 +20030,7 @@ public partial class Report_ClubUminaIncident : INotifyPropertyChanging, INotify
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image1", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image1", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image1
 	{
 		get
@@ -20111,7 +20150,7 @@ public partial class Report_ClubUminaIncident : INotifyPropertyChanging, INotify
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto2", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto2", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto2
 	{
 		get
@@ -20871,7 +20910,7 @@ public partial class Report_ClubUminaIncident : INotifyPropertyChanging, INotify
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image2", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image2", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image2
 	{
 		get
@@ -20991,7 +21030,7 @@ public partial class Report_ClubUminaIncident : INotifyPropertyChanging, INotify
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto3", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto3", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto3
 	{
 		get
@@ -21751,7 +21790,7 @@ public partial class Report_ClubUminaIncident : INotifyPropertyChanging, INotify
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image3", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image3", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image3
 	{
 		get
@@ -21871,7 +21910,7 @@ public partial class Report_ClubUminaIncident : INotifyPropertyChanging, INotify
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto4", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto4", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto4
 	{
 		get
@@ -22631,7 +22670,7 @@ public partial class Report_ClubUminaIncident : INotifyPropertyChanging, INotify
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image4", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image4", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image4
 	{
 		get
@@ -22751,7 +22790,7 @@ public partial class Report_ClubUminaIncident : INotifyPropertyChanging, INotify
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto5", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberPhoto5", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary MemberPhoto5
 	{
 		get
@@ -23511,7 +23550,7 @@ public partial class Report_ClubUminaIncident : INotifyPropertyChanging, INotify
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image5", DbType="VarBinary(MAX)", CanBeNull=true, UpdateCheck=UpdateCheck.Never)]
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image5", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
 	public System.Data.Linq.Binary Image5
 	{
 		get
@@ -26487,6 +26526,541 @@ public partial class Report_ClubUminaIncident : INotifyPropertyChanging, INotify
 				else
 				{
 					this._StaffId = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Staff");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.BillPayment")]
+public partial class BillPayment : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _BillPaymentId;
+	
+	private string _Site;
+	
+	private int _MemberNo;
+	
+	private string _FirstName;
+	
+	private string _LastName;
+	
+	private string _Biller;
+	
+	private string _ConfirmationId;
+	
+	private System.Nullable<decimal> _Cash;
+	
+	private System.Nullable<decimal> _EFTPOS;
+	
+	private System.Nullable<decimal> _Points;
+	
+	private System.Nullable<decimal> _Miscellaneous1;
+	
+	private System.Nullable<decimal> _Miscellaneous2;
+	
+	private System.Nullable<decimal> _Cheques;
+	
+	private decimal _TotalAmount;
+	
+	private int _StaffId;
+	
+	private string _Username;
+	
+	private string _StaffName;
+	
+	private System.DateTime _EnteredDate;
+	
+	private System.DateTime _TradingDate;
+	
+	private EntityRef<Staff> _Staff;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnBillPaymentIdChanging(int value);
+    partial void OnBillPaymentIdChanged();
+    partial void OnSiteChanging(string value);
+    partial void OnSiteChanged();
+    partial void OnMemberNoChanging(int value);
+    partial void OnMemberNoChanged();
+    partial void OnFirstNameChanging(string value);
+    partial void OnFirstNameChanged();
+    partial void OnLastNameChanging(string value);
+    partial void OnLastNameChanged();
+    partial void OnBillerChanging(string value);
+    partial void OnBillerChanged();
+    partial void OnConfirmationIdChanging(string value);
+    partial void OnConfirmationIdChanged();
+    partial void OnCashChanging(System.Nullable<decimal> value);
+    partial void OnCashChanged();
+    partial void OnEFTPOSChanging(System.Nullable<decimal> value);
+    partial void OnEFTPOSChanged();
+    partial void OnPointsChanging(System.Nullable<decimal> value);
+    partial void OnPointsChanged();
+    partial void OnMiscellaneous1Changing(System.Nullable<decimal> value);
+    partial void OnMiscellaneous1Changed();
+    partial void OnMiscellaneous2Changing(System.Nullable<decimal> value);
+    partial void OnMiscellaneous2Changed();
+    partial void OnChequesChanging(System.Nullable<decimal> value);
+    partial void OnChequesChanged();
+    partial void OnTotalAmountChanging(decimal value);
+    partial void OnTotalAmountChanged();
+    partial void OnStaffIdChanging(int value);
+    partial void OnStaffIdChanged();
+    partial void OnUsernameChanging(string value);
+    partial void OnUsernameChanged();
+    partial void OnStaffNameChanging(string value);
+    partial void OnStaffNameChanged();
+    partial void OnEnteredDateChanging(System.DateTime value);
+    partial void OnEnteredDateChanged();
+    partial void OnTradingDateChanging(System.DateTime value);
+    partial void OnTradingDateChanged();
+    #endregion
+	
+	public BillPayment()
+	{
+		this._Staff = default(EntityRef<Staff>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BillPaymentId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int BillPaymentId
+	{
+		get
+		{
+			return this._BillPaymentId;
+		}
+		set
+		{
+			if ((this._BillPaymentId != value))
+			{
+				this.OnBillPaymentIdChanging(value);
+				this.SendPropertyChanging();
+				this._BillPaymentId = value;
+				this.SendPropertyChanged("BillPaymentId");
+				this.OnBillPaymentIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Site", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+	public string Site
+	{
+		get
+		{
+			return this._Site;
+		}
+		set
+		{
+			if ((this._Site != value))
+			{
+				this.OnSiteChanging(value);
+				this.SendPropertyChanging();
+				this._Site = value;
+				this.SendPropertyChanged("Site");
+				this.OnSiteChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MemberNo", DbType="Int NOT NULL")]
+	public int MemberNo
+	{
+		get
+		{
+			return this._MemberNo;
+		}
+		set
+		{
+			if ((this._MemberNo != value))
+			{
+				this.OnMemberNoChanging(value);
+				this.SendPropertyChanging();
+				this._MemberNo = value;
+				this.SendPropertyChanged("MemberNo");
+				this.OnMemberNoChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FirstName", DbType="VarChar(150)")]
+	public string FirstName
+	{
+		get
+		{
+			return this._FirstName;
+		}
+		set
+		{
+			if ((this._FirstName != value))
+			{
+				this.OnFirstNameChanging(value);
+				this.SendPropertyChanging();
+				this._FirstName = value;
+				this.SendPropertyChanged("FirstName");
+				this.OnFirstNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastName", DbType="VarChar(150)")]
+	public string LastName
+	{
+		get
+		{
+			return this._LastName;
+		}
+		set
+		{
+			if ((this._LastName != value))
+			{
+				this.OnLastNameChanging(value);
+				this.SendPropertyChanging();
+				this._LastName = value;
+				this.SendPropertyChanged("LastName");
+				this.OnLastNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Biller", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+	public string Biller
+	{
+		get
+		{
+			return this._Biller;
+		}
+		set
+		{
+			if ((this._Biller != value))
+			{
+				this.OnBillerChanging(value);
+				this.SendPropertyChanging();
+				this._Biller = value;
+				this.SendPropertyChanged("Biller");
+				this.OnBillerChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConfirmationId", DbType="VarChar(100)")]
+	public string ConfirmationId
+	{
+		get
+		{
+			return this._ConfirmationId;
+		}
+		set
+		{
+			if ((this._ConfirmationId != value))
+			{
+				this.OnConfirmationIdChanging(value);
+				this.SendPropertyChanging();
+				this._ConfirmationId = value;
+				this.SendPropertyChanged("ConfirmationId");
+				this.OnConfirmationIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cash", DbType="Decimal(18,0)")]
+	public System.Nullable<decimal> Cash
+	{
+		get
+		{
+			return this._Cash;
+		}
+		set
+		{
+			if ((this._Cash != value))
+			{
+				this.OnCashChanging(value);
+				this.SendPropertyChanging();
+				this._Cash = value;
+				this.SendPropertyChanged("Cash");
+				this.OnCashChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EFTPOS", DbType="Decimal(18,0)")]
+	public System.Nullable<decimal> EFTPOS
+	{
+		get
+		{
+			return this._EFTPOS;
+		}
+		set
+		{
+			if ((this._EFTPOS != value))
+			{
+				this.OnEFTPOSChanging(value);
+				this.SendPropertyChanging();
+				this._EFTPOS = value;
+				this.SendPropertyChanged("EFTPOS");
+				this.OnEFTPOSChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Points", DbType="Decimal(18,0)")]
+	public System.Nullable<decimal> Points
+	{
+		get
+		{
+			return this._Points;
+		}
+		set
+		{
+			if ((this._Points != value))
+			{
+				this.OnPointsChanging(value);
+				this.SendPropertyChanging();
+				this._Points = value;
+				this.SendPropertyChanged("Points");
+				this.OnPointsChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Miscellaneous1", DbType="Decimal(18,0)")]
+	public System.Nullable<decimal> Miscellaneous1
+	{
+		get
+		{
+			return this._Miscellaneous1;
+		}
+		set
+		{
+			if ((this._Miscellaneous1 != value))
+			{
+				this.OnMiscellaneous1Changing(value);
+				this.SendPropertyChanging();
+				this._Miscellaneous1 = value;
+				this.SendPropertyChanged("Miscellaneous1");
+				this.OnMiscellaneous1Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Miscellaneous2", DbType="Decimal(18,0)")]
+	public System.Nullable<decimal> Miscellaneous2
+	{
+		get
+		{
+			return this._Miscellaneous2;
+		}
+		set
+		{
+			if ((this._Miscellaneous2 != value))
+			{
+				this.OnMiscellaneous2Changing(value);
+				this.SendPropertyChanging();
+				this._Miscellaneous2 = value;
+				this.SendPropertyChanged("Miscellaneous2");
+				this.OnMiscellaneous2Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Cheques", DbType="Decimal(18,0)")]
+	public System.Nullable<decimal> Cheques
+	{
+		get
+		{
+			return this._Cheques;
+		}
+		set
+		{
+			if ((this._Cheques != value))
+			{
+				this.OnChequesChanging(value);
+				this.SendPropertyChanging();
+				this._Cheques = value;
+				this.SendPropertyChanged("Cheques");
+				this.OnChequesChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TotalAmount", DbType="Decimal(18,0) NOT NULL")]
+	public decimal TotalAmount
+	{
+		get
+		{
+			return this._TotalAmount;
+		}
+		set
+		{
+			if ((this._TotalAmount != value))
+			{
+				this.OnTotalAmountChanging(value);
+				this.SendPropertyChanging();
+				this._TotalAmount = value;
+				this.SendPropertyChanged("TotalAmount");
+				this.OnTotalAmountChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffId", DbType="Int NOT NULL")]
+	public int StaffId
+	{
+		get
+		{
+			return this._StaffId;
+		}
+		set
+		{
+			if ((this._StaffId != value))
+			{
+				if (this._Staff.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnStaffIdChanging(value);
+				this.SendPropertyChanging();
+				this._StaffId = value;
+				this.SendPropertyChanged("StaffId");
+				this.OnStaffIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Username", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+	public string Username
+	{
+		get
+		{
+			return this._Username;
+		}
+		set
+		{
+			if ((this._Username != value))
+			{
+				this.OnUsernameChanging(value);
+				this.SendPropertyChanging();
+				this._Username = value;
+				this.SendPropertyChanged("Username");
+				this.OnUsernameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffName", DbType="VarChar(150) NOT NULL", CanBeNull=false)]
+	public string StaffName
+	{
+		get
+		{
+			return this._StaffName;
+		}
+		set
+		{
+			if ((this._StaffName != value))
+			{
+				this.OnStaffNameChanging(value);
+				this.SendPropertyChanging();
+				this._StaffName = value;
+				this.SendPropertyChanged("StaffName");
+				this.OnStaffNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EnteredDate", DbType="DateTime NOT NULL")]
+	public System.DateTime EnteredDate
+	{
+		get
+		{
+			return this._EnteredDate;
+		}
+		set
+		{
+			if ((this._EnteredDate != value))
+			{
+				this.OnEnteredDateChanging(value);
+				this.SendPropertyChanging();
+				this._EnteredDate = value;
+				this.SendPropertyChanged("EnteredDate");
+				this.OnEnteredDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TradingDate", DbType="Date NOT NULL")]
+	public System.DateTime TradingDate
+	{
+		get
+		{
+			return this._TradingDate;
+		}
+		set
+		{
+			if ((this._TradingDate != value))
+			{
+				this.OnTradingDateChanging(value);
+				this.SendPropertyChanging();
+				this._TradingDate = value;
+				this.SendPropertyChanged("TradingDate");
+				this.OnTradingDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_BillPayment", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
+	public Staff Staff
+	{
+		get
+		{
+			return this._Staff.Entity;
+		}
+		set
+		{
+			Staff previousValue = this._Staff.Entity;
+			if (((previousValue != value) 
+						|| (this._Staff.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Staff.Entity = null;
+					previousValue.BillPayments.Remove(this);
+				}
+				this._Staff.Entity = value;
+				if ((value != null))
+				{
+					value.BillPayments.Add(this);
+					this._StaffId = value.StaffId;
+				}
+				else
+				{
+					this._StaffId = default(int);
 				}
 				this.SendPropertyChanged("Staff");
 			}

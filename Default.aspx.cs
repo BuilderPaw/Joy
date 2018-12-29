@@ -1266,7 +1266,7 @@ public partial class _Default : System.Web.UI.Page
                         con.Open();
                         SqlCommand wrongUsername = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', " +
                             "@blind_copy_recipients='paolos@mrsl.com.au', @subject = 'Notification | " + Report.Name + " Report " +
-                            Report.Id + "', @body = '<div style=''font-family:arial;''><H3>Comments Section - Wrong Username in - " + s + "</H3>" + recentComment +
+                            Report.Id + "', @body = '<div style=''font-family:arial;''><H3>Comments Section - Wrong Username in - " + s + "</H3>" + recentComment.Replace("^", "''") +
                             "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'", con);
                         wrongUsername.ExecuteNonQuery();
                         con.Close();
@@ -1303,7 +1303,7 @@ public partial class _Default : System.Web.UI.Page
                 con.Open();
                 SqlCommand query = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;" +
                     bcc + "', @subject = 'Notification | " + Report.Name + " Report " + Report.Id + 
-                    "', @body = '<div style=''font-family:arial;''><H3>Comments Update</H3>" + recentComment + 
+                    "', @body = '<div style=''font-family:arial;''><H3>Comments Update</H3>" + recentComment.Replace("^", "''") + 
                     "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'", con);
                 query.ExecuteNonQuery();
                 con.Close();
@@ -1319,9 +1319,9 @@ public partial class _Default : System.Web.UI.Page
             var username = user[0].ToString();
             
             con.Open();
-            SqlCommand query = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='" + username + "@mrsl.com.au;" +
+            SqlCommand query = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;davidk@mrsl.com.au;" + username + "@mrsl.com.au;" +
                 "', @subject = 'Notification | " + Report.Name + " Report " + Report.Id +
-                "', @body = '<div style=''font-family:arial;''><H3>Comments Update</H3>" + updateComment +
+                "', @body = '<div style=''font-family:arial;''><H3>Comments Update</H3>" + updateComment.Replace("^", "''") +
                 "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'", con);
             query.ExecuteNonQuery();
             con.Close();
@@ -4154,7 +4154,7 @@ public partial class _Default : System.Web.UI.Page
                 con.Open();
                 SqlCommand query = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;" +
                     bcc + "', @subject = 'Notification | " + Report.Name + " Report " + Report.Id +
-                    "', @body = '<div style=''font-family:arial;''><H3>Pending Actions</H3>" + txtDescription1.Text +
+                    "', @body = '<div style=''font-family:arial;''><H3>Pending Actions</H3>" + txtDescription1.Text.Replace("\n", "<br />") +
                     "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'", con);
                 query.ExecuteNonQuery();
                 con.Close();
@@ -4272,7 +4272,7 @@ public partial class _Default : System.Web.UI.Page
                 con.Open();
                 SqlCommand query = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;" +
                     bcc + "', @subject = 'Notification | " + Report.Name + " Report " + Report.Id +
-                    "', @body = '<div style=''font-family:arial;''><H3>Pending Actions</H3>" + txtDescription2.Text +
+                    "', @body = '<div style=''font-family:arial;''><H3>Pending Actions</H3>" + txtDescription2.Text.Replace("\n", "<br />") +
                     "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'", con);
                 query.ExecuteNonQuery();
                 con.Close();

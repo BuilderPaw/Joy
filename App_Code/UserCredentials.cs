@@ -242,4 +242,23 @@ public class UserCredentials
             HttpContext.Current.Session["UCPassword"] = value;
         }
     }
+
+    public static int BillManager
+    {
+        get
+        {
+            if (HttpContext.Current.Session["UCBillManager"] == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return (int)HttpContext.Current.Session["UCBillManager"];
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["UCBillManager"] = value;
+        }
+    }
 }
