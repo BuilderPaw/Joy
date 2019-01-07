@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -96,8 +97,8 @@ public partial class Web_Forms_BillManager : System.Web.UI.Page
             BillPayment bp = new BillPayment();
             // check which site it is coming from
             // get IP Address
-            //string ipAddress = GetIPAddress();
-            string ipAddress = GetLocalIPAddress();
+            string ipAddress = GetIPAddress();
+            //string ipAddress = GetLocalIPAddress();
 
             // set site venue
             string site = SetVenue(ipAddress);
@@ -291,7 +292,7 @@ public partial class Web_Forms_BillManager : System.Web.UI.Page
 
     protected void btnFilter_Click(object sender, EventArgs e)
     {
-        sdsGridViewBillPayment.SelectCommand = "SELECT * FROM [BillPayment] WHERE TradingDate BETWEEN '" + DateTime.Parse(txtStartDate.Text).ToString("yyyy-MM-dd") + "' AND '" + DateTime.Parse(txtEndDate.Text).ToString("yyyy-MM-dd") + "' ORDER BY [BillPaymentId] DESC";
+        sdsGridViewBillPayment.SelectCommand = "SELECT * FROM [BillPayment] WHERE TradingDate BETWEEN '" + DateTime.Parse(txtStartDate.Text).ToString("yyyy-MM-dd") + "' AND '" + DateTime.Parse(txtEndDate.Text).ToString("yyyy-MM-dd") + "' AND Site='" + ddlSite.SelectedValue + "' ORDER BY [BillPaymentId] DESC";
         gvBillPayment.DataBind();
 
         btnPrint.Visible = true;
@@ -300,6 +301,8 @@ public partial class Web_Forms_BillManager : System.Web.UI.Page
     protected void btnPrint_Click(object sender, EventArgs e)
     {
         btnPrint.Visible = false;
+        sdsGridViewBillPayment.SelectCommand = "SELECT * FROM [BillPayment] ORDER BY [BillPaymentId] DESC";
+        gvBillPayment.DataBind();
     }
 
     protected void sdsGridViewBillPayment_Deleted(object sender, SqlDataSourceStatusEventArgs e)
@@ -314,14 +317,18 @@ public partial class Web_Forms_BillManager : System.Web.UI.Page
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
             string amount = ((Label)e.Row.FindControl("lblTotalAmount")).Text;
-            decimal totalvalue = Convert.ToDecimal(amount);
-            sum += totalvalue;
+            decimal totalvalue;
+            bool convt = decimal.TryParse(amount, NumberStyles.Currency, CultureInfo.CurrentCulture.NumberFormat, out totalvalue);
+            if (convt)
+            {
+                sum += totalvalue;
+            }
         }
 
         if (e.Row.RowType == DataControlRowType.Footer)
         {
             Label lbl = (Label)e.Row.FindControl("lblTotal");
-            lbl.Text = sum.ToString();
+            lbl.Text = String.Format("{0:C}", sum);
         }
     }
 }

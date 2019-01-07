@@ -285,7 +285,9 @@
         </asp:FormView>
         <asp:PlaceHolder runat="server" ID="phUserControl" />
         <asp:ImageButton ID="imgPreviousReport" runat="server" OnClick="PreviousReport" Visible="false" class="arrow-left" ImageUrl="~/Images/arrow-left.png" />
+        <asp:ImageButton ID="imgReadLeft" runat="server" OnClick="ReadAndGoToPreviousReport" Visible="false" class="arrow-left-up" ImageUrl="~/Images/read-icon.png" />
         <asp:ImageButton ID="imgNextReport" runat="server" OnClick="NextReport" Visible="false" class="arrow-right" ImageUrl="~/Images/arrow-right.png" />
+        <asp:ImageButton ID="imgReadRight" runat="server" OnClick="ReadAndGoToNextReport" Visible="false" class="arrow-right-up" ImageUrl="~/Images/read-icon.png" />
         <asp:ImageButton ID="imgTopScreen" runat="server" OnClientClick="ToTopOfPage(); return false;" Visible="false" class="arrow-up" ImageUrl="~/Images/arrow-up.png" />
         <asp:ImageButton ID="imgBottomScreen" runat="server" OnClientClick="ToBottomOfPage(); return false;" Visible="false" class="arrow-down" ImageUrl="~/Images/arrow-down.png" />
         <asp:Button ID="btnLinkAttachedFiles" runat="server" OnClientClick="ToAttachedFiles(); return false;" Visible="false" class="link-attached-files" Text="Attached &#010; Files" />

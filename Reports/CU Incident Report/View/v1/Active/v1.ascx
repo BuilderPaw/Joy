@@ -1067,6 +1067,17 @@
                 </td>
             </tr>
         </table>
+        <table runat="server" class="table-view">
+            <tr>
+                <th colspan="5">Is there any Camera Footage?</th>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <b>Yes/No : </b>
+                    <asp:CheckBox ID="cbCameraFootage" runat="server" Enabled="false" Checked="false" />
+                </td>
+            </tr>
+        </table>
         <table runat="server" class="table-view" id="tblCam1">
             <tr>
                 <th colspan="5">CCTV Camera 1</th>

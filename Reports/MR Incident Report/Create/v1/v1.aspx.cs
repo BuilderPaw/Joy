@@ -11,6 +11,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
     SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString);
     SqlConnection con1 = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["AdvantageDb"].ConnectionString);
     byte[] memberPhoto1 = null, memberPhoto2 = null, memberPhoto3 = null, memberPhoto4 = null, memberPhoto5 = null;
+    AlertMessage alert = new AlertMessage();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -377,20 +378,16 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 {
                     if (item.Selected)
                     {
-                        if (List_AskedToLeave.SelectedValue == String.Empty)
-                        {
-                            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify reason for asking the patron to leave the premises.";
-                            List_AskedToLeave.Focus();
-                            returnedFlag = 1;
+                        //if (List_AskedToLeave.SelectedValue == String.Empty)
+                        //{
+                        //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify reason for asking the patron to leave the premises.";
+                        //    List_AskedToLeave.Focus();
+                        //    returnedFlag = 1;
 
-                        }
+                        //}
                     }
                 }
-                if (item.ToString() == "Violence" || item.ToString() == "Fail to Quit" || item.ToString() == "Aggression" || item.ToString() == "Quarrelsome" || item.ToString() == "Improper Conduct"
-                      || item.ToString() == "Asked to Leave" || item.ToString() == "Forced Removal" || item.ToString() == "Assault Patron" || item.ToString() == "Assault Staff"
-                      || item.ToString() == "Assault Security" || item.ToString() == "Injury Patron" || item.ToString() == "Injury Staff" || item.ToString() == "Injury Security"
-                      || item.ToString() == "First Aid" || item.ToString() == "First Aid - Refused" || item.ToString() == "Ambulance" || item.ToString() == "Hospital"
-                      || item.ToString() == "Illicit Substances" || item.ToString() == "Suspected Illegal Activity" || item.ToString() == "Soliciting" || item.ToString() == "Other - Serious")
+                if (item.ToString() == "Assault Patron" || item.ToString() == "Assault Staff" || item.ToString() == "Assault Security")
                 {
                     if (item.Selected)
                     {
@@ -754,28 +751,30 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                     {
                         if (acpPerson1.Visible == true)
                         {
-                            if (txtFirstName1.Text == "")
+                            if (ddlPartyType1.SelectedItem.Text != "Unknown")
                             {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's First Name shouldn't be empty.";
-                                txtFirstName1.Focus();
-                                acdPerson.SelectedIndex = 0;
-                                returnedFlag = 1;
-                            }
-                            if (txtLastName1.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's Last Name shouldn't be empty.";
-                                txtLastName1.Focus();
-                                acdPerson.SelectedIndex = 0;
-                                returnedFlag = 1;
-                            }
+                                if (txtFirstName1.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's First Name shouldn't be empty.";
+                                    txtFirstName1.Focus();
+                                    acdPerson.SelectedIndex = 0;
+                                    returnedFlag = 1;
+                                }
+                                if (txtLastName1.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's Last Name shouldn't be empty.";
+                                    txtLastName1.Focus();
+                                    acdPerson.SelectedIndex = 0;
+                                    returnedFlag = 1;
+                                }
 
-                            if (txtContact1.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 1.";
-                                txtContact1.Focus();
-                                returnedFlag = 1;
+                                if (txtContact1.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 1.";
+                                    txtContact1.Focus();
+                                    returnedFlag = 1;
+                                }
                             }
-
                             if (txtAge1.Text == "" && ddlAgeGroup1.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Person 1's Age.";
@@ -799,27 +798,30 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         }
                         if (acpPerson2.Visible == true)
                         {
-                            if (txtFirstName2.Text == "")
+                            if (ddlPartyType2.SelectedItem.Text != "Unknown")
                             {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's First Name shouldn't be empty.";
-                                txtFirstName2.Focus();
-                                acdPerson.SelectedIndex = 1;
-                                returnedFlag = 1;
-                            }
+                                if (txtFirstName2.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's First Name shouldn't be empty.";
+                                    txtFirstName2.Focus();
+                                    acdPerson.SelectedIndex = 1;
+                                    returnedFlag = 1;
+                                }
 
-                            if (txtLastName2.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's Last Name shouldn't be empty.";
-                                txtLastName2.Focus();
-                                acdPerson.SelectedIndex = 1;
-                                returnedFlag = 1;
-                            }
+                                if (txtLastName2.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's Last Name shouldn't be empty.";
+                                    txtLastName2.Focus();
+                                    acdPerson.SelectedIndex = 1;
+                                    returnedFlag = 1;
+                                }
 
-                            if (txtContact2.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 2.";
-                                txtInjuryDesc2.Focus();
-                                returnedFlag = 1;
+                                if (txtContact2.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 2.";
+                                    txtContact2.Focus();
+                                    returnedFlag = 1;
+                                }
                             }
 
                             if (txtAge2.Text == "" && ddlAgeGroup2.SelectedItem.Value.ToString() == "-1")
@@ -840,27 +842,30 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         }
                         if (acpPerson3.Visible == true)
                         {
-                            if (txtFirstName3.Text == "")
+                            if (ddlPartyType3.SelectedItem.Text != "Unknown")
                             {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's First Name shouldn't be empty.";
-                                txtFirstName3.Focus();
-                                acdPerson.SelectedIndex = 2;
-                                returnedFlag = 1;
-                            }
+                                if (txtFirstName3.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's First Name shouldn't be empty.";
+                                    txtFirstName3.Focus();
+                                    acdPerson.SelectedIndex = 2;
+                                    returnedFlag = 1;
+                                }
 
-                            if (txtLastName3.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's Last Name shouldn't be empty.";
-                                txtLastName3.Focus();
-                                acdPerson.SelectedIndex = 2;
-                                returnedFlag = 1;
-                            }
+                                if (txtLastName3.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's Last Name shouldn't be empty.";
+                                    txtLastName3.Focus();
+                                    acdPerson.SelectedIndex = 2;
+                                    returnedFlag = 1;
+                                }
 
-                            if (txtContact3.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 3.";
-                                txtInjuryDesc3.Focus();
-                                returnedFlag = 1;
+                                if (txtContact3.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 3.";
+                                    txtContact3.Focus();
+                                    returnedFlag = 1;
+                                }
                             }
 
                             if (txtAge3.Text == "" && ddlAgeGroup3.SelectedItem.Value.ToString() == "-1")
@@ -880,28 +885,32 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         }
                         if (acpPerson4.Visible == true)
                         {
-                            if (txtFirstName4.Text == "")
+                            if (ddlPartyType4.SelectedItem.Text != "Unknown")
                             {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's First Name shouldn't be empty.";
-                                txtFirstName4.Focus();
-                                acdPerson.SelectedIndex = 3;
-                                returnedFlag = 1;
-                            }
+                                if (txtFirstName4.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's First Name shouldn't be empty.";
+                                    txtFirstName4.Focus();
+                                    acdPerson.SelectedIndex = 3;
+                                    returnedFlag = 1;
+                                }
 
-                            if (txtLastName4.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's Last Name shouldn't be empty.";
-                                txtLastName4.Focus();
-                                acdPerson.SelectedIndex = 3;
-                                returnedFlag = 1;
+                                if (txtLastName4.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's Last Name shouldn't be empty.";
+                                    txtLastName4.Focus();
+                                    acdPerson.SelectedIndex = 3;
+                                    returnedFlag = 1;
 
-                            }
+                                }
 
-                            if (txtContact4.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 4.";
-                                txtInjuryDesc4.Focus();
-                                returnedFlag = 1;
+                                if (txtContact4.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 4.";
+                                    txtContact4.Focus();
+                                    returnedFlag = 1;
+                                }
+
                             }
 
                             if (txtAge4.Text == "" && ddlAgeGroup4.SelectedItem.Value.ToString() == "-1")
@@ -922,27 +931,30 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         }
                         if (acpPerson5.Visible == true)
                         {
-                            if (txtFirstName5.Text == "")
+                            if (ddlPartyType5.SelectedItem.Text != "Unknown")
                             {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's First Name shouldn't be empty.";
-                                txtFirstName5.Focus();
-                                acdPerson.SelectedIndex = 4;
-                                returnedFlag = 1;
-                            }
+                                if (txtFirstName5.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's First Name shouldn't be empty.";
+                                    txtFirstName5.Focus();
+                                    acdPerson.SelectedIndex = 4;
+                                    returnedFlag = 1;
+                                }
 
-                            if (txtLastName5.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's Last Name shouldn't be empty.";
-                                txtLastName5.Focus();
-                                acdPerson.SelectedIndex = 4;
-                                returnedFlag = 1;
-                            }
+                                if (txtLastName5.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's Last Name shouldn't be empty.";
+                                    txtLastName5.Focus();
+                                    acdPerson.SelectedIndex = 4;
+                                    returnedFlag = 1;
+                                }
 
-                            if (txtContact5.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 5.";
-                                txtInjuryDesc5.Focus();
-                                returnedFlag = 1;
+                                if (txtContact5.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 5.";
+                                    txtContact5.Focus();
+                                    returnedFlag = 1;
+                                }
                             }
 
                             if (txtAge5.Text == "" && ddlAgeGroup5.SelectedItem.Value.ToString() == "-1")
@@ -3230,7 +3242,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         ddlAgeGroup1.SelectedIndex = 5;
                         imgMember1.ImageUrl = "~/Images/white-background.png";
                         LinkButton1.Visible = false;
-                        showAlert("Member Not Found! Please enter another Member No.");
+                        alert.DisplayMessage("Member Not Found! Please enter another Member No.");
                     }
                     else if (Report.MemberNumberChanged.Equals("2"))
                     {
@@ -3246,7 +3258,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         ddlAgeGroup2.SelectedIndex = 5;
                         imgMember2.ImageUrl = "~/Images/white-background.png";
                         LinkButton2.Visible = false;
-                        showAlert("Member Not Found! Please enter another Member No.");
+                        alert.DisplayMessage("Member Not Found! Please enter another Member No.");
                     }
                     else if (Report.MemberNumberChanged.Equals("3"))
                     {
@@ -3262,7 +3274,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         ddlAgeGroup3.SelectedIndex = 5;
                         imgMember3.ImageUrl = "~/Images/white-background.png";
                         LinkButton3.Visible = false;
-                        showAlert("Member Not Found! Please enter another Member No.");
+                        alert.DisplayMessage("Member Not Found! Please enter another Member No.");
                     }
                     else if (Report.MemberNumberChanged.Equals("4"))
                     {
@@ -3278,7 +3290,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         ddlAgeGroup4.SelectedIndex = 5;
                         imgMember4.ImageUrl = "~/Images/white-background.png";
                         LinkButton4.Visible = false;
-                        showAlert("Member Not Found! Please enter another Member No.");
+                        alert.DisplayMessage("Member Not Found! Please enter another Member No.");
                     }
                     else if (Report.MemberNumberChanged.Equals("5"))
                     {
@@ -3294,14 +3306,14 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         ddlAgeGroup5.SelectedIndex = 5;
                         imgMember5.ImageUrl = "~/Images/white-background.png";
                         LinkButton5.Visible = false;
-                        showAlert("Member Not Found! Please enter another Member No.");
+                        alert.DisplayMessage("Member Not Found! Please enter another Member No.");
                     }
                 }
             }
         }
         catch (Exception er)
         {
-            showAlert(er.Message);
+            alert.DisplayMessage(er.Message);
         }
         finally
         {
@@ -3324,14 +3336,6 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 }
             }
         }
-    }
-
-    // yells out an error message - displays message
-    protected void showAlert(string message)
-    {
-        // display a message box
-        message = "alert(\"" + message + "\");";
-        ScriptManager.RegisterStartupScript(this, GetType(), "ServerControlScript", message, true);
     }
 
     // show/hide Visitor, Member, and Staff's fields for Person forms
@@ -4532,7 +4536,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         ddlPTimeM2.SelectedValue = "-1";
         //ddlPTimeTC2.SelectedValue = "-1";
         txtAge2.Text = "";
-        txtWeight2.Text = "";
+        //txtWeight2.Text = "";
+        ddlWeight2.SelectedValue = "";
         txtHeight2.Text = "";
         ddlGender2.SelectedValue = "-1";
         txtDistFeatures2.Text = "";
@@ -4566,7 +4571,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         ddlPTimeM3.SelectedValue = "-1";
         //ddlPTimeTC3.SelectedValue = "-1";
         txtAge3.Text = "";
-        txtWeight3.Text = "";
+        //txtWeight3.Text = "";
+        ddlWeight3.SelectedValue = "";
         txtHeight3.Text = "";
         ddlGender3.SelectedValue = "-1";
         txtDistFeatures3.Text = "";
@@ -4600,7 +4606,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         ddlPTimeM4.SelectedValue = "-1";
         //ddlPTimeTC4.SelectedValue = "-1";
         txtAge4.Text = "";
-        txtWeight4.Text = "";
+        //txtWeight4.Text = "";
+        ddlWeight4.SelectedValue = "";
         txtHeight4.Text = "";
         ddlGender4.SelectedValue = "-1";
         txtDistFeatures4.Text = "";
@@ -4634,7 +4641,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         ddlPTimeM5.SelectedValue = "-1";
         //ddlPTimeTC5.SelectedValue = "-1";
         txtAge5.Text = "";
-        txtWeight5.Text = "";
+        //txtWeight5.Text = "";
+        ddlWeight5.SelectedValue = "";
         txtHeight5.Text = "";
         ddlGender5.SelectedValue = "-1";
         txtDistFeatures5.Text = "";
@@ -5026,17 +5034,17 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             }
             if (item.ToString() == "Asked to Leave")
             {
-                if (item.Selected)
-                {
-                    askedtoLeaveReasons.Visible = true;
-                    askedtoLeaveReasons1.Visible = true;
-                }
-                else
-                {
-                    askedtoLeaveReasons.Visible = false;
-                    askedtoLeaveReasons1.Visible = false;
-                    List_AskedToLeave.ClearSelection();
-                }
+                //if (item.Selected)
+                //{
+                //    askedtoLeaveReasons.Visible = true;
+                //    askedtoLeaveReasons1.Visible = true;
+                //}
+                //else
+                //{
+                //    askedtoLeaveReasons.Visible = false;
+                //    askedtoLeaveReasons1.Visible = false;
+                //    List_AskedToLeave.ClearSelection();
+                //}
             }
         }
     }
@@ -5276,7 +5284,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
 
         if (returnedValue == 1)
         {
-            showAlert(Report.ErrorMessage);
+            alert.DisplayMessage(Report.ErrorMessage);
             Report.ErrorMessage = "";
             return;
         }
@@ -5386,7 +5394,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 //dm.PTimeTC1 = ddlPTimeTC1.SelectedItem.Value;
                 dm.Age1 = txtAge1.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.AgeGroup1 = ddlAgeGroup1.SelectedItem.Value;
-                dm.Weight1 = txtWeight1.Text.Replace("\n", "<br />").Replace("'", "^");
+                //dm.Weight1 = txtWeight1.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Weight1 = ddlWeight1.SelectedItem.Value;
                 dm.Height1 = txtHeight1.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.Hair1 = txtHair1.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.ClothingTop1 = txtClothingTop1.Text.Replace("\n", "<br />").Replace("'", "^");
@@ -5467,7 +5476,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 //dm.PTimeTC2 = ddlPTimeTC2.SelectedItem.Value;
                 dm.Age2 = txtAge2.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.AgeGroup2 = ddlAgeGroup2.SelectedItem.Value;
-                dm.Weight2 = txtWeight2.Text.Replace("\n", "<br />").Replace("'", "^");
+                //dm.Weight2 = txtWeight2.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Weight2 = ddlWeight2.SelectedItem.Value;
                 dm.Height2 = txtHeight2.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.Hair2 = txtHair2.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.ClothingTop2 = txtClothingTop2.Text.Replace("\n", "<br />").Replace("'", "^");
@@ -5548,7 +5558,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 //dm.PTimeTC3 = ddlPTimeTC3.SelectedItem.Value;
                 dm.Age3 = txtAge3.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.AgeGroup3 = ddlAgeGroup3.SelectedItem.Value;
-                dm.Weight3 = txtWeight3.Text.Replace("\n", "<br />").Replace("'", "^");
+                //dm.Weight3 = txtWeight3.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Weight3 = ddlWeight3.SelectedItem.Value;
                 dm.Height3 = txtHeight3.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.Hair3 = txtHair3.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.ClothingTop3 = txtClothingTop3.Text.Replace("\n", "<br />").Replace("'", "^");
@@ -5629,7 +5640,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 //dm.PTimeTC4 = ddlPTimeTC4.SelectedItem.Value;
                 dm.Age4 = txtAge4.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.AgeGroup4 = ddlAgeGroup4.SelectedItem.Value;
-                dm.Weight4 = txtWeight4.Text.Replace("\n", "<br />").Replace("'", "^");
+                //dm.Weight4 = txtWeight4.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Weight4 = ddlWeight4.SelectedItem.Value;
                 dm.Height4 = txtHeight4.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.Hair4 = txtHair4.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.ClothingTop4 = txtClothingTop4.Text.Replace("\n", "<br />").Replace("'", "^");
@@ -5710,7 +5722,8 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 //dm.PTimeTC5 = ddlPTimeTC5.SelectedItem.Value;
                 dm.Age5 = txtAge5.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.AgeGroup5 = ddlAgeGroup5.SelectedItem.Value;
-                dm.Weight5 = txtWeight5.Text.Replace("\n", "<br />").Replace("'", "^");
+                //dm.Weight5 = txtWeight5.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Weight5 = ddlWeight5.SelectedItem.Value;
                 dm.Height5 = txtHeight5.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.Hair5 = txtHair5.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.ClothingTop5 = txtClothingTop5.Text.Replace("\n", "<br />").Replace("'", "^");
@@ -5967,7 +5980,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         SearchReport.CreateReport = ""; // reset this variable to set ddlCreateReport to default value
 
         ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect",
-        "alert('Report Submitted.'); window.location='" +
+        "alert('Report Saved.'); window.location='" +
         Request.ApplicationPath + "Default.aspx';", true);
         SearchReport.SetAccordion = "1";
         SearchReport.RunOnStart = true;
@@ -6034,5 +6047,887 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                        "AND pa.TypeID = 1 " +
                        "ORDER BY CONVERT(INT, pmn.MembershipNumber)";
         return query;
+    }
+
+    protected void btnUserSign_Click(object sender, EventArgs e)
+    {
+        if (cbUserSign.Checked == false)
+        {
+            alert.DisplayMessage("Please tick the checkbox to digitally sign the form.");
+            cbUserSign.Focus();
+            return;
+        }
+        else
+        {
+            SearchReport.CreateReportReset(); // takes off the selected report in ddlCreateReport
+
+            string WhatHappened, Location, RefuseReason = "", AskedLeaveReason = "", ActionTaken = "",
+                   query = "SELECT MAX(ReportId) AS ReportId FROM dbo.Report_MerrylandsRSLIncident";
+            int lastRId;
+
+            con.Open();
+            SqlCommand getRId = new SqlCommand(query, con);
+            try
+            {
+                lastRId = (int)getRId.ExecuteScalar();
+                // add plus one to the current report id to be used in this report
+                lastRId += 1;
+            }
+            catch
+            {
+                lastRId = 1000001;
+            }
+            con.Close();
+
+            Report.LastReportId = lastRId.ToString();
+
+            // store in a string all the selected item in the checkboxlist
+            // Create the list to store.
+            List<String> YrStrList = new List<string>();
+            // Loop through each item.
+            foreach (ListItem item in cblWhatHappened1.Items)
+            {
+                if (item.Selected)
+                {
+                    // If the item is selected, add the value to the list.
+                    YrStrList.Add(item.Value);
+                }
+            }
+            // Join the string together using the ; delimiter.
+            WhatHappened = String.Join(",", YrStrList.ToArray());
+            if (!WhatHappened.Equals(""))
+            {
+                WhatHappened += ",";
+            }
+
+            // if Refuse Entry option is not empty
+            // store in a string all the selected item in the checkboxlist
+            // Create the list to store.
+            if (List_RefuseReason.SelectedValue != String.Empty)
+            {
+                List<String> YrStrList2 = new List<string>();
+                // Loop through each item.
+                foreach (ListItem item in List_RefuseReason.Items)
+                {
+                    if (item.Selected)
+                    {
+                        // If the item is selected, add the value to the list.
+                        YrStrList2.Add(item.Value);
+                    }
+                }
+                // Join the string together using the ; delimiter.
+                RefuseReason = String.Join(",", YrStrList2.ToArray());
+            }
+
+            // if Asked To Leave option is not empty
+            // store in a string all the selected item in the checkboxlist
+            // Create the list to store.
+            if (List_AskedToLeave.SelectedValue != String.Empty)
+            {
+                List<String> YrStrList3 = new List<string>();
+                // Loop through each item.
+                foreach (ListItem item in List_AskedToLeave.Items)
+                {
+                    if (item.Selected)
+                    {
+                        // If the item is selected, add the value to the list.
+                        YrStrList3.Add(item.Value);
+                    }
+                }
+                // Join the string together using the ; delimiter.
+                AskedLeaveReason = String.Join(",", YrStrList3.ToArray());
+            }
+
+            // store in a string all the selected item in the checkboxlist
+            // Create the list to store.
+            List<String> YrStrList1 = new List<string>();
+            // Loop through each item.
+            foreach (ListItem item in List_Location.Items)
+            {
+                if (item.Selected)
+                {
+                    // If the item is selected, add the value to the list.
+                    YrStrList1.Add(item.Value);
+                }
+            }
+            // Join the string together using the ; delimiter.
+            Location = String.Join(",", YrStrList1.ToArray());
+            if (!Location.Equals(""))
+            {
+                Location += ",";
+            }
+
+            // store in a string all the selected item in the checkboxlist
+            // Create the list to store.
+            List<String> YrStrList4 = new List<string>();
+            // Loop through each item.
+            foreach (ListItem item in List_ActionTaken.Items)
+            {
+                if (item.Selected)
+                {
+                    // If the item is selected, add the value to the list.
+                    YrStrList4.Add(item.Value);
+                }
+            }
+            // Join the string together using the ; delimiter.
+            ActionTaken = String.Join(",", YrStrList4.ToArray());
+            if (!ActionTaken.Equals(""))
+            {
+                ActionTaken += ",";
+            }
+
+            // change the format of the entry date to timestamp format
+            DateTime entry_date = DateTime.Now;
+
+            // validate objects in the form
+            int returnedValue = validateForm();
+            if (ddlShift.SelectedItem.Value == "-1")
+            {
+                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select Shift.";
+                ddlShift.Focus();
+                returnedValue = 1;
+            }
+
+            if (returnedValue == 1)
+            {
+                HideUserSign();
+                alert.DisplayMessage(Report.ErrorMessage);
+                Report.ErrorMessage = "";
+                return;
+            }
+
+            // change the format of the shift date to timestamp format
+            DateTime shift_date = DateTime.Parse(txtDatePicker.Text);
+            string shift_tDate = shift_date.ToString("yyyyMMdd");
+            // separate the shift date day of week value
+            string shift_DOW = shift_date.DayOfWeek.ToString();
+
+            // get staff's id
+            string cmdText = "SELECT StaffId FROM Staff WHERE Username = '" + Session["Username"] + "'",
+                   variable = "getStaff";
+            readFiles(cmdText, variable);
+
+            // insert data to table
+            using (DataClassesDataContext dc = new DataClassesDataContext())
+            {
+                Report_MerrylandsRSLIncident dm = new Report_MerrylandsRSLIncident();
+                dm.ReportId = Int32.Parse(Report.LastReportId);
+                dm.RCatId = 1;
+                dm.StaffId = Int32.Parse(Session["currentStaffId"].ToString());
+                dm.StaffName = UserCredentials.DisplayName;
+                dm.ShiftId = Int32.Parse(ddlShift.SelectedItem.Value);
+                dm.ShiftDate = shift_date.Date;
+                dm.ShiftDOW = shift_DOW;
+                dm.EntryDate = entry_date;
+                dm.Report_Table = "Report_MerrylandsRSLIncident";
+                dm.AuditVersion = 1;
+                dm.ReportStat = "Awaiting Manager Sign-off";
+                dm.Report_Version = 1; // current version
+                dm.ReadByList = "," + UserCredentials.StaffId + ",";
+                dm.NoOfPerson = Int32.Parse(lblNoOfPerson.Text);
+                dm.Date = txtDate1.Text;
+                dm.TimeH = ddlHour.SelectedItem.Value;
+                dm.TimeM = ddlMinutes.SelectedItem.Value;
+                //dm.TimeTC = ddlTimeCon.SelectedItem.Value;
+                dm.TxtTimeH = ddlHour.SelectedItem.Text;
+                dm.TxtTimeM = ddlMinutes.SelectedItem.Text;
+                //dm.TxtTimeTC = ddlTimeCon.SelectedItem.Text;
+                dm.Location = Location;
+                dm.LocationOther = txtLocation.Text;
+                dm.ActionTaken = ActionTaken;
+                dm.Details = txtDetails.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.Allegation = txtAllegation.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.IncidentHappened = WhatHappened;
+                dm.ActionTakenOther = txtActionTakenOther.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.HappenedOther = txtOthers.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.HappenedSerious = txtOtherSerious.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.HappenedRefuseEntry = RefuseReason;
+                dm.HappenedAskedToLeave = AskedLeaveReason;
+                dm.SecurityAttend = cbSecurity.Checked;
+                dm.SecurityName = txtSecurityName.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.PoliceNotify = cbPolice.Checked;
+                dm.PoliceAction = txtPoliceAction.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.OfficersName = txtOfficersName.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.PoliceStation = txtPoliceStation.Text.Replace("\n", "<br />").Replace("'", "^");
+                // Submit Person Form if visible
+                if (acpPerson1.Visible == true)
+                {
+                    dm.FirstName1 = txtFirstName1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.LastName1 = txtLastName1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.PartyType1 = ddlPartyType1.SelectedItem.Value;
+                    if (ddlPartyType1.SelectedItem.Value == "1")
+                    {
+                        dm.PlayerId1 = ReportIncidentMr.PlayerId1;
+                        dm.MemberNo1 = txtMemberNo1.Text;
+                        // get the member photo again to store it in the database
+                        Report.MemberNumberChanged = "1";
+                        string cmdQuery = SearchMember(txtMemberNo1.Text);
+                        readFiles(cmdQuery, "MemberPhoto");
+                        dm.MemberPhoto1 = memberPhoto1;
+                        dm.MemberDOB1 = txtDOB1.Text;
+                        dm.MemberAddress1 = txtAddress1.Text;
+                        dm.CardHeld1 = cbCardHeld1.Checked;
+                        dm.MemberSince1 = txtMemberSince1.Text;
+                        dm.SignInSlip1 = false;
+                    }
+                    else if (ddlPartyType1.SelectedItem.Value == "3")
+                    {
+                        dm.StaffEmpNo1 = txtStaffEmpNo1.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.StaffAddress1 = txtStaffAddress1.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.CardHeld1 = false;
+                        dm.SignInSlip1 = false;
+                    }
+                    else if (ddlPartyType1.SelectedItem.Value == "2")
+                    {
+                        dm.CardHeld1 = false;
+                        dm.SignInSlip1 = cbSignInSlip1.Checked;
+                        dm.SignedInBy1 = txtSignInBy1.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.VisitorDOB1 = txtDOBv1.Text;
+                        dm.VisitorAddress1 = txtAddressv1.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.VisitorProofID1 = txtIDProof1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    }
+                    else
+                    {
+                        dm.CardHeld1 = false;
+                        dm.SignInSlip1 = false;
+                    }
+                    dm.Witness1 = cbWitness1.Checked;
+                    dm.Alias1 = txtAlias1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Contact1 = txtContact1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.PDate1 = txtPDate1.Text;
+                    dm.PTimeH1 = ddlPTimeH1.SelectedItem.Value;
+                    dm.PTimeM1 = ddlPTimeM1.SelectedItem.Value;
+                    //dm.PTimeTC1 = ddlPTimeTC1.SelectedItem.Value;
+                    dm.Age1 = txtAge1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.AgeGroup1 = ddlAgeGroup1.SelectedItem.Value;
+                    //dm.Weight1 = txtWeight1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Weight1 = ddlWeight1.SelectedItem.Value;
+                    dm.Height1 = txtHeight1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Hair1 = txtHair1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.ClothingTop1 = txtClothingTop1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.ClothingBottom1 = txtClothingBottom1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Shoes1 = txtShoes1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Weapon1 = txtWeapon1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Gender1 = ddlGender1.SelectedItem.Value;
+                    dm.DistFeatures1 = txtDistFeatures1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.InjuryDesc1 = txtInjuryDesc1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CauseInjury1 = txtInjuryCause1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Comments1 = txtIncidentComm1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.TxtPartyType1 = ddlPartyType1.SelectedItem.Text;
+                    dm.TxtPTimeH1 = ddlPTimeH1.SelectedItem.Text;
+                    dm.TxtPTimeM1 = ddlPTimeM1.SelectedItem.Text;
+                    //dm.TxtPTimeTC1 = ddlPTimeTC1.SelectedItem.Text;
+                    dm.TxtGender1 = ddlGender1.SelectedItem.Text;
+                }
+                else
+                {
+                    dm.Witness1 = false;
+                    dm.SignInSlip1 = false;
+                    dm.CardHeld1 = false;
+                    dm.PartyType1 = "-1";
+                    dm.PTimeH1 = "-1";
+                    dm.PTimeM1 = "-1";
+                    //dm.PTimeTC1 = "-1";
+                    dm.Gender1 = "-1";
+                    dm.AgeGroup1 = "-1";
+                }
+
+                if (acpPerson2.Visible == true)
+                {
+                    dm.FirstName2 = txtFirstName2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.LastName2 = txtLastName2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.PartyType2 = ddlPartyType2.SelectedItem.Value;
+                    if (ddlPartyType2.SelectedItem.Value == "1")
+                    {
+                        dm.PlayerId2 = ReportIncidentMr.PlayerId2;
+                        dm.MemberNo2 = txtMemberNo2.Text;
+                        // get the member photo again to store it in the database
+                        Report.MemberNumberChanged = "2";
+                        string cmdQuery = SearchMember(txtMemberNo2.Text);
+                        readFiles(cmdQuery, "MemberPhoto");
+                        dm.MemberPhoto2 = memberPhoto2;
+                        dm.MemberDOB2 = txtDOB2.Text;
+                        dm.MemberAddress2 = txtAddress2.Text;
+                        dm.CardHeld2 = cbCardHeld2.Checked;
+                        dm.MemberSince2 = txtMemberSince2.Text;
+                        dm.SignInSlip2 = false;
+                    }
+                    else if (ddlPartyType2.SelectedItem.Value == "3")
+                    {
+                        dm.StaffEmpNo2 = txtStaffEmpNo2.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.StaffAddress2 = txtStaffAddress2.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.CardHeld2 = false;
+                        dm.SignInSlip2 = false;
+                    }
+                    else if (ddlPartyType2.SelectedItem.Value == "2")
+                    {
+                        dm.CardHeld2 = false;
+                        dm.SignInSlip2 = cbSignInSlip2.Checked;
+                        dm.SignedInBy2 = txtSignInBy2.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.VisitorDOB2 = txtDOBv2.Text;
+                        dm.VisitorAddress2 = txtAddressv2.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.VisitorProofID2 = txtIDProof2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    }
+                    else
+                    {
+                        dm.CardHeld2 = false;
+                        dm.SignInSlip2 = false;
+                    }
+                    dm.Witness2 = cbWitness2.Checked;
+                    dm.Alias2 = txtAlias2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Contact2 = txtContact2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.PDate2 = txtPDate2.Text;
+                    dm.PTimeH2 = ddlPTimeH2.SelectedItem.Value;
+                    dm.PTimeM2 = ddlPTimeM2.SelectedItem.Value;
+                    //dm.PTimeTC2 = ddlPTimeTC2.SelectedItem.Value;
+                    dm.Age2 = txtAge2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.AgeGroup2 = ddlAgeGroup2.SelectedItem.Value;
+                    //dm.Weight2 = txtWeight2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Weight2 = ddlWeight2.SelectedItem.Value;
+                    dm.Height2 = txtHeight2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Hair2 = txtHair2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.ClothingTop2 = txtClothingTop2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.ClothingBottom2 = txtClothingBottom2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Shoes2 = txtShoes2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Weapon2 = txtWeapon2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Gender2 = ddlGender2.SelectedItem.Value;
+                    dm.DistFeatures2 = txtDistFeatures2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.InjuryDesc2 = txtInjuryDesc2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CauseInjury2 = txtInjuryCause2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Comments2 = txtIncidentComm2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.TxtPartyType2 = ddlPartyType2.SelectedItem.Text;
+                    dm.TxtPTimeH2 = ddlPTimeH2.SelectedItem.Text;
+                    dm.TxtPTimeM2 = ddlPTimeM2.SelectedItem.Text;
+                    //dm.TxtPTimeTC2 = ddlPTimeTC2.SelectedItem.Text;
+                    dm.TxtGender2 = ddlGender2.SelectedItem.Text;
+                }
+                else
+                {
+                    dm.Witness2 = false;
+                    dm.SignInSlip2 = false;
+                    dm.CardHeld2 = false;
+                    dm.PartyType2 = "-1";
+                    dm.PTimeH2 = "-1";
+                    dm.PTimeM2 = "-1";
+                    //dm.PTimeTC2 = "-1";
+                    dm.Gender2 = "-1";
+                    dm.AgeGroup2 = "-1";
+                }
+
+                if (acpPerson3.Visible == true)
+                {
+                    dm.FirstName3 = txtFirstName3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.LastName3 = txtLastName3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.PartyType3 = ddlPartyType3.SelectedItem.Value;
+                    if (ddlPartyType3.SelectedItem.Value == "1")
+                    {
+                        dm.PlayerId3 = ReportIncidentMr.PlayerId3;
+                        dm.MemberNo3 = txtMemberNo3.Text;
+                        // get the member photo again to store it in the database
+                        Report.MemberNumberChanged = "3";
+                        string cmdQuery = SearchMember(txtMemberNo3.Text);
+                        readFiles(cmdQuery, "MemberPhoto");
+                        dm.MemberPhoto3 = memberPhoto3;
+                        dm.MemberDOB3 = txtDOB3.Text;
+                        dm.MemberAddress3 = txtAddress3.Text;
+                        dm.CardHeld3 = cbCardHeld3.Checked;
+                        dm.MemberSince3 = txtMemberSince3.Text;
+                        dm.SignInSlip3 = false;
+                    }
+                    else if (ddlPartyType3.SelectedItem.Value == "3")
+                    {
+                        dm.StaffEmpNo3 = txtStaffEmpNo3.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.StaffAddress3 = txtStaffAddress3.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.CardHeld3 = false;
+                        dm.SignInSlip3 = false;
+                    }
+                    else if (ddlPartyType3.SelectedItem.Value == "2")
+                    {
+                        dm.CardHeld3 = false;
+                        dm.SignInSlip3 = cbSignInSlip3.Checked;
+                        dm.SignedInBy3 = txtSignInBy3.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.VisitorDOB3 = txtDOBv3.Text;
+                        dm.VisitorAddress3 = txtAddressv3.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.VisitorProofID3 = txtIDProof3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    }
+                    else
+                    {
+                        dm.CardHeld3 = false;
+                        dm.SignInSlip3 = false;
+                    }
+                    dm.Witness3 = cbWitness3.Checked;
+                    dm.Alias3 = txtAlias3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Contact3 = txtContact3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.PDate3 = txtPDate3.Text;
+                    dm.PTimeH3 = ddlPTimeH3.SelectedItem.Value;
+                    dm.PTimeM3 = ddlPTimeM3.SelectedItem.Value;
+                    //dm.PTimeTC3 = ddlPTimeTC3.SelectedItem.Value;
+                    dm.Age3 = txtAge3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.AgeGroup3 = ddlAgeGroup3.SelectedItem.Value;
+                    //dm.Weight3 = txtWeight3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Weight3 = ddlWeight3.SelectedItem.Value;
+                    dm.Height3 = txtHeight3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Hair3 = txtHair3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.ClothingTop3 = txtClothingTop3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.ClothingBottom3 = txtClothingBottom3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Shoes3 = txtShoes3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Weapon3 = txtWeapon3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Gender3 = ddlGender3.SelectedItem.Value;
+                    dm.DistFeatures3 = txtDistFeatures3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.InjuryDesc3 = txtInjuryDesc3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CauseInjury3 = txtInjuryCause3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Comments3 = txtIncidentComm3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.TxtPartyType3 = ddlPartyType3.SelectedItem.Text;
+                    dm.TxtPTimeH3 = ddlPTimeH3.SelectedItem.Text;
+                    dm.TxtPTimeM3 = ddlPTimeM3.SelectedItem.Text;
+                    //dm.TxtPTimeTC3 = ddlPTimeTC3.SelectedItem.Text;
+                    dm.TxtGender3 = ddlGender3.SelectedItem.Text;
+                }
+                else
+                {
+                    dm.Witness3 = false;
+                    dm.SignInSlip3 = false;
+                    dm.CardHeld3 = false;
+                    dm.PartyType3 = "-1";
+                    dm.PTimeH3 = "-1";
+                    dm.PTimeM3 = "-1";
+                    //dm.PTimeTC3 = "-1";
+                    dm.Gender3 = "-1";
+                    dm.AgeGroup3 = "-1";
+                }
+
+                if (acpPerson4.Visible == true)
+                {
+                    dm.FirstName4 = txtFirstName4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.LastName4 = txtLastName4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.PartyType4 = ddlPartyType4.SelectedItem.Value;
+                    if (ddlPartyType4.SelectedItem.Value == "1")
+                    {
+                        dm.PlayerId4 = ReportIncidentMr.PlayerId4;
+                        dm.MemberNo4 = txtMemberNo4.Text;
+                        // get the member photo again to store it in the database
+                        Report.MemberNumberChanged = "4";
+                        string cmdQuery = SearchMember(txtMemberNo4.Text);
+                        readFiles(cmdQuery, "MemberPhoto");
+                        dm.MemberPhoto4 = memberPhoto4;
+                        dm.MemberDOB4 = txtDOB4.Text;
+                        dm.MemberAddress4 = txtAddress4.Text;
+                        dm.CardHeld4 = cbCardHeld4.Checked;
+                        dm.MemberSince4 = txtMemberSince4.Text;
+                        dm.SignInSlip4 = false;
+                    }
+                    else if (ddlPartyType4.SelectedItem.Value == "3")
+                    {
+                        dm.StaffEmpNo4 = txtStaffEmpNo4.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.StaffAddress4 = txtStaffAddress4.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.CardHeld4 = false;
+                        dm.SignInSlip4 = false;
+                    }
+                    else if (ddlPartyType4.SelectedItem.Value == "2")
+                    {
+                        dm.CardHeld4 = false;
+                        dm.SignInSlip4 = cbSignInSlip4.Checked;
+                        dm.SignedInBy4 = txtSignInBy4.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.VisitorDOB4 = txtDOBv4.Text;
+                        dm.VisitorAddress4 = txtAddressv4.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.VisitorProofID4 = txtIDProof4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    }
+                    else
+                    {
+                        dm.CardHeld4 = false;
+                        dm.SignInSlip4 = false;
+                    }
+                    dm.Witness4 = cbWitness4.Checked;
+                    dm.Alias4 = txtAlias4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Contact4 = txtContact4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.PDate4 = txtPDate4.Text;
+                    dm.PTimeH4 = ddlPTimeH4.SelectedItem.Value;
+                    dm.PTimeM4 = ddlPTimeM4.SelectedItem.Value;
+                    //dm.PTimeTC4 = ddlPTimeTC4.SelectedItem.Value;
+                    dm.Age4 = txtAge4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.AgeGroup4 = ddlAgeGroup4.SelectedItem.Value;
+                    //dm.Weight4 = txtWeight4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Weight4 = ddlWeight4.SelectedItem.Value;
+                    dm.Height4 = txtHeight4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Hair4 = txtHair4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.ClothingTop4 = txtClothingTop4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.ClothingBottom4 = txtClothingBottom4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Shoes4 = txtShoes4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Weapon4 = txtWeapon4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Gender4 = ddlGender4.SelectedItem.Value;
+                    dm.DistFeatures4 = txtDistFeatures4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.InjuryDesc4 = txtInjuryDesc4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CauseInjury4 = txtInjuryCause4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Comments4 = txtIncidentComm4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.TxtPartyType4 = ddlPartyType4.SelectedItem.Text;
+                    dm.TxtPTimeH4 = ddlPTimeH4.SelectedItem.Text;
+                    dm.TxtPTimeM4 = ddlPTimeM4.SelectedItem.Text;
+                    //dm.TxtPTimeTC4 = ddlPTimeTC4.SelectedItem.Text;
+                    dm.TxtGender4 = ddlGender4.SelectedItem.Text;
+                }
+                else
+                {
+                    dm.Witness4 = false;
+                    dm.SignInSlip4 = false;
+                    dm.CardHeld4 = false;
+                    dm.PartyType4 = "-1";
+                    dm.PTimeH4 = "-1";
+                    dm.PTimeM4 = "-1";
+                    //dm.PTimeTC4 = "-1";
+                    dm.Gender4 = "-1";
+                    dm.AgeGroup4 = "-1";
+                }
+
+                if (acpPerson5.Visible == true)
+                {
+                    dm.FirstName5 = txtFirstName5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.LastName5 = txtLastName5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.PartyType5 = ddlPartyType5.SelectedItem.Value;
+                    if (ddlPartyType5.SelectedItem.Value == "1")
+                    {
+                        dm.PlayerId5 = ReportIncidentMr.PlayerId5;
+                        dm.MemberNo5 = txtMemberNo5.Text;
+                        // get the member photo again to store it in the database
+                        Report.MemberNumberChanged = "5";
+                        string cmdQuery = SearchMember(txtMemberNo5.Text);
+                        readFiles(cmdQuery, "MemberPhoto");
+                        dm.MemberPhoto5 = memberPhoto5;
+                        dm.MemberDOB5 = txtDOB5.Text;
+                        dm.MemberAddress5 = txtAddress5.Text;
+                        dm.CardHeld5 = cbCardHeld5.Checked;
+                        dm.MemberSince5 = txtMemberSince5.Text;
+                        dm.SignInSlip5 = false;
+                    }
+                    else if (ddlPartyType5.SelectedItem.Value == "3")
+                    {
+                        dm.StaffEmpNo5 = txtStaffEmpNo5.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.StaffAddress5 = txtStaffAddress5.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.CardHeld5 = false;
+                        dm.SignInSlip5 = false;
+                    }
+                    else if (ddlPartyType5.SelectedItem.Value == "2")
+                    {
+                        dm.CardHeld5 = false;
+                        dm.SignInSlip5 = cbSignInSlip5.Checked;
+                        dm.SignedInBy5 = txtSignInBy5.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.VisitorDOB5 = txtDOBv5.Text;
+                        dm.VisitorAddress5 = txtAddressv5.Text.Replace("\n", "<br />").Replace("'", "^");
+                        dm.VisitorProofID5 = txtIDProof5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    }
+                    else
+                    {
+                        dm.CardHeld5 = false;
+                        dm.SignInSlip5 = false;
+                    }
+                    dm.Witness5 = cbWitness5.Checked;
+                    dm.Alias5 = txtAlias5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Contact5 = txtContact5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.PDate5 = txtPDate5.Text;
+                    dm.PTimeH5 = ddlPTimeH5.SelectedItem.Value;
+                    dm.PTimeM5 = ddlPTimeM5.SelectedItem.Value;
+                    //dm.PTimeTC5 = ddlPTimeTC5.SelectedItem.Value;
+                    dm.Age5 = txtAge5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.AgeGroup5 = ddlAgeGroup5.SelectedItem.Value;
+                    //dm.Weight5 = txtWeight5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Weight5 = ddlWeight5.SelectedItem.Value;
+                    dm.Height5 = txtHeight5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Hair5 = txtHair5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.ClothingTop5 = txtClothingTop5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.ClothingBottom5 = txtClothingBottom5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Shoes5 = txtShoes5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Weapon5 = txtWeapon5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Gender5 = ddlGender5.SelectedItem.Value;
+                    dm.DistFeatures5 = txtDistFeatures5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.InjuryDesc5 = txtInjuryDesc5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CauseInjury5 = txtInjuryCause5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.Comments5 = txtIncidentComm5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.TxtPartyType5 = ddlPartyType5.SelectedItem.Text;
+                    dm.TxtPTimeH5 = ddlPTimeH5.SelectedItem.Text;
+                    dm.TxtPTimeM5 = ddlPTimeM5.SelectedItem.Text;
+                    //dm.TxtPTimeTC5 = ddlPTimeTC5.SelectedItem.Text;
+                    dm.TxtGender5 = ddlGender5.SelectedItem.Text;
+                }
+                else
+                {
+                    dm.Witness5 = false;
+                    dm.SignInSlip5 = false;
+                    dm.CardHeld5 = false;
+                    dm.PartyType5 = "-1";
+                    dm.PTimeH5 = "-1";
+                    dm.PTimeM5 = "-1";
+                    //dm.PTimeTC5 = "-1";
+                    dm.Gender5 = "-1";
+                    dm.AgeGroup5 = "-1";
+                }
+
+                // Submit Camera Forms if visible
+                if (tblCamera1.Visible == true)
+                {
+                    dm.CamDesc1 = txtCamDesc1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSDate1 = txtCamSDate1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSTimeH1 = ddlCamTimeH1.SelectedItem.Value;
+                    dm.CamSTimeM1 = ddlCamTimeM1.SelectedItem.Value;
+                    //dm.CamSTimeTC1 = ddlCamTimeTC1.SelectedItem.Value;
+                    dm.CamEDate1 = txtCamEDate1.Text;
+                    dm.CamETimeH1 = ddlCamETimeH1.SelectedItem.Value;
+                    dm.CamETimeM1 = ddlCamETimeM1.SelectedItem.Value;
+                    //dm.CamETimeTC1 = ddlCamETimeTC1.SelectedItem.Value;
+                    dm.CamFilePath1 = txtCamFilePath1.Text;
+                    dm.CamRecorded1 = cbRecorded1.Checked;
+                    dm.TxtCamSTimeH1 = ddlCamTimeH1.SelectedItem.Text;
+                    dm.TxtCamSTimeM1 = ddlCamTimeM1.SelectedItem.Text;
+                    //dm.TxtCamSTimeTC1 = ddlCamTimeTC1.SelectedItem.Text;
+                    dm.TxtCamETimeH1 = ddlCamETimeH1.SelectedItem.Text;
+                    dm.TxtCamETimeM1 = ddlCamETimeM1.SelectedItem.Text;
+                    //dm.TxtCamETimeTC1 = ddlCamETimeTC1.SelectedItem.Text;
+                }
+                else
+                {
+                    dm.CamRecorded1 = false;
+                    dm.CamSTimeH1 = "-1";
+                    dm.CamSTimeM1 = "-1";
+                    //dm.CamSTimeTC1 = "-1";
+                    dm.CamETimeH1 = "-1";
+                    dm.CamETimeM1 = "-1";
+                    //dm.CamETimeTC1 = "-1";
+                }
+                if (tblCamera2.Visible == true)
+                {
+                    dm.CamDesc2 = txtCamDesc2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSDate2 = txtCamSDate2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSTimeH2 = ddlCamTimeH2.SelectedItem.Value;
+                    dm.CamSTimeM2 = ddlCamTimeM2.SelectedItem.Value;
+                    //dm.CamSTimeTC2 = ddlCamTimeTC2.SelectedItem.Value;
+                    dm.CamEDate2 = txtCamEDate2.Text;
+                    dm.CamETimeH2 = ddlCamETimeH2.SelectedItem.Value;
+                    dm.CamETimeM2 = ddlCamETimeM2.SelectedItem.Value;
+                    //dm.CamETimeTC2 = ddlCamETimeTC2.SelectedItem.Value;
+                    dm.CamFilePath2 = txtCamFilePath2.Text;
+                    dm.CamRecorded2 = cbRecorded2.Checked;
+                    dm.TxtCamSTimeH2 = ddlCamTimeH2.SelectedItem.Text;
+                    dm.TxtCamSTimeM2 = ddlCamTimeM2.SelectedItem.Text;
+                    //dm.TxtCamSTimeTC2 = ddlCamTimeTC2.SelectedItem.Text;
+                    dm.TxtCamETimeH2 = ddlCamETimeH2.SelectedItem.Text;
+                    dm.TxtCamETimeM2 = ddlCamETimeM2.SelectedItem.Text;
+                    //dm.TxtCamETimeTC2 = ddlCamETimeTC2.SelectedItem.Text;
+                }
+                else
+                {
+                    dm.CamRecorded2 = false;
+                    dm.CamSTimeH2 = "-1";
+                    dm.CamSTimeM2 = "-1";
+                    //dm.CamSTimeTC2 = "-1";
+                    dm.CamETimeH2 = "-1";
+                    dm.CamETimeM2 = "-1";
+                    //dm.CamETimeTC2 = "-1";
+                }
+                if (tblCamera3.Visible == true)
+                {
+                    dm.CamDesc3 = txtCamDesc3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSDate3 = txtCamSDate3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSTimeH3 = ddlCamTimeH3.SelectedItem.Value;
+                    dm.CamSTimeM3 = ddlCamTimeM3.SelectedItem.Value;
+                    //dm.CamSTimeTC3 = ddlCamTimeTC3.SelectedItem.Value;
+                    dm.CamEDate3 = txtCamEDate3.Text;
+                    dm.CamETimeH3 = ddlCamETimeH3.SelectedItem.Value;
+                    dm.CamETimeM3 = ddlCamETimeM3.SelectedItem.Value;
+                    //dm.CamETimeTC3 = ddlCamETimeTC3.SelectedItem.Value;
+                    dm.CamFilePath3 = txtCamFilePath3.Text;
+                    dm.CamRecorded3 = cbRecorded3.Checked;
+                    dm.TxtCamSTimeH3 = ddlCamTimeH3.SelectedItem.Text;
+                    dm.TxtCamSTimeM3 = ddlCamTimeM3.SelectedItem.Text;
+                    //dm.TxtCamSTimeTC3 = ddlCamTimeTC3.SelectedItem.Text;
+                    dm.TxtCamETimeH3 = ddlCamETimeH3.SelectedItem.Text;
+                    dm.TxtCamETimeM3 = ddlCamETimeM3.SelectedItem.Text;
+                    //dm.TxtCamETimeTC3 = ddlCamETimeTC3.SelectedItem.Text;
+                }
+                else
+                {
+                    dm.CamRecorded3 = false;
+                    dm.CamSTimeH3 = "-1";
+                    dm.CamSTimeM3 = "-1";
+                    //dm.CamSTimeTC3 = "-1";
+                    dm.CamETimeH3 = "-1";
+                    dm.CamETimeM3 = "-1";
+                    //dm.CamETimeTC3 = "-1";
+                }
+                if (tblCamera4.Visible == true)
+                {
+                    dm.CamDesc4 = txtCamDesc4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSDate4 = txtCamSDate4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSTimeH4 = ddlCamTimeH4.SelectedItem.Value;
+                    dm.CamSTimeM4 = ddlCamTimeM4.SelectedItem.Value;
+                    //dm.CamSTimeTC4 = ddlCamTimeTC4.SelectedItem.Value;
+                    dm.CamEDate4 = txtCamEDate4.Text;
+                    dm.CamETimeH4 = ddlCamETimeH4.SelectedItem.Value;
+                    dm.CamETimeM4 = ddlCamETimeM4.SelectedItem.Value;
+                    //dm.CamETimeTC4 = ddlCamETimeTC4.SelectedItem.Value;
+                    dm.CamFilePath4 = txtCamFilePath4.Text;
+                    dm.CamRecorded4 = cbRecorded4.Checked;
+                    dm.TxtCamSTimeH4 = ddlCamTimeH4.SelectedItem.Text;
+                    dm.TxtCamSTimeM4 = ddlCamTimeM4.SelectedItem.Text;
+                    //dm.TxtCamSTimeTC4 = ddlCamTimeTC4.SelectedItem.Text;
+                    dm.TxtCamETimeH4 = ddlCamETimeH4.SelectedItem.Text;
+                    dm.TxtCamETimeM4 = ddlCamETimeM4.SelectedItem.Text;
+                    //dm.TxtCamETimeTC4 = ddlCamETimeTC4.SelectedItem.Text;
+                }
+                else
+                {
+                    dm.CamRecorded4 = false;
+                    dm.CamSTimeH4 = "-1";
+                    dm.CamSTimeM4 = "-1";
+                    //dm.CamSTimeTC4 = "-1";
+                    dm.CamETimeH4 = "-1";
+                    dm.CamETimeM4 = "-1";
+                    //dm.CamETimeTC4 = "-1";
+                }
+                if (tblCamera5.Visible == true)
+                {
+                    dm.CamDesc5 = txtCamDesc5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSDate5 = txtCamSDate5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSTimeH5 = ddlCamTimeH5.SelectedItem.Value;
+                    dm.CamSTimeM5 = ddlCamTimeM5.SelectedItem.Value;
+                    //dm.CamSTimeTC5 = ddlCamTimeTC5.SelectedItem.Value;
+                    dm.CamEDate5 = txtCamEDate5.Text;
+                    dm.CamETimeH5 = ddlCamETimeH5.SelectedItem.Value;
+                    dm.CamETimeM5 = ddlCamETimeM5.SelectedItem.Value;
+                    //dm.CamETimeTC5 = ddlCamETimeTC5.SelectedItem.Value;
+                    dm.CamFilePath5 = txtCamFilePath5.Text;
+                    dm.CamRecorded5 = cbRecorded5.Checked;
+                    dm.TxtCamSTimeH5 = ddlCamTimeH5.SelectedItem.Text;
+                    dm.TxtCamSTimeM5 = ddlCamTimeM5.SelectedItem.Text;
+                    //dm.TxtCamSTimeTC5 = ddlCamTimeTC5.SelectedItem.Text;
+                    dm.TxtCamETimeH5 = ddlCamETimeH5.SelectedItem.Text;
+                    dm.TxtCamETimeM5 = ddlCamETimeM5.SelectedItem.Text;
+                    //dm.TxtCamETimeTC5 = ddlCamETimeTC5.SelectedItem.Text;
+                }
+                else
+                {
+                    dm.CamRecorded5 = false;
+                    dm.CamSTimeH5 = "-1";
+                    dm.CamSTimeM5 = "-1";
+                    //dm.CamSTimeTC5 = "-1";
+                    dm.CamETimeH5 = "-1";
+                    dm.CamETimeM5 = "-1";
+                    //dm.CamETimeTC5 = "-1";
+                }
+                if (tblCamera6.Visible == true)
+                {
+                    dm.CamDesc6 = txtCamDesc6.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSDate6 = txtCamSDate6.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSTimeH6 = ddlCamTimeH6.SelectedItem.Value;
+                    dm.CamSTimeM6 = ddlCamTimeM6.SelectedItem.Value;
+                    //dm.CamSTimeTC6 = ddlCamTimeTC6.SelectedItem.Value;
+                    dm.CamEDate6 = txtCamEDate6.Text;
+                    dm.CamETimeH6 = ddlCamETimeH6.SelectedItem.Value;
+                    dm.CamETimeM6 = ddlCamETimeM6.SelectedItem.Value;
+                    //dm.CamETimeTC6 = ddlCamETimeTC6.SelectedItem.Value;
+                    dm.CamFilePath6 = txtCamFilePath6.Text;
+                    dm.CamRecorded6 = cbRecorded6.Checked;
+                    dm.TxtCamSTimeH6 = ddlCamTimeH6.SelectedItem.Text;
+                    dm.TxtCamSTimeM6 = ddlCamTimeM6.SelectedItem.Text;
+                    //dm.TxtCamSTimeTC6 = ddlCamTimeTC6.SelectedItem.Text;
+                    dm.TxtCamETimeH6 = ddlCamETimeH6.SelectedItem.Text;
+                    dm.TxtCamETimeM6 = ddlCamETimeM6.SelectedItem.Text;
+                    //dm.TxtCamETimeTC6 = ddlCamETimeTC6.SelectedItem.Text;
+                }
+                else
+                {
+                    dm.CamRecorded6 = false;
+                    dm.CamSTimeH6 = "-1";
+                    dm.CamSTimeM6 = "-1";
+                    //dm.CamSTimeTC6 = "-1";
+                    dm.CamETimeH6 = "-1";
+                    dm.CamETimeM6 = "-1";
+                    //dm.CamETimeTC6 = "-1";
+                }
+                if (tblCamera7.Visible == true)
+                {
+                    dm.CamDesc7 = txtCamDesc7.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSDate7 = txtCamSDate7.Text.Replace("\n", "<br />").Replace("'", "^");
+                    dm.CamSTimeH7 = ddlCamTimeH7.SelectedItem.Value;
+                    dm.CamSTimeM7 = ddlCamTimeM7.SelectedItem.Value;
+                    //dm.CamSTimeTC7 = ddlCamTimeTC7.SelectedItem.Value;
+                    dm.CamEDate7 = txtCamEDate7.Text;
+                    dm.CamETimeH7 = ddlCamETimeH7.SelectedItem.Value;
+                    dm.CamETimeM7 = ddlCamETimeM7.SelectedItem.Value;
+                    //dm.CamETimeTC7 = ddlCamETimeTC7.SelectedItem.Value;
+                    dm.CamFilePath7 = txtCamFilePath7.Text;
+                    dm.CamRecorded7 = cbRecorded7.Checked;
+                    dm.TxtCamSTimeH7 = ddlCamTimeH7.SelectedItem.Text;
+                    dm.TxtCamSTimeM7 = ddlCamTimeM7.SelectedItem.Text;
+                    //dm.TxtCamSTimeTC7 = ddlCamTimeTC7.SelectedItem.Text;
+                    dm.TxtCamETimeH7 = ddlCamETimeH7.SelectedItem.Text;
+                    dm.TxtCamETimeM7 = ddlCamETimeM7.SelectedItem.Text;
+                    //dm.TxtCamETimeTC7 = ddlCamETimeTC7.SelectedItem.Text;
+                }
+                else
+                {
+                    dm.CamRecorded7 = false;
+                    dm.CamSTimeH7 = "-1";
+                    dm.CamSTimeM7 = "-1";
+                    //dm.CamSTimeTC7 = "-1";
+                    dm.CamETimeH7 = "-1";
+                    dm.CamETimeM7 = "-1";
+                    //dm.CamETimeTC7 = "-1";
+                }
+
+                dc.Report_MerrylandsRSLIncidents.InsertOnSubmit(dm);
+                dc.SubmitChanges();
+            }
+
+            //Reset the Player Id Global Variables
+            ReportIncidentMr.PlayerId1 = "";
+            ReportIncidentMr.PlayerId2 = "";
+            ReportIncidentMr.PlayerId3 = "";
+            ReportIncidentMr.PlayerId4 = "";
+            ReportIncidentMr.PlayerId5 = "";
+
+            SearchReport.CreateReport = ""; // reset this variable to set ddlCreateReport to default value
+
+            // set the updated user signature string
+            string updateUserSign = UserCredentials.DisplayName + " " + Convert.ToDateTime(DateTime.Now).ToString("dd/MM/yyyy HH:mm");
+
+            // insert staff signature
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE Report_MerrylandsRSLIncident SET StaffSign='" + updateUserSign + "' WHERE ReportId='" + Report.LastReportId + "' AND AuditVersion='1'", con);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect",
+            "alert('Report Submitted.'); window.location='" +
+            Request.ApplicationPath + "Default.aspx';", true);
+            SearchReport.SetAccordion = "1";
+            SearchReport.RunOnStart = true;
+            SearchReport.FromCreateReport = true;
+
+            HideUserSign();
+        }
+    }
+
+    protected void btnCancelUserSign_Click(object sender, EventArgs e)
+    {
+        HideUserSign();
+    }
+
+    protected void HideUserSign()
+    {
+        body.Style.Add("opacity", "1");
+        userSign.Visible = false;
+
+        btnSubmit.Enabled = true;
+        btnReset.Enabled = true;
+        btnSign.Enabled = true;
+    }
+
+    protected void btnSign_Click(object sender, EventArgs e)
+    {
+        body.Style.Add("opacity", "0.15");
+        userSign.Visible = true;
+        cbUserSign.Checked = false;
+
+        btnSubmit.Enabled = false;
+        btnReset.Enabled = false;
+        btnSign.Enabled = false;
     }
 }

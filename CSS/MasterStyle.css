@@ -478,10 +478,28 @@ th {
     border: none;
 }
 
+.arrow-left-up {
+    position: fixed;
+    top: 43%;
+    left: 21.3%;
+    z-index: 2;
+    width: 45px;
+    border: none;
+}
+
 .arrow-left {
     position: fixed;
     top: 50%;
     left: 21.3%;
+    z-index: 2;
+    width: 45px;
+    border: none;
+}
+
+.arrow-right-up {
+    position: fixed;
+    top: 43%;
+    right: 1.4%;
     z-index: 2;
     width: 45px;
     border: none;

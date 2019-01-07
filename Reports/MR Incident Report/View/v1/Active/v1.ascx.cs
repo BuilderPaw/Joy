@@ -890,6 +890,10 @@ public partial class Reports_MR_Incident_Report_View_v1_v1 : System.Web.UI.UserC
                         {
                             tblCam1.Visible = false;
                         }
+                        else
+                        {
+                            cbCameraFootage.Checked = true;
+                        }
                         if (String.IsNullOrEmpty(rdr["CamDesc2"].ToString()))
                         {
                             tblCam2.Visible = false;

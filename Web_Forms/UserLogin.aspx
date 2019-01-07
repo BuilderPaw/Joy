@@ -2,7 +2,7 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="login">
-        <h1 class="login-header">Club Reports</h1>
+        <h1 class="login-header">Club Utilities</h1>
         <div id="divLogin" runat="server">
             <b>Username:</b>
             <asp:TextBox ID="txtUsername" CssClass="login-textbox object-default" Width="60%" runat="server"></asp:TextBox>

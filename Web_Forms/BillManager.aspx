@@ -9,7 +9,7 @@
     <title>Bill Manager</title>
     <link rel="stylesheet" href="/CSS/BillManager.css" type="text/css" />
     <script type="text/javascript" src="../Scripts/jquery-3.3.1.min.js"></script>
-    <%--    
+    <%--
         Paolo Santiago 18/12/2018
         Allow addEventListener() in IE 11.
         Added an HTTP Respone Header via IIS.
@@ -103,167 +103,167 @@
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-            <asp:Label ID="lblStaffId" runat="server" Text="1" Visible="false"></asp:Label>
-            <div>
-                <table style="border: solid 1px; background-color: aliceblue; color: teal; float: left">
-                    <tr>
-                        <td style="border: solid 1px">
-                            <asp:Label runat="server" Font-Bold="true" Style="margin-left: 250px" Text="BILL MANAGER"></asp:Label><br />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="border: solid 1px">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <asp:Label Font-Bold="true" runat="server" Text="Member Number"></asp:Label>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:Label Font-Bold="true" runat="server" Text="First Name"></asp:Label>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:Label Font-Bold="true" runat="server" Text="Last Name"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:TextBox Width="150px" class="object-default" ID="txtMemberNo" runat="server" OnTextChanged="txtMemberNo_TextChanged" AutoPostBack="true"></asp:TextBox>
-                                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtMemberNo" Display="Dynamic" ValidationGroup="AddRecord" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:TextBox Width="150px" class="object-default" ID="txtFirstName" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtFirstName" Display="Dynamic" ValidationGroup="AddRecord" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:TextBox Width="150px" class="object-default" ID="txtLastName" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtLastName" Display="Dynamic" ValidationGroup="AddRecord" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                                    </td>
-                                </tr>
-                            </table>
+        <asp:Label ID="lblStaffId" runat="server" Text="1" Visible="false"></asp:Label>
+        <div>
+            <table style="border: solid 1px; background-color: aliceblue; color: teal; float: left">
+                <tr>
+                    <td style="border: solid 1px">
+                        <asp:Label runat="server" Font-Bold="true" Style="margin-left: 250px" Text="BILL MANAGER"></asp:Label><br />
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: solid 1px">
+                        <table>
+                            <tr>
+                                <td>
+                                    <asp:Label Font-Bold="true" runat="server" Text="Member Number"></asp:Label>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:Label Font-Bold="true" runat="server" Text="First Name"></asp:Label>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:Label Font-Bold="true" runat="server" Text="Last Name"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:TextBox Width="150px" class="object-default" ID="txtMemberNo" runat="server" OnTextChanged="txtMemberNo_TextChanged" AutoPostBack="true"></asp:TextBox>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtMemberNo" Display="Dynamic" ValidationGroup="AddRecord" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:TextBox Width="150px" class="object-default" ID="txtFirstName" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtFirstName" Display="Dynamic" ValidationGroup="AddRecord" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:TextBox Width="150px" class="object-default" ID="txtLastName" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtLastName" Display="Dynamic" ValidationGroup="AddRecord" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </td>
+                            </tr>
+                        </table>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="border: solid 1px">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <asp:Label Font-Bold="true" runat="server" Text="Biller"></asp:Label></td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:Label Font-Bold="true" runat="server" Text="Confirmation ID"></asp:Label></td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:TextBox Width="150px" class="object-default" ID="txtBiller" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBiller" Display="Dynamic" ValidationGroup="AddRecord" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator></asp:Label></td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:TextBox Width="150px" class="object-default" ID="txtConfirmationId" runat="server"></asp:TextBox>
-                                        <asp:RequiredFieldValidator runat="server" ControlToValidate="txtConfirmationId" Display="Dynamic" ValidationGroup="AddRecord" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="border: solid 1px">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <asp:Label Font-Bold="true" runat="server" Text="Cash"></asp:Label>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:Label Font-Bold="true" runat="server" Text="EFTPOS"></asp:Label>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:Label Font-Bold="true" runat="server" Text="Points"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:TextBox Width="150px" class="object-default" ID="txtCash" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                        <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCash" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:TextBox Width="150px" class="object-default" ID="txtEFTPOS" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                        <asp:RegularExpressionValidator runat="server" ControlToValidate="txtEFTPOS" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:TextBox Width="150px" class="object-default" ID="txtPoints" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                        <asp:RegularExpressionValidator runat="server" ControlToValidate="txtPoints" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Label Font-Bold="true" runat="server" Text="Miscellaneous 1"></asp:Label>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:Label Font-Bold="true" runat="server" Text="Miscellaneous 2"></asp:Label>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:Label Font-Bold="true" runat="server" Text="Cheques"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:TextBox Width="150px" class="object-default" ID="txtMiscellaneous1" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                        <asp:RegularExpressionValidator runat="server" ControlToValidate="txtMiscellaneous1" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:TextBox Width="150px" class="object-default" ID="txtMiscellaneous2" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                        <asp:RegularExpressionValidator runat="server" ControlToValidate="txtMiscellaneous2" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
-                                    </td>
-                                    <td>&nbsp;</td>
-                                    <td>
-                                        <asp:TextBox Width="150px" class="object-default" ID="txtCheques" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                        <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCheques" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
-                                    </td>
-                                </tr>
-                            </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: solid 1px">
+                        <table>
+                            <tr>
+                                <td>
+                                    <asp:Label Font-Bold="true" runat="server" Text="Biller"></asp:Label></td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:Label Font-Bold="true" runat="server" Text="Confirmation ID"></asp:Label></td>
+                                <td>&nbsp;</td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:TextBox Width="150px" class="object-default" ID="txtBiller" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBiller" Display="Dynamic" ValidationGroup="AddRecord" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator></asp:Label></td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:TextBox Width="150px" class="object-default" ID="txtConfirmationId" runat="server"></asp:TextBox>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtConfirmationId" Display="Dynamic" ValidationGroup="AddRecord" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator>
+                                </td>
+                                <td>&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: solid 1px">
+                        <table>
+                            <tr>
+                                <td>
+                                    <asp:Label Font-Bold="true" runat="server" Text="Cash"></asp:Label>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:Label Font-Bold="true" runat="server" Text="EFTPOS"></asp:Label>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:Label Font-Bold="true" runat="server" Text="Points"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:TextBox Width="150px" class="object-default" ID="txtCash" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCash" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:TextBox Width="150px" class="object-default" ID="txtEFTPOS" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtEFTPOS" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:TextBox Width="150px" class="object-default" ID="txtPoints" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtPoints" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Label Font-Bold="true" runat="server" Text="Miscellaneous 1"></asp:Label>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:Label Font-Bold="true" runat="server" Text="Miscellaneous 2"></asp:Label>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:Label Font-Bold="true" runat="server" Text="Cheques"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:TextBox Width="150px" class="object-default" ID="txtMiscellaneous1" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtMiscellaneous1" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:TextBox Width="150px" class="object-default" ID="txtMiscellaneous2" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtMiscellaneous2" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <asp:TextBox Width="150px" class="object-default" ID="txtCheques" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCheques" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
+                                </td>
+                            </tr>
+                        </table>
 
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="border: solid 1px">
-                            <table>
-                                <tr>
-                                    <td>
-                                        <asp:Label Font-Bold="true" runat="server" Text="Total Amount:"></asp:Label>
-                                    </td>
-                                    <td>&nbsp;
-                                    </td>
-                                    <td>
-                                        <asp:Label Font-Bold="true" ID="lblTotalAmount" runat="server" Text="0"></asp:Label>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <asp:Button class="btn" ID="btnSave" runat="server" Text="Save" Width="100px" OnClick="btnSave_Click" ValidationGroup="AddRecord" />
-                                    </td>
-                                    <td>&nbsp;
-                                    </td>
-                                    <td>
-                                        <asp:Button class="btn" ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" />
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: solid 1px">
+                        <table>
+                            <tr>
+                                <td>
+                                    <asp:Label Font-Bold="true" runat="server" Text="Total Amount:"></asp:Label>
+                                </td>
+                                <td>&nbsp;
+                                </td>
+                                <td>
+                                    <asp:Label Font-Bold="true" ID="lblTotalAmount" runat="server" Text="0"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:Button class="btn" ID="btnSave" runat="server" Text="Save" Width="100px" OnClick="btnSave_Click" ValidationGroup="AddRecord" />
+                                </td>
+                                <td>&nbsp;
+                                </td>
+                                <td>
+                                    <asp:Button class="btn" ID="btnClear" runat="server" Text="Clear" OnClick="btnClear_Click" />
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
             <table id="Filter" runat="server" visible="false" style="border: solid 1px; background-color: aliceblue; color: teal; float: left">
                 <tr>
                     <td style="border: solid 1px">
@@ -316,6 +316,25 @@
                         <table>
                             <tr>
                                 <td>
+                                    <asp:Label Font-Bold="true" runat="server" Text="Site"></asp:Label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:DropDownList ID="ddlSite" runat="server" CssClass="object-default">
+                                        <asp:ListItem>Merrylands RSL</asp:ListItem>
+                                        <asp:ListItem>Club Umina</asp:ListItem>
+                                    </asp:DropDownList>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border: solid 1px">
+                        <table>
+                            <tr>
+                                <td>
                                     <asp:Button Width="100px" class="btn" ID="btnFilter" runat="server" Text="Filter" ValidationGroup="FilterReport" OnClick="btnFilter_Click" />
                                 </td>
                                 <td>&nbsp;
@@ -328,15 +347,15 @@
                     </td>
                 </tr>
             </table>
-            <table style="border: solid 1px; background-color: aliceblue; color: teal;">
+            <table style="border: solid 1px; background-color: aliceblue; color: teal; width:100%;">
                 <tr>
                     <td style="border: solid 1px">
                         <asp:Label Font-Bold="true" runat="server" Text="MEMBERS' BILL REPORT SUMMARY"></asp:Label>
                     </td>
                 </tr>
                 <tr>
-                    <td style="border: solid 1px">
-                        <div id="gridview">
+                    <td style="border: solid 1px;">
+                        <div id="gridview" style="width:100%;">
                             <asp:SqlDataSource ID="sdsGridViewBillPayment" runat="server" ConnectionString="<%$ ConnectionStrings:LocalDb %>"
                                 DeleteCommand="DELETE FROM [BillPayment] WHERE [BillPaymentId] = @original_BillPaymentId"
                                 OnDeleted="sdsGridViewBillPayment_Deleted"
@@ -367,11 +386,11 @@
                                     <asp:Parameter Name="original_BillPaymentId" Type="Int32" />
                                 </UpdateParameters>
                             </asp:SqlDataSource>
-                            <asp:GridView ID="gvBillPayment" runat="server" BackColor="AliceBlue" ForeColor="Teal" ShowFooter="true" OnRowDataBound="gvBillPayment_RowDataBound" AllowSorting="True" AllowPaging="true" AutoGenerateColumns="False" DataKeyNames="BillPaymentId" DataSourceID="sdsGridViewBillPayment" EmptyDataText="No record to list">
-                                <Columns>
+                            <asp:GridView ID="gvBillPayment" runat="server" ShowFooter="true" OnRowDataBound="gvBillPayment_RowDataBound" AllowSorting="True" AllowPaging="true" AutoGenerateColumns="False" DataKeyNames="BillPaymentId" DataSourceID="sdsGridViewBillPayment" EmptyDataText="No record to list" Width="100%" Font-Names="Tahoma">
+                                <Columns> 
                                     <asp:TemplateField>
                                         <ItemTemplate>
-                                            <asp:Button class="btn" ID="btnDelete" runat="server" Text="Delete" CommandName="Delete" OnClientClick="return confirm ('Are you sure you want to delete this record?')" />
+                                            <asp:Button class="btn" ID="btnDelete" runat="server" Text="DEL" CommandName="Delete" OnClientClick="return confirm ('Are you sure you want to delete this record?')" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField Visible="false">
@@ -384,67 +403,76 @@
                                             <asp:Label ID="lblSite" runat="server" Text='<%# Bind("Site") %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Member Number" SortExpression="MemberNo">
+                                    <asp:TemplateField HeaderText="Trading Date" SortExpression="TradingDate">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblTradingDate" runat="server" Text='<%# Convert.ToDateTime(Eval("TradingDate")).ToString("dd/MM/yyyy") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="Member No" SortExpression="MemberNo">
                                         <ItemTemplate>
                                             <asp:Label ID="lblMemberNo" runat="server" Text='<%# Bind("MemberNo") %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="First Name" SortExpression="FirstName">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("FirstName").ToString().Length <= 7 ? Eval("FirstName") : Eval("FirstName").ToString().Remove(7) + "..." %>' />
+                                            <asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("FirstName") %>' />
+                                            <%--<asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("FirstName").ToString().Length <= 7 ? Eval("FirstName") : Eval("FirstName").ToString().Remove(7) + "..." %>' />--%>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Last Name" SortExpression="LastName">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblLastName" runat="server" Text='<%# Eval("LastName").ToString().Length <= 7 ? Eval("LastName") : Eval("LastName").ToString().Remove(7) + "..." %>' />
+                                            <asp:Label ID="lblLastName" runat="server" Text='<%# Eval("LastName") %>' />
+                                            <%--<asp:Label ID="lblLastName" runat="server" Text='<%# Eval("LastName").ToString().Length <= 7 ? Eval("LastName") : Eval("LastName").ToString().Remove(7) + "..." %>' />--%>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Biller" SortExpression="Biller">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblBiller" runat="server" Text='<%# Eval("Biller").ToString().Length <= 7 ? Eval("Biller") : Eval("Biller").ToString().Remove(7) + "..." %>' />
+                                            <asp:Label ID="lblBiller" runat="server" Text='<%# Eval("Biller") %>' />
+                                            <%--<asp:Label ID="lblBiller" runat="server" Text='<%# Eval("Biller").ToString().Length <= 7 ? Eval("Biller") : Eval("Biller").ToString().Remove(7) + "..." %>' />--%>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Confirmation ID" SortExpression="ConfirmationId">
+                                    <asp:TemplateField HeaderText="ConfirmationID" SortExpression="ConfirmationId">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblConfirmationId" runat="server" Text='<%# Eval("ConfirmationId").ToString().Length <= 7 ? Eval("ConfirmationId") : Eval("ConfirmationId").ToString().Remove(7) + "..." %>' />
+                                            <asp:Label ID="lblConfirmationId" runat="server" Text='<%# Eval("ConfirmationId") %>' /> 
+                                            <%--<asp:Label ID="lblConfirmationId" runat="server" Text='<%# Eval("ConfirmationId").ToString().Length <= 7 ? Eval("ConfirmationId") : Eval("ConfirmationId").ToString().Remove(7) + "..." %>' />--%>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Cash" SortExpression="Cash">
+                                    <asp:TemplateField HeaderText="Cash" SortExpression="Cash" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblCash" runat="server" Text='<%# Bind("Cash") %>' />
+                                            <asp:Label ID="lblCash" runat="server" Text='<%#  String.Format("{0:C}", Eval("Cash")) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="EFTPOS" SortExpression="EFTPOS">
+                                    <asp:TemplateField HeaderText="EFTPOS" SortExpression="EFTPOS" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblEFTPOS" runat="server" Text='<%# Bind("EFTPOS") %>' />
+                                            <asp:Label ID="lblEFTPOS" runat="server" Text='<%# String.Format("{0:C}", Eval("EFTPOS")) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Points" SortExpression="Points">
+                                    <asp:TemplateField HeaderText="Points" SortExpression="Points" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblPoints" runat="server" Text='<%# Bind("Points") %>' />
+                                            <asp:Label ID="lblPoints" runat="server" Text='<%# String.Format("{0:C}", Eval("Points")) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Miscellaneous1" SortExpression="Miscellaneous1">
+                                    <asp:TemplateField HeaderText="Misc1" SortExpression="Miscellaneous1" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblMiscellaneous1" runat="server" Text='<%# Bind("Miscellaneous1") %>' />
+                                            <asp:Label ID="lblMiscellaneous1" runat="server" Text='<%# String.Format("{0:C}", Eval("Miscellaneous1")) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Miscellaneous2" SortExpression="Miscellaneous2">
+                                    <asp:TemplateField HeaderText="Misc2" SortExpression="Miscellaneous2" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblMiscellaneous2" runat="server" Text='<%# Bind("Miscellaneous2") %>' />
+                                            <asp:Label ID="lblMiscellaneous2" runat="server" Text='<%# String.Format("{0:C}", Eval("Miscellaneous2")) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Cheques" SortExpression="Cheques">
+                                    <asp:TemplateField HeaderText="Cheques" SortExpression="Cheques" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblCheques" runat="server" Text='<%# Bind("Cheques") %>' />
+                                            <asp:Label ID="lblCheques" runat="server" Text='<%# String.Format("{0:C}", Eval("Cheques")) %>' />
                                         </ItemTemplate>
                                         <FooterTemplate>
                                             <asp:Label runat="server" Font-Bold="true" Text="Total:"></asp:Label>
                                         </FooterTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="TotalAmount" SortExpression="TotalAmount">
+                                    <asp:TemplateField HeaderText="Total Amount" SortExpression="TotalAmount" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblTotalAmount" runat="server" Text='<%# Bind("TotalAmount") %>' />
+                                            <asp:Label ID="lblTotalAmount" runat="server" Text='<%# String.Format("{0:C}", Eval("TotalAmount")) %>' />
                                         </ItemTemplate>
                                         <FooterTemplate>
                                             <asp:Label ID="lblTotal" runat="server" Font-Bold="true" Text="Total"></asp:Label>
@@ -462,17 +490,13 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Staff" SortExpression="Staff">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblStaffName" runat="server" Text='<%# Eval("StaffName").ToString().Length <= 14 ? Eval("StaffName") : Eval("StaffName").ToString().Remove(14) + "..." %>' />
+                                            <asp:Label ID="lblStaffName" runat="server" Text='<%# Eval("StaffName") %>' />
+                                            <%--<asp:Label ID="lblStaffName" runat="server" Text='<%# Eval("StaffName").ToString().Length <= 14 ? Eval("StaffName") : Eval("StaffName").ToString().Remove(14) + "..." %>' />--%>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Date Entered" SortExpression="EnteredDate">
+                                    <asp:TemplateField Visible="false">
                                         <ItemTemplate>
                                             <asp:Label ID="lblEnteredDate" runat="server" Text='<%# Bind("EnteredDate") %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Trading Date" SortExpression="TradingDate">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblTradingDate" runat="server" Text='<%# Convert.ToDateTime(Eval("TradingDate")).ToString("dd/MM/yyyy") %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>
@@ -480,7 +504,7 @@
                             <br />
                             <asp:SqlDataSource ID="sdsBillManagerPrint" runat="server" ConnectionString="<%$ ConnectionStrings:LocalDb %>"
                                 SelectCommand="SELECT * FROM [BillPayment] ORDER BY [BillPaymentId] DESC"></asp:SqlDataSource>
-                            <asp:GridView ID="gvBillManagerPrint" runat="server" Visible="false" AllowSorting="True" AllowPaging="true" AutoGenerateColumns="False" DataKeyNames="BillPaymentId" DataSourceID="sdsBillManagerPrint" EmptyDataText="No record to list">
+                            <asp:GridView ID="gvBillManagerPrint" runat="server" ShowFooter="true" OnRowDataBound="gvBillPayment_RowDataBound"  Visible="false" AllowSorting="True" AllowPaging="true" AutoGenerateColumns="False" DataKeyNames="BillPaymentId" DataSourceID="sdsBillManagerPrint" EmptyDataText="No record to list" Width="100%" Font-Names="Tahoma">
                                 <Columns>
                                     <asp:TemplateField Visible="false">
                                         <ItemTemplate>
@@ -492,65 +516,80 @@
                                             <asp:Label ID="lblSite" runat="server" Text='<%# Bind("Site") %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Member Number" SortExpression="MemberNo">
+                                    <asp:TemplateField HeaderText="TradingDate" SortExpression="TradingDate">
+                                        <ItemTemplate>
+                                            <asp:Label ID="lblTradingDate" runat="server" Text='<%# Convert.ToDateTime(Eval("TradingDate")).ToString("dd/MM/yyyy") %>' />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+                                    <asp:TemplateField HeaderText="MemberNumber" SortExpression="MemberNo">
                                         <ItemTemplate>
                                             <asp:Label ID="lblMemberNo" runat="server" Text='<%# Bind("MemberNo") %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="First Name" SortExpression="FirstName">
+                                    <asp:TemplateField HeaderText="FirstName" SortExpression="FirstName">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("FirstName").ToString().Length <= 7 ? Eval("FirstName") : Eval("FirstName").ToString().Remove(7) + "..." %>' />
+                                            <asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("FirstName") %>' />
+                                            <%--<asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("FirstName").ToString().Length <= 7 ? Eval("FirstName") : Eval("FirstName").ToString().Remove(7) + "..." %>' />--%>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Last Name" SortExpression="LastName">
+                                    <asp:TemplateField HeaderText="LastName" SortExpression="LastName">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblLastName" runat="server" Text='<%# Eval("LastName").ToString().Length <= 7 ? Eval("LastName") : Eval("LastName").ToString().Remove(7) + "..." %>' />
+                                            <asp:Label ID="lblLastName" runat="server" Text='<%# Eval("LastName") %>' />
+                                            <%--<asp:Label ID="lblLastName" runat="server" Text='<%# Eval("LastName").ToString().Length <= 7 ? Eval("LastName") : Eval("LastName").ToString().Remove(7) + "..." %>' />--%>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Biller" SortExpression="Biller">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblBiller" runat="server" Text='<%# Eval("Biller").ToString().Length <= 7 ? Eval("Biller") : Eval("Biller").ToString().Remove(7) + "..." %>' />
+                                            <asp:Label ID="lblBiller" runat="server" Text='<%# Eval("Biller") %>' />
+                                            <%--<asp:Label ID="lblBiller" runat="server" Text='<%# Eval("Biller").ToString().Length <= 7 ? Eval("Biller") : Eval("Biller").ToString().Remove(7) + "..." %>' />--%>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Confirmation ID" SortExpression="ConfirmationId">
+                                    <asp:TemplateField HeaderText="ConfirmationID" SortExpression="ConfirmationId">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblConfirmationId" runat="server" Text='<%# Eval("ConfirmationId").ToString().Length <= 7 ? Eval("ConfirmationId") : Eval("ConfirmationId").ToString().Remove(7) + "..." %>' />
+                                            <asp:Label ID="lblConfirmationId" runat="server" Text='<%# Eval("ConfirmationId") %>' /> 
+                                            <%--<asp:Label ID="lblConfirmationId" runat="server" Text='<%# Eval("ConfirmationId").ToString().Length <= 7 ? Eval("ConfirmationId") : Eval("ConfirmationId").ToString().Remove(7) + "..." %>' />--%>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Cash" SortExpression="Cash">
+                                    <asp:TemplateField HeaderText="Cash" SortExpression="Cash" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblCash" runat="server" Text='<%# Bind("Cash") %>' />
+                                            <asp:Label ID="lblCash" runat="server" Text='<%#  String.Format("{0:C}", Eval("Cash")) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="EFTPOS" SortExpression="EFTPOS">
+                                    <asp:TemplateField HeaderText="EFTPOS" SortExpression="EFTPOS" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblEFTPOS" runat="server" Text='<%# Bind("EFTPOS") %>' />
+                                            <asp:Label ID="lblEFTPOS" runat="server" Text='<%# String.Format("{0:C}", Eval("EFTPOS")) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Points" SortExpression="Points">
+                                    <asp:TemplateField HeaderText="Points" SortExpression="Points" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblPoints" runat="server" Text='<%# Bind("Points") %>' />
+                                            <asp:Label ID="lblPoints" runat="server" Text='<%# String.Format("{0:C}", Eval("Points")) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Miscellaneous1" SortExpression="Miscellaneous1">
+                                    <asp:TemplateField HeaderText="Misc1" SortExpression="Miscellaneous1" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblMiscellaneous1" runat="server" Text='<%# Bind("Miscellaneous1") %>' />
+                                            <asp:Label ID="lblMiscellaneous1" runat="server" Text='<%# String.Format("{0:C}", Eval("Miscellaneous1")) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Miscellaneous2" SortExpression="Miscellaneous2">
+                                    <asp:TemplateField HeaderText="Misc2" SortExpression="Miscellaneous2" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblMiscellaneous2" runat="server" Text='<%# Bind("Miscellaneous2") %>' />
+                                            <asp:Label ID="lblMiscellaneous2" runat="server" Text='<%# String.Format("{0:C}", Eval("Miscellaneous2")) %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Cheques" SortExpression="Cheques">
+                                    <asp:TemplateField HeaderText="Cheques" SortExpression="Cheques" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblCheques" runat="server" Text='<%# Bind("Cheques") %>' />
+                                            <asp:Label ID="lblCheques" runat="server" Text='<%# String.Format("{0:C}", Eval("Cheques")) %>' />
                                         </ItemTemplate>
+                                        <FooterTemplate>
+                                            <asp:Label runat="server" Font-Bold="true" Text="Total:"></asp:Label>
+                                        </FooterTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="TotalAmount" SortExpression="TotalAmount">
+                                    <asp:TemplateField HeaderText="Total Amount" SortExpression="TotalAmount" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblTotalAmount" runat="server" Text='<%# Bind("TotalAmount") %>' />
+                                            <asp:Label ID="lblTotalAmount" runat="server" Text='<%# String.Format("{0:C}", Eval("TotalAmount")) %>' />
                                         </ItemTemplate>
+                                        <FooterTemplate>
+                                            <asp:Label ID="lblTotal" runat="server" Font-Bold="true" Text="Total"></asp:Label>
+                                        </FooterTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField Visible="false">
                                         <ItemTemplate>
@@ -564,17 +603,13 @@
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Staff" SortExpression="Staff">
                                         <ItemTemplate>
-                                            <asp:Label ID="lblStaffName" runat="server" Text='<%# Eval("StaffName").ToString().Length <= 14 ? Eval("StaffName") : Eval("StaffName").ToString().Remove(14) + "..." %>' />
+                                            <asp:Label ID="lblStaffName" runat="server" Text='<%# Eval("StaffName") %>' />
+                                            <%--<asp:Label ID="lblStaffName" runat="server" Text='<%# Eval("StaffName").ToString().Length <= 14 ? Eval("StaffName") : Eval("StaffName").ToString().Remove(14) + "..." %>' />--%>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Date Entered" SortExpression="EnteredDate">
+                                    <asp:TemplateField Visible="false">
                                         <ItemTemplate>
                                             <asp:Label ID="lblEnteredDate" runat="server" Text='<%# Bind("EnteredDate") %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Trading Date" SortExpression="TradingDate">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblTradingDate" runat="server" Text='<%# Convert.ToDateTime(Eval("TradingDate")).ToString("dd/MM/yyyy") %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                 </Columns>

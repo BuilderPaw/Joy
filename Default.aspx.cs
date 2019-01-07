@@ -468,9 +468,8 @@ public partial class _Default : System.Web.UI.Page
                        " WHERE rt.StaffId = s.StaffId AND rt.ShiftId = st.ShiftId AND c.RCatId = rt.RCatId AND rt.ReportId=" + Report.Id +
                        " AND rt.AuditVersion=" + Report.AuditVersion;
 
-            CheckMode(); // check which mode to use, is a user/manager/staff
-
             ViewReport(Report.ActiveReport);
+            CheckMode(); // check which mode to use, is a user/manager/staff
             ScriptManager.RegisterClientScriptBlock(this, Page.GetType(), "ToTheTop", "ToTopOfPage();", true); // scroll to the top of the page
         }
     }
@@ -529,7 +528,7 @@ public partial class _Default : System.Web.UI.Page
         trSign.Visible = true;              // show other objetcs
         btnShowUserSign.Visible = false;
         btnShowList.Visible = true;
-        btnReadReport.Visible = false;
+        btnReadReport.Visible = false; imgReadRight.Visible = false; imgReadLeft.Visible = false;
         btnShowActions.Visible = true;
 
         trLinked.Visible = true;            // show linked objects
@@ -553,7 +552,7 @@ public partial class _Default : System.Web.UI.Page
         trSign.Visible = true;              // show other objects
         btnShowUserSign.Visible = false;
         btnShowList.Visible = true;
-        btnReadReport.Visible = true;
+        btnReadReport.Visible = true; imgReadRight.Visible = true; imgReadLeft.Visible = true;
         btnShowActions.Visible = true;
 
         trLinked.Visible = true;
@@ -585,7 +584,7 @@ public partial class _Default : System.Web.UI.Page
         trSign.Visible = true;              // show other objects
         btnShowUserSign.Visible = false;
         btnShowList.Visible = false;
-        btnReadReport.Visible = true;
+        btnReadReport.Visible = true; imgReadRight.Visible = true; imgReadLeft.Visible = true;
         btnShowActions.Visible = true;
 
         trLinked.Visible = true;
@@ -593,6 +592,11 @@ public partial class _Default : System.Web.UI.Page
     }
 
     protected void PreviousReport(object sender, ImageClickEventArgs e) // loads up the previous available report
+    {
+        GoToPreviousReport();
+    }
+
+    protected void GoToPreviousReport()
     {
         ScriptManager.RegisterClientScriptBlock(this, Page.GetType(), "FadeInReport", "FadeInReport();", true);
 
@@ -632,7 +636,12 @@ public partial class _Default : System.Web.UI.Page
         CheckMode();
         ScriptManager.RegisterClientScriptBlock(this, Page.GetType(), "ToTheTop", "ToTopOfPage();", true); // scroll to the top of the page
     }
+
     protected void NextReport(object sender, ImageClickEventArgs e) // loads up the next available report
+    {
+        GoToNextReport();
+    }
+    protected void GoToNextReport()
     {
         ScriptManager.RegisterClientScriptBlock(this, Page.GetType(), "FadeInReport", "FadeInReport();", true);
 
@@ -852,11 +861,53 @@ public partial class _Default : System.Web.UI.Page
         //btnLinkedReports.Visible = true;
 
         // display report navigation buttons
+        ShowAllNavigations();
+    }
+
+    protected void ReadAndGoToNextReport(object sender, ImageClickEventArgs e)
+    {
+        // update the list of users who read the report
+        UpdateReadList("ReadReport");
+        GoToNextReport();
+    }
+
+    protected void ReadAndGoToPreviousReport(object sender, ImageClickEventArgs e)
+    {
+        // update the list of users who read the report
+        UpdateReadList("ReadReport");
+        GoToPreviousReport();
+    }
+
+    protected void ShowAllNavigations()
+    {
         imgNextReport.Visible = true;
+        imgReadRight.Visible = true;
         imgPreviousReport.Visible = true;
+        imgReadLeft.Visible = true;
         imgBottomScreen.Visible = true;
         imgTopScreen.Visible = true;
     }
+
+    protected void HideAllNavigations()
+    {
+        imgNextReport.Visible = false;
+        imgReadRight.Visible = false;
+        imgPreviousReport.Visible = false;
+        imgReadLeft.Visible = false;
+        imgBottomScreen.Visible = false;
+        imgTopScreen.Visible = false;
+    }
+
+    protected void EditModeNavigations()
+    {
+        imgNextReport.Visible = false;
+        imgReadRight.Visible = false;
+        imgPreviousReport.Visible = false;
+        imgReadLeft.Visible = false;
+        imgBottomScreen.Visible = true;
+        imgTopScreen.Visible = true;
+    }
+
     protected void ShowList() // display report list objects
     {
         // display report list and hide report
@@ -872,10 +923,7 @@ public partial class _Default : System.Web.UI.Page
         tblRecords.Visible = false;
 
         // hide report navigation buttons
-        imgNextReport.Visible = false;
-        imgPreviousReport.Visible = false;
-        imgBottomScreen.Visible = false;
-        imgTopScreen.Visible = false;
+        HideAllNavigations();
         btnLinkAttachedFiles.Visible = false;
         btnLinkLinkedReports.Visible = false;
         btnLinkPendingActions.Visible = false;
@@ -1354,10 +1402,7 @@ public partial class _Default : System.Web.UI.Page
         btnShowComment.Enabled = false;
 
         // hide report navigation buttons
-        imgNextReport.Visible = false;
-        imgPreviousReport.Visible = false;
-        imgBottomScreen.Visible = false;
-        imgTopScreen.Visible = false;
+        HideAllNavigations();
 
         ViewReport(Report.ActiveReport);
     }
@@ -1375,10 +1420,7 @@ public partial class _Default : System.Web.UI.Page
         btnShowComment.Enabled = true;
 
         // display report navigation buttons
-        imgNextReport.Visible = true;
-        imgPreviousReport.Visible = true;
-        imgBottomScreen.Visible = true;
-        imgTopScreen.Visible = true;
+        ShowAllNavigations();
 
         ViewReport(Report.ActiveReport);
     }
@@ -1559,8 +1601,8 @@ public partial class _Default : System.Web.UI.Page
     protected void btnCancelManagerSign_Click(object sender, EventArgs e)
     {
         HideManagerSign();
-        CheckMode();
         ViewReport(Report.ActiveReport);
+        CheckMode();
     }
 
     protected void btnShowUserSign_Click(object sender, EventArgs e)
@@ -1680,10 +1722,9 @@ public partial class _Default : System.Web.UI.Page
 
             tblRecords.Visible = false;         // hide Judiciary Records
 
-            imgNextReport.Visible = false;
-            imgPreviousReport.Visible = false;
-            imgBottomScreen.Visible = true;
-            imgTopScreen.Visible = true;
+            // show/hide navigations
+            EditModeNavigations();
+
             btnLinkAttachedFiles.Visible = false;
             btnLinkLinkedReports.Visible = false;
             btnLinkPendingActions.Visible = false;
@@ -1732,8 +1773,8 @@ public partial class _Default : System.Web.UI.Page
 
     protected void btnShowReport_Click(object sender, EventArgs e)
     {
-        CheckMode();
         ViewReport(Report.ActiveReport);
+        CheckMode();
         sdsViewReport.DataBind();
     }
 
@@ -1788,11 +1829,11 @@ public partial class _Default : System.Web.UI.Page
                            " FROM " + Report.Table + " rt, [Staff] s, [Shift] st, [Category] c" +
                            " WHERE rt.StaffId = s.StaffId AND rt.ShiftId = st.ShiftId AND c.RCatId = rt.RCatId AND rt.ReportId=" + Report.Id +
                            " AND rt.AuditVersion=" + Report.AuditVersion;
-            CheckMode();
             Report.HasChange = false; // change was notified, set this back to unchanged
             Report.WhereChangeHappened = "";
             Report.HasImageChange = false; // change was notified, set this back to unchanged
             ViewReport(Report.ActiveReport);
+            CheckMode();
         }
     }
 
@@ -3567,12 +3608,11 @@ public partial class _Default : System.Web.UI.Page
             con.Close();
             Report.AuditVersion = auditVersion;
 
-
-            CheckMode();
             string report = "SELECT rt.StaffId, rt.ShiftId, st.ShiftName, c.ReportName, *" + " FROM " + lblTable.Text + " rt, [Staff] s, [Shift] st, [Category] c" +
                             " WHERE rt.StaffId = s.StaffId AND rt.ShiftId = st.ShiftId AND c.RCatId = rt.RCatId AND rt.ReportId=" + lblRId.Text +
                             " AND rt.AuditVersion=" + Report.AuditVersion;
             ViewReport(report);
+            CheckMode();
             ScriptManager.RegisterClientScriptBlock(this, Page.GetType(), "ToTheTop", "ToTopOfPage();", true); // scroll to the top of the page
         }
         else if (e.CommandName.Equals("Delete"))

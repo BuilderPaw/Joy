@@ -13,7 +13,7 @@
     <asp:UpdatePanel ID="UpdatePanel1" UpdateMode="Conditional" runat="server">
         <ContentTemplate>
             <ASPNetSpell:SpellButton ID="SpellButton1" runat="server" DictionaryLanguage="English (Australia)" CssClass="spell-button" />
-            <div class="body">
+            <div id="body" runat="server" class="body">
                 <br />
                 <h4 style="margin-left: 8%">CU Incident Report</h4>
                 <table class="table-incident">
@@ -91,6 +91,7 @@
                                                 <asp:ListItem Text="Minor" Value="5"></asp:ListItem>
                                                 <asp:ListItem Text="Police" Value="6"></asp:ListItem>
                                                 <asp:ListItem Text="Liquor and Gaming" Value="7"></asp:ListItem>
+                                                <asp:ListItem Text="Unknown" Value="8"></asp:ListItem>
                                             </asp:DropDownList></td>
                                         <td id="witness1l" visible="false" runat="server" colspan="1"><b>Witness : </b>
                                         </td>
@@ -113,7 +114,7 @@
                                         </td>
                                         <td id="member11" runat="server" visible="false" colspan="1">
                                             <asp:TextBox ID="txtMemberNo1" OnTextChanged="txtMemberNo1_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
-                                            <asp:LinkButton ID="LinkButton1" runat="server" Visible="false" OnClientClick="window.open('/Default.aspx?ReportType=&DateGroup=&ReportStatus=&Keyword=&Staff=&PlayerId=cu1', null, 'channelmode=1, width=1366,height=768,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=yes,location=no,left=1,top=1' );return false;" >Look for Previous Incidents</asp:LinkButton>
+                                            <asp:LinkButton ID="LinkButton1" runat="server" Visible="false" OnClientClick="window.open('/Default.aspx?ReportType=&DateGroup=&ReportStatus=&Keyword=&Staff=&PlayerId=cu1', null, 'channelmode=1, width=1366,height=768,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=yes,location=no,left=1,top=1' );return false;">Look for Previous Incidents</asp:LinkButton>
                                         </td>
                                         <td id="visitor11l" runat="server" visible="false" colspan="1"><b>Sign In Slip : </b>
                                         </td>
@@ -305,7 +306,7 @@
                                         </td>
                                         <td colspan="1">
                                             <b>Age Group : </b>
-                                            <asp:DropDownList ID="ddlAgeGroup1" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup1_SelectedIndexChanged" AutoPostBack="true" >
+                                            <asp:DropDownList ID="ddlAgeGroup1" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup1_SelectedIndexChanged" AutoPostBack="true">
                                                 <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
                                                 <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
                                                 <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
@@ -315,11 +316,19 @@
                                             </asp:DropDownList>
                                         </td>
                                         <td colspan="1">
-                                            <b>Weight : </b>
-                                            <asp:TextBox ID="txtWeight1" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                            <b>Build : </b>
+                                            <%--<asp:TextBox ID="txtWeight1" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
+                                            <asp:DropDownList ID="ddlWeight1" runat="server" CssClass="object-default" Height="35px" Width="170px">
+                                                <asp:ListItem Enabled="true" Text="Select One" Value=""></asp:ListItem>
+                                                <asp:ListItem Text="Small" Value="Small"></asp:ListItem>
+                                                <asp:ListItem Text="Medium" Value="Medium"></asp:ListItem>
+                                                <asp:ListItem Text="Large" Value="Large"></asp:ListItem>
+                                                <asp:ListItem Text="Muscular" Value="Muscular"></asp:ListItem>
+                                                <asp:ListItem Text="Obese" Value="Obese"></asp:ListItem>
+                                            </asp:DropDownList>
                                         </td>
                                         <td colspan="1">
-                                            <b>Build/Height : </b>
+                                            <b>Height : </b>
                                             <asp:TextBox ID="txtHeight1" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                         </td>
                                     </tr>
@@ -424,6 +433,7 @@
                                                 <asp:ListItem Text="Minor" Value="5"></asp:ListItem>
                                                 <asp:ListItem Text="Police" Value="6"></asp:ListItem>
                                                 <asp:ListItem Text="Liquor and Gaming" Value="7"></asp:ListItem>
+                                                <asp:ListItem Text="Unknown" Value="8"></asp:ListItem>
                                             </asp:DropDownList></td>
                                         <td id="witness2l" visible="false" runat="server" colspan="1"><b>Witness : </b>
                                         </td>
@@ -446,7 +456,7 @@
                                         </td>
                                         <td id="member21" runat="server" visible="false" colspan="1">
                                             <asp:TextBox ID="txtMemberNo2" OnTextChanged="txtMemberNo2_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
-                                            <asp:LinkButton ID="LinkButton2" runat="server" Visible="false" OnClientClick="window.open('/Default.aspx?ReportType=&DateGroup=&ReportStatus=&Keyword=&Staff=&PlayerId=cu2', null, 'channelmode=1, width=1366,height=768,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=yes,location=no,left=1,top=1' );return false;" >Look for Previous Incidents</asp:LinkButton>
+                                            <asp:LinkButton ID="LinkButton2" runat="server" Visible="false" OnClientClick="window.open('/Default.aspx?ReportType=&DateGroup=&ReportStatus=&Keyword=&Staff=&PlayerId=cu2', null, 'channelmode=1, width=1366,height=768,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=yes,location=no,left=1,top=1' );return false;">Look for Previous Incidents</asp:LinkButton>
                                         </td>
                                         <td id="visitor21l" runat="server" visible="false" colspan="1"><b>Sign In Slip : </b>
                                         </td>
@@ -642,7 +652,7 @@
                                         </td>
                                         <td colspan="1">
                                             <b>Age Group : </b>
-                                            <asp:DropDownList ID="ddlAgeGroup2" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup2_SelectedIndexChanged" AutoPostBack="true" >
+                                            <asp:DropDownList ID="ddlAgeGroup2" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup2_SelectedIndexChanged" AutoPostBack="true">
                                                 <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
                                                 <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
                                                 <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
@@ -652,11 +662,19 @@
                                             </asp:DropDownList>
                                         </td>
                                         <td colspan="1">
-                                            <b>Weight : </b>
-                                            <asp:TextBox ID="txtWeight2" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                            <b>Build : </b>
+                                            <%--<asp:TextBox ID="txtWeight2" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
+                                            <asp:DropDownList ID="ddlWeight2" runat="server" CssClass="object-default" Height="35px" Width="170px">
+                                                <asp:ListItem Enabled="true" Text="Select One" Value=""></asp:ListItem>
+                                                <asp:ListItem Text="Small" Value="Small"></asp:ListItem>
+                                                <asp:ListItem Text="Medium" Value="Medium"></asp:ListItem>
+                                                <asp:ListItem Text="Large" Value="Large"></asp:ListItem>
+                                                <asp:ListItem Text="Muscular" Value="Muscular"></asp:ListItem>
+                                                <asp:ListItem Text="Obese" Value="Obese"></asp:ListItem>
+                                            </asp:DropDownList>
                                         </td>
                                         <td colspan="1">
-                                            <b>Build/Height : </b>
+                                            <b>Height : </b>
                                             <asp:TextBox ID="txtHeight2" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                         </td>
                                     </tr>
@@ -761,6 +779,7 @@
                                                 <asp:ListItem Text="Minor" Value="5"></asp:ListItem>
                                                 <asp:ListItem Text="Police" Value="6"></asp:ListItem>
                                                 <asp:ListItem Text="Liquor and Gaming" Value="7"></asp:ListItem>
+                                                <asp:ListItem Text="Unknown" Value="8"></asp:ListItem>
                                             </asp:DropDownList></td>
                                         <td id="witness3l" visible="false" runat="server" colspan="1"><b>Witness : </b>
                                         </td>
@@ -783,7 +802,7 @@
                                         </td>
                                         <td id="member31" runat="server" visible="false" colspan="1">
                                             <asp:TextBox ID="txtMemberNo3" OnTextChanged="txtMemberNo3_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
-                                            <asp:LinkButton ID="LinkButton3" runat="server" Visible="false" OnClientClick="window.open('/Default.aspx?ReportType=&DateGroup=&ReportStatus=&Keyword=&Staff=&PlayerId=cu3', null, 'channelmode=1, width=1366,height=768,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=yes,location=no,left=1,top=1' );return false;" >Look for Previous Incidents</asp:LinkButton>
+                                            <asp:LinkButton ID="LinkButton3" runat="server" Visible="false" OnClientClick="window.open('/Default.aspx?ReportType=&DateGroup=&ReportStatus=&Keyword=&Staff=&PlayerId=cu3', null, 'channelmode=1, width=1366,height=768,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=yes,location=no,left=1,top=1' );return false;">Look for Previous Incidents</asp:LinkButton>
                                         </td>
                                         <td id="visitor31l" runat="server" visible="false" colspan="1"><b>Sign In Slip : </b>
                                         </td>
@@ -978,7 +997,7 @@
                                         </td>
                                         <td colspan="1">
                                             <b>Age Group : </b>
-                                            <asp:DropDownList ID="ddlAgeGroup3" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup3_SelectedIndexChanged" AutoPostBack="true" >
+                                            <asp:DropDownList ID="ddlAgeGroup3" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup3_SelectedIndexChanged" AutoPostBack="true">
                                                 <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
                                                 <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
                                                 <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
@@ -988,11 +1007,19 @@
                                             </asp:DropDownList>
                                         </td>
                                         <td colspan="1">
-                                            <b>Weight : </b>
-                                            <asp:TextBox ID="txtWeight3" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                            <b>Build : </b>
+                                            <%--<asp:TextBox ID="txtWeight3" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
+                                            <asp:DropDownList ID="ddlWeight3" runat="server" CssClass="object-default" Height="35px" Width="170px">
+                                                <asp:ListItem Enabled="true" Text="Select One" Value=""></asp:ListItem>
+                                                <asp:ListItem Text="Small" Value="Small"></asp:ListItem>
+                                                <asp:ListItem Text="Medium" Value="Medium"></asp:ListItem>
+                                                <asp:ListItem Text="Large" Value="Large"></asp:ListItem>
+                                                <asp:ListItem Text="Muscular" Value="Muscular"></asp:ListItem>
+                                                <asp:ListItem Text="Obese" Value="Obese"></asp:ListItem>
+                                            </asp:DropDownList>
                                         </td>
                                         <td colspan="1">
-                                            <b>Build/Height : </b>
+                                            <b>Height : </b>
                                             <asp:TextBox ID="txtHeight3" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                         </td>
                                     </tr>
@@ -1097,6 +1124,7 @@
                                                 <asp:ListItem Text="Minor" Value="5"></asp:ListItem>
                                                 <asp:ListItem Text="Police" Value="6"></asp:ListItem>
                                                 <asp:ListItem Text="Liquor and Gaming" Value="7"></asp:ListItem>
+                                                <asp:ListItem Text="Unknown" Value="8"></asp:ListItem>
                                             </asp:DropDownList></td>
                                         <td id="witness4l" visible="false" runat="server" colspan="1"><b>Witness : </b>
                                         </td>
@@ -1119,7 +1147,7 @@
                                         </td>
                                         <td id="member41" runat="server" visible="false" colspan="1">
                                             <asp:TextBox ID="txtMemberNo4" OnTextChanged="txtMemberNo4_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
-                                            <asp:LinkButton ID="LinkButton4" runat="server" Visible="false" OnClientClick="window.open('/Default.aspx?ReportType=&DateGroup=&ReportStatus=&Keyword=&Staff=&PlayerId=cu4', null, 'channelmode=1, width=1366,height=768,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=yes,location=no,left=1,top=1' );return false;" >Look for Previous Incidents</asp:LinkButton>
+                                            <asp:LinkButton ID="LinkButton4" runat="server" Visible="false" OnClientClick="window.open('/Default.aspx?ReportType=&DateGroup=&ReportStatus=&Keyword=&Staff=&PlayerId=cu4', null, 'channelmode=1, width=1366,height=768,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=yes,location=no,left=1,top=1' );return false;">Look for Previous Incidents</asp:LinkButton>
                                         </td>
                                         <td id="visitor41l" runat="server" visible="false" colspan="1"><b>Sign In Slip : </b>
                                         </td>
@@ -1315,7 +1343,7 @@
                                         </td>
                                         <td colspan="1">
                                             <b>Age Group : </b>
-                                            <asp:DropDownList ID="ddlAgeGroup4" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup4_SelectedIndexChanged" AutoPostBack="true" >
+                                            <asp:DropDownList ID="ddlAgeGroup4" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup4_SelectedIndexChanged" AutoPostBack="true">
                                                 <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
                                                 <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
                                                 <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
@@ -1325,11 +1353,19 @@
                                             </asp:DropDownList>
                                         </td>
                                         <td colspan="1">
-                                            <b>Weight : </b>
-                                            <asp:TextBox ID="txtWeight4" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                            <b>Build : </b>
+                                            <%--<asp:TextBox ID="txtWeight4" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
+                                            <asp:DropDownList ID="ddlWeight4" runat="server" CssClass="object-default" Height="35px" Width="170px">
+                                                <asp:ListItem Enabled="true" Text="Select One" Value=""></asp:ListItem>
+                                                <asp:ListItem Text="Small" Value="Small"></asp:ListItem>
+                                                <asp:ListItem Text="Medium" Value="Medium"></asp:ListItem>
+                                                <asp:ListItem Text="Large" Value="Large"></asp:ListItem>
+                                                <asp:ListItem Text="Muscular" Value="Muscular"></asp:ListItem>
+                                                <asp:ListItem Text="Obese" Value="Obese"></asp:ListItem>
+                                            </asp:DropDownList>
                                         </td>
                                         <td colspan="1">
-                                            <b>Build/Height : </b>
+                                            <b>Height : </b>
                                             <asp:TextBox ID="txtHeight4" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                         </td>
                                     </tr>
@@ -1434,6 +1470,7 @@
                                                 <asp:ListItem Text="Minor" Value="5"></asp:ListItem>
                                                 <asp:ListItem Text="Police" Value="6"></asp:ListItem>
                                                 <asp:ListItem Text="Liquor and Gaming" Value="7"></asp:ListItem>
+                                                <asp:ListItem Text="Unknown" Value="8"></asp:ListItem>
                                             </asp:DropDownList></td>
                                         <td id="witness5l" visible="false" runat="server" colspan="1"><b>Witness : </b>
                                         </td>
@@ -1456,7 +1493,7 @@
                                         </td>
                                         <td id="member51" runat="server" visible="false" colspan="1">
                                             <asp:TextBox ID="txtMemberNo5" OnTextChanged="txtMemberNo5_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
-                                            <asp:LinkButton ID="LinkButton5" runat="server" Visible="false" OnClientClick="window.open('/Default.aspx?ReportType=&DateGroup=&ReportStatus=&Keyword=&Staff=&PlayerId=cu5', null, 'channelmode=1, width=1366,height=768,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=yes,location=no,left=1,top=1' );return false;" >Look for Previous Incidents</asp:LinkButton>
+                                            <asp:LinkButton ID="LinkButton5" runat="server" Visible="false" OnClientClick="window.open('/Default.aspx?ReportType=&DateGroup=&ReportStatus=&Keyword=&Staff=&PlayerId=cu5', null, 'channelmode=1, width=1366,height=768,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=yes,location=no,left=1,top=1' );return false;">Look for Previous Incidents</asp:LinkButton>
                                         </td>
                                         <td id="visitor51l" runat="server" visible="false" colspan="1"><b>Sign In Slip : </b>
                                         </td>
@@ -1652,7 +1689,7 @@
                                         </td>
                                         <td colspan="1">
                                             <b>Age Group : </b>
-                                            <asp:DropDownList ID="ddlAgeGroup5" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup5_SelectedIndexChanged" AutoPostBack="true" >
+                                            <asp:DropDownList ID="ddlAgeGroup5" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup5_SelectedIndexChanged" AutoPostBack="true">
                                                 <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
                                                 <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
                                                 <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
@@ -1662,11 +1699,19 @@
                                             </asp:DropDownList>
                                         </td>
                                         <td colspan="1">
-                                            <b>Weight : </b>
-                                            <asp:TextBox ID="txtWeight5" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                            <b>Build : </b>
+                                            <%--<asp:TextBox ID="txtWeight5" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
+                                            <asp:DropDownList ID="ddlWeight5" runat="server" CssClass="object-default" Height="35px" Width="170px">
+                                                <asp:ListItem Enabled="true" Text="Select One" Value=""></asp:ListItem>
+                                                <asp:ListItem Text="Small" Value="Small"></asp:ListItem>
+                                                <asp:ListItem Text="Medium" Value="Medium"></asp:ListItem>
+                                                <asp:ListItem Text="Large" Value="Large"></asp:ListItem>
+                                                <asp:ListItem Text="Muscular" Value="Muscular"></asp:ListItem>
+                                                <asp:ListItem Text="Obese" Value="Obese"></asp:ListItem>
+                                            </asp:DropDownList>
                                         </td>
                                         <td colspan="1">
-                                            <b>Build/Height : </b>
+                                            <b>Height : </b>
                                             <asp:TextBox ID="txtHeight5" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                         </td>
                                     </tr>
@@ -3717,7 +3762,7 @@
                             <asp:CheckBoxList ID="List_AskedToLeave" Font-Size="11px" RepeatLayout="table" RepeatColumns="5" RepeatDirection="vertical" runat="server" class="object-default">
                             </asp:CheckBoxList>
                         </td>
-                    </tr>                   
+                    </tr>
                     <tr>
                         <th colspan="4">Full Details of Incident & Injuries</th>
                     </tr>
@@ -3816,11 +3861,21 @@
                     <tr>
                         <td colspan="2">&nbsp;</td>
                         <td colspan="2">
-                            <asp:Button ID="btnSubmit" Style="float: right; margin: 3px;" class="btn btn-primary btn-large" runat="server" Text="Submit Form" OnClick="btnSubmit_Click" ValidationGroup="Submit" />
+                            <asp:Button ID="btnSubmit" Style="float: right; margin: 3px;" class="btn btn-primary btn-large" runat="server" Text="Save Form" OnClick="btnSubmit_Click" ValidationGroup="Submit" />
+                            <asp:Button ID="btnSign" Style="float: right; margin: 3px;" class="btn btn-primary btn-large" runat="server" Text="Sign Report" OnClick="btnSign_Click" />
                             <asp:Button ID="btnReset" Style="float: left; margin: 3px;" class="btn btn-primary btn-large" runat="server" Text="Clear Form" OnClick="btnReset_Click" />
                         </td>
                     </tr>
                 </table>
+                <div id="userSign" class="digital-signature" visible="false" runat="server">
+                    <asp:CheckBox ID="cbUserSign" runat="server" CssClass="digital-signature-checkbox" />
+                    <p class="digital-signature-paragraph">I have reviewed the incident report and all other relevant material available and I am satisfied as to its accuracy</p>
+                    <br />
+                    <br />
+                    <asp:Button ID="btnUserSign" runat="server" CssClass="btn digital-signature-button" OnClick="btnUserSign_Click" Text="Accept" />
+                    &nbsp;&nbsp;&nbsp;
+                    <asp:Button ID="btnCancelUserSign" runat="server" CssClass="btn digital-signature-button" OnClick="btnCancelUserSign_Click" Text="Cancel" />
+                </div>
             </div>
         </ContentTemplate>
     </asp:UpdatePanel>

@@ -218,12 +218,12 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 {
                     if (item.Selected)
                     {
-                        if (List_AskedToLeave.SelectedValue == String.Empty)
-                        {
-                            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify reason for asking the patron to leave the premises.";
+                        //if (List_AskedToLeave.SelectedValue == String.Empty)
+                        //{
+                        //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify reason for asking the patron to leave the premises.";
 
-                            returnedFlag = true;
-                        }
+                        //    returnedFlag = true;
+                        //}
                     }
                 }
                 if (item.ToString() == "Assault Patron" || item.ToString() == "Assault Staff" || item.ToString() == "Assault Security")
@@ -598,28 +598,31 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                     {
                         if (acpPerson1.Visible == true)
                         {
-                            if (txtFirstName1.Text == "")
+                            if (ddlPartyType1.SelectedItem.Text != "Unknown")
                             {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's First Name shouldn't be empty.";
+                                if (txtFirstName1.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's First Name shouldn't be empty.";
 
-                                acdPerson.SelectedIndex = 0;
-                                returnedFlag = true;
-                            }
+                                    acdPerson.SelectedIndex = 0;
+                                    returnedFlag = true;
+                                }
 
-                            if (txtLastName1.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's Last Name shouldn't be empty.";
+                                if (txtLastName1.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's Last Name shouldn't be empty.";
 
-                                acdPerson.SelectedIndex = 0;
-                                returnedFlag = true;
-                            }
+                                    acdPerson.SelectedIndex = 0;
+                                    returnedFlag = true;
+                                }
 
-                            if (txtContact1.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 1.";
+                                if (txtContact1.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 1.";
 
-                                returnedFlag = true;
-                                acdPerson.SelectedIndex = 0;
+                                    returnedFlag = true;
+                                    acdPerson.SelectedIndex = 0;
+                                }
                             }
 
                             if (txtAge1.Text == "" && ddlAgeGroup1.SelectedItem.Value.ToString() == "-1")
@@ -645,27 +648,31 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         }
                         if (acpPerson2.Visible == true)
                         {
-                            if (txtFirstName2.Text == "")
+                            if (ddlPartyType2.SelectedItem.Text != "Unknown")
                             {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's First Name shouldn't be empty.";
+                                if (txtFirstName2.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's First Name shouldn't be empty.";
 
-                                acdPerson.SelectedIndex = 1;
-                                returnedFlag = true;
-                            }
-                            if (txtLastName2.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's Last Name shouldn't be empty.";
+                                    acdPerson.SelectedIndex = 1;
+                                    returnedFlag = true;
+                                }
+                                if (txtLastName2.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's Last Name shouldn't be empty.";
 
-                                acdPerson.SelectedIndex = 1;
-                                returnedFlag = true;
-                            }
-                            if (txtContact2.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 2.";
+                                    acdPerson.SelectedIndex = 1;
+                                    returnedFlag = true;
+                                }
+                                if (txtContact2.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 2.";
 
-                                returnedFlag = true;
-                                acdPerson.SelectedIndex = 1;
+                                    returnedFlag = true;
+                                    acdPerson.SelectedIndex = 1;
+                                }
                             }
+
                             if (txtAge2.Text == "" && ddlAgeGroup2.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Person 2's Age.";
@@ -685,27 +692,31 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         }
                         if (acpPerson3.Visible == true)
                         {
-                            if (txtFirstName3.Text == "")
+                            if (ddlPartyType3.SelectedItem.Text != "Unknown")
                             {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's First Name shouldn't be empty.";
+                                if (txtFirstName3.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's First Name shouldn't be empty.";
 
-                                acdPerson.SelectedIndex = 2;
-                                returnedFlag = true;
-                            }
-                            if (txtLastName3.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's Last Name shouldn't be empty.";
+                                    acdPerson.SelectedIndex = 2;
+                                    returnedFlag = true;
+                                }
+                                if (txtLastName3.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's Last Name shouldn't be empty.";
 
-                                acdPerson.SelectedIndex = 2;
-                                returnedFlag = true;
-                            }
-                            if (txtContact3.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 3.";
+                                    acdPerson.SelectedIndex = 2;
+                                    returnedFlag = true;
+                                }
+                                if (txtContact3.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 3.";
 
-                                returnedFlag = true;
-                                acdPerson.SelectedIndex = 2;
+                                    returnedFlag = true;
+                                    acdPerson.SelectedIndex = 2;
+                                }
                             }
+
                             if (txtAge3.Text == "" && ddlAgeGroup3.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Person 3's Age.";
@@ -725,27 +736,31 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         }
                         if (acpPerson4.Visible == true)
                         {
-                            if (txtFirstName4.Text == "")
+                            if (ddlPartyType4.SelectedItem.Text != "Unknown")
                             {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's First Name shouldn't be empty.";
+                                if (txtFirstName4.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's First Name shouldn't be empty.";
 
-                                acdPerson.SelectedIndex = 3;
-                                returnedFlag = true;
-                            }
-                            if (txtLastName4.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's Last Name shouldn't be empty.";
+                                    acdPerson.SelectedIndex = 3;
+                                    returnedFlag = true;
+                                }
+                                if (txtLastName4.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's Last Name shouldn't be empty.";
 
-                                acdPerson.SelectedIndex = 3;
-                                returnedFlag = true;
-                            }
-                            if (txtContact4.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 4.";
+                                    acdPerson.SelectedIndex = 3;
+                                    returnedFlag = true;
+                                }
+                                if (txtContact4.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 4.";
 
-                                returnedFlag = true;
-                                acdPerson.SelectedIndex = 3;
+                                    returnedFlag = true;
+                                    acdPerson.SelectedIndex = 3;
+                                }
                             }
+
                             if (txtAge4.Text == "" && ddlAgeGroup4.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Person 4's Age.";
@@ -765,27 +780,31 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         }
                         if (acpPerson5.Visible == true)
                         {
-                            if (txtFirstName5.Text == "")
+                            if (ddlPartyType5.SelectedItem.Text != "Unknown")
                             {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's First Name shouldn't be empty.";
+                                if (txtFirstName5.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's First Name shouldn't be empty.";
 
-                                acdPerson.SelectedIndex = 4;
-                                returnedFlag = true;
-                            }
-                            if (txtLastName5.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's Last Name shouldn't be empty.";
+                                    acdPerson.SelectedIndex = 4;
+                                    returnedFlag = true;
+                                }
+                                if (txtLastName5.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's Last Name shouldn't be empty.";
 
-                                acdPerson.SelectedIndex = 4;
-                                returnedFlag = true;
-                            }
-                            if (txtContact5.Text == "")
-                            {
-                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 5.";
+                                    acdPerson.SelectedIndex = 4;
+                                    returnedFlag = true;
+                                }
+                                if (txtContact5.Text == "")
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* Contact is mandatory for Person 5.";
 
-                                returnedFlag = true;
-                                acdPerson.SelectedIndex = 4;
+                                    returnedFlag = true;
+                                    acdPerson.SelectedIndex = 4;
+                                }
                             }
+
                             if (txtAge5.Text == "" && ddlAgeGroup5.SelectedItem.Value.ToString() == "-1")
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Please enter Person 5's Age.";
@@ -2672,7 +2691,8 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         cbWitness1.Checked = Convert.ToBoolean(rdr["Witness1"]);
                         txtAge1.Text = rdr["Age1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         ddlAgeGroup1.SelectedIndex = Int32.Parse(rdr["AgeGroup1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        txtWeight1.Text = rdr["Weight1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //txtWeight1.Text = rdr["Weight1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlWeight1.SelectedValue = rdr["Weight1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHeight1.Text = rdr["Height1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHair1.Text = rdr["Hair1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtClothingTop1.Text = rdr["ClothingTop1"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -2730,7 +2750,8 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         cbWitness2.Checked = Convert.ToBoolean(rdr["Witness2"]);
                         txtAge2.Text = rdr["Age2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         ddlAgeGroup2.SelectedIndex = Int32.Parse(rdr["AgeGroup2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        txtWeight2.Text = rdr["Weight2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //txtWeight2.Text = rdr["Weight2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlWeight2.SelectedValue = rdr["Weight2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHeight2.Text = rdr["Height2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHair2.Text = rdr["Hair2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtClothingTop2.Text = rdr["ClothingTop2"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -2788,7 +2809,8 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         cbWitness3.Checked = Convert.ToBoolean(rdr["Witness3"]);
                         txtAge3.Text = rdr["Age3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         ddlAgeGroup3.SelectedIndex = Int32.Parse(rdr["AgeGroup3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        txtWeight3.Text = rdr["Weight3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //txtWeight3.Text = rdr["Weight3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlWeight3.SelectedValue = rdr["Weight3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHeight3.Text = rdr["Height3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHair3.Text = rdr["Hair3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtClothingTop3.Text = rdr["ClothingTop3"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -2846,7 +2868,8 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         cbWitness4.Checked = Convert.ToBoolean(rdr["Witness4"]);
                         txtAge4.Text = rdr["Age4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         ddlAgeGroup4.SelectedIndex = Int32.Parse(rdr["AgeGroup4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        txtWeight4.Text = rdr["Weight4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //txtWeight4.Text = rdr["Weight4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlWeight4.SelectedValue = rdr["Weight4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHeight4.Text = rdr["Height4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHair4.Text = rdr["Hair4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtClothingTop4.Text = rdr["ClothingTop4"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -2904,7 +2927,8 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         cbWitness5.Checked = Convert.ToBoolean(rdr["Witness5"]);
                         txtAge5.Text = rdr["Age5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         ddlAgeGroup5.SelectedIndex = Int32.Parse(rdr["AgeGroup5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        txtWeight5.Text = rdr["Weight5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //txtWeight5.Text = rdr["Weight5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        ddlWeight5.SelectedValue = rdr["Weight5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHeight5.Text = rdr["Height5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHair5.Text = rdr["Hair5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtClothingTop5.Text = rdr["ClothingTop5"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -2993,8 +3017,8 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                                     {
                                         if (item.Selected)
                                         {
-                                            askedtoLeaveReasons.Visible = true;
-                                            askedtoLeaveReasons1.Visible = true;
+                                            //askedtoLeaveReasons.Visible = true;
+                                            //askedtoLeaveReasons1.Visible = true;
                                         }
                                     }
                                 }
@@ -5794,7 +5818,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             ReportIncidentMr.AgeGroup1 = ReportIncidentMr.AgeGroup1.Replace("'", "^");
             ReportIncidentMr.Height1 = txtHeight1.Text;
             ReportIncidentMr.Height1 = ReportIncidentMr.Height1.Replace("'", "^");
-            ReportIncidentMr.Weight1 = txtWeight1.Text;
+            ReportIncidentMr.Weight1 = ddlWeight1.SelectedItem.Value;
             ReportIncidentMr.Weight1 = ReportIncidentMr.Weight1.Replace("'", "^");
             ReportIncidentMr.Hair1 = txtHair1.Text;
             ReportIncidentMr.Hair1 = ReportIncidentMr.Hair1.Replace("'", "^");
@@ -5938,7 +5962,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             ReportIncidentMr.AgeGroup2 = ReportIncidentMr.AgeGroup2.Replace("'", "^");
             ReportIncidentMr.Height2 = txtHeight2.Text;
             ReportIncidentMr.Height2 = ReportIncidentMr.Height2.Replace("'", "^");
-            ReportIncidentMr.Weight2 = txtWeight2.Text;
+            ReportIncidentMr.Weight2 = ddlWeight2.SelectedItem.Value;
             ReportIncidentMr.Weight2 = ReportIncidentMr.Weight2.Replace("'", "^");
             ReportIncidentMr.Hair2 = txtHair2.Text;
             ReportIncidentMr.Hair2 = ReportIncidentMr.Hair2.Replace("'", "^");
@@ -6081,7 +6105,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             ReportIncidentMr.AgeGroup3 = ReportIncidentMr.AgeGroup3.Replace("'", "^");
             ReportIncidentMr.Height3 = txtHeight3.Text;
             ReportIncidentMr.Height3 = ReportIncidentMr.Height3.Replace("'", "^");
-            ReportIncidentMr.Weight3 = txtWeight3.Text;
+            ReportIncidentMr.Weight3 = ddlWeight3.SelectedItem.Value;
             ReportIncidentMr.Weight3 = ReportIncidentMr.Weight3.Replace("'", "^");
             ReportIncidentMr.Hair3 = txtHair3.Text;
             ReportIncidentMr.Hair3 = ReportIncidentMr.Hair3.Replace("'", "^");
@@ -6225,7 +6249,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             ReportIncidentMr.AgeGroup4 = ReportIncidentMr.AgeGroup4.Replace("'", "^");
             ReportIncidentMr.Height4 = txtHeight4.Text;
             ReportIncidentMr.Height4 = ReportIncidentMr.Height4.Replace("'", "^");
-            ReportIncidentMr.Weight4 = txtWeight4.Text;
+            ReportIncidentMr.Weight4 = ddlWeight4.SelectedItem.Value;
             ReportIncidentMr.Weight4 = ReportIncidentMr.Weight4.Replace("'", "^");
             ReportIncidentMr.Hair4 = txtHair4.Text;
             ReportIncidentMr.Hair4 = ReportIncidentMr.Hair4.Replace("'", "^");
@@ -6370,7 +6394,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             ReportIncidentMr.AgeGroup5 = ReportIncidentMr.AgeGroup5.Replace("'", "^");
             ReportIncidentMr.Height5 = txtHeight5.Text;
             ReportIncidentMr.Height5 = ReportIncidentMr.Height5.Replace("'", "^");
-            ReportIncidentMr.Weight5 = txtWeight5.Text;
+            ReportIncidentMr.Weight5 = ddlWeight5.SelectedItem.Value;
             ReportIncidentMr.Weight5 = ReportIncidentMr.Weight5.Replace("'", "^");
             ReportIncidentMr.Hair5 = txtHair5.Text;
             ReportIncidentMr.Hair5 = ReportIncidentMr.Hair5.Replace("'", "^");
@@ -9368,30 +9392,60 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         txtAge1.Text = "";
         acdPerson.SelectedIndex = 0;
         txtAge1.Focus();
+        // validate objects in the form
+        bool returnedValue = checkFields();
+        if (returnedValue == true)
+        {
+            return;
+        }
     }
     protected void ddlAgeGroup2_SelectedIndexChanged(object sender, EventArgs e)
     {
         txtAge2.Text = "";
         acdPerson.SelectedIndex = 1;
         txtAge2.Focus();
+        // validate objects in the form
+        bool returnedValue = checkFields();
+        if (returnedValue == true)
+        {
+            return;
+        }
     }
     protected void ddlAgeGroup3_SelectedIndexChanged(object sender, EventArgs e)
     {
         txtAge3.Text = "";
         acdPerson.SelectedIndex = 2;
         txtAge3.Focus();
+        // validate objects in the form
+        bool returnedValue = checkFields();
+        if (returnedValue == true)
+        {
+            return;
+        }
     }
     protected void ddlAgeGroup4_SelectedIndexChanged(object sender, EventArgs e)
     {
         txtAge4.Text = "";
         acdPerson.SelectedIndex = 3;
         txtAge4.Focus();
+        // validate objects in the form
+        bool returnedValue = checkFields();
+        if (returnedValue == true)
+        {
+            return;
+        }
     }
     protected void ddlAgeGroup5_SelectedIndexChanged(object sender, EventArgs e)
     {
         txtAge5.Text = "";
         acdPerson.SelectedIndex = 4;
         txtAge5.Focus();
+        // validate objects in the form
+        bool returnedValue = checkFields();
+        if (returnedValue == true)
+        {
+            return;
+        }
     }
 
     // delete stored Human Body Images from Person
@@ -9996,18 +10050,18 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             }
             if (item.ToString() == "Asked to Leave")
             {
-                if (item.Selected)
-                {
-                    askedtoLeaveReasons.Visible = true;
-                    askedtoLeaveReasons1.Visible = true;
-                    List_AskedToLeave.Focus();
-                }
-                else
-                {
-                    askedtoLeaveReasons.Visible = false;
-                    askedtoLeaveReasons1.Visible = false;
-                    List_AskedToLeave.ClearSelection();
-                }
+                //if (item.Selected)
+                //{
+                //    askedtoLeaveReasons.Visible = true;
+                //    askedtoLeaveReasons1.Visible = true;
+                //    List_AskedToLeave.Focus();
+                //}
+                //else
+                //{
+                //    askedtoLeaveReasons.Visible = false;
+                //    askedtoLeaveReasons1.Visible = false;
+                //    List_AskedToLeave.ClearSelection();
+                //}
             }
         }
         // validate objects in the form
