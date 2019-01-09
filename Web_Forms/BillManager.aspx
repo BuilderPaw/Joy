@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BillManager.aspx.cs" Inherits="Web_Forms_BillManager" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="BillManager.aspx.cs" Inherits="Web_Forms_BillManager" EnableEventValidation="false" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
 
@@ -59,12 +59,12 @@
         // every time a tex change occurs, get the sum of the the total bill
 
         function BillTotal() {
-            var cash = parseInt($('#txtCash').val()) || 0,
-                eftpos = parseInt($('#txtEFTPOS').val()) || 0,
-                points = parseInt($('#txtPoints').val()) || 0,
-                cheques = parseInt($('#txtCheques').val()) || 0,
-                misc1 = parseInt($('#txtMiscellaneous1').val()) || 0,
-                misc2 = parseInt($('#txtMiscellaneous2').val()) || 0,
+            var cash = parseFloat($('#txtCash').val()) || 0,
+                eftpos = parseFloat($('#txtEFTPOS').val()) || 0,
+                points = parseFloat($('#txtPoints').val()) || 0,
+                cheques = parseFloat($('#txtCheques').val()) || 0,
+                misc1 = parseFloat($('#txtMiscellaneous1').val()) || 0,
+                misc2 = parseFloat($('#txtMiscellaneous2').val()) || 0,
                 total;
 
             total = cash + eftpos + points + cheques + misc1 + misc2;
@@ -94,7 +94,7 @@
         */
         function isNumberKey(evt) {
             var charCode = (evt.which) ? evt.which : evt.keyCode;
-            if (charCode > 31 && (charCode < 48 || charCode > 57))
+            if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57))
                 return false;
             return true;
         }
@@ -103,7 +103,6 @@
 <body>
     <form id="form1" runat="server">
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
-        <asp:Label ID="lblStaffId" runat="server" Text="1" Visible="false"></asp:Label>
         <div>
             <table style="border: solid 1px; background-color: aliceblue; color: teal; float: left">
                 <tr>
@@ -161,7 +160,7 @@
                             <tr>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtBiller" runat="server"></asp:TextBox>
-                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBiller" Display="Dynamic" ValidationGroup="AddRecord" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator></asp:Label></td>
+                                    <asp:RequiredFieldValidator runat="server" ControlToValidate="txtBiller" Display="Dynamic" ValidationGroup="AddRecord" ErrorMessage="*" ForeColor="Red"></asp:RequiredFieldValidator></td>
                                 <td>&nbsp;</td>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtConfirmationId" runat="server"></asp:TextBox>
@@ -191,17 +190,17 @@
                             <tr>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtCash" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCash" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCash" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[1-9]\d*(\.\d+)?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                                 <td>&nbsp;</td>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtEFTPOS" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtEFTPOS" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtEFTPOS" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[1-9]\d*(\.\d+)?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                                 <td>&nbsp;</td>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtPoints" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtPoints" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtPoints" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[1-9]\d*(\.\d+)?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -220,17 +219,17 @@
                             <tr>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtMiscellaneous1" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtMiscellaneous1" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtMiscellaneous1" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[1-9]\d*(\.\d+)?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                                 <td>&nbsp;</td>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtMiscellaneous2" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtMiscellaneous2" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtMiscellaneous2" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[1-9]\d*(\.\d+)?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                                 <td>&nbsp;</td>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtCheques" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCheques" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^\d+$" ErrorMessage="ONLY NUMBERS" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCheques" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[1-9]\d*(\.\d+)?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                         </table>
@@ -264,7 +263,7 @@
                     </td>
                 </tr>
             </table>
-            <table id="Filter" runat="server" visible="false" style="border: solid 1px; background-color: aliceblue; color: teal; float: left">
+            <table id="Filter" runat="server" visible="true" style="border: solid 1px; background-color: aliceblue; color: teal; float: left">
                 <tr>
                     <td style="border: solid 1px">
                         <asp:Label Font-Bold="true" runat="server" Style="margin-left: 140px;" Text="FILTER REPORT"></asp:Label>
@@ -340,7 +339,7 @@
                                 <td>&nbsp;
                                 </td>
                                 <td>
-                                    <asp:Button Width="100px" class="btn" ID="btnPrint" runat="server" Text="Print Report" Visible="false" OnClick="btnPrint_Click" OnClientClick="javascript: CallPrint('gridview');" />
+                                    <asp:Button Width="100px" class="btn" ID="btnPrint" runat="server" Text="Print Report" Visible="false" OnClick="btnPrint_Click" />
                                 </td>
                             </tr>
                         </table>
@@ -355,38 +354,8 @@
                 </tr>
                 <tr>
                     <td style="border: solid 1px;">
-                        <div id="gridview" style="width:100%;">
-                            <asp:SqlDataSource ID="sdsGridViewBillPayment" runat="server" ConnectionString="<%$ ConnectionStrings:LocalDb %>"
-                                DeleteCommand="DELETE FROM [BillPayment] WHERE [BillPaymentId] = @original_BillPaymentId"
-                                OnDeleted="sdsGridViewBillPayment_Deleted"
-                                OldValuesParameterFormatString="original_{0}"
-                                SelectCommand="SELECT * FROM [BillPayment] WHERE ([StaffId] = @StaffId) ORDER BY [BillPaymentId] DESC"
-                                UpdateCommand="UPDATE [BillPayment] SET [MemberNo] = @MemberNo, [FirstName] = @FirstName, [LastName] = @LastName, 
-                                         [Biller] = @Biller, [ConfirmationId] = @ConfirmationId, [Cash] = @Cash, [EFTPOS] = @EFTPOS, [Points] = @Points, [Miscellaneous1] = @Miscellaneous1, 
-                                         [Miscellaneous2] = @Miscellaneous2, [Cheques] = @Cheques, [TotalAmount] = @TotalAmount WHERE [BillPaymentId] = @original_BillPaymentId">
-                                <DeleteParameters>
-                                    <asp:Parameter Name="original_BillPaymentId" Type="Int32" />
-                                </DeleteParameters>
-                                <SelectParameters>
-                                    <asp:ControlParameter ControlID="lblStaffId" DefaultValue="1" Name="StaffId" PropertyName="Text" Type="Int32" />
-                                </SelectParameters>
-                                <UpdateParameters>
-                                    <asp:Parameter Name="MemberNo" Type="Int32" />
-                                    <asp:Parameter Name="FirstName" Type="String" />
-                                    <asp:Parameter Name="LastName" Type="String" />
-                                    <asp:Parameter Name="Biller" Type="String" />
-                                    <asp:Parameter Name="ConfirmationId" Type="String" />
-                                    <asp:Parameter Name="Cash" Type="Decimal" />
-                                    <asp:Parameter Name="EFTPOS" Type="Decimal" />
-                                    <asp:Parameter Name="Points" Type="Decimal" />
-                                    <asp:Parameter Name="Miscellaneous1" Type="Decimal" />
-                                    <asp:Parameter Name="Miscellaneous2" Type="Decimal" />
-                                    <asp:Parameter Name="Cheques" Type="Decimal" />
-                                    <asp:Parameter Name="TotalAmount" Type="Decimal" />
-                                    <asp:Parameter Name="original_BillPaymentId" Type="Int32" />
-                                </UpdateParameters>
-                            </asp:SqlDataSource>
-                            <asp:GridView ID="gvBillPayment" runat="server" ShowFooter="true" OnRowDataBound="gvBillPayment_RowDataBound" AllowSorting="True" AllowPaging="true" AutoGenerateColumns="False" DataKeyNames="BillPaymentId" DataSourceID="sdsGridViewBillPayment" EmptyDataText="No record to list" Width="100%" Font-Names="Tahoma">
+                        <div id="gridview" style="width:100%;">                           
+                            <asp:GridView ID="gvBillPayment" runat="server" ShowFooter="true" OnRowDeleting="gvBillPayment_RowDeleting" OnRowCreated="gvBillPayment_RowCreated" OnPageIndexChanging="gvBillPayment_PageIndexChanging" OnRowDataBound="gvBillPayment_RowDataBound" AllowPaging="true" AutoGenerateColumns="False" DataKeyNames="BillPaymentId" EmptyDataText="No record to list" Width="100%" Font-Names="Tahoma">
                                 <Columns> 
                                     <asp:TemplateField>
                                         <ItemTemplate>
@@ -420,119 +389,6 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Last Name" SortExpression="LastName">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblLastName" runat="server" Text='<%# Eval("LastName") %>' />
-                                            <%--<asp:Label ID="lblLastName" runat="server" Text='<%# Eval("LastName").ToString().Length <= 7 ? Eval("LastName") : Eval("LastName").ToString().Remove(7) + "..." %>' />--%>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Biller" SortExpression="Biller">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblBiller" runat="server" Text='<%# Eval("Biller") %>' />
-                                            <%--<asp:Label ID="lblBiller" runat="server" Text='<%# Eval("Biller").ToString().Length <= 7 ? Eval("Biller") : Eval("Biller").ToString().Remove(7) + "..." %>' />--%>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="ConfirmationID" SortExpression="ConfirmationId">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblConfirmationId" runat="server" Text='<%# Eval("ConfirmationId") %>' /> 
-                                            <%--<asp:Label ID="lblConfirmationId" runat="server" Text='<%# Eval("ConfirmationId").ToString().Length <= 7 ? Eval("ConfirmationId") : Eval("ConfirmationId").ToString().Remove(7) + "..." %>' />--%>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Cash" SortExpression="Cash" ItemStyle-HorizontalAlign="Right">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblCash" runat="server" Text='<%#  String.Format("{0:C}", Eval("Cash")) %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="EFTPOS" SortExpression="EFTPOS" ItemStyle-HorizontalAlign="Right">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblEFTPOS" runat="server" Text='<%# String.Format("{0:C}", Eval("EFTPOS")) %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Points" SortExpression="Points" ItemStyle-HorizontalAlign="Right">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblPoints" runat="server" Text='<%# String.Format("{0:C}", Eval("Points")) %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Misc1" SortExpression="Miscellaneous1" ItemStyle-HorizontalAlign="Right">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblMiscellaneous1" runat="server" Text='<%# String.Format("{0:C}", Eval("Miscellaneous1")) %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Misc2" SortExpression="Miscellaneous2" ItemStyle-HorizontalAlign="Right">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblMiscellaneous2" runat="server" Text='<%# String.Format("{0:C}", Eval("Miscellaneous2")) %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Cheques" SortExpression="Cheques" ItemStyle-HorizontalAlign="Right">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblCheques" runat="server" Text='<%# String.Format("{0:C}", Eval("Cheques")) %>' />
-                                        </ItemTemplate>
-                                        <FooterTemplate>
-                                            <asp:Label runat="server" Font-Bold="true" Text="Total:"></asp:Label>
-                                        </FooterTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Total Amount" SortExpression="TotalAmount" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblTotalAmount" runat="server" Text='<%# String.Format("{0:C}", Eval("TotalAmount")) %>' />
-                                        </ItemTemplate>
-                                        <FooterTemplate>
-                                            <asp:Label ID="lblTotal" runat="server" Font-Bold="true" Text="Total"></asp:Label>
-                                        </FooterTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField Visible="false">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblStaffId" runat="server" Text='<%# Bind("StaffId") %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField Visible="false">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblUsername" runat="server" Text='<%# Bind("Username") %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Staff" SortExpression="Staff">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblStaffName" runat="server" Text='<%# Eval("StaffName") %>' />
-                                            <%--<asp:Label ID="lblStaffName" runat="server" Text='<%# Eval("StaffName").ToString().Length <= 14 ? Eval("StaffName") : Eval("StaffName").ToString().Remove(14) + "..." %>' />--%>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField Visible="false">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblEnteredDate" runat="server" Text='<%# Bind("EnteredDate") %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                </Columns>
-                            </asp:GridView>
-                            <br />
-                            <asp:SqlDataSource ID="sdsBillManagerPrint" runat="server" ConnectionString="<%$ ConnectionStrings:LocalDb %>"
-                                SelectCommand="SELECT * FROM [BillPayment] ORDER BY [BillPaymentId] DESC"></asp:SqlDataSource>
-                            <asp:GridView ID="gvBillManagerPrint" runat="server" ShowFooter="true" OnRowDataBound="gvBillPayment_RowDataBound"  Visible="false" AllowSorting="True" AllowPaging="true" AutoGenerateColumns="False" DataKeyNames="BillPaymentId" DataSourceID="sdsBillManagerPrint" EmptyDataText="No record to list" Width="100%" Font-Names="Tahoma">
-                                <Columns>
-                                    <asp:TemplateField Visible="false">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblBillPaymentId" runat="server" Text='<%# Bind("BillPaymentId") %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="Site">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblSite" runat="server" Text='<%# Bind("Site") %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="TradingDate" SortExpression="TradingDate">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblTradingDate" runat="server" Text='<%# Convert.ToDateTime(Eval("TradingDate")).ToString("dd/MM/yyyy") %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="MemberNumber" SortExpression="MemberNo">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblMemberNo" runat="server" Text='<%# Bind("MemberNo") %>' />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="FirstName" SortExpression="FirstName">
-                                        <ItemTemplate>
-                                            <asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("FirstName") %>' />
-                                            <%--<asp:Label ID="lblFirstName" runat="server" Text='<%# Eval("FirstName").ToString().Length <= 7 ? Eval("FirstName") : Eval("FirstName").ToString().Remove(7) + "..." %>' />--%>
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-                                    <asp:TemplateField HeaderText="LastName" SortExpression="LastName">
                                         <ItemTemplate>
                                             <asp:Label ID="lblLastName" runat="server" Text='<%# Eval("LastName") %>' />
                                             <%--<asp:Label ID="lblLastName" runat="server" Text='<%# Eval("LastName").ToString().Length <= 7 ? Eval("LastName") : Eval("LastName").ToString().Remove(7) + "..." %>' />--%>

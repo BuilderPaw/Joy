@@ -450,6 +450,53 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                                 returnedFlag = 1;
                             }
 
+                            if (txtPDate1.Text == "")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's Date entry shouldn't be empty.";
+                                txtPDate1.Focus();
+                                acdPerson.SelectedIndex = 0;
+                                returnedFlag = 1;
+
+                            }
+                            if (!DateTime.TryParse(txtPDate1.Text, out temp))
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's Date entry is not in date format please select an appropriate date.";
+                                txtPDate1.Focus();
+                                acdPerson.SelectedIndex = 0;
+                                returnedFlag = 1;
+
+                            }
+                            else
+                            {
+                                DateTime date1p = DateTime.Parse(DateTime.Parse(txtPDate1.Text).ToShortDateString());
+                                // compare selected date to current date
+                                result = DateTime.Compare(date1p, date);
+                                if (result > 0)
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+                                    txtPDate1.Focus();
+                                    acdPerson.SelectedIndex = 0;
+                                    returnedFlag = 1;
+
+                                }
+                            }
+
+                            if (ddlPTimeH1.SelectedItem.Value.ToString() == "-1")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 1.";
+                                ddlPTimeH1.Focus();
+                                acdPerson.SelectedIndex = 0;
+                                returnedFlag = 1;
+
+                            }
+                            if (ddlPTimeM1.SelectedItem.Value.ToString() == "-1")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 1.";
+                                ddlPTimeM1.Focus();
+                                acdPerson.SelectedIndex = 0;
+                                returnedFlag = 1;
+
+                            }
                         }
                         else if (acpPerson1.Visible == false)
                         {
@@ -521,6 +568,54 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                                 returnedFlag = 1;
 
                             }
+
+                            if (txtPDate2.Text == "")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's Date entry shouldn't be empty.";
+                                txtPDate2.Focus();
+                                acdPerson.SelectedIndex = 1;
+                                returnedFlag = 1;
+
+                            }
+                            if (!DateTime.TryParse(txtPDate2.Text, out temp))
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's Date entry is not in date format please select an appropriate date.";
+                                txtPDate2.Focus();
+                                acdPerson.SelectedIndex = 1;
+                                returnedFlag = 1;
+
+                            }
+                            else
+                            {
+                                DateTime date2p = DateTime.Parse(DateTime.Parse(txtPDate2.Text).ToShortDateString());
+                                // compare selected date to current date
+                                result = DateTime.Compare(date2p, date);
+                                if (result > 0)
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+                                    txtPDate2.Focus();
+                                    acdPerson.SelectedIndex = 1;
+                                    returnedFlag = 1;
+
+                                }
+                            }
+
+                            if (ddlPTimeH2.SelectedItem.Value.ToString() == "-1")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 2.";
+                                ddlPTimeH2.Focus();
+                                acdPerson.SelectedIndex = 1;
+                                returnedFlag = 1;
+
+                            }
+                            if (ddlPTimeM2.SelectedItem.Value.ToString() == "-1")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 2.";
+                                ddlPTimeM2.Focus();
+                                acdPerson.SelectedIndex = 1;
+                                returnedFlag = 1;
+
+                            }
                         }
                         if (acpPerson3.Visible == true)
                         {
@@ -584,6 +679,54 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                             {
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Injury Description is mandatory for Person 3.";
                                 txtInjuryDesc3.Focus();
+                                returnedFlag = 1;
+
+                            }
+
+                            if (txtPDate3.Text == "")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's Date entry shouldn't be empty.";
+                                txtPDate3.Focus();
+                                acdPerson.SelectedIndex = 2;
+                                returnedFlag = 1;
+
+                            }
+                            if (!DateTime.TryParse(txtPDate3.Text, out temp))
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's Date entry is not in date format please select an appropriate date.";
+                                txtPDate3.Focus();
+                                acdPerson.SelectedIndex = 2;
+                                returnedFlag = 1;
+
+                            }
+                            else
+                            {
+                                DateTime date3p = DateTime.Parse(DateTime.Parse(txtPDate3.Text).ToShortDateString());
+                                // compare selected date to current date
+                                result = DateTime.Compare(date3p, date);
+                                if (result > 0)
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+                                    txtPDate3.Focus();
+                                    acdPerson.SelectedIndex = 2;
+                                    returnedFlag = 1;
+
+                                }
+                            }
+
+                            if (ddlPTimeH3.SelectedItem.Value.ToString() == "-1")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 3.";
+                                ddlPTimeH3.Focus();
+                                acdPerson.SelectedIndex = 2;
+                                returnedFlag = 1;
+
+                            }
+                            if (ddlPTimeM3.SelectedItem.Value.ToString() == "-1")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 3.";
+                                ddlPTimeM3.Focus();
+                                acdPerson.SelectedIndex = 2;
                                 returnedFlag = 1;
 
                             }
@@ -653,6 +796,54 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                                 returnedFlag = 1;
 
                             }
+
+                            if (txtPDate4.Text == "")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's Date entry shouldn't be empty.";
+                                txtPDate4.Focus();
+                                acdPerson.SelectedIndex = 3;
+                                returnedFlag = 1;
+
+                            }
+                            if (!DateTime.TryParse(txtPDate4.Text, out temp))
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's Date entry is not in date format please select an appropriate date.";
+                                txtPDate4.Focus();
+                                acdPerson.SelectedIndex = 3;
+                                returnedFlag = 1;
+
+                            }
+                            else
+                            {
+                                DateTime date4p = DateTime.Parse(DateTime.Parse(txtPDate4.Text).ToShortDateString());
+                                // compare selected date to current date
+                                result = DateTime.Compare(date4p, date);
+                                if (result > 0)
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+                                    txtPDate4.Focus();
+                                    acdPerson.SelectedIndex = 3;
+                                    returnedFlag = 1;
+
+                                }
+                            }
+
+                            if (ddlPTimeH4.SelectedItem.Value.ToString() == "-1")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 4.";
+                                ddlPTimeH4.Focus();
+                                acdPerson.SelectedIndex = 3;
+                                returnedFlag = 1;
+
+                            }
+                            if (ddlPTimeM4.SelectedItem.Value.ToString() == "-1")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 4.";
+                                ddlPTimeM4.Focus();
+                                acdPerson.SelectedIndex = 3;
+                                returnedFlag = 1;
+
+                            }
                         }
                         if (acpPerson5.Visible == true)
                         {
@@ -717,6 +908,54 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                                 Report.ErrorMessage = Report.ErrorMessage + "\\n* Injury Description is mandatory for Person 5.";
                                 txtInjuryDesc5.Focus();
                                 returnedFlag = 1;
+
+                            }
+
+                            if (txtPDate5.Text == "")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's Date entry shouldn't be empty.";
+                                txtPDate5.Focus();
+                                acdPerson.SelectedIndex = 4;
+                                returnedFlag = 1;
+
+                            }
+                            if (!DateTime.TryParse(txtPDate5.Text, out temp))
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's Date entry is not in date format please select an appropriate date.";
+                                txtPDate5.Focus();
+                                acdPerson.SelectedIndex = 4;
+                                returnedFlag = 1;
+
+                            }
+                            else
+                            {
+                                DateTime date5p = DateTime.Parse(DateTime.Parse(txtPDate5.Text).ToShortDateString());
+                                // compare selected date to current date
+                                result = DateTime.Compare(date5p, date);
+                                if (result > 0)
+                                {
+                                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+                                    txtPDate5.Focus();
+                                    acdPerson.SelectedIndex = 4;
+                                    returnedFlag = 1;
+
+                                }
+                            }
+
+                            if (ddlPTimeH5.SelectedItem.Value.ToString() == "-1")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 5.";
+                                ddlPTimeH5.Focus();
+                                acdPerson.SelectedIndex = 4;
+                                returnedFlag = 1;
+
+                            }
+                            if (ddlPTimeM5.SelectedItem.Value.ToString() == "-1")
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 5.";
+                                ddlPTimeM5.Focus();
+                                returnedFlag = 1;
+                                acdPerson.SelectedIndex = 4;
 
                             }
                         }
@@ -1972,53 +2211,6 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
 
                 }
             }
-            if (txtPDate1.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's Date entry shouldn't be empty.";
-                txtPDate1.Focus();
-                acdPerson.SelectedIndex = 0;
-                returnedFlag = 1;
-
-            }
-            if (!DateTime.TryParse(txtPDate1.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 1's Date entry is not in date format please select an appropriate date.";
-                txtPDate1.Focus();
-                acdPerson.SelectedIndex = 0;
-                returnedFlag = 1;
-
-            }
-            else
-            {
-                DateTime date1p = DateTime.Parse(DateTime.Parse(txtPDate1.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date1p, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtPDate1.Focus();
-                    acdPerson.SelectedIndex = 0;
-                    returnedFlag = 1;
-
-                }
-            }
-
-            if (ddlPTimeH1.SelectedItem.Value.ToString() == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 1.";
-                ddlPTimeH1.Focus();
-                acdPerson.SelectedIndex = 0;
-                returnedFlag = 1;
-
-            }
-            if (ddlPTimeM1.SelectedItem.Value.ToString() == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 1.";
-                ddlPTimeM1.Focus();
-                acdPerson.SelectedIndex = 0;
-                returnedFlag = 1;
-
-            }
         }
         // Person 2
         if (acpPerson2.Visible == true)
@@ -2153,54 +2345,6 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
 
                 }
             }
-
-            if (txtPDate2.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's Date entry shouldn't be empty.";
-                txtPDate2.Focus();
-                acdPerson.SelectedIndex = 1;
-                returnedFlag = 1;
-
-            }
-            if (!DateTime.TryParse(txtPDate2.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 2's Date entry is not in date format please select an appropriate date.";
-                txtPDate2.Focus();
-                acdPerson.SelectedIndex = 1;
-                returnedFlag = 1;
-
-            }
-            else
-            {
-                DateTime date2p = DateTime.Parse(DateTime.Parse(txtPDate2.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date2p, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtPDate2.Focus();
-                    acdPerson.SelectedIndex = 1;
-                    returnedFlag = 1;
-
-                }
-            }
-
-            if (ddlPTimeH2.SelectedItem.Value.ToString() == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 2.";
-                ddlPTimeH2.Focus();
-                acdPerson.SelectedIndex = 1;
-                returnedFlag = 1;
-
-            }
-            if (ddlPTimeM2.SelectedItem.Value.ToString() == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 2.";
-                ddlPTimeM2.Focus();
-                acdPerson.SelectedIndex = 1;
-                returnedFlag = 1;
-
-            }
         }
         // Person 3
         if (acpPerson3.Visible == true)
@@ -2326,54 +2470,6 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
 
                 }
             }
-
-            if (txtPDate3.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's Date entry shouldn't be empty.";
-                txtPDate3.Focus();
-                acdPerson.SelectedIndex = 2;
-                returnedFlag = 1;
-
-            }
-            if (!DateTime.TryParse(txtPDate3.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 3's Date entry is not in date format please select an appropriate date.";
-                txtPDate3.Focus();
-                acdPerson.SelectedIndex = 2;
-                returnedFlag = 1;
-
-            }
-            else
-            {
-                DateTime date3p = DateTime.Parse(DateTime.Parse(txtPDate3.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date3p, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtPDate3.Focus();
-                    acdPerson.SelectedIndex = 2;
-                    returnedFlag = 1;
-
-                }
-            }
-
-            if (ddlPTimeH3.SelectedItem.Value.ToString() == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 3.";
-                ddlPTimeH3.Focus();
-                acdPerson.SelectedIndex = 2;
-                returnedFlag = 1;
-
-            }
-            if (ddlPTimeM3.SelectedItem.Value.ToString() == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 3.";
-                ddlPTimeM3.Focus();
-                acdPerson.SelectedIndex = 2;
-                returnedFlag = 1;
-
-            }
         }
         // Person 4
         if (acpPerson4.Visible == true)
@@ -2498,53 +2594,6 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
 
                 }
             }
-            if (txtPDate4.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's Date entry shouldn't be empty.";
-                txtPDate4.Focus();
-                acdPerson.SelectedIndex = 3;
-                returnedFlag = 1;
-
-            }
-            if (!DateTime.TryParse(txtPDate4.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 4's Date entry is not in date format please select an appropriate date.";
-                txtPDate4.Focus();
-                acdPerson.SelectedIndex = 3;
-                returnedFlag = 1;
-
-            }
-            else
-            {
-                DateTime date4p = DateTime.Parse(DateTime.Parse(txtPDate4.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date4p, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtPDate4.Focus();
-                    acdPerson.SelectedIndex = 3;
-                    returnedFlag = 1;
-
-                }
-            }
-
-            if (ddlPTimeH4.SelectedItem.Value.ToString() == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 4.";
-                ddlPTimeH4.Focus();
-                acdPerson.SelectedIndex = 3;
-                returnedFlag = 1;
-
-            }
-            if (ddlPTimeM4.SelectedItem.Value.ToString() == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 4.";
-                ddlPTimeM4.Focus();
-                acdPerson.SelectedIndex = 3;
-                returnedFlag = 1;
-
-            }
         }
         // Person 5
         if (acpPerson5.Visible == true)
@@ -2668,53 +2717,6 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                     returnedFlag = 1;
 
                 }
-            }
-            if (txtPDate5.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's Date entry shouldn't be empty.";
-                txtPDate5.Focus();
-                acdPerson.SelectedIndex = 4;
-                returnedFlag = 1;
-
-            }
-            if (!DateTime.TryParse(txtPDate5.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Person 5's Date entry is not in date format please select an appropriate date.";
-                txtPDate5.Focus();
-                acdPerson.SelectedIndex = 4;
-                returnedFlag = 1;
-
-            }
-            else
-            {
-                DateTime date5p = DateTime.Parse(DateTime.Parse(txtPDate5.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date5p, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
-                    txtPDate5.Focus();
-                    acdPerson.SelectedIndex = 4;
-                    returnedFlag = 1;
-
-                }
-            }
-
-            if (ddlPTimeH5.SelectedItem.Value.ToString() == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Hour entry of Person 5.";
-                ddlPTimeH5.Focus();
-                acdPerson.SelectedIndex = 4;
-                returnedFlag = 1;
-
-            }
-            if (ddlPTimeM5.SelectedItem.Value.ToString() == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select the Minutes entry of Person 5.";
-                ddlPTimeM5.Focus();
-                returnedFlag = 1;
-                acdPerson.SelectedIndex = 4;
-
             }
         }
 

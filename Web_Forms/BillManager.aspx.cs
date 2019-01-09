@@ -1,7 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -11,7 +15,7 @@ using System.Web.UI.WebControls;
 
 public partial class Web_Forms_BillManager : System.Web.UI.Page
 {
-    int cash, eftpos, cheques, points, misc1, misc2, totalAmount;
+    decimal cash, eftpos, cheques, points, misc1, misc2, totalAmount;
     decimal sum = 0;
     AlertMessage alert = new AlertMessage();
 
@@ -19,8 +23,7 @@ public partial class Web_Forms_BillManager : System.Web.UI.Page
     {
         if (UserCredentials.BillManager == 0)
         {
-            lblStaffId.Text = UserCredentials.StaffId;
-            CheckUserAccess();
+            this.BindGrid();
             UserCredentials.BillManager = 1;
         }
     }
@@ -31,37 +34,37 @@ public partial class Web_Forms_BillManager : System.Web.UI.Page
         if (string.IsNullOrWhiteSpace(txtCash.Text))
             cash = 0;
         else
-            cash = Int32.Parse(txtCash.Text);
+            cash = Decimal.Parse(txtCash.Text);
 
         // eftpos
         if (string.IsNullOrWhiteSpace(txtEFTPOS.Text))
             eftpos = 0;
         else
-            eftpos = Int32.Parse(txtEFTPOS.Text);
+            eftpos = Decimal.Parse(txtEFTPOS.Text);
 
         // cheques
         if (string.IsNullOrWhiteSpace(txtCheques.Text))
             cheques = 0;
         else
-            cheques = Int32.Parse(txtCheques.Text);
+            cheques = Decimal.Parse(txtCheques.Text);
 
         // points
         if (string.IsNullOrWhiteSpace(txtPoints.Text))
             points = 0;
         else
-            points = Int32.Parse(txtPoints.Text);
+            points = Decimal.Parse(txtPoints.Text);
 
         // misc1
         if (string.IsNullOrWhiteSpace(txtMiscellaneous1.Text))
             misc1 = 0;
         else
-            misc1 = Int32.Parse(txtMiscellaneous1.Text);
+            misc1 = Decimal.Parse(txtMiscellaneous1.Text);
 
         // misc2
         if (string.IsNullOrWhiteSpace(txtMiscellaneous2.Text))
             misc2 = 0;
         else
-            misc2 = Int32.Parse(txtMiscellaneous2.Text);
+            misc2 = Decimal.Parse(txtMiscellaneous2.Text);
 
         totalAmount = cash + eftpos + cheques + points + misc1 + misc2;
         lblTotalAmount.Text = totalAmount.ToString();
@@ -139,27 +142,8 @@ public partial class Web_Forms_BillManager : System.Web.UI.Page
             dc.SubmitChanges();
         }
 
-        CheckUserAccess();
+        this.BindGrid();
         ResetFields();
-    }
-
-    protected void CheckUserAccess()
-    {
-        if (UserCredentials.Groups.Contains("ReceptionSupervisor"))
-        {
-            Filter.Visible = true;
-            sdsGridViewBillPayment.SelectCommand = "SELECT * FROM [BillPayment] ORDER BY [BillPaymentId] DESC";
-            gvBillPayment.DataBind();
-            gvBillPayment.Visible = true;
-            gvBillManagerPrint.Visible = false;
-        }
-        else
-        {
-            gvBillManagerPrint.Visible = true;
-            gvBillPayment.Visible = false;
-            sdsBillManagerPrint.SelectCommand = "SELECT * FROM [BillPayment] WHERE StaffId = " + UserCredentials.StaffId + " ORDER BY [BillPaymentId] DESC";
-            gvBillManagerPrint.DataBind();
-        }
     }
 
     public static string GetLocalIPAddress()
@@ -292,24 +276,109 @@ public partial class Web_Forms_BillManager : System.Web.UI.Page
 
     protected void btnFilter_Click(object sender, EventArgs e)
     {
-        sdsGridViewBillPayment.SelectCommand = "SELECT * FROM [BillPayment] WHERE TradingDate BETWEEN '" + DateTime.Parse(txtStartDate.Text).ToString("yyyy-MM-dd") + "' AND '" + DateTime.Parse(txtEndDate.Text).ToString("yyyy-MM-dd") + "' AND Site='" + ddlSite.SelectedValue + "' ORDER BY [BillPaymentId] DESC";
-        gvBillPayment.DataBind();
+        UserCredentials.BillManagerFiltered = true;
 
+        this.BindGrid();
         btnPrint.Visible = true;
+    }
+
+    private void BindGrid()
+    {
+        string strConnString = ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString;
+        string queryDefault = "SELECT * FROM [BillPayment] ORDER BY [BillPaymentId] DESC", query = "", queryFiltered = "";
+
+        try
+        {
+            queryFiltered = "SELECT * FROM [BillPayment] WHERE TradingDate BETWEEN '" + DateTime.Parse(txtStartDate.Text).ToString("yyyy-MM-dd") + "' AND '" + DateTime.Parse(txtEndDate.Text).ToString("yyyy-MM-dd") + "' AND Site='" + ddlSite.SelectedValue + "' ORDER BY [BillPaymentId] DESC";
+        }
+        catch
+        {
+            queryFiltered = "";
+        }
+
+        if (UserCredentials.BillManagerFiltered)
+        {
+            query = queryFiltered;
+        }
+        else
+        {
+            query = queryDefault;
+        }
+
+        using (SqlConnection con = new SqlConnection(strConnString))
+        {
+            using (SqlCommand cmd = new SqlCommand(query))
+            {
+                using (SqlDataAdapter sda = new SqlDataAdapter())
+                {
+                    cmd.Connection = con;
+                    sda.SelectCommand = cmd;
+                    using (DataTable dt = new DataTable())
+                    {
+                        sda.Fill(dt);
+                        gvBillPayment.DataSource = dt;
+                        gvBillPayment.DataBind();
+                    }
+                }
+            }
+        }
     }
 
     protected void btnPrint_Click(object sender, EventArgs e)
     {
+        Response.Clear();
+        Response.Buffer = true;
+        Response.AddHeader("content-disposition", "attachment;filename=GridViewExport.xls");
+        Response.Charset = "";
+        Response.ContentType = "application/vnd.ms-excel";
+        using (StringWriter sw = new StringWriter())
+        {
+            HtmlTextWriter hw = new HtmlTextWriter(sw);
+
+            //To Export all pages
+            gvBillPayment.AllowPaging = false;
+            this.BindGrid();
+
+            gvBillPayment.HeaderRow.BackColor = Color.White;
+            foreach (TableCell cell in gvBillPayment.HeaderRow.Cells)
+            {
+                cell.BackColor = gvBillPayment.HeaderStyle.BackColor;
+            }
+            foreach (GridViewRow row in gvBillPayment.Rows)
+            {
+                row.BackColor = Color.White;
+                foreach (TableCell cell in row.Cells)
+                {
+                    if (row.RowIndex % 2 == 0)
+                    {
+                        cell.BackColor = gvBillPayment.AlternatingRowStyle.BackColor;
+                    }
+                    else
+                    {
+                        cell.BackColor = gvBillPayment.RowStyle.BackColor;
+                    }
+                    cell.CssClass = "textmode";
+                }
+            }
+
+            gvBillPayment.RenderControl(hw);
+
+            //style to format numbers to string
+            string style = @"<style> .textmode { } </style>";
+            Response.Write(style);
+            Response.Output.Write(sw.ToString());
+            Response.Flush();
+            Response.End();
+        }
+
         btnPrint.Visible = false;
-        sdsGridViewBillPayment.SelectCommand = "SELECT * FROM [BillPayment] ORDER BY [BillPaymentId] DESC";
-        gvBillPayment.DataBind();
+        UserCredentials.BillManagerFiltered = false;
+        this.BindGrid();
     }
 
-    protected void sdsGridViewBillPayment_Deleted(object sender, SqlDataSourceStatusEventArgs e)
+    public override void VerifyRenderingInServerForm(Control control)
     {
-        Filter.Visible = true;
-        sdsGridViewBillPayment.SelectCommand = "SELECT * FROM [BillPayment] ORDER BY [BillPaymentId] DESC";
-        gvBillPayment.DataBind();
+        /* Verifies that the control is rendered */
     }
 
     protected void gvBillPayment_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -330,5 +399,45 @@ public partial class Web_Forms_BillManager : System.Web.UI.Page
             Label lbl = (Label)e.Row.FindControl("lblTotal");
             lbl.Text = String.Format("{0:C}", sum);
         }
+    }
+
+    protected void gvBillPayment_RowCreated(object sender, GridViewRowEventArgs e)
+    {
+        if (!UserCredentials.Groups.Contains("ReceptionSupervisor"))
+        {
+            // hide delete column
+            if (e.Row.RowType == DataControlRowType.Header || e.Row.RowType == DataControlRowType.DataRow)
+            {
+                e.Row.Cells[0].Visible = false;
+            }
+        }
+    }
+
+    protected void gvBillPayment_PageIndexChanging(object sender, GridViewPageEventArgs e)
+    {
+        gvBillPayment.PageIndex = e.NewPageIndex;
+        this.BindGrid();
+    }
+
+    protected void gvBillPayment_RowDeleting(object sender, GridViewDeleteEventArgs e)
+    {
+        int billPaymentId = int.Parse(gvBillPayment.DataKeys[e.RowIndex].Value.ToString());
+        string query = "DELETE FROM [BillPayment] WHERE [BillPaymentId] = " + billPaymentId;
+
+        using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString))
+        {
+            con.Open();
+            SqlCommand sqlcom = new SqlCommand(query, con);
+            try
+            {
+                sqlcom.ExecuteNonQuery();
+            }
+            catch
+            {
+
+            }
+            con.Close();
+        }
+        this.BindGrid();
     }
 }

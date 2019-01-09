@@ -681,6 +681,33 @@ public partial class Reports_MR_Incident_Report_View_v1_Link_v1 : System.Web.UI.
                         {
                             shoes1.Visible = false;
                         }
+
+                        if (String.IsNullOrEmpty(rdr["PDate1"].ToString()) || rdr["TxtPTimeH1"].ToString().Equals("Select Hour") || rdr["TxtPTimeM1"].ToString().Equals("Select Minute"))
+                        {
+                            p1DateEntryl.Visible = false;
+                            p1DateEntry.Visible = false;
+                        }
+                        if (String.IsNullOrEmpty(rdr["PDate2"].ToString()) || rdr["TxtPTimeH2"].ToString().Equals("Select Hour") || rdr["TxtPTimeM2"].ToString().Equals("Select Minute"))
+                        {
+                            p2DateEntryl.Visible = false;
+                            p2DateEntry.Visible = false;
+                        }
+                        if (String.IsNullOrEmpty(rdr["PDate3"].ToString()) || rdr["TxtPTimeH3"].ToString().Equals("Select Hour") || rdr["TxtPTimeM3"].ToString().Equals("Select Minute"))
+                        {
+                            p3DateEntryl.Visible = false;
+                            p3DateEntry.Visible = false;
+                        }
+                        if (String.IsNullOrEmpty(rdr["PDate4"].ToString()) || rdr["TxtPTimeH4"].ToString().Equals("Select Hour") || rdr["TxtPTimeM4"].ToString().Equals("Select Minute"))
+                        {
+                            p4DateEntryl.Visible = false;
+                            p4DateEntry.Visible = false;
+                        }
+                        if (String.IsNullOrEmpty(rdr["PDate5"].ToString()) || rdr["TxtPTimeH5"].ToString().Equals("Select Hour") || rdr["TxtPTimeM5"].ToString().Equals("Select Minute"))
+                        {
+                            p5DateEntryl.Visible = false;
+                            p5DateEntry.Visible = false;
+                        }
+
                         if (String.IsNullOrEmpty(rdr["Weapon1"].ToString()))
                         {
                             weapon1.Visible = false;
