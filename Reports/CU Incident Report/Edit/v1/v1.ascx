@@ -192,7 +192,37 @@
                                         <asp:TextBox ID="txtContact1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
+                                    <td colspan="1" style="width: 106px">
+                                        <b>Age : </b>
+                                        <asp:TextBox ID="txtAge1" AutoPostBack="true" OnTextChanged="txtAge1_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                    </td>
+                                    <td colspan="1">
+                                        <b>Age Group : </b>
+                                        <asp:DropDownList ID="ddlAgeGroup1" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup1_SelectedIndexChanged" AutoPostBack="true">
+                                            <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
+                                            <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="26-34" Value="3"></asp:ListItem>
+                                            <asp:ListItem Text="35-40" Value="4"></asp:ListItem>
+                                            <asp:ListItem Text="41-45" Value="6"></asp:ListItem>
+                                            <asp:ListItem Text="46-50" Value="7"></asp:ListItem>
+                                            <asp:ListItem Text="51-60" Value="8"></asp:ListItem>
+                                            <asp:ListItem Text="61+" Value="9"></asp:ListItem>
+                                            <asp:ListItem Text="N/A" Value="5"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td colspan="1">
+                                        <b>Gender : </b>
+                                        <asp:DropDownList ID="ddlGender1" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" runat="server" CssClass="object-default" Height="35px" Width="170px">
+                                            <asp:ListItem Enabled="true" Text="Select Gender" Value="-1"></asp:ListItem>
+                                            <asp:ListItem Text="Male" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Female" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="Other" Value="3"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"><b><u>For Any Assault Related Incidents, Record When the Patron Entered the Club</u></b></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 173px">
@@ -298,21 +328,6 @@
                                     <td colspan="4"><b><u>Physical Factors of Person</u></b></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="1" style="width: 106px">
-                                        <b>Age : </b>
-                                        <asp:TextBox ID="txtAge1" AutoPostBack="true" OnTextChanged="txtAge1_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
-                                    </td>
-                                    <td colspan="1">
-                                        <b>Age Group : </b>
-                                        <asp:DropDownList ID="ddlAgeGroup1" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup1_SelectedIndexChanged" AutoPostBack="true">
-                                            <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
-                                            <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
-                                            <asp:ListItem Text="26-34" Value="3"></asp:ListItem>
-                                            <asp:ListItem Text="35+" Value="4"></asp:ListItem>
-                                            <asp:ListItem Text="N/A" Value="5"></asp:ListItem>
-                                        </asp:DropDownList>
-                                    </td>
                                     <td colspan="1">
                                         <b>Build : </b>
                                         <%--<asp:TextBox ID="txtWeight1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
@@ -329,12 +344,12 @@
                                         <b>Height : </b>
                                         <asp:TextBox ID="txtHeight1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td colspan="1" style="width: 106px">
                                         <b>Hair : </b>
                                         <asp:TextBox ID="txtHair1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
+                                </tr>
+                                <tr>
                                     <td colspan="1">
                                         <b>Clothing - Top : </b>
                                         <asp:TextBox ID="txtClothingTop1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
@@ -347,26 +362,9 @@
                                         <b>Shoes : </b>
                                         <asp:TextBox ID="txtShoes1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td colspan="2">
                                         <b>Weapon : </b>
-                                    </td>
-                                    <td colspan="2">
-                                        <b>Gender : </b>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
                                         <asp:TextBox ID="txtWeapon1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
-                                    </td>
-                                    <td colspan="2">
-                                        <asp:DropDownList ID="ddlGender1" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" runat="server" CssClass="object-default" Height="35px" Width="170px">
-                                            <asp:ListItem Enabled="true" Text="Select Gender" Value="-1"></asp:ListItem>
-                                            <asp:ListItem Text="Male" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="Female" Value="2"></asp:ListItem>
-                                            <asp:ListItem Text="Other" Value="3"></asp:ListItem>
-                                        </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
@@ -548,7 +546,37 @@
                                         <asp:TextBox ID="txtContact2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
+                                    <td colspan="1" style="width: 106px">
+                                        <b>Age : </b>
+                                        <asp:TextBox ID="txtAge2" AutoPostBack="true" OnTextChanged="txtAge2_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                    </td>
+                                    <td colspan="1">
+                                        <b>Age Group : </b>
+                                        <asp:DropDownList ID="ddlAgeGroup2" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup2_SelectedIndexChanged" AutoPostBack="true">
+                                            <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
+                                            <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="26-34" Value="3"></asp:ListItem>
+                                            <asp:ListItem Text="35-40" Value="4"></asp:ListItem>
+                                            <asp:ListItem Text="41-45" Value="6"></asp:ListItem>
+                                            <asp:ListItem Text="46-50" Value="7"></asp:ListItem>
+                                            <asp:ListItem Text="51-60" Value="8"></asp:ListItem>
+                                            <asp:ListItem Text="61+" Value="9"></asp:ListItem>
+                                            <asp:ListItem Text="N/A" Value="5"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td colspan="1">
+                                        <b>Gender : </b>
+                                        <asp:DropDownList ID="ddlGender2" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" runat="server" CssClass="object-default" Height="35px" Width="170px">
+                                            <asp:ListItem Enabled="true" Text="Select Gender" Value="-1"></asp:ListItem>
+                                            <asp:ListItem Text="Male" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Female" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="Other" Value="3"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"><b><u>For Any Assault Related Incidents, Record When the Patron Entered the Club</u></b></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 173px">
@@ -585,7 +613,7 @@
                                         </asp:DropDownList>
                                     </td>
                                     <td style="width: 2px">
-                                        <asp:DropDownList ID="ddlPTimeM2" runat="server" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" CssClass="object-default" Height="35px" Width="180px">
+                                        <asp:DropDownList ID="ddlPTimeM2" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" runat="server" CssClass="object-default" Height="35px" Width="180px">
                                             <asp:ListItem Enabled="true" Text="Select Minute" Value="-1"></asp:ListItem>
                                             <asp:ListItem Text="00" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="01" Value="2"></asp:ListItem>
@@ -654,21 +682,6 @@
                                     <td colspan="4"><b><u>Physical Factors of Person</u></b></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="1" style="width: 106px">
-                                        <b>Age : </b>
-                                        <asp:TextBox ID="txtAge2" AutoPostBack="true" OnTextChanged="txtAge2_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
-                                    </td>
-                                    <td colspan="1">
-                                        <b>Age Group : </b>
-                                        <asp:DropDownList ID="ddlAgeGroup2" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup2_SelectedIndexChanged" AutoPostBack="true">
-                                            <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
-                                            <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
-                                            <asp:ListItem Text="26-34" Value="3"></asp:ListItem>
-                                            <asp:ListItem Text="35+" Value="4"></asp:ListItem>
-                                            <asp:ListItem Text="N/A" Value="5"></asp:ListItem>
-                                        </asp:DropDownList>
-                                    </td>
                                     <td colspan="1">
                                         <b>Build : </b>
                                         <%--<asp:TextBox ID="txtWeight2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
@@ -685,12 +698,12 @@
                                         <b>Height : </b>
                                         <asp:TextBox ID="txtHeight2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td colspan="1" style="width: 106px">
                                         <b>Hair : </b>
                                         <asp:TextBox ID="txtHair2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
+                                </tr>
+                                <tr>
                                     <td colspan="1">
                                         <b>Clothing - Top : </b>
                                         <asp:TextBox ID="txtClothingTop2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
@@ -703,26 +716,9 @@
                                         <b>Shoes : </b>
                                         <asp:TextBox ID="txtShoes2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td colspan="2">
                                         <b>Weapon : </b>
-                                    </td>
-                                    <td colspan="2">
-                                        <b>Gender : </b>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
                                         <asp:TextBox ID="txtWeapon2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
-                                    </td>
-                                    <td colspan="2">
-                                        <asp:DropDownList ID="ddlGender2" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" runat="server" CssClass="object-default" Height="35px" Width="170px">
-                                            <asp:ListItem Enabled="true" Text="Select Gender" Value="-1"></asp:ListItem>
-                                            <asp:ListItem Text="Male" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="Female" Value="2"></asp:ListItem>
-                                            <asp:ListItem Text="Other" Value="3"></asp:ListItem>
-                                        </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
@@ -904,7 +900,37 @@
                                         <asp:TextBox ID="txtContact3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
+                                    <td colspan="1" style="width: 106px">
+                                        <b>Age : </b>
+                                        <asp:TextBox ID="txtAge3" AutoPostBack="true" OnTextChanged="txtAge3_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                    </td>
+                                    <td colspan="1">
+                                        <b>Age Group : </b>
+                                        <asp:DropDownList ID="ddlAgeGroup3" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup3_SelectedIndexChanged" AutoPostBack="true">
+                                            <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
+                                            <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="26-34" Value="3"></asp:ListItem>
+                                            <asp:ListItem Text="35-40" Value="4"></asp:ListItem>
+                                            <asp:ListItem Text="41-45" Value="6"></asp:ListItem>
+                                            <asp:ListItem Text="46-50" Value="7"></asp:ListItem>
+                                            <asp:ListItem Text="51-60" Value="8"></asp:ListItem>
+                                            <asp:ListItem Text="61+" Value="9"></asp:ListItem>
+                                            <asp:ListItem Text="N/A" Value="5"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td colspan="1">
+                                        <b>Gender : </b>
+                                        <asp:DropDownList ID="ddlGender3" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" runat="server" CssClass="object-default" Height="35px" Width="170px">
+                                            <asp:ListItem Enabled="true" Text="Select Gender" Value="-1"></asp:ListItem>
+                                            <asp:ListItem Text="Male" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Female" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="Other" Value="3"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"><b><u>For Any Assault Related Incidents, Record When the Patron Entered the Club</u></b></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 173px">
@@ -1010,21 +1036,6 @@
                                     <td colspan="4"><b><u>Physical Factors of Person</u></b></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="1" style="width: 106px">
-                                        <b>Age : </b>
-                                        <asp:TextBox ID="txtAge3" AutoPostBack="true" OnTextChanged="txtAge3_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
-                                    </td>
-                                    <td colspan="1">
-                                        <b>Age Group : </b>
-                                        <asp:DropDownList ID="ddlAgeGroup3" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup3_SelectedIndexChanged" AutoPostBack="true">
-                                            <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
-                                            <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
-                                            <asp:ListItem Text="26-34" Value="3"></asp:ListItem>
-                                            <asp:ListItem Text="35+" Value="4"></asp:ListItem>
-                                            <asp:ListItem Text="N/A" Value="5"></asp:ListItem>
-                                        </asp:DropDownList>
-                                    </td>
                                     <td colspan="1">
                                         <b>Build : </b>
                                         <%--<asp:TextBox ID="txtWeight3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
@@ -1041,12 +1052,12 @@
                                         <b>Height : </b>
                                         <asp:TextBox ID="txtHeight3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td colspan="1" style="width: 106px">
                                         <b>Hair : </b>
                                         <asp:TextBox ID="txtHair3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
+                                </tr>
+                                <tr>
                                     <td colspan="1">
                                         <b>Clothing - Top : </b>
                                         <asp:TextBox ID="txtClothingTop3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
@@ -1059,26 +1070,9 @@
                                         <b>Shoes : </b>
                                         <asp:TextBox ID="txtShoes3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td colspan="2">
                                         <b>Weapon : </b>
-                                    </td>
-                                    <td colspan="2">
-                                        <b>Gender : </b>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
                                         <asp:TextBox ID="txtWeapon3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
-                                    </td>
-                                    <td colspan="2">
-                                        <asp:DropDownList ID="ddlGender3" runat="server" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" CssClass="object-default" Height="35px" Width="170px">
-                                            <asp:ListItem Enabled="true" Text="Select Gender" Value="-1"></asp:ListItem>
-                                            <asp:ListItem Text="Male" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="Female" Value="2"></asp:ListItem>
-                                            <asp:ListItem Text="Other" Value="3"></asp:ListItem>
-                                        </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1260,7 +1254,37 @@
                                         <asp:TextBox ID="txtContact4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
+                                    <td colspan="1" style="width: 106px">
+                                        <b>Age : </b>
+                                        <asp:TextBox ID="txtAge4" AutoPostBack="true" OnTextChanged="txtAge4_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                    </td>
+                                    <td colspan="1">
+                                        <b>Age Group : </b>
+                                        <asp:DropDownList ID="ddlAgeGroup4" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup4_SelectedIndexChanged" AutoPostBack="true">
+                                            <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
+                                            <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="26-34" Value="3"></asp:ListItem>
+                                            <asp:ListItem Text="35-40" Value="4"></asp:ListItem>
+                                            <asp:ListItem Text="41-45" Value="6"></asp:ListItem>
+                                            <asp:ListItem Text="46-50" Value="7"></asp:ListItem>
+                                            <asp:ListItem Text="51-60" Value="8"></asp:ListItem>
+                                            <asp:ListItem Text="61+" Value="9"></asp:ListItem>
+                                            <asp:ListItem Text="N/A" Value="5"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td colspan="1">
+                                        <b>Gender : </b>
+                                        <asp:DropDownList ID="ddlGender4" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" runat="server" CssClass="object-default" Height="35px" Width="170px">
+                                            <asp:ListItem Enabled="true" Text="Select Gender" Value="-1"></asp:ListItem>
+                                            <asp:ListItem Text="Male" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Female" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="Other" Value="3"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"><b><u>For Any Assault Related Incidents, Record When the Patron Entered the Club</u></b></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 173px">
@@ -1366,21 +1390,6 @@
                                     <td colspan="4"><b><u>Physical Factors of Person</u></b></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="1" style="width: 106px">
-                                        <b>Age : </b>
-                                        <asp:TextBox ID="txtAge4" AutoPostBack="true" OnTextChanged="txtAge4_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
-                                    </td>
-                                    <td colspan="1">
-                                        <b>Age Group : </b>
-                                        <asp:DropDownList ID="ddlAgeGroup4" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup4_SelectedIndexChanged" AutoPostBack="true">
-                                            <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
-                                            <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
-                                            <asp:ListItem Text="26-34" Value="3"></asp:ListItem>
-                                            <asp:ListItem Text="35+" Value="4"></asp:ListItem>
-                                            <asp:ListItem Text="N/A" Value="5"></asp:ListItem>
-                                        </asp:DropDownList>
-                                    </td>
                                     <td colspan="1">
                                         <b>Build : </b>
                                         <%--<asp:TextBox ID="txtWeight4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
@@ -1397,12 +1406,12 @@
                                         <b>Height : </b>
                                         <asp:TextBox ID="txtHeight4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td colspan="1" style="width: 106px">
                                         <b>Hair : </b>
                                         <asp:TextBox ID="txtHair4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
+                                </tr>
+                                <tr>
                                     <td colspan="1">
                                         <b>Clothing - Top : </b>
                                         <asp:TextBox ID="txtClothingTop4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
@@ -1415,26 +1424,9 @@
                                         <b>Shoes : </b>
                                         <asp:TextBox ID="txtShoes4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td colspan="2">
                                         <b>Weapon : </b>
-                                    </td>
-                                    <td colspan="2">
-                                        <b>Gender : </b>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
                                         <asp:TextBox ID="txtWeapon4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
-                                    </td>
-                                    <td colspan="2">
-                                        <asp:DropDownList ID="ddlGender4" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" runat="server" CssClass="object-default" Height="35px" Width="170px">
-                                            <asp:ListItem Enabled="true" Text="Select Gender" Value="-1"></asp:ListItem>
-                                            <asp:ListItem Text="Male" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="Female" Value="2"></asp:ListItem>
-                                            <asp:ListItem Text="Other" Value="3"></asp:ListItem>
-                                        </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1616,7 +1608,37 @@
                                         <asp:TextBox ID="txtContact5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
+                                    <td colspan="1" style="width: 106px">
+                                        <b>Age : </b>
+                                        <asp:TextBox ID="txtAge5" AutoPostBack="true" OnTextChanged="txtAge5_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                    </td>
+                                    <td colspan="1">
+                                        <b>Age Group : </b>
+                                        <asp:DropDownList ID="ddlAgeGroup5" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup5_SelectedIndexChanged" AutoPostBack="true">
+                                            <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
+                                            <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="26-34" Value="3"></asp:ListItem>
+                                            <asp:ListItem Text="35-40" Value="4"></asp:ListItem>
+                                            <asp:ListItem Text="41-45" Value="6"></asp:ListItem>
+                                            <asp:ListItem Text="46-50" Value="7"></asp:ListItem>
+                                            <asp:ListItem Text="51-60" Value="8"></asp:ListItem>
+                                            <asp:ListItem Text="61+" Value="9"></asp:ListItem>
+                                            <asp:ListItem Text="N/A" Value="5"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                    <td colspan="1">
+                                        <b>Gender : </b>
+                                        <asp:DropDownList ID="ddlGender5" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" runat="server" CssClass="object-default" Height="35px" Width="170px">
+                                            <asp:ListItem Enabled="true" Text="Select Gender" Value="-1"></asp:ListItem>
+                                            <asp:ListItem Text="Male" Value="1"></asp:ListItem>
+                                            <asp:ListItem Text="Female" Value="2"></asp:ListItem>
+                                            <asp:ListItem Text="Other" Value="3"></asp:ListItem>
+                                        </asp:DropDownList>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4"><b><u>For Any Assault Related Incidents, Record When the Patron Entered the Club</u></b></td>
                                 </tr>
                                 <tr>
                                     <td style="width: 173px">
@@ -1624,7 +1646,7 @@
                                         <asp:CalendarExtender ID="CalendarExtender7" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtPDate5" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                     </td>
                                     <td colspan="1" style="width: 8px">
-                                        <asp:DropDownList ID="ddlPTimeH5" runat="server" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" CssClass="object-default" Width="150px">
+                                        <asp:DropDownList ID="ddlPTimeH5" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" runat="server" CssClass="object-default" Width="150px">
                                             <asp:ListItem Enabled="true" Text="Select Hour" Value="-1"></asp:ListItem>
                                             <asp:ListItem Text="00" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="01" Value="2"></asp:ListItem>
@@ -1653,7 +1675,7 @@
                                         </asp:DropDownList>
                                     </td>
                                     <td style="width: 2px">
-                                        <asp:DropDownList ID="ddlPTimeM5" runat="server" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" CssClass="object-default" Height="35px" Width="180px">
+                                        <asp:DropDownList ID="ddlPTimeM5" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" runat="server" CssClass="object-default" Height="35px" Width="180px">
                                             <asp:ListItem Enabled="true" Text="Select Minute" Value="-1"></asp:ListItem>
                                             <asp:ListItem Text="00" Value="1"></asp:ListItem>
                                             <asp:ListItem Text="01" Value="2"></asp:ListItem>
@@ -1722,21 +1744,6 @@
                                     <td colspan="4"><b><u>Physical Factors of Person</u></b></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="1" style="width: 106px">
-                                        <b>Age : </b>
-                                        <asp:TextBox ID="txtAge5" AutoPostBack="true" OnTextChanged="txtAge5_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
-                                    </td>
-                                    <td colspan="1">
-                                        <b>Age Group : </b>
-                                        <asp:DropDownList ID="ddlAgeGroup5" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="ddlAgeGroup5_SelectedIndexChanged" AutoPostBack="true">
-                                            <asp:ListItem Enabled="true" Text="Select One" Value="-1"></asp:ListItem>
-                                            <asp:ListItem Text="Under 18" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="18-25" Value="2"></asp:ListItem>
-                                            <asp:ListItem Text="26-34" Value="3"></asp:ListItem>
-                                            <asp:ListItem Text="35+" Value="4"></asp:ListItem>
-                                            <asp:ListItem Text="N/A" Value="5"></asp:ListItem>
-                                        </asp:DropDownList>
-                                    </td>
                                     <td colspan="1">
                                         <b>Build : </b>
                                         <%--<asp:TextBox ID="txtWeight5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
@@ -1753,12 +1760,12 @@
                                         <b>Height : </b>
                                         <asp:TextBox ID="txtHeight5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td colspan="1" style="width: 106px">
                                         <b>Hair : </b>
                                         <asp:TextBox ID="txtHair5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
+                                </tr>
+                                <tr>
                                     <td colspan="1">
                                         <b>Clothing - Top : </b>
                                         <asp:TextBox ID="txtClothingTop5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
@@ -1771,26 +1778,9 @@
                                         <b>Shoes : </b>
                                         <asp:TextBox ID="txtShoes5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
-                                </tr>
-                                <tr>
                                     <td colspan="2">
                                         <b>Weapon : </b>
-                                    </td>
-                                    <td colspan="2">
-                                        <b>Gender : </b>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">
                                         <asp:TextBox ID="txtWeapon5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
-                                    </td>
-                                    <td colspan="2">
-                                        <asp:DropDownList ID="ddlGender5" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" runat="server" CssClass="object-default" Height="35px" Width="170px">
-                                            <asp:ListItem Enabled="true" Text="Select Gender" Value="-1"></asp:ListItem>
-                                            <asp:ListItem Text="Male" Value="1"></asp:ListItem>
-                                            <asp:ListItem Text="Female" Value="2"></asp:ListItem>
-                                            <asp:ListItem Text="Other" Value="3"></asp:ListItem>
-                                        </asp:DropDownList>
                                     </td>
                                 </tr>
                                 <tr>

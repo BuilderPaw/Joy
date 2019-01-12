@@ -143,7 +143,19 @@ public partial class Reports_CU_Incident_Report_Print_v1_Active_v1 : System.Web.
                                 lblAgeGroup1.Text = "26-34";
                                 break;
                             case "4":
-                                lblAgeGroup1.Text = "35+";
+                                lblAgeGroup1.Text = "35-40";
+                                break;
+                            case "6":
+                                lblAgeGroup1.Text = "41-45";
+                                break;
+                            case "7":
+                                lblAgeGroup1.Text = "46-50";
+                                break;
+                            case "8":
+                                lblAgeGroup1.Text = "51-60";
+                                break;
+                            case "9":
+                                lblAgeGroup1.Text = "61+";
                                 break;
                             case "5":
                                 lblAgeGroup1.Text = "N/A";
@@ -164,7 +176,19 @@ public partial class Reports_CU_Incident_Report_Print_v1_Active_v1 : System.Web.
                                 lblAgeGroup2.Text = "26-34";
                                 break;
                             case "4":
-                                lblAgeGroup2.Text = "35+";
+                                lblAgeGroup2.Text = "35-40";
+                                break;
+                            case "6":
+                                lblAgeGroup2.Text = "41-45";
+                                break;
+                            case "7":
+                                lblAgeGroup2.Text = "46-50";
+                                break;
+                            case "8":
+                                lblAgeGroup2.Text = "51-60";
+                                break;
+                            case "9":
+                                lblAgeGroup2.Text = "61+";
                                 break;
                             case "5":
                                 lblAgeGroup2.Text = "N/A";
@@ -185,7 +209,19 @@ public partial class Reports_CU_Incident_Report_Print_v1_Active_v1 : System.Web.
                                 lblAgeGroup3.Text = "26-34";
                                 break;
                             case "4":
-                                lblAgeGroup3.Text = "35+";
+                                lblAgeGroup3.Text = "35-40";
+                                break;
+                            case "6":
+                                lblAgeGroup3.Text = "41-45";
+                                break;
+                            case "7":
+                                lblAgeGroup3.Text = "46-50";
+                                break;
+                            case "8":
+                                lblAgeGroup3.Text = "51-60";
+                                break;
+                            case "9":
+                                lblAgeGroup3.Text = "61+";
                                 break;
                             case "5":
                                 lblAgeGroup3.Text = "N/A";
@@ -206,7 +242,19 @@ public partial class Reports_CU_Incident_Report_Print_v1_Active_v1 : System.Web.
                                 lblAgeGroup4.Text = "26-34";
                                 break;
                             case "4":
-                                lblAgeGroup4.Text = "35+";
+                                lblAgeGroup4.Text = "35-40";
+                                break;
+                            case "6":
+                                lblAgeGroup4.Text = "41-45";
+                                break;
+                            case "7":
+                                lblAgeGroup4.Text = "46-50";
+                                break;
+                            case "8":
+                                lblAgeGroup4.Text = "51-60";
+                                break;
+                            case "9":
+                                lblAgeGroup4.Text = "61+";
                                 break;
                             case "5":
                                 lblAgeGroup4.Text = "N/A";
@@ -227,7 +275,19 @@ public partial class Reports_CU_Incident_Report_Print_v1_Active_v1 : System.Web.
                                 lblAgeGroup5.Text = "26-34";
                                 break;
                             case "4":
-                                lblAgeGroup5.Text = "35+";
+                                lblAgeGroup5.Text = "35-40";
+                                break;
+                            case "6":
+                                lblAgeGroup5.Text = "41-45";
+                                break;
+                            case "7":
+                                lblAgeGroup5.Text = "46-50";
+                                break;
+                            case "8":
+                                lblAgeGroup5.Text = "51-60";
+                                break;
+                            case "9":
+                                lblAgeGroup5.Text = "61+";
                                 break;
                             case "5":
                                 lblAgeGroup5.Text = "N/A";
@@ -659,6 +719,59 @@ public partial class Reports_CU_Incident_Report_Print_v1_Active_v1 : System.Web.
                         {
                             shoes1.Visible = false;
                         }
+
+                        if(String.IsNullOrEmpty(rdr["Weight1"].ToString()) && String.IsNullOrEmpty(rdr["Height1"].ToString()) && String.IsNullOrEmpty(rdr["Hair1"].ToString()) && String.IsNullOrEmpty(rdr["ClothingTop1"].ToString()) &&
+                            String.IsNullOrEmpty(rdr["ClothingBottom1"].ToString()) && String.IsNullOrEmpty(rdr["Shoes1"].ToString()) && String.IsNullOrEmpty(rdr["Weapon1"].ToString()))
+                        {
+                            physical1.Visible = false;
+                        }
+                        if (String.IsNullOrEmpty(rdr["Weight2"].ToString()) && String.IsNullOrEmpty(rdr["Height2"].ToString()) && String.IsNullOrEmpty(rdr["Hair2"].ToString()) && String.IsNullOrEmpty(rdr["ClothingTop2"].ToString()) &&
+                            String.IsNullOrEmpty(rdr["ClothingBottom2"].ToString()) && String.IsNullOrEmpty(rdr["Shoes2"].ToString()) && String.IsNullOrEmpty(rdr["Weapon2"].ToString()))
+                        {
+                            physical2.Visible = false;
+                        }
+                        if (String.IsNullOrEmpty(rdr["Weight3"].ToString()) && String.IsNullOrEmpty(rdr["Height3"].ToString()) && String.IsNullOrEmpty(rdr["Hair3"].ToString()) && String.IsNullOrEmpty(rdr["ClothingTop3"].ToString()) &&
+                            String.IsNullOrEmpty(rdr["ClothingBottom3"].ToString()) && String.IsNullOrEmpty(rdr["Shoes3"].ToString()) && String.IsNullOrEmpty(rdr["Weapon3"].ToString()))
+                        {
+                            physical3.Visible = false;
+                        }
+                        if (String.IsNullOrEmpty(rdr["Weight4"].ToString()) && String.IsNullOrEmpty(rdr["Height4"].ToString()) && String.IsNullOrEmpty(rdr["Hair4"].ToString()) && String.IsNullOrEmpty(rdr["ClothingTop4"].ToString()) &&
+                            String.IsNullOrEmpty(rdr["ClothingBottom4"].ToString()) && String.IsNullOrEmpty(rdr["Shoes4"].ToString()) && String.IsNullOrEmpty(rdr["Weapon4"].ToString()))
+                        {
+                            physical4.Visible = false;
+                        }
+                        if (String.IsNullOrEmpty(rdr["Weight5"].ToString()) && String.IsNullOrEmpty(rdr["Height5"].ToString()) && String.IsNullOrEmpty(rdr["Hair5"].ToString()) && String.IsNullOrEmpty(rdr["ClothingTop5"].ToString()) &&
+                            String.IsNullOrEmpty(rdr["ClothingBottom5"].ToString()) && String.IsNullOrEmpty(rdr["Shoes5"].ToString()) && String.IsNullOrEmpty(rdr["Weapon5"].ToString()))
+                        {
+                            physical5.Visible = false;
+                        }
+
+                        if (String.IsNullOrEmpty(rdr["PDate1"].ToString()) || rdr["TxtPTimeH1"].ToString().Equals("Select Hour") || rdr["TxtPTimeM1"].ToString().Equals("Select Minute"))
+                        {
+                            p1DateEntryl.Visible = false;
+                            p1DateEntry.Visible = false;
+                        }
+                        if (String.IsNullOrEmpty(rdr["PDate2"].ToString()) || rdr["TxtPTimeH2"].ToString().Equals("Select Hour") || rdr["TxtPTimeM2"].ToString().Equals("Select Minute"))
+                        {
+                            p2DateEntryl.Visible = false;
+                            p2DateEntry.Visible = false;
+                        }
+                        if (String.IsNullOrEmpty(rdr["PDate3"].ToString()) || rdr["TxtPTimeH3"].ToString().Equals("Select Hour") || rdr["TxtPTimeM3"].ToString().Equals("Select Minute"))
+                        {
+                            p3DateEntryl.Visible = false;
+                            p3DateEntry.Visible = false;
+                        }
+                        if (String.IsNullOrEmpty(rdr["PDate4"].ToString()) || rdr["TxtPTimeH4"].ToString().Equals("Select Hour") || rdr["TxtPTimeM4"].ToString().Equals("Select Minute"))
+                        {
+                            p4DateEntryl.Visible = false;
+                            p4DateEntry.Visible = false;
+                        }
+                        if (String.IsNullOrEmpty(rdr["PDate5"].ToString()) || rdr["TxtPTimeH5"].ToString().Equals("Select Hour") || rdr["TxtPTimeM5"].ToString().Equals("Select Minute"))
+                        {
+                            p5DateEntryl.Visible = false;
+                            p5DateEntry.Visible = false;
+                        }
+
                         if (String.IsNullOrEmpty(rdr["Weapon1"].ToString()))
                         {
                             weapon1.Visible = false;
@@ -882,6 +995,10 @@ public partial class Reports_CU_Incident_Report_Print_v1_Active_v1 : System.Web.
                         if (String.IsNullOrEmpty(rdr["CamDesc1"].ToString()))
                         {
                             tblCam1.Visible = false;
+                        }
+                        else
+                        {
+                            cbCameraFootage.Checked = true;
                         }
                         if (String.IsNullOrEmpty(rdr["CamDesc2"].ToString()))
                         {

@@ -2688,7 +2688,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
                         cbWitness1.Checked = Convert.ToBoolean(rdr["Witness1"]);
                         txtAge1.Text = rdr["Age1"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlAgeGroup1.SelectedIndex = Int32.Parse(rdr["AgeGroup1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlAgeGroup1.SelectedValue = rdr["AgeGroup1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         //txtWeight1.Text = rdr["Weight1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         ddlWeight1.SelectedValue = rdr["Weight1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHeight1.Text = rdr["Height1"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -2747,7 +2747,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
                         cbWitness2.Checked = Convert.ToBoolean(rdr["Witness2"]);
                         txtAge2.Text = rdr["Age2"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlAgeGroup2.SelectedIndex = Int32.Parse(rdr["AgeGroup2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlAgeGroup2.SelectedValue = rdr["AgeGroup2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         //txtWeight2.Text = rdr["Weight2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         ddlWeight2.SelectedValue = rdr["Weight2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHeight2.Text = rdr["Height2"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -2806,7 +2806,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
                         cbWitness3.Checked = Convert.ToBoolean(rdr["Witness3"]);
                         txtAge3.Text = rdr["Age3"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlAgeGroup3.SelectedIndex = Int32.Parse(rdr["AgeGroup3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlAgeGroup3.SelectedValue = rdr["AgeGroup3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         //txtWeight3.Text = rdr["Weight3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         ddlWeight3.SelectedValue = rdr["Weight3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHeight3.Text = rdr["Height3"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -2865,7 +2865,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
                         cbWitness4.Checked = Convert.ToBoolean(rdr["Witness4"]);
                         txtAge4.Text = rdr["Age4"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlAgeGroup4.SelectedIndex = Int32.Parse(rdr["AgeGroup4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlAgeGroup4.SelectedValue = rdr["AgeGroup4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         //txtWeight4.Text = rdr["Weight4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         ddlWeight4.SelectedValue = rdr["Weight4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHeight4.Text = rdr["Height4"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -2924,7 +2924,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
 
                         cbWitness5.Checked = Convert.ToBoolean(rdr["Witness5"]);
                         txtAge5.Text = rdr["Age5"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlAgeGroup5.SelectedIndex = Int32.Parse(rdr["AgeGroup5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ddlAgeGroup5.SelectedValue = rdr["AgeGroup5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         //txtWeight5.Text = rdr["Weight5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         ddlWeight5.SelectedValue = rdr["Weight5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtHeight5.Text = rdr["Height5"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -3651,7 +3651,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                             if (string.IsNullOrEmpty(txtDOB1.Text))
                             {
                                 txtAge1.Text = "";
-                                ddlAgeGroup1.SelectedIndex = 5;
+                                ddlAgeGroup1.SelectedValue = "5";
                             }
                             else
                             {
@@ -3665,19 +3665,35 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                                 {
                                     if (age < 18)
                                     {
-                                        ddlAgeGroup1.SelectedIndex = 1;
+                                        ddlAgeGroup1.SelectedValue = "1";
                                     }
                                     else if (age >= 18 && age <= 25)
                                     {
-                                        ddlAgeGroup1.SelectedIndex = 2;
+                                        ddlAgeGroup1.SelectedValue = "2";
                                     }
                                     else if (age >= 26 && age <= 34)
                                     {
-                                        ddlAgeGroup1.SelectedIndex = 3;
+                                        ddlAgeGroup1.SelectedValue = "3";
                                     }
-                                    else if (age >= 35)
+                                    else if (age >= 35 && age <= 40)
                                     {
-                                        ddlAgeGroup1.SelectedIndex = 4;
+                                        ddlAgeGroup1.SelectedValue = "4";
+                                    }
+                                    else if (age >= 41 && age <= 45)
+                                    {
+                                        ddlAgeGroup1.SelectedValue = "6";
+                                    }
+                                    else if (age >= 46 && age <= 50)
+                                    {
+                                        ddlAgeGroup1.SelectedValue = "7";
+                                    }
+                                    else if (age >= 51 && age <= 60)
+                                    {
+                                        ddlAgeGroup1.SelectedValue = "8";
+                                    }
+                                    else if (age >= 61)
+                                    {
+                                        ddlAgeGroup1.SelectedValue = "9";
                                     }
                                 }
                             }
@@ -3724,7 +3740,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                             if (string.IsNullOrEmpty(txtDOB2.Text))
                             {
                                 txtAge2.Text = "";
-                                ddlAgeGroup2.SelectedIndex = 5;
+                                ddlAgeGroup2.SelectedValue = "5";
                             }
                             else
                             {
@@ -3738,19 +3754,35 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                                 {
                                     if (age < 18)
                                     {
-                                        ddlAgeGroup2.SelectedIndex = 1;
+                                        ddlAgeGroup2.SelectedValue = "1";
                                     }
                                     else if (age >= 18 && age <= 25)
                                     {
-                                        ddlAgeGroup2.SelectedIndex = 2;
+                                        ddlAgeGroup2.SelectedValue = "2";
                                     }
                                     else if (age >= 26 && age <= 34)
                                     {
-                                        ddlAgeGroup2.SelectedIndex = 3;
+                                        ddlAgeGroup2.SelectedValue = "3";
                                     }
-                                    else if (age >= 35)
+                                    else if (age >= 35 && age <= 40)
                                     {
-                                        ddlAgeGroup2.SelectedIndex = 4;
+                                        ddlAgeGroup2.SelectedValue = "4";
+                                    }
+                                    else if (age >= 41 && age <= 45)
+                                    {
+                                        ddlAgeGroup2.SelectedValue = "6";
+                                    }
+                                    else if (age >= 46 && age <= 50)
+                                    {
+                                        ddlAgeGroup2.SelectedValue = "7";
+                                    }
+                                    else if (age >= 51 && age <= 60)
+                                    {
+                                        ddlAgeGroup2.SelectedValue = "8";
+                                    }
+                                    else if (age >= 61)
+                                    {
+                                        ddlAgeGroup2.SelectedValue = "9";
                                     }
                                 }
                             }
@@ -3797,7 +3829,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                             if (string.IsNullOrEmpty(txtDOB3.Text))
                             {
                                 txtAge3.Text = "";
-                                ddlAgeGroup3.SelectedIndex = 5;
+                                ddlAgeGroup3.SelectedValue = "5";
                             }
                             else
                             {
@@ -3811,19 +3843,35 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                                 {
                                     if (age < 18)
                                     {
-                                        ddlAgeGroup3.SelectedIndex = 1;
+                                        ddlAgeGroup3.SelectedValue = "1";
                                     }
                                     else if (age >= 18 && age <= 25)
                                     {
-                                        ddlAgeGroup3.SelectedIndex = 2;
+                                        ddlAgeGroup3.SelectedValue = "2";
                                     }
                                     else if (age >= 26 && age <= 34)
                                     {
-                                        ddlAgeGroup3.SelectedIndex = 3;
+                                        ddlAgeGroup3.SelectedValue = "3";
                                     }
-                                    else if (age >= 35)
+                                    else if (age >= 35 && age <= 40)
                                     {
-                                        ddlAgeGroup3.SelectedIndex = 4;
+                                        ddlAgeGroup3.SelectedValue = "4";
+                                    }
+                                    else if (age >= 41 && age <= 45)
+                                    {
+                                        ddlAgeGroup3.SelectedValue = "6";
+                                    }
+                                    else if (age >= 46 && age <= 50)
+                                    {
+                                        ddlAgeGroup3.SelectedValue = "7";
+                                    }
+                                    else if (age >= 51 && age <= 60)
+                                    {
+                                        ddlAgeGroup3.SelectedValue = "8";
+                                    }
+                                    else if (age >= 61)
+                                    {
+                                        ddlAgeGroup3.SelectedValue = "9";
                                     }
                                 }
                             }
@@ -3869,7 +3917,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                             if (string.IsNullOrEmpty(txtDOB4.Text))
                             {
                                 txtAge4.Text = "";
-                                ddlAgeGroup4.SelectedIndex = 5;
+                                ddlAgeGroup4.SelectedValue = "5";
                             }
                             else
                             {
@@ -3883,19 +3931,35 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                                 {
                                     if (age < 18)
                                     {
-                                        ddlAgeGroup4.SelectedIndex = 1;
+                                        ddlAgeGroup4.SelectedValue = "1";
                                     }
                                     else if (age >= 18 && age <= 25)
                                     {
-                                        ddlAgeGroup4.SelectedIndex = 2;
+                                        ddlAgeGroup4.SelectedValue = "2";
                                     }
                                     else if (age >= 26 && age <= 34)
                                     {
-                                        ddlAgeGroup4.SelectedIndex = 3;
+                                        ddlAgeGroup4.SelectedValue = "3";
                                     }
-                                    else if (age >= 35)
+                                    else if (age >= 35 && age <= 40)
                                     {
-                                        ddlAgeGroup4.SelectedIndex = 4;
+                                        ddlAgeGroup4.SelectedValue = "4";
+                                    }
+                                    else if (age >= 41 && age <= 45)
+                                    {
+                                        ddlAgeGroup4.SelectedValue = "6";
+                                    }
+                                    else if (age >= 46 && age <= 50)
+                                    {
+                                        ddlAgeGroup4.SelectedValue = "7";
+                                    }
+                                    else if (age >= 51 && age <= 60)
+                                    {
+                                        ddlAgeGroup4.SelectedValue = "8";
+                                    }
+                                    else if (age >= 61)
+                                    {
+                                        ddlAgeGroup4.SelectedValue = "9";
                                     }
                                 }
                             }
@@ -3941,7 +4005,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                             if (string.IsNullOrEmpty(txtDOB5.Text))
                             {
                                 txtAge5.Text = "";
-                                ddlAgeGroup5.SelectedIndex = 5;
+                                ddlAgeGroup5.SelectedValue = "5";
                             }
                             else
                             {
@@ -3955,19 +4019,35 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                                 {
                                     if (age < 18)
                                     {
-                                        ddlAgeGroup5.SelectedIndex = 1;
+                                        ddlAgeGroup5.SelectedValue = "1";
                                     }
                                     else if (age >= 18 && age <= 25)
                                     {
-                                        ddlAgeGroup5.SelectedIndex = 2;
+                                        ddlAgeGroup5.SelectedValue = "2";
                                     }
                                     else if (age >= 26 && age <= 34)
                                     {
-                                        ddlAgeGroup5.SelectedIndex = 3;
+                                        ddlAgeGroup5.SelectedValue = "3";
                                     }
-                                    else if (age >= 35)
+                                    else if (age >= 35 && age <= 40)
                                     {
-                                        ddlAgeGroup5.SelectedIndex = 4;
+                                        ddlAgeGroup5.SelectedValue = "4";
+                                    }
+                                    else if (age >= 41 && age <= 45)
+                                    {
+                                        ddlAgeGroup5.SelectedValue = "6";
+                                    }
+                                    else if (age >= 46 && age <= 50)
+                                    {
+                                        ddlAgeGroup5.SelectedValue = "7";
+                                    }
+                                    else if (age >= 51 && age <= 60)
+                                    {
+                                        ddlAgeGroup5.SelectedValue = "8";
+                                    }
+                                    else if (age >= 61)
+                                    {
+                                        ddlAgeGroup5.SelectedValue = "9";
                                     }
                                 }
                             }
@@ -5405,7 +5485,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                             ReportIncidentCu.MemberPhoto1 = null; // set global variable to current member photo
                             ddlGender1.SelectedValue = "-1";
                             txtAge1.Text = "";
-                            ddlAgeGroup1.SelectedIndex = 5;
+                            ddlAgeGroup1.SelectedValue = "5";
                             break;
                         case "2":
                             ReportIncidentCu.PlayerId2 = "";
@@ -5420,7 +5500,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                             ReportIncidentCu.MemberPhoto2 = null; // set global variable to current member photo
                             ddlGender2.SelectedValue = "-1";
                             txtAge2.Text = "";
-                            ddlAgeGroup2.SelectedIndex = 5;
+                            ddlAgeGroup2.SelectedValue = "5";
                             break;
                         case "3":
                             ReportIncidentCu.PlayerId3 = "";
@@ -5435,7 +5515,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                             ReportIncidentCu.MemberPhoto3 = null; // set global variable to current member photo
                             ddlGender3.SelectedValue = "-1";
                             txtAge3.Text = "";
-                            ddlAgeGroup3.SelectedIndex = 5;
+                            ddlAgeGroup3.SelectedValue = "5";
                             break;
                         case "4":
                             ReportIncidentCu.PlayerId4 = "";
@@ -5450,7 +5530,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                             ReportIncidentCu.MemberPhoto4 = null; // set global variable to current member photo
                             ddlGender4.SelectedValue = "-1";
                             txtAge4.Text = "";
-                            ddlAgeGroup4.SelectedIndex = 5;
+                            ddlAgeGroup4.SelectedValue = "5";
                             break;
                         case "5":
                             ReportIncidentCu.PlayerId5 = "";
@@ -5465,7 +5545,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                             ReportIncidentCu.MemberPhoto5 = null; // set global variable to current member photo
                             ddlGender5.SelectedValue = "-1";
                             txtAge5.Text = "";
-                            ddlAgeGroup5.SelectedIndex = 5;
+                            ddlAgeGroup5.SelectedValue = "5";
                             break;
                     }
                     alert.DisplayMessage("Member Not Found!");
@@ -9214,24 +9294,40 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         {
             if (value < 18)
             {
-                ddlAgeGroup1.SelectedIndex = 1;
+                ddlAgeGroup1.SelectedValue = "1";
             }
             else if (value >= 18 && value <= 25)
             {
-                ddlAgeGroup1.SelectedIndex = 2;
+                ddlAgeGroup1.SelectedValue = "2";
             }
             else if (value >= 26 && value <= 34)
             {
-                ddlAgeGroup1.SelectedIndex = 3;
+                ddlAgeGroup1.SelectedValue = "3";
             }
-            else if (value >= 35)
+            else if (value >= 35 && value <= 40)
             {
-                ddlAgeGroup1.SelectedIndex = 4;
+                ddlAgeGroup1.SelectedValue = "4";
+            }
+            else if (value >= 41 && value <= 45)
+            {
+                ddlAgeGroup1.SelectedValue = "6";
+            }
+            else if (value >= 46 && value <= 50)
+            {
+                ddlAgeGroup1.SelectedValue = "7";
+            }
+            else if (value >= 51 && value <= 60)
+            {
+                ddlAgeGroup1.SelectedValue = "8";
+            }
+            else if (value >= 61)
+            {
+                ddlAgeGroup1.SelectedValue = "9";
             }
         }
         else
         {
-            ddlAgeGroup1.SelectedIndex = 5;
+            ddlAgeGroup1.SelectedValue = "5";
         }
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -9249,24 +9345,40 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         {
             if (value < 18)
             {
-                ddlAgeGroup2.SelectedIndex = 1;
+                ddlAgeGroup2.SelectedValue = "1";
             }
             else if (value >= 18 && value <= 25)
             {
-                ddlAgeGroup2.SelectedIndex = 2;
+                ddlAgeGroup2.SelectedValue = "2";
             }
             else if (value >= 26 && value <= 34)
             {
-                ddlAgeGroup2.SelectedIndex = 3;
+                ddlAgeGroup2.SelectedValue = "3";
             }
-            else if (value >= 35)
+            else if (value >= 35 && value <= 40)
             {
-                ddlAgeGroup2.SelectedIndex = 4;
+                ddlAgeGroup2.SelectedValue = "4";
+            }
+            else if (value >= 41 && value <= 45)
+            {
+                ddlAgeGroup2.SelectedValue = "6";
+            }
+            else if (value >= 46 && value <= 50)
+            {
+                ddlAgeGroup2.SelectedValue = "7";
+            }
+            else if (value >= 51 && value <= 60)
+            {
+                ddlAgeGroup2.SelectedValue = "8";
+            }
+            else if (value >= 61)
+            {
+                ddlAgeGroup2.SelectedValue = "9";
             }
         }
         else
         {
-            ddlAgeGroup2.SelectedIndex = 5;
+            ddlAgeGroup2.SelectedValue = "5";
         }
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -9284,24 +9396,40 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         {
             if (value < 18)
             {
-                ddlAgeGroup3.SelectedIndex = 1;
+                ddlAgeGroup3.SelectedValue = "1";
             }
             else if (value >= 18 && value <= 25)
             {
-                ddlAgeGroup3.SelectedIndex = 2;
+                ddlAgeGroup3.SelectedValue = "2";
             }
             else if (value >= 26 && value <= 34)
             {
-                ddlAgeGroup3.SelectedIndex = 3;
+                ddlAgeGroup3.SelectedValue = "3";
             }
-            else if (value >= 35)
+            else if (value >= 35 && value <= 40)
             {
-                ddlAgeGroup3.SelectedIndex = 4;
+                ddlAgeGroup3.SelectedValue = "4";
+            }
+            else if (value >= 41 && value <= 45)
+            {
+                ddlAgeGroup3.SelectedValue = "6";
+            }
+            else if (value >= 46 && value <= 50)
+            {
+                ddlAgeGroup3.SelectedValue = "7";
+            }
+            else if (value >= 51 && value <= 60)
+            {
+                ddlAgeGroup3.SelectedValue = "8";
+            }
+            else if (value >= 61)
+            {
+                ddlAgeGroup3.SelectedValue = "9";
             }
         }
         else
         {
-            ddlAgeGroup3.SelectedIndex = 5;
+            ddlAgeGroup3.SelectedValue = "5";
         }
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -9319,24 +9447,40 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         {
             if (value < 18)
             {
-                ddlAgeGroup4.SelectedIndex = 1;
+                ddlAgeGroup4.SelectedValue = "1";
             }
             else if (value >= 18 && value <= 25)
             {
-                ddlAgeGroup4.SelectedIndex = 2;
+                ddlAgeGroup4.SelectedValue = "2";
             }
             else if (value >= 26 && value <= 34)
             {
-                ddlAgeGroup4.SelectedIndex = 3;
+                ddlAgeGroup4.SelectedValue = "3";
             }
-            else if (value >= 35)
+            else if (value >= 35 && value <= 40)
             {
-                ddlAgeGroup4.SelectedIndex = 4;
+                ddlAgeGroup4.SelectedValue = "4";
+            }
+            else if (value >= 41 && value <= 45)
+            {
+                ddlAgeGroup4.SelectedValue = "6";
+            }
+            else if (value >= 46 && value <= 50)
+            {
+                ddlAgeGroup4.SelectedValue = "7";
+            }
+            else if (value >= 51 && value <= 60)
+            {
+                ddlAgeGroup4.SelectedValue = "8";
+            }
+            else if (value >= 61)
+            {
+                ddlAgeGroup4.SelectedValue = "9";
             }
         }
         else
         {
-            ddlAgeGroup4.SelectedIndex = 5;
+            ddlAgeGroup4.SelectedValue = "5";
         }
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -9354,24 +9498,40 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         {
             if (value < 18)
             {
-                ddlAgeGroup5.SelectedIndex = 1;
+                ddlAgeGroup5.SelectedValue = "1";
             }
             else if (value >= 18 && value <= 25)
             {
-                ddlAgeGroup5.SelectedIndex = 2;
+                ddlAgeGroup5.SelectedValue = "2";
             }
             else if (value >= 26 && value <= 34)
             {
-                ddlAgeGroup5.SelectedIndex = 3;
+                ddlAgeGroup5.SelectedValue = "3";
             }
-            else if (value >= 35)
+            else if (value >= 35 && value <= 40)
             {
-                ddlAgeGroup5.SelectedIndex = 4;
+                ddlAgeGroup5.SelectedValue = "4";
+            }
+            else if (value >= 41 && value <= 45)
+            {
+                ddlAgeGroup5.SelectedValue = "6";
+            }
+            else if (value >= 46 && value <= 50)
+            {
+                ddlAgeGroup5.SelectedValue = "7";
+            }
+            else if (value >= 51 && value <= 60)
+            {
+                ddlAgeGroup5.SelectedValue = "8";
+            }
+            else if (value >= 61)
+            {
+                ddlAgeGroup5.SelectedValue = "9";
             }
         }
         else
         {
-            ddlAgeGroup5.SelectedIndex = 5;
+            ddlAgeGroup5.SelectedValue = "5";
         }
         // validate objects in the form
         bool returnedValue = checkFields();

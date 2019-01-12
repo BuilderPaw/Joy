@@ -134,18 +134,6 @@
                 </td>
             </tr>
             <tr>
-                <td style="font-size: 12.5px" colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
-            </tr>
-            <tr>
-                <td style="font-size: 12.5px" colspan="4">
-                    <b>Date & Time : </b><%# ProcessMyDataItem(Eval("PDate1")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeH1").ToString())) ? Eval("TxtPTimeH1") : (Eval("TxtPTimeH1").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeM1").ToString())) ? Eval("TxtPTimeM1") : (Eval("TxtPTimeM1").ToString()).Replace("^", "'") %>
-                    <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeTC1").ToString())) ? Eval("TxtPTimeTC1") : (Eval("TxtPTimeTC1").ToString()).Replace("^", "'") %>-->
-                </td>
-            </tr>
-            <tr>
-                <td style="font-size: 12.5px" colspan="4"><b><u>Physical Factors of Person</u></b></td>
-            </tr>
-            <tr>
                 <td style="font-size: 12.5px" colspan="1">
                     <b>Age :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Age1").ToString())) ? Eval("Age1") : (Eval("Age1").ToString()).Replace("^", "'") %>    
@@ -154,20 +142,29 @@
                     <b>Age Group :</b><br />
                     <asp:Label ID="lblAgeGroup1" runat="server" Text=""></asp:Label>
                 </td>
-                <td style="font-size: 12.5px" colspan="1" id="weight1" runat="server">
-                    <b>Weight :</b><br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("Weight1").ToString())) ? Eval("Weight1") : (Eval("Weight1").ToString()).Replace("^", "'") %>
-                </td>
-                <td style="font-size: 12.5px" colspan="1" id="height1" runat="server">
-                    <b>Build/Height :</b><br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("Height1").ToString())) ? Eval("Height1") : (Eval("Height1").ToString()).Replace("^", "'") %>    
+                <td style="font-size: 12.5px" colspan="1">
+                    <b>Gender :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("TxtGender1").ToString())) ? Eval("TxtGender1") : (Eval("TxtGender1").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
             <tr>
+                <td id="physical1" runat="server" style="font-size: 12.5px" colspan="4"><b><u>Physical Factors of Person</u></b></td>
+            </tr>
+            <tr>
+                <td style="font-size: 12.5px" colspan="1" id="weight1" runat="server">
+                    <b>Build :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("Weight1").ToString())) ? Eval("Weight1") : (Eval("Weight1").ToString()).Replace("^", "'") %>
+                </td>
+                <td style="font-size: 12.5px" colspan="1" id="height1" runat="server">
+                    <b>Height :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("Height1").ToString())) ? Eval("Height1") : (Eval("Height1").ToString()).Replace("^", "'") %>    
+                </td>
                 <td style="font-size: 12.5px" colspan="1" runat="server" id="hair1">
                     <b>Hair :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Hair1").ToString())) ? Eval("Hair1") : (Eval("Hair1").ToString()).Replace("^", "'") %>    
                 </td>
+            </tr>
+            <tr>
                 <td style="font-size: 12.5px" colspan="1" runat="server" id="clothingTop1">
                     <b>Clothing - Top :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("ClothingTop1").ToString())) ? Eval("ClothingTop1") : (Eval("ClothingTop1").ToString()).Replace("^", "'") %>    
@@ -180,15 +177,18 @@
                     <b>Shoes :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Shoes1").ToString())) ? Eval("Shoes1") : (Eval("Shoes1").ToString()).Replace("^", "'") %>    
                 </td>
-            </tr>
-            <tr>
                 <td style="font-size: 12.5px" colspan="1" id="weapon1" runat="server">
                     <b>Weapon :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Weapon1").ToString())) ? Eval("Weapon1") : (Eval("Weapon1").ToString()).Replace("^", "'") %>
                 </td>
-                <td style="font-size: 12.5px" colspan="1">
-                    <b>Gender :</b><br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("TxtGender1").ToString())) ? Eval("TxtGender1") : (Eval("TxtGender1").ToString()).Replace("^", "'") %>
+            </tr>
+            <tr>
+                <td id="p1DateEntryl" runat="server" style="font-size: 12.5px" colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
+            </tr>
+            <tr>
+                <td id="p1DateEntry" runat="server" style="font-size: 12.5px" colspan="4">
+                    <b>Date & Time : </b><%# ProcessMyDataItem(Eval("PDate1")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeH1").ToString())) ? Eval("TxtPTimeH1") : (Eval("TxtPTimeH1").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeM1").ToString())) ? Eval("TxtPTimeM1") : (Eval("TxtPTimeM1").ToString()).Replace("^", "'") %>
+                    <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeTC1").ToString())) ? Eval("TxtPTimeTC1") : (Eval("TxtPTimeTC1").ToString()).Replace("^", "'") %>-->
                 </td>
             </tr>
             <tr>
@@ -331,18 +331,6 @@
                 </td>
             </tr>
             <tr>
-                <td style="font-size: 12.5px" colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
-            </tr>
-            <tr>
-                <td style="font-size: 12.5px" colspan="4">
-                    <b>Date & Time : </b><%# ProcessMyDataItem(Eval("PDate2")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeH2").ToString())) ? Eval("TxtPTimeH2") : (Eval("TxtPTimeH2").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeM2").ToString())) ? Eval("TxtPTimeM2") : (Eval("TxtPTimeM2").ToString()).Replace("^", "'") %>
-                    <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeTC2").ToString())) ? Eval("TxtPTimeTC2") : (Eval("TxtPTimeTC2").ToString()).Replace("^", "'") %>-->
-                </td>
-            </tr>
-            <tr>
-                <td style="font-size: 12.5px" colspan="4"><b><u>Physical Factors of Person</u></b></td>
-            </tr>
-            <tr>
                 <td style="font-size: 12.5px" colspan="1">
                     <b>Age :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Age2").ToString())) ? Eval("Age2") : (Eval("Age2").ToString()).Replace("^", "'") %>    
@@ -351,20 +339,29 @@
                     <b>Age Group :</b><br />
                     <asp:Label ID="lblAgeGroup2" runat="server" Text=""></asp:Label>
                 </td>
-                <td style="font-size: 12.5px" colspan="1" id="weight2" runat="server">
-                    <b>Weight :</b><br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("Weight2").ToString())) ? Eval("Weight2") : (Eval("Weight2").ToString()).Replace("^", "'") %>
-                </td>
-                <td style="font-size: 12.5px" colspan="1" id="height2" runat="server">
-                    <b>Build/Height :</b><br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("Height2").ToString())) ? Eval("Height2") : (Eval("Height2").ToString()).Replace("^", "'") %>    
+                <td style="font-size: 12.5px" colspan="1">
+                    <b>Gender :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("TxtGender2").ToString())) ? Eval("TxtGender2") : (Eval("TxtGender2").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
             <tr>
+                <td id="physical2" runat="server" style="font-size: 12.5px" colspan="4"><b><u>Physical Factors of Person</u></b></td>
+            </tr>
+            <tr>
+                <td style="font-size: 12.5px" colspan="1" id="weight2" runat="server">
+                    <b>Build :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("Weight2").ToString())) ? Eval("Weight2") : (Eval("Weight2").ToString()).Replace("^", "'") %>
+                </td>
+                <td style="font-size: 12.5px" colspan="1" id="height2" runat="server">
+                    <b>Height :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("Height2").ToString())) ? Eval("Height2") : (Eval("Height2").ToString()).Replace("^", "'") %>    
+                </td>
                 <td style="font-size: 12.5px" colspan="1" runat="server" id="hair2">
                     <b>Hair :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Hair2").ToString())) ? Eval("Hair2") : (Eval("Hair2").ToString()).Replace("^", "'") %>    
                 </td>
+            </tr>
+            <tr>
                 <td style="font-size: 12.5px" colspan="1" runat="server" id="clothingTop2">
                     <b>Clothing - Top :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("ClothingTop2").ToString())) ? Eval("ClothingTop2") : (Eval("ClothingTop2").ToString()).Replace("^", "'") %>    
@@ -377,15 +374,18 @@
                     <b>Shoes :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Shoes2").ToString())) ? Eval("Shoes2") : (Eval("Shoes2").ToString()).Replace("^", "'") %>    
                 </td>
-            </tr>
-            <tr>
-                <td style="font-size: 12.5px" colspan="2" id="weapon2" runat="server">
+                <td style="font-size: 12.5px" colspan="1" id="weapon2" runat="server">
                     <b>Weapon :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Weapon2").ToString())) ? Eval("Weapon2") : (Eval("Weapon2").ToString()).Replace("^", "'") %>
                 </td>
-                <td style="font-size: 12.5px" colspan="2">
-                    <b>Gender :</b><br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("TxtGender2").ToString())) ? Eval("TxtGender2") : (Eval("TxtGender2").ToString()).Replace("^", "'") %>
+            </tr>
+            <tr>
+                <td id="p2DateEntryl" runat="server" style="font-size: 12.5px" colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
+            </tr>
+            <tr>
+                <td id="p2DateEntry" runat="server" style="font-size: 12.5px" colspan="4">
+                    <b>Date & Time : </b><%# ProcessMyDataItem(Eval("PDate2")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeH2").ToString())) ? Eval("TxtPTimeH2") : (Eval("TxtPTimeH2").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeM2").ToString())) ? Eval("TxtPTimeM2") : (Eval("TxtPTimeM2").ToString()).Replace("^", "'") %>
+                    <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeTC2").ToString())) ? Eval("TxtPTimeTC2") : (Eval("TxtPTimeTC2").ToString()).Replace("^", "'") %>-->
                 </td>
             </tr>
             <tr>
@@ -528,18 +528,6 @@
                 </td>
             </tr>
             <tr>
-                <td style="font-size: 12.5px" colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
-            </tr>
-            <tr>
-                <td style="font-size: 12.5px" colspan="4">
-                    <b>Date & Time : </b><%# ProcessMyDataItem(Eval("PDate3")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeH3").ToString())) ? Eval("TxtPTimeH3") : (Eval("TxtPTimeH3").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeM3").ToString())) ? Eval("TxtPTimeM3") : (Eval("TxtPTimeM3").ToString()).Replace("^", "'") %>
-                    <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeTC3").ToString())) ? Eval("TxtPTimeTC3") : (Eval("TxtPTimeTC3").ToString()).Replace("^", "'") %>-->
-                </td>
-            </tr>
-            <tr>
-                <td style="font-size: 12.5px" colspan="4"><b><u>Physical Factors of Person</u></b></td>
-            </tr>
-            <tr>
                 <td style="font-size: 12.5px" colspan="1">
                     <b>Age :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Age3").ToString())) ? Eval("Age3") : (Eval("Age3").ToString()).Replace("^", "'") %>    
@@ -548,20 +536,29 @@
                     <b>Age Group :</b><br />
                     <asp:Label ID="lblAgeGroup3" runat="server" Text=""></asp:Label>
                 </td>
-                <td style="font-size: 12.5px" colspan="1" id="weight3" runat="server">
-                    <b>Weight :</b><br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("Weight3").ToString())) ? Eval("Weight3") : (Eval("Weight3").ToString()).Replace("^", "'") %>
-                </td>
-                <td style="font-size: 12.5px" colspan="1" id="height3" runat="server">
-                    <b>Build/Height :</b><br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("Height3").ToString())) ? Eval("Height3") : (Eval("Height3").ToString()).Replace("^", "'") %>    
+                <td style="font-size: 12.5px" colspan="1">
+                    <b>Gender :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("TxtGender3").ToString())) ? Eval("TxtGender3") : (Eval("TxtGender3").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
             <tr>
+                <td id="physical3" runat="server" style="font-size: 12.5px" colspan="4"><b><u>Physical Factors of Person</u></b></td>
+            </tr>
+            <tr>
+                <td style="font-size: 12.5px" colspan="1" id="weight3" runat="server">
+                    <b>Build :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("Weight3").ToString())) ? Eval("Weight3") : (Eval("Weight3").ToString()).Replace("^", "'") %>
+                </td>
+                <td style="font-size: 12.5px" colspan="1" id="height3" runat="server">
+                    <b>Height :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("Height3").ToString())) ? Eval("Height3") : (Eval("Height3").ToString()).Replace("^", "'") %>    
+                </td>
                 <td style="font-size: 12.5px" colspan="1" runat="server" id="hair3">
                     <b>Hair :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Hair3").ToString())) ? Eval("Hair3") : (Eval("Hair3").ToString()).Replace("^", "'") %>    
                 </td>
+            </tr>
+            <tr>
                 <td style="font-size: 12.5px" colspan="1" runat="server" id="clothingTop3">
                     <b>Clothing - Top :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("ClothingTop3").ToString())) ? Eval("ClothingTop3") : (Eval("ClothingTop3").ToString()).Replace("^", "'") %>    
@@ -574,16 +571,18 @@
                     <b>Shoes :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Shoes3").ToString())) ? Eval("Shoes3") : (Eval("Shoes3").ToString()).Replace("^", "'") %>    
                 </td>
-            </tr>
-            <tr>
-                <td style="font-size: 12.5px" colspan="2" id="weapon3" runat="server">
+                <td style="font-size: 12.5px" colspan="1" id="weapon3" runat="server">
                     <b>Weapon :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Weapon3").ToString())) ? Eval("Weapon3") : (Eval("Weapon3").ToString()).Replace("^", "'") %>
                 </td>
-                <td style="font-size: 12.5px" colspan="2">
-                    <b>Gender : </b>
-                    <br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("TxtGender3").ToString())) ? Eval("TxtGender3") : (Eval("TxtGender3").ToString()).Replace("^", "'") %>
+            </tr>
+            <tr>
+                <td id="p3DateEntryl" runat="server" style="font-size: 12.5px" colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
+            </tr>
+            <tr>
+                <td id="p3DateEntry" runat="server" style="font-size: 12.5px" colspan="4">
+                    <b>Date & Time : </b><%# ProcessMyDataItem(Eval("PDate3")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeH3").ToString())) ? Eval("TxtPTimeH3") : (Eval("TxtPTimeH3").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeM3").ToString())) ? Eval("TxtPTimeM3") : (Eval("TxtPTimeM3").ToString()).Replace("^", "'") %>
+                    <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeTC3").ToString())) ? Eval("TxtPTimeTC3") : (Eval("TxtPTimeTC3").ToString()).Replace("^", "'") %>-->
                 </td>
             </tr>
             <tr>
@@ -726,71 +725,61 @@
                 </td>
             </tr>
             <tr>
-                <td style="font-size: 12.5px" colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
-            </tr>
-            <tr>
-                <td style="font-size: 12.5px" colspan="4">
-                    <b>Date & Time : </b><%# ProcessMyDataItem(Eval("PDate4")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeH4").ToString())) ? Eval("TxtPTimeH4") : (Eval("TxtPTimeH4").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeM4").ToString())) ? Eval("TxtPTimeM4") : (Eval("TxtPTimeM4").ToString()).Replace("^", "'") %>
-                    <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeTC4").ToString())) ? Eval("TxtPTimeTC4") : (Eval("TxtPTimeTC4").ToString()).Replace("^", "'") %>-->
-                </td>
-            </tr>
-            <tr>
-                <td style="font-size: 12.5px" colspan="4"><b><u>Physical Factors of Person</u></b></td>
-            </tr>
-            <tr>
                 <td style="font-size: 12.5px" colspan="1">
-                    <b>Age : </b>
-                    <br />
+                    <b>Age :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Age4").ToString())) ? Eval("Age4") : (Eval("Age4").ToString()).Replace("^", "'") %>    
                 </td>
                 <td style="font-size: 12.5px" colspan="1">
-                    <b>Age Group : </b>
-                    <br />
+                    <b>Age Group :</b><br />
                     <asp:Label ID="lblAgeGroup4" runat="server" Text=""></asp:Label>
                 </td>
+                <td style="font-size: 12.5px" colspan="1">
+                    <b>Gender :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("TxtGender4").ToString())) ? Eval("TxtGender4") : (Eval("TxtGender4").ToString()).Replace("^", "'") %>
+                </td>
+            </tr>
+            <tr>
+                <td id="physical4" runat="server" style="font-size: 12.5px" colspan="4"><b><u>Physical Factors of Person</u></b></td>
+            </tr>
+            <tr>
                 <td style="font-size: 12.5px" colspan="1" id="weight4" runat="server">
-                    <b>Weight : </b>
-                    <br />
+                    <b>Build :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Weight4").ToString())) ? Eval("Weight4") : (Eval("Weight4").ToString()).Replace("^", "'") %>
                 </td>
                 <td style="font-size: 12.5px" colspan="1" id="height4" runat="server">
-                    <b>Build/Height : </b>
-                    <br />
+                    <b>Height :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Height4").ToString())) ? Eval("Height4") : (Eval("Height4").ToString()).Replace("^", "'") %>    
+                </td>
+                <td style="font-size: 12.5px" colspan="1" runat="server" id="hair4">
+                    <b>Hair :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("Hair4").ToString())) ? Eval("Hair4") : (Eval("Hair4").ToString()).Replace("^", "'") %>    
                 </td>
             </tr>
             <tr>
-                <td style="font-size: 12.5px" colspan="1" runat="server" id="hair4">
-                    <b>Hair : </b>
-                    <br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("Hair4").ToString())) ? Eval("Hair4") : (Eval("Hair4").ToString()).Replace("^", "'") %>    
-                </td>
                 <td style="font-size: 12.5px" colspan="1" runat="server" id="clothingTop4">
-                    <b>Clothing - Top : </b>
-                    <br />
+                    <b>Clothing - Top :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("ClothingTop4").ToString())) ? Eval("ClothingTop4") : (Eval("ClothingTop4").ToString()).Replace("^", "'") %>    
                 </td>
                 <td style="font-size: 12.5px" colspan="1" id="clothingBottom4" runat="server">
-                    <b>Clothing - Bottom : </b>
-                    <br />
+                    <b>Clothing - Bottom :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("ClothingBottom4").ToString())) ? Eval("ClothingBottom4") : (Eval("ClothingBottom4").ToString()).Replace("^", "'") %>
                 </td>
                 <td style="font-size: 12.5px" colspan="1" id="shoes4" runat="server">
-                    <b>Shoes : </b>
-                    <br />
+                    <b>Shoes :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Shoes4").ToString())) ? Eval("Shoes4") : (Eval("Shoes4").ToString()).Replace("^", "'") %>    
+                </td>
+                <td style="font-size: 12.5px" colspan="1" id="weapon4" runat="server">
+                    <b>Weapon :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("Weapon4").ToString())) ? Eval("Weapon4") : (Eval("Weapon4").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
             <tr>
-                <td style="font-size: 12.5px" colspan="2" id="weapon4" runat="server">
-                    <b>Weapon : </b>
-                    <br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("Weapon4").ToString())) ? Eval("Weapon4") : (Eval("Weapon4").ToString()).Replace("^", "'") %>
-                </td>
-                <td style="font-size: 12.5px" colspan="2">
-                    <b>Gender : </b>
-                    <br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("TxtGender4").ToString())) ? Eval("TxtGender4") : (Eval("TxtGender4").ToString()).Replace("^", "'") %>
+                <td id="p4DateEntryl" runat="server" style="font-size: 12.5px" colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
+            </tr>
+            <tr>
+                <td id="p4DateEntry" runat="server" style="font-size: 12.5px" colspan="4">
+                    <b>Date & Time : </b><%# ProcessMyDataItem(Eval("PDate4")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeH4").ToString())) ? Eval("TxtPTimeH4") : (Eval("TxtPTimeH4").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeM4").ToString())) ? Eval("TxtPTimeM4") : (Eval("TxtPTimeM4").ToString()).Replace("^", "'") %>
+                    <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeTC4").ToString())) ? Eval("TxtPTimeTC4") : (Eval("TxtPTimeTC4").ToString()).Replace("^", "'") %>-->
                 </td>
             </tr>
             <tr>
@@ -933,71 +922,61 @@
                 </td>
             </tr>
             <tr>
-                <td style="font-size: 12.5px" colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
-            </tr>
-            <tr>
-                <td style="font-size: 12.5px" colspan="4">
-                    <b>Date & Time : </b><%# ProcessMyDataItem(Eval("PDate5")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeH5").ToString())) ? Eval("TxtPTimeH5") : (Eval("TxtPTimeH5").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeM5").ToString())) ? Eval("TxtPTimeM5") : (Eval("TxtPTimeM5").ToString()).Replace("^", "'") %>
-                    <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeTC5").ToString())) ? Eval("TxtPTimeTC5") : (Eval("TxtPTimeTC5").ToString()).Replace("^", "'") %>-->
-                </td>
-            </tr>
-            <tr>
-                <td style="font-size: 12.5px" colspan="4"><b><u>Physical Factors of Person</u></b></td>
-            </tr>
-            <tr>
                 <td style="font-size: 12.5px" colspan="1">
-                    <b>Age : </b>
-                    <br />
+                    <b>Age :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Age5").ToString())) ? Eval("Age5") : (Eval("Age5").ToString()).Replace("^", "'") %>    
                 </td>
                 <td style="font-size: 12.5px" colspan="1">
-                    <b>Age Group : </b>
-                    <br />
+                    <b>Age Group :</b><br />
                     <asp:Label ID="lblAgeGroup5" runat="server" Text=""></asp:Label>
                 </td>
+                <td style="font-size: 12.5px" colspan="1">
+                    <b>Gender :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("TxtGender5").ToString())) ? Eval("TxtGender5") : (Eval("TxtGender5").ToString()).Replace("^", "'") %>
+                </td>
+            </tr>
+            <tr>
+                <td id="physical5" runat="server" style="font-size: 12.5px" colspan="4"><b><u>Physical Factors of Person</u></b></td>
+            </tr>
+            <tr>
                 <td style="font-size: 12.5px" colspan="1" id="weight5" runat="server">
-                    <b>Weight : </b>
-                    <br />
+                    <b>Build :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Weight5").ToString())) ? Eval("Weight5") : (Eval("Weight5").ToString()).Replace("^", "'") %>
                 </td>
                 <td style="font-size: 12.5px" colspan="1" id="height5" runat="server">
-                    <b>Build/Height : </b>
-                    <br />
+                    <b>Height :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Height5").ToString())) ? Eval("Height5") : (Eval("Height5").ToString()).Replace("^", "'") %>    
+                </td>
+                <td style="font-size: 12.5px" colspan="1" runat="server" id="hair5">
+                    <b>Hair :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("Hair5").ToString())) ? Eval("Hair5") : (Eval("Hair5").ToString()).Replace("^", "'") %>    
                 </td>
             </tr>
             <tr>
-                <td style="font-size: 12.5px" colspan="1" runat="server" id="hair5">
-                    <b>Hair : </b>
-                    <br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("Hair5").ToString())) ? Eval("Hair5") : (Eval("Hair5").ToString()).Replace("^", "'") %>    
-                </td>
                 <td style="font-size: 12.5px" colspan="1" runat="server" id="clothingTop5">
-                    <b>Clothing - Top : </b>
-                    <br />
+                    <b>Clothing - Top :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("ClothingTop5").ToString())) ? Eval("ClothingTop5") : (Eval("ClothingTop5").ToString()).Replace("^", "'") %>    
                 </td>
                 <td style="font-size: 12.5px" colspan="1" id="clothingBottom5" runat="server">
-                    <b>Clothing - Bottom : </b>
-                    <br />
+                    <b>Clothing - Bottom :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("ClothingBottom5").ToString())) ? Eval("ClothingBottom5") : (Eval("ClothingBottom5").ToString()).Replace("^", "'") %>
                 </td>
                 <td style="font-size: 12.5px" colspan="1" id="shoes5" runat="server">
-                    <b>Shoes : </b>
-                    <br />
+                    <b>Shoes :</b><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Shoes5").ToString())) ? Eval("Shoes5") : (Eval("Shoes5").ToString()).Replace("^", "'") %>    
+                </td>
+                <td style="font-size: 12.5px" colspan="1" id="weapon5" runat="server">
+                    <b>Weapon :</b><br />
+                    <%# (string.IsNullOrWhiteSpace(Eval("Weapon5").ToString())) ? Eval("Weapon5") : (Eval("Weapon5").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
             <tr>
-                <td style="font-size: 12.5px" colspan="2" id="weapon5" runat="server">
-                    <b>Weapon : </b>
-                    <br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("Weapon5").ToString())) ? Eval("Weapon5") : (Eval("Weapon5").ToString()).Replace("^", "'") %>
-                </td>
-                <td style="font-size: 12.5px" colspan="2">
-                    <b>Gender : </b>
-                    <br />
-                    <%# (string.IsNullOrWhiteSpace(Eval("TxtGender5").ToString())) ? Eval("TxtGender5") : (Eval("TxtGender5").ToString()).Replace("^", "'") %>
+                <td id="p5DateEntryl" runat="server" style="font-size: 12.5px" colspan="4"><b><u>Details of When the Patron Entered the Club</u></b></td>
+            </tr>
+            <tr>
+                <td id="p5DateEntry" runat="server" style="font-size: 12.5px" colspan="4">
+                    <b>Date & Time : </b><%# ProcessMyDataItem(Eval("PDate5")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeH5").ToString())) ? Eval("TxtPTimeH5") : (Eval("TxtPTimeH5").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeM5").ToString())) ? Eval("TxtPTimeM5") : (Eval("TxtPTimeM5").ToString()).Replace("^", "'") %>
+                    <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtPTimeTC5").ToString())) ? Eval("TxtPTimeTC5") : (Eval("TxtPTimeTC5").ToString()).Replace("^", "'") %>-->
                 </td>
             </tr>
             <tr>
@@ -1074,6 +1053,17 @@
             <tr>
                 <td style="font-size: 12.5px" colspan="4">
                     <%# (string.IsNullOrWhiteSpace(Eval("LocationOther").ToString())) ? Eval("LocationOther") : (Eval("LocationOther").ToString()).Replace("^", "'") %>     
+                </td>
+            </tr>
+        </table>
+        <table runat="server" style="width: 100%; border: solid 1px black !important;">
+            <tr>
+                <th style="font-size: 12.5px" colspan="5">Is there any Camera Footage?</th>
+            </tr>
+            <tr>
+                <td style="font-size: 12.5px" colspan="5">
+                    <b>Yes/No : </b>
+                    <asp:CheckBox ID="cbCameraFootage" runat="server" Enabled="false" Checked="false" />
                 </td>
             </tr>
         </table>

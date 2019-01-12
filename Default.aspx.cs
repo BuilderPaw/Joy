@@ -1307,6 +1307,11 @@ public partial class _Default : System.Web.UI.Page
             foreach (string s in taggedUsers)
             {
                 sqlQuery.RetrieveData("SELECT Username FROM Staff WHERE Username='" + s + "'", "CheckUsername");
+                // check if tagged user is within the groups email
+                if (s.Equals("SeniorManagers") || s.Equals("Dutymanagers_MR") || s.Equals("Dutymanagers_UM") || s.Equals("Reception_MR") || s.Equals("Supervisors_MR"))
+                {
+                    Report.WrongUsername = false;
+                }
                 if (Report.WrongUsername) // send me an email to program creator if comment has a wrong tag input
                 {
                     try // enclose in a try catch just in case program is running in test database
