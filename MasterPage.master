@@ -12,8 +12,9 @@
     <script type="text/javascript" src="Scripts/JavaScript.js"></script>
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/CSS/MasterStyle.css" type="text/css" />
-    <meta http-equiv="refresh" content="28790">
     <!-- 
+        <meta http-equiv="refresh" content="28790">
+
         28 790 seconds is equal to 7.997 hours.
         Page refreshes before cookie and ticket expires.
         reference: https://en.wikipedia.org/wiki/Meta_refresh

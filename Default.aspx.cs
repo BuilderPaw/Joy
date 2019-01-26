@@ -4963,9 +4963,14 @@ public partial class _Default : System.Web.UI.Page
         foreach (GridViewRow row in gvUserReports.Rows)
         {
             CheckBox chckrw = (CheckBox)row.FindControl("CheckBox2");
+            // check if the header is checked
             if (chckheader.Checked == true)
             {
+                // check all checkboxes in the column
                 chckrw.Checked = true;
+                // This is current row. Set it to highlighted color
+                gvUserReports.Rows[row.RowIndex].BackColor = System.Drawing.Color.AliceBlue;
+
                 if (Report.CurrentNavigationTab.Equals("1"))
                 {
                     btnMarkAsRead.Visible = true;
@@ -4978,6 +4983,9 @@ public partial class _Default : System.Web.UI.Page
             else
             {
                 chckrw.Checked = false;
+                // This is current row. Set it to default color
+                gvUserReports.Rows[row.RowIndex].BackColor = System.Drawing.Color.White;
+
                 if (Report.CurrentNavigationTab.Equals("1"))
                 {
                     btnMarkAsRead.Visible = false;
@@ -4998,6 +5006,13 @@ public partial class _Default : System.Web.UI.Page
             if (chckrw.Checked == true)
             {
                 isChecked = true;
+                // This is current row. Set it to highlighted color
+                gvUserReports.Rows[row.RowIndex].BackColor = System.Drawing.Color.AliceBlue;
+            }
+            else
+            {
+                // This is current row. Set it to default color
+                gvUserReports.Rows[row.RowIndex].BackColor = System.Drawing.Color.White;
             }
         }
 
