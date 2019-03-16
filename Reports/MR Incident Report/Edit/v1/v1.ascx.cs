@@ -218,12 +218,11 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 {
                     if (item.Selected)
                     {
-                        //if (List_AskedToLeave.SelectedValue == String.Empty)
-                        //{
-                        //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify reason for asking the patron to leave the premises.";
-
-                        //    returnedFlag = true;
-                        //}
+                        if (List_AskedToLeave.SelectedValue == String.Empty)
+                        {
+                            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please specify reason for asking the patron to leave the premises.";
+                            returnedFlag = true;
+                        }
                     }
                 }
                 if (item.ToString() == "Assault Patron" || item.ToString() == "Assault Staff" || item.ToString() == "Assault Security")
@@ -3017,8 +3016,8 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                                     {
                                         if (item.Selected)
                                         {
-                                            //askedtoLeaveReasons.Visible = true;
-                                            //askedtoLeaveReasons1.Visible = true;
+                                            askedtoLeaveReasons.Visible = true;
+                                            askedtoLeaveReasons1.Visible = true;
                                         }
                                     }
                                 }
@@ -10210,18 +10209,18 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             }
             if (item.ToString() == "Asked to Leave")
             {
-                //if (item.Selected)
-                //{
-                //    askedtoLeaveReasons.Visible = true;
-                //    askedtoLeaveReasons1.Visible = true;
-                //    List_AskedToLeave.Focus();
-                //}
-                //else
-                //{
-                //    askedtoLeaveReasons.Visible = false;
-                //    askedtoLeaveReasons1.Visible = false;
-                //    List_AskedToLeave.ClearSelection();
-                //}
+                if (item.Selected)
+                {
+                    askedtoLeaveReasons.Visible = true;
+                    askedtoLeaveReasons1.Visible = true;
+                    List_AskedToLeave.Focus();
+                }
+                else
+                {
+                    askedtoLeaveReasons.Visible = false;
+                    askedtoLeaveReasons1.Visible = false;
+                    List_AskedToLeave.ClearSelection();
+                }
             }
         }
         // validate objects in the form
