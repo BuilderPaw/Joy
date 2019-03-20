@@ -22,7 +22,7 @@
     <script type="text/javascript">
         //Bind back button to prevent escaping the page with backspace
         $(document).unbind('keydown').bind('keydown', function (event) {
-            if (event.keyCode === 8) {
+            if (event.keyCode === 8 || event.keyCode == 13) {
                 var doPrevent = true;
                 //Chrome, FF, Safari
                 if (event.target == document.body) {
@@ -59,6 +59,13 @@
         function CancelReturnKey() {
             if (window.event.keyCode == 13)
                 return false;
+        }
+
+        function button_click(objTextBox, objBtnID) {
+            if (event.keyCode == 13) {
+                document.getElementById(objBtnID).focus();
+                document.getElementById(objBtnID).click();
+            }
         }
     </script>
 </head>

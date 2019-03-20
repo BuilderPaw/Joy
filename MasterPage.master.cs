@@ -359,6 +359,24 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 }
             }
         }
+
+        this.cbUnreadList.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
+
+        this.txtStartDate.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
+        this.txtEndDate.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
+
+        this.ddlStaffId.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
+        this.txtReportId.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
+        this.ddlReportStat.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
+        this.txtKeyword.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
+
+        this.ddlIncidentHappened.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
+        this.ddlLocation.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
+        this.txtFirstName.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
+        this.txtLastName.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
+        this.txtAlias.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
+        this.txtMemNo.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
+        this.ddlActionTaken.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
     }
 
     protected void cbArchivedStaff_CheckedChanged(object sender, EventArgs e)
