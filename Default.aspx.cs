@@ -1308,7 +1308,7 @@ public partial class _Default : System.Web.UI.Page
             {
                 sqlQuery.RetrieveData("SELECT Username FROM Staff WHERE Username='" + s + "'", "CheckUsername");
                 // check if tagged user is within the groups email
-                if (s.Equals("SeniorManagers") || s.Equals("Dutymanagers_MR") || s.Equals("Dutymanagers_UM") || s.Equals("Reception_MR") || s.Equals("Supervisors_MR"))
+                if (s.ToLower().Equals("seniormanagers") || s.ToLower().Equals("dutymanagers_mr") || s.ToLower().Equals("dutymanagers_um") || s.ToLower().Equals("reception_mr") || s.ToLower().Equals("supervisors_mr"))
                 {
                     Report.WrongUsername = false;
                 }
@@ -1340,9 +1340,32 @@ public partial class _Default : System.Web.UI.Page
                 {
                     taggedUsers[i] = "mj.brammer@bigpond.com";
                 }
+                else if (taggedUsers[i].Equals("paddyq"))
+                {
+                    taggedUsers[i] = "paddyq@clubumina.com.au";
+                }
                 else
                 {
-                    taggedUsers[i] = taggedUsers[i] + "@mrsl.com.au";
+                    var username = sqlQuery.RetrieveData("SELECT Username FROM Staff WHERE Username='" + taggedUsers[i] + "'", "CheckUsername");
+                    con.Open();
+                    SqlCommand q = new SqlCommand("SELECT StaffGroup FROM Staff WHERE Username='" + taggedUsers[i] + "'", con);
+                    string group = q.ExecuteScalar().ToString();
+                    con.Close();
+
+                    var site = "@mrsl.com.au;";
+                    if (group.Contains("CU "))
+                    {
+                        site = "@clubumina.com.au;";
+                    }
+
+                    if (Report.WrongUsername)
+                    {
+                        taggedUsers[i] = taggedUsers[i] + "@mrsl.com.au";
+                    }
+                    else
+                    {
+                        taggedUsers[i] = taggedUsers[i] + site;
+                    }
                 }
             }
 
@@ -1370,9 +1393,22 @@ public partial class _Default : System.Web.UI.Page
             // get the report owner's username
             var user = sqlQuery.RetrieveData("SELECT Username FROM Staff WHERE StaffId='" + Report.SelectedStaffId + "'", "CheckUsername");
             var username = user[0].ToString();
-            
+
+            // get the role of the user
             con.Open();
-            SqlCommand query = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;davidk@mrsl.com.au;" + username + "@mrsl.com.au;" +
+            SqlCommand q = new SqlCommand("SELECT StaffGroup FROM Staff WHERE StaffId='" + Report.SelectedStaffId + "'", con);
+            string group = q.ExecuteScalar().ToString();
+            con.Close();
+            
+            // set the site on what email address to send it to
+            var site = "@mrsl.com.au;";
+            if (group.Contains("CU ") || username.Equals("paddyq"))
+            {
+                site = "@clubumina.com.au;";
+            }
+
+            con.Open();
+            SqlCommand query = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;davidk@mrsl.com.au;" + username + site +
                 "', @subject = 'Notification | " + Report.Name + " Report " + Report.Id +
                 "', @body = '<div style=''font-family:arial;''><H3>Comments Update</H3>" + updateComment.Replace("^", "''") +
                 "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'", con);
