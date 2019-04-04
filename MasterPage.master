@@ -6,7 +6,7 @@
 
 <html>
 <head runat="server">
-    <title>Club Utilities</title>
+    <title>Club Reports</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- matches CSS Styles in IIS -->
     <script type="text/javascript" src="Scripts/JavaScript.js"></script>
