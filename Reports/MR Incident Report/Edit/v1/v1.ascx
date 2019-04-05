@@ -2032,7 +2032,7 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <asp:CheckBoxList ID="List_Location" RepeatLayout="table" RepeatColumns="4" Font-Size="9" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="List_Location_SelectedIndexChanged" runat="server" class="object-default">
+                        <asp:CheckBoxList ID="List_Location" RepeatLayout="table" RepeatColumns="5" Font-Size="9" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="List_Location_SelectedIndexChanged" runat="server" class="object-default">
                         </asp:CheckBoxList>
                     </td>
                 </tr>
@@ -3811,7 +3811,7 @@
                 </tr>
                 <tr id="askedtoLeaveReasons1" visible="false" runat="server">
                     <td colspan="4">
-                        <asp:CheckBoxList ID="List_AskedToLeave" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" Font-Size="10px" RepeatLayout="table" RepeatColumns="5" RepeatDirection="vertical" runat="server" class="object-default">
+                        <asp:CheckBoxList ID="List_AskedToLeave" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged" Font-Size="10px" RepeatLayout="table" RepeatColumns="3" RepeatDirection="vertical" runat="server" class="object-default">
                         </asp:CheckBoxList>
                     </td>
                 </tr>

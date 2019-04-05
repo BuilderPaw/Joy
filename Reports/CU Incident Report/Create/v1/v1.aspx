@@ -1967,7 +1967,7 @@
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <asp:CheckBoxList ID="List_Location" RepeatLayout="table" RepeatColumns="4" Font-Size="8" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="List_Location_SelectedIndexChanged" runat="server" class="object-default">
+                            <asp:CheckBoxList ID="List_Location" RepeatLayout="table" RepeatColumns="5" Font-Size="8" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="List_Location_SelectedIndexChanged" runat="server" class="object-default">
                             </asp:CheckBoxList>
                         </td>
                     </tr>
@@ -3708,7 +3708,7 @@
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <asp:CheckBoxList ID="cblWhatHappened1" Font-Size="11px" RepeatLayout="table" RepeatColumns="4" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="cblWhatHappened1_SelectedIndexChanged" runat="server" class="object-default">
+                            <asp:CheckBoxList ID="cblWhatHappened1" Font-Size="11px" RepeatLayout="table" RepeatColumns="5" RepeatDirection="vertical" AutoPostBack="true" OnSelectedIndexChanged="cblWhatHappened1_SelectedIndexChanged" runat="server" class="object-default">
                             </asp:CheckBoxList>
                         </td>
                     </tr>
@@ -3746,7 +3746,7 @@
                     </tr>
                     <tr id="askedtoLeaveReasons1" visible="false" runat="server">
                         <td colspan="4">
-                            <asp:CheckBoxList ID="List_AskedToLeave" Font-Size="11px" RepeatLayout="table" RepeatColumns="5" RepeatDirection="vertical" runat="server" class="object-default">
+                            <asp:CheckBoxList ID="List_AskedToLeave" Font-Size="11px" RepeatLayout="table" RepeatColumns="3" RepeatDirection="vertical" runat="server" class="object-default">
                             </asp:CheckBoxList>
                         </td>
                     </tr>

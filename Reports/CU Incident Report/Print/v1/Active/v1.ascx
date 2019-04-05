@@ -1317,7 +1317,7 @@
             </tr>
             <tr id="askedtoLeaveReasons1" visible="false" runat="server">
                 <td style="font-size: 12.5px" colspan="4">
-                    <asp:CheckBoxList ID="List_AskedToLeave" Font-Size="8" onclick="return false" readonly="true" Visible="false" RepeatLayout="table" RepeatColumns="5" RepeatDirection="Vertical" runat="server" class="form-control">
+                    <asp:CheckBoxList ID="List_AskedToLeave" Font-Size="8" onclick="return false" readonly="true" Visible="false" RepeatLayout="table" RepeatColumns="3" RepeatDirection="Vertical" runat="server" class="form-control">
                     </asp:CheckBoxList>
                 </td>
             </tr>
