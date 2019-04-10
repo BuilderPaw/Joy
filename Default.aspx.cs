@@ -1347,20 +1347,35 @@ public partial class _Default : System.Web.UI.Page
                 else
                 {
                     var username = sqlQuery.RetrieveData("SELECT Username FROM Staff WHERE Username='" + taggedUsers[i] + "'", "CheckUsername");
-                    con.Open();
-                    SqlCommand q = new SqlCommand("SELECT StaffGroup FROM Staff WHERE Username='" + taggedUsers[i] + "'", con);
-                    string group = q.ExecuteScalar().ToString();
-                    con.Close();
+                    var group = "";
+                    try
+                    {
+                        con.Open();
+                        SqlCommand q = new SqlCommand("SELECT StaffGroup FROM Staff WHERE Username='" + taggedUsers[i] + "'", con);
+                        group = q.ExecuteScalar().ToString();
+                        con.Close();
+                    }
+                    catch
+                    {
+                        con.Close();
+                    }
 
                     var site = "@mrsl.com.au;";
-                    if (group.Contains("CU "))
+                    if (group.Contains("CU ") || group.Contains("_um"))
                     {
                         site = "@clubumina.com.au;";
                     }
 
                     if (Report.WrongUsername)
                     {
-                        taggedUsers[i] = taggedUsers[i] + "@mrsl.com.au";
+                        if(taggedUsers[i].Contains("CU ") || taggedUsers[i].Contains("_um"))
+                        {
+                            taggedUsers[i] = taggedUsers[i] + "@clubumina.com.au";
+                        }
+                        else
+                        {
+                            taggedUsers[i] = taggedUsers[i] + "@mrsl.com.au";
+                        }
                     }
                     else
                     {
