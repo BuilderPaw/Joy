@@ -410,33 +410,48 @@
                                         <ItemTemplate>
                                             <asp:Label ID="lblCash" runat="server" Text='<%#  String.Format("{0:C}", Eval("Cash")) %>' />
                                         </ItemTemplate>
+                                        <FooterTemplate>
+                                            <asp:Label ID="lblCash" runat="server" Font-Bold="true" Text="Cash"></asp:Label>
+                                        </FooterTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="EFTPOS" SortExpression="EFTPOS" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
                                             <asp:Label ID="lblEFTPOS" runat="server" Text='<%# String.Format("{0:C}", Eval("EFTPOS")) %>' />
                                         </ItemTemplate>
+                                        <FooterTemplate>
+                                            <asp:Label ID="lblEFTPOS" runat="server" Font-Bold="true" Text="EFTPOS"></asp:Label>
+                                        </FooterTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Points" SortExpression="Points" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
                                             <asp:Label ID="lblPoints" runat="server" Text='<%# String.Format("{0:C}", Eval("Points")) %>' />
                                         </ItemTemplate>
+                                        <FooterTemplate>
+                                            <asp:Label ID="lblPoints" runat="server" Font-Bold="true" Text="Points"></asp:Label>
+                                        </FooterTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Misc1" SortExpression="Miscellaneous1" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
                                             <asp:Label ID="lblMiscellaneous1" runat="server" Text='<%# String.Format("{0:C}", Eval("Miscellaneous1")) %>' />
                                         </ItemTemplate>
+                                        <FooterTemplate>
+                                            <asp:Label ID="lblMiscellaneous1" runat="server" Font-Bold="true" Text="Miscellaneous1"></asp:Label>
+                                        </FooterTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Misc2" SortExpression="Miscellaneous2" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
                                             <asp:Label ID="lblMiscellaneous2" runat="server" Text='<%# String.Format("{0:C}", Eval("Miscellaneous2")) %>' />
                                         </ItemTemplate>
+                                        <FooterTemplate>
+                                            <asp:Label ID="lblMiscellaneous2" runat="server" Font-Bold="true" Text="Miscellaneous2"></asp:Label>
+                                        </FooterTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Cheques" SortExpression="Cheques" ItemStyle-HorizontalAlign="Right">
                                         <ItemTemplate>
                                             <asp:Label ID="lblCheques" runat="server" Text='<%# String.Format("{0:C}", Eval("Cheques")) %>' />
                                         </ItemTemplate>
                                         <FooterTemplate>
-                                            <asp:Label runat="server" Font-Bold="true" Text="Total:"></asp:Label>
+                                            <asp:Label ID="lblCheques" runat="server" Font-Bold="true" Text="Cheques"></asp:Label>
                                         </FooterTemplate>
                                     </asp:TemplateField>
                                     <asp:TemplateField HeaderText="Total Amount" SortExpression="TotalAmount" ItemStyle-HorizontalAlign="Right" FooterStyle-HorizontalAlign="Right">

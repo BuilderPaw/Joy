@@ -16,7 +16,7 @@ using System.Web.UI.WebControls;
 public partial class Web_Forms_BillManager : System.Web.UI.Page
 {
     decimal cash, eftpos, cheques, points, misc1, misc2, totalAmount;
-    decimal sum = 0;
+    decimal sum = 0, sumCash = 0, sumEFTPOS = 0, sumCheques = 0, sumPoints = 0, sumMisc2 = 0, sumMisc1 = 0;
     AlertMessage alert = new AlertMessage();
 
     protected void Page_Load(object sender, EventArgs e)
@@ -385,6 +385,7 @@ public partial class Web_Forms_BillManager : System.Web.UI.Page
     {
         if (e.Row.RowType == DataControlRowType.DataRow)
         {
+            // total amount
             string amount = ((Label)e.Row.FindControl("lblTotalAmount")).Text;
             decimal totalvalue;
             bool convt = decimal.TryParse(amount, NumberStyles.Currency, CultureInfo.CurrentCulture.NumberFormat, out totalvalue);
@@ -392,12 +393,84 @@ public partial class Web_Forms_BillManager : System.Web.UI.Page
             {
                 sum += totalvalue;
             }
+
+            // total Cash amount
+            string amountCash = ((Label)e.Row.FindControl("lblCash")).Text;
+            decimal totalCashValue;
+            bool convtCash = decimal.TryParse(amountCash, NumberStyles.Currency, CultureInfo.CurrentCulture.NumberFormat, out totalCashValue);
+            if (convtCash)
+            {
+                sumCash += totalCashValue;
+            }
+
+            // total EFTPOS amount
+            string amountEFTPOS = ((Label)e.Row.FindControl("lblEFTPOS")).Text;
+            decimal totalEFTPOSValue;
+            bool convtEFTPOS = decimal.TryParse(amountEFTPOS, NumberStyles.Currency, CultureInfo.CurrentCulture.NumberFormat, out totalEFTPOSValue);
+            if (convtEFTPOS)
+            {
+                sumEFTPOS += totalEFTPOSValue;
+            }
+
+            // total Points amount
+            string amountPoints = ((Label)e.Row.FindControl("lblPoints")).Text;
+            decimal totalPointsValue;
+            bool convtPoints = decimal.TryParse(amountPoints, NumberStyles.Currency, CultureInfo.CurrentCulture.NumberFormat, out totalPointsValue);
+            if (convtPoints)
+            {
+                sumPoints += totalPointsValue;
+            }
+
+            // total Misc1 amount
+            string amountMisc1 = ((Label)e.Row.FindControl("lblMiscellaneous1")).Text;
+            decimal totalMisc1Value;
+            bool convtMisc1 = decimal.TryParse(amountMisc1, NumberStyles.Currency, CultureInfo.CurrentCulture.NumberFormat, out totalMisc1Value);
+            if (convtMisc1)
+            {
+                sumMisc1 += totalMisc1Value;
+            }
+
+            // total Misc2 amount
+            string amountMisc2 = ((Label)e.Row.FindControl("lblMiscellaneous2")).Text;
+            decimal totalMisc2Value;
+            bool convtMisc2 = decimal.TryParse(amountMisc2, NumberStyles.Currency, CultureInfo.CurrentCulture.NumberFormat, out totalMisc2Value);
+            if (convtMisc2)
+            {
+                sumMisc2 += totalMisc2Value;
+            }
+
+            // total Cheques amount
+            string amountCheques = ((Label)e.Row.FindControl("lblCheques")).Text;
+            decimal totalChequesValue;
+            bool convtCheques = decimal.TryParse(amountCheques, NumberStyles.Currency, CultureInfo.CurrentCulture.NumberFormat, out totalChequesValue);
+            if (convtCheques)
+            {
+                sumCheques += totalChequesValue;
+            }
         }
 
         if (e.Row.RowType == DataControlRowType.Footer)
         {
             Label lbl = (Label)e.Row.FindControl("lblTotal");
             lbl.Text = String.Format("{0:C}", sum);
+
+            Label lbl2 = (Label)e.Row.FindControl("lblCash");
+            lbl2.Text = String.Format("{0:C}", sumCash);
+
+            Label lbl3 = (Label)e.Row.FindControl("lblPoints");
+            lbl3.Text = String.Format("{0:C}", sumPoints);
+
+            Label lbl4 = (Label)e.Row.FindControl("lblEFTPOS");
+            lbl4.Text = String.Format("{0:C}", sumEFTPOS);
+
+            Label lbl5 = (Label)e.Row.FindControl("lblCheques");
+            lbl5.Text = String.Format("{0:C}", sumCheques);
+
+            Label lbl6 = (Label)e.Row.FindControl("lblMiscellaneous2");
+            lbl6.Text = String.Format("{0:C}", sumMisc2);
+
+            Label lbl7 = (Label)e.Row.FindControl("lblMiscellaneous1");
+            lbl7.Text = String.Format("{0:C}", sumMisc1);
         }
     }
 
