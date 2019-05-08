@@ -190,17 +190,17 @@
                             <tr>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtCash" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCash" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[1-9]\d*(\.\d+)?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCash" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[0-9]\d{0,9}(\.\d{1,3})?%?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                                 <td>&nbsp;</td>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtEFTPOS" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtEFTPOS" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[1-9]\d*(\.\d+)?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtEFTPOS" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[0-9]\d{0,9}(\.\d{1,3})?%?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                                 <td>&nbsp;</td>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtPoints" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtPoints" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[1-9]\d*(\.\d+)?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtPoints" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[0-9]\d{0,9}(\.\d{1,3})?%?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                             <tr>
@@ -219,17 +219,17 @@
                             <tr>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtMiscellaneous1" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtMiscellaneous1" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[1-9]\d*(\.\d+)?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtMiscellaneous1" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[0-9]\d{0,9}(\.\d{1,3})?%?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                                 <td>&nbsp;</td>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtMiscellaneous2" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtMiscellaneous2" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[1-9]\d*(\.\d+)?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtMiscellaneous2" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[0-9]\d{0,9}(\.\d{1,3})?%?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                                 <td>&nbsp;</td>
                                 <td>
                                     <asp:TextBox Width="150px" class="object-default" ID="txtCheques" runat="server" onkeypress="return isNumberKey(event)"></asp:TextBox>
-                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCheques" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[1-9]\d*(\.\d+)?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
+                                    <asp:RegularExpressionValidator runat="server" ControlToValidate="txtCheques" Display="Dynamic" ValidationGroup="AddRecord" ValidationExpression="^[0-9]\d{0,9}(\.\d{1,3})?%?$" ErrorMessage="WRONG INPUT" ForeColor="Red"></asp:RegularExpressionValidator>
                                 </td>
                             </tr>
                         </table>
