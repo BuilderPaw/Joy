@@ -874,7 +874,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                                 returnedFlag = true;
                             }
                         }
-                        else if (acpPerson1.Visible == false)
+                        else if (acpPerson1.Visible == false && item.ToString() != "Other")
                         {
                             Report.ErrorMessage = Report.ErrorMessage + "\\n* Mandatory Fields required with this type of Incident. Please add details of Person(s) involved.";
                             returnedFlag = true;
