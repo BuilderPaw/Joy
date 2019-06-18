@@ -1421,7 +1421,7 @@ public partial class _Default : System.Web.UI.Page
             if (group.Contains("CU ") || username.Equals("paddyq"))
             {
                 site = "@clubumina.com.au;";
-                command = "EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;davidk@mrsl.com.au;paddyq@clubumina.com.au" + username + site +
+                command = "EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;davidk@mrsl.com.au;paddyq@clubumina.com.au;" + username + site +
                 "', @subject = 'Notification | " + Report.Name + " Report " + Report.Id +
                 "', @body = '<div style=''font-family:arial;''><H3>Comments Update</H3>" + updateComment.Replace("^", "''") +
                 "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'";
