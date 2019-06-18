@@ -1417,16 +1417,27 @@ public partial class _Default : System.Web.UI.Page
             
             // set the site on what email address to send it to
             var site = "@mrsl.com.au;";
+            var command = "";
             if (group.Contains("CU ") || username.Equals("paddyq"))
             {
                 site = "@clubumina.com.au;";
-            }
-
-            con.Open();
-            SqlCommand query = new SqlCommand("EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;davidk@mrsl.com.au;" + username + site +
+                command = "EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;davidk@mrsl.com.au;paddyq@clubumina.com.au" + username + site +
                 "', @subject = 'Notification | " + Report.Name + " Report " + Report.Id +
                 "', @body = '<div style=''font-family:arial;''><H3>Comments Update</H3>" + updateComment.Replace("^", "''") +
-                "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'", con);
+                "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'";
+            }
+            else
+            {
+                command = "EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients = 'paolos@mrsl.com.au;davidk@mrsl.com.au;" + username + site +
+                "', @subject = 'Notification | " + Report.Name + " Report " + Report.Id +
+                "', @body = '<div style=''font-family:arial;''><H3>Comments Update</H3>" + updateComment.Replace("^", "''") +
+                "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'";
+            }
+
+
+
+            con.Open();
+            SqlCommand query = new SqlCommand(command, con);
             query.ExecuteNonQuery();
             con.Close();
         }
