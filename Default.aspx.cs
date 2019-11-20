@@ -3925,16 +3925,20 @@ public partial class _Default : System.Web.UI.Page
     {
         if (fuUpload.HasFile)
         {
-            string fileName = Path.GetFileNameWithoutExtension(fuUpload.FileName) + "_" + Report.Id + "-sid" + UserCredentials.StaffId + "-" + Path.GetExtension(fuUpload.FileName);
+            foreach (HttpPostedFile uploadedFile in fuUpload.PostedFiles)
+            {
+                string fileName = Path.GetFileNameWithoutExtension(uploadedFile.FileName) + "_" + Report.Id + "-sid" + UserCredentials.StaffId + "-" + Path.GetExtension(uploadedFile.FileName);
 
-            if (File.Exists(Server.MapPath("~/Uploads/") + fileName))
-            {
-                alert.DisplayMessage("File already exist. Upload failed.");
-            }
-            else
-            {
-                fuUpload.SaveAs(Server.MapPath("~/Uploads/") + fileName);
-                alert.DisplayMessage("File uploaded successfully.");
+                if (File.Exists(Server.MapPath("~/Uploads/") + fileName))
+                {
+                    alert.DisplayMessage("File already exist. Upload failed.");
+                }
+                else
+                {
+                    //.SaveAs(Path.Combine(Server.MapPath("~/Images/"), fileName));
+                    uploadedFile.SaveAs(Server.MapPath("~/Uploads/") + fileName);
+                    alert.DisplayMessage("File uploaded successfully.");
+                }
             }
         }
         PopulateAttachedFiles();

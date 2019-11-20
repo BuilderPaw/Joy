@@ -320,7 +320,7 @@
                     <asp:BoundField DataField="Type" HeaderText="File Type" />
                 </Columns>
             </asp:GridView>
-            <asp:FileUpload ID="fuUpload" runat="server" Style="position: relative; top: -15px; left: 100px;" Visible="false" />
+            <asp:FileUpload ID="fuUpload" runat="server" Style="position: relative; top: -15px; left: 100px;" Visible="false" AllowMultiple="true" />
             <asp:Button ID="btnUpload" runat="server" Style="position: relative; top: -15px; left: 100px;" class="btn" OnClick="btnUpload_Click" Visible="false" Text="Upload" />
         </div>
         <asp:SqlDataSource runat="server" ID="sdsLinkedReports"
