@@ -286,7 +286,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     }
                     else
                     {
-                        ddlIncidentHappened.SelectedValue = SearchReport.WhatHappened.Remove(SearchReport.WhatHappened.Length - 1); // remove the last character (,)
+                        ddlIncidentHappened.SelectedValue = SearchReport.WhatHappened.TrimEnd(','); // remove the last character (,)
                     }
                     if (SearchReport.Location == "0")
                     {
@@ -294,7 +294,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     }
                     else
                     {
-                        ddlLocation.SelectedValue = SearchReport.Location.Remove(SearchReport.Location.Length - 1);
+                        ddlLocation.SelectedValue = SearchReport.Location.TrimEnd(',');
                     }
                     if (SearchReport.MemberNo.Equals("0"))
                     {
@@ -310,7 +310,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     }
                     else
                     {
-                        ddlActionTaken.SelectedValue = SearchReport.ActionTaken.Remove(SearchReport.ActionTaken.Length - 1);
+                        ddlActionTaken.SelectedValue = SearchReport.ActionTaken.TrimEnd(',');
                     }
                     if (SearchReport.FirstName.Equals("0"))
                     {

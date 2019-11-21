@@ -25,6 +25,11 @@ public partial class _Default : System.Web.UI.Page
         this.Master.RegisterTrigger(gvAttachedFiles);
         Page.Form.Attributes.Add("enctype", "multipart/form-data");
 
+        if (string.IsNullOrWhiteSpace(UserCredentials.Groups))
+        {
+            Response.Redirect("~/Web_Forms/UserLogin.aspx");
+        }
+
         if (Report.RunEditMode) // check whether EditMode method needs to be run
         {
             if (gvUserReports.Visible != true || gvActionReports.Visible != true)

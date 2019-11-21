@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.Services;
 
 /// <summary>
 /// Static Properties for User Credentials
@@ -88,42 +89,49 @@ public class UserCredentials
     {
         get
         {
-            string groupsQuery = HttpContext.Current.Session["UCGroups"].ToString(); // variable for groups without pipe character and is used for SQL query
-
-            if (groupsQuery.Contains("MRReportsSeniorManagers|"))
+            string groupsQuery = "";
+            try
             {
-                groupsQuery = "CU Reception Supervisors', 'MR Reception Supervisor', 'MR Function Supervisor', 'CU Supervisors', 'CU Reception', 'CU Duty Managers', 'MR Users', 'MR Supervisors', 'MR Reception', 'MR Duty Managers', 'MR Incident Report', 'MR Allegation', 'MR Senior Managers', 'CU Incident Report";
-            }
-            else
-            {
-                groupsQuery = groupsQuery.Replace("|", ", "); // change the pipe to a comma character
-                groupsQuery = groupsQuery.Replace("Reports", " "); // change string "Reports" to a space
-                groupsQuery = groupsQuery.Replace("ReceptionSupervisor", "Reception Supervisor"); // add spaces to report
-                groupsQuery = groupsQuery.Replace("FunctionSupervisor", "Function Supervisor");
-                groupsQuery = groupsQuery.Replace("DutyManager", "Duty Manager");
-                groupsQuery = groupsQuery.Replace("CU Reception", "'CU Reception'"); // add a '' to all reports to make it compatible for the sql query to run 
-                groupsQuery = groupsQuery.Replace("MR Reception", "'MR Reception'");
-                groupsQuery = groupsQuery.Replace("MR Incident", "'MR Incident Report'");
-                groupsQuery = groupsQuery.Replace("'CU Reception' Supervisors", "'CU Reception Supervisors'");
-                groupsQuery = groupsQuery.Replace("'MR Reception' Supervisor", "'MR Reception Supervisor'");
-                groupsQuery = groupsQuery.Replace("'CU Reception'", "'CU Reception', 'CU Incident Report'"); // add a '' to all reports to make it compatible for the sql query to run 
-                groupsQuery = groupsQuery.Replace("'MR Reception'", "'MR Reception', 'MR Incident Report'");
-                groupsQuery = groupsQuery.Replace("MR Function Supervisor", "'MR Function Supervisor'");
-                groupsQuery = groupsQuery.Replace("CU Supervisors", "'CU Supervisors'");
-                groupsQuery = groupsQuery.Replace("MR Override","'MR Override'");
-                groupsQuery = groupsQuery.Replace("CU Duty Managers", "'CU Duty Managers', 'CU Incident Report'");
-                groupsQuery = groupsQuery.Replace("MR Users", "'MR Users'");
-                groupsQuery = groupsQuery.Replace("MR Allegation", "'MR Allegation'");
-                groupsQuery = groupsQuery.Replace("MR Operations", "'MR Operations'");
-                groupsQuery = groupsQuery.Replace("CU ClubManager", "'CU Club Manager'");
-                groupsQuery = groupsQuery.Replace("MR Supervisors", "'MR Supervisors', 'MR Incident Report'");
-                groupsQuery = groupsQuery.Replace("MR Duty Managers", "'MR Duty Managers', 'MR Incident Report'");
-                groupsQuery = groupsQuery.Replace("MR SeniorManagers", "'MR Senior Managers'"); // if user is a Senior Manager create an If/Else statement to replace 'MR Duty Managers', 'MR Incident Report' to just 'MR Duty Managers' and add 'MR Incident Report' after 'MR Senior Managers'
-                groupsQuery = groupsQuery.Remove(0, 1);
-                int strLength = groupsQuery.Length;
-                groupsQuery = groupsQuery.Remove(strLength - 3, 3); // delete the "', " string at the end of the string variable
-            }
+                groupsQuery = Groups; // variable for groups without pipe character and is used for SQL query
 
+                if (groupsQuery.Contains("MRReportsSeniorManagers|"))
+                {
+                    groupsQuery = "CU Reception Supervisors', 'MR Reception Supervisor', 'MR Function Supervisor', 'CU Supervisors', 'CU Reception', 'CU Duty Managers', 'MR Users', 'MR Supervisors', 'MR Reception', 'MR Duty Managers', 'MR Incident Report', 'MR Allegation', 'MR Senior Managers', 'CU Incident Report";
+                }
+                else
+                {
+                    groupsQuery = groupsQuery.Replace("|", ", "); // change the pipe to a comma character
+                    groupsQuery = groupsQuery.Replace("Reports", " "); // change string "Reports" to a space
+                    groupsQuery = groupsQuery.Replace("ReceptionSupervisor", "Reception Supervisor"); // add spaces to report
+                    groupsQuery = groupsQuery.Replace("FunctionSupervisor", "Function Supervisor");
+                    groupsQuery = groupsQuery.Replace("DutyManager", "Duty Manager");
+                    groupsQuery = groupsQuery.Replace("CU Reception", "'CU Reception'"); // add a '' to all reports to make it compatible for the sql query to run 
+                    groupsQuery = groupsQuery.Replace("MR Reception", "'MR Reception'");
+                    groupsQuery = groupsQuery.Replace("MR Incident", "'MR Incident Report'");
+                    groupsQuery = groupsQuery.Replace("'CU Reception' Supervisors", "'CU Reception Supervisors'");
+                    groupsQuery = groupsQuery.Replace("'MR Reception' Supervisor", "'MR Reception Supervisor'");
+                    groupsQuery = groupsQuery.Replace("'CU Reception'", "'CU Reception', 'CU Incident Report'"); // add a '' to all reports to make it compatible for the sql query to run 
+                    groupsQuery = groupsQuery.Replace("'MR Reception'", "'MR Reception', 'MR Incident Report'");
+                    groupsQuery = groupsQuery.Replace("MR Function Supervisor", "'MR Function Supervisor'");
+                    groupsQuery = groupsQuery.Replace("CU Supervisors", "'CU Supervisors'");
+                    groupsQuery = groupsQuery.Replace("MR Override", "'MR Override'");
+                    groupsQuery = groupsQuery.Replace("CU Duty Managers", "'CU Duty Managers', 'CU Incident Report'");
+                    groupsQuery = groupsQuery.Replace("MR Users", "'MR Users'");
+                    groupsQuery = groupsQuery.Replace("MR Allegation", "'MR Allegation'");
+                    groupsQuery = groupsQuery.Replace("MR Operations", "'MR Operations'");
+                    groupsQuery = groupsQuery.Replace("CU ClubManager", "'CU Club Manager'");
+                    groupsQuery = groupsQuery.Replace("MR Supervisors", "'MR Supervisors', 'MR Incident Report'");
+                    groupsQuery = groupsQuery.Replace("MR Duty Managers", "'MR Duty Managers', 'MR Incident Report'");
+                    groupsQuery = groupsQuery.Replace("MR SeniorManagers", "'MR Senior Managers'"); // if user is a Senior Manager create an If/Else statement to replace 'MR Duty Managers', 'MR Incident Report' to just 'MR Duty Managers' and add 'MR Incident Report' after 'MR Senior Managers'
+                    groupsQuery = groupsQuery.Remove(0, 1);
+                    int strLength = groupsQuery.Length;
+                    groupsQuery = groupsQuery.Remove(strLength - 3, 3); // delete the "', " string at the end of the string variable
+                }
+            }
+            catch
+            {
+               
+            }
             return groupsQuery;
         }
     }

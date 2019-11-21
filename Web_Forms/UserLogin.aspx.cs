@@ -59,8 +59,8 @@ public partial class UserLogin : System.Web.UI.Page
                     rsp.UpdatePassword(txtUsername.Text, encryptedPassword);
 
                     bool isCookiePersistent = false; // Create the ticket, and add the groups.
-                    // set expiration of the authentication ticket - current set: 480 minutes / 8 hours
-                    FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1,txtUsername.Text, DateTime.Now, DateTime.Now.AddMinutes(480), isCookiePersistent, groups);
+                                                     // set expiration of the authentication ticket - current set: 720 minutes / 12 hours
+                    FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1, txtUsername.Text, DateTime.Now, DateTime.Now.AddMinutes(720), isCookiePersistent, groups);
 
                     string encryptedTicket = FormsAuthentication.Encrypt(authTicket); //Encrypt the ticket.
                     HttpCookie authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket); //Create a cookie, and then add the encrypted ticket to the cookie as data.
