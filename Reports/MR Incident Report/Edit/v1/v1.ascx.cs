@@ -2702,7 +2702,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         txtDistFeatures1.Text = rdr["DistFeatures1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtInjuryDesc1.Text = rdr["InjuryDesc1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtInjuryCause1.Text = rdr["CauseInjury1"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        txtIncidentComm1.Text = rdr["Comments1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //txtIncidentComm1.Text = rdr["Comments1"].ToString().Replace("<br />", "\n").Replace("^", "'");
 
                         /* Person 2 */
                         txtFirstName2.Text = rdr["FirstName2"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -2761,7 +2761,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         txtDistFeatures2.Text = rdr["DistFeatures2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtInjuryDesc2.Text = rdr["InjuryDesc2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtInjuryCause2.Text = rdr["CauseInjury2"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        txtIncidentComm2.Text = rdr["Comments2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //txtIncidentComm2.Text = rdr["Comments2"].ToString().Replace("<br />", "\n").Replace("^", "'");
 
                         /* Person 3 */
                         txtFirstName3.Text = rdr["FirstName3"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -2820,7 +2820,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         txtDistFeatures3.Text = rdr["DistFeatures3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtInjuryDesc3.Text = rdr["InjuryDesc3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtInjuryCause3.Text = rdr["CauseInjury3"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        txtIncidentComm3.Text = rdr["Comments3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //txtIncidentComm3.Text = rdr["Comments3"].ToString().Replace("<br />", "\n").Replace("^", "'");
 
                         /* Person 4 */
                         txtFirstName4.Text = rdr["FirstName4"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -2879,7 +2879,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         txtDistFeatures4.Text = rdr["DistFeatures4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtInjuryDesc4.Text = rdr["InjuryDesc4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtInjuryCause4.Text = rdr["CauseInjury4"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        txtIncidentComm4.Text = rdr["Comments4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //txtIncidentComm4.Text = rdr["Comments4"].ToString().Replace("<br />", "\n").Replace("^", "'");
 
                         /* Person 5 */
                         txtFirstName5.Text = rdr["FirstName5"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -2938,7 +2938,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         txtDistFeatures5.Text = rdr["DistFeatures5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtInjuryDesc5.Text = rdr["InjuryDesc5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtInjuryCause5.Text = rdr["CauseInjury5"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        txtIncidentComm5.Text = rdr["Comments5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //txtIncidentComm5.Text = rdr["Comments5"].ToString().Replace("<br />", "\n").Replace("^", "'");
 
                         txtDate1.Text = rdr["Date"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         ddlHour.SelectedIndex = Int32.Parse(rdr["TimeH"].ToString().Replace("<br />", "\n").Replace("^", "'"));
@@ -5917,7 +5917,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             ReportIncidentMr.InjuryDesc1 = ReportIncidentMr.InjuryDesc1.Replace("\n", "<br />").Replace("'", "^");
             ReportIncidentMr.InjuryCause1 = txtInjuryCause1.Text;
             ReportIncidentMr.InjuryCause1 = ReportIncidentMr.InjuryCause1.Replace("\n", "<br />").Replace("'", "^");
-            ReportIncidentMr.InjuryComm1 = txtIncidentComm1.Text;
+            //ReportIncidentMr.InjuryComm1 = txtIncidentComm1.Text;
             ReportIncidentMr.InjuryComm1 = ReportIncidentMr.InjuryComm1.Replace("\n", "<br />").Replace("'", "^");
             ReportIncidentMr.TxtPartyType1 = ddlPartyType1.SelectedItem.Text;
             ReportIncidentMr.TxtPTimeH1 = ddlPTimeH1.SelectedItem.Text;
@@ -6061,7 +6061,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             ReportIncidentMr.InjuryDesc2 = ReportIncidentMr.InjuryDesc2.Replace("\n", "<br />").Replace("'", "^");
             ReportIncidentMr.InjuryCause2 = txtInjuryCause2.Text;
             ReportIncidentMr.InjuryCause2 = ReportIncidentMr.InjuryCause2.Replace("\n", "<br />").Replace("'", "^");
-            ReportIncidentMr.InjuryComm2 = txtIncidentComm2.Text;
+            //ReportIncidentMr.InjuryComm2 = txtIncidentComm2.Text;
             ReportIncidentMr.InjuryComm2 = ReportIncidentMr.InjuryComm2.Replace("\n", "<br />").Replace("'", "^");
             ReportIncidentMr.TxtPartyType2 = ddlPartyType2.SelectedItem.Text;
             ReportIncidentMr.TxtPTimeH2 = ddlPTimeH2.SelectedItem.Text;
@@ -6204,7 +6204,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             ReportIncidentMr.InjuryDesc3 = ReportIncidentMr.InjuryDesc3.Replace("\n", "<br />").Replace("'", "^");
             ReportIncidentMr.InjuryCause3 = txtInjuryCause3.Text;
             ReportIncidentMr.InjuryCause3 = ReportIncidentMr.InjuryCause3.Replace("\n", "<br />").Replace("'", "^");
-            ReportIncidentMr.InjuryComm3 = txtIncidentComm3.Text;
+            //ReportIncidentMr.InjuryComm3 = txtIncidentComm3.Text;
             ReportIncidentMr.InjuryComm3 = ReportIncidentMr.InjuryComm3.Replace("\n", "<br />").Replace("'", "^");
             ReportIncidentMr.TxtPartyType3 = ddlPartyType3.SelectedItem.Text;
             ReportIncidentMr.TxtPTimeH3 = ddlPTimeH3.SelectedItem.Text;
@@ -6348,7 +6348,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             ReportIncidentMr.InjuryDesc4 = ReportIncidentMr.InjuryDesc4.Replace("\n", "<br />").Replace("'", "^");
             ReportIncidentMr.InjuryCause4 = txtInjuryCause4.Text;
             ReportIncidentMr.InjuryCause4 = ReportIncidentMr.InjuryCause4.Replace("\n", "<br />").Replace("'", "^");
-            ReportIncidentMr.InjuryComm4 = txtIncidentComm4.Text;
+            //ReportIncidentMr.InjuryComm4 = txtIncidentComm4.Text;
             ReportIncidentMr.InjuryComm4 = ReportIncidentMr.InjuryComm4.Replace("\n", "<br />").Replace("'", "^");
             ReportIncidentMr.TxtPartyType4 = ddlPartyType4.SelectedItem.Text;
             ReportIncidentMr.TxtPTimeH4 = ddlPTimeH4.SelectedItem.Text;
@@ -6493,7 +6493,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             ReportIncidentMr.InjuryDesc5 = ReportIncidentMr.InjuryDesc5.Replace("\n", "<br />").Replace("'", "^");
             ReportIncidentMr.InjuryCause5 = txtInjuryCause5.Text;
             ReportIncidentMr.InjuryCause5 = ReportIncidentMr.InjuryCause5.Replace("\n", "<br />").Replace("'", "^");
-            ReportIncidentMr.InjuryComm5 = txtIncidentComm5.Text;
+            //ReportIncidentMr.InjuryComm5 = txtIncidentComm5.Text;
             ReportIncidentMr.InjuryComm5 = ReportIncidentMr.InjuryComm5.Replace("\n", "<br />").Replace("'", "^");
             ReportIncidentMr.TxtPartyType5 = ddlPartyType5.SelectedItem.Text;
             ReportIncidentMr.TxtPTimeH5 = ddlPTimeH5.SelectedItem.Text;

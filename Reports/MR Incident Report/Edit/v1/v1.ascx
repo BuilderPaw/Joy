@@ -393,14 +393,14 @@
                                         <asp:TextBox ID="txtInjuryCause1" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                                     </td>
                                 </tr>
-                                <tr>
+<%--                                <tr>
                                     <td colspan="4"><b><u>Incident Comments</u></b></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4">
                                         <asp:TextBox ID="txtIncidentComm1" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                                     </td>
-                                </tr>
+                                </tr>--%>
                                 <tr>
                                     <td colspan="1"><b><u>Injury Diagram</u></b></td>
                                     <td colspan="1">
@@ -747,14 +747,14 @@
                                         <asp:TextBox ID="txtInjuryCause2" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                                     </td>
                                 </tr>
-                                <tr>
+<%--                                <tr>
                                     <td colspan="4"><b><u>Incident Comments</u></b></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4">
                                         <asp:TextBox ID="txtIncidentComm2" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                                     </td>
-                                </tr>
+                                </tr>--%>
                                 <tr>
                                     <td colspan="1"><b><u>Injury Diagram</u></b></td>
                                     <td colspan="1">
@@ -1101,14 +1101,14 @@
                                         <asp:TextBox ID="txtInjuryCause3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                                     </td>
                                 </tr>
-                                <tr>
+<%--                                <tr>
                                     <td colspan="4"><b><u>Incident Comments</u></b></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4">
                                         <asp:TextBox ID="txtIncidentComm3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                                     </td>
-                                </tr>
+                                </tr>--%>
                                 <tr>
                                     <td colspan="1"><b><u>Injury Diagram</u></b></td>
                                     <td colspan="1">
@@ -1455,14 +1455,14 @@
                                         <asp:TextBox ID="txtInjuryCause4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                                     </td>
                                 </tr>
-                                <tr>
+<%--                                <tr>
                                     <td colspan="4"><b><u>Incident Comments</u></b></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4">
                                         <asp:TextBox ID="txtIncidentComm4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                                     </td>
-                                </tr>
+                                </tr>--%>
                                 <tr>
                                     <td colspan="1"><b><u>Injury Diagram</u></b></td>
                                     <td colspan="1">
@@ -1809,14 +1809,14 @@
                                         <asp:TextBox ID="txtInjuryCause5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                                     </td>
                                 </tr>
-                                <tr>
+<%--                                <tr>
                                     <td colspan="4"><b><u>Incident Comments</u></b></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4">
                                         <asp:TextBox ID="txtIncidentComm5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                                     </td>
-                                </tr>
+                                </tr>--%>
                                 <tr>
                                     <td colspan="1"><b><u>Injury Diagram</u></b></td>
                                     <td colspan="1">
@@ -3824,7 +3824,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <th colspan="4">Allegation</th>
+                    <th colspan="4">Witness Statement</th>
                 </tr>
                 <tr>
                     <td colspan="4">
@@ -3902,7 +3902,7 @@
                 </tr>
                 <tr>
                     <td id="tdPolice5" runat="server" colspan="4">
-                        <b>Police Action : </b>
+                        <b>Event No. & Police Action : </b>
                     </td>
                 </tr>
                 <tr>

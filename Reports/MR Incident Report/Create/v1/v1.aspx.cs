@@ -4629,7 +4629,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         txtDistFeatures2.Text = "";
         txtInjuryDesc2.Text = "";
         txtInjuryCause2.Text = "";
-        txtIncidentComm2.Text = "";
+        //txtIncidentComm2.Text = "";
         acpPerson2.Visible = false;
         tblAddPerson2.Visible = true;
         tblAddPerson3.Visible = false;
@@ -4664,7 +4664,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         txtDistFeatures3.Text = "";
         txtInjuryDesc3.Text = "";
         txtInjuryCause3.Text = "";
-        txtIncidentComm3.Text = "";
+        //txtIncidentComm3.Text = "";
         acpPerson3.Visible = false;
         tblAddPerson3.Visible = true;
         tblAddPerson4.Visible = false;
@@ -4699,7 +4699,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         txtDistFeatures4.Text = "";
         txtInjuryDesc4.Text = "";
         txtInjuryCause4.Text = "";
-        txtIncidentComm4.Text = "";
+        //txtIncidentComm4.Text = "";
         acpPerson4.Visible = false;
         tblAddPerson4.Visible = true;
         tblAddPerson5.Visible = false;
@@ -4734,7 +4734,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         txtDistFeatures5.Text = "";
         txtInjuryDesc5.Text = "";
         txtInjuryCause5.Text = "";
-        txtIncidentComm5.Text = "";
+        //txtIncidentComm5.Text = "";
         acpPerson5.Visible = false;
         tblAddPerson5.Visible = true;
         tblDelPerson5.Visible = false;
@@ -5572,7 +5572,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 dm.DistFeatures1 = txtDistFeatures1.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.InjuryDesc1 = txtInjuryDesc1.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.CauseInjury1 = txtInjuryCause1.Text.Replace("\n", "<br />").Replace("'", "^");
-                dm.Comments1 = txtIncidentComm1.Text.Replace("\n", "<br />").Replace("'", "^");
+                //dm.Comments1 = txtIncidentComm1.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.TxtPartyType1 = ddlPartyType1.SelectedItem.Text;
                 dm.TxtPTimeH1 = ddlPTimeH1.SelectedItem.Text;
                 dm.TxtPTimeM1 = ddlPTimeM1.SelectedItem.Text;
@@ -5654,7 +5654,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 dm.DistFeatures2 = txtDistFeatures2.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.InjuryDesc2 = txtInjuryDesc2.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.CauseInjury2 = txtInjuryCause2.Text.Replace("\n", "<br />").Replace("'", "^");
-                dm.Comments2 = txtIncidentComm2.Text.Replace("\n", "<br />").Replace("'", "^");
+                //dm.Comments2 = txtIncidentComm2.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.TxtPartyType2 = ddlPartyType2.SelectedItem.Text;
                 dm.TxtPTimeH2 = ddlPTimeH2.SelectedItem.Text;
                 dm.TxtPTimeM2 = ddlPTimeM2.SelectedItem.Text;
@@ -5736,7 +5736,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 dm.DistFeatures3 = txtDistFeatures3.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.InjuryDesc3 = txtInjuryDesc3.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.CauseInjury3 = txtInjuryCause3.Text.Replace("\n", "<br />").Replace("'", "^");
-                dm.Comments3 = txtIncidentComm3.Text.Replace("\n", "<br />").Replace("'", "^");
+                //dm.Comments3 = txtIncidentComm3.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.TxtPartyType3 = ddlPartyType3.SelectedItem.Text;
                 dm.TxtPTimeH3 = ddlPTimeH3.SelectedItem.Text;
                 dm.TxtPTimeM3 = ddlPTimeM3.SelectedItem.Text;
@@ -5818,7 +5818,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 dm.DistFeatures4 = txtDistFeatures4.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.InjuryDesc4 = txtInjuryDesc4.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.CauseInjury4 = txtInjuryCause4.Text.Replace("\n", "<br />").Replace("'", "^");
-                dm.Comments4 = txtIncidentComm4.Text.Replace("\n", "<br />").Replace("'", "^");
+                //dm.Comments4 = txtIncidentComm4.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.TxtPartyType4 = ddlPartyType4.SelectedItem.Text;
                 dm.TxtPTimeH4 = ddlPTimeH4.SelectedItem.Text;
                 dm.TxtPTimeM4 = ddlPTimeM4.SelectedItem.Text;
@@ -5900,7 +5900,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 dm.DistFeatures5 = txtDistFeatures5.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.InjuryDesc5 = txtInjuryDesc5.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.CauseInjury5 = txtInjuryCause5.Text.Replace("\n", "<br />").Replace("'", "^");
-                dm.Comments5 = txtIncidentComm5.Text.Replace("\n", "<br />").Replace("'", "^");
+                //dm.Comments5 = txtIncidentComm5.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.TxtPartyType5 = ddlPartyType5.SelectedItem.Text;
                 dm.TxtPTimeH5 = ddlPTimeH5.SelectedItem.Text;
                 dm.TxtPTimeM5 = ddlPTimeM5.SelectedItem.Text;
@@ -6478,7 +6478,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                     dm.DistFeatures1 = txtDistFeatures1.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.InjuryDesc1 = txtInjuryDesc1.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.CauseInjury1 = txtInjuryCause1.Text.Replace("\n", "<br />").Replace("'", "^");
-                    dm.Comments1 = txtIncidentComm1.Text.Replace("\n", "<br />").Replace("'", "^");
+                    //dm.Comments1 = txtIncidentComm1.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.TxtPartyType1 = ddlPartyType1.SelectedItem.Text;
                     dm.TxtPTimeH1 = ddlPTimeH1.SelectedItem.Text;
                     dm.TxtPTimeM1 = ddlPTimeM1.SelectedItem.Text;
@@ -6560,7 +6560,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                     dm.DistFeatures2 = txtDistFeatures2.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.InjuryDesc2 = txtInjuryDesc2.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.CauseInjury2 = txtInjuryCause2.Text.Replace("\n", "<br />").Replace("'", "^");
-                    dm.Comments2 = txtIncidentComm2.Text.Replace("\n", "<br />").Replace("'", "^");
+                    //dm.Comments2 = txtIncidentComm2.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.TxtPartyType2 = ddlPartyType2.SelectedItem.Text;
                     dm.TxtPTimeH2 = ddlPTimeH2.SelectedItem.Text;
                     dm.TxtPTimeM2 = ddlPTimeM2.SelectedItem.Text;
@@ -6642,7 +6642,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                     dm.DistFeatures3 = txtDistFeatures3.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.InjuryDesc3 = txtInjuryDesc3.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.CauseInjury3 = txtInjuryCause3.Text.Replace("\n", "<br />").Replace("'", "^");
-                    dm.Comments3 = txtIncidentComm3.Text.Replace("\n", "<br />").Replace("'", "^");
+                    //dm.Comments3 = txtIncidentComm3.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.TxtPartyType3 = ddlPartyType3.SelectedItem.Text;
                     dm.TxtPTimeH3 = ddlPTimeH3.SelectedItem.Text;
                     dm.TxtPTimeM3 = ddlPTimeM3.SelectedItem.Text;
@@ -6724,7 +6724,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                     dm.DistFeatures4 = txtDistFeatures4.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.InjuryDesc4 = txtInjuryDesc4.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.CauseInjury4 = txtInjuryCause4.Text.Replace("\n", "<br />").Replace("'", "^");
-                    dm.Comments4 = txtIncidentComm4.Text.Replace("\n", "<br />").Replace("'", "^");
+                    //dm.Comments4 = txtIncidentComm4.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.TxtPartyType4 = ddlPartyType4.SelectedItem.Text;
                     dm.TxtPTimeH4 = ddlPTimeH4.SelectedItem.Text;
                     dm.TxtPTimeM4 = ddlPTimeM4.SelectedItem.Text;
@@ -6806,7 +6806,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                     dm.DistFeatures5 = txtDistFeatures5.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.InjuryDesc5 = txtInjuryDesc5.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.CauseInjury5 = txtInjuryCause5.Text.Replace("\n", "<br />").Replace("'", "^");
-                    dm.Comments5 = txtIncidentComm5.Text.Replace("\n", "<br />").Replace("'", "^");
+                    //dm.Comments5 = txtIncidentComm5.Text.Replace("\n", "<br />").Replace("'", "^");
                     dm.TxtPartyType5 = ddlPartyType5.SelectedItem.Text;
                     dm.TxtPTimeH5 = ddlPTimeH5.SelectedItem.Text;
                     dm.TxtPTimeM5 = ddlPTimeM5.SelectedItem.Text;

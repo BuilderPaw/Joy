@@ -395,14 +395,14 @@
                                             <asp:TextBox ID="txtInjuryCause1" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine" onkeyup="setHeight(this);" onkeydown="setHeight(this);"></asp:TextBox>
                                         </td>
                                     </tr>
-                                    <tr>
+<%--                                    <tr>
                                         <td colspan="4"><b><u>Incident Comments</u></b></td>
                                     </tr>
                                     <tr>
                                         <td colspan="4">
                                             <asp:TextBox ID="txtIncidentComm1" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine" onkeyup="setHeight(this);" onkeydown="setHeight(this);"></asp:TextBox>
                                         </td>
-                                    </tr>
+                                    </tr>--%>
                                     <tr>
                                         <td colspan="4"><b><u>Injury Diagram</u></b></td>
                                     </tr>
@@ -738,14 +738,14 @@
                                             <asp:TextBox ID="txtInjuryCause2" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine" onkeyup="setHeight(this);" onkeydown="setHeight(this);"></asp:TextBox>
                                         </td>
                                     </tr>
-                                    <tr>
+<%--                                    <tr>
                                         <td colspan="4"><b><u>Incident Comments</u></b></td>
                                     </tr>
                                     <tr>
                                         <td colspan="4">
                                             <asp:TextBox ID="txtIncidentComm2" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine" onkeyup="setHeight(this);" onkeydown="setHeight(this);"></asp:TextBox>
                                         </td>
-                                    </tr>
+                                    </tr>--%>
                                     <tr>
                                         <td colspan="4"><b><u>Injury Diagram</u></b></td>
                                     </tr>
@@ -1081,14 +1081,14 @@
                                             <asp:TextBox ID="txtInjuryCause3" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine" onkeyup="setHeight(this);" onkeydown="setHeight(this);"></asp:TextBox>
                                         </td>
                                     </tr>
-                                    <tr>
+<%--                                    <tr>
                                         <td colspan="4"><b><u>Incident Comments</u></b></td>
                                     </tr>
                                     <tr>
                                         <td colspan="4">
                                             <asp:TextBox ID="txtIncidentComm3" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine" onkeyup="setHeight(this);" onkeydown="setHeight(this);"></asp:TextBox>
                                         </td>
-                                    </tr>
+                                    </tr>--%>
                                     <tr>
                                         <td colspan="4"><b><u>Injury Diagram</u></b></td>
                                     </tr>
@@ -1424,14 +1424,14 @@
                                             <asp:TextBox ID="txtInjuryCause4" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine" onkeyup="setHeight(this);" onkeydown="setHeight(this);"></asp:TextBox>
                                         </td>
                                     </tr>
-                                    <tr>
+<%--                                    <tr>
                                         <td colspan="4"><b><u>Incident Comments</u></b></td>
                                     </tr>
                                     <tr>
                                         <td colspan="4">
                                             <asp:TextBox ID="txtIncidentComm4" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine" onkeyup="setHeight(this);" onkeydown="setHeight(this);"></asp:TextBox>
                                         </td>
-                                    </tr>
+                                    </tr>--%>
                                     <tr>
                                         <td colspan="4"><b><u>Injury Diagram</u></b></td>
                                     </tr>
@@ -1767,14 +1767,14 @@
                                             <asp:TextBox ID="txtInjuryCause5" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine" onkeyup="setHeight(this);" onkeydown="setHeight(this);"></asp:TextBox>
                                         </td>
                                     </tr>
-                                    <tr>
+<%--                                    <tr>
                                         <td colspan="4"><b><u>Incident Comments</u></b></td>
                                     </tr>
                                     <tr>
                                         <td colspan="4">
                                             <asp:TextBox ID="txtIncidentComm5" class="object-default" runat="server" Height="50px" Style="resize: none;" TextMode="MultiLine" onkeyup="setHeight(this);" onkeydown="setHeight(this);"></asp:TextBox>
                                         </td>
-                                    </tr>
+                                    </tr>--%>
                                     <tr>
                                         <td colspan="4"><b><u>Injury Diagram</u></b></td>
                                     </tr>
@@ -3759,7 +3759,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th colspan="4">Allegation</th>
+                        <th colspan="4">Witness Statement</th>
                     </tr>
                     <tr>
                         <td colspan="4">
@@ -3837,7 +3837,7 @@
                     </tr>
                     <tr>
                         <td id="tdPolice5" runat="server" colspan="4">
-                            <b>Police Action : </b>
+                            <b>Event No. & Police Action : </b>
                         </td>
                     </tr>
                     <tr>

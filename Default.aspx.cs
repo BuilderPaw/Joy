@@ -716,8 +716,18 @@ public partial class _Default : System.Web.UI.Page
             tblRecords.Visible = false;
         }
 
+        if(Report.Name.Equals("MR Duty Managers") || Report.Name.Equals("MR Function Supervisor") || Report.Name.Equals("MR Reception Supervisor") || Report.Name.Equals("MR Reception") || Report.Name.Equals("CU Duty Managers") || Report.Name.Equals("CU Reception"))
+        {
+            divMinorsCheckSheet.Visible = true;
+        }
+        else
+        {
+            divMinorsCheckSheet.Visible = false;
+        }
+
         // exit out of edit mode
         gvPendingActions.EditIndex = -1;
+        gvMinorsCheckSheet.EditIndex = -1;
         gvLinkedReports.EditIndex = -1;
         gvRecommendation_Allegation.EditIndex = -1;
         gvRecommendation_DisciplinaryAction.EditIndex = -1;
@@ -769,6 +779,16 @@ public partial class _Default : System.Web.UI.Page
         {
             HideLinkedReports();
             btnLinkLinkedReports.Visible = false;
+        }
+
+        // update minors check sheet based on beport selected
+        sdsMinorsCheckSheet.SelectCommand = "SELECT * FROM MinorsCheckSheet WHERE ReportId=" + Report.Id;
+        gvMinorsCheckSheet.DataBind();
+
+        // if no report was found and viewer is not the writer of the report, hide Minor Check Sheet div
+        if (gvMinorsCheckSheet.Rows.Count == 0 && !Report.SelectedStaffId.Equals(UserCredentials.StaffId))
+        {
+            divMinorsCheckSheet.Visible = false;
         }
 
         // display Action required if not empty
@@ -926,6 +946,7 @@ public partial class _Default : System.Web.UI.Page
         Report.RunEditMode = false;
 
         tblRecords.Visible = false;
+        divMinorsCheckSheet.Visible = false;
 
         // hide report navigation buttons
         HideAllNavigations();
@@ -5024,6 +5045,357 @@ public partial class _Default : System.Web.UI.Page
             con.Close();
         }
         UpdateFormView();
+    }
+
+    // Minors Check Sheet
+    protected void sdsMinorsCheckSheet_Inserted(object sender, SqlDataSourceStatusEventArgs e)
+    {
+        if ((e.Exception == null) && e.AffectedRows.Equals(1))
+        {
+            alert.DisplayMessage("Added successfully.");
+        }
+        else
+        {
+            alert.DisplayMessage("Unable to add successfully.");
+            e.ExceptionHandled = true;
+        }
+
+        sdsMinorsCheckSheet.SelectCommand = "SELECT * FROM MinorsCheckSheet WHERE ReportId=" + Report.Id;
+    }
+    protected void gvMinorsCheckSheet_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        // Retrieve controls
+        GridViewRow row = (GridViewRow)(((Button)e.CommandSource).NamingContainer);
+        Label lblMinorsCheckSheetId = (Label)row.FindControl("lblMinorsCheckSheetId");
+        TextBox txtTotalPeopleInGroup = (TextBox)row.FindControl("txtTotalPeopleInGroup");
+        TextBox txtTotalMinorsInGroup = (TextBox)row.FindControl("txtTotalMinorsInGroup");
+        TextBox txtComments = (TextBox)row.FindControl("txtComments");
+        TextBox txtTotalPeopleInGroup1 = (TextBox)row.FindControl("txtTotalPeopleInGroup1");
+        TextBox txtTotalMinorsInGroup1 = (TextBox)row.FindControl("txtTotalMinorsInGroup1");
+        TextBox txtComments1 = (TextBox)row.FindControl("txtComments1");
+        Label lblTime = (Label)row.FindControl("lblTime");
+        Label lblTotalPeopleInGroup = (Label)row.FindControl("lblTotalPeopleInGroup");
+        Label lblTotalMinorsInGroup = (Label)row.FindControl("lblTotalMinorsInGroup");
+        Label lblHandedMSS = (Label)row.FindControl("lblHandedMSS");
+        DropDownList ddlTime = (DropDownList)row.FindControl("ddlTime");
+        DropDownList ddlTime1 = (DropDownList)row.FindControl("ddlTime1");
+        CheckBox cbHandedMSS = (CheckBox)row.FindControl("cbHandedMSS");
+        CheckBox cbHandedMSS1 = (CheckBox)row.FindControl("cbHandedMSS1");
+
+        if (e.CommandName.Equals("EmptyDataTemplateInsert"))
+        {
+            // check if control has ' and if it is null
+            txtComments1.Text = txtComments1.Text.Replace("'", "^");
+            
+            if (string.IsNullOrWhiteSpace(txtTotalPeopleInGroup1.Text))
+            {
+                alert.DisplayMessage("Total People in Group can't be empty.");
+                UpdateFormView();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtTotalMinorsInGroup1.Text))
+            {
+                alert.DisplayMessage("Total Minors in Group can't be empty.");
+                UpdateFormView();
+                return;
+            }
+
+            int n;
+            bool isNumeric1 = int.TryParse(txtTotalPeopleInGroup1.Text, out n),
+                 isNumeric2 = int.TryParse(txtTotalMinorsInGroup1.Text, out n);
+
+            if (!isNumeric1)
+            {
+                alert.DisplayMessage("Only number value for Total People in Group!");
+                UpdateFormView();
+                return;
+            }
+
+            if (!isNumeric2)
+            {
+                alert.DisplayMessage("Only number value for Total Minors in Group!");
+                UpdateFormView();
+                return;
+            }
+
+            if (ddlTime1.SelectedItem.Value.ToString().Equals("-1"))
+            {
+                alert.DisplayMessage("Please select appropriate time range.");
+                UpdateFormView();
+                return;
+            }
+
+            // Set parameters
+            sdsMinorsCheckSheet.InsertParameters["ReportId"].DefaultValue = Report.Id;
+            sdsMinorsCheckSheet.InsertParameters["Time"].DefaultValue = ddlTime1.SelectedValue.ToString();
+            sdsMinorsCheckSheet.InsertParameters["TotalPeopleInGroup"].DefaultValue = txtTotalPeopleInGroup1.Text;
+            sdsMinorsCheckSheet.InsertParameters["TotalMinorsInGroup"].DefaultValue = txtTotalMinorsInGroup1.Text;
+            sdsMinorsCheckSheet.InsertParameters["Comments"].DefaultValue = txtComments1.Text.Replace("\n", "<br />").Replace("'", "^");
+            sdsMinorsCheckSheet.InsertParameters["HandedMinorsSecondarySupplyCard"].DefaultValue = Convert.ToString(cbHandedMSS1.Checked);
+
+            sdsMinorsCheckSheet.Insert();
+            UpdateFormView();
+        }
+        else if (e.CommandName.Equals("FooterInsert"))
+        {
+            // check if control has ' and if it is null
+            txtComments.Text = txtComments.Text.Replace("'", "^");
+
+            if (string.IsNullOrWhiteSpace(txtTotalPeopleInGroup.Text))
+            {
+                alert.DisplayMessage("Total People in Group can't be empty.");
+                UpdateFormView();
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtTotalMinorsInGroup.Text))
+            {
+                alert.DisplayMessage("Total Minors in Group can't be empty.");
+                UpdateFormView();
+                return;
+            }
+
+            int n;
+            bool isNumeric1 = int.TryParse(txtTotalPeopleInGroup.Text, out n),
+                 isNumeric2 = int.TryParse(txtTotalMinorsInGroup.Text, out n);
+
+            if (!isNumeric1)
+            {
+                alert.DisplayMessage("Only number value for Total People in Group!");
+                UpdateFormView();
+                return;
+            }
+
+            if (!isNumeric2)
+            {
+                alert.DisplayMessage("Only number value for Total Minors in Group!");
+                UpdateFormView();
+                return;
+            }
+
+            if (ddlTime.SelectedItem.Value.ToString().Equals("-1"))
+            {
+                alert.DisplayMessage("Please select appropriate time range.");
+                UpdateFormView();
+                return;
+            }
+
+            // Set parameters
+            sdsMinorsCheckSheet.InsertParameters["ReportId"].DefaultValue = Report.Id;
+            sdsMinorsCheckSheet.InsertParameters["Time"].DefaultValue = ddlTime.SelectedValue.ToString();
+            sdsMinorsCheckSheet.InsertParameters["TotalPeopleInGroup"].DefaultValue = txtTotalPeopleInGroup.Text;
+            sdsMinorsCheckSheet.InsertParameters["TotalMinorsInGroup"].DefaultValue = txtTotalMinorsInGroup.Text;
+            sdsMinorsCheckSheet.InsertParameters["Comments"].DefaultValue = txtComments.Text.Replace("\n", "<br />").Replace("'", "^");
+            sdsMinorsCheckSheet.InsertParameters["HandedMinorsSecondarySupplyCard"].DefaultValue = Convert.ToString(cbHandedMSS.Checked);
+
+            sdsMinorsCheckSheet.Insert();
+            UpdateFormView();
+        }
+        else if (e.CommandName.Equals("Edit"))
+        {
+            UpdateFormView();
+        }
+        else if (e.CommandName.Equals("Cancel"))
+        {
+            UpdateFormView();
+        }
+        else if (e.CommandName.Equals("Delete"))
+        {
+            sdsMinorsCheckSheet.DeleteCommand = "DELETE FROM [MinorsCheckSheet] WHERE [MinorsCheckSheetId] = " + lblMinorsCheckSheetId.Text;
+            UpdateFormView();
+        }
+        else if (e.CommandName.Equals("Update"))
+        {
+            // check if control has ' and if it is null
+            txtComments.Text = txtComments.Text.Replace("'", "^");
+
+            if (string.IsNullOrWhiteSpace(txtTotalPeopleInGroup.Text))
+            {
+                alert.DisplayMessage("Total People in Group can't be empty.");
+                return;
+            }
+
+            if (string.IsNullOrWhiteSpace(txtTotalMinorsInGroup.Text))
+            {
+                alert.DisplayMessage("Total Minors in Group can't be empty.");
+                return;
+            }
+
+            int n;
+            bool isNumeric1 = int.TryParse(txtTotalPeopleInGroup.Text, out n),
+                 isNumeric2 = int.TryParse(txtTotalMinorsInGroup.Text, out n);
+
+            if (!isNumeric1)
+            {
+                alert.DisplayMessage("Only number value for Total People in Group!");
+                return;
+            }
+
+            if (!isNumeric2)
+            {
+                alert.DisplayMessage("Only number value for Total Minors in Group!");
+                return;
+            }
+
+            sdsMinorsCheckSheet.UpdateCommand = "UPDATE [MinorsCheckSheet] SET [TotalPeopleInGroup] = " + txtTotalPeopleInGroup.Text + 
+                ", [TotalMinorsInGroup] = " + txtTotalMinorsInGroup.Text + ", [Comments] = '" + txtComments.Text.Replace("\n", "<br />").Replace("'", "^") + 
+                "', [HandedMinorsSecondarySupplyCard] = '" + Convert.ToString(cbHandedMSS.Checked) + "' WHERE [MinorsCheckSheetId] = " + lblMinorsCheckSheetId.Text;
+
+            UpdateFormView();
+        }
+    }
+    protected void gvMinorsCheckSheet_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        Button btnEdit = (Button)e.Row.FindControl("btnEdit");
+        Button btnDelete = (Button)e.Row.FindControl("btnDelete");
+        Button btnInsert = (Button)e.Row.FindControl("btnInsert");
+        Button btnInsert1 = (Button)e.Row.FindControl("btnInsert1");
+        TextBox txtTotalPeopleInGroup = (TextBox)e.Row.FindControl("txtTotalPeopleInGroup");
+        TextBox txtTotalMinorsInGroup = (TextBox)e.Row.FindControl("txtTotalMinorsInGroup");
+        TextBox txtComments = (TextBox)e.Row.FindControl("txtComments");
+        TextBox txtTotalPeopleInGroup1 = (TextBox)e.Row.FindControl("txtTotalPeopleInGroup1");
+        TextBox txtTotalMinorsInGroup1 = (TextBox)e.Row.FindControl("txtTotalMinorsInGroup1");
+        TextBox txtComments1 = (TextBox)e.Row.FindControl("txtComments1");
+        Label lblTime = (Label)e.Row.FindControl("lblTime");
+        Label lblTotalPeopleInGroup = (Label)e.Row.FindControl("lblTotalPeopleInGroup");
+        Label lblTotalMinorsInGroup = (Label)e.Row.FindControl("lblTotalMinorsInGroup");
+        Label lblHandedMSS = (Label)e.Row.FindControl("lblHandedMSS");
+        DropDownList ddlTime = (DropDownList)e.Row.FindControl("ddlTime");
+        DropDownList ddlTime1 = (DropDownList)e.Row.FindControl("ddlTime1");
+        CheckBox cbHandedMSS = (CheckBox)e.Row.FindControl("cbHandedMSS");
+        CheckBox cbHandedMSS1 = (CheckBox)e.Row.FindControl("cbHandedMSS1");
+
+        try
+        {
+            if (e.Row.RowState == (DataControlRowState.Edit | DataControlRowState.Alternate) || e.Row.RowState == DataControlRowState.Edit)
+            {
+                try
+                {
+                    txtComments.Text = txtComments.Text.Replace("^", "'");
+                }
+                catch
+                {
+
+                }
+            }
+
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                if (!Report.SelectedStaffId.Equals(UserCredentials.StaffId))
+                {
+                    btnEdit.Visible = false;
+                    btnDelete.Visible = false;
+                }
+                else
+                {
+                    btnEdit.Visible = true;
+                    btnDelete.Visible = true;
+                }
+            }
+            else if (e.Row.RowType == DataControlRowType.Footer)
+            {
+                if (!Report.SelectedStaffId.Equals(UserCredentials.StaffId))
+                {
+                    btnInsert.Visible = false;
+                    lblTime.Visible = false;
+                    lblTotalPeopleInGroup.Visible = false;
+                    txtTotalPeopleInGroup.Visible = false;
+                    lblTotalMinorsInGroup.Visible = false;
+                    txtTotalMinorsInGroup.Visible = false;
+                    txtComments.Visible = false;
+                    lblHandedMSS.Visible = false;
+                    ddlTime.Visible = false;
+                    cbHandedMSS.Visible = false;
+                }
+                else
+                {
+                    btnInsert.Visible = true;
+                    lblTime.Visible = true;
+                    lblTotalPeopleInGroup.Visible = true;
+                    txtTotalPeopleInGroup.Visible = true;
+                    lblTotalMinorsInGroup.Visible = true;
+                    txtTotalMinorsInGroup.Visible = true;
+                    txtComments.Visible = true;
+                    lblHandedMSS.Visible = true;
+                    ddlTime.Visible = true;
+                    cbHandedMSS.Visible = true;
+                }
+            }
+            else if (e.Row.RowType == DataControlRowType.EmptyDataRow)
+            {
+                if (!Report.SelectedStaffId.Equals(UserCredentials.StaffId))
+                {
+                    btnInsert1.Visible = false;
+                    lblTime.Visible = false;
+                    lblTotalPeopleInGroup.Visible = false;
+                    txtTotalPeopleInGroup1.Visible = false;
+                    lblTotalMinorsInGroup.Visible = false;
+                    txtTotalMinorsInGroup1.Visible = false;
+                    txtComments1.Visible = false;
+                    lblHandedMSS.Visible = false;
+                    ddlTime1.Visible = false;
+                    cbHandedMSS1.Visible = false;
+                }
+                else
+                {
+                    btnInsert1.Visible = true;
+                    lblTime.Visible = true;
+                    lblTotalPeopleInGroup.Visible = true;
+                    txtTotalPeopleInGroup1.Visible = true;
+                    lblTotalMinorsInGroup.Visible = true;
+                    txtTotalMinorsInGroup1.Visible = true;
+                    txtComments1.Visible = true;
+                    lblHandedMSS.Visible = true;
+                    ddlTime1.Visible = true;
+                    cbHandedMSS1.Visible = true;
+                }
+            }
+        }
+        catch
+        {
+
+        }
+    }
+    protected void gvMinorsCheckSheet_RowCreated(object sender, GridViewRowEventArgs e)
+    {
+        // if viewer is not the writer of the report, hide the first column
+        if (!Report.SelectedStaffId.Equals(UserCredentials.StaffId))
+        {
+            if (e.Row.RowType == DataControlRowType.Header || e.Row.RowType == DataControlRowType.DataRow || e.Row.RowType == DataControlRowType.Footer)
+            {
+                e.Row.Cells[0].Visible = false;
+                gvMinorsCheckSheet.ShowFooter = false;
+            }
+        }
+        else
+        {
+            gvMinorsCheckSheet.ShowFooter = true;
+        }
+    }
+    protected void gvMinorsCheckSheet_RowDeleted(object sender, GridViewDeletedEventArgs e)
+    {
+        if ((e.Exception == null) && e.AffectedRows.Equals(1))
+        {
+            alert.DisplayMessage("Deleted successfully.");
+        }
+        else
+        {
+            alert.DisplayMessage("Unable to delete successfully.");
+            e.ExceptionHandled = true;
+        }
+    }
+    protected void gvMinorsCheckSheet_RowUpdated(object sender, GridViewUpdatedEventArgs e)
+    {
+        if ((e.Exception == null) && e.AffectedRows.Equals(1))
+        {
+            alert.DisplayMessage("Update successfully.");
+        }
+        else
+        {
+            alert.DisplayMessage("Unable to update successfully.");
+            e.ExceptionHandled = true;
+        }
     }
 
     // mark a list of reports as read

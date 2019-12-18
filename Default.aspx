@@ -767,6 +767,216 @@
                 </Columns>
             </asp:GridView>
         </div>
+        <asp:SqlDataSource runat="server" ID="sdsMinorsCheckSheet"
+            OnSelecting="OnSelecting"
+            ConnectionString="<%$ ConnectionStrings:LocalDb %>"
+            SelectCommand="SELECT * FROM MinorsCheckSheet WHERE ReportId=@ReportId"
+            DeleteCommand="DELETE FROM [MinorsCheckSheet] WHERE [MinorsCheckSheetId] = @MinorsCheckSheetId"
+            UpdateCommand="UPDATE [MinorsCheckSheet] SET [TotalPeopleInGroup] = @TotalPeopleInGroup, [TotalMinorsInGroup] = @TotalMinorsInGroup,
+                            [Comments] = @Comments, [HandedMinorsSecondarySupplyCard] = @HandedMinorsSecondarySupplyCard WHERE [MinorsCheckSheetId] = @MinorsCheckSheetId"
+            InsertCommand="INSERT INTO [MinorsCheckSheet] ([ReportId], [Time], [TotalPeopleInGroup], [TotalMinorsInGroup], [Comments], [HandedMinorsSecondarySupplyCard])
+                            VALUES (@ReportId, @Time, @TotalPeopleInGroup, @TotalMinorsInGroup, @Comments, @HandedMinorsSecondarySupplyCard)">
+            <SelectParameters>
+                <asp:Parameter Name="ReportId" Type="Int32" />
+            </SelectParameters>
+            <InsertParameters>
+                <asp:Parameter Name="ReportId" Type="Int32" />
+                <asp:Parameter Name="Time" Type="String" />
+                <asp:Parameter Name="TotalPeopleInGroup" Type="Int32" />
+                <asp:Parameter Name="TotalMinorsInGroup" Type="Int32" />
+                <asp:Parameter Name="Comments" Type="String" />
+                <asp:Parameter Name="HandedMinorsSecondarySupplyCard" Type="Boolean" />
+            </InsertParameters>
+            <DeleteParameters>
+                <asp:Parameter Name="MinorsCheckSheetId" Type="Int32" />
+            </DeleteParameters>
+            <UpdateParameters>
+                <asp:Parameter Name="TotalPeopleInGroup" Type="Int32" />
+                <asp:Parameter Name="TotalMinorsInGroup" Type="Int32" />
+                <asp:Parameter Name="Comments" Type="String" />
+                <asp:Parameter Name="HandedMinorsSecondarySupply" Type="Boolean" />
+            </UpdateParameters>
+        </asp:SqlDataSource>
+        <div id="divMinorsCheckSheet" runat="server" visible="false">
+            <asp:Label ID="lblMinorsCheckSheet" runat="server" Style="position: relative; top: 15px; left: 91px;" Font-Bold="true" Text="Minors Check Sheet"></asp:Label>
+            <asp:GridView runat="server" ID="gvMinorsCheckSheet" Style="position: relative; top: 15px; margin-bottom: 40px;" HeaderStyle-CssClass="report-gridview-header" Width="84%"
+                RowStyle-CssClass="report-gridview-row" Font-Size="14px" AutoGenerateColumns="False" DataSourceID="sdsMinorsCheckSheet" EmptyDataText="There are No Data Records to Display."
+                OnRowCommand="gvMinorsCheckSheet_RowCommand" OnRowDeleted="gvMinorsCheckSheet_RowDeleted" OnRowUpdated="gvMinorsCheckSheet_RowUpdated"
+                OnRowDataBound="gvMinorsCheckSheet_RowDataBound" OnRowCreated="gvMinorsCheckSheet_RowCreated" ShowFooter="true">
+                <EmptyDataTemplate>
+                    <tr>
+                        <th></th>
+                        <th>
+                            <asp:Label ID="lblTime" runat="server" Text="Time" />
+                        </th>
+                        <th>
+                            <asp:Label ID="lblTotalPeopleInGroup" runat="server" Text="Total People In Group" />
+                        </th>
+                        <th>
+                            <asp:Label ID="lblTotalMinorsInGroup" runat="server" Text="Total Minors In Group" />
+                        </th>
+                        <th>
+                            <asp:Label ID="lblComments" runat="server" Text="Comments" />
+                        </th>
+                        <th>
+                            <asp:Label ID="lblHandedMSS" runat="server" Text="Handed Minors Secondary Supply Card" />
+                        </th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <asp:Button ID="btnInsert1" runat="server" Font-Size="X-Small" CssClass="btn" CommandName="EmptyDataTemplateInsert" Text="Add" />
+                        </td>
+                        <td>
+                            <asp:DropDownList ID="ddlTime1" runat="server" class="object-default">
+                                <asp:ListItem Enabled="true" Text="Select Time Range" Value="-1"></asp:ListItem>
+                                <asp:ListItem Text="00:00-01:00" Value="00:00-01:00"></asp:ListItem>
+                                <asp:ListItem Text="01:00-02:00" Value="01:00-02:00"></asp:ListItem>
+                                <asp:ListItem Text="02:00-03:00" Value="02:00-03:00"></asp:ListItem>
+                                <asp:ListItem Text="03:00-04:00" Value="03:00-04:00"></asp:ListItem>
+                                <asp:ListItem Text="04:00-05:00" Value="04:00-05:00"></asp:ListItem>
+                                <asp:ListItem Text="05:00-06:00" Value="05:00-06:00"></asp:ListItem>
+                                <asp:ListItem Text="06:00-07:00" Value="06:00-07:00"></asp:ListItem>
+                                <asp:ListItem Text="07:00-08:00" Value="07:00-08:00"></asp:ListItem>
+                                <asp:ListItem Text="08:00-09:00" Value="08:00-09:00"></asp:ListItem>
+                                <asp:ListItem Text="09:00-10:00" Value="09:00-10:00"></asp:ListItem>
+                                <asp:ListItem Text="10:00-11:00" Value="10:00-11:00"></asp:ListItem>
+                                <asp:ListItem Text="11:00-12:00" Value="11:00-12:00"></asp:ListItem>
+                                <asp:ListItem Text="12:00-13:00" Value="12:00-13:00"></asp:ListItem>
+                                <asp:ListItem Text="13:00-14:00" Value="13:00-14:00"></asp:ListItem>
+                                <asp:ListItem Text="14:00-15:00" Value="14:00-15:00"></asp:ListItem>
+                                <asp:ListItem Text="15:00-16:00" Value="15:00-16:00"></asp:ListItem>
+                                <asp:ListItem Text="16:00-17:00" Value="16:00-17:00"></asp:ListItem>
+                                <asp:ListItem Text="17:00-18:00" Value="17:00-18:00"></asp:ListItem>
+                                <asp:ListItem Text="18:00-19:00" Value="18:00-19:00"></asp:ListItem>
+                                <asp:ListItem Text="19:00-20:00" Value="19:00-20:00"></asp:ListItem>
+                                <asp:ListItem Text="20:00-21:00" Value="20:00-21:00"></asp:ListItem>
+                                <asp:ListItem Text="21:00-22:00" Value="21:00-22:00"></asp:ListItem>
+                                <asp:ListItem Text="22:00-23:00" Value="22:00-23:00"></asp:ListItem>
+                                <asp:ListItem Text="23:00-00:00" Value="23:00-00:00"></asp:ListItem>
+                            </asp:DropDownList>
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtTotalPeopleInGroup1" class="object-default" runat="server" />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtTotalMinorsInGroup1" class="object-default" runat="server" />
+                        </td>
+                        <td>
+                            <asp:TextBox ID="txtComments1" class="object-default" runat="server" TextMode="MultiLine" Height="50" />
+                        </td>
+                        <td>
+                            <asp:CheckBox ID="cbHandedMSS1" Checked="false" runat="server" />
+                        </td>
+                    </tr>
+                </EmptyDataTemplate>
+                <Columns>
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:Button ID="btnEdit" runat="server" Font-Size="X-Small" Width="56px" CssClass="btn" CausesValidation="false" CommandName="Edit" Text="Edit" />
+                            <asp:Button ID="btnDelete" runat="server" Font-Size="X-Small" CssClass="btn btn-primary" CausesValidation="false" CommandName="Delete" OnClientClick="return confirm ('Are you sure you want to delete this record?')" Text="Delete" />
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:Button ID="btnUpdate" Font-Size="X-Small" CssClass="btn btn-primary" runat="server" CommandName="Update" Text="Update" />
+                            <asp:Button ID="btnCancel" Font-Size="X-Small" CssClass="btn btn-primary" runat="server" CausesValidation="false" CommandName="Cancel" Text="Cancel" />
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:Button ID="btnInsert" Font-Size="X-Small" CssClass="btn btn-primary" runat="server" CommandName="FooterInsert" Text="Add" Width="100px" />
+                        </FooterTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Minors Check Sheet Id" Visible="false" SortExpression="MinorsCheckSheetId">
+                        <ItemTemplate>
+                            <asp:Label ID="lblMinorsCheckSheetId" runat="server" Text='<%# Bind("MinorsCheckSheetId") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Report Id" Visible="false" SortExpression="ReportId">
+                        <ItemTemplate>
+                            <asp:Label ID="lblReportId" runat="server" Text='<%# Bind("ReportId") %>' />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Time" ItemStyle-Width="200px" SortExpression="Time">
+                        <ItemTemplate>
+                            <asp:Label ID="lblTime" runat="server" Text='<%# Bind("Time") %>' />
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtTime" class="object-default" enabled="false" runat="server" Text='<%# Eval("Time") %>' />
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                                        <asp:DropDownList ID="ddlTime" runat="server" class="object-default">
+                                            <asp:ListItem Enabled="true" Text="Select Time Range" Value="-1"></asp:ListItem>
+                                            <asp:ListItem Text="00:00-01:00" Value="00:00-01:00"></asp:ListItem>
+                                            <asp:ListItem Text="01:00-02:00" Value="01:00-02:00"></asp:ListItem>
+                                            <asp:ListItem Text="02:00-03:00" Value="02:00-03:00"></asp:ListItem>
+                                            <asp:ListItem Text="03:00-04:00" Value="03:00-04:00"></asp:ListItem>
+                                            <asp:ListItem Text="04:00-05:00" Value="04:00-05:00"></asp:ListItem>
+                                            <asp:ListItem Text="05:00-06:00" Value="05:00-06:00"></asp:ListItem>
+                                            <asp:ListItem Text="06:00-07:00" Value="06:00-07:00"></asp:ListItem>
+                                            <asp:ListItem Text="07:00-08:00" Value="07:00-08:00"></asp:ListItem>
+                                            <asp:ListItem Text="08:00-09:00" Value="08:00-09:00"></asp:ListItem>
+                                            <asp:ListItem Text="09:00-10:00" Value="09:00-10:00"></asp:ListItem>
+                                            <asp:ListItem Text="10:00-11:00" Value="10:00-11:00"></asp:ListItem>
+                                            <asp:ListItem Text="11:00-12:00" Value="11:00-12:00"></asp:ListItem>
+                                            <asp:ListItem Text="12:00-13:00" Value="12:00-13:00"></asp:ListItem>
+                                            <asp:ListItem Text="13:00-14:00" Value="13:00-14:00"></asp:ListItem>
+                                            <asp:ListItem Text="14:00-15:00" Value="14:00-15:00"></asp:ListItem>
+                                            <asp:ListItem Text="15:00-16:00" Value="15:00-16:00"></asp:ListItem>
+                                            <asp:ListItem Text="16:00-17:00" Value="16:00-17:00"></asp:ListItem>
+                                            <asp:ListItem Text="17:00-18:00" Value="17:00-18:00"></asp:ListItem>
+                                            <asp:ListItem Text="18:00-19:00" Value="18:00-19:00"></asp:ListItem>
+                                            <asp:ListItem Text="19:00-20:00" Value="19:00-20:00"></asp:ListItem>
+                                            <asp:ListItem Text="20:00-21:00" Value="20:00-21:00"></asp:ListItem>
+                                            <asp:ListItem Text="21:00-22:00" Value="21:00-22:00"></asp:ListItem>
+                                            <asp:ListItem Text="22:00-23:00" Value="22:00-23:00"></asp:ListItem>
+                                            <asp:ListItem Text="23:00-00:00" Value="23:00-00:00"></asp:ListItem>
+                                        </asp:DropDownList>
+                        </FooterTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Total People in Group" ItemStyle-Width="200px" SortExpression="TotalPeopleInGroup">
+                        <ItemTemplate>
+                            <asp:Label ID="lblTotalPeopleInGroup" runat="server" Text='<%# Bind("TotalPeopleInGroup") %>' />
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtTotalPeopleInGroup" class="object-default" TextMode="MultiLine" Height="50" Width="250" runat="server" Text='<%# Eval("TotalPeopleInGroup") %>' />
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:TextBox ID="txtTotalPeopleInGroup" class="object-default" runat="server" Text='<%# Eval("TotalPeopleInGroup") %>' />
+                        </FooterTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Total Minors in Group" ItemStyle-Width="200px" SortExpression="TotalMinorsInGroup">
+                        <ItemTemplate>
+                            <asp:Label ID="lblTotalMinorsInGroup" runat="server" Text='<%# Bind("TotalMinorsInGroup") %>' />
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtTotalMinorsInGroup" class="object-default" TextMode="MultiLine" Height="50" Width="250" runat="server" Text='<%# Eval("TotalMinorsInGroup") %>' />
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:TextBox ID="txtTotalMinorsInGroup" class="object-default" runat="server" Text='<%# Eval("TotalMinorsInGroup") %>' />
+                        </FooterTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Comments" ItemStyle-Width="250px" SortExpression="Comments">
+                        <ItemTemplate>
+                            <%# (string.IsNullOrWhiteSpace(Eval("Comments").ToString())) ? Eval("Comments") : (Eval("Comments").ToString()).Replace("^", "'") %>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:TextBox ID="txtComments" class="object-default" TextMode="MultiLine" Height="50" Width="250" runat="server" Text='<%# RemoveBreakLine(Eval("Comments")) %>' />
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:TextBox ID="txtComments" class="object-default" TextMode="MultiLine" Height="50" Width="250" runat="server" />
+                        </FooterTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="Handed Minors Secondary Supply Card" ItemStyle-Width="200px" SortExpression="HandedMinorsSecondarySupplyCard">
+                        <ItemTemplate>
+                            <asp:CheckBox ID="cbHandedMSS" runat="server" Checked='<%# Eval("HandedMinorsSecondarySupplyCard") %>' Enabled="false"></asp:CheckBox>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                            <asp:CheckBox ID="cbHandedMSS" Checked='<%# Bind("HandedMinorsSecondarySupplyCard") %>' runat="server"></asp:CheckBox>
+                        </EditItemTemplate>
+                        <FooterTemplate>
+                            <asp:CheckBox ID="cbHandedMSS" Checked="false" runat="server" />
+                        </FooterTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
+        </div>
         <asp:SqlDataSource runat="server" ID="sdsRecommendation_Allegation"
             ConnectionString="<%$ ConnectionStrings:LocalDb %>"
             SelectCommand="SELECT id, StaffId, Name, Statement, DateEntered, ReportId FROM [Recommendation_Allegation] WHERE ReportId=@ReportId"

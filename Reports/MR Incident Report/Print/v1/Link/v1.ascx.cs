@@ -967,31 +967,31 @@ public partial class Reports_MR_Incident_Report_Print_v1_Link_v1 : System.Web.UI
                             causeinj5l.Visible = false;
                             causeinj5.Visible = false;
                         }
-                        if (String.IsNullOrEmpty(rdr["Comments1"].ToString()))
-                        {
-                            inccom1l.Visible = false;
-                            inccom1.Visible = false;
-                        }
-                        if (String.IsNullOrEmpty(rdr["Comments2"].ToString()))
-                        {
-                            inccom2l.Visible = false;
-                            inccom2.Visible = false;
-                        }
-                        if (String.IsNullOrEmpty(rdr["Comments3"].ToString()))
-                        {
-                            inccom3l.Visible = false;
-                            inccom3.Visible = false;
-                        }
-                        if (String.IsNullOrEmpty(rdr["Comments4"].ToString()))
-                        {
-                            inccom4l.Visible = false;
-                            inccom4.Visible = false;
-                        }
-                        if (String.IsNullOrEmpty(rdr["Comments5"].ToString()))
-                        {
-                            inccom5l.Visible = false;
-                            inccom5.Visible = false;
-                        }
+                        //if (String.IsNullOrEmpty(rdr["Comments1"].ToString()))
+                        //{
+                        //    inccom1l.Visible = false;
+                        //    inccom1.Visible = false;
+                        //}
+                        //if (String.IsNullOrEmpty(rdr["Comments2"].ToString()))
+                        //{
+                        //    inccom2l.Visible = false;
+                        //    inccom2.Visible = false;
+                        //}
+                        //if (String.IsNullOrEmpty(rdr["Comments3"].ToString()))
+                        //{
+                        //    inccom3l.Visible = false;
+                        //    inccom3.Visible = false;
+                        //}
+                        //if (String.IsNullOrEmpty(rdr["Comments4"].ToString()))
+                        //{
+                        //    inccom4l.Visible = false;
+                        //    inccom4.Visible = false;
+                        //}
+                        //if (String.IsNullOrEmpty(rdr["Comments5"].ToString()))
+                        //{
+                        //    inccom5l.Visible = false;
+                        //    inccom5.Visible = false;
+                        //}
                         if (String.IsNullOrEmpty(rdr["CamDesc1"].ToString()))
                         {
                             tblCam1.Visible = false;

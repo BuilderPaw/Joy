@@ -207,14 +207,14 @@
                     <%# (string.IsNullOrWhiteSpace(Eval("CauseInjury1").ToString())) ? Eval("CauseInjury1") : (Eval("CauseInjury1").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
-            <tr>
+<%--            <tr>
                 <td colspan="4" id="inccom1l" runat="server"><b><u>Incident Comments</u></b></td>
             </tr>
             <tr>
                 <td colspan="4" id="inccom1" runat="server">
                     <%# (string.IsNullOrWhiteSpace(Eval("Comments1").ToString())) ? Eval("Comments1") : (Eval("Comments1").ToString()).Replace("^", "'") %>
                 </td>
-            </tr>
+            </tr>--%>
             <tr>
                 <td colspan="4" id="image1l" runat="server">
                     <b><u>Injury Diagram</u></b>
@@ -404,14 +404,14 @@
                     <%# (string.IsNullOrWhiteSpace(Eval("CauseInjury2").ToString())) ? Eval("CauseInjury2") : (Eval("CauseInjury2").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
-            <tr>
+<%--            <tr>
                 <td colspan="4" id="inccom2l" runat="server"><b><u>Incident Comments</u></b></td>
             </tr>
             <tr>
                 <td colspan="4" id="inccom2" runat="server">
                     <%# (string.IsNullOrWhiteSpace(Eval("Comments2").ToString())) ? Eval("Comments2") : (Eval("Comments2").ToString()).Replace("^", "'") %>
                 </td>
-            </tr>
+            </tr>--%>
             <tr>
                 <td colspan="4" id="image2l" runat="server">
                     <b><u>Injury Diagram</u></b>
@@ -601,14 +601,14 @@
                     <%# (string.IsNullOrWhiteSpace(Eval("CauseInjury3").ToString())) ? Eval("CauseInjury3") : (Eval("CauseInjury3").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
-            <tr>
+<%--            <tr>
                 <td colspan="4" id="inccom3l" runat="server"><b><u>Incident Comments</u></b></td>
             </tr>
             <tr>
                 <td colspan="4" id="inccom3" runat="server">
                     <%# (string.IsNullOrWhiteSpace(Eval("Comments3").ToString())) ? Eval("Comments3") : (Eval("Comments3").ToString()).Replace("^", "'") %>
                 </td>
-            </tr>
+            </tr>--%>
             <tr>
                 <td colspan="4" id="image3l" runat="server">
                     <b><u>Injury Diagram</u></b>
@@ -798,14 +798,14 @@
                     <%# (string.IsNullOrWhiteSpace(Eval("CauseInjury4").ToString())) ? Eval("CauseInjury4") : (Eval("CauseInjury4").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
-            <tr>
+<%--            <tr>
                 <td colspan="4" id="inccom4l" runat="server"><b><u>Incident Comments</u></b></td>
             </tr>
             <tr>
                 <td colspan="4" id="inccom4" runat="server">
                     <%# (string.IsNullOrWhiteSpace(Eval("Comments4").ToString())) ? Eval("Comments4") : (Eval("Comments4").ToString()).Replace("^", "'") %>
                 </td>
-            </tr>
+            </tr>--%>
             <tr>
                 <td colspan="4" id="image4l" runat="server">
                     <b><u>Injury Diagram</u></b>
@@ -995,14 +995,14 @@
                     <%# (string.IsNullOrWhiteSpace(Eval("CauseInjury5").ToString())) ? Eval("CauseInjury5") : (Eval("CauseInjury5").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
-            <tr>
+<%--            <tr>
                 <td colspan="4" id="inccom5l" runat="server"><b><u>Incident Comments</u></b></td>
             </tr>
             <tr>
                 <td colspan="4" id="inccom5" runat="server">
                     <%# (string.IsNullOrWhiteSpace(Eval("Comments5").ToString())) ? Eval("Comments5") : (Eval("Comments5").ToString()).Replace("^", "'") %>
                 </td>
-            </tr>
+            </tr>--%>
             <tr>
                 <td colspan="4" id="image5l" runat="server">
                     <b><u>Injury Diagram</u></b>
@@ -1320,7 +1320,7 @@
                 </td>
             </tr>
             <tr>
-                <th colspan="4">Allegation</th>
+                <th colspan="4">Witness Statement</th>
             </tr>
             <tr>
                 <td colspan="4">
@@ -1381,7 +1381,7 @@
             </tr>
             <tr>
                 <td id="tdPolice3" runat="server" colspan="4">
-                    <b>Police Action : </b><%# (string.IsNullOrWhiteSpace(Eval("PoliceAction").ToString())) ? Eval("PoliceAction") : (Eval("PoliceAction").ToString()).Replace("^", "'") %>
+                    <b>Event No. & Police Action : </b><%# (string.IsNullOrWhiteSpace(Eval("PoliceAction").ToString())) ? Eval("PoliceAction") : (Eval("PoliceAction").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
         </table>
