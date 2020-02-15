@@ -61,6 +61,7 @@
                 return false;
         }
 
+        // when key is pressed on any objects under Search section and Enter key is selected, trigger btnSearchReport_Click method
         function button_click(objTextBox, objBtnID) {
             if (event.keyCode == 13) {
                 document.getElementById(objBtnID).focus();

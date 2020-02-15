@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data; // CommandType
-using System.Data.SqlClient; /// SQL Connection
+using System.Data;          // CommandType
+using System.Data.SqlClient;// SQL Connection
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,7 +11,8 @@ using System.Web.UI.WebControls;
 /// Project follows Brad Adams Naming Convention Standard Guidelines - https://blogs.msdn.microsoft.com/brada/2005/01/26/internal-coding-guidelines/
 /// Program uses static property encapsulated inside a public class - https://stackoverflow.com/questions/895595/how-do-i-persist-data-without-global-variables
 /// "We should however look at the reasons why Globals are bad, and they are mostly regarded as bad because you break the rules of encapsulation.
-///    Static data though, is not necesarrily bad, the good thing about static data is that you can encapsulate it, my example above is a very simplistic example of that,
+///    Static data though, is not necesarrily bad, the good thing about static data is that you can encapsulate it, my example above is a very simplistic
+///    example of that,
 ///    probably in a real world scenario you would include your static data in the same class that does other work with the credentials." - Tim Jarvis
 /// </summary>
 
@@ -22,7 +23,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (HttpContext.Current.User.Identity.IsAuthenticated) // show login prompt and hide header objects
+        // show login prompt and hide header objects
+        if (HttpContext.Current.User.Identity.IsAuthenticated)
         {
             // display the accordion when user has logged in
             accordion.Visible = true;
@@ -39,45 +41,51 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         if (!IsPostBack)
         {
-            //SetVenue();
-
-            // display an alert message if user has any existing report
+            // display an alert message if user has any existing unsigned report(s)
             if (UserCredentials.StaffId != "0")
             {
                 if (Report.HasDisplayedUnsignedReport <3)
                 {
                     con.Open();
-                    SqlCommand count = new SqlCommand("SELECT COUNT(*) FROM [View_Reports] WHERE ReportStat LIKE '%Completion%' and StaffId=" + UserCredentials.StaffId, con);
-                    int numberOfReportsUnsigned = Int32.Parse(count.ExecuteScalar().ToString()); // set the number of assigned actions
+                    SqlCommand count = new SqlCommand("Proc_CountUserUnsignedReports", con);
+                    count.CommandType = CommandType.StoredProcedure;
+                    count.Parameters.Add("@StaffId", SqlDbType.VarChar).Value = UserCredentials.StaffId;
+                    int numberOfReportsUnsigned = Int32.Parse(count.ExecuteScalar().ToString());
                     con.Close();
 
                     if (numberOfReportsUnsigned > 0)
                     {
-                        alert.DisplayMessage("*Please ensure to sign all Awaiting Completion status reports. You have " + numberOfReportsUnsigned + " report(s) unsigned.");
+                        alert.DisplayMessage("*Please ensure to sign all Awaiting Completion status reports. You have " + numberOfReportsUnsigned +
+                            " report(s) unsigned.");
                     }
                     Report.HasDisplayedUnsignedReport++;
                 }
             }
 
-            // populate dropdownlist based on user priviledges
-            if (!string.IsNullOrWhiteSpace(UserCredentials.Groups)) // check if user group is not empty
+            // populate dropdownlist based on user access
+            if (!string.IsNullOrWhiteSpace(UserCredentials.Groups))
             {
                 // hide or display the Report Version Button depending on the users group
-                if (UserCredentials.Groups.Contains("SeniorManager") || UserCredentials.Groups.Contains("DutyManager") || UserCredentials.Groups.Contains("Supervisor"))
+                if (UserCredentials.Groups.Contains("SeniorManager") || UserCredentials.Groups.Contains("DutyManager") 
+                    || UserCredentials.Groups.Contains("Supervisor"))
                 {
                     acpDisplayVersion.Visible = true;
                 }
 
                 UserCredentials listReports = new UserCredentials();
-                int[] reportList = listReports.ListReports(); // populate into an int array a list of all reports available to the user
+                // populate into an int array a list of all reports available to the user
+                int[] reportList = listReports.ListReports();
 
-                if (!UserCredentials.Groups.Contains("MRReportsSeniorManagers")) // if user is not a member of Senior Managers
+                if (!UserCredentials.Groups.Contains("MRReportsSeniorManagers"))
                 {
-                    Array.Sort(reportList); // sort report list in order
+                    // sort report list in order
+                    Array.Sort(reportList);
                     bool incidentAdded1 = false, incidentAdded2 = false;
-                    for (int i = 0; i < reportList.Length; i++) // display the reports in proper order, All MR Reports at the top followed by CU Reports
+                    // display the reports in proper order, All MR Reports at the top followed by CU Reports
+                    for (int i = 0; i < reportList.Length; i++)
                     {
-                        if (reportList[i] == 1 || reportList[i] == 2 || reportList[i] == 5 || reportList[i] == 8)     // if Duty Manager or Supervisor or Reception or Contractor Staff - Merrylands
+                        // if Duty Manager or Supervisor or Reception or Contractor Staff - Merrylands
+                        if (reportList[i] == 1 || reportList[i] == 2 || reportList[i] == 5 || reportList[i] == 8)
                         {
                             if (!incidentAdded1)
                             {
@@ -86,8 +94,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
                                 incidentAdded1 = true;
                             }
                         }
-
-                        if (reportList[i] == 6 || reportList[i] == 7)                           // if Duty Manager or Reception Staff - Umina
+                        // if Duty Manager or Reception Staff - Umina
+                        if (reportList[i] == 6 || reportList[i] == 7)
                         {
                             if (!incidentAdded2)
                             {
@@ -96,88 +104,94 @@ public partial class MasterPage : System.Web.UI.MasterPage
                                 incidentAdded2 = true;
                             }
                         }
-
-                        if (reportList[i] == 1)                                                 // MR Duty Manager 
+                        // MR Duty Manager 
+                        if (reportList[i] == 1)                                                 
                         {
                             ddlCreateReport.Items.Add(new ListItem("MR Duty Managers", "2"));
                             ddlSearchReport.Items.Add(new ListItem("MR Duty Manager", "3"));
                         }
-                        else if (reportList[i] == 2)                                            // MR Supervisor
+                        // MR Supervisor
+                        else if (reportList[i] == 2)
                         {
                             ddlCreateReport.Items.Add(new ListItem("MR Supervisors", "3"));
                             ddlSearchReport.Items.Add(new ListItem("MR Supervisor", "4"));
                         }
-                        else if (reportList[i] == 3)                                            // MR Function Supervisor
+                        // MR Function Supervisor
+                        else if (reportList[i] == 3)
                         {
                             ddlCreateReport.Items.Add(new ListItem("MR Function Supervisor", "4"));
                             ddlSearchReport.Items.Add(new ListItem("MR Function Supervisor", "5"));
                         }
-                        else if (reportList[i] == 4)                                            // MR Reception Supervisor
+                        // MR Reception Supervisor
+                        else if (reportList[i] == 4)
                         {
                             ddlCreateReport.Items.Add(new ListItem("MR Reception Supervisor", "5"));
                             ddlSearchReport.Items.Add(new ListItem("MR Reception Supervisor", "6"));
                         }
-                        else if (reportList[i] == 5)                                            // MR Reception
+                        // MR Reception
+                        else if (reportList[i] == 5)
                         {
                             ddlCreateReport.Items.Add(new ListItem("MR Reception", "6"));
                             ddlSearchReport.Items.Add(new ListItem("MR Reception", "7"));
                         }
-                        else if (reportList[i] == 6)                                            // CU Duty Manager
+                        // CU Duty Manager
+                        else if (reportList[i] == 6)
                         {
                             ddlCreateReport.Items.Add(new ListItem("CU Duty Managers", "7"));
                             ddlSearchReport.Items.Add(new ListItem("CU Duty Manager", "8"));
                         }
-                        else if (reportList[i] == 7)                                            // CU Reception
+                        // CU Reception
+                        else if (reportList[i] == 7)
                         {
                             ddlCreateReport.Items.Add(new ListItem("CU Reception", "8"));
                             ddlSearchReport.Items.Add(new ListItem("CU Reception", "9"));
                         }
                     }
                 }
-                else // if the user is a member of Senior Managers
+                // if the user has Senior Managers access
+                else
                 {
-                    ddlCreateReport.Items.Add(new ListItem("MR Incident Report", "1"));           // add all available reports - MR Duty Manager and MR/CU Incident Report
+                    // add all available reports - MR Duty Manager and MR/CU Incident Report
+                    ddlCreateReport.Items.Add(new ListItem("MR Incident Report", "1"));
                     ddlSearchReport.Items.Add(new ListItem("MR Incident Report", "2"));
                     ddlCreateReport.Items.Add(new ListItem("CU Incident Report", "9"));
                     ddlSearchReport.Items.Add(new ListItem("CU Incident Report", "10"));
                     ddlCreateReport.Items.Add(new ListItem("MR Duty Managers", "2"));
                     ddlSearchReport.Items.Add(new ListItem("MR Duty Manager", "3"));
-                    ddlCreateReport.Items.Add(new ListItem("MR Supervisors", "3"));               // MR Supervisor
+                    // MR Supervisor
+                    ddlCreateReport.Items.Add(new ListItem("MR Supervisors", "3"));
                     ddlSearchReport.Items.Add(new ListItem("MR Supervisor", "4"));
-                    ddlCreateReport.Items.Add(new ListItem("MR Function Supervisor", "4"));       // MR Function Supervisor
+                    // MR Function Supervisor
+                    ddlCreateReport.Items.Add(new ListItem("MR Function Supervisor", "4"));
                     ddlSearchReport.Items.Add(new ListItem("MR Function Supervisor", "5"));
-                    ddlCreateReport.Items.Add(new ListItem("MR Reception Supervisor", "5"));      // MR Reception Supervisor
+                    // MR Reception Supervisor
+                    ddlCreateReport.Items.Add(new ListItem("MR Reception Supervisor", "5"));
                     ddlSearchReport.Items.Add(new ListItem("MR Reception Supervisor", "6"));
-                    ddlCreateReport.Items.Add(new ListItem("MR Reception", "6"));                 // MR Reception
+                    // MR Reception
+                    ddlCreateReport.Items.Add(new ListItem("MR Reception", "6"));
                     ddlSearchReport.Items.Add(new ListItem("MR Reception", "7"));
-                    ddlCreateReport.Items.Add(new ListItem("CU Duty Managers", "7"));             // CU Duty Manager
+                    // CU Duty Manager
+                    ddlCreateReport.Items.Add(new ListItem("CU Duty Managers", "7"));
                     ddlSearchReport.Items.Add(new ListItem("CU Duty Manager", "8"));
-                    ddlCreateReport.Items.Add(new ListItem("CU Reception", "8"));                 // CU Reception
+                    // CU Reception
+                    ddlCreateReport.Items.Add(new ListItem("CU Reception", "8"));
                     ddlSearchReport.Items.Add(new ListItem("CU Reception", "9"));
                 }
 
-                ddlStaffId.Items.Clear();
-                using (SqlCommand cmd = new SqlCommand("SELECT * FROM [View_Staff] ORDER BY [StaffName]")) // populate the staff dropdownlist
-                {
-                    cmd.CommandType = CommandType.Text;
-                    cmd.Connection = con;
-                    con.Open();
-                    ddlStaffId.DataSource = cmd.ExecuteReader();
-                    ddlStaffId.DataTextField = "StaffName";
-                    ddlStaffId.DataValueField = "StaffId";
-                    ddlStaffId.DataBind();
-                    con.Close();
-                }
-                ddlStaffId.Items.Insert(0, new ListItem("All", "")); // add "All" selection in the beginning of the list
+                // populate the staff dropdownlist
+                PopulateStaffList();
 
-                if (!string.IsNullOrWhiteSpace(SearchReport.SetAccordion)) // keeps the accordion set to the appropriate index (either Reports or Search Pane)
+                // keeps the accordion set to the appropriate index (either Reports or Search Pane)
+                if (!string.IsNullOrWhiteSpace(SearchReport.SetAccordion))
                 {
                     acUserPanel.SelectedIndex = Int32.Parse(SearchReport.SetAccordion);
                 }
 
-                if (!string.IsNullOrWhiteSpace(Request.QueryString["ReportType"])) // sets the objects to filters selected by the user
+                // sets the objects to filters selected by the user
+                if (!string.IsNullOrWhiteSpace(Request.QueryString["ReportType"]))
                 {
-                    ddlSearchReport.SelectedValue = Request.QueryString["ReportType"].ToString(); // current filters selected
+                    // current filters selected
+                    ddlSearchReport.SelectedValue = Request.QueryString["ReportType"].ToString();
                     ddlDateGroup.SelectedValue = Request.QueryString["DateGroup"].ToString();
                     ddlReportStat.SelectedValue = Request.QueryString["ReportStatus"].ToString();
 
@@ -210,45 +224,23 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
                     if (SearchReport.ArchivedStaff)
                     {
+                        // populate the archived staff dropdownlist
                         cbArchivedStaff.Checked = true;
                         SearchReport.ArchivedStaff = true;
-
-                        ddlStaffId.Items.Clear();
-                        using (SqlCommand cmd = new SqlCommand("SELECT s.StaffId, sn.Name AS StaffName, s.Username, s.StaffGroup FROM dbo.Staff AS s INNER JOIN dbo.StaffName AS sn ON s.StaffId = sn.StaffId WHERE (sn.Active = 1) AND (s.Active = 0) ORDER BY StaffName")) // populate the staff dropdownlist
-                        {
-                            cmd.CommandType = CommandType.Text;
-                            cmd.Connection = con;
-                            con.Open();
-                            ddlStaffId.DataSource = cmd.ExecuteReader();
-                            ddlStaffId.DataTextField = "StaffName";
-                            ddlStaffId.DataValueField = "StaffId";
-                            ddlStaffId.DataBind();
-                            con.Close();
-                        }
-                        ddlStaffId.Items.Insert(0, new ListItem("All", "")); // add "All" selection in the beginning of the list
+                        PopulateArchivedStaffList();
                     }
                     else
                     {
+                        // populate the staff dropdownlist
                         cbArchivedStaff.Checked = false;
                         SearchReport.ArchivedStaff = false;
-                        ddlStaffId.Items.Clear();
-                        using (SqlCommand cmd = new SqlCommand("SELECT * FROM [View_Staff] ORDER BY [StaffName]")) // populate the staff dropdownlist
-                        {
-                            cmd.CommandType = CommandType.Text;
-                            cmd.Connection = con;
-                            con.Open();
-                            ddlStaffId.DataSource = cmd.ExecuteReader();
-                            ddlStaffId.DataTextField = "StaffName";
-                            ddlStaffId.DataValueField = "StaffId";
-                            ddlStaffId.DataBind();
-                            con.Close();
-                        }
-                        ddlStaffId.Items.Insert(0, new ListItem("All", "")); // add "All" selection in the beginning of the list
+                        PopulateStaffList();
                     }
 
                     ddlStaffId.SelectedValue = Request.QueryString["Staff"].ToString();
 
-                    if (Request.QueryString["Keyword"].ToString().Equals("0")) // set keyword entered
+                    // set keyword entered
+                    if (Request.QueryString["Keyword"].ToString().Equals("0"))
                     {
                         txtKeyword.Text = "";
                     }
@@ -266,7 +258,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
                         txtReportId.Text = SearchReport.ReportId;
                     }
 
-                    if (ddlDateGroup.SelectedValue == "7") // if Custom Date is selected in Date Filter
+                    // if Custom Date is selected in Date Filter
+                    if (ddlDateGroup.SelectedValue == "7")
                     {
                         txtStartDate.Text = SearchReport.StartDate;
                         txtEndDate.Text = SearchReport.EndDate;
@@ -286,7 +279,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     }
                     else
                     {
-                        ddlIncidentHappened.SelectedValue = SearchReport.WhatHappened.TrimEnd(','); // remove the last character (,)
+                        // remove the last character (,)
+                        ddlIncidentHappened.SelectedValue = SearchReport.WhatHappened.TrimEnd(',');
                     }
                     if (SearchReport.Location == "0")
                     {
@@ -346,7 +340,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 if (SearchReport.RunOnStart == true)
                 {
                     DefaultSearch();
-                    if (SearchReport.FromCreateReport) // check if postback came from creating a report
+                    // check if postback came from creating a report
+                    if (SearchReport.FromCreateReport)
                     {
                         SearchReport.UnreadList = false;
                         SearchReport.FromCreateReport = false;
@@ -360,6 +355,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             }
         }
 
+        // when key is pressed on these objects and Enter key is selected, trigger btnSearchReport_Click method
         this.cbUnreadList.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
 
         this.txtStartDate.Attributes.Add("onkeypress", "button_click(this,'" + this.btnSearchReport.ClientID + "')");
@@ -383,38 +379,52 @@ public partial class MasterPage : System.Web.UI.MasterPage
     {
         if (cbArchivedStaff.Checked)
         {
+            // populate the archived staff dropdownlist
             SearchReport.ArchivedStaff = true;
-            ddlStaffId.Items.Clear();
-            using (SqlCommand cmd = new SqlCommand("SELECT s.StaffId, sn.Name AS StaffName, s.Username, s.StaffGroup FROM dbo.Staff AS s INNER JOIN dbo.StaffName AS sn ON s.StaffId = sn.StaffId WHERE (sn.Active = 1) AND (s.Active = 0) ORDER BY StaffName")) // populate the staff dropdownlist
-            {
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = con;
-                con.Open();
-                ddlStaffId.DataSource = cmd.ExecuteReader();
-                ddlStaffId.DataTextField = "StaffName";
-                ddlStaffId.DataValueField = "StaffId";
-                ddlStaffId.DataBind();
-                con.Close();
-            }
-            ddlStaffId.Items.Insert(0, new ListItem("All", "")); // add "All" selection in the beginning of the list
+            PopulateArchivedStaffList();
         }
         else
         {
+            // populate the staff dropdownlist
             SearchReport.ArchivedStaff = false;
-            ddlStaffId.Items.Clear();
-            using (SqlCommand cmd = new SqlCommand("SELECT * FROM [View_Staff] ORDER BY [StaffName]")) // populate the staff dropdownlist
-            {
-                cmd.CommandType = CommandType.Text;
-                cmd.Connection = con;
-                con.Open();
-                ddlStaffId.DataSource = cmd.ExecuteReader();
-                ddlStaffId.DataTextField = "StaffName";
-                ddlStaffId.DataValueField = "StaffId";
-                ddlStaffId.DataBind();
-                con.Close();
-            }
-            ddlStaffId.Items.Insert(0, new ListItem("All", "")); // add "All" selection in the beginning of the list
+            PopulateStaffList();
         }
+    }
+
+    protected void PopulateStaffList()
+    {
+        ddlStaffId.Items.Clear();
+        using (SqlCommand cmd = new SqlCommand("Proc_PopulateStaffList"))
+        {
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = con;
+            con.Open();
+            ddlStaffId.DataSource = cmd.ExecuteReader();
+            ddlStaffId.DataTextField = "StaffName";
+            ddlStaffId.DataValueField = "StaffId";
+            ddlStaffId.DataBind();
+            con.Close();
+        }
+        // add an "All" selection in the beginning of the list
+        ddlStaffId.Items.Insert(0, new ListItem("All", ""));
+    }
+
+    protected void PopulateArchivedStaffList()
+    {
+        ddlStaffId.Items.Clear();
+        using (SqlCommand cmd = new SqlCommand("Proc_PopulateArchivedStaffList"))
+        {
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Connection = con;
+            con.Open();
+            ddlStaffId.DataSource = cmd.ExecuteReader();
+            ddlStaffId.DataTextField = "StaffName";
+            ddlStaffId.DataValueField = "StaffId";
+            ddlStaffId.DataBind();
+            con.Close();
+        }
+        // add an "All" selection in the beginning of the list
+        ddlStaffId.Items.Insert(0, new ListItem("All", ""));
     }
 
     protected void cbMROnly_CheckedChanged(object sender, EventArgs e)
@@ -600,11 +610,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
         Response.Redirect("~/Default.aspx?ReportType=" + ddlSearchReport.SelectedItem.Value + "&DateGroup=" + ddlDateGroup.SelectedItem.Value + "&Staff=" + ddlStaffId.SelectedItem.Value + "&ReportStatus=" + ddlReportStat.SelectedItem.Value + "&Keyword=" + keyword, false); // send the parameters to Default.aspx to populate the Gridview
     }
 
-    protected void AdvancedFilter() // display the incident report filters
+    // display the incident report filters
+    protected void AdvancedFilter()
     {
-        if (ddlSearchReport.SelectedItem.Text.Contains("Incident")) // display incident report filters
+        // display incident report filters
+        if (ddlSearchReport.SelectedItem.Text.Contains("Incident"))
         {
-            advancedFilter.Visible = true; // toggle advanced filter visibility
+            // toggle advanced filter visibility
+            advancedFilter.Visible = true;
             lblIncidentHappened.Visible = true;
             lblLocation.Visible = true;
             lblMemNo.Visible = true;
@@ -619,7 +632,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
             txtFirstName.Visible = true;
             txtLastName.Visible = true;
             txtAlias.Visible = true;
-            ddlIncidentHappened.Items.Clear(); // clear any existing values for advanced filter objects
+
+            // clear any existing values for advanced filter objects
+            ddlIncidentHappened.Items.Clear();
             ddlLocation.Items.Clear();
             txtMemNo.Text = "";
             ddlActionTaken.Items.Clear();
@@ -633,9 +648,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
             {
                 siteId = "2";
             }
-            using (SqlCommand cmd = new SqlCommand("SELECT IncidentId, Description FROM [List_IncidentType] WHERE [SiteId]=" + siteId + " AND [Active]=1 ORDER BY Description")) // populate the Incident Happened Dropdownlist
+            // populate the Incident Type Dropdownlist
+            using (SqlCommand cmd = new SqlCommand("Proc_PopulateIncidentTypeList"))
             {
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@SiteId", SqlDbType.VarChar).Value = siteId;
                 cmd.Connection = con;
                 con.Open();
                 ddlIncidentHappened.DataSource = cmd.ExecuteReader();
@@ -644,11 +661,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 ddlIncidentHappened.DataBind();
                 con.Close();
             }
-            ddlIncidentHappened.Items.Insert(0, new ListItem("All", "")); // add blank item at index 0
+            // add blank item at index 0
+            ddlIncidentHappened.Items.Insert(0, new ListItem("All", ""));
 
-            using (SqlCommand cmd = new SqlCommand("SELECT LocationId, Description FROM [List_Location] WHERE [SiteId]=" + siteId + " AND [Active]=1 ORDER BY Description")) // populate the Location Dropdownlist
+            // populate the Location Dropdownlist
+            using (SqlCommand cmd = new SqlCommand("Proc_PopulateLocationList"))
             {
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@SiteId", SqlDbType.VarChar).Value = siteId;
                 cmd.Connection = con;
                 con.Open();
                 ddlLocation.DataSource = cmd.ExecuteReader();
@@ -657,11 +677,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 ddlLocation.DataBind();
                 con.Close();
             }
-            ddlLocation.Items.Insert(0, new ListItem("All", "")); // add blank item at index 0
+            // add blank item at index 0
+            ddlLocation.Items.Insert(0, new ListItem("All", ""));
 
-            using (SqlCommand cmd = new SqlCommand("SELECT ActionId, Description FROM [List_ActionTaken] WHERE [SiteId]=" + siteId + " AND [Active]=1 ORDER BY Description")) // populate the Action Taken Dropdownlist
+            // populate the Action Taken Dropdownlist
+            using (SqlCommand cmd = new SqlCommand("Proc_PopulateActionTakenList"))
             {
-                cmd.CommandType = CommandType.Text;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.Add("@SiteId", SqlDbType.VarChar).Value = siteId;
                 cmd.Connection = con;
                 con.Open();
                 ddlActionTaken.DataSource = cmd.ExecuteReader();
@@ -670,9 +693,11 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 ddlActionTaken.DataBind();
                 con.Close();
             }
-            ddlActionTaken.Items.Insert(0, new ListItem("All", "")); // add blank item at index 0
+            // add blank item at index 0
+            ddlActionTaken.Items.Insert(0, new ListItem("All", ""));
         }
-        else // if report type is not an incident report, hide incident report filters
+        // if report type is not an incident report, hide incident report filters
+        else
         {
             advancedFilter.Visible = false;
             lblIncidentHappened.Visible = false;
@@ -690,27 +715,34 @@ public partial class MasterPage : System.Web.UI.MasterPage
             txtMemNo.Visible = false;
             ddlActionTaken.Visible = false;
         }
-        Report.SortReset(); // reset sort static properties
+
+        // reset sort static properties
+        Report.SortReset();
     }
 
     protected void btnCreateReport_Click(object sender, EventArgs e)
     {
         con.Open();
-        SqlCommand data = new SqlCommand("SELECT MAX(VersionNo) AS 'latestVersion'" + // get the latest version of selected report
-                                               " FROM dbo.[Version]" +
-                                               " WHERE RCatId = " + ddlCreateReport.SelectedItem.Value, con);
+        // get the latest version of selected report
+        SqlCommand data = new SqlCommand("Proc_LatestVersionOfSelectedReport", con);
+        data.CommandType = CommandType.StoredProcedure;
+        data.Parameters.Add("@RCatId", SqlDbType.VarChar).Value = ddlCreateReport.SelectedItem.Value;
         var version = data.ExecuteScalar();
         con.Close();
 
-        Response.Redirect("~/Reports/" + ddlCreateReport.SelectedItem.ToString() + "/Create/v" + version.ToString() + "/v" + version.ToString() + ".aspx", false); // display the appropriate Report to create 
-        SearchReport.SetAccordion = "0"; // set accordion active selected index back to Reports Panel
+        // display the appropriate report to create 
+        Response.Redirect("~/Reports/" + ddlCreateReport.SelectedItem.ToString() + "/Create/v" + version.ToString() + "/v" + version.ToString() + ".aspx", false);
+        
+        // set accordion active selected index back to Reports Panel
+        SearchReport.SetAccordion = "0";
         SearchReport.CreateReport = ddlCreateReport.SelectedItem.Value.ToString();
         Report.PageSize = "10";
     }
 
     protected void ddlDateGroup_SelectedIndexChanged(object sender, EventArgs e)
     {
-        if (ddlDateGroup.SelectedItem.Value == "7") // if selected filter is Custom Date, display Start and End Date textboxes
+        // if selected filter is Custom Date, display Start and End Date textboxes
+        if (ddlDateGroup.SelectedItem.Value == "7")
         {
             txtStartDate.Text = "";
             txtEndDate.Text = "";
@@ -736,12 +768,14 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
     }
 
-    protected void ddlSearchReport_SelectedIndexChanged(object sender, EventArgs e) // if report type selected is Incident Report, show incident report filters
+    // if report type selected is Incident Report, show incident report filters
+    protected void ddlSearchReport_SelectedIndexChanged(object sender, EventArgs e)
     {
         AdvancedFilter();
     }
 
-    protected void imgBtnLogo_Click(object sender, ImageClickEventArgs e) // display all reports available to the user logged in
+    // display all reports available to the user logged in
+    protected void imgBtnLogo_Click(object sender, ImageClickEventArgs e)
     {
         SearchReport.ArchivedStaff = false;
         SearchReport.CUOnly = false;
@@ -752,23 +786,30 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
     protected void DefaultSearch()
     {
-        SearchReport.WhatHappened = "0"; // reset the incident filters
+        // reset the incident filters
+        SearchReport.WhatHappened = "0";
         SearchReport.Location = "0";
         SearchReport.MemberNo = "0";
         SearchReport.ActionTaken = "0";
         SearchReport.ReportId = "";
 
-        Report.PopulateFields = true;  // counts the number of times ReadFiles method is called in Incident Report. It should only run one time (Run like an initial Post Back)
-        Report.RunEditMode = false;    // tells whether or not to run the editButton() in Default.aspx
+        // counts the number of times ReadFiles method is called in Incident Report. It should only run one time (Run like an initial Post Back)
+        Report.PopulateFields = true;
+        // tells whether or not to run the editButton() in Default.aspx
+        Report.RunEditMode = false;
 
-        Report.CurrentNavigationTab = "1"; // set navigation tab to default list
+        // set navigation tab to default list
+        Report.CurrentNavigationTab = "1";
 
-        SearchReport.ResetNavigation(); // reset any filters selected
+        // reset any filters selected
+        SearchReport.ResetNavigation();
 
-        Response.Redirect("~/Default.aspx?ReportType=1&DateGroup=1&ReportStatus=1&Keyword=&Staff=", false); // send the parameters to Default.aspx to populate the Gridview
+        // send the parameters to Default.aspx to populate the Gridview
+        Response.Redirect("~/Default.aspx?ReportType=1&DateGroup=1&ReportStatus=1&Keyword=&Staff=", false);
     }
 
-    public void RegisterTrigger(Control ct) // for Default.aspx, File Upload Object, called in the Page_Load Event to return PostBack on parameters sent
+    // for Default.aspx, File Upload Object, called in the Page_Load Event to return PostBack on parameters sent
+    public void RegisterTrigger(Control ct)
     {
         ScriptManager1.RegisterPostBackControl(ct);
     }

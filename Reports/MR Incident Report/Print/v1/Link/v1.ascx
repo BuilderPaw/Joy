@@ -1085,7 +1085,7 @@
                     <b>File Path : </b><%# (string.IsNullOrWhiteSpace(Eval("CamFilePath1").ToString())) ? Eval("CamFilePath1") : (Eval("CamFilePath1").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
-            <tr>
+<%--            <tr>
                 <td style="font-size: 12.5px" colspan="4"><b>Start Date & Time : </b><%# ProcessMyDataItem(Eval("CamSDate1")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeH1").ToString())) ? Eval("TxtCamSTimeH1") : (Eval("TxtCamSTimeH1").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeM1").ToString())) ? Eval("TxtCamSTimeM1") : (Eval("TxtCamSTimeM1").ToString()).Replace("^", "'") %>
                     <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeTC1").ToString())) ? Eval("TxtCamSTimeTC1") : (Eval("TxtCamSTimeTC1").ToString()).Replace("^", "'") %>-->
                 </td>
@@ -1094,7 +1094,7 @@
                 <td style="font-size: 12.5px" colspan="4"><b>End Date & Time : </b><%# ProcessMyDataItem(Eval("CamEDate1")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeH1").ToString())) ? Eval("TxtCamETimeH1") : (Eval("TxtCamETimeH1").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeM1").ToString())) ? Eval("TxtCamETimeM1") : (Eval("TxtCamETimeM1").ToString()).Replace("^", "'") %>
                     <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeTC1").ToString())) ? Eval("TxtCamETimeTC1") : (Eval("TxtCamETimeTC1").ToString()).Replace("^", "'") %>-->
                 </td>
-            </tr>
+            </tr>--%>
         </table>
         <table runat="server" style="width: 100%; border: solid 1px black !important;" id="tblCam2">
             <tr>
@@ -1115,7 +1115,7 @@
                     <b>File Path : </b><%# (string.IsNullOrWhiteSpace(Eval("CamFilePath2").ToString())) ? Eval("CamFilePath2") : (Eval("CamFilePath2").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
-            <tr>
+<%--            <tr>
                 <td style="font-size: 12.5px" colspan="4"><b>Start Date & Time : </b><%# ProcessMyDataItem(Eval("CamSDate2")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeH2").ToString())) ? Eval("TxtCamSTimeH2") : (Eval("TxtCamSTimeH2").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeM2").ToString())) ? Eval("TxtCamSTimeM2") : (Eval("TxtCamSTimeM2").ToString()).Replace("^", "'") %>
                     <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeTC2").ToString())) ? Eval("TxtCamSTimeTC2") : (Eval("TxtCamSTimeTC2").ToString()).Replace("^", "'") %>-->
                 </td>
@@ -1124,7 +1124,7 @@
                 <td style="font-size: 12.5px" colspan="4"><b>End Date & Time : </b><%# ProcessMyDataItem(Eval("CamEDate2")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeH2").ToString())) ? Eval("TxtCamETimeH2") : (Eval("TxtCamETimeH2").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeM2").ToString())) ? Eval("TxtCamETimeM2") : (Eval("TxtCamETimeM2").ToString()).Replace("^", "'") %>
                     <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeTC2").ToString())) ? Eval("TxtCamETimeTC2") : (Eval("TxtCamETimeTC2").ToString()).Replace("^", "'") %>-->
                 </td>
-            </tr>
+            </tr>--%>
         </table>
         <table runat="server" style="width: 100%; border: solid 1px black !important;" id="tblCam3">
             <tr>
@@ -1145,7 +1145,7 @@
                     <b>File Path : </b><%# (string.IsNullOrWhiteSpace(Eval("CamFilePath3").ToString())) ? Eval("CamFilePath3") : (Eval("CamFilePath3").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
-            <tr>
+<%--            <tr>
                 <td style="font-size: 12.5px" colspan="4"><b>Start Date & Time : </b><%# ProcessMyDataItem(Eval("CamSDate3")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeH3").ToString())) ? Eval("TxtCamSTimeH3") : (Eval("TxtCamSTimeH3").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeM3").ToString())) ? Eval("TxtCamSTimeM3") : (Eval("TxtCamSTimeM3").ToString()).Replace("^", "'") %>
                     <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeTC3").ToString())) ? Eval("TxtCamSTimeTC3") : (Eval("TxtCamSTimeTC3").ToString()).Replace("^", "'") %>-->
                 </td>
@@ -1154,7 +1154,7 @@
                 <td style="font-size: 12.5px" colspan="4"><b>End Date & Time : </b><%# ProcessMyDataItem(Eval("CamEDate3")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeH3").ToString())) ? Eval("TxtCamETimeH3") : (Eval("TxtCamETimeH3").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeM3").ToString())) ? Eval("TxtCamETimeM3") : (Eval("TxtCamETimeM3").ToString()).Replace("^", "'") %>
                     <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeTC3").ToString())) ? Eval("TxtCamETimeTC3") : (Eval("TxtCamETimeTC3").ToString()).Replace("^", "'") %>-->
                 </td>
-            </tr>
+            </tr>--%>
         </table>
         <table runat="server" style="width: 100%; border: solid 1px black !important;" id="tblCam4">
             <tr>
@@ -1175,7 +1175,7 @@
                     <b>File Path : </b><%# (string.IsNullOrWhiteSpace(Eval("CamFilePath4").ToString())) ? Eval("CamFilePath4") : (Eval("CamFilePath4").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
-            <tr>
+<%--            <tr>
                 <td style="font-size: 12.5px" colspan="4"><b>Start Date & Time : </b><%# ProcessMyDataItem(Eval("CamSDate4")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeH4").ToString())) ? Eval("TxtCamSTimeH4") : (Eval("TxtCamSTimeH4").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeM4").ToString())) ? Eval("TxtCamSTimeM4") : (Eval("TxtCamSTimeM4").ToString()).Replace("^", "'") %>
                     <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeTC4").ToString())) ? Eval("TxtCamSTimeTC4") : (Eval("TxtCamSTimeTC4").ToString()).Replace("^", "'") %>-->
                 </td>
@@ -1184,7 +1184,7 @@
                 <td style="font-size: 12.5px" colspan="4"><b>End Date & Time : </b><%# ProcessMyDataItem(Eval("CamEDate4")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeH4").ToString())) ? Eval("TxtCamETimeH4") : (Eval("TxtCamETimeH4").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeM4").ToString())) ? Eval("TxtCamETimeM4") : (Eval("TxtCamETimeM4").ToString()).Replace("^", "'") %>
                     <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeTC4").ToString())) ? Eval("TxtCamETimeTC4") : (Eval("TxtCamETimeTC4").ToString()).Replace("^", "'") %>-->
                 </td>
-            </tr>
+            </tr>--%>
         </table>
         <table runat="server" style="width: 100%; border: solid 1px black !important;" id="tblCam5">
             <tr>
@@ -1205,7 +1205,7 @@
                     <b>File Path : </b><%# (string.IsNullOrWhiteSpace(Eval("CamFilePath5").ToString())) ? Eval("CamFilePath5") : (Eval("CamFilePath5").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
-            <tr>
+<%--            <tr>
                 <td style="font-size: 12.5px" colspan="4"><b>Start Date & Time : </b><%# ProcessMyDataItem(Eval("CamSDate5")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeH5").ToString())) ? Eval("TxtCamSTimeH5") : (Eval("TxtCamSTimeH5").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeM5").ToString())) ? Eval("TxtCamSTimeM5") : (Eval("TxtCamSTimeM5").ToString()).Replace("^", "'") %>
                     <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeTC5").ToString())) ? Eval("TxtCamSTimeTC5") : (Eval("TxtCamSTimeTC5").ToString()).Replace("^", "'") %>-->
                 </td>
@@ -1214,7 +1214,7 @@
                 <td style="font-size: 12.5px" colspan="4"><b>End Date & Time : </b><%# ProcessMyDataItem(Eval("CamEDate5")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeH5").ToString())) ? Eval("TxtCamETimeH5") : (Eval("TxtCamETimeH5").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeM5").ToString())) ? Eval("TxtCamETimeM5") : (Eval("TxtCamETimeM5").ToString()).Replace("^", "'") %>
                     <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeTC5").ToString())) ? Eval("TxtCamETimeTC5") : (Eval("TxtCamETimeTC5").ToString()).Replace("^", "'") %>-->
                 </td>
-            </tr>
+            </tr>--%>
         </table>
         <table runat="server" style="width: 100%; border: solid 1px black !important;" id="tblCam6">
             <tr>
@@ -1235,14 +1235,14 @@
                     <b>File Path : </b><%# (string.IsNullOrWhiteSpace(Eval("CamFilePath6").ToString())) ? Eval("CamFilePath6") : (Eval("CamFilePath6").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
-            <tr>
+<%--            <tr>
                 <td style="font-size: 12.5px" colspan="4"><b>Start Date & Time : </b><%# ProcessMyDataItem(Eval("CamSDate6")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeH6").ToString())) ? Eval("TxtCamSTimeH6") : (Eval("TxtCamSTimeH6").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeM6").ToString())) ? Eval("TxtCamSTimeM6") : (Eval("TxtCamSTimeM6").ToString()).Replace("^", "'") %><!-- <%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeTC6").ToString())) ? Eval("TxtCamSTimeTC6") : (Eval("TxtCamSTimeTC6").ToString()).Replace("^", "'") %>-->
                 </td>
             </tr>
             <tr>
                 <td style="font-size: 12.5px" colspan="4"><b>End Date & Time : </b><%# ProcessMyDataItem(Eval("CamEDate6")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeH6").ToString())) ? Eval("TxtCamETimeH6") : (Eval("TxtCamETimeH6").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeM6").ToString())) ? Eval("TxtCamETimeM6") : (Eval("TxtCamETimeM6").ToString()).Replace("^", "'") %><!-- <%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeTC6").ToString())) ? Eval("TxtCamETimeTC6") : (Eval("TxtCamETimeTC6").ToString()).Replace("^", "'") %>-->
                 </td>
-            </tr>
+            </tr>--%>
         </table>
         <table runat="server" style="width: 100%; border: solid 1px black !important;" id="tblCam7">
             <tr>
@@ -1262,7 +1262,7 @@
                     <b>File Path : </b><%# (string.IsNullOrWhiteSpace(Eval("CamFilePath7").ToString())) ? Eval("CamFilePath7") : (Eval("CamFilePath7").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
-            <tr>
+<%--            <tr>
                 <td style="font-size: 12.5px" colspan="4"><b>Start Date & Time : </b><%# ProcessMyDataItem(Eval("CamSDate7")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeH7").ToString())) ? Eval("TxtCamSTimeH7") : (Eval("TxtCamSTimeH7").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeM7").ToString())) ? Eval("TxtCamSTimeM7") : (Eval("TxtCamSTimeM7").ToString()).Replace("^", "'") %>
                     <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeTC7").ToString())) ? Eval("TxtCamSTimeTC7") : (Eval("TxtCamSTimeTC7").ToString()).Replace("^", "'") %>-->
                 </td>
@@ -1271,7 +1271,7 @@
                 <td style="font-size: 12.5px" colspan="4"><b>End Date & Time : </b><%# ProcessMyDataItem(Eval("CamEDate7")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeH7").ToString())) ? Eval("TxtCamETimeH7") : (Eval("TxtCamETimeH7").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeM7").ToString())) ? Eval("TxtCamETimeM7") : (Eval("TxtCamETimeM7").ToString()).Replace("^", "'") %>
                     <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtCamETimeTC7").ToString())) ? Eval("TxtCamETimeTC7") : (Eval("TxtCamETimeTC7").ToString()).Replace("^", "'") %>-->
                 </td>
-            </tr>
+            </tr>--%>
         </table>
         <table style="width: 100%; border: solid 1px black !important;">
             <tr>

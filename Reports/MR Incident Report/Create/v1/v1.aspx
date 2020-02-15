@@ -2015,7 +2015,7 @@
                             <asp:TextBox ID="txtCamFilePath1" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
+<%--                    <tr>
                         <td colspan="1" style="width: 383px">
                             <b>Start Date/Time</b>
                         </td>
@@ -2220,7 +2220,7 @@
                                 <asp:ListItem Text="59" Value="60"></asp:ListItem>
                             </asp:DropDownList>
                         </td>
-                    </tr>
+                    </tr>--%>
                 </table>
                 <table id="tblAddCam2" class="table-incident" runat="server">
                     <tr>
@@ -2256,7 +2256,7 @@
                             <asp:TextBox ID="txtCamFilePath2" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
+<%--                    <tr>
                         <td colspan="1" style="width: 383px">
                             <b>Start Date/Time</b>
                         </td>
@@ -2461,7 +2461,7 @@
                                 <asp:ListItem Text="59" Value="60"></asp:ListItem>
                             </asp:DropDownList>
                         </td>
-                    </tr>
+                    </tr>--%>
                 </table>
                 <table id="tblAddCam3" class="table-incident" runat="server">
                     <tr>
@@ -2502,7 +2502,7 @@
                             <asp:TextBox ID="txtCamFilePath3" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
+<%--                    <tr>
                         <td colspan="1" style="width: 383px">
                             <b>Start Date/Time</b>
                         </td>
@@ -2707,7 +2707,7 @@
                                 <asp:ListItem Text="59" Value="60"></asp:ListItem>
                             </asp:DropDownList>
                         </td>
-                    </tr>
+                    </tr>--%>
                 </table>
                 <table id="tblAddCam4" class="table-incident" runat="server">
                     <tr>
@@ -2748,7 +2748,7 @@
                             <asp:TextBox ID="txtCamFilePath4" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
+<%--                    <tr>
                         <td colspan="1" style="width: 383px">
                             <b>Start Date/Time</b>
                         </td>
@@ -2953,7 +2953,7 @@
                                 <asp:ListItem Text="59" Value="60"></asp:ListItem>
                             </asp:DropDownList>
                         </td>
-                    </tr>
+                    </tr>--%>
                 </table>
                 <table id="tblAddCam5" class="table-incident" runat="server">
                     <tr>
@@ -2994,7 +2994,7 @@
                             <asp:TextBox ID="txtCamFilePath5" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
+<%--                    <tr>
                         <td colspan="1" style="width: 383px">
                             <b>Start Date/Time</b>
                         </td>
@@ -3199,7 +3199,7 @@
                                 <asp:ListItem Text="59" Value="60"></asp:ListItem>
                             </asp:DropDownList>
                         </td>
-                    </tr>
+                    </tr>--%>
                 </table>
                 <table id="tblAddCam6" class="table-incident" runat="server">
                     <tr>
@@ -3240,7 +3240,7 @@
                             <asp:TextBox ID="txtCamFilePath6" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
+<%--                    <tr>
                         <td colspan="1" style="width: 383px">
                             <b>Start Date/Time</b>
                         </td>
@@ -3445,7 +3445,7 @@
                                 <asp:ListItem Text="59" Value="60"></asp:ListItem>
                             </asp:DropDownList>
                         </td>
-                    </tr>
+                    </tr>--%>
                 </table>
                 <table id="tblAddCam7" class="table-incident" runat="server">
                     <tr>
@@ -3486,7 +3486,7 @@
                             <asp:TextBox ID="txtCamFilePath7" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                         </td>
                     </tr>
-                    <tr>
+<%--                    <tr>
                         <td colspan="1" style="width: 383px">
                             <b>Start Date/Time</b>
                         </td>
@@ -3691,7 +3691,7 @@
                                 <asp:ListItem Text="59" Value="60"></asp:ListItem>
                             </asp:DropDownList>
                         </td>
-                    </tr>
+                    </tr>--%>
                 </table>
                 <table id="tblDelCam7" class="table-incident" runat="server">
                     <tr>

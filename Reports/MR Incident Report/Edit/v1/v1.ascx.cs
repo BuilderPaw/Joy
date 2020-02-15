@@ -1123,103 +1123,103 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 returnedFlag = true;
 
             }
-            if (txtCamSDate1.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 1's Start Date shouldn't be empty.";
+            //if (txtCamSDate1.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 1's Start Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamSDate1.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 1's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamSDate1.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 1's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
-                DateTime date1Sc = DateTime.Parse(DateTime.Parse(txtCamSDate1.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date1Sc, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //}
+            //else
+            //{
+            //    DateTime date1Sc = DateTime.Parse(DateTime.Parse(txtCamSDate1.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date1Sc, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamTimeH1.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 1.";
+            //    }
+            //}
+            //if (ddlCamTimeH1.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 1.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamTimeM1.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 1.";
+            //}
+            //if (ddlCamTimeM1.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 1.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamTimeTC1.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 1.";
+            //}
+            ///*if (ddlCamTimeTC1.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 1.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
-            if (txtCamEDate1.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 1's End Date shouldn't be empty.";
+            //}*/
+            //if (txtCamEDate1.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 1's End Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamEDate1.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 1's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamEDate1.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 1's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
-                DateTime date1Ec = DateTime.Parse(DateTime.Parse(txtCamEDate1.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date1Ec, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //    DateTime date1Ec = DateTime.Parse(DateTime.Parse(txtCamEDate1.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date1Ec, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamETimeH1.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 1.";
+            //    }
+            //}
+            //if (ddlCamETimeH1.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 1.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamETimeM1.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 1.";
+            //}
+            //if (ddlCamETimeM1.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 1.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamETimeTC1.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 1.";
+            //}
+            ///*if (ddlCamETimeTC1.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 1.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
+            //}*/
         }
         if (tblCamera2.Visible == true)
         {
@@ -1230,111 +1230,111 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 returnedFlag = true;
 
             }
-            if (txtCamSDate2.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's Start Date shouldn't be empty.";
+            //if (txtCamSDate2.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's Start Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (txtCamSDate2.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's Start Date shouldn't be empty.";
+            //}
+            //if (txtCamSDate2.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's Start Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamSDate2.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamSDate2.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
-                DateTime date2Sc = DateTime.Parse(DateTime.Parse(txtCamSDate2.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date2Sc, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //    DateTime date2Sc = DateTime.Parse(DateTime.Parse(txtCamSDate2.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date2Sc, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamTimeH2.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 2.";
+            //    }
+            //}
+            //if (ddlCamTimeH2.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 2.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamTimeM2.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 2.";
+            //}
+            //if (ddlCamTimeM2.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 2.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamTimeTC2.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 2.";
+            //}
+            ///*if (ddlCamTimeTC2.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 2.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
-            if (txtCamEDate2.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's End Date shouldn't be empty.";
+            //}*/
+            //if (txtCamEDate2.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's End Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamEDate2.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamEDate2.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 2's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
-                DateTime date2Ec = DateTime.Parse(DateTime.Parse(txtCamEDate2.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date2Ec, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //    DateTime date2Ec = DateTime.Parse(DateTime.Parse(txtCamEDate2.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date2Ec, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamETimeH2.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 2.";
+            //    }
+            //}
+            //if (ddlCamETimeH2.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 2.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamETimeM2.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 2.";
+            //}
+            //if (ddlCamETimeM2.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 2.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamETimeTC2.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 2.";
+            //}
+            ///*if (ddlCamETimeTC2.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 2.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
+            //}*/
         }
         if (tblCamera3.Visible == true)
         {
@@ -1345,110 +1345,110 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 returnedFlag = true;
 
             }
-            if (txtCamSDate3.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's Start Date shouldn't be empty.";
+            //if (txtCamSDate3.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's Start Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (txtCamSDate3.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's Start Date shouldn't be empty.";
+            //}
+            //if (txtCamSDate3.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's Start Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamSDate3.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamSDate3.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
-                DateTime date3Sc = DateTime.Parse(DateTime.Parse(txtCamSDate3.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date3Sc, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //    DateTime date3Sc = DateTime.Parse(DateTime.Parse(txtCamSDate3.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date3Sc, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamTimeH3.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 3.";
+            //    }
+            //}
+            //if (ddlCamTimeH3.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 3.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamTimeM3.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 3.";
+            //}
+            //if (ddlCamTimeM3.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 3.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamTimeTC3.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 3.";
+            //}
+            ///*if (ddlCamTimeTC3.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 3.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
-            if (txtCamEDate3.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's End Date shouldn't be empty.";
+            //}*/
+            //if (txtCamEDate3.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's End Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamEDate3.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamEDate3.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 3's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
-                DateTime date3Ec = DateTime.Parse(DateTime.Parse(txtCamEDate3.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date3Ec, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //}
+            //else
+            //{
+            //    DateTime date3Ec = DateTime.Parse(DateTime.Parse(txtCamEDate3.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date3Ec, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamETimeH3.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 3.";
+            //    }
+            //}
+            //if (ddlCamETimeH3.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 3.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamETimeM3.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 3.";
+            //}
+            //if (ddlCamETimeM3.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 3.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamETimeTC3.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 3.";
+            //}
+            ///*if (ddlCamETimeTC3.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 3.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
+            //}*/
         }
         if (tblCamera4.Visible == true)
         {
@@ -1459,110 +1459,110 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 returnedFlag = true;
 
             }
-            if (txtCamSDate4.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's Start Date shouldn't be empty.";
+            //if (txtCamSDate4.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's Start Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (txtCamSDate4.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's Start Date shouldn't be empty.";
+            //}
+            //if (txtCamSDate4.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's Start Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamSDate4.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamSDate4.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
+            //}
+            //else
+            //{
 
-                DateTime date4Sc = DateTime.Parse(DateTime.Parse(txtCamSDate4.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date4Sc, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //    DateTime date4Sc = DateTime.Parse(DateTime.Parse(txtCamSDate4.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date4Sc, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamTimeH4.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 4.";
+            //    }
+            //}
+            //if (ddlCamTimeH4.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 4.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamTimeM4.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 4.";
+            //}
+            //if (ddlCamTimeM4.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 4.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamTimeTC4.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 4.";
+            //}
+            ///*if (ddlCamTimeTC4.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 4.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
-            if (txtCamEDate4.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's End Date shouldn't be empty.";
+            //}*/
+            //if (txtCamEDate4.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's End Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamEDate4.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamEDate4.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 4's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
-                DateTime date4Ec = DateTime.Parse(DateTime.Parse(txtCamEDate4.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date4Ec, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //}
+            //else
+            //{
+            //    DateTime date4Ec = DateTime.Parse(DateTime.Parse(txtCamEDate4.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date4Ec, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamETimeH4.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 4.";
+            //    }
+            //}
+            //if (ddlCamETimeH4.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 4.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamETimeM4.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 4.";
+            //}
+            //if (ddlCamETimeM4.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 4.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamETimeTC4.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 4.";
+            //}
+            ///*if (ddlCamETimeTC4.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 4.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
+            //}*/
         }
         if (tblCamera5.Visible == true)
         {
@@ -1573,109 +1573,109 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 returnedFlag = true;
 
             }
-            if (txtCamSDate5.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's Start Date shouldn't be empty.";
+            //if (txtCamSDate5.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's Start Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (txtCamSDate5.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's Start Date shouldn't be empty.";
+            //}
+            //if (txtCamSDate5.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's Start Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamSDate5.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamSDate5.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
-                DateTime date5Sc = DateTime.Parse(DateTime.Parse(txtCamSDate5.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date5Sc, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //}
+            //else
+            //{
+            //    DateTime date5Sc = DateTime.Parse(DateTime.Parse(txtCamSDate5.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date5Sc, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamTimeH5.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 5.";
+            //    }
+            //}
+            //if (ddlCamTimeH5.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 5.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamTimeM5.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 5.";
+            //}
+            //if (ddlCamTimeM5.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 5.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamTimeTC5.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 5.";
+            //}
+            ///*if (ddlCamTimeTC5.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 5.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
-            if (txtCamEDate5.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's End Date shouldn't be empty.";
+            //}*/
+            //if (txtCamEDate5.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's End Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamEDate5.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamEDate5.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 5's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
-                DateTime date5Ec = DateTime.Parse(DateTime.Parse(txtCamEDate5.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date5Ec, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //}
+            //else
+            //{
+            //    DateTime date5Ec = DateTime.Parse(DateTime.Parse(txtCamEDate5.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date5Ec, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamETimeH5.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 5.";
+            //    }
+            //}
+            //if (ddlCamETimeH5.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 5.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamETimeM5.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 5.";
+            //}
+            //if (ddlCamETimeM5.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 5.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamETimeTC5.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 5.";
+            //}
+            ///*if (ddlCamETimeTC5.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 5.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
+            //}*/
         }
         if (tblCamera6.Visible == true)
         {
@@ -1686,109 +1686,109 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 returnedFlag = true;
 
             }
-            if (txtCamSDate6.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's Start Date shouldn't be empty.";
+            //if (txtCamSDate6.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's Start Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (txtCamSDate6.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's Start Date shouldn't be empty.";
+            //}
+            //if (txtCamSDate6.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's Start Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamSDate6.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamSDate6.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
-                DateTime date6Sc = DateTime.Parse(DateTime.Parse(txtCamSDate6.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date6Sc, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //}
+            //else
+            //{
+            //    DateTime date6Sc = DateTime.Parse(DateTime.Parse(txtCamSDate6.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date6Sc, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamTimeH6.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 6.";
+            //    }
+            //}
+            //if (ddlCamTimeH6.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 6.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamTimeM6.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 6.";
+            //}
+            //if (ddlCamTimeM6.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 6.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamTimeTC6.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 6.";
+            //}
+            ///*if (ddlCamTimeTC6.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 6.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
-            if (txtCamEDate6.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's End Date shouldn't be empty.";
+            //}*/
+            //if (txtCamEDate6.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's End Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamEDate6.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamEDate6.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 6's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
-                DateTime date6Ec = DateTime.Parse(DateTime.Parse(txtCamEDate6.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date6Ec, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //}
+            //else
+            //{
+            //    DateTime date6Ec = DateTime.Parse(DateTime.Parse(txtCamEDate6.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date6Ec, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamETimeH6.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 6.";
+            //    }
+            //}
+            //if (ddlCamETimeH6.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 6.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamETimeM6.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 6.";
+            //}
+            //if (ddlCamETimeM6.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 6.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamETimeTC6.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 6.";
+            //}
+            ///*if (ddlCamETimeTC6.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 6.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
+            //}*/
         }
         if (tblCamera7.Visible == true)
         {
@@ -1799,109 +1799,109 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                 returnedFlag = true;
 
             }
-            if (txtCamSDate7.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's Start Date shouldn't be empty.";
+            //if (txtCamSDate7.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's Start Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (txtCamSDate7.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's Start Date shouldn't be empty.";
+            //}
+            //if (txtCamSDate7.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's Start Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamSDate7.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamSDate7.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
-                DateTime date7Sc = DateTime.Parse(DateTime.Parse(txtCamSDate7.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date7Sc, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //}
+            //else
+            //{
+            //    DateTime date7Sc = DateTime.Parse(DateTime.Parse(txtCamSDate7.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date7Sc, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamTimeH7.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 7.";
+            //    }
+            //}
+            //if (ddlCamTimeH7.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 7.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamTimeM7.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 7.";
+            //}
+            //if (ddlCamTimeM7.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 7.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamTimeTC7.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 7.";
+            //}
+            ///*if (ddlCamTimeTC7.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 7.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
-            if (txtCamEDate7.Text == "")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's End Date shouldn't be empty.";
+            //}*/
+            //if (txtCamEDate7.Text == "")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's End Date shouldn't be empty.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (!DateTime.TryParse(txtCamEDate7.Text, out temp))
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's Date entry is not in date format please select an appropriate date.";
+            //}
+            //if (!DateTime.TryParse(txtCamEDate7.Text, out temp))
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Camera 7's Date entry is not in date format please select an appropriate date.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            else
-            {
-                DateTime date7Ec = DateTime.Parse(DateTime.Parse(txtCamEDate7.Text).ToShortDateString());
-                // compare selected date to current date
-                result = DateTime.Compare(date7Ec, date);
-                if (result > 0)
-                {
-                    Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
+            //}
+            //else
+            //{
+            //    DateTime date7Ec = DateTime.Parse(DateTime.Parse(txtCamEDate7.Text).ToShortDateString());
+            //    // compare selected date to current date
+            //    result = DateTime.Compare(date7Ec, date);
+            //    if (result > 0)
+            //    {
+            //        Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
 
-                    returnedFlag = true;
+            //        returnedFlag = true;
 
-                }
-            }
-            if (ddlCamETimeH7.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 7.";
+            //    }
+            //}
+            //if (ddlCamETimeH7.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select an Hour value for Camera 7.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            if (ddlCamETimeM7.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 7.";
+            //}
+            //if (ddlCamETimeM7.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Minute value for Camera 7.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }
-            /*if (ddlCamETimeTC7.SelectedItem.Value == "-1")
-            {
-                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 7.";
+            //}
+            ///*if (ddlCamETimeTC7.SelectedItem.Value == "-1")
+            //{
+            //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Time Convention for Camera 7.";
 
-                returnedFlag = true;
+            //    returnedFlag = true;
 
-            }*/
+            //}*/
         }
 
         return returnedFlag;
@@ -3212,91 +3212,91 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         txtCamDesc1.Text = rdr["CamDesc1"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded1.Checked = Convert.ToBoolean(rdr["CamRecorded1"]);
                         txtCamFilePath1.Text = rdr["CamFilePath1"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        txtCamSDate1.Text = rdr["CamSDate1"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamTimeH1.SelectedIndex = Int32.Parse(rdr["CamSTimeH1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamTimeM1.SelectedIndex = Int32.Parse(rdr["CamSTimeM1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        //ddlCamTimeTC1.SelectedIndex = Int32.Parse(rdr["CamSTimeTC1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        txtCamEDate1.Text = rdr["CamEDate1"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamETimeH1.SelectedIndex = Int32.Parse(rdr["CamETimeH1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamETimeM1.SelectedIndex = Int32.Parse(rdr["CamETimeM1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamSDate1.Text = rdr["CamSDate1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamTimeH1.SelectedIndex = Int32.Parse(rdr["CamSTimeH1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeM1.SelectedIndex = Int32.Parse(rdr["CamSTimeM1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ////ddlCamTimeTC1.SelectedIndex = Int32.Parse(rdr["CamSTimeTC1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamEDate1.Text = rdr["CamEDate1"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamETimeH1.SelectedIndex = Int32.Parse(rdr["CamETimeH1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeM1.SelectedIndex = Int32.Parse(rdr["CamETimeM1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         //ddlCamETimeTC1.SelectedIndex = Int32.Parse(rdr["CamETimeTC1"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Camera 2 */
                         txtCamDesc2.Text = rdr["CamDesc2"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded2.Checked = Convert.ToBoolean(rdr["CamRecorded2"]);
                         txtCamFilePath2.Text = rdr["CamFilePath2"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        txtCamSDate2.Text = rdr["CamSDate2"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamTimeH2.SelectedIndex = Int32.Parse(rdr["CamSTimeH2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamTimeM2.SelectedIndex = Int32.Parse(rdr["CamSTimeM2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        //ddlCamTimeTC2.SelectedIndex = Int32.Parse(rdr["CamSTimeTC2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        txtCamEDate2.Text = rdr["CamEDate2"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamETimeH2.SelectedIndex = Int32.Parse(rdr["CamETimeH2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamETimeM2.SelectedIndex = Int32.Parse(rdr["CamETimeM2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamSDate2.Text = rdr["CamSDate2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamTimeH2.SelectedIndex = Int32.Parse(rdr["CamSTimeH2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeM2.SelectedIndex = Int32.Parse(rdr["CamSTimeM2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ////ddlCamTimeTC2.SelectedIndex = Int32.Parse(rdr["CamSTimeTC2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamEDate2.Text = rdr["CamEDate2"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamETimeH2.SelectedIndex = Int32.Parse(rdr["CamETimeH2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeM2.SelectedIndex = Int32.Parse(rdr["CamETimeM2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         //ddlCamETimeTC2.SelectedIndex = Int32.Parse(rdr["CamETimeTC2"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Camera 3 */
                         txtCamDesc3.Text = rdr["CamDesc3"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded3.Checked = Convert.ToBoolean(rdr["CamRecorded3"]);
                         txtCamFilePath3.Text = rdr["CamFilePath3"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        txtCamSDate3.Text = rdr["CamSDate3"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamTimeH3.SelectedIndex = Int32.Parse(rdr["CamSTimeH3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamTimeM3.SelectedIndex = Int32.Parse(rdr["CamSTimeM3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        //ddlCamTimeTC3.SelectedIndex = Int32.Parse(rdr["CamSTimeTC3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        txtCamEDate3.Text = rdr["CamEDate3"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamETimeH3.SelectedIndex = Int32.Parse(rdr["CamETimeH3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamETimeM3.SelectedIndex = Int32.Parse(rdr["CamETimeM3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamSDate3.Text = rdr["CamSDate3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamTimeH3.SelectedIndex = Int32.Parse(rdr["CamSTimeH3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeM3.SelectedIndex = Int32.Parse(rdr["CamSTimeM3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ////ddlCamTimeTC3.SelectedIndex = Int32.Parse(rdr["CamSTimeTC3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamEDate3.Text = rdr["CamEDate3"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamETimeH3.SelectedIndex = Int32.Parse(rdr["CamETimeH3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeM3.SelectedIndex = Int32.Parse(rdr["CamETimeM3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         //ddlCamETimeTC3.SelectedIndex = Int32.Parse(rdr["CamETimeTC3"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Camera 4 */
                         txtCamDesc4.Text = rdr["CamDesc4"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded4.Checked = Convert.ToBoolean(rdr["CamRecorded4"]);
                         txtCamFilePath4.Text = rdr["CamFilePath4"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        txtCamSDate4.Text = rdr["CamSDate4"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamTimeH4.SelectedIndex = Int32.Parse(rdr["CamSTimeH4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamTimeM4.SelectedIndex = Int32.Parse(rdr["CamSTimeM4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        //ddlCamTimeTC4.SelectedIndex = Int32.Parse(rdr["CamSTimeTC4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        txtCamEDate4.Text = rdr["CamEDate4"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamETimeH4.SelectedIndex = Int32.Parse(rdr["CamETimeH4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamETimeM4.SelectedIndex = Int32.Parse(rdr["CamETimeM4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamSDate4.Text = rdr["CamSDate4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamTimeH4.SelectedIndex = Int32.Parse(rdr["CamSTimeH4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeM4.SelectedIndex = Int32.Parse(rdr["CamSTimeM4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ////ddlCamTimeTC4.SelectedIndex = Int32.Parse(rdr["CamSTimeTC4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamEDate4.Text = rdr["CamEDate4"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamETimeH4.SelectedIndex = Int32.Parse(rdr["CamETimeH4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeM4.SelectedIndex = Int32.Parse(rdr["CamETimeM4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         //ddlCamETimeTC4.SelectedIndex = Int32.Parse(rdr["CamETimeTC4"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Camera 5 */
                         txtCamDesc5.Text = rdr["CamDesc5"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded5.Checked = Convert.ToBoolean(rdr["CamRecorded5"]);
                         txtCamFilePath5.Text = rdr["CamFilePath5"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        txtCamSDate5.Text = rdr["CamSDate5"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamTimeH5.SelectedIndex = Int32.Parse(rdr["CamSTimeH5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamTimeM5.SelectedIndex = Int32.Parse(rdr["CamSTimeM5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        //ddlCamTimeTC5.SelectedIndex = Int32.Parse(rdr["CamSTimeTC5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        txtCamEDate5.Text = rdr["CamEDate5"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamETimeH5.SelectedIndex = Int32.Parse(rdr["CamETimeH5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamETimeM5.SelectedIndex = Int32.Parse(rdr["CamETimeM5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamSDate5.Text = rdr["CamSDate5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamTimeH5.SelectedIndex = Int32.Parse(rdr["CamSTimeH5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeM5.SelectedIndex = Int32.Parse(rdr["CamSTimeM5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ////ddlCamTimeTC5.SelectedIndex = Int32.Parse(rdr["CamSTimeTC5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamEDate5.Text = rdr["CamEDate5"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamETimeH5.SelectedIndex = Int32.Parse(rdr["CamETimeH5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeM5.SelectedIndex = Int32.Parse(rdr["CamETimeM5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         //ddlCamETimeTC5.SelectedIndex = Int32.Parse(rdr["CamETimeTC5"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Camera 6 */
                         txtCamDesc6.Text = rdr["CamDesc6"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded6.Checked = Convert.ToBoolean(rdr["CamRecorded6"]);
                         txtCamFilePath6.Text = rdr["CamFilePath6"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        txtCamSDate6.Text = rdr["CamSDate6"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamTimeH6.SelectedIndex = Int32.Parse(rdr["CamSTimeH6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamTimeM6.SelectedIndex = Int32.Parse(rdr["CamSTimeM6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        //ddlCamTimeTC6.SelectedIndex = Int32.Parse(rdr["CamSTimeTC6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        txtCamEDate6.Text = rdr["CamEDate6"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamETimeH6.SelectedIndex = Int32.Parse(rdr["CamETimeH6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamETimeM6.SelectedIndex = Int32.Parse(rdr["CamETimeM6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamSDate6.Text = rdr["CamSDate6"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamTimeH6.SelectedIndex = Int32.Parse(rdr["CamSTimeH6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeM6.SelectedIndex = Int32.Parse(rdr["CamSTimeM6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ////ddlCamTimeTC6.SelectedIndex = Int32.Parse(rdr["CamSTimeTC6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamEDate6.Text = rdr["CamEDate6"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamETimeH6.SelectedIndex = Int32.Parse(rdr["CamETimeH6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeM6.SelectedIndex = Int32.Parse(rdr["CamETimeM6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         //ddlCamETimeTC6.SelectedIndex = Int32.Parse(rdr["CamETimeTC6"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Camera 7 */
                         txtCamDesc7.Text = rdr["CamDesc7"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbRecorded7.Checked = Convert.ToBoolean(rdr["CamRecorded7"]);
                         txtCamFilePath7.Text = rdr["CamFilePath7"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        txtCamSDate7.Text = rdr["CamSDate7"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamTimeH7.SelectedIndex = Int32.Parse(rdr["CamSTimeH7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamTimeM7.SelectedIndex = Int32.Parse(rdr["CamSTimeM7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        //ddlCamTimeTC7.SelectedIndex = Int32.Parse(rdr["CamSTimeTC7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        txtCamEDate7.Text = rdr["CamEDate7"].ToString().Replace("<br />", "\n").Replace("^", "'");
-                        ddlCamETimeH7.SelectedIndex = Int32.Parse(rdr["CamETimeH7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
-                        ddlCamETimeM7.SelectedIndex = Int32.Parse(rdr["CamETimeM7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamSDate7.Text = rdr["CamSDate7"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamTimeH7.SelectedIndex = Int32.Parse(rdr["CamSTimeH7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamTimeM7.SelectedIndex = Int32.Parse(rdr["CamSTimeM7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        ////ddlCamTimeTC7.SelectedIndex = Int32.Parse(rdr["CamSTimeTC7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //txtCamEDate7.Text = rdr["CamEDate7"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                        //ddlCamETimeH7.SelectedIndex = Int32.Parse(rdr["CamETimeH7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
+                        //ddlCamETimeM7.SelectedIndex = Int32.Parse(rdr["CamETimeM7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         //ddlCamETimeTC7.SelectedIndex = Int32.Parse(rdr["CamETimeTC7"].ToString().Replace("<br />", "\n").Replace("^", "'"));
 
                         /* Populate the Checkbox list for Action Taken and tick necessary checkbox */
@@ -6517,148 +6517,148 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         /* Camera 1 */
         ReportIncidentMr.CamDesc1 = txtCamDesc1.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc1 = ReportIncidentMr.CamDesc1.Replace("'", "^");
-        ReportIncidentMr.SDate1 = txtCamSDate1.Text;
-        ReportIncidentMr.STimeH1 = ddlCamTimeH1.SelectedItem.Value;
-        ReportIncidentMr.STimeM1 = ddlCamTimeM1.SelectedItem.Value;
-        //ReportIncidentMr.STimeTC1 = ddlCamTimeTC1.SelectedItem.Value;
-        ReportIncidentMr.EDate1 = txtCamEDate1.Text;
-        ReportIncidentMr.ETimeH1 = ddlCamETimeH1.SelectedItem.Value;
-        ReportIncidentMr.ETimeM1 = ddlCamETimeM1.SelectedItem.Value;
+        //ReportIncidentMr.SDate1 = txtCamSDate1.Text;
+        //ReportIncidentMr.STimeH1 = ddlCamTimeH1.SelectedItem.Value;
+        //ReportIncidentMr.STimeM1 = ddlCamTimeM1.SelectedItem.Value;
+        ////ReportIncidentMr.STimeTC1 = ddlCamTimeTC1.SelectedItem.Value;
+        //ReportIncidentMr.EDate1 = txtCamEDate1.Text;
+        //ReportIncidentMr.ETimeH1 = ddlCamETimeH1.SelectedItem.Value;
+        //ReportIncidentMr.ETimeM1 = ddlCamETimeM1.SelectedItem.Value;
         //ReportIncidentMr.ETimeTC1 = ddlCamETimeTC1.SelectedItem.Value;
         ReportIncidentMr.FilePath1 = txtCamFilePath1.Text;
         ReportIncidentMr.FilePath1 = ReportIncidentMr.FilePath1.Replace("'", "^");
         ReportIncidentMr.CamRec1 = cbRecorded1.Checked.ToString();
-        ReportIncidentMr.TxtCamSTimeH1 = ddlCamTimeH1.SelectedItem.Text;
-        ReportIncidentMr.TxtCamSTimeM1 = ddlCamTimeM1.SelectedItem.Text;
-        //ReportIncidentMr.TxtCamSTimeTC1 = ddlCamTimeTC1.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeH1 = ddlCamETimeH1.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeM1 = ddlCamETimeM1.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeH1 = ddlCamTimeH1.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeM1 = ddlCamTimeM1.SelectedItem.Text;
+        ////ReportIncidentMr.TxtCamSTimeTC1 = ddlCamTimeTC1.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeH1 = ddlCamETimeH1.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeM1 = ddlCamETimeM1.SelectedItem.Text;
         //ReportIncidentMr.TxtCamETimeTC1 = ddlCamETimeTC1.SelectedItem.Text;
         
         /* Camera 2 */
         ReportIncidentMr.CamDesc2 = txtCamDesc2.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc2 = ReportIncidentMr.CamDesc2.Replace("'", "^");
-        ReportIncidentMr.SDate2 = txtCamSDate2.Text;
-        ReportIncidentMr.STimeH2 = ddlCamTimeH2.SelectedItem.Value;
-        ReportIncidentMr.STimeM2 = ddlCamTimeM2.SelectedItem.Value;
-        //ReportIncidentMr.STimeTC2 = ddlCamTimeTC2.SelectedItem.Value;
-        ReportIncidentMr.EDate2 = txtCamEDate2.Text;
-        ReportIncidentMr.ETimeH2 = ddlCamETimeH2.SelectedItem.Value;
-        ReportIncidentMr.ETimeM2 = ddlCamETimeM2.SelectedItem.Value;
+        //ReportIncidentMr.SDate2 = txtCamSDate2.Text;
+        //ReportIncidentMr.STimeH2 = ddlCamTimeH2.SelectedItem.Value;
+        //ReportIncidentMr.STimeM2 = ddlCamTimeM2.SelectedItem.Value;
+        ////ReportIncidentMr.STimeTC2 = ddlCamTimeTC2.SelectedItem.Value;
+        //ReportIncidentMr.EDate2 = txtCamEDate2.Text;
+        //ReportIncidentMr.ETimeH2 = ddlCamETimeH2.SelectedItem.Value;
+        //ReportIncidentMr.ETimeM2 = ddlCamETimeM2.SelectedItem.Value;
         //ReportIncidentMr.ETimeTC2 = ddlCamETimeTC2.SelectedItem.Value;
         ReportIncidentMr.FilePath2 = txtCamFilePath2.Text;
         ReportIncidentMr.FilePath2 = ReportIncidentMr.FilePath2.Replace("'", "^");
         ReportIncidentMr.CamRec2 = cbRecorded2.Checked.ToString();
-        ReportIncidentMr.TxtCamSTimeH2 = ddlCamTimeH2.SelectedItem.Text;
-        ReportIncidentMr.TxtCamSTimeM2 = ddlCamTimeM2.SelectedItem.Text;
-        //ReportIncidentMr.TxtCamSTimeTC2 = ddlCamTimeTC2.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeH2 = ddlCamETimeH2.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeM2 = ddlCamETimeM2.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeH2 = ddlCamTimeH2.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeM2 = ddlCamTimeM2.SelectedItem.Text;
+        ////ReportIncidentMr.TxtCamSTimeTC2 = ddlCamTimeTC2.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeH2 = ddlCamETimeH2.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeM2 = ddlCamETimeM2.SelectedItem.Text;
         //ReportIncidentMr.TxtCamETimeTC2 = ddlCamETimeTC2.SelectedItem.Text;
 
         /* Camera 3 */
         ReportIncidentMr.CamDesc3 = txtCamDesc3.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc3 = ReportIncidentMr.CamDesc3.Replace("'", "^");
-        ReportIncidentMr.SDate3 = txtCamSDate3.Text;
-        ReportIncidentMr.STimeH3 = ddlCamTimeH3.SelectedItem.Value;
-        ReportIncidentMr.STimeM3 = ddlCamTimeM3.SelectedItem.Value;
-        //ReportIncidentMr.STimeTC3 = ddlCamTimeTC3.SelectedItem.Value;
-        ReportIncidentMr.EDate3 = txtCamEDate3.Text;
-        ReportIncidentMr.ETimeH3 = ddlCamETimeH3.SelectedItem.Value;
-        ReportIncidentMr.ETimeM3 = ddlCamETimeM3.SelectedItem.Value;
+        //ReportIncidentMr.SDate3 = txtCamSDate3.Text;
+        //ReportIncidentMr.STimeH3 = ddlCamTimeH3.SelectedItem.Value;
+        //ReportIncidentMr.STimeM3 = ddlCamTimeM3.SelectedItem.Value;
+        ////ReportIncidentMr.STimeTC3 = ddlCamTimeTC3.SelectedItem.Value;
+        //ReportIncidentMr.EDate3 = txtCamEDate3.Text;
+        //ReportIncidentMr.ETimeH3 = ddlCamETimeH3.SelectedItem.Value;
+        //ReportIncidentMr.ETimeM3 = ddlCamETimeM3.SelectedItem.Value;
         //ReportIncidentMr.ETimeTC3 = ddlCamETimeTC3.SelectedItem.Value;
         ReportIncidentMr.FilePath3 = txtCamFilePath3.Text;
         ReportIncidentMr.FilePath3 = ReportIncidentMr.FilePath3.Replace("'", "^");
         ReportIncidentMr.CamRec3 = cbRecorded3.Checked.ToString();
-        ReportIncidentMr.TxtCamSTimeH3 = ddlCamTimeH3.SelectedItem.Text;
-        ReportIncidentMr.TxtCamSTimeM3 = ddlCamTimeM3.SelectedItem.Text;
-        //ReportIncidentMr.TxtCamSTimeTC3 = ddlCamTimeTC3.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeH3 = ddlCamETimeH3.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeM3 = ddlCamETimeM3.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeH3 = ddlCamTimeH3.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeM3 = ddlCamTimeM3.SelectedItem.Text;
+        ////ReportIncidentMr.TxtCamSTimeTC3 = ddlCamTimeTC3.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeH3 = ddlCamETimeH3.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeM3 = ddlCamETimeM3.SelectedItem.Text;
         //ReportIncidentMr.TxtCamETimeTC3 = ddlCamETimeTC3.SelectedItem.Text;
 
         /* Camera 4 */
         ReportIncidentMr.CamDesc4 = txtCamDesc4.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc4 = ReportIncidentMr.CamDesc4.Replace("'", "^");
-        ReportIncidentMr.SDate4 = txtCamSDate4.Text;
-        ReportIncidentMr.STimeH4 = ddlCamTimeH4.SelectedItem.Value;
-        ReportIncidentMr.STimeM4 = ddlCamTimeM4.SelectedItem.Value;
-        //ReportIncidentMr.STimeTC4 = ddlCamTimeTC4.SelectedItem.Value;
-        ReportIncidentMr.EDate4 = txtCamEDate4.Text;
-        ReportIncidentMr.ETimeH4 = ddlCamETimeH4.SelectedItem.Value;
-        ReportIncidentMr.ETimeM4 = ddlCamETimeM4.SelectedItem.Value;
+        //ReportIncidentMr.SDate4 = txtCamSDate4.Text;
+        //ReportIncidentMr.STimeH4 = ddlCamTimeH4.SelectedItem.Value;
+        //ReportIncidentMr.STimeM4 = ddlCamTimeM4.SelectedItem.Value;
+        ////ReportIncidentMr.STimeTC4 = ddlCamTimeTC4.SelectedItem.Value;
+        //ReportIncidentMr.EDate4 = txtCamEDate4.Text;
+        //ReportIncidentMr.ETimeH4 = ddlCamETimeH4.SelectedItem.Value;
+        //ReportIncidentMr.ETimeM4 = ddlCamETimeM4.SelectedItem.Value;
         //ReportIncidentMr.ETimeTC4 = ddlCamETimeTC4.SelectedItem.Value;
         ReportIncidentMr.FilePath4 = txtCamFilePath4.Text;
         ReportIncidentMr.FilePath4 = ReportIncidentMr.FilePath4.Replace("'", "^");
         ReportIncidentMr.CamRec4 = cbRecorded4.Checked.ToString();
-        ReportIncidentMr.TxtCamSTimeH4 = ddlCamTimeH4.SelectedItem.Text;
-        ReportIncidentMr.TxtCamSTimeM4 = ddlCamTimeM4.SelectedItem.Text;
-        //ReportIncidentMr.TxtCamSTimeTC4 = ddlCamTimeTC4.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeH4 = ddlCamETimeH4.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeM4 = ddlCamETimeM4.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeH4 = ddlCamTimeH4.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeM4 = ddlCamTimeM4.SelectedItem.Text;
+        ////ReportIncidentMr.TxtCamSTimeTC4 = ddlCamTimeTC4.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeH4 = ddlCamETimeH4.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeM4 = ddlCamETimeM4.SelectedItem.Text;
         //ReportIncidentMr.TxtCamETimeTC4 = ddlCamETimeTC4.SelectedItem.Text;
 
         /* Camera 5 */
         ReportIncidentMr.CamDesc5 = txtCamDesc5.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc5 = ReportIncidentMr.CamDesc5.Replace("'", "^");
-        ReportIncidentMr.SDate5 = txtCamSDate5.Text;
-        ReportIncidentMr.STimeH5 = ddlCamTimeH5.SelectedItem.Value;
-        ReportIncidentMr.STimeM5 = ddlCamTimeM5.SelectedItem.Value;
-        //ReportIncidentMr.STimeTC5 = ddlCamTimeTC5.SelectedItem.Value;
-        ReportIncidentMr.EDate5 = txtCamEDate5.Text;
-        ReportIncidentMr.ETimeH5 = ddlCamETimeH5.SelectedItem.Value;
-        ReportIncidentMr.ETimeM5 = ddlCamETimeM5.SelectedItem.Value;
+        //ReportIncidentMr.SDate5 = txtCamSDate5.Text;
+        //ReportIncidentMr.STimeH5 = ddlCamTimeH5.SelectedItem.Value;
+        //ReportIncidentMr.STimeM5 = ddlCamTimeM5.SelectedItem.Value;
+        ////ReportIncidentMr.STimeTC5 = ddlCamTimeTC5.SelectedItem.Value;
+        //ReportIncidentMr.EDate5 = txtCamEDate5.Text;
+        //ReportIncidentMr.ETimeH5 = ddlCamETimeH5.SelectedItem.Value;
+        //ReportIncidentMr.ETimeM5 = ddlCamETimeM5.SelectedItem.Value;
         //ReportIncidentMr.ETimeTC5 = ddlCamETimeTC5.SelectedItem.Value;
         ReportIncidentMr.FilePath5 = txtCamFilePath5.Text;
         ReportIncidentMr.FilePath5 = ReportIncidentMr.FilePath5.Replace("'", "^");
         ReportIncidentMr.CamRec5 = cbRecorded5.Checked.ToString();
-        ReportIncidentMr.TxtCamSTimeH5 = ddlCamTimeH5.SelectedItem.Text;
-        ReportIncidentMr.TxtCamSTimeM5 = ddlCamTimeM5.SelectedItem.Text;
-        //ReportIncidentMr.TxtCamSTimeTC5 = ddlCamTimeTC5.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeH5 = ddlCamETimeH5.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeM5 = ddlCamETimeM5.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeH5 = ddlCamTimeH5.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeM5 = ddlCamTimeM5.SelectedItem.Text;
+        ////ReportIncidentMr.TxtCamSTimeTC5 = ddlCamTimeTC5.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeH5 = ddlCamETimeH5.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeM5 = ddlCamETimeM5.SelectedItem.Text;
         //ReportIncidentMr.TxtCamETimeTC5 = ddlCamETimeTC5.SelectedItem.Text;
 
         /* Camera 6 */
         ReportIncidentMr.CamDesc6 = txtCamDesc6.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc6 = ReportIncidentMr.CamDesc6.Replace("'", "^");
-        ReportIncidentMr.SDate6 = txtCamSDate6.Text;
-        ReportIncidentMr.STimeH6 = ddlCamTimeH6.SelectedItem.Value;
-        ReportIncidentMr.STimeM6 = ddlCamTimeM6.SelectedItem.Value;
-        //ReportIncidentMr.STimeTC6 = ddlCamTimeTC6.SelectedItem.Value;
-        ReportIncidentMr.EDate6 = txtCamEDate6.Text;
-        ReportIncidentMr.ETimeH6 = ddlCamETimeH6.SelectedItem.Value;
-        ReportIncidentMr.ETimeM6 = ddlCamETimeM6.SelectedItem.Value;
+        //ReportIncidentMr.SDate6 = txtCamSDate6.Text;
+        //ReportIncidentMr.STimeH6 = ddlCamTimeH6.SelectedItem.Value;
+        //ReportIncidentMr.STimeM6 = ddlCamTimeM6.SelectedItem.Value;
+        ////ReportIncidentMr.STimeTC6 = ddlCamTimeTC6.SelectedItem.Value;
+        //ReportIncidentMr.EDate6 = txtCamEDate6.Text;
+        //ReportIncidentMr.ETimeH6 = ddlCamETimeH6.SelectedItem.Value;
+        //ReportIncidentMr.ETimeM6 = ddlCamETimeM6.SelectedItem.Value;
         //ReportIncidentMr.ETimeTC6 = ddlCamETimeTC6.SelectedItem.Value;
         ReportIncidentMr.FilePath6 = txtCamFilePath6.Text;
         ReportIncidentMr.FilePath6 = ReportIncidentMr.FilePath6.Replace("'", "^");
         ReportIncidentMr.CamRec6 = cbRecorded6.Checked.ToString();
-        ReportIncidentMr.TxtCamSTimeH6 = ddlCamTimeH6.SelectedItem.Text;
-        ReportIncidentMr.TxtCamSTimeM6 = ddlCamTimeM6.SelectedItem.Text;
-        //ReportIncidentMr.TxtCamSTimeTC6 = ddlCamTimeTC6.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeH6 = ddlCamETimeH6.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeM6 = ddlCamETimeM6.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeH6 = ddlCamTimeH6.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeM6 = ddlCamTimeM6.SelectedItem.Text;
+        ////ReportIncidentMr.TxtCamSTimeTC6 = ddlCamTimeTC6.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeH6 = ddlCamETimeH6.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeM6 = ddlCamETimeM6.SelectedItem.Text;
         //ReportIncidentMr.TxtCamETimeTC6 = ddlCamETimeTC6.SelectedItem.Text;
 
         /* Camera 7 */
         ReportIncidentMr.CamDesc7 = txtCamDesc7.Text.Replace("\n", "<br />");
         ReportIncidentMr.CamDesc7 = ReportIncidentMr.CamDesc7.Replace("'", "^");
-        ReportIncidentMr.SDate7 = txtCamSDate7.Text;
-        ReportIncidentMr.STimeH7 = ddlCamTimeH7.SelectedItem.Value;
-        ReportIncidentMr.STimeM7 = ddlCamTimeM7.SelectedItem.Value;
-        //ReportIncidentMr.STimeTC7 = ddlCamTimeTC7.SelectedItem.Value;
-        ReportIncidentMr.EDate7 = txtCamEDate7.Text;
-        ReportIncidentMr.ETimeH7 = ddlCamETimeH7.SelectedItem.Value;
-        ReportIncidentMr.ETimeM7 = ddlCamETimeM7.SelectedItem.Value;
+        //ReportIncidentMr.SDate7 = txtCamSDate7.Text;
+        //ReportIncidentMr.STimeH7 = ddlCamTimeH7.SelectedItem.Value;
+        //ReportIncidentMr.STimeM7 = ddlCamTimeM7.SelectedItem.Value;
+        ////ReportIncidentMr.STimeTC7 = ddlCamTimeTC7.SelectedItem.Value;
+        //ReportIncidentMr.EDate7 = txtCamEDate7.Text;
+        //ReportIncidentMr.ETimeH7 = ddlCamETimeH7.SelectedItem.Value;
+        //ReportIncidentMr.ETimeM7 = ddlCamETimeM7.SelectedItem.Value;
         //ReportIncidentMr.ETimeTC7 = ddlCamETimeTC7.SelectedItem.Value;
         ReportIncidentMr.FilePath7 = txtCamFilePath7.Text;
         ReportIncidentMr.FilePath7 = ReportIncidentMr.FilePath7.Replace("'", "^");
         ReportIncidentMr.CamRec7 = cbRecorded7.Checked.ToString();
-        ReportIncidentMr.TxtCamSTimeH7 = ddlCamTimeH7.SelectedItem.Text;
-        ReportIncidentMr.TxtCamSTimeM7 = ddlCamTimeM7.SelectedItem.Text;
-        //ReportIncidentMr.TxtCamSTimeTC7 = ddlCamTimeTC7.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeH7 = ddlCamETimeH7.SelectedItem.Text;
-        ReportIncidentMr.TxtCamETimeM7 = ddlCamETimeM7.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeH7 = ddlCamTimeH7.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamSTimeM7 = ddlCamTimeM7.SelectedItem.Text;
+        ////ReportIncidentMr.TxtCamSTimeTC7 = ddlCamTimeTC7.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeH7 = ddlCamETimeH7.SelectedItem.Text;
+        //ReportIncidentMr.TxtCamETimeM7 = ddlCamETimeM7.SelectedItem.Text;
         //ReportIncidentMr.TxtCamETimeTC7 = ddlCamETimeTC7.SelectedItem.Text;
 
         // by default set the extra Camera tables hidden
@@ -9927,8 +9927,8 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
             txtCamDesc1.Text = "";
             cbRecorded1.Checked = false;
             txtCamFilePath1.Text = "";
-            txtCamSDate1.Text = "";
-            txtCamEDate1.Text = "";
+            //txtCamSDate1.Text = "";
+            //txtCamEDate1.Text = "";
         }
 
         // validate objects in the form
@@ -10040,9 +10040,9 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         txtCamDesc2.Text = "";
         cbRecorded2.Checked = false;
         txtCamFilePath2.Text = "";
-        txtCamSDate2.Text = "";
-        //ddlCamTimeTC2.SelectedItem.Value = "-1";
-        txtCamEDate2.Text = "";
+        //txtCamSDate2.Text = "";
+        ////ddlCamTimeTC2.SelectedItem.Value = "-1";
+        //txtCamEDate2.Text = "";
         //ddlCamETimeTC2.SelectedItem.Value = "-1";
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -10061,9 +10061,9 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         txtCamDesc3.Text = "";
         cbRecorded3.Checked = false;
         txtCamFilePath3.Text = "";
-        txtCamSDate3.Text = "";
-        //ddlCamTimeTC3.SelectedItem.Value = "-1";
-        txtCamEDate3.Text = "";
+        //txtCamSDate3.Text = "";
+        ////ddlCamTimeTC3.SelectedItem.Value = "-1";
+        //txtCamEDate3.Text = "";
         //ddlCamETimeTC3.SelectedItem.Value = "-1";
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -10082,9 +10082,9 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         txtCamDesc4.Text = "";
         cbRecorded4.Checked = false;
         txtCamFilePath4.Text = "";
-        txtCamSDate4.Text = "";
-        //ddlCamTimeTC4.SelectedItem.Value = "-1";
-        txtCamEDate4.Text = "";
+        //txtCamSDate4.Text = "";
+        ////ddlCamTimeTC4.SelectedItem.Value = "-1";
+        //txtCamEDate4.Text = "";
         //ddlCamETimeTC4.SelectedItem.Value = "-1";
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -10103,9 +10103,9 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         txtCamDesc5.Text = "";
         cbRecorded5.Checked = false;
         txtCamFilePath5.Text = "";
-        txtCamSDate5.Text = "";
-        //ddlCamTimeTC5.SelectedItem.Value = "-1";
-        txtCamEDate5.Text = "";
+        //txtCamSDate5.Text = "";
+        ////ddlCamTimeTC5.SelectedItem.Value = "-1";
+        //txtCamEDate5.Text = "";
         //ddlCamETimeTC5.SelectedItem.Value = "-1";
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -10124,9 +10124,9 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         txtCamDesc6.Text = "";
         cbRecorded6.Checked = false;
         txtCamFilePath6.Text = "";
-        txtCamSDate6.Text = "";
-        //ddlCamTimeTC6.SelectedItem.Value = "-1";
-        txtCamEDate6.Text = "";
+        //txtCamSDate6.Text = "";
+        ////ddlCamTimeTC6.SelectedItem.Value = "-1";
+        //txtCamEDate6.Text = "";
         //ddlCamETimeTC6.SelectedItem.Value = "-1";
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -10145,9 +10145,9 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         txtCamDesc7.Text = "";
         cbRecorded7.Checked = false;
         txtCamFilePath7.Text = "";
-        txtCamSDate7.Text = "";
-        //ddlCamTimeTC7.SelectedItem.Value = "-1";
-        txtCamEDate7.Text = "";
+        //txtCamSDate7.Text = "";
+        ////ddlCamTimeTC7.SelectedItem.Value = "-1";
+        //txtCamEDate7.Text = "";
         //ddlCamETimeTC7.SelectedItem.Value = "-1";
         // validate objects in the form
         bool returnedValue = checkFields();
