@@ -135,7 +135,7 @@ public partial class Reports_MR_Reception_Supervisor_Create_v1_v1 : System.Web.U
             dm.SignInSlip = txtSignInSlip.Text.Replace("\n", "<br />").Replace("'", "^");;
             dm.Refusals = txtRefusals.Text.Replace("\n", "<br />").Replace("'", "^");;
             dm.EventsField = txtEventsField.Text.Replace("\n", "<br />").Replace("'", "^");;
-            dm.GeneralComments = txtGeneralComms.Text.Replace("\n", "<br />").Replace("'", "^");;
+            dm.GeneralComments = txtGeneralComms.Text.Replace("\n", "<br />").Replace("'", "^");
             dc.Report_MerrylandsRSLReceptionSupervisors.InsertOnSubmit(dm);
             dc.SubmitChanges();
         }

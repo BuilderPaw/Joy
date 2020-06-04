@@ -85,4 +85,22 @@ public class ReportReceptionMr
             HttpContext.Current.Session["RRMGenComm"] = value;
         }
     }
+    public static string SpecialComments
+    {
+        get
+        {
+            if (HttpContext.Current.Session["RRMSpecialComments"] == null)
+            {
+                return " ";
+            }
+            else
+            {
+                return HttpContext.Current.Session["RRMSpecialComments"].ToString().Replace("'", "^");
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["RRMSpecialComments"] = value;
+        }
+    }
 }

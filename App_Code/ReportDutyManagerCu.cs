@@ -248,4 +248,22 @@ public class ReportDutyManagerCu
             HttpContext.Current.Session["RDMCCompliance"] = value;
         }
     }
+    public static string SpecialComments
+    {
+        get
+        {
+            if (HttpContext.Current.Session["RDMCSpecialComments"] == null)
+            {
+                return " ";
+            }
+            else
+            {
+                return HttpContext.Current.Session["RDMCSpecialComments"].ToString().Replace("'", "^");
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["RDMCSpecialComments"] = value;
+        }
+    }
 }

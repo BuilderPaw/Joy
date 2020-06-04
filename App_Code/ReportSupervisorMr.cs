@@ -266,4 +266,22 @@ public class ReportSupervisorMr
             HttpContext.Current.Session["RSMAMLCTF"] = value;
         }
     }
+    public static string SpecialComments
+    {
+        get
+        {
+            if (HttpContext.Current.Session["RSMSpecialComments"] == null)
+            {
+                return " ";
+            }
+            else
+            {
+                return HttpContext.Current.Session["RSMSpecialComments"].ToString().Replace("'", "^");
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["RSMSpecialComments"] = value;
+        }
+    }
 }

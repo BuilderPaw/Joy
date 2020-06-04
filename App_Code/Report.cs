@@ -166,6 +166,13 @@ public class Report
                 " '" + ReportDutyManagerCu.StaffIssues + "', '" + ReportDutyManagerCu.Gaming + "', '" + ReportDutyManagerCu.KeySec + "', '" + ReportDutyManagerCu.Cameras + "', '" + ReportDutyManagerCu.GenComm + "', '" + ReportDutyManagerCu.LuckyRewards + "',  '" + ReportDutyManagerCu.Compliance + "', " + UserCredentials.StaffId + ");";
         }
 
+        if (Name.Equals("CU Duty Managers") && Version.ToString() == "2") // CU Duty Manager Version 2
+        {
+            insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, Supervisors, Whs, CostSavings, ClubPresent, ClubMaintenance, Absenteeism, StaffIssues, Gaming, KeySecurity, Cameras, GeneralComments," +
+                " LuckyRewards, Compliance, SpecialComments, LastChanged) VALUES(" + Id + ", 7, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion + ", 'Report_ClubUminaDutyManager', 2, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportDutyManagerCu.Sup + "', '" + ReportDutyManagerCu.Whs + "', '" + ReportDutyManagerCu.Cost + "', '" + ReportDutyManagerCu.ClubPres + "', '" + ReportDutyManagerCu.ClubMain + "', '" + ReportDutyManagerCu.Absent + "'," +
+                " '" + ReportDutyManagerCu.StaffIssues + "', '" + ReportDutyManagerCu.Gaming + "', '" + ReportDutyManagerCu.KeySec + "', '" + ReportDutyManagerCu.Cameras + "', '" + ReportDutyManagerCu.GenComm + "', '" + ReportDutyManagerCu.LuckyRewards + "',  '" + ReportDutyManagerCu.Compliance + "', '" + ReportDutyManagerCu.SpecialComments + "', " + UserCredentials.StaffId + ");";
+        }
+
         if (Name.Equals("MR Duty Managers") && Version.ToString() == "1") // MR Duty Manager Version 1
         {
             insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, Supervisors, Whs, CostSavings, ClubPresent, ClubMaintenance, Absenteeism, StaffIssues, Gaming, KeySecurity, Cameras, GeneralComments," +
@@ -173,11 +180,18 @@ public class Report
                 " '" + ReportDutyManagerMr.StaffIssues + "', '" + ReportDutyManagerMr.Gaming + "', '" + ReportDutyManagerMr.KeySec + "', '" + ReportDutyManagerMr.Cameras + "', '" + ReportDutyManagerMr.GenComm + "', '" + ReportDutyManagerMr.LuckyRewards + "',  '" + ReportDutyManagerMr.Compliance + "', " + UserCredentials.StaffId + ");";
         }
 
-        if (Name.Equals("MR Duty Managers") && Version.ToString() == "2") // MR Duty Manager Version 1
+        if (Name.Equals("MR Duty Managers") && Version.ToString() == "2") // MR Duty Manager Version 2
         {
             insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, Supervisors, Whs, CostSavings, ClubPresent, ClubMaintenance, Absenteeism, StaffIssues, Gaming, KeySecurity, Cameras" +
                 ", LastChanged) VALUES(" + Id + ", 2, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion + ", 'Report_MerrylandsRSLDutyManager', 2, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportDutyManagerMr.Sup + "', '" + ReportDutyManagerMr.Whs + "', '" + ReportDutyManagerMr.Cost + "', '" + ReportDutyManagerMr.ClubPres + "', '" + ReportDutyManagerMr.ClubMain + "', '" + ReportDutyManagerMr.Absent + "'," +
                 " '" + ReportDutyManagerMr.StaffIssues + "', '" + ReportDutyManagerMr.Gaming + "', '" + ReportDutyManagerMr.KeySec + "', '" + ReportDutyManagerMr.Cameras + "', " + UserCredentials.StaffId + ");";
+        }
+
+        if (Name.Equals("MR Duty Managers") && Version.ToString() == "3") // MR Duty Manager Version 3
+        {
+            insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, Supervisors, Whs, CostSavings, ClubPresent, ClubMaintenance, Absenteeism, StaffIssues, Gaming, KeySecurity, Cameras" +
+                ", SpecialComments, LastChanged) VALUES(" + Id + ", 2, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion + ", 'Report_MerrylandsRSLDutyManager', 3, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportDutyManagerMr.Sup + "', '" + ReportDutyManagerMr.Whs + "', '" + ReportDutyManagerMr.Cost + "', '" + ReportDutyManagerMr.ClubPres + "', '" + ReportDutyManagerMr.ClubMain + "', '" + ReportDutyManagerMr.Absent + "'," +
+                " '" + ReportDutyManagerMr.StaffIssues + "', '" + ReportDutyManagerMr.Gaming + "', '" + ReportDutyManagerMr.KeySec + "', '" + ReportDutyManagerMr.Cameras + "', '" + ReportDutyManagerMr.SpecialComments + "', " + UserCredentials.StaffId + ");";
         }
 
         if (Name.Equals("MR Reception") && Version.ToString() == "1") // MR Reception Version 1
@@ -186,10 +200,22 @@ public class Report
                 "VALUES(" + Id + ", 6, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion + ", 'Report_MerrylandsRSLReception', 1, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportReceptionMr.SignIn + "', '" + ReportReceptionMr.Refusals + "', '" + ReportReceptionMr.Events + "', '" + ReportReceptionMr.GenComm + "', " + UserCredentials.StaffId + ");";
         }
 
-        if (Name.Equals("CU Reception") && Version.ToString() == "1") // MR Reception Version 1
+        if (Name.Equals("MR Reception") && Version.ToString() == "2") // MR Reception Version 2
+        {
+            insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, SignInSlip, Refusals, EventsField, GeneralComments, SpecialComments, LastChanged) " +
+                "VALUES(" + Id + ", 6, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion + ", 'Report_MerrylandsRSLReception', 2, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportReceptionMr.SignIn + "', '" + ReportReceptionMr.Refusals + "', '" + ReportReceptionMr.Events + "', '" + ReportReceptionMr.GenComm + "', '" + ReportReceptionMr.SpecialComments + "', " + UserCredentials.StaffId + ");";
+        }
+
+        if (Name.Equals("CU Reception") && Version.ToString() == "1") // CU Reception Version 1
         {
             insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, SignInSlip, Refusals, EventsField, GeneralComments, LastChanged) " +
                 "VALUES(" + Id + ", 8, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion + ", 'Report_ClubUminaReception', 1, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportReceptionCu.SignIn + "', '" + ReportReceptionCu.Refusals + "', '" + ReportReceptionCu.Events + "', '" + ReportReceptionCu.GenComm + "', " + UserCredentials.StaffId + ");";
+        }
+
+        if (Name.Equals("CU Reception") && Version.ToString() == "2") // CU Reception Version 2
+        {
+            insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, SignInSlip, Refusals, EventsField, GeneralComments, SpecialComments, LastChanged) " +
+                "VALUES(" + Id + ", 8, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion + ", 'Report_ClubUminaReception', 2, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportReceptionCu.SignIn + "', '" + ReportReceptionCu.Refusals + "', '" + ReportReceptionCu.Events + "', '" + ReportReceptionCu.GenComm + "', '" + ReportReceptionCu.SpecialComments + "', " + UserCredentials.StaffId + ");";
         }
 
         if (Name.Equals("MR Reception Supervisor") && Version.ToString() == "1") // MR Reception Supervisor Version 1
@@ -198,11 +224,24 @@ public class Report
                 "VALUES(" + Id + ", 5, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion + ", 'Report_MerrylandsRSLReceptionSupervisor', 1, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportReceptionSupervisorMr.SignIn + "', '" + ReportReceptionSupervisorMr.Refusals + "', '" + ReportReceptionSupervisorMr.Events + "', '" + ReportReceptionSupervisorMr.GenComm + "', " + UserCredentials.StaffId + ");";
         }
 
+        if (Name.Equals("MR Reception Supervisor") && Version.ToString() == "2") // MR Reception Supervisor Version 2
+        {
+            insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, SignInSlip, Refusals, EventsField, GeneralComments, SpecialComments, LastChanged) " +
+                "VALUES(" + Id + ", 5, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion + ", 'Report_MerrylandsRSLReceptionSupervisor', 2, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportReceptionSupervisorMr.SignIn + "', '" + ReportReceptionSupervisorMr.Refusals + "', '" + ReportReceptionSupervisorMr.Events + "', '" + ReportReceptionSupervisorMr.GenComm + "', '" + ReportReceptionSupervisorMr.SpecialComments + "', " + UserCredentials.StaffId + ");";
+        }
+
         if (Name.Equals("MR Supervisors") && Version.ToString() == "1") // MR Supervisor Version 1
         {
             insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, SignInSlip, Reception, Gaming, Bar, TABKeno, HouseKeeping, Bistro, FoodHygiene, Events, CustomerService, GeneralComments, LuckyRewards, RSA, AMLCTF, LastChanged) " +
                 "VALUES(" + Id + ", 3, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion + ", 'Report_MerrylandsRSLSupervisor', 1, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportSupervisorMr.SignInSlip + "', '" + ReportSupervisorMr.Reception + "', '" + ReportSupervisorMr.Gaming + "', '" + ReportSupervisorMr.Bar + "', '" + ReportSupervisorMr.TabKeno +
                 "', '" + ReportSupervisorMr.HouseKeeping + "', '" + ReportSupervisorMr.Bistro + "', '" + ReportSupervisorMr.FoodHygiene + "', '" + ReportSupervisorMr.Events + "', '" + ReportSupervisorMr.CustomerService + "', '" + ReportSupervisorMr.GenComm + "', '" + ReportSupervisorMr.LuckyRewards + "', '" + ReportSupervisorMr.RSA + "', '" + ReportSupervisorMr.AMLCTF + "', " + UserCredentials.StaffId + ");";
+        }
+
+        if (Name.Equals("MR Supervisors") && Version.ToString() == "2") // MR Supervisor Version 2
+        {
+            insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, SignInSlip, Reception, Gaming, Bar, TABKeno, HouseKeeping, Bistro, FoodHygiene, Events, CustomerService, GeneralComments, LuckyRewards, RSA, AMLCTF, SpecialComments, LastChanged) " +
+                "VALUES(" + Id + ", 3, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion + ", 'Report_MerrylandsRSLSupervisor', 2, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportSupervisorMr.SignInSlip + "', '" + ReportSupervisorMr.Reception + "', '" + ReportSupervisorMr.Gaming + "', '" + ReportSupervisorMr.Bar + "', '" + ReportSupervisorMr.TabKeno +
+                "', '" + ReportSupervisorMr.HouseKeeping + "', '" + ReportSupervisorMr.Bistro + "', '" + ReportSupervisorMr.FoodHygiene + "', '" + ReportSupervisorMr.Events + "', '" + ReportSupervisorMr.CustomerService + "', '" + ReportSupervisorMr.GenComm + "', '" + ReportSupervisorMr.LuckyRewards + "', '" + ReportSupervisorMr.RSA + "', '" + ReportSupervisorMr.AMLCTF + "', '" + ReportSupervisorMr.SpecialComments + "', " + UserCredentials.StaffId + ");";
         }
 
         if (Name.Equals("MR Function Supervisor") && Version.ToString() == "1") // MR Function Supervisor Version 1
@@ -318,10 +357,17 @@ public class Report
                 " Cameras='" + ReportDutyManagerMr.Cameras + "', GeneralComments='" + ReportDutyManagerMr.GenComm + "', LuckyRewards='" + ReportDutyManagerMr.LuckyRewards + "', Compliance='" + ReportDutyManagerMr.Compliance + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
         }
 
-        if (Name.Equals("MR Duty Managers") && Version.ToString() == "2") // MR Duty Managers Version 1
+        if (Name.Equals("MR Duty Managers") && Version.ToString() == "2") // MR Duty Managers Version 2
         {
             updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', Supervisors='" + ReportDutyManagerMr.Sup + "', Whs='" + ReportDutyManagerMr.Whs + "', CostSavings='" + ReportDutyManagerMr.Cost + "', ClubPresent='" + ReportDutyManagerMr.ClubPres + "'," +
                 " ClubMaintenance='" + ReportDutyManagerMr.ClubMain + "', Absenteeism='" + ReportDutyManagerMr.Absent + "', StaffIssues='" + ReportDutyManagerMr.StaffIssues + "', Gaming='" + ReportDutyManagerMr.Gaming + "', KeySecurity='" + ReportDutyManagerMr.KeySec + "', Cameras='" + ReportDutyManagerMr.Cameras +
+                "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
+        }
+
+        if (Name.Equals("MR Duty Managers") && Version.ToString() == "3") // MR Duty Managers Version 3
+        {
+            updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', Supervisors='" + ReportDutyManagerMr.Sup + "', Whs='" + ReportDutyManagerMr.Whs + "', CostSavings='" + ReportDutyManagerMr.Cost + "', ClubPresent='" + ReportDutyManagerMr.ClubPres + "'," +
+                " ClubMaintenance='" + ReportDutyManagerMr.ClubMain + "', Absenteeism='" + ReportDutyManagerMr.Absent + "', StaffIssues='" + ReportDutyManagerMr.StaffIssues + "', Gaming='" + ReportDutyManagerMr.Gaming + "', KeySecurity='" + ReportDutyManagerMr.KeySec + "', Cameras='" + ReportDutyManagerMr.Cameras + "', SpecialComments='" + ReportDutyManagerMr.SpecialComments +
                 "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
         }
 
@@ -332,6 +378,13 @@ public class Report
                 " Cameras='" + ReportDutyManagerCu.Cameras + "', GeneralComments='" + ReportDutyManagerCu.GenComm + "', LuckyRewards='" + ReportDutyManagerCu.LuckyRewards + "', Compliance='" + ReportDutyManagerCu.Compliance + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
         }
 
+        if (Name.Equals("CU Duty Managers") && Version.ToString() == "2") // UM Duty Managers Version 2
+        {
+            updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', Supervisors='" + ReportDutyManagerCu.Sup + "', Whs='" + ReportDutyManagerCu.Whs + "', CostSavings='" + ReportDutyManagerCu.Cost + "', ClubPresent='" + ReportDutyManagerCu.ClubPres + "'," +
+                " ClubMaintenance='" + ReportDutyManagerCu.ClubMain + "', Absenteeism='" + ReportDutyManagerCu.Absent + "', StaffIssues='" + ReportDutyManagerCu.StaffIssues + "', Gaming='" + ReportDutyManagerCu.Gaming + "', KeySecurity='" + ReportDutyManagerCu.KeySec + "'," +
+                " Cameras='" + ReportDutyManagerCu.Cameras + "', GeneralComments='" + ReportDutyManagerCu.GenComm + "', LuckyRewards='" + ReportDutyManagerCu.LuckyRewards + "', Compliance='" + ReportDutyManagerCu.Compliance + "', SpecialComments='" + ReportDutyManagerCu.SpecialComments + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
+        }
+
         if (Name.Equals("MR Supervisors") && Version.ToString() == "1") // MR Supervisors Version 1
         {
             updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', SignInSlip='" + ReportSupervisorMr.SignInSlip + "', Reception='" + ReportSupervisorMr.Reception + "', Gaming='" + ReportSupervisorMr.Gaming + "', Bar='" + ReportSupervisorMr.Bar + "'," +
@@ -339,9 +392,22 @@ public class Report
                 " CustomerService='" + ReportSupervisorMr.CustomerService + "', GeneralComments='" + ReportSupervisorMr.GenComm + "', LuckyRewards='" + ReportSupervisorMr.LuckyRewards + "', RSA='" + ReportSupervisorMr.RSA + "', AMLCTF='" + ReportSupervisorMr.AMLCTF + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
         }
 
+        if (Name.Equals("MR Supervisors") && Version.ToString() == "2") // MR Supervisors Version 2
+        {
+            updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', SignInSlip='" + ReportSupervisorMr.SignInSlip + "', Reception='" + ReportSupervisorMr.Reception + "', Gaming='" + ReportSupervisorMr.Gaming + "', Bar='" + ReportSupervisorMr.Bar + "'," +
+                " TABKeno='" + ReportSupervisorMr.TabKeno + "', HouseKeeping='" + ReportSupervisorMr.HouseKeeping + "', Bistro='" + ReportSupervisorMr.Bistro + "', FoodHygiene='" + ReportSupervisorMr.FoodHygiene + "', Events='" + ReportSupervisorMr.Events + "'," +
+                " CustomerService='" + ReportSupervisorMr.CustomerService + "', GeneralComments='" + ReportSupervisorMr.GenComm + "', LuckyRewards='" + ReportSupervisorMr.LuckyRewards + "', RSA='" + ReportSupervisorMr.RSA + "', AMLCTF='" + ReportSupervisorMr.AMLCTF + "', SpecialComments='" + ReportSupervisorMr.SpecialComments +
+                "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
+        }
+
         if (Name.Equals("MR Reception") && Version.ToString() == "1") // MR Reception Version 1
         {
             updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', SignInSlip='" + ReportReceptionMr.SignIn + "', Refusals='" + ReportReceptionMr.Refusals + "', EventsField='" + ReportReceptionMr.Events + "', GeneralComments='" + ReportReceptionMr.GenComm + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
+        }
+
+        if (Name.Equals("MR Reception") && Version.ToString() == "2") // MR Reception Version 2
+        {
+            updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', SignInSlip='" + ReportReceptionMr.SignIn + "', Refusals='" + ReportReceptionMr.Refusals + "', EventsField='" + ReportReceptionMr.Events + "', GeneralComments='" + ReportReceptionMr.GenComm + "', SpecialComments='" + ReportReceptionMr.SpecialComments + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
         }
 
         if (Name.Equals("CU Reception") && Version.ToString() == "1") // UM Reception Version 1
@@ -349,7 +415,12 @@ public class Report
             updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', SignInSlip='" + ReportReceptionCu.SignIn + "', Refusals='" + ReportReceptionCu.Refusals + "', EventsField='" + ReportReceptionCu.Events + "', GeneralComments='" + ReportReceptionCu.GenComm + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
         }
 
-        if (Name.Equals("MR Function Supervisor") && Version.ToString() == "1") // MR Reception Version 1
+        if (Name.Equals("CU Reception") && Version.ToString() == "2") // UM Reception Version 2
+        {
+            updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', SignInSlip='" + ReportReceptionCu.SignIn + "', Refusals='" + ReportReceptionCu.Refusals + "', EventsField='" + ReportReceptionCu.Events + "', GeneralComments='" + ReportReceptionCu.GenComm + "', SpecialComments='" + ReportReceptionCu.SpecialComments + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
+        }
+
+        if (Name.Equals("MR Function Supervisor") && Version.ToString() == "1") // MR Function Supervisor Version 1
         {
             updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', FunctionName='" + ReportFunctionSupervisorMr.FunctionName + "', NumberOfGuests='" + ReportFunctionSupervisorMr.NoOfGuests + "', Setup='" + ReportFunctionSupervisorMr.Setup + "', MenuFeedback='" + ReportFunctionSupervisorMr.MenuFeed + "', BarFeedback='" + ReportFunctionSupervisorMr.BarFeed + "', StaffIssues='" + ReportFunctionSupervisorMr.StaffIss
                 + "', GeneralComments='" + ReportFunctionSupervisorMr.GenComm + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
@@ -359,6 +430,12 @@ public class Report
         {
             updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', SignInSlip='" + ReportReceptionSupervisorMr.SignIn + "', Refusals='" + ReportReceptionSupervisorMr.Refusals + "', EventsField='" + ReportReceptionSupervisorMr.Events + "', GeneralComments='" + ReportReceptionSupervisorMr.GenComm + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
         }
+
+        if (Name.Equals("MR Reception Supervisor") && Version.ToString() == "2") // MR Reception Supervisor Version 2
+        {
+            updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', SignInSlip='" + ReportReceptionSupervisorMr.SignIn + "', Refusals='" + ReportReceptionSupervisorMr.Refusals + "', EventsField='" + ReportReceptionSupervisorMr.Events + "', GeneralComments='" + ReportReceptionSupervisorMr.GenComm + "', SpecialComments='" + ReportReceptionSupervisorMr.SpecialComments + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
+        }
+
         return updateQuery;
     }
 
