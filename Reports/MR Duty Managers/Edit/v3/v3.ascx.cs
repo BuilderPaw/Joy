@@ -177,32 +177,33 @@ public partial class Reports_MR_Duty_Managers_Edit_v3_v3 : System.Web.UI.UserCon
 
         Report.ErrorMessage = "";
         Report.HasErrorMessage = false;
+        Report.HasErrorMessage1 = false;
 
         // General Incident Report Form
         if (ddlShift.SelectedItem.Value.ToString() == "-1")
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Shift.";
             ddlShift.Focus();
-            Report.HasErrorMessage = true;
+            Report.HasErrorMessage1 = true;
         }
         if (txtSpecialComments.Text == "")
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* COVID-19 section shouldn't be empty.";
             txtSpecialComments.Focus();
-            Report.HasErrorMessage = true;
+            Report.HasErrorMessage1 = true;
         }
 
         if (txtDatePicker.Text == "")
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Shift Date shouldn't be empty.";
             txtDatePicker.Focus();
-            Report.HasErrorMessage = true;
+            Report.HasErrorMessage1 = true;
         }
         else if (!DateTime.TryParse(txtDatePicker.Text, out temp))
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Shifts Date entry is not in date format please select an appropriate date.";
             txtDatePicker.Focus();
-            Report.HasErrorMessage = true;
+            Report.HasErrorMessage1 = true;
         }
         else
         {
@@ -212,13 +213,13 @@ public partial class Reports_MR_Duty_Managers_Edit_v3_v3 : System.Web.UI.UserCon
             {
                 Report.ErrorMessage = Report.ErrorMessage + "\\n* DATE MUST BE BEFORE CURRENT DATE.";
                 txtDatePicker.Focus();
-                Report.HasErrorMessage = true;
+                Report.HasErrorMessage1 = true;
             }
         }
 
         Report.RunEditMode = true;
         Report.ShiftId = ddlShift.SelectedItem.Value;
-        if (Report.HasErrorMessage.Equals(false))
+        if (Report.HasErrorMessage1.Equals(false))
         {
             Report.ShiftDate = DateTime.Parse(txtDatePicker.Text).ToString();
             Report.ShiftDOW = DateTime.Parse(Report.ShiftDate.ToString()).DayOfWeek.ToString();

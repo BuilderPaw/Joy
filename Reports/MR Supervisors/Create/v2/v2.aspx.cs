@@ -87,12 +87,12 @@ public partial class Reports_MR_Supervisors_Create_v2_v2 : System.Web.UI.Page
             }
         }
 
-        if (txtSpecialComments.Text == "")
-        {
-            Report.ErrorMessage = Report.ErrorMessage + "\\n* COVID-19 section shouldn't be empty.";
-            txtSpecialComments.Focus();
-            returnFlag = 1;
-        }
+        //if (txtSpecialComments.Text == "")
+        //{
+        //    Report.ErrorMessage = Report.ErrorMessage + "\\n* COVID-19 section shouldn't be empty.";
+        //    txtSpecialComments.Focus();
+        //    returnFlag = 1;
+        //}
 
         if (returnFlag == 1)
         {

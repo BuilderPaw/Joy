@@ -86,12 +86,12 @@ public partial class Reports_MR_Reception_Supervisor_Create_v2_v2 : System.Web.U
             }
         }
 
-        if (txtSpecialComments.Text == "")
-        {
-            Report.ErrorMessage = Report.ErrorMessage + "\\n* COVID-19 section shouldn't be empty.";
-            txtSpecialComments.Focus();
-            returnFlag = 1;
-        }
+        //if (txtSpecialComments.Text == "")
+        //{
+        //    Report.ErrorMessage = Report.ErrorMessage + "\\n* COVID-19 section shouldn't be empty.";
+        //    txtSpecialComments.Focus();
+        //    returnFlag = 1;
+        //}
 
         if (returnFlag == 1)
         {
