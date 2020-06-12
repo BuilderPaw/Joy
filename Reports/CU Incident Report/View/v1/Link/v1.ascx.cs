@@ -16,7 +16,7 @@ public partial class Reports_CU_Incident_Report_View_v1_Link_v1 : System.Web.UI.
     {
         if (Report.LinkedTable.Contains("Incident"))
         {
-            if (Report.SelectedStaffId == UserCredentials.StaffId || UserCredentials.GroupsQuery.Contains("Duty Manager") || UserCredentials.GroupsQuery.Contains("Senior Manager") || UserCredentials.GroupsQuery.Contains("Override") && Report.LinkedTable.Contains("Incident")) // if it is a member of Duty Manager display the Incident Report
+            if (UserCredentials.GroupsQuery.Contains("Duty Manager") || UserCredentials.GroupsQuery.Contains("Senior Manager") || UserCredentials.GroupsQuery.Contains("Override") && Report.LinkedTable.Contains("Incident")) // if it is a member of Duty Manager display the Incident Report
             {
                 incidentReport.Visible = true;
                 readFiles(Report.LinkedReport, "getFields");

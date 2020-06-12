@@ -9,7 +9,7 @@ public partial class Reports_MR_Duty_Managers_Print_v2_Active_v2 : System.Web.UI
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (UserCredentials.GroupsQuery.Contains("Duty Manager") || UserCredentials.GroupsQuery.Contains("Senior Manager")) // if it is a member of Duty or Senior Manager display the Incident Report
+        if (UserCredentials.GroupsQuery.Contains("Duty Manager") || UserCredentials.GroupsQuery.Contains("Senior Manager") || UserCredentials.GroupsQuery.Contains("Override")) // if it is a member of Duty or Senior Manager display the Incident Report
         {
             dmReport.Visible = true;
         }

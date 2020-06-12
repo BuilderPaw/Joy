@@ -16,7 +16,7 @@ public partial class Reports_CU_Incident_Report_Print_v1_Active_v1 : System.Web.
     {
         if (Report.Table.Contains("Incident"))
         {
-            if (Report.SelectedStaffId == UserCredentials.StaffId || UserCredentials.GroupsQuery.Contains("Duty Manager") && Report.Table.Contains("Incident")) // if it is a member of Duty Manager display the Incident Report
+            if (Report.SelectedStaffId == UserCredentials.StaffId || UserCredentials.GroupsQuery.Contains("Duty Manager") && Report.Table.Contains("Incident") || UserCredentials.GroupsQuery.Contains("Override")) // if it is a member of Duty Manager display the Incident Report
             {
                 incidentReport.Visible = true;
                 readFiles(Report.ActiveReport, "getFields");
