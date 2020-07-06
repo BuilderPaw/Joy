@@ -7,8 +7,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Linked Report</title>
-    <link rel="stylesheet" href="/CSS/MasterStyle.css" type="text/css" />
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="../CSS/MasterStyle.css" type="text/css" />
+    <script type="text/javascript" src="../Scripts/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
     function ToTopOfPage(sender, args) {
         $("html, body").animate({ scrollTop: 0 }, 1000);

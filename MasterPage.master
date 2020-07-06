@@ -9,8 +9,8 @@
     <title>Club Reports</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- matches CSS Styles in IIS -->
-    <script type="text/javascript" src="Scripts/JavaScript.js"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../Scripts/JavaScript.js"></script>
+    <script type="text/javascript" src="../Scripts/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="/CSS/MasterStyle.css" type="text/css" />
     <!-- 
         <meta http-equiv="refresh" content="28790">
