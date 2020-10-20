@@ -3510,7 +3510,7 @@ public partial class _Default : System.Web.UI.Page
 
                 // use Array.Sort to display the Report Types accordingly
                 Array.Sort(int_groups);
-                bool incidentAdded1 = false, incidentAdded2 = false;
+                bool incidentAdded1 = false, incidentAdded2 = false, covidAdded1 = false, covidAdded2 = false;
                 for (int i = 0; i < int_groups.Length; i++)
                 {
                     // display the reports in proper order, All MR Reports at the top followed by CU Reports
@@ -3529,6 +3529,16 @@ public partial class _Default : System.Web.UI.Page
                         {
                             ddlReportType.Items.Add(new ListItem("CU Incident Report", "10"));
                             incidentAdded2 = true;
+                        }
+                    }
+
+                    // if Duty Manager or Supervisor - Merrylands
+                    if (int_groups[i] == 1 || int_groups[i] == 2)
+                    {
+                        if (!covidAdded1)
+                        {
+                            ddlReportType.Items.Add(new ListItem("MR Covid Marshall", "11"));
+                            covidAdded1 = true;
                         }
                     }
 
@@ -3555,6 +3565,7 @@ public partial class _Default : System.Web.UI.Page
                     else if (int_groups[i] == 6)
                     {
                         ddlReportType.Items.Add(new ListItem("CU Duty Manager", "8"));
+                        ddlReportType.Items.Add(new ListItem("CU Covid Marshall", "12"));
                     }
                     else if (int_groups[i] == 7)
                     {
@@ -3568,6 +3579,7 @@ public partial class _Default : System.Web.UI.Page
                 // MR Duty Manager & Incident Report
                 ddlReportType.Items.Add(new ListItem("MR Incident Report", "2"));
                 ddlReportType.Items.Add(new ListItem("MR Duty Manager", "3"));
+                ddlReportType.Items.Add(new ListItem("MR Covid Marshall", "11"));
                 // MR Supervisor
                 ddlReportType.Items.Add(new ListItem("MR Supervisor", "4"));
                 // MR Function Supervisor
@@ -3579,6 +3591,7 @@ public partial class _Default : System.Web.UI.Page
                 // CU Duty Manager
                 ddlReportType.Items.Add(new ListItem("CU Duty Manager", "8"));
                 ddlReportType.Items.Add(new ListItem("CU Incident Report", "10"));
+                ddlReportType.Items.Add(new ListItem("CU Covid Marshall", "12"));
                 // CU Reception
                 ddlReportType.Items.Add(new ListItem("CU Reception", "9"));
             }
@@ -3787,6 +3800,14 @@ public partial class _Default : System.Web.UI.Page
         else if (ReportType == 10)
         {
             _reportType = "CU Incident Report";
+        }
+        else if (ReportType == 11)
+        {
+            _reportType = "MR Covid Marshall";
+        }
+        else if (ReportType == 12)
+        {
+            _reportType = "CU Covid Marshall";
         }
 
         // find appropriate search query

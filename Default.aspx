@@ -6,8 +6,8 @@
 <%@ MasterType VirtualPath="~/MasterPage.master" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
-    <script type="text/javascript" src="../Scripts/jsHumanBody.js"></script>
-    <script type="text/javascript" src="../Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/jsHumanBody.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery-3.3.1.min.js"></script>
     <script type="text/javascript">
         function ToAttachedFiles(sender, args) {
             $('html, body').animate({

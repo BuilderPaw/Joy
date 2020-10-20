@@ -9,8 +9,8 @@
     <title>Club Reports</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <!-- matches CSS Styles in IIS -->
-    <script type="text/javascript" src="../Scripts/JavaScript.js"></script>
-    <script type="text/javascript" src="../Scripts/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="/Scripts/JavaScript.js"></script>
+    <script type="text/javascript" src="/Scripts/jquery-3.3.1.min.js"></script>
     <link rel="stylesheet" href="/CSS/MasterStyle.css" type="text/css" />
     <!-- 
         <meta http-equiv="refresh" content="28790">
@@ -56,9 +56,18 @@
             return false;
         }
 
-        function CancelReturnKey() {
-            if (window.event.keyCode == 13)
+        function isNumberKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57) || charCode == 13)
                 return false;
+            return true;
+        }
+
+        function CancelReturnKey(evt) {
+            var charCode = (evt.which) ? evt.which : evt.keyCode;
+            if (charCode == 13)
+                return false;
+            return true;
         }
 
         // when key is pressed on any objects under Search section and Enter key is selected, trigger btnSearchReport_Click method

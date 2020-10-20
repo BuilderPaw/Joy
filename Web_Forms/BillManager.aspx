@@ -7,8 +7,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Bill Manager</title>
-    <link rel="stylesheet" href="../CSS/BillManager.css" type="text/css" />
-    <script type="text/javascript" src="../Scripts/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="/CSS/BillManager.css" type="text/css" />
+    <script type="text/javascript" src="/Scripts/jquery-3.3.1.min.js"></script>
     <%--
         Paolo Santiago 18/12/2018
         Allow addEventListener() in IE 11.

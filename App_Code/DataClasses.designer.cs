@@ -56,6 +56,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertRecommendation_Judiciary(Recommendation_Judiciary instance);
   partial void UpdateRecommendation_Judiciary(Recommendation_Judiciary instance);
   partial void DeleteRecommendation_Judiciary(Recommendation_Judiciary instance);
+  partial void InsertReport_ClubUminaCovidMarshall(Report_ClubUminaCovidMarshall instance);
+  partial void UpdateReport_ClubUminaCovidMarshall(Report_ClubUminaCovidMarshall instance);
+  partial void DeleteReport_ClubUminaCovidMarshall(Report_ClubUminaCovidMarshall instance);
   partial void InsertReport_ClubUminaDutyManager(Report_ClubUminaDutyManager instance);
   partial void UpdateReport_ClubUminaDutyManager(Report_ClubUminaDutyManager instance);
   partial void DeleteReport_ClubUminaDutyManager(Report_ClubUminaDutyManager instance);
@@ -65,6 +68,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertReport_ClubUminaReception(Report_ClubUminaReception instance);
   partial void UpdateReport_ClubUminaReception(Report_ClubUminaReception instance);
   partial void DeleteReport_ClubUminaReception(Report_ClubUminaReception instance);
+  partial void InsertReport_MerrylandsRSLCovidMarshall(Report_MerrylandsRSLCovidMarshall instance);
+  partial void UpdateReport_MerrylandsRSLCovidMarshall(Report_MerrylandsRSLCovidMarshall instance);
+  partial void DeleteReport_MerrylandsRSLCovidMarshall(Report_MerrylandsRSLCovidMarshall instance);
   partial void InsertReport_MerrylandsRSLDutyManager(Report_MerrylandsRSLDutyManager instance);
   partial void UpdateReport_MerrylandsRSLDutyManager(Report_MerrylandsRSLDutyManager instance);
   partial void DeleteReport_MerrylandsRSLDutyManager(Report_MerrylandsRSLDutyManager instance);
@@ -236,6 +242,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		}
 	}
 	
+	public System.Data.Linq.Table<Report_ClubUminaCovidMarshall> Report_ClubUminaCovidMarshalls
+	{
+		get
+		{
+			return this.GetTable<Report_ClubUminaCovidMarshall>();
+		}
+	}
+	
 	public System.Data.Linq.Table<Report_ClubUminaDutyManager> Report_ClubUminaDutyManagers
 	{
 		get
@@ -257,6 +271,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<Report_ClubUminaReception>();
+		}
+	}
+	
+	public System.Data.Linq.Table<Report_MerrylandsRSLCovidMarshall> Report_MerrylandsRSLCovidMarshalls
+	{
+		get
+		{
+			return this.GetTable<Report_MerrylandsRSLCovidMarshall>();
 		}
 	}
 	
@@ -1604,11 +1626,15 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private bool _ManagerSignOffRequired;
 	
+	private EntitySet<Report_ClubUminaCovidMarshall> _Report_ClubUminaCovidMarshalls;
+	
 	private EntitySet<Report_ClubUminaDutyManager> _Report_ClubUminaDutyManagers;
 	
 	private EntitySet<Report_ClubUminaIncident> _Report_ClubUminaIncidents;
 	
 	private EntitySet<Report_ClubUminaReception> _Report_ClubUminaReceptions;
+	
+	private EntitySet<Report_MerrylandsRSLCovidMarshall> _Report_MerrylandsRSLCovidMarshalls;
 	
 	private EntitySet<Report_MerrylandsRSLDutyManager> _Report_MerrylandsRSLDutyManagers;
 	
@@ -1636,9 +1662,11 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public Category()
 	{
+		this._Report_ClubUminaCovidMarshalls = new EntitySet<Report_ClubUminaCovidMarshall>(new Action<Report_ClubUminaCovidMarshall>(this.attach_Report_ClubUminaCovidMarshalls), new Action<Report_ClubUminaCovidMarshall>(this.detach_Report_ClubUminaCovidMarshalls));
 		this._Report_ClubUminaDutyManagers = new EntitySet<Report_ClubUminaDutyManager>(new Action<Report_ClubUminaDutyManager>(this.attach_Report_ClubUminaDutyManagers), new Action<Report_ClubUminaDutyManager>(this.detach_Report_ClubUminaDutyManagers));
 		this._Report_ClubUminaIncidents = new EntitySet<Report_ClubUminaIncident>(new Action<Report_ClubUminaIncident>(this.attach_Report_ClubUminaIncidents), new Action<Report_ClubUminaIncident>(this.detach_Report_ClubUminaIncidents));
 		this._Report_ClubUminaReceptions = new EntitySet<Report_ClubUminaReception>(new Action<Report_ClubUminaReception>(this.attach_Report_ClubUminaReceptions), new Action<Report_ClubUminaReception>(this.detach_Report_ClubUminaReceptions));
+		this._Report_MerrylandsRSLCovidMarshalls = new EntitySet<Report_MerrylandsRSLCovidMarshall>(new Action<Report_MerrylandsRSLCovidMarshall>(this.attach_Report_MerrylandsRSLCovidMarshalls), new Action<Report_MerrylandsRSLCovidMarshall>(this.detach_Report_MerrylandsRSLCovidMarshalls));
 		this._Report_MerrylandsRSLDutyManagers = new EntitySet<Report_MerrylandsRSLDutyManager>(new Action<Report_MerrylandsRSLDutyManager>(this.attach_Report_MerrylandsRSLDutyManagers), new Action<Report_MerrylandsRSLDutyManager>(this.detach_Report_MerrylandsRSLDutyManagers));
 		this._Report_MerrylandsRSLFunctionSupervisors = new EntitySet<Report_MerrylandsRSLFunctionSupervisor>(new Action<Report_MerrylandsRSLFunctionSupervisor>(this.attach_Report_MerrylandsRSLFunctionSupervisors), new Action<Report_MerrylandsRSLFunctionSupervisor>(this.detach_Report_MerrylandsRSLFunctionSupervisors));
 		this._Report_MerrylandsRSLIncidents = new EntitySet<Report_MerrylandsRSLIncident>(new Action<Report_MerrylandsRSLIncident>(this.attach_Report_MerrylandsRSLIncidents), new Action<Report_MerrylandsRSLIncident>(this.detach_Report_MerrylandsRSLIncidents));
@@ -1708,6 +1736,19 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_ClubUminaCovidMarshall", Storage="_Report_ClubUminaCovidMarshalls", ThisKey="RCatId", OtherKey="RCatId")]
+	public EntitySet<Report_ClubUminaCovidMarshall> Report_ClubUminaCovidMarshalls
+	{
+		get
+		{
+			return this._Report_ClubUminaCovidMarshalls;
+		}
+		set
+		{
+			this._Report_ClubUminaCovidMarshalls.Assign(value);
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_ClubUminaDutyManager", Storage="_Report_ClubUminaDutyManagers", ThisKey="RCatId", OtherKey="RCatId")]
 	public EntitySet<Report_ClubUminaDutyManager> Report_ClubUminaDutyManagers
 	{
@@ -1744,6 +1785,19 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 		set
 		{
 			this._Report_ClubUminaReceptions.Assign(value);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLCovidMarshall", Storage="_Report_MerrylandsRSLCovidMarshalls", ThisKey="RCatId", OtherKey="RCatId")]
+	public EntitySet<Report_MerrylandsRSLCovidMarshall> Report_MerrylandsRSLCovidMarshalls
+	{
+		get
+		{
+			return this._Report_MerrylandsRSLCovidMarshalls;
+		}
+		set
+		{
+			this._Report_MerrylandsRSLCovidMarshalls.Assign(value);
 		}
 	}
 	
@@ -1845,6 +1899,18 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	private void attach_Report_ClubUminaCovidMarshalls(Report_ClubUminaCovidMarshall entity)
+	{
+		this.SendPropertyChanging();
+		entity.Category = this;
+	}
+	
+	private void detach_Report_ClubUminaCovidMarshalls(Report_ClubUminaCovidMarshall entity)
+	{
+		this.SendPropertyChanging();
+		entity.Category = null;
+	}
+	
 	private void attach_Report_ClubUminaDutyManagers(Report_ClubUminaDutyManager entity)
 	{
 		this.SendPropertyChanging();
@@ -1876,6 +1942,18 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 	
 	private void detach_Report_ClubUminaReceptions(Report_ClubUminaReception entity)
+	{
+		this.SendPropertyChanging();
+		entity.Category = null;
+	}
+	
+	private void attach_Report_MerrylandsRSLCovidMarshalls(Report_MerrylandsRSLCovidMarshall entity)
+	{
+		this.SendPropertyChanging();
+		entity.Category = this;
+	}
+	
+	private void detach_Report_MerrylandsRSLCovidMarshalls(Report_MerrylandsRSLCovidMarshall entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = null;
@@ -3496,6 +3574,5279 @@ public partial class Recommendation_Judiciary : INotifyPropertyChanging, INotify
 				this._EndDate = value;
 				this.SendPropertyChanged("EndDate");
 				this.OnEndDateChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Report_ClubUminaCovidMarshall")]
+public partial class Report_ClubUminaCovidMarshall : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _RID;
+	
+	private int _ReportId;
+	
+	private System.Nullable<int> _RCatId;
+	
+	private System.Nullable<int> _StaffId;
+	
+	private string _StaffName;
+	
+	private System.Nullable<int> _ShiftId;
+	
+	private System.Nullable<int> _AuditVersion;
+	
+	private System.Nullable<System.DateTime> _ShiftDate;
+	
+	private System.Nullable<System.DateTime> _ModifyDate;
+	
+	private System.Nullable<System.DateTime> _EntryDate;
+	
+	private string _ShiftDOW;
+	
+	private string _Report_Table;
+	
+	private System.Nullable<int> _Report_Version;
+	
+	private string _ReportStat;
+	
+	private string _ReadBy;
+	
+	private string _ReadByList;
+	
+	private string _Comments;
+	
+	private string _StaffSign;
+	
+	private string _ManagerSign;
+	
+	private string _ManagerSignId;
+	
+	private System.Nullable<System.DateTime> _PublishedDate;
+	
+	private string _PublishedBy;
+	
+	private System.Nullable<int> _LastChanged;
+	
+	private string _GeneralComments;
+	
+	private System.Nullable<int> @__1;
+	
+	private System.Nullable<int> @__2;
+	
+	private System.Nullable<int> @__3;
+	
+	private System.Nullable<int> @__4;
+	
+	private System.Nullable<int> @__5;
+	
+	private System.Nullable<int> @__6;
+	
+	private System.Nullable<int> @__7;
+	
+	private System.Nullable<int> @__8;
+	
+	private System.Nullable<int> @__9;
+	
+	private System.Nullable<int> @__10;
+	
+	private System.Nullable<int> @__11;
+	
+	private System.Nullable<int> @__12;
+	
+	private System.Nullable<int> @__13;
+	
+	private System.Nullable<int> @__14;
+	
+	private System.Nullable<int> @__15;
+	
+	private System.Nullable<int> @__16;
+	
+	private System.Nullable<int> @__17;
+	
+	private System.Nullable<int> @__18;
+	
+	private System.Nullable<int> @__19;
+	
+	private System.Nullable<int> @__20;
+	
+	private System.Nullable<int> @__21;
+	
+	private System.Nullable<int> @__22;
+	
+	private System.Nullable<int> @__23;
+	
+	private System.Nullable<int> @__24;
+	
+	private System.Nullable<int> @__25;
+	
+	private System.Nullable<int> @__26;
+	
+	private System.Nullable<int> @__27;
+	
+	private System.Nullable<int> @__28;
+	
+	private System.Nullable<int> @__29;
+	
+	private System.Nullable<int> @__30;
+	
+	private System.Nullable<int> @__31;
+	
+	private System.Nullable<int> @__32;
+	
+	private System.Nullable<int> @__33;
+	
+	private System.Nullable<int> @__34;
+	
+	private System.Nullable<int> @__35;
+	
+	private System.Nullable<int> @__36;
+	
+	private System.Nullable<int> @__37;
+	
+	private System.Nullable<int> @__38;
+	
+	private System.Nullable<int> @__39;
+	
+	private System.Nullable<int> @__40;
+	
+	private System.Nullable<int> @__41;
+	
+	private System.Nullable<int> @__42;
+	
+	private System.Nullable<int> @__43;
+	
+	private System.Nullable<int> @__44;
+	
+	private System.Nullable<int> @__45;
+	
+	private System.Nullable<int> @__46;
+	
+	private System.Nullable<int> @__47;
+	
+	private System.Nullable<int> @__48;
+	
+	private System.Nullable<int> @__49;
+	
+	private System.Nullable<int> @__50;
+	
+	private System.Nullable<int> @__51;
+	
+	private System.Nullable<int> @__52;
+	
+	private System.Nullable<int> @__53;
+	
+	private System.Nullable<int> @__54;
+	
+	private System.Nullable<int> @__55;
+	
+	private System.Nullable<int> @__56;
+	
+	private System.Nullable<int> @__57;
+	
+	private System.Nullable<int> @__58;
+	
+	private System.Nullable<int> @__59;
+	
+	private System.Nullable<int> @__60;
+	
+	private System.Nullable<int> @__61;
+	
+	private System.Nullable<int> @__62;
+	
+	private System.Nullable<int> @__63;
+	
+	private System.Nullable<int> @__64;
+	
+	private System.Nullable<bool> @__65;
+	
+	private System.Nullable<bool> @__66;
+	
+	private System.Nullable<bool> @__67;
+	
+	private System.Nullable<bool> @__68;
+	
+	private System.Nullable<bool> @__69;
+	
+	private System.Nullable<bool> @__70;
+	
+	private System.Nullable<bool> @__71;
+	
+	private System.Nullable<bool> @__72;
+	
+	private System.Nullable<bool> @__73;
+	
+	private System.Nullable<bool> @__74;
+	
+	private System.Nullable<bool> @__75;
+	
+	private System.Nullable<bool> @__76;
+	
+	private System.Nullable<bool> @__77;
+	
+	private System.Nullable<bool> @__78;
+	
+	private System.Nullable<bool> @__79;
+	
+	private System.Nullable<bool> @__80;
+	
+	private System.Nullable<int> @__81;
+	
+	private System.Nullable<int> @__82;
+	
+	private System.Nullable<int> @__83;
+	
+	private System.Nullable<int> @__84;
+	
+	private System.Nullable<int> @__85;
+	
+	private System.Nullable<int> @__86;
+	
+	private System.Nullable<int> @__87;
+	
+	private System.Nullable<int> @__88;
+	
+	private System.Nullable<int> @__89;
+	
+	private System.Nullable<int> @__90;
+	
+	private System.Nullable<int> @__91;
+	
+	private System.Nullable<int> @__92;
+	
+	private System.Nullable<int> @__93;
+	
+	private System.Nullable<int> @__94;
+	
+	private System.Nullable<int> @__95;
+	
+	private System.Nullable<int> @__96;
+	
+	private System.Nullable<int> @__97;
+	
+	private System.Nullable<int> @__98;
+	
+	private System.Nullable<int> @__99;
+	
+	private System.Nullable<int> @__100;
+	
+	private System.Nullable<int> @__101;
+	
+	private System.Nullable<int> @__102;
+	
+	private System.Nullable<int> @__103;
+	
+	private System.Nullable<int> @__104;
+	
+	private System.Nullable<int> @__105;
+	
+	private System.Nullable<int> @__106;
+	
+	private System.Nullable<int> @__107;
+	
+	private System.Nullable<int> @__108;
+	
+	private System.Nullable<int> @__109;
+	
+	private System.Nullable<int> @__110;
+	
+	private System.Nullable<int> @__111;
+	
+	private System.Nullable<int> @__112;
+	
+	private System.Nullable<int> @__113;
+	
+	private System.Nullable<int> @__114;
+	
+	private System.Nullable<int> @__115;
+	
+	private System.Nullable<int> @__116;
+	
+	private System.Nullable<int> @__117;
+	
+	private System.Nullable<int> @__118;
+	
+	private System.Nullable<int> @__119;
+	
+	private System.Nullable<int> @__120;
+	
+	private System.Nullable<int> @__121;
+	
+	private System.Nullable<int> @__122;
+	
+	private System.Nullable<int> @__123;
+	
+	private System.Nullable<int> @__124;
+	
+	private System.Nullable<int> @__125;
+	
+	private System.Nullable<int> @__126;
+	
+	private System.Nullable<int> @__127;
+	
+	private System.Nullable<int> @__128;
+	
+	private System.Nullable<int> @__129;
+	
+	private System.Nullable<int> @__130;
+	
+	private System.Nullable<int> @__131;
+	
+	private System.Nullable<int> @__132;
+	
+	private System.Nullable<int> @__133;
+	
+	private System.Nullable<int> @__134;
+	
+	private System.Nullable<int> @__135;
+	
+	private System.Nullable<int> @__136;
+	
+	private System.Nullable<int> @__137;
+	
+	private System.Nullable<int> @__138;
+	
+	private System.Nullable<int> @__139;
+	
+	private System.Nullable<int> @__140;
+	
+	private System.Nullable<int> @__141;
+	
+	private System.Nullable<int> @__142;
+	
+	private System.Nullable<int> @__143;
+	
+	private System.Nullable<int> @__144;
+	
+	private System.Nullable<bool> @__145;
+	
+	private System.Nullable<bool> @__146;
+	
+	private System.Nullable<bool> @__147;
+	
+	private System.Nullable<bool> @__148;
+	
+	private System.Nullable<bool> @__149;
+	
+	private System.Nullable<bool> @__150;
+	
+	private System.Nullable<bool> @__151;
+	
+	private System.Nullable<bool> @__152;
+	
+	private System.Nullable<bool> @__153;
+	
+	private System.Nullable<bool> @__154;
+	
+	private System.Nullable<bool> @__155;
+	
+	private System.Nullable<bool> @__156;
+	
+	private System.Nullable<bool> @__157;
+	
+	private System.Nullable<bool> @__158;
+	
+	private System.Nullable<bool> @__159;
+	
+	private System.Nullable<bool> @__160;
+	
+	private System.Nullable<bool> @__161;
+	
+	private System.Nullable<bool> @__162;
+	
+	private System.Nullable<bool> @__163;
+	
+	private System.Nullable<bool> @__164;
+	
+	private System.Nullable<bool> @__165;
+	
+	private System.Nullable<bool> @__166;
+	
+	private System.Nullable<bool> @__167;
+	
+	private System.Nullable<bool> @__168;
+	
+	private System.Nullable<bool> @__169;
+	
+	private System.Nullable<bool> @__170;
+	
+	private System.Nullable<bool> @__171;
+	
+	private System.Nullable<bool> @__172;
+	
+	private System.Nullable<bool> @__173;
+	
+	private System.Nullable<bool> @__174;
+	
+	private System.Nullable<bool> @__175;
+	
+	private System.Nullable<bool> @__176;
+	
+	private System.Nullable<bool> @__177;
+	
+	private System.Nullable<bool> @__178;
+	
+	private string @__179;
+	
+	private System.Nullable<bool> @__180;
+	
+	private System.Nullable<bool> @__181;
+	
+	private System.Nullable<bool> @__182;
+	
+	private System.Nullable<bool> @__183;
+	
+	private string @__184;
+	
+	private System.Nullable<bool> @__185;
+	
+	private System.Nullable<bool> @__186;
+	
+	private System.Nullable<bool> @__187;
+	
+	private System.Nullable<bool> @__188;
+	
+	private string @__189;
+	
+	private EntityRef<Category> _Category;
+	
+	private EntityRef<Shift> _Shift;
+	
+	private EntityRef<Staff> _Staff;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRIDChanging(int value);
+    partial void OnRIDChanged();
+    partial void OnReportIdChanging(int value);
+    partial void OnReportIdChanged();
+    partial void OnRCatIdChanging(System.Nullable<int> value);
+    partial void OnRCatIdChanged();
+    partial void OnStaffIdChanging(System.Nullable<int> value);
+    partial void OnStaffIdChanged();
+    partial void OnStaffNameChanging(string value);
+    partial void OnStaffNameChanged();
+    partial void OnShiftIdChanging(System.Nullable<int> value);
+    partial void OnShiftIdChanged();
+    partial void OnAuditVersionChanging(System.Nullable<int> value);
+    partial void OnAuditVersionChanged();
+    partial void OnShiftDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnShiftDateChanged();
+    partial void OnModifyDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnModifyDateChanged();
+    partial void OnEntryDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEntryDateChanged();
+    partial void OnShiftDOWChanging(string value);
+    partial void OnShiftDOWChanged();
+    partial void OnReport_TableChanging(string value);
+    partial void OnReport_TableChanged();
+    partial void OnReport_VersionChanging(System.Nullable<int> value);
+    partial void OnReport_VersionChanged();
+    partial void OnReportStatChanging(string value);
+    partial void OnReportStatChanged();
+    partial void OnReadByChanging(string value);
+    partial void OnReadByChanged();
+    partial void OnReadByListChanging(string value);
+    partial void OnReadByListChanged();
+    partial void OnCommentsChanging(string value);
+    partial void OnCommentsChanged();
+    partial void OnStaffSignChanging(string value);
+    partial void OnStaffSignChanged();
+    partial void OnManagerSignChanging(string value);
+    partial void OnManagerSignChanged();
+    partial void OnManagerSignIdChanging(string value);
+    partial void OnManagerSignIdChanged();
+    partial void OnPublishedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPublishedDateChanged();
+    partial void OnPublishedByChanging(string value);
+    partial void OnPublishedByChanged();
+    partial void OnLastChangedChanging(System.Nullable<int> value);
+    partial void OnLastChangedChanged();
+    partial void OnGeneralCommentsChanging(string value);
+    partial void OnGeneralCommentsChanged();
+    partial void On_1Changing(System.Nullable<int> value);
+    partial void On_1Changed();
+    partial void On_2Changing(System.Nullable<int> value);
+    partial void On_2Changed();
+    partial void On_3Changing(System.Nullable<int> value);
+    partial void On_3Changed();
+    partial void On_4Changing(System.Nullable<int> value);
+    partial void On_4Changed();
+    partial void On_5Changing(System.Nullable<int> value);
+    partial void On_5Changed();
+    partial void On_6Changing(System.Nullable<int> value);
+    partial void On_6Changed();
+    partial void On_7Changing(System.Nullable<int> value);
+    partial void On_7Changed();
+    partial void On_8Changing(System.Nullable<int> value);
+    partial void On_8Changed();
+    partial void On_9Changing(System.Nullable<int> value);
+    partial void On_9Changed();
+    partial void On_10Changing(System.Nullable<int> value);
+    partial void On_10Changed();
+    partial void On_11Changing(System.Nullable<int> value);
+    partial void On_11Changed();
+    partial void On_12Changing(System.Nullable<int> value);
+    partial void On_12Changed();
+    partial void On_13Changing(System.Nullable<int> value);
+    partial void On_13Changed();
+    partial void On_14Changing(System.Nullable<int> value);
+    partial void On_14Changed();
+    partial void On_15Changing(System.Nullable<int> value);
+    partial void On_15Changed();
+    partial void On_16Changing(System.Nullable<int> value);
+    partial void On_16Changed();
+    partial void On_17Changing(System.Nullable<int> value);
+    partial void On_17Changed();
+    partial void On_18Changing(System.Nullable<int> value);
+    partial void On_18Changed();
+    partial void On_19Changing(System.Nullable<int> value);
+    partial void On_19Changed();
+    partial void On_20Changing(System.Nullable<int> value);
+    partial void On_20Changed();
+    partial void On_21Changing(System.Nullable<int> value);
+    partial void On_21Changed();
+    partial void On_22Changing(System.Nullable<int> value);
+    partial void On_22Changed();
+    partial void On_23Changing(System.Nullable<int> value);
+    partial void On_23Changed();
+    partial void On_24Changing(System.Nullable<int> value);
+    partial void On_24Changed();
+    partial void On_25Changing(System.Nullable<int> value);
+    partial void On_25Changed();
+    partial void On_26Changing(System.Nullable<int> value);
+    partial void On_26Changed();
+    partial void On_27Changing(System.Nullable<int> value);
+    partial void On_27Changed();
+    partial void On_28Changing(System.Nullable<int> value);
+    partial void On_28Changed();
+    partial void On_29Changing(System.Nullable<int> value);
+    partial void On_29Changed();
+    partial void On_30Changing(System.Nullable<int> value);
+    partial void On_30Changed();
+    partial void On_31Changing(System.Nullable<int> value);
+    partial void On_31Changed();
+    partial void On_32Changing(System.Nullable<int> value);
+    partial void On_32Changed();
+    partial void On_33Changing(System.Nullable<int> value);
+    partial void On_33Changed();
+    partial void On_34Changing(System.Nullable<int> value);
+    partial void On_34Changed();
+    partial void On_35Changing(System.Nullable<int> value);
+    partial void On_35Changed();
+    partial void On_36Changing(System.Nullable<int> value);
+    partial void On_36Changed();
+    partial void On_37Changing(System.Nullable<int> value);
+    partial void On_37Changed();
+    partial void On_38Changing(System.Nullable<int> value);
+    partial void On_38Changed();
+    partial void On_39Changing(System.Nullable<int> value);
+    partial void On_39Changed();
+    partial void On_40Changing(System.Nullable<int> value);
+    partial void On_40Changed();
+    partial void On_41Changing(System.Nullable<int> value);
+    partial void On_41Changed();
+    partial void On_42Changing(System.Nullable<int> value);
+    partial void On_42Changed();
+    partial void On_43Changing(System.Nullable<int> value);
+    partial void On_43Changed();
+    partial void On_44Changing(System.Nullable<int> value);
+    partial void On_44Changed();
+    partial void On_45Changing(System.Nullable<int> value);
+    partial void On_45Changed();
+    partial void On_46Changing(System.Nullable<int> value);
+    partial void On_46Changed();
+    partial void On_47Changing(System.Nullable<int> value);
+    partial void On_47Changed();
+    partial void On_48Changing(System.Nullable<int> value);
+    partial void On_48Changed();
+    partial void On_49Changing(System.Nullable<int> value);
+    partial void On_49Changed();
+    partial void On_50Changing(System.Nullable<int> value);
+    partial void On_50Changed();
+    partial void On_51Changing(System.Nullable<int> value);
+    partial void On_51Changed();
+    partial void On_52Changing(System.Nullable<int> value);
+    partial void On_52Changed();
+    partial void On_53Changing(System.Nullable<int> value);
+    partial void On_53Changed();
+    partial void On_54Changing(System.Nullable<int> value);
+    partial void On_54Changed();
+    partial void On_55Changing(System.Nullable<int> value);
+    partial void On_55Changed();
+    partial void On_56Changing(System.Nullable<int> value);
+    partial void On_56Changed();
+    partial void On_57Changing(System.Nullable<int> value);
+    partial void On_57Changed();
+    partial void On_58Changing(System.Nullable<int> value);
+    partial void On_58Changed();
+    partial void On_59Changing(System.Nullable<int> value);
+    partial void On_59Changed();
+    partial void On_60Changing(System.Nullable<int> value);
+    partial void On_60Changed();
+    partial void On_61Changing(System.Nullable<int> value);
+    partial void On_61Changed();
+    partial void On_62Changing(System.Nullable<int> value);
+    partial void On_62Changed();
+    partial void On_63Changing(System.Nullable<int> value);
+    partial void On_63Changed();
+    partial void On_64Changing(System.Nullable<int> value);
+    partial void On_64Changed();
+    partial void On_65Changing(System.Nullable<bool> value);
+    partial void On_65Changed();
+    partial void On_66Changing(System.Nullable<bool> value);
+    partial void On_66Changed();
+    partial void On_67Changing(System.Nullable<bool> value);
+    partial void On_67Changed();
+    partial void On_68Changing(System.Nullable<bool> value);
+    partial void On_68Changed();
+    partial void On_69Changing(System.Nullable<bool> value);
+    partial void On_69Changed();
+    partial void On_70Changing(System.Nullable<bool> value);
+    partial void On_70Changed();
+    partial void On_71Changing(System.Nullable<bool> value);
+    partial void On_71Changed();
+    partial void On_72Changing(System.Nullable<bool> value);
+    partial void On_72Changed();
+    partial void On_73Changing(System.Nullable<bool> value);
+    partial void On_73Changed();
+    partial void On_74Changing(System.Nullable<bool> value);
+    partial void On_74Changed();
+    partial void On_75Changing(System.Nullable<bool> value);
+    partial void On_75Changed();
+    partial void On_76Changing(System.Nullable<bool> value);
+    partial void On_76Changed();
+    partial void On_77Changing(System.Nullable<bool> value);
+    partial void On_77Changed();
+    partial void On_78Changing(System.Nullable<bool> value);
+    partial void On_78Changed();
+    partial void On_79Changing(System.Nullable<bool> value);
+    partial void On_79Changed();
+    partial void On_80Changing(System.Nullable<bool> value);
+    partial void On_80Changed();
+    partial void On_81Changing(System.Nullable<int> value);
+    partial void On_81Changed();
+    partial void On_82Changing(System.Nullable<int> value);
+    partial void On_82Changed();
+    partial void On_83Changing(System.Nullable<int> value);
+    partial void On_83Changed();
+    partial void On_84Changing(System.Nullable<int> value);
+    partial void On_84Changed();
+    partial void On_85Changing(System.Nullable<int> value);
+    partial void On_85Changed();
+    partial void On_86Changing(System.Nullable<int> value);
+    partial void On_86Changed();
+    partial void On_87Changing(System.Nullable<int> value);
+    partial void On_87Changed();
+    partial void On_88Changing(System.Nullable<int> value);
+    partial void On_88Changed();
+    partial void On_89Changing(System.Nullable<int> value);
+    partial void On_89Changed();
+    partial void On_90Changing(System.Nullable<int> value);
+    partial void On_90Changed();
+    partial void On_91Changing(System.Nullable<int> value);
+    partial void On_91Changed();
+    partial void On_92Changing(System.Nullable<int> value);
+    partial void On_92Changed();
+    partial void On_93Changing(System.Nullable<int> value);
+    partial void On_93Changed();
+    partial void On_94Changing(System.Nullable<int> value);
+    partial void On_94Changed();
+    partial void On_95Changing(System.Nullable<int> value);
+    partial void On_95Changed();
+    partial void On_96Changing(System.Nullable<int> value);
+    partial void On_96Changed();
+    partial void On_97Changing(System.Nullable<int> value);
+    partial void On_97Changed();
+    partial void On_98Changing(System.Nullable<int> value);
+    partial void On_98Changed();
+    partial void On_99Changing(System.Nullable<int> value);
+    partial void On_99Changed();
+    partial void On_100Changing(System.Nullable<int> value);
+    partial void On_100Changed();
+    partial void On_101Changing(System.Nullable<int> value);
+    partial void On_101Changed();
+    partial void On_102Changing(System.Nullable<int> value);
+    partial void On_102Changed();
+    partial void On_103Changing(System.Nullable<int> value);
+    partial void On_103Changed();
+    partial void On_104Changing(System.Nullable<int> value);
+    partial void On_104Changed();
+    partial void On_105Changing(System.Nullable<int> value);
+    partial void On_105Changed();
+    partial void On_106Changing(System.Nullable<int> value);
+    partial void On_106Changed();
+    partial void On_107Changing(System.Nullable<int> value);
+    partial void On_107Changed();
+    partial void On_108Changing(System.Nullable<int> value);
+    partial void On_108Changed();
+    partial void On_109Changing(System.Nullable<int> value);
+    partial void On_109Changed();
+    partial void On_110Changing(System.Nullable<int> value);
+    partial void On_110Changed();
+    partial void On_111Changing(System.Nullable<int> value);
+    partial void On_111Changed();
+    partial void On_112Changing(System.Nullable<int> value);
+    partial void On_112Changed();
+    partial void On_113Changing(System.Nullable<int> value);
+    partial void On_113Changed();
+    partial void On_114Changing(System.Nullable<int> value);
+    partial void On_114Changed();
+    partial void On_115Changing(System.Nullable<int> value);
+    partial void On_115Changed();
+    partial void On_116Changing(System.Nullable<int> value);
+    partial void On_116Changed();
+    partial void On_117Changing(System.Nullable<int> value);
+    partial void On_117Changed();
+    partial void On_118Changing(System.Nullable<int> value);
+    partial void On_118Changed();
+    partial void On_119Changing(System.Nullable<int> value);
+    partial void On_119Changed();
+    partial void On_120Changing(System.Nullable<int> value);
+    partial void On_120Changed();
+    partial void On_121Changing(System.Nullable<int> value);
+    partial void On_121Changed();
+    partial void On_122Changing(System.Nullable<int> value);
+    partial void On_122Changed();
+    partial void On_123Changing(System.Nullable<int> value);
+    partial void On_123Changed();
+    partial void On_124Changing(System.Nullable<int> value);
+    partial void On_124Changed();
+    partial void On_125Changing(System.Nullable<int> value);
+    partial void On_125Changed();
+    partial void On_126Changing(System.Nullable<int> value);
+    partial void On_126Changed();
+    partial void On_127Changing(System.Nullable<int> value);
+    partial void On_127Changed();
+    partial void On_128Changing(System.Nullable<int> value);
+    partial void On_128Changed();
+    partial void On_129Changing(System.Nullable<int> value);
+    partial void On_129Changed();
+    partial void On_130Changing(System.Nullable<int> value);
+    partial void On_130Changed();
+    partial void On_131Changing(System.Nullable<int> value);
+    partial void On_131Changed();
+    partial void On_132Changing(System.Nullable<int> value);
+    partial void On_132Changed();
+    partial void On_133Changing(System.Nullable<int> value);
+    partial void On_133Changed();
+    partial void On_134Changing(System.Nullable<int> value);
+    partial void On_134Changed();
+    partial void On_135Changing(System.Nullable<int> value);
+    partial void On_135Changed();
+    partial void On_136Changing(System.Nullable<int> value);
+    partial void On_136Changed();
+    partial void On_137Changing(System.Nullable<int> value);
+    partial void On_137Changed();
+    partial void On_138Changing(System.Nullable<int> value);
+    partial void On_138Changed();
+    partial void On_139Changing(System.Nullable<int> value);
+    partial void On_139Changed();
+    partial void On_140Changing(System.Nullable<int> value);
+    partial void On_140Changed();
+    partial void On_141Changing(System.Nullable<int> value);
+    partial void On_141Changed();
+    partial void On_142Changing(System.Nullable<int> value);
+    partial void On_142Changed();
+    partial void On_143Changing(System.Nullable<int> value);
+    partial void On_143Changed();
+    partial void On_144Changing(System.Nullable<int> value);
+    partial void On_144Changed();
+    partial void On_145Changing(System.Nullable<bool> value);
+    partial void On_145Changed();
+    partial void On_146Changing(System.Nullable<bool> value);
+    partial void On_146Changed();
+    partial void On_147Changing(System.Nullable<bool> value);
+    partial void On_147Changed();
+    partial void On_148Changing(System.Nullable<bool> value);
+    partial void On_148Changed();
+    partial void On_149Changing(System.Nullable<bool> value);
+    partial void On_149Changed();
+    partial void On_150Changing(System.Nullable<bool> value);
+    partial void On_150Changed();
+    partial void On_151Changing(System.Nullable<bool> value);
+    partial void On_151Changed();
+    partial void On_152Changing(System.Nullable<bool> value);
+    partial void On_152Changed();
+    partial void On_153Changing(System.Nullable<bool> value);
+    partial void On_153Changed();
+    partial void On_154Changing(System.Nullable<bool> value);
+    partial void On_154Changed();
+    partial void On_155Changing(System.Nullable<bool> value);
+    partial void On_155Changed();
+    partial void On_156Changing(System.Nullable<bool> value);
+    partial void On_156Changed();
+    partial void On_157Changing(System.Nullable<bool> value);
+    partial void On_157Changed();
+    partial void On_158Changing(System.Nullable<bool> value);
+    partial void On_158Changed();
+    partial void On_159Changing(System.Nullable<bool> value);
+    partial void On_159Changed();
+    partial void On_160Changing(System.Nullable<bool> value);
+    partial void On_160Changed();
+    partial void On_161Changing(System.Nullable<bool> value);
+    partial void On_161Changed();
+    partial void On_162Changing(System.Nullable<bool> value);
+    partial void On_162Changed();
+    partial void On_163Changing(System.Nullable<bool> value);
+    partial void On_163Changed();
+    partial void On_164Changing(System.Nullable<bool> value);
+    partial void On_164Changed();
+    partial void On_165Changing(System.Nullable<bool> value);
+    partial void On_165Changed();
+    partial void On_166Changing(System.Nullable<bool> value);
+    partial void On_166Changed();
+    partial void On_167Changing(System.Nullable<bool> value);
+    partial void On_167Changed();
+    partial void On_168Changing(System.Nullable<bool> value);
+    partial void On_168Changed();
+    partial void On_169Changing(System.Nullable<bool> value);
+    partial void On_169Changed();
+    partial void On_170Changing(System.Nullable<bool> value);
+    partial void On_170Changed();
+    partial void On_171Changing(System.Nullable<bool> value);
+    partial void On_171Changed();
+    partial void On_172Changing(System.Nullable<bool> value);
+    partial void On_172Changed();
+    partial void On_173Changing(System.Nullable<bool> value);
+    partial void On_173Changed();
+    partial void On_174Changing(System.Nullable<bool> value);
+    partial void On_174Changed();
+    partial void On_175Changing(System.Nullable<bool> value);
+    partial void On_175Changed();
+    partial void On_176Changing(System.Nullable<bool> value);
+    partial void On_176Changed();
+    partial void On_177Changing(System.Nullable<bool> value);
+    partial void On_177Changed();
+    partial void On_178Changing(System.Nullable<bool> value);
+    partial void On_178Changed();
+    partial void On_179Changing(string value);
+    partial void On_179Changed();
+    partial void On_180Changing(System.Nullable<bool> value);
+    partial void On_180Changed();
+    partial void On_181Changing(System.Nullable<bool> value);
+    partial void On_181Changed();
+    partial void On_182Changing(System.Nullable<bool> value);
+    partial void On_182Changed();
+    partial void On_183Changing(System.Nullable<bool> value);
+    partial void On_183Changed();
+    partial void On_184Changing(string value);
+    partial void On_184Changed();
+    partial void On_185Changing(System.Nullable<bool> value);
+    partial void On_185Changed();
+    partial void On_186Changing(System.Nullable<bool> value);
+    partial void On_186Changed();
+    partial void On_187Changing(System.Nullable<bool> value);
+    partial void On_187Changed();
+    partial void On_188Changing(System.Nullable<bool> value);
+    partial void On_188Changed();
+    partial void On_189Changing(string value);
+    partial void On_189Changed();
+    #endregion
+	
+	public Report_ClubUminaCovidMarshall()
+	{
+		this._Category = default(EntityRef<Category>);
+		this._Shift = default(EntityRef<Shift>);
+		this._Staff = default(EntityRef<Staff>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int RID
+	{
+		get
+		{
+			return this._RID;
+		}
+		set
+		{
+			if ((this._RID != value))
+			{
+				this.OnRIDChanging(value);
+				this.SendPropertyChanging();
+				this._RID = value;
+				this.SendPropertyChanged("RID");
+				this.OnRIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReportId", DbType="Int NOT NULL")]
+	public int ReportId
+	{
+		get
+		{
+			return this._ReportId;
+		}
+		set
+		{
+			if ((this._ReportId != value))
+			{
+				this.OnReportIdChanging(value);
+				this.SendPropertyChanging();
+				this._ReportId = value;
+				this.SendPropertyChanged("ReportId");
+				this.OnReportIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RCatId", DbType="Int")]
+	public System.Nullable<int> RCatId
+	{
+		get
+		{
+			return this._RCatId;
+		}
+		set
+		{
+			if ((this._RCatId != value))
+			{
+				if (this._Category.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnRCatIdChanging(value);
+				this.SendPropertyChanging();
+				this._RCatId = value;
+				this.SendPropertyChanged("RCatId");
+				this.OnRCatIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffId", DbType="Int")]
+	public System.Nullable<int> StaffId
+	{
+		get
+		{
+			return this._StaffId;
+		}
+		set
+		{
+			if ((this._StaffId != value))
+			{
+				if (this._Staff.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnStaffIdChanging(value);
+				this.SendPropertyChanging();
+				this._StaffId = value;
+				this.SendPropertyChanged("StaffId");
+				this.OnStaffIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffName", DbType="VarChar(MAX)")]
+	public string StaffName
+	{
+		get
+		{
+			return this._StaffName;
+		}
+		set
+		{
+			if ((this._StaffName != value))
+			{
+				this.OnStaffNameChanging(value);
+				this.SendPropertyChanging();
+				this._StaffName = value;
+				this.SendPropertyChanged("StaffName");
+				this.OnStaffNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiftId", DbType="Int")]
+	public System.Nullable<int> ShiftId
+	{
+		get
+		{
+			return this._ShiftId;
+		}
+		set
+		{
+			if ((this._ShiftId != value))
+			{
+				if (this._Shift.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnShiftIdChanging(value);
+				this.SendPropertyChanging();
+				this._ShiftId = value;
+				this.SendPropertyChanged("ShiftId");
+				this.OnShiftIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AuditVersion", DbType="Int")]
+	public System.Nullable<int> AuditVersion
+	{
+		get
+		{
+			return this._AuditVersion;
+		}
+		set
+		{
+			if ((this._AuditVersion != value))
+			{
+				this.OnAuditVersionChanging(value);
+				this.SendPropertyChanging();
+				this._AuditVersion = value;
+				this.SendPropertyChanged("AuditVersion");
+				this.OnAuditVersionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiftDate", DbType="Date")]
+	public System.Nullable<System.DateTime> ShiftDate
+	{
+		get
+		{
+			return this._ShiftDate;
+		}
+		set
+		{
+			if ((this._ShiftDate != value))
+			{
+				this.OnShiftDateChanging(value);
+				this.SendPropertyChanging();
+				this._ShiftDate = value;
+				this.SendPropertyChanged("ShiftDate");
+				this.OnShiftDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifyDate", DbType="DateTime")]
+	public System.Nullable<System.DateTime> ModifyDate
+	{
+		get
+		{
+			return this._ModifyDate;
+		}
+		set
+		{
+			if ((this._ModifyDate != value))
+			{
+				this.OnModifyDateChanging(value);
+				this.SendPropertyChanging();
+				this._ModifyDate = value;
+				this.SendPropertyChanged("ModifyDate");
+				this.OnModifyDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EntryDate", DbType="DateTime")]
+	public System.Nullable<System.DateTime> EntryDate
+	{
+		get
+		{
+			return this._EntryDate;
+		}
+		set
+		{
+			if ((this._EntryDate != value))
+			{
+				this.OnEntryDateChanging(value);
+				this.SendPropertyChanging();
+				this._EntryDate = value;
+				this.SendPropertyChanged("EntryDate");
+				this.OnEntryDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiftDOW", DbType="VarChar(50)")]
+	public string ShiftDOW
+	{
+		get
+		{
+			return this._ShiftDOW;
+		}
+		set
+		{
+			if ((this._ShiftDOW != value))
+			{
+				this.OnShiftDOWChanging(value);
+				this.SendPropertyChanging();
+				this._ShiftDOW = value;
+				this.SendPropertyChanged("ShiftDOW");
+				this.OnShiftDOWChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Report_Table", DbType="VarChar(50)")]
+	public string Report_Table
+	{
+		get
+		{
+			return this._Report_Table;
+		}
+		set
+		{
+			if ((this._Report_Table != value))
+			{
+				this.OnReport_TableChanging(value);
+				this.SendPropertyChanging();
+				this._Report_Table = value;
+				this.SendPropertyChanged("Report_Table");
+				this.OnReport_TableChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Report_Version", DbType="Int")]
+	public System.Nullable<int> Report_Version
+	{
+		get
+		{
+			return this._Report_Version;
+		}
+		set
+		{
+			if ((this._Report_Version != value))
+			{
+				this.OnReport_VersionChanging(value);
+				this.SendPropertyChanging();
+				this._Report_Version = value;
+				this.SendPropertyChanged("Report_Version");
+				this.OnReport_VersionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReportStat", DbType="VarChar(MAX)")]
+	public string ReportStat
+	{
+		get
+		{
+			return this._ReportStat;
+		}
+		set
+		{
+			if ((this._ReportStat != value))
+			{
+				this.OnReportStatChanging(value);
+				this.SendPropertyChanging();
+				this._ReportStat = value;
+				this.SendPropertyChanged("ReportStat");
+				this.OnReportStatChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReadBy", DbType="VarChar(MAX)")]
+	public string ReadBy
+	{
+		get
+		{
+			return this._ReadBy;
+		}
+		set
+		{
+			if ((this._ReadBy != value))
+			{
+				this.OnReadByChanging(value);
+				this.SendPropertyChanging();
+				this._ReadBy = value;
+				this.SendPropertyChanged("ReadBy");
+				this.OnReadByChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReadByList", DbType="VarChar(MAX)")]
+	public string ReadByList
+	{
+		get
+		{
+			return this._ReadByList;
+		}
+		set
+		{
+			if ((this._ReadByList != value))
+			{
+				this.OnReadByListChanging(value);
+				this.SendPropertyChanging();
+				this._ReadByList = value;
+				this.SendPropertyChanged("ReadByList");
+				this.OnReadByListChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comments", DbType="VarChar(MAX)")]
+	public string Comments
+	{
+		get
+		{
+			return this._Comments;
+		}
+		set
+		{
+			if ((this._Comments != value))
+			{
+				this.OnCommentsChanging(value);
+				this.SendPropertyChanging();
+				this._Comments = value;
+				this.SendPropertyChanged("Comments");
+				this.OnCommentsChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffSign", DbType="VarChar(MAX)")]
+	public string StaffSign
+	{
+		get
+		{
+			return this._StaffSign;
+		}
+		set
+		{
+			if ((this._StaffSign != value))
+			{
+				this.OnStaffSignChanging(value);
+				this.SendPropertyChanging();
+				this._StaffSign = value;
+				this.SendPropertyChanged("StaffSign");
+				this.OnStaffSignChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManagerSign", DbType="VarChar(MAX)")]
+	public string ManagerSign
+	{
+		get
+		{
+			return this._ManagerSign;
+		}
+		set
+		{
+			if ((this._ManagerSign != value))
+			{
+				this.OnManagerSignChanging(value);
+				this.SendPropertyChanging();
+				this._ManagerSign = value;
+				this.SendPropertyChanged("ManagerSign");
+				this.OnManagerSignChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManagerSignId", DbType="VarChar(50)")]
+	public string ManagerSignId
+	{
+		get
+		{
+			return this._ManagerSignId;
+		}
+		set
+		{
+			if ((this._ManagerSignId != value))
+			{
+				this.OnManagerSignIdChanging(value);
+				this.SendPropertyChanging();
+				this._ManagerSignId = value;
+				this.SendPropertyChanged("ManagerSignId");
+				this.OnManagerSignIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublishedDate", DbType="Date")]
+	public System.Nullable<System.DateTime> PublishedDate
+	{
+		get
+		{
+			return this._PublishedDate;
+		}
+		set
+		{
+			if ((this._PublishedDate != value))
+			{
+				this.OnPublishedDateChanging(value);
+				this.SendPropertyChanging();
+				this._PublishedDate = value;
+				this.SendPropertyChanged("PublishedDate");
+				this.OnPublishedDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublishedBy", DbType="VarChar(50)")]
+	public string PublishedBy
+	{
+		get
+		{
+			return this._PublishedBy;
+		}
+		set
+		{
+			if ((this._PublishedBy != value))
+			{
+				this.OnPublishedByChanging(value);
+				this.SendPropertyChanging();
+				this._PublishedBy = value;
+				this.SendPropertyChanged("PublishedBy");
+				this.OnPublishedByChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastChanged", DbType="Int")]
+	public System.Nullable<int> LastChanged
+	{
+		get
+		{
+			return this._LastChanged;
+		}
+		set
+		{
+			if ((this._LastChanged != value))
+			{
+				this.OnLastChangedChanging(value);
+				this.SendPropertyChanging();
+				this._LastChanged = value;
+				this.SendPropertyChanged("LastChanged");
+				this.OnLastChangedChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GeneralComments", DbType="VarChar(MAX)")]
+	public string GeneralComments
+	{
+		get
+		{
+			return this._GeneralComments;
+		}
+		set
+		{
+			if ((this._GeneralComments != value))
+			{
+				this.OnGeneralCommentsChanging(value);
+				this.SendPropertyChanging();
+				this._GeneralComments = value;
+				this.SendPropertyChanged("GeneralComments");
+				this.OnGeneralCommentsChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[1]", Storage="__1", DbType="Int")]
+	public System.Nullable<int> _1
+	{
+		get
+		{
+			return this.@__1;
+		}
+		set
+		{
+			if ((this.@__1 != value))
+			{
+				this.On_1Changing(value);
+				this.SendPropertyChanging();
+				this.@__1 = value;
+				this.SendPropertyChanged("_1");
+				this.On_1Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[2]", Storage="__2", DbType="Int")]
+	public System.Nullable<int> _2
+	{
+		get
+		{
+			return this.@__2;
+		}
+		set
+		{
+			if ((this.@__2 != value))
+			{
+				this.On_2Changing(value);
+				this.SendPropertyChanging();
+				this.@__2 = value;
+				this.SendPropertyChanged("_2");
+				this.On_2Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[3]", Storage="__3", DbType="Int")]
+	public System.Nullable<int> _3
+	{
+		get
+		{
+			return this.@__3;
+		}
+		set
+		{
+			if ((this.@__3 != value))
+			{
+				this.On_3Changing(value);
+				this.SendPropertyChanging();
+				this.@__3 = value;
+				this.SendPropertyChanged("_3");
+				this.On_3Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[4]", Storage="__4", DbType="Int")]
+	public System.Nullable<int> _4
+	{
+		get
+		{
+			return this.@__4;
+		}
+		set
+		{
+			if ((this.@__4 != value))
+			{
+				this.On_4Changing(value);
+				this.SendPropertyChanging();
+				this.@__4 = value;
+				this.SendPropertyChanged("_4");
+				this.On_4Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[5]", Storage="__5", DbType="Int")]
+	public System.Nullable<int> _5
+	{
+		get
+		{
+			return this.@__5;
+		}
+		set
+		{
+			if ((this.@__5 != value))
+			{
+				this.On_5Changing(value);
+				this.SendPropertyChanging();
+				this.@__5 = value;
+				this.SendPropertyChanged("_5");
+				this.On_5Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[6]", Storage="__6", DbType="Int")]
+	public System.Nullable<int> _6
+	{
+		get
+		{
+			return this.@__6;
+		}
+		set
+		{
+			if ((this.@__6 != value))
+			{
+				this.On_6Changing(value);
+				this.SendPropertyChanging();
+				this.@__6 = value;
+				this.SendPropertyChanged("_6");
+				this.On_6Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[7]", Storage="__7", DbType="Int")]
+	public System.Nullable<int> _7
+	{
+		get
+		{
+			return this.@__7;
+		}
+		set
+		{
+			if ((this.@__7 != value))
+			{
+				this.On_7Changing(value);
+				this.SendPropertyChanging();
+				this.@__7 = value;
+				this.SendPropertyChanged("_7");
+				this.On_7Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[8]", Storage="__8", DbType="Int")]
+	public System.Nullable<int> _8
+	{
+		get
+		{
+			return this.@__8;
+		}
+		set
+		{
+			if ((this.@__8 != value))
+			{
+				this.On_8Changing(value);
+				this.SendPropertyChanging();
+				this.@__8 = value;
+				this.SendPropertyChanged("_8");
+				this.On_8Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[9]", Storage="__9", DbType="Int")]
+	public System.Nullable<int> _9
+	{
+		get
+		{
+			return this.@__9;
+		}
+		set
+		{
+			if ((this.@__9 != value))
+			{
+				this.On_9Changing(value);
+				this.SendPropertyChanging();
+				this.@__9 = value;
+				this.SendPropertyChanged("_9");
+				this.On_9Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[10]", Storage="__10", DbType="Int")]
+	public System.Nullable<int> _10
+	{
+		get
+		{
+			return this.@__10;
+		}
+		set
+		{
+			if ((this.@__10 != value))
+			{
+				this.On_10Changing(value);
+				this.SendPropertyChanging();
+				this.@__10 = value;
+				this.SendPropertyChanged("_10");
+				this.On_10Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[11]", Storage="__11", DbType="Int")]
+	public System.Nullable<int> _11
+	{
+		get
+		{
+			return this.@__11;
+		}
+		set
+		{
+			if ((this.@__11 != value))
+			{
+				this.On_11Changing(value);
+				this.SendPropertyChanging();
+				this.@__11 = value;
+				this.SendPropertyChanged("_11");
+				this.On_11Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[12]", Storage="__12", DbType="Int")]
+	public System.Nullable<int> _12
+	{
+		get
+		{
+			return this.@__12;
+		}
+		set
+		{
+			if ((this.@__12 != value))
+			{
+				this.On_12Changing(value);
+				this.SendPropertyChanging();
+				this.@__12 = value;
+				this.SendPropertyChanged("_12");
+				this.On_12Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[13]", Storage="__13", DbType="Int")]
+	public System.Nullable<int> _13
+	{
+		get
+		{
+			return this.@__13;
+		}
+		set
+		{
+			if ((this.@__13 != value))
+			{
+				this.On_13Changing(value);
+				this.SendPropertyChanging();
+				this.@__13 = value;
+				this.SendPropertyChanged("_13");
+				this.On_13Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[14]", Storage="__14", DbType="Int")]
+	public System.Nullable<int> _14
+	{
+		get
+		{
+			return this.@__14;
+		}
+		set
+		{
+			if ((this.@__14 != value))
+			{
+				this.On_14Changing(value);
+				this.SendPropertyChanging();
+				this.@__14 = value;
+				this.SendPropertyChanged("_14");
+				this.On_14Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[15]", Storage="__15", DbType="Int")]
+	public System.Nullable<int> _15
+	{
+		get
+		{
+			return this.@__15;
+		}
+		set
+		{
+			if ((this.@__15 != value))
+			{
+				this.On_15Changing(value);
+				this.SendPropertyChanging();
+				this.@__15 = value;
+				this.SendPropertyChanged("_15");
+				this.On_15Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[16]", Storage="__16", DbType="Int")]
+	public System.Nullable<int> _16
+	{
+		get
+		{
+			return this.@__16;
+		}
+		set
+		{
+			if ((this.@__16 != value))
+			{
+				this.On_16Changing(value);
+				this.SendPropertyChanging();
+				this.@__16 = value;
+				this.SendPropertyChanged("_16");
+				this.On_16Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[17]", Storage="__17", DbType="Int")]
+	public System.Nullable<int> _17
+	{
+		get
+		{
+			return this.@__17;
+		}
+		set
+		{
+			if ((this.@__17 != value))
+			{
+				this.On_17Changing(value);
+				this.SendPropertyChanging();
+				this.@__17 = value;
+				this.SendPropertyChanged("_17");
+				this.On_17Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[18]", Storage="__18", DbType="Int")]
+	public System.Nullable<int> _18
+	{
+		get
+		{
+			return this.@__18;
+		}
+		set
+		{
+			if ((this.@__18 != value))
+			{
+				this.On_18Changing(value);
+				this.SendPropertyChanging();
+				this.@__18 = value;
+				this.SendPropertyChanged("_18");
+				this.On_18Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[19]", Storage="__19", DbType="Int")]
+	public System.Nullable<int> _19
+	{
+		get
+		{
+			return this.@__19;
+		}
+		set
+		{
+			if ((this.@__19 != value))
+			{
+				this.On_19Changing(value);
+				this.SendPropertyChanging();
+				this.@__19 = value;
+				this.SendPropertyChanged("_19");
+				this.On_19Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[20]", Storage="__20", DbType="Int")]
+	public System.Nullable<int> _20
+	{
+		get
+		{
+			return this.@__20;
+		}
+		set
+		{
+			if ((this.@__20 != value))
+			{
+				this.On_20Changing(value);
+				this.SendPropertyChanging();
+				this.@__20 = value;
+				this.SendPropertyChanged("_20");
+				this.On_20Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[21]", Storage="__21", DbType="Int")]
+	public System.Nullable<int> _21
+	{
+		get
+		{
+			return this.@__21;
+		}
+		set
+		{
+			if ((this.@__21 != value))
+			{
+				this.On_21Changing(value);
+				this.SendPropertyChanging();
+				this.@__21 = value;
+				this.SendPropertyChanged("_21");
+				this.On_21Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[22]", Storage="__22", DbType="Int")]
+	public System.Nullable<int> _22
+	{
+		get
+		{
+			return this.@__22;
+		}
+		set
+		{
+			if ((this.@__22 != value))
+			{
+				this.On_22Changing(value);
+				this.SendPropertyChanging();
+				this.@__22 = value;
+				this.SendPropertyChanged("_22");
+				this.On_22Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[23]", Storage="__23", DbType="Int")]
+	public System.Nullable<int> _23
+	{
+		get
+		{
+			return this.@__23;
+		}
+		set
+		{
+			if ((this.@__23 != value))
+			{
+				this.On_23Changing(value);
+				this.SendPropertyChanging();
+				this.@__23 = value;
+				this.SendPropertyChanged("_23");
+				this.On_23Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[24]", Storage="__24", DbType="Int")]
+	public System.Nullable<int> _24
+	{
+		get
+		{
+			return this.@__24;
+		}
+		set
+		{
+			if ((this.@__24 != value))
+			{
+				this.On_24Changing(value);
+				this.SendPropertyChanging();
+				this.@__24 = value;
+				this.SendPropertyChanged("_24");
+				this.On_24Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[25]", Storage="__25", DbType="Int")]
+	public System.Nullable<int> _25
+	{
+		get
+		{
+			return this.@__25;
+		}
+		set
+		{
+			if ((this.@__25 != value))
+			{
+				this.On_25Changing(value);
+				this.SendPropertyChanging();
+				this.@__25 = value;
+				this.SendPropertyChanged("_25");
+				this.On_25Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[26]", Storage="__26", DbType="Int")]
+	public System.Nullable<int> _26
+	{
+		get
+		{
+			return this.@__26;
+		}
+		set
+		{
+			if ((this.@__26 != value))
+			{
+				this.On_26Changing(value);
+				this.SendPropertyChanging();
+				this.@__26 = value;
+				this.SendPropertyChanged("_26");
+				this.On_26Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[27]", Storage="__27", DbType="Int")]
+	public System.Nullable<int> _27
+	{
+		get
+		{
+			return this.@__27;
+		}
+		set
+		{
+			if ((this.@__27 != value))
+			{
+				this.On_27Changing(value);
+				this.SendPropertyChanging();
+				this.@__27 = value;
+				this.SendPropertyChanged("_27");
+				this.On_27Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[28]", Storage="__28", DbType="Int")]
+	public System.Nullable<int> _28
+	{
+		get
+		{
+			return this.@__28;
+		}
+		set
+		{
+			if ((this.@__28 != value))
+			{
+				this.On_28Changing(value);
+				this.SendPropertyChanging();
+				this.@__28 = value;
+				this.SendPropertyChanged("_28");
+				this.On_28Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[29]", Storage="__29", DbType="Int")]
+	public System.Nullable<int> _29
+	{
+		get
+		{
+			return this.@__29;
+		}
+		set
+		{
+			if ((this.@__29 != value))
+			{
+				this.On_29Changing(value);
+				this.SendPropertyChanging();
+				this.@__29 = value;
+				this.SendPropertyChanged("_29");
+				this.On_29Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[30]", Storage="__30", DbType="Int")]
+	public System.Nullable<int> _30
+	{
+		get
+		{
+			return this.@__30;
+		}
+		set
+		{
+			if ((this.@__30 != value))
+			{
+				this.On_30Changing(value);
+				this.SendPropertyChanging();
+				this.@__30 = value;
+				this.SendPropertyChanged("_30");
+				this.On_30Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[31]", Storage="__31", DbType="Int")]
+	public System.Nullable<int> _31
+	{
+		get
+		{
+			return this.@__31;
+		}
+		set
+		{
+			if ((this.@__31 != value))
+			{
+				this.On_31Changing(value);
+				this.SendPropertyChanging();
+				this.@__31 = value;
+				this.SendPropertyChanged("_31");
+				this.On_31Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[32]", Storage="__32", DbType="Int")]
+	public System.Nullable<int> _32
+	{
+		get
+		{
+			return this.@__32;
+		}
+		set
+		{
+			if ((this.@__32 != value))
+			{
+				this.On_32Changing(value);
+				this.SendPropertyChanging();
+				this.@__32 = value;
+				this.SendPropertyChanged("_32");
+				this.On_32Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[33]", Storage="__33", DbType="Int")]
+	public System.Nullable<int> _33
+	{
+		get
+		{
+			return this.@__33;
+		}
+		set
+		{
+			if ((this.@__33 != value))
+			{
+				this.On_33Changing(value);
+				this.SendPropertyChanging();
+				this.@__33 = value;
+				this.SendPropertyChanged("_33");
+				this.On_33Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[34]", Storage="__34", DbType="Int")]
+	public System.Nullable<int> _34
+	{
+		get
+		{
+			return this.@__34;
+		}
+		set
+		{
+			if ((this.@__34 != value))
+			{
+				this.On_34Changing(value);
+				this.SendPropertyChanging();
+				this.@__34 = value;
+				this.SendPropertyChanged("_34");
+				this.On_34Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[35]", Storage="__35", DbType="Int")]
+	public System.Nullable<int> _35
+	{
+		get
+		{
+			return this.@__35;
+		}
+		set
+		{
+			if ((this.@__35 != value))
+			{
+				this.On_35Changing(value);
+				this.SendPropertyChanging();
+				this.@__35 = value;
+				this.SendPropertyChanged("_35");
+				this.On_35Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[36]", Storage="__36", DbType="Int")]
+	public System.Nullable<int> _36
+	{
+		get
+		{
+			return this.@__36;
+		}
+		set
+		{
+			if ((this.@__36 != value))
+			{
+				this.On_36Changing(value);
+				this.SendPropertyChanging();
+				this.@__36 = value;
+				this.SendPropertyChanged("_36");
+				this.On_36Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[37]", Storage="__37", DbType="Int")]
+	public System.Nullable<int> _37
+	{
+		get
+		{
+			return this.@__37;
+		}
+		set
+		{
+			if ((this.@__37 != value))
+			{
+				this.On_37Changing(value);
+				this.SendPropertyChanging();
+				this.@__37 = value;
+				this.SendPropertyChanged("_37");
+				this.On_37Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[38]", Storage="__38", DbType="Int")]
+	public System.Nullable<int> _38
+	{
+		get
+		{
+			return this.@__38;
+		}
+		set
+		{
+			if ((this.@__38 != value))
+			{
+				this.On_38Changing(value);
+				this.SendPropertyChanging();
+				this.@__38 = value;
+				this.SendPropertyChanged("_38");
+				this.On_38Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[39]", Storage="__39", DbType="Int")]
+	public System.Nullable<int> _39
+	{
+		get
+		{
+			return this.@__39;
+		}
+		set
+		{
+			if ((this.@__39 != value))
+			{
+				this.On_39Changing(value);
+				this.SendPropertyChanging();
+				this.@__39 = value;
+				this.SendPropertyChanged("_39");
+				this.On_39Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[40]", Storage="__40", DbType="Int")]
+	public System.Nullable<int> _40
+	{
+		get
+		{
+			return this.@__40;
+		}
+		set
+		{
+			if ((this.@__40 != value))
+			{
+				this.On_40Changing(value);
+				this.SendPropertyChanging();
+				this.@__40 = value;
+				this.SendPropertyChanged("_40");
+				this.On_40Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[41]", Storage="__41", DbType="Int")]
+	public System.Nullable<int> _41
+	{
+		get
+		{
+			return this.@__41;
+		}
+		set
+		{
+			if ((this.@__41 != value))
+			{
+				this.On_41Changing(value);
+				this.SendPropertyChanging();
+				this.@__41 = value;
+				this.SendPropertyChanged("_41");
+				this.On_41Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[42]", Storage="__42", DbType="Int")]
+	public System.Nullable<int> _42
+	{
+		get
+		{
+			return this.@__42;
+		}
+		set
+		{
+			if ((this.@__42 != value))
+			{
+				this.On_42Changing(value);
+				this.SendPropertyChanging();
+				this.@__42 = value;
+				this.SendPropertyChanged("_42");
+				this.On_42Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[43]", Storage="__43", DbType="Int")]
+	public System.Nullable<int> _43
+	{
+		get
+		{
+			return this.@__43;
+		}
+		set
+		{
+			if ((this.@__43 != value))
+			{
+				this.On_43Changing(value);
+				this.SendPropertyChanging();
+				this.@__43 = value;
+				this.SendPropertyChanged("_43");
+				this.On_43Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[44]", Storage="__44", DbType="Int")]
+	public System.Nullable<int> _44
+	{
+		get
+		{
+			return this.@__44;
+		}
+		set
+		{
+			if ((this.@__44 != value))
+			{
+				this.On_44Changing(value);
+				this.SendPropertyChanging();
+				this.@__44 = value;
+				this.SendPropertyChanged("_44");
+				this.On_44Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[45]", Storage="__45", DbType="Int")]
+	public System.Nullable<int> _45
+	{
+		get
+		{
+			return this.@__45;
+		}
+		set
+		{
+			if ((this.@__45 != value))
+			{
+				this.On_45Changing(value);
+				this.SendPropertyChanging();
+				this.@__45 = value;
+				this.SendPropertyChanged("_45");
+				this.On_45Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[46]", Storage="__46", DbType="Int")]
+	public System.Nullable<int> _46
+	{
+		get
+		{
+			return this.@__46;
+		}
+		set
+		{
+			if ((this.@__46 != value))
+			{
+				this.On_46Changing(value);
+				this.SendPropertyChanging();
+				this.@__46 = value;
+				this.SendPropertyChanged("_46");
+				this.On_46Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[47]", Storage="__47", DbType="Int")]
+	public System.Nullable<int> _47
+	{
+		get
+		{
+			return this.@__47;
+		}
+		set
+		{
+			if ((this.@__47 != value))
+			{
+				this.On_47Changing(value);
+				this.SendPropertyChanging();
+				this.@__47 = value;
+				this.SendPropertyChanged("_47");
+				this.On_47Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[48]", Storage="__48", DbType="Int")]
+	public System.Nullable<int> _48
+	{
+		get
+		{
+			return this.@__48;
+		}
+		set
+		{
+			if ((this.@__48 != value))
+			{
+				this.On_48Changing(value);
+				this.SendPropertyChanging();
+				this.@__48 = value;
+				this.SendPropertyChanged("_48");
+				this.On_48Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[49]", Storage="__49", DbType="Int")]
+	public System.Nullable<int> _49
+	{
+		get
+		{
+			return this.@__49;
+		}
+		set
+		{
+			if ((this.@__49 != value))
+			{
+				this.On_49Changing(value);
+				this.SendPropertyChanging();
+				this.@__49 = value;
+				this.SendPropertyChanged("_49");
+				this.On_49Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[50]", Storage="__50", DbType="Int")]
+	public System.Nullable<int> _50
+	{
+		get
+		{
+			return this.@__50;
+		}
+		set
+		{
+			if ((this.@__50 != value))
+			{
+				this.On_50Changing(value);
+				this.SendPropertyChanging();
+				this.@__50 = value;
+				this.SendPropertyChanged("_50");
+				this.On_50Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[51]", Storage="__51", DbType="Int")]
+	public System.Nullable<int> _51
+	{
+		get
+		{
+			return this.@__51;
+		}
+		set
+		{
+			if ((this.@__51 != value))
+			{
+				this.On_51Changing(value);
+				this.SendPropertyChanging();
+				this.@__51 = value;
+				this.SendPropertyChanged("_51");
+				this.On_51Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[52]", Storage="__52", DbType="Int")]
+	public System.Nullable<int> _52
+	{
+		get
+		{
+			return this.@__52;
+		}
+		set
+		{
+			if ((this.@__52 != value))
+			{
+				this.On_52Changing(value);
+				this.SendPropertyChanging();
+				this.@__52 = value;
+				this.SendPropertyChanged("_52");
+				this.On_52Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[53]", Storage="__53", DbType="Int")]
+	public System.Nullable<int> _53
+	{
+		get
+		{
+			return this.@__53;
+		}
+		set
+		{
+			if ((this.@__53 != value))
+			{
+				this.On_53Changing(value);
+				this.SendPropertyChanging();
+				this.@__53 = value;
+				this.SendPropertyChanged("_53");
+				this.On_53Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[54]", Storage="__54", DbType="Int")]
+	public System.Nullable<int> _54
+	{
+		get
+		{
+			return this.@__54;
+		}
+		set
+		{
+			if ((this.@__54 != value))
+			{
+				this.On_54Changing(value);
+				this.SendPropertyChanging();
+				this.@__54 = value;
+				this.SendPropertyChanged("_54");
+				this.On_54Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[55]", Storage="__55", DbType="Int")]
+	public System.Nullable<int> _55
+	{
+		get
+		{
+			return this.@__55;
+		}
+		set
+		{
+			if ((this.@__55 != value))
+			{
+				this.On_55Changing(value);
+				this.SendPropertyChanging();
+				this.@__55 = value;
+				this.SendPropertyChanged("_55");
+				this.On_55Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[56]", Storage="__56", DbType="Int")]
+	public System.Nullable<int> _56
+	{
+		get
+		{
+			return this.@__56;
+		}
+		set
+		{
+			if ((this.@__56 != value))
+			{
+				this.On_56Changing(value);
+				this.SendPropertyChanging();
+				this.@__56 = value;
+				this.SendPropertyChanged("_56");
+				this.On_56Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[57]", Storage="__57", DbType="Int")]
+	public System.Nullable<int> _57
+	{
+		get
+		{
+			return this.@__57;
+		}
+		set
+		{
+			if ((this.@__57 != value))
+			{
+				this.On_57Changing(value);
+				this.SendPropertyChanging();
+				this.@__57 = value;
+				this.SendPropertyChanged("_57");
+				this.On_57Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[58]", Storage="__58", DbType="Int")]
+	public System.Nullable<int> _58
+	{
+		get
+		{
+			return this.@__58;
+		}
+		set
+		{
+			if ((this.@__58 != value))
+			{
+				this.On_58Changing(value);
+				this.SendPropertyChanging();
+				this.@__58 = value;
+				this.SendPropertyChanged("_58");
+				this.On_58Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[59]", Storage="__59", DbType="Int")]
+	public System.Nullable<int> _59
+	{
+		get
+		{
+			return this.@__59;
+		}
+		set
+		{
+			if ((this.@__59 != value))
+			{
+				this.On_59Changing(value);
+				this.SendPropertyChanging();
+				this.@__59 = value;
+				this.SendPropertyChanged("_59");
+				this.On_59Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[60]", Storage="__60", DbType="Int")]
+	public System.Nullable<int> _60
+	{
+		get
+		{
+			return this.@__60;
+		}
+		set
+		{
+			if ((this.@__60 != value))
+			{
+				this.On_60Changing(value);
+				this.SendPropertyChanging();
+				this.@__60 = value;
+				this.SendPropertyChanged("_60");
+				this.On_60Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[61]", Storage="__61", DbType="Int")]
+	public System.Nullable<int> _61
+	{
+		get
+		{
+			return this.@__61;
+		}
+		set
+		{
+			if ((this.@__61 != value))
+			{
+				this.On_61Changing(value);
+				this.SendPropertyChanging();
+				this.@__61 = value;
+				this.SendPropertyChanged("_61");
+				this.On_61Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[62]", Storage="__62", DbType="Int")]
+	public System.Nullable<int> _62
+	{
+		get
+		{
+			return this.@__62;
+		}
+		set
+		{
+			if ((this.@__62 != value))
+			{
+				this.On_62Changing(value);
+				this.SendPropertyChanging();
+				this.@__62 = value;
+				this.SendPropertyChanged("_62");
+				this.On_62Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[63]", Storage="__63", DbType="Int")]
+	public System.Nullable<int> _63
+	{
+		get
+		{
+			return this.@__63;
+		}
+		set
+		{
+			if ((this.@__63 != value))
+			{
+				this.On_63Changing(value);
+				this.SendPropertyChanging();
+				this.@__63 = value;
+				this.SendPropertyChanged("_63");
+				this.On_63Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[64]", Storage="__64", DbType="Int")]
+	public System.Nullable<int> _64
+	{
+		get
+		{
+			return this.@__64;
+		}
+		set
+		{
+			if ((this.@__64 != value))
+			{
+				this.On_64Changing(value);
+				this.SendPropertyChanging();
+				this.@__64 = value;
+				this.SendPropertyChanged("_64");
+				this.On_64Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[65]", Storage="__65", DbType="Bit")]
+	public System.Nullable<bool> _65
+	{
+		get
+		{
+			return this.@__65;
+		}
+		set
+		{
+			if ((this.@__65 != value))
+			{
+				this.On_65Changing(value);
+				this.SendPropertyChanging();
+				this.@__65 = value;
+				this.SendPropertyChanged("_65");
+				this.On_65Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[66]", Storage="__66", DbType="Bit")]
+	public System.Nullable<bool> _66
+	{
+		get
+		{
+			return this.@__66;
+		}
+		set
+		{
+			if ((this.@__66 != value))
+			{
+				this.On_66Changing(value);
+				this.SendPropertyChanging();
+				this.@__66 = value;
+				this.SendPropertyChanged("_66");
+				this.On_66Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[67]", Storage="__67", DbType="Bit")]
+	public System.Nullable<bool> _67
+	{
+		get
+		{
+			return this.@__67;
+		}
+		set
+		{
+			if ((this.@__67 != value))
+			{
+				this.On_67Changing(value);
+				this.SendPropertyChanging();
+				this.@__67 = value;
+				this.SendPropertyChanged("_67");
+				this.On_67Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[68]", Storage="__68", DbType="Bit")]
+	public System.Nullable<bool> _68
+	{
+		get
+		{
+			return this.@__68;
+		}
+		set
+		{
+			if ((this.@__68 != value))
+			{
+				this.On_68Changing(value);
+				this.SendPropertyChanging();
+				this.@__68 = value;
+				this.SendPropertyChanged("_68");
+				this.On_68Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[69]", Storage="__69", DbType="Bit")]
+	public System.Nullable<bool> _69
+	{
+		get
+		{
+			return this.@__69;
+		}
+		set
+		{
+			if ((this.@__69 != value))
+			{
+				this.On_69Changing(value);
+				this.SendPropertyChanging();
+				this.@__69 = value;
+				this.SendPropertyChanged("_69");
+				this.On_69Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[70]", Storage="__70", DbType="Bit")]
+	public System.Nullable<bool> _70
+	{
+		get
+		{
+			return this.@__70;
+		}
+		set
+		{
+			if ((this.@__70 != value))
+			{
+				this.On_70Changing(value);
+				this.SendPropertyChanging();
+				this.@__70 = value;
+				this.SendPropertyChanged("_70");
+				this.On_70Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[71]", Storage="__71", DbType="Bit")]
+	public System.Nullable<bool> _71
+	{
+		get
+		{
+			return this.@__71;
+		}
+		set
+		{
+			if ((this.@__71 != value))
+			{
+				this.On_71Changing(value);
+				this.SendPropertyChanging();
+				this.@__71 = value;
+				this.SendPropertyChanged("_71");
+				this.On_71Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[72]", Storage="__72", DbType="Bit")]
+	public System.Nullable<bool> _72
+	{
+		get
+		{
+			return this.@__72;
+		}
+		set
+		{
+			if ((this.@__72 != value))
+			{
+				this.On_72Changing(value);
+				this.SendPropertyChanging();
+				this.@__72 = value;
+				this.SendPropertyChanged("_72");
+				this.On_72Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[73]", Storage="__73", DbType="Bit")]
+	public System.Nullable<bool> _73
+	{
+		get
+		{
+			return this.@__73;
+		}
+		set
+		{
+			if ((this.@__73 != value))
+			{
+				this.On_73Changing(value);
+				this.SendPropertyChanging();
+				this.@__73 = value;
+				this.SendPropertyChanged("_73");
+				this.On_73Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[74]", Storage="__74", DbType="Bit")]
+	public System.Nullable<bool> _74
+	{
+		get
+		{
+			return this.@__74;
+		}
+		set
+		{
+			if ((this.@__74 != value))
+			{
+				this.On_74Changing(value);
+				this.SendPropertyChanging();
+				this.@__74 = value;
+				this.SendPropertyChanged("_74");
+				this.On_74Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[75]", Storage="__75", DbType="Bit")]
+	public System.Nullable<bool> _75
+	{
+		get
+		{
+			return this.@__75;
+		}
+		set
+		{
+			if ((this.@__75 != value))
+			{
+				this.On_75Changing(value);
+				this.SendPropertyChanging();
+				this.@__75 = value;
+				this.SendPropertyChanged("_75");
+				this.On_75Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[76]", Storage="__76", DbType="Bit")]
+	public System.Nullable<bool> _76
+	{
+		get
+		{
+			return this.@__76;
+		}
+		set
+		{
+			if ((this.@__76 != value))
+			{
+				this.On_76Changing(value);
+				this.SendPropertyChanging();
+				this.@__76 = value;
+				this.SendPropertyChanged("_76");
+				this.On_76Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[77]", Storage="__77", DbType="Bit")]
+	public System.Nullable<bool> _77
+	{
+		get
+		{
+			return this.@__77;
+		}
+		set
+		{
+			if ((this.@__77 != value))
+			{
+				this.On_77Changing(value);
+				this.SendPropertyChanging();
+				this.@__77 = value;
+				this.SendPropertyChanged("_77");
+				this.On_77Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[78]", Storage="__78", DbType="Bit")]
+	public System.Nullable<bool> _78
+	{
+		get
+		{
+			return this.@__78;
+		}
+		set
+		{
+			if ((this.@__78 != value))
+			{
+				this.On_78Changing(value);
+				this.SendPropertyChanging();
+				this.@__78 = value;
+				this.SendPropertyChanged("_78");
+				this.On_78Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[79]", Storage="__79", DbType="Bit")]
+	public System.Nullable<bool> _79
+	{
+		get
+		{
+			return this.@__79;
+		}
+		set
+		{
+			if ((this.@__79 != value))
+			{
+				this.On_79Changing(value);
+				this.SendPropertyChanging();
+				this.@__79 = value;
+				this.SendPropertyChanged("_79");
+				this.On_79Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[80]", Storage="__80", DbType="Bit")]
+	public System.Nullable<bool> _80
+	{
+		get
+		{
+			return this.@__80;
+		}
+		set
+		{
+			if ((this.@__80 != value))
+			{
+				this.On_80Changing(value);
+				this.SendPropertyChanging();
+				this.@__80 = value;
+				this.SendPropertyChanged("_80");
+				this.On_80Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[81]", Storage="__81", DbType="Int")]
+	public System.Nullable<int> _81
+	{
+		get
+		{
+			return this.@__81;
+		}
+		set
+		{
+			if ((this.@__81 != value))
+			{
+				this.On_81Changing(value);
+				this.SendPropertyChanging();
+				this.@__81 = value;
+				this.SendPropertyChanged("_81");
+				this.On_81Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[82]", Storage="__82", DbType="Int")]
+	public System.Nullable<int> _82
+	{
+		get
+		{
+			return this.@__82;
+		}
+		set
+		{
+			if ((this.@__82 != value))
+			{
+				this.On_82Changing(value);
+				this.SendPropertyChanging();
+				this.@__82 = value;
+				this.SendPropertyChanged("_82");
+				this.On_82Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[83]", Storage="__83", DbType="Int")]
+	public System.Nullable<int> _83
+	{
+		get
+		{
+			return this.@__83;
+		}
+		set
+		{
+			if ((this.@__83 != value))
+			{
+				this.On_83Changing(value);
+				this.SendPropertyChanging();
+				this.@__83 = value;
+				this.SendPropertyChanged("_83");
+				this.On_83Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[84]", Storage="__84", DbType="Int")]
+	public System.Nullable<int> _84
+	{
+		get
+		{
+			return this.@__84;
+		}
+		set
+		{
+			if ((this.@__84 != value))
+			{
+				this.On_84Changing(value);
+				this.SendPropertyChanging();
+				this.@__84 = value;
+				this.SendPropertyChanged("_84");
+				this.On_84Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[85]", Storage="__85", DbType="Int")]
+	public System.Nullable<int> _85
+	{
+		get
+		{
+			return this.@__85;
+		}
+		set
+		{
+			if ((this.@__85 != value))
+			{
+				this.On_85Changing(value);
+				this.SendPropertyChanging();
+				this.@__85 = value;
+				this.SendPropertyChanged("_85");
+				this.On_85Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[86]", Storage="__86", DbType="Int")]
+	public System.Nullable<int> _86
+	{
+		get
+		{
+			return this.@__86;
+		}
+		set
+		{
+			if ((this.@__86 != value))
+			{
+				this.On_86Changing(value);
+				this.SendPropertyChanging();
+				this.@__86 = value;
+				this.SendPropertyChanged("_86");
+				this.On_86Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[87]", Storage="__87", DbType="Int")]
+	public System.Nullable<int> _87
+	{
+		get
+		{
+			return this.@__87;
+		}
+		set
+		{
+			if ((this.@__87 != value))
+			{
+				this.On_87Changing(value);
+				this.SendPropertyChanging();
+				this.@__87 = value;
+				this.SendPropertyChanged("_87");
+				this.On_87Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[88]", Storage="__88", DbType="Int")]
+	public System.Nullable<int> _88
+	{
+		get
+		{
+			return this.@__88;
+		}
+		set
+		{
+			if ((this.@__88 != value))
+			{
+				this.On_88Changing(value);
+				this.SendPropertyChanging();
+				this.@__88 = value;
+				this.SendPropertyChanged("_88");
+				this.On_88Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[89]", Storage="__89", DbType="Int")]
+	public System.Nullable<int> _89
+	{
+		get
+		{
+			return this.@__89;
+		}
+		set
+		{
+			if ((this.@__89 != value))
+			{
+				this.On_89Changing(value);
+				this.SendPropertyChanging();
+				this.@__89 = value;
+				this.SendPropertyChanged("_89");
+				this.On_89Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[90]", Storage="__90", DbType="Int")]
+	public System.Nullable<int> _90
+	{
+		get
+		{
+			return this.@__90;
+		}
+		set
+		{
+			if ((this.@__90 != value))
+			{
+				this.On_90Changing(value);
+				this.SendPropertyChanging();
+				this.@__90 = value;
+				this.SendPropertyChanged("_90");
+				this.On_90Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[91]", Storage="__91", DbType="Int")]
+	public System.Nullable<int> _91
+	{
+		get
+		{
+			return this.@__91;
+		}
+		set
+		{
+			if ((this.@__91 != value))
+			{
+				this.On_91Changing(value);
+				this.SendPropertyChanging();
+				this.@__91 = value;
+				this.SendPropertyChanged("_91");
+				this.On_91Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[92]", Storage="__92", DbType="Int")]
+	public System.Nullable<int> _92
+	{
+		get
+		{
+			return this.@__92;
+		}
+		set
+		{
+			if ((this.@__92 != value))
+			{
+				this.On_92Changing(value);
+				this.SendPropertyChanging();
+				this.@__92 = value;
+				this.SendPropertyChanged("_92");
+				this.On_92Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[93]", Storage="__93", DbType="Int")]
+	public System.Nullable<int> _93
+	{
+		get
+		{
+			return this.@__93;
+		}
+		set
+		{
+			if ((this.@__93 != value))
+			{
+				this.On_93Changing(value);
+				this.SendPropertyChanging();
+				this.@__93 = value;
+				this.SendPropertyChanged("_93");
+				this.On_93Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[94]", Storage="__94", DbType="Int")]
+	public System.Nullable<int> _94
+	{
+		get
+		{
+			return this.@__94;
+		}
+		set
+		{
+			if ((this.@__94 != value))
+			{
+				this.On_94Changing(value);
+				this.SendPropertyChanging();
+				this.@__94 = value;
+				this.SendPropertyChanged("_94");
+				this.On_94Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[95]", Storage="__95", DbType="Int")]
+	public System.Nullable<int> _95
+	{
+		get
+		{
+			return this.@__95;
+		}
+		set
+		{
+			if ((this.@__95 != value))
+			{
+				this.On_95Changing(value);
+				this.SendPropertyChanging();
+				this.@__95 = value;
+				this.SendPropertyChanged("_95");
+				this.On_95Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[96]", Storage="__96", DbType="Int")]
+	public System.Nullable<int> _96
+	{
+		get
+		{
+			return this.@__96;
+		}
+		set
+		{
+			if ((this.@__96 != value))
+			{
+				this.On_96Changing(value);
+				this.SendPropertyChanging();
+				this.@__96 = value;
+				this.SendPropertyChanged("_96");
+				this.On_96Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[97]", Storage="__97", DbType="Int")]
+	public System.Nullable<int> _97
+	{
+		get
+		{
+			return this.@__97;
+		}
+		set
+		{
+			if ((this.@__97 != value))
+			{
+				this.On_97Changing(value);
+				this.SendPropertyChanging();
+				this.@__97 = value;
+				this.SendPropertyChanged("_97");
+				this.On_97Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[98]", Storage="__98", DbType="Int")]
+	public System.Nullable<int> _98
+	{
+		get
+		{
+			return this.@__98;
+		}
+		set
+		{
+			if ((this.@__98 != value))
+			{
+				this.On_98Changing(value);
+				this.SendPropertyChanging();
+				this.@__98 = value;
+				this.SendPropertyChanged("_98");
+				this.On_98Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[99]", Storage="__99", DbType="Int")]
+	public System.Nullable<int> _99
+	{
+		get
+		{
+			return this.@__99;
+		}
+		set
+		{
+			if ((this.@__99 != value))
+			{
+				this.On_99Changing(value);
+				this.SendPropertyChanging();
+				this.@__99 = value;
+				this.SendPropertyChanged("_99");
+				this.On_99Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[100]", Storage="__100", DbType="Int")]
+	public System.Nullable<int> _100
+	{
+		get
+		{
+			return this.@__100;
+		}
+		set
+		{
+			if ((this.@__100 != value))
+			{
+				this.On_100Changing(value);
+				this.SendPropertyChanging();
+				this.@__100 = value;
+				this.SendPropertyChanged("_100");
+				this.On_100Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[101]", Storage="__101", DbType="Int")]
+	public System.Nullable<int> _101
+	{
+		get
+		{
+			return this.@__101;
+		}
+		set
+		{
+			if ((this.@__101 != value))
+			{
+				this.On_101Changing(value);
+				this.SendPropertyChanging();
+				this.@__101 = value;
+				this.SendPropertyChanged("_101");
+				this.On_101Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[102]", Storage="__102", DbType="Int")]
+	public System.Nullable<int> _102
+	{
+		get
+		{
+			return this.@__102;
+		}
+		set
+		{
+			if ((this.@__102 != value))
+			{
+				this.On_102Changing(value);
+				this.SendPropertyChanging();
+				this.@__102 = value;
+				this.SendPropertyChanged("_102");
+				this.On_102Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[103]", Storage="__103", DbType="Int")]
+	public System.Nullable<int> _103
+	{
+		get
+		{
+			return this.@__103;
+		}
+		set
+		{
+			if ((this.@__103 != value))
+			{
+				this.On_103Changing(value);
+				this.SendPropertyChanging();
+				this.@__103 = value;
+				this.SendPropertyChanged("_103");
+				this.On_103Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[104]", Storage="__104", DbType="Int")]
+	public System.Nullable<int> _104
+	{
+		get
+		{
+			return this.@__104;
+		}
+		set
+		{
+			if ((this.@__104 != value))
+			{
+				this.On_104Changing(value);
+				this.SendPropertyChanging();
+				this.@__104 = value;
+				this.SendPropertyChanged("_104");
+				this.On_104Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[105]", Storage="__105", DbType="Int")]
+	public System.Nullable<int> _105
+	{
+		get
+		{
+			return this.@__105;
+		}
+		set
+		{
+			if ((this.@__105 != value))
+			{
+				this.On_105Changing(value);
+				this.SendPropertyChanging();
+				this.@__105 = value;
+				this.SendPropertyChanged("_105");
+				this.On_105Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[106]", Storage="__106", DbType="Int")]
+	public System.Nullable<int> _106
+	{
+		get
+		{
+			return this.@__106;
+		}
+		set
+		{
+			if ((this.@__106 != value))
+			{
+				this.On_106Changing(value);
+				this.SendPropertyChanging();
+				this.@__106 = value;
+				this.SendPropertyChanged("_106");
+				this.On_106Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[107]", Storage="__107", DbType="Int")]
+	public System.Nullable<int> _107
+	{
+		get
+		{
+			return this.@__107;
+		}
+		set
+		{
+			if ((this.@__107 != value))
+			{
+				this.On_107Changing(value);
+				this.SendPropertyChanging();
+				this.@__107 = value;
+				this.SendPropertyChanged("_107");
+				this.On_107Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[108]", Storage="__108", DbType="Int")]
+	public System.Nullable<int> _108
+	{
+		get
+		{
+			return this.@__108;
+		}
+		set
+		{
+			if ((this.@__108 != value))
+			{
+				this.On_108Changing(value);
+				this.SendPropertyChanging();
+				this.@__108 = value;
+				this.SendPropertyChanged("_108");
+				this.On_108Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[109]", Storage="__109", DbType="Int")]
+	public System.Nullable<int> _109
+	{
+		get
+		{
+			return this.@__109;
+		}
+		set
+		{
+			if ((this.@__109 != value))
+			{
+				this.On_109Changing(value);
+				this.SendPropertyChanging();
+				this.@__109 = value;
+				this.SendPropertyChanged("_109");
+				this.On_109Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[110]", Storage="__110", DbType="Int")]
+	public System.Nullable<int> _110
+	{
+		get
+		{
+			return this.@__110;
+		}
+		set
+		{
+			if ((this.@__110 != value))
+			{
+				this.On_110Changing(value);
+				this.SendPropertyChanging();
+				this.@__110 = value;
+				this.SendPropertyChanged("_110");
+				this.On_110Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[111]", Storage="__111", DbType="Int")]
+	public System.Nullable<int> _111
+	{
+		get
+		{
+			return this.@__111;
+		}
+		set
+		{
+			if ((this.@__111 != value))
+			{
+				this.On_111Changing(value);
+				this.SendPropertyChanging();
+				this.@__111 = value;
+				this.SendPropertyChanged("_111");
+				this.On_111Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[112]", Storage="__112", DbType="Int")]
+	public System.Nullable<int> _112
+	{
+		get
+		{
+			return this.@__112;
+		}
+		set
+		{
+			if ((this.@__112 != value))
+			{
+				this.On_112Changing(value);
+				this.SendPropertyChanging();
+				this.@__112 = value;
+				this.SendPropertyChanged("_112");
+				this.On_112Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[113]", Storage="__113", DbType="Int")]
+	public System.Nullable<int> _113
+	{
+		get
+		{
+			return this.@__113;
+		}
+		set
+		{
+			if ((this.@__113 != value))
+			{
+				this.On_113Changing(value);
+				this.SendPropertyChanging();
+				this.@__113 = value;
+				this.SendPropertyChanged("_113");
+				this.On_113Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[114]", Storage="__114", DbType="Int")]
+	public System.Nullable<int> _114
+	{
+		get
+		{
+			return this.@__114;
+		}
+		set
+		{
+			if ((this.@__114 != value))
+			{
+				this.On_114Changing(value);
+				this.SendPropertyChanging();
+				this.@__114 = value;
+				this.SendPropertyChanged("_114");
+				this.On_114Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[115]", Storage="__115", DbType="Int")]
+	public System.Nullable<int> _115
+	{
+		get
+		{
+			return this.@__115;
+		}
+		set
+		{
+			if ((this.@__115 != value))
+			{
+				this.On_115Changing(value);
+				this.SendPropertyChanging();
+				this.@__115 = value;
+				this.SendPropertyChanged("_115");
+				this.On_115Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[116]", Storage="__116", DbType="Int")]
+	public System.Nullable<int> _116
+	{
+		get
+		{
+			return this.@__116;
+		}
+		set
+		{
+			if ((this.@__116 != value))
+			{
+				this.On_116Changing(value);
+				this.SendPropertyChanging();
+				this.@__116 = value;
+				this.SendPropertyChanged("_116");
+				this.On_116Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[117]", Storage="__117", DbType="Int")]
+	public System.Nullable<int> _117
+	{
+		get
+		{
+			return this.@__117;
+		}
+		set
+		{
+			if ((this.@__117 != value))
+			{
+				this.On_117Changing(value);
+				this.SendPropertyChanging();
+				this.@__117 = value;
+				this.SendPropertyChanged("_117");
+				this.On_117Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[118]", Storage="__118", DbType="Int")]
+	public System.Nullable<int> _118
+	{
+		get
+		{
+			return this.@__118;
+		}
+		set
+		{
+			if ((this.@__118 != value))
+			{
+				this.On_118Changing(value);
+				this.SendPropertyChanging();
+				this.@__118 = value;
+				this.SendPropertyChanged("_118");
+				this.On_118Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[119]", Storage="__119", DbType="Int")]
+	public System.Nullable<int> _119
+	{
+		get
+		{
+			return this.@__119;
+		}
+		set
+		{
+			if ((this.@__119 != value))
+			{
+				this.On_119Changing(value);
+				this.SendPropertyChanging();
+				this.@__119 = value;
+				this.SendPropertyChanged("_119");
+				this.On_119Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[120]", Storage="__120", DbType="Int")]
+	public System.Nullable<int> _120
+	{
+		get
+		{
+			return this.@__120;
+		}
+		set
+		{
+			if ((this.@__120 != value))
+			{
+				this.On_120Changing(value);
+				this.SendPropertyChanging();
+				this.@__120 = value;
+				this.SendPropertyChanged("_120");
+				this.On_120Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[121]", Storage="__121", DbType="Int")]
+	public System.Nullable<int> _121
+	{
+		get
+		{
+			return this.@__121;
+		}
+		set
+		{
+			if ((this.@__121 != value))
+			{
+				this.On_121Changing(value);
+				this.SendPropertyChanging();
+				this.@__121 = value;
+				this.SendPropertyChanged("_121");
+				this.On_121Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[122]", Storage="__122", DbType="Int")]
+	public System.Nullable<int> _122
+	{
+		get
+		{
+			return this.@__122;
+		}
+		set
+		{
+			if ((this.@__122 != value))
+			{
+				this.On_122Changing(value);
+				this.SendPropertyChanging();
+				this.@__122 = value;
+				this.SendPropertyChanged("_122");
+				this.On_122Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[123]", Storage="__123", DbType="Int")]
+	public System.Nullable<int> _123
+	{
+		get
+		{
+			return this.@__123;
+		}
+		set
+		{
+			if ((this.@__123 != value))
+			{
+				this.On_123Changing(value);
+				this.SendPropertyChanging();
+				this.@__123 = value;
+				this.SendPropertyChanged("_123");
+				this.On_123Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[124]", Storage="__124", DbType="Int")]
+	public System.Nullable<int> _124
+	{
+		get
+		{
+			return this.@__124;
+		}
+		set
+		{
+			if ((this.@__124 != value))
+			{
+				this.On_124Changing(value);
+				this.SendPropertyChanging();
+				this.@__124 = value;
+				this.SendPropertyChanged("_124");
+				this.On_124Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[125]", Storage="__125", DbType="Int")]
+	public System.Nullable<int> _125
+	{
+		get
+		{
+			return this.@__125;
+		}
+		set
+		{
+			if ((this.@__125 != value))
+			{
+				this.On_125Changing(value);
+				this.SendPropertyChanging();
+				this.@__125 = value;
+				this.SendPropertyChanged("_125");
+				this.On_125Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[126]", Storage="__126", DbType="Int")]
+	public System.Nullable<int> _126
+	{
+		get
+		{
+			return this.@__126;
+		}
+		set
+		{
+			if ((this.@__126 != value))
+			{
+				this.On_126Changing(value);
+				this.SendPropertyChanging();
+				this.@__126 = value;
+				this.SendPropertyChanged("_126");
+				this.On_126Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[127]", Storage="__127", DbType="Int")]
+	public System.Nullable<int> _127
+	{
+		get
+		{
+			return this.@__127;
+		}
+		set
+		{
+			if ((this.@__127 != value))
+			{
+				this.On_127Changing(value);
+				this.SendPropertyChanging();
+				this.@__127 = value;
+				this.SendPropertyChanged("_127");
+				this.On_127Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[128]", Storage="__128", DbType="Int")]
+	public System.Nullable<int> _128
+	{
+		get
+		{
+			return this.@__128;
+		}
+		set
+		{
+			if ((this.@__128 != value))
+			{
+				this.On_128Changing(value);
+				this.SendPropertyChanging();
+				this.@__128 = value;
+				this.SendPropertyChanged("_128");
+				this.On_128Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[129]", Storage="__129", DbType="Int")]
+	public System.Nullable<int> _129
+	{
+		get
+		{
+			return this.@__129;
+		}
+		set
+		{
+			if ((this.@__129 != value))
+			{
+				this.On_129Changing(value);
+				this.SendPropertyChanging();
+				this.@__129 = value;
+				this.SendPropertyChanged("_129");
+				this.On_129Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[130]", Storage="__130", DbType="Int")]
+	public System.Nullable<int> _130
+	{
+		get
+		{
+			return this.@__130;
+		}
+		set
+		{
+			if ((this.@__130 != value))
+			{
+				this.On_130Changing(value);
+				this.SendPropertyChanging();
+				this.@__130 = value;
+				this.SendPropertyChanged("_130");
+				this.On_130Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[131]", Storage="__131", DbType="Int")]
+	public System.Nullable<int> _131
+	{
+		get
+		{
+			return this.@__131;
+		}
+		set
+		{
+			if ((this.@__131 != value))
+			{
+				this.On_131Changing(value);
+				this.SendPropertyChanging();
+				this.@__131 = value;
+				this.SendPropertyChanged("_131");
+				this.On_131Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[132]", Storage="__132", DbType="Int")]
+	public System.Nullable<int> _132
+	{
+		get
+		{
+			return this.@__132;
+		}
+		set
+		{
+			if ((this.@__132 != value))
+			{
+				this.On_132Changing(value);
+				this.SendPropertyChanging();
+				this.@__132 = value;
+				this.SendPropertyChanged("_132");
+				this.On_132Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[133]", Storage="__133", DbType="Int")]
+	public System.Nullable<int> _133
+	{
+		get
+		{
+			return this.@__133;
+		}
+		set
+		{
+			if ((this.@__133 != value))
+			{
+				this.On_133Changing(value);
+				this.SendPropertyChanging();
+				this.@__133 = value;
+				this.SendPropertyChanged("_133");
+				this.On_133Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[134]", Storage="__134", DbType="Int")]
+	public System.Nullable<int> _134
+	{
+		get
+		{
+			return this.@__134;
+		}
+		set
+		{
+			if ((this.@__134 != value))
+			{
+				this.On_134Changing(value);
+				this.SendPropertyChanging();
+				this.@__134 = value;
+				this.SendPropertyChanged("_134");
+				this.On_134Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[135]", Storage="__135", DbType="Int")]
+	public System.Nullable<int> _135
+	{
+		get
+		{
+			return this.@__135;
+		}
+		set
+		{
+			if ((this.@__135 != value))
+			{
+				this.On_135Changing(value);
+				this.SendPropertyChanging();
+				this.@__135 = value;
+				this.SendPropertyChanged("_135");
+				this.On_135Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[136]", Storage="__136", DbType="Int")]
+	public System.Nullable<int> _136
+	{
+		get
+		{
+			return this.@__136;
+		}
+		set
+		{
+			if ((this.@__136 != value))
+			{
+				this.On_136Changing(value);
+				this.SendPropertyChanging();
+				this.@__136 = value;
+				this.SendPropertyChanged("_136");
+				this.On_136Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[137]", Storage="__137", DbType="Int")]
+	public System.Nullable<int> _137
+	{
+		get
+		{
+			return this.@__137;
+		}
+		set
+		{
+			if ((this.@__137 != value))
+			{
+				this.On_137Changing(value);
+				this.SendPropertyChanging();
+				this.@__137 = value;
+				this.SendPropertyChanged("_137");
+				this.On_137Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[138]", Storage="__138", DbType="Int")]
+	public System.Nullable<int> _138
+	{
+		get
+		{
+			return this.@__138;
+		}
+		set
+		{
+			if ((this.@__138 != value))
+			{
+				this.On_138Changing(value);
+				this.SendPropertyChanging();
+				this.@__138 = value;
+				this.SendPropertyChanged("_138");
+				this.On_138Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[139]", Storage="__139", DbType="Int")]
+	public System.Nullable<int> _139
+	{
+		get
+		{
+			return this.@__139;
+		}
+		set
+		{
+			if ((this.@__139 != value))
+			{
+				this.On_139Changing(value);
+				this.SendPropertyChanging();
+				this.@__139 = value;
+				this.SendPropertyChanged("_139");
+				this.On_139Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[140]", Storage="__140", DbType="Int")]
+	public System.Nullable<int> _140
+	{
+		get
+		{
+			return this.@__140;
+		}
+		set
+		{
+			if ((this.@__140 != value))
+			{
+				this.On_140Changing(value);
+				this.SendPropertyChanging();
+				this.@__140 = value;
+				this.SendPropertyChanged("_140");
+				this.On_140Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[141]", Storage="__141", DbType="Int")]
+	public System.Nullable<int> _141
+	{
+		get
+		{
+			return this.@__141;
+		}
+		set
+		{
+			if ((this.@__141 != value))
+			{
+				this.On_141Changing(value);
+				this.SendPropertyChanging();
+				this.@__141 = value;
+				this.SendPropertyChanged("_141");
+				this.On_141Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[142]", Storage="__142", DbType="Int")]
+	public System.Nullable<int> _142
+	{
+		get
+		{
+			return this.@__142;
+		}
+		set
+		{
+			if ((this.@__142 != value))
+			{
+				this.On_142Changing(value);
+				this.SendPropertyChanging();
+				this.@__142 = value;
+				this.SendPropertyChanged("_142");
+				this.On_142Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[143]", Storage="__143", DbType="Int")]
+	public System.Nullable<int> _143
+	{
+		get
+		{
+			return this.@__143;
+		}
+		set
+		{
+			if ((this.@__143 != value))
+			{
+				this.On_143Changing(value);
+				this.SendPropertyChanging();
+				this.@__143 = value;
+				this.SendPropertyChanged("_143");
+				this.On_143Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[144]", Storage="__144", DbType="Int")]
+	public System.Nullable<int> _144
+	{
+		get
+		{
+			return this.@__144;
+		}
+		set
+		{
+			if ((this.@__144 != value))
+			{
+				this.On_144Changing(value);
+				this.SendPropertyChanging();
+				this.@__144 = value;
+				this.SendPropertyChanged("_144");
+				this.On_144Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[145]", Storage="__145", DbType="Bit")]
+	public System.Nullable<bool> _145
+	{
+		get
+		{
+			return this.@__145;
+		}
+		set
+		{
+			if ((this.@__145 != value))
+			{
+				this.On_145Changing(value);
+				this.SendPropertyChanging();
+				this.@__145 = value;
+				this.SendPropertyChanged("_145");
+				this.On_145Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[146]", Storage="__146", DbType="Bit")]
+	public System.Nullable<bool> _146
+	{
+		get
+		{
+			return this.@__146;
+		}
+		set
+		{
+			if ((this.@__146 != value))
+			{
+				this.On_146Changing(value);
+				this.SendPropertyChanging();
+				this.@__146 = value;
+				this.SendPropertyChanged("_146");
+				this.On_146Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[147]", Storage="__147", DbType="Bit")]
+	public System.Nullable<bool> _147
+	{
+		get
+		{
+			return this.@__147;
+		}
+		set
+		{
+			if ((this.@__147 != value))
+			{
+				this.On_147Changing(value);
+				this.SendPropertyChanging();
+				this.@__147 = value;
+				this.SendPropertyChanged("_147");
+				this.On_147Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[148]", Storage="__148", DbType="Bit")]
+	public System.Nullable<bool> _148
+	{
+		get
+		{
+			return this.@__148;
+		}
+		set
+		{
+			if ((this.@__148 != value))
+			{
+				this.On_148Changing(value);
+				this.SendPropertyChanging();
+				this.@__148 = value;
+				this.SendPropertyChanged("_148");
+				this.On_148Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[149]", Storage="__149", DbType="Bit")]
+	public System.Nullable<bool> _149
+	{
+		get
+		{
+			return this.@__149;
+		}
+		set
+		{
+			if ((this.@__149 != value))
+			{
+				this.On_149Changing(value);
+				this.SendPropertyChanging();
+				this.@__149 = value;
+				this.SendPropertyChanged("_149");
+				this.On_149Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[150]", Storage="__150", DbType="Bit")]
+	public System.Nullable<bool> _150
+	{
+		get
+		{
+			return this.@__150;
+		}
+		set
+		{
+			if ((this.@__150 != value))
+			{
+				this.On_150Changing(value);
+				this.SendPropertyChanging();
+				this.@__150 = value;
+				this.SendPropertyChanged("_150");
+				this.On_150Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[151]", Storage="__151", DbType="Bit")]
+	public System.Nullable<bool> _151
+	{
+		get
+		{
+			return this.@__151;
+		}
+		set
+		{
+			if ((this.@__151 != value))
+			{
+				this.On_151Changing(value);
+				this.SendPropertyChanging();
+				this.@__151 = value;
+				this.SendPropertyChanged("_151");
+				this.On_151Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[152]", Storage="__152", DbType="Bit")]
+	public System.Nullable<bool> _152
+	{
+		get
+		{
+			return this.@__152;
+		}
+		set
+		{
+			if ((this.@__152 != value))
+			{
+				this.On_152Changing(value);
+				this.SendPropertyChanging();
+				this.@__152 = value;
+				this.SendPropertyChanged("_152");
+				this.On_152Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[153]", Storage="__153", DbType="Bit")]
+	public System.Nullable<bool> _153
+	{
+		get
+		{
+			return this.@__153;
+		}
+		set
+		{
+			if ((this.@__153 != value))
+			{
+				this.On_153Changing(value);
+				this.SendPropertyChanging();
+				this.@__153 = value;
+				this.SendPropertyChanged("_153");
+				this.On_153Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[154]", Storage="__154", DbType="Bit")]
+	public System.Nullable<bool> _154
+	{
+		get
+		{
+			return this.@__154;
+		}
+		set
+		{
+			if ((this.@__154 != value))
+			{
+				this.On_154Changing(value);
+				this.SendPropertyChanging();
+				this.@__154 = value;
+				this.SendPropertyChanged("_154");
+				this.On_154Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[155]", Storage="__155", DbType="Bit")]
+	public System.Nullable<bool> _155
+	{
+		get
+		{
+			return this.@__155;
+		}
+		set
+		{
+			if ((this.@__155 != value))
+			{
+				this.On_155Changing(value);
+				this.SendPropertyChanging();
+				this.@__155 = value;
+				this.SendPropertyChanged("_155");
+				this.On_155Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[156]", Storage="__156", DbType="Bit")]
+	public System.Nullable<bool> _156
+	{
+		get
+		{
+			return this.@__156;
+		}
+		set
+		{
+			if ((this.@__156 != value))
+			{
+				this.On_156Changing(value);
+				this.SendPropertyChanging();
+				this.@__156 = value;
+				this.SendPropertyChanged("_156");
+				this.On_156Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[157]", Storage="__157", DbType="Bit")]
+	public System.Nullable<bool> _157
+	{
+		get
+		{
+			return this.@__157;
+		}
+		set
+		{
+			if ((this.@__157 != value))
+			{
+				this.On_157Changing(value);
+				this.SendPropertyChanging();
+				this.@__157 = value;
+				this.SendPropertyChanged("_157");
+				this.On_157Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[158]", Storage="__158", DbType="Bit")]
+	public System.Nullable<bool> _158
+	{
+		get
+		{
+			return this.@__158;
+		}
+		set
+		{
+			if ((this.@__158 != value))
+			{
+				this.On_158Changing(value);
+				this.SendPropertyChanging();
+				this.@__158 = value;
+				this.SendPropertyChanged("_158");
+				this.On_158Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[159]", Storage="__159", DbType="Bit")]
+	public System.Nullable<bool> _159
+	{
+		get
+		{
+			return this.@__159;
+		}
+		set
+		{
+			if ((this.@__159 != value))
+			{
+				this.On_159Changing(value);
+				this.SendPropertyChanging();
+				this.@__159 = value;
+				this.SendPropertyChanged("_159");
+				this.On_159Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[160]", Storage="__160", DbType="Bit")]
+	public System.Nullable<bool> _160
+	{
+		get
+		{
+			return this.@__160;
+		}
+		set
+		{
+			if ((this.@__160 != value))
+			{
+				this.On_160Changing(value);
+				this.SendPropertyChanging();
+				this.@__160 = value;
+				this.SendPropertyChanged("_160");
+				this.On_160Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[161]", Storage="__161", DbType="Bit")]
+	public System.Nullable<bool> _161
+	{
+		get
+		{
+			return this.@__161;
+		}
+		set
+		{
+			if ((this.@__161 != value))
+			{
+				this.On_161Changing(value);
+				this.SendPropertyChanging();
+				this.@__161 = value;
+				this.SendPropertyChanged("_161");
+				this.On_161Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[162]", Storage="__162", DbType="Bit")]
+	public System.Nullable<bool> _162
+	{
+		get
+		{
+			return this.@__162;
+		}
+		set
+		{
+			if ((this.@__162 != value))
+			{
+				this.On_162Changing(value);
+				this.SendPropertyChanging();
+				this.@__162 = value;
+				this.SendPropertyChanged("_162");
+				this.On_162Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[163]", Storage="__163", DbType="Bit")]
+	public System.Nullable<bool> _163
+	{
+		get
+		{
+			return this.@__163;
+		}
+		set
+		{
+			if ((this.@__163 != value))
+			{
+				this.On_163Changing(value);
+				this.SendPropertyChanging();
+				this.@__163 = value;
+				this.SendPropertyChanged("_163");
+				this.On_163Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[164]", Storage="__164", DbType="Bit")]
+	public System.Nullable<bool> _164
+	{
+		get
+		{
+			return this.@__164;
+		}
+		set
+		{
+			if ((this.@__164 != value))
+			{
+				this.On_164Changing(value);
+				this.SendPropertyChanging();
+				this.@__164 = value;
+				this.SendPropertyChanged("_164");
+				this.On_164Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[165]", Storage="__165", DbType="Bit")]
+	public System.Nullable<bool> _165
+	{
+		get
+		{
+			return this.@__165;
+		}
+		set
+		{
+			if ((this.@__165 != value))
+			{
+				this.On_165Changing(value);
+				this.SendPropertyChanging();
+				this.@__165 = value;
+				this.SendPropertyChanged("_165");
+				this.On_165Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[166]", Storage="__166", DbType="Bit")]
+	public System.Nullable<bool> _166
+	{
+		get
+		{
+			return this.@__166;
+		}
+		set
+		{
+			if ((this.@__166 != value))
+			{
+				this.On_166Changing(value);
+				this.SendPropertyChanging();
+				this.@__166 = value;
+				this.SendPropertyChanged("_166");
+				this.On_166Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[167]", Storage="__167", DbType="Bit")]
+	public System.Nullable<bool> _167
+	{
+		get
+		{
+			return this.@__167;
+		}
+		set
+		{
+			if ((this.@__167 != value))
+			{
+				this.On_167Changing(value);
+				this.SendPropertyChanging();
+				this.@__167 = value;
+				this.SendPropertyChanged("_167");
+				this.On_167Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[168]", Storage="__168", DbType="Bit")]
+	public System.Nullable<bool> _168
+	{
+		get
+		{
+			return this.@__168;
+		}
+		set
+		{
+			if ((this.@__168 != value))
+			{
+				this.On_168Changing(value);
+				this.SendPropertyChanging();
+				this.@__168 = value;
+				this.SendPropertyChanged("_168");
+				this.On_168Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[169]", Storage="__169", DbType="Bit")]
+	public System.Nullable<bool> _169
+	{
+		get
+		{
+			return this.@__169;
+		}
+		set
+		{
+			if ((this.@__169 != value))
+			{
+				this.On_169Changing(value);
+				this.SendPropertyChanging();
+				this.@__169 = value;
+				this.SendPropertyChanged("_169");
+				this.On_169Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[170]", Storage="__170", DbType="Bit")]
+	public System.Nullable<bool> _170
+	{
+		get
+		{
+			return this.@__170;
+		}
+		set
+		{
+			if ((this.@__170 != value))
+			{
+				this.On_170Changing(value);
+				this.SendPropertyChanging();
+				this.@__170 = value;
+				this.SendPropertyChanged("_170");
+				this.On_170Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[171]", Storage="__171", DbType="Bit")]
+	public System.Nullable<bool> _171
+	{
+		get
+		{
+			return this.@__171;
+		}
+		set
+		{
+			if ((this.@__171 != value))
+			{
+				this.On_171Changing(value);
+				this.SendPropertyChanging();
+				this.@__171 = value;
+				this.SendPropertyChanged("_171");
+				this.On_171Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[172]", Storage="__172", DbType="Bit")]
+	public System.Nullable<bool> _172
+	{
+		get
+		{
+			return this.@__172;
+		}
+		set
+		{
+			if ((this.@__172 != value))
+			{
+				this.On_172Changing(value);
+				this.SendPropertyChanging();
+				this.@__172 = value;
+				this.SendPropertyChanged("_172");
+				this.On_172Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[173]", Storage="__173", DbType="Bit")]
+	public System.Nullable<bool> _173
+	{
+		get
+		{
+			return this.@__173;
+		}
+		set
+		{
+			if ((this.@__173 != value))
+			{
+				this.On_173Changing(value);
+				this.SendPropertyChanging();
+				this.@__173 = value;
+				this.SendPropertyChanged("_173");
+				this.On_173Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[174]", Storage="__174", DbType="Bit")]
+	public System.Nullable<bool> _174
+	{
+		get
+		{
+			return this.@__174;
+		}
+		set
+		{
+			if ((this.@__174 != value))
+			{
+				this.On_174Changing(value);
+				this.SendPropertyChanging();
+				this.@__174 = value;
+				this.SendPropertyChanged("_174");
+				this.On_174Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[175]", Storage="__175", DbType="Bit")]
+	public System.Nullable<bool> _175
+	{
+		get
+		{
+			return this.@__175;
+		}
+		set
+		{
+			if ((this.@__175 != value))
+			{
+				this.On_175Changing(value);
+				this.SendPropertyChanging();
+				this.@__175 = value;
+				this.SendPropertyChanged("_175");
+				this.On_175Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[176]", Storage="__176", DbType="Bit")]
+	public System.Nullable<bool> _176
+	{
+		get
+		{
+			return this.@__176;
+		}
+		set
+		{
+			if ((this.@__176 != value))
+			{
+				this.On_176Changing(value);
+				this.SendPropertyChanging();
+				this.@__176 = value;
+				this.SendPropertyChanged("_176");
+				this.On_176Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[177]", Storage="__177", DbType="Bit")]
+	public System.Nullable<bool> _177
+	{
+		get
+		{
+			return this.@__177;
+		}
+		set
+		{
+			if ((this.@__177 != value))
+			{
+				this.On_177Changing(value);
+				this.SendPropertyChanging();
+				this.@__177 = value;
+				this.SendPropertyChanged("_177");
+				this.On_177Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[178]", Storage="__178", DbType="Bit")]
+	public System.Nullable<bool> _178
+	{
+		get
+		{
+			return this.@__178;
+		}
+		set
+		{
+			if ((this.@__178 != value))
+			{
+				this.On_178Changing(value);
+				this.SendPropertyChanging();
+				this.@__178 = value;
+				this.SendPropertyChanged("_178");
+				this.On_178Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[179]", Storage="__179", DbType="VarChar(MAX)")]
+	public string _179
+	{
+		get
+		{
+			return this.@__179;
+		}
+		set
+		{
+			if ((this.@__179 != value))
+			{
+				this.On_179Changing(value);
+				this.SendPropertyChanging();
+				this.@__179 = value;
+				this.SendPropertyChanged("_179");
+				this.On_179Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[180]", Storage="__180", DbType="Bit")]
+	public System.Nullable<bool> _180
+	{
+		get
+		{
+			return this.@__180;
+		}
+		set
+		{
+			if ((this.@__180 != value))
+			{
+				this.On_180Changing(value);
+				this.SendPropertyChanging();
+				this.@__180 = value;
+				this.SendPropertyChanged("_180");
+				this.On_180Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[181]", Storage="__181", DbType="Bit")]
+	public System.Nullable<bool> _181
+	{
+		get
+		{
+			return this.@__181;
+		}
+		set
+		{
+			if ((this.@__181 != value))
+			{
+				this.On_181Changing(value);
+				this.SendPropertyChanging();
+				this.@__181 = value;
+				this.SendPropertyChanged("_181");
+				this.On_181Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[182]", Storage="__182", DbType="Bit")]
+	public System.Nullable<bool> _182
+	{
+		get
+		{
+			return this.@__182;
+		}
+		set
+		{
+			if ((this.@__182 != value))
+			{
+				this.On_182Changing(value);
+				this.SendPropertyChanging();
+				this.@__182 = value;
+				this.SendPropertyChanged("_182");
+				this.On_182Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[183]", Storage="__183", DbType="Bit")]
+	public System.Nullable<bool> _183
+	{
+		get
+		{
+			return this.@__183;
+		}
+		set
+		{
+			if ((this.@__183 != value))
+			{
+				this.On_183Changing(value);
+				this.SendPropertyChanging();
+				this.@__183 = value;
+				this.SendPropertyChanged("_183");
+				this.On_183Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[184]", Storage="__184", DbType="VarChar(MAX)")]
+	public string _184
+	{
+		get
+		{
+			return this.@__184;
+		}
+		set
+		{
+			if ((this.@__184 != value))
+			{
+				this.On_184Changing(value);
+				this.SendPropertyChanging();
+				this.@__184 = value;
+				this.SendPropertyChanged("_184");
+				this.On_184Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[185]", Storage="__185", DbType="Bit")]
+	public System.Nullable<bool> _185
+	{
+		get
+		{
+			return this.@__185;
+		}
+		set
+		{
+			if ((this.@__185 != value))
+			{
+				this.On_185Changing(value);
+				this.SendPropertyChanging();
+				this.@__185 = value;
+				this.SendPropertyChanged("_185");
+				this.On_185Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[186]", Storage="__186", DbType="Bit")]
+	public System.Nullable<bool> _186
+	{
+		get
+		{
+			return this.@__186;
+		}
+		set
+		{
+			if ((this.@__186 != value))
+			{
+				this.On_186Changing(value);
+				this.SendPropertyChanging();
+				this.@__186 = value;
+				this.SendPropertyChanged("_186");
+				this.On_186Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[187]", Storage="__187", DbType="Bit")]
+	public System.Nullable<bool> _187
+	{
+		get
+		{
+			return this.@__187;
+		}
+		set
+		{
+			if ((this.@__187 != value))
+			{
+				this.On_187Changing(value);
+				this.SendPropertyChanging();
+				this.@__187 = value;
+				this.SendPropertyChanged("_187");
+				this.On_187Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[188]", Storage="__188", DbType="Bit")]
+	public System.Nullable<bool> _188
+	{
+		get
+		{
+			return this.@__188;
+		}
+		set
+		{
+			if ((this.@__188 != value))
+			{
+				this.On_188Changing(value);
+				this.SendPropertyChanging();
+				this.@__188 = value;
+				this.SendPropertyChanged("_188");
+				this.On_188Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[189]", Storage="__189", DbType="VarChar(MAX)")]
+	public string _189
+	{
+		get
+		{
+			return this.@__189;
+		}
+		set
+		{
+			if ((this.@__189 != value))
+			{
+				this.On_189Changing(value);
+				this.SendPropertyChanging();
+				this.@__189 = value;
+				this.SendPropertyChanged("_189");
+				this.On_189Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_ClubUminaCovidMarshall", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
+	public Category Category
+	{
+		get
+		{
+			return this._Category.Entity;
+		}
+		set
+		{
+			Category previousValue = this._Category.Entity;
+			if (((previousValue != value) 
+						|| (this._Category.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Category.Entity = null;
+					previousValue.Report_ClubUminaCovidMarshalls.Remove(this);
+				}
+				this._Category.Entity = value;
+				if ((value != null))
+				{
+					value.Report_ClubUminaCovidMarshalls.Add(this);
+					this._RCatId = value.RCatId;
+				}
+				else
+				{
+					this._RCatId = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Category");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_ClubUminaCovidMarshall", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
+	public Shift Shift
+	{
+		get
+		{
+			return this._Shift.Entity;
+		}
+		set
+		{
+			Shift previousValue = this._Shift.Entity;
+			if (((previousValue != value) 
+						|| (this._Shift.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Shift.Entity = null;
+					previousValue.Report_ClubUminaCovidMarshalls.Remove(this);
+				}
+				this._Shift.Entity = value;
+				if ((value != null))
+				{
+					value.Report_ClubUminaCovidMarshalls.Add(this);
+					this._ShiftId = value.ShiftId;
+				}
+				else
+				{
+					this._ShiftId = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Shift");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_ClubUminaCovidMarshall", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
+	public Staff Staff
+	{
+		get
+		{
+			return this._Staff.Entity;
+		}
+		set
+		{
+			Staff previousValue = this._Staff.Entity;
+			if (((previousValue != value) 
+						|| (this._Staff.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Staff.Entity = null;
+					previousValue.Report_ClubUminaCovidMarshalls.Remove(this);
+				}
+				this._Staff.Entity = value;
+				if ((value != null))
+				{
+					value.Report_ClubUminaCovidMarshalls.Add(this);
+					this._StaffId = value.StaffId;
+				}
+				else
+				{
+					this._StaffId = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Staff");
 			}
 		}
 	}
@@ -14820,6 +20171,9263 @@ public partial class Report_ClubUminaReception : INotifyPropertyChanging, INotif
 				if ((value != null))
 				{
 					value.Report_ClubUminaReceptions.Add(this);
+					this._StaffId = value.StaffId;
+				}
+				else
+				{
+					this._StaffId = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Staff");
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Report_MerrylandsRSLCovidMarshall")]
+public partial class Report_MerrylandsRSLCovidMarshall : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _RID;
+	
+	private int _ReportId;
+	
+	private System.Nullable<int> _RCatId;
+	
+	private System.Nullable<int> _StaffId;
+	
+	private string _StaffName;
+	
+	private System.Nullable<int> _ShiftId;
+	
+	private System.Nullable<int> _AuditVersion;
+	
+	private System.Nullable<System.DateTime> _ShiftDate;
+	
+	private System.Nullable<System.DateTime> _ModifyDate;
+	
+	private System.Nullable<System.DateTime> _EntryDate;
+	
+	private string _ShiftDOW;
+	
+	private string _Report_Table;
+	
+	private System.Nullable<int> _Report_Version;
+	
+	private string _ReportStat;
+	
+	private string _ReadBy;
+	
+	private string _ReadByList;
+	
+	private string _Comments;
+	
+	private string _StaffSign;
+	
+	private string _ManagerSign;
+	
+	private string _ManagerSignId;
+	
+	private System.Nullable<System.DateTime> _PublishedDate;
+	
+	private string _PublishedBy;
+	
+	private System.Nullable<int> _LastChanged;
+	
+	private string _GeneralComments;
+	
+	private System.Nullable<int> @__1;
+	
+	private System.Nullable<int> @__2;
+	
+	private System.Nullable<int> @__3;
+	
+	private System.Nullable<int> @__4;
+	
+	private System.Nullable<int> @__5;
+	
+	private System.Nullable<int> @__6;
+	
+	private System.Nullable<int> @__7;
+	
+	private System.Nullable<int> @__8;
+	
+	private System.Nullable<int> @__9;
+	
+	private System.Nullable<int> @__10;
+	
+	private System.Nullable<int> @__11;
+	
+	private System.Nullable<int> @__12;
+	
+	private System.Nullable<int> @__13;
+	
+	private System.Nullable<int> @__14;
+	
+	private System.Nullable<int> @__15;
+	
+	private System.Nullable<int> @__16;
+	
+	private System.Nullable<int> @__17;
+	
+	private System.Nullable<int> @__18;
+	
+	private System.Nullable<int> @__19;
+	
+	private System.Nullable<int> @__20;
+	
+	private System.Nullable<int> @__21;
+	
+	private System.Nullable<int> @__22;
+	
+	private System.Nullable<int> @__23;
+	
+	private System.Nullable<int> @__24;
+	
+	private System.Nullable<int> @__25;
+	
+	private System.Nullable<int> @__26;
+	
+	private System.Nullable<int> @__27;
+	
+	private System.Nullable<int> @__28;
+	
+	private System.Nullable<int> @__29;
+	
+	private System.Nullable<int> @__30;
+	
+	private System.Nullable<int> @__31;
+	
+	private System.Nullable<int> @__32;
+	
+	private System.Nullable<int> @__33;
+	
+	private System.Nullable<int> @__34;
+	
+	private System.Nullable<int> @__35;
+	
+	private System.Nullable<int> @__36;
+	
+	private System.Nullable<int> @__37;
+	
+	private System.Nullable<int> @__38;
+	
+	private System.Nullable<int> @__39;
+	
+	private System.Nullable<int> @__40;
+	
+	private System.Nullable<int> @__41;
+	
+	private System.Nullable<int> @__42;
+	
+	private System.Nullable<int> @__43;
+	
+	private System.Nullable<int> @__44;
+	
+	private System.Nullable<int> @__45;
+	
+	private System.Nullable<int> @__46;
+	
+	private System.Nullable<int> @__47;
+	
+	private System.Nullable<int> @__48;
+	
+	private System.Nullable<int> @__49;
+	
+	private System.Nullable<int> @__50;
+	
+	private System.Nullable<int> @__51;
+	
+	private System.Nullable<int> @__52;
+	
+	private System.Nullable<int> @__53;
+	
+	private System.Nullable<int> @__54;
+	
+	private System.Nullable<int> @__55;
+	
+	private System.Nullable<int> @__56;
+	
+	private System.Nullable<int> @__57;
+	
+	private System.Nullable<int> @__58;
+	
+	private System.Nullable<int> @__59;
+	
+	private System.Nullable<int> @__60;
+	
+	private System.Nullable<int> @__61;
+	
+	private System.Nullable<int> @__62;
+	
+	private System.Nullable<int> @__63;
+	
+	private System.Nullable<int> @__64;
+	
+	private System.Nullable<int> @__65;
+	
+	private System.Nullable<int> @__66;
+	
+	private System.Nullable<int> @__67;
+	
+	private System.Nullable<int> @__68;
+	
+	private System.Nullable<int> @__69;
+	
+	private System.Nullable<int> @__70;
+	
+	private System.Nullable<int> @__71;
+	
+	private System.Nullable<int> @__72;
+	
+	private System.Nullable<int> @__73;
+	
+	private System.Nullable<int> @__74;
+	
+	private System.Nullable<int> @__75;
+	
+	private System.Nullable<int> @__76;
+	
+	private System.Nullable<int> @__77;
+	
+	private System.Nullable<int> @__78;
+	
+	private System.Nullable<int> @__79;
+	
+	private System.Nullable<int> @__80;
+	
+	private System.Nullable<int> @__81;
+	
+	private System.Nullable<int> @__82;
+	
+	private System.Nullable<int> @__83;
+	
+	private System.Nullable<int> @__84;
+	
+	private System.Nullable<int> @__85;
+	
+	private System.Nullable<int> @__86;
+	
+	private System.Nullable<int> @__87;
+	
+	private System.Nullable<int> @__88;
+	
+	private System.Nullable<int> @__89;
+	
+	private System.Nullable<int> @__90;
+	
+	private System.Nullable<int> @__91;
+	
+	private System.Nullable<int> @__92;
+	
+	private System.Nullable<int> @__93;
+	
+	private System.Nullable<int> @__94;
+	
+	private System.Nullable<int> @__95;
+	
+	private System.Nullable<int> @__96;
+	
+	private System.Nullable<int> @__97;
+	
+	private System.Nullable<int> @__98;
+	
+	private System.Nullable<int> @__99;
+	
+	private System.Nullable<int> @__100;
+	
+	private System.Nullable<int> @__101;
+	
+	private System.Nullable<int> @__102;
+	
+	private System.Nullable<int> @__103;
+	
+	private System.Nullable<int> @__104;
+	
+	private System.Nullable<int> @__105;
+	
+	private System.Nullable<int> @__106;
+	
+	private System.Nullable<int> @__107;
+	
+	private System.Nullable<int> @__108;
+	
+	private System.Nullable<int> @__109;
+	
+	private System.Nullable<int> @__110;
+	
+	private System.Nullable<int> @__111;
+	
+	private System.Nullable<int> @__112;
+	
+	private System.Nullable<int> @__113;
+	
+	private System.Nullable<int> @__114;
+	
+	private System.Nullable<int> @__115;
+	
+	private System.Nullable<int> @__116;
+	
+	private System.Nullable<int> @__117;
+	
+	private System.Nullable<int> @__118;
+	
+	private System.Nullable<int> @__119;
+	
+	private System.Nullable<int> @__120;
+	
+	private System.Nullable<int> @__121;
+	
+	private System.Nullable<int> @__122;
+	
+	private System.Nullable<int> @__123;
+	
+	private System.Nullable<int> @__124;
+	
+	private System.Nullable<int> @__125;
+	
+	private System.Nullable<int> @__126;
+	
+	private System.Nullable<int> @__127;
+	
+	private System.Nullable<int> @__128;
+	
+	private System.Nullable<int> @__129;
+	
+	private System.Nullable<int> @__130;
+	
+	private System.Nullable<int> @__131;
+	
+	private System.Nullable<int> @__132;
+	
+	private System.Nullable<int> @__133;
+	
+	private System.Nullable<int> @__134;
+	
+	private System.Nullable<int> @__135;
+	
+	private System.Nullable<int> @__136;
+	
+	private System.Nullable<int> @__137;
+	
+	private System.Nullable<int> @__138;
+	
+	private System.Nullable<int> @__139;
+	
+	private System.Nullable<int> @__140;
+	
+	private System.Nullable<int> @__141;
+	
+	private System.Nullable<int> @__142;
+	
+	private System.Nullable<int> @__143;
+	
+	private System.Nullable<int> @__144;
+	
+	private System.Nullable<int> @__145;
+	
+	private System.Nullable<int> @__146;
+	
+	private System.Nullable<int> @__147;
+	
+	private System.Nullable<int> @__148;
+	
+	private System.Nullable<int> @__149;
+	
+	private System.Nullable<int> @__150;
+	
+	private System.Nullable<int> @__151;
+	
+	private System.Nullable<int> @__152;
+	
+	private System.Nullable<int> @__153;
+	
+	private System.Nullable<int> @__154;
+	
+	private System.Nullable<int> @__155;
+	
+	private System.Nullable<int> @__156;
+	
+	private System.Nullable<int> @__157;
+	
+	private System.Nullable<int> @__158;
+	
+	private System.Nullable<int> @__159;
+	
+	private System.Nullable<int> @__160;
+	
+	private System.Nullable<int> @__161;
+	
+	private System.Nullable<int> @__162;
+	
+	private System.Nullable<int> @__163;
+	
+	private System.Nullable<int> @__164;
+	
+	private System.Nullable<int> @__165;
+	
+	private System.Nullable<int> @__166;
+	
+	private System.Nullable<int> @__167;
+	
+	private System.Nullable<int> @__168;
+	
+	private System.Nullable<int> @__169;
+	
+	private System.Nullable<int> @__170;
+	
+	private System.Nullable<int> @__171;
+	
+	private System.Nullable<int> @__172;
+	
+	private System.Nullable<int> @__173;
+	
+	private System.Nullable<int> @__174;
+	
+	private System.Nullable<int> @__175;
+	
+	private System.Nullable<int> @__176;
+	
+	private System.Nullable<int> @__177;
+	
+	private System.Nullable<int> @__178;
+	
+	private System.Nullable<int> @__179;
+	
+	private System.Nullable<int> @__180;
+	
+	private System.Nullable<int> @__181;
+	
+	private System.Nullable<int> @__182;
+	
+	private System.Nullable<int> @__183;
+	
+	private System.Nullable<int> @__184;
+	
+	private System.Nullable<int> @__185;
+	
+	private System.Nullable<int> @__186;
+	
+	private System.Nullable<int> @__187;
+	
+	private System.Nullable<int> @__188;
+	
+	private System.Nullable<int> @__189;
+	
+	private System.Nullable<int> @__190;
+	
+	private System.Nullable<int> @__191;
+	
+	private System.Nullable<int> @__192;
+	
+	private System.Nullable<int> @__193;
+	
+	private System.Nullable<int> @__194;
+	
+	private System.Nullable<int> @__195;
+	
+	private System.Nullable<int> @__196;
+	
+	private System.Nullable<int> @__197;
+	
+	private System.Nullable<int> @__198;
+	
+	private System.Nullable<int> @__199;
+	
+	private System.Nullable<int> @__200;
+	
+	private System.Nullable<int> @__201;
+	
+	private System.Nullable<int> @__202;
+	
+	private System.Nullable<int> @__203;
+	
+	private System.Nullable<int> @__204;
+	
+	private System.Nullable<int> @__205;
+	
+	private System.Nullable<int> @__206;
+	
+	private System.Nullable<int> @__207;
+	
+	private System.Nullable<int> @__208;
+	
+	private System.Nullable<int> @__209;
+	
+	private System.Nullable<int> @__210;
+	
+	private System.Nullable<int> @__211;
+	
+	private System.Nullable<int> @__212;
+	
+	private System.Nullable<int> @__213;
+	
+	private System.Nullable<int> @__214;
+	
+	private System.Nullable<int> @__215;
+	
+	private System.Nullable<int> @__216;
+	
+	private System.Nullable<int> @__217;
+	
+	private System.Nullable<int> @__218;
+	
+	private System.Nullable<int> @__219;
+	
+	private System.Nullable<int> @__220;
+	
+	private System.Nullable<int> @__221;
+	
+	private System.Nullable<int> @__222;
+	
+	private System.Nullable<int> @__223;
+	
+	private System.Nullable<int> @__224;
+	
+	private System.Nullable<int> @__225;
+	
+	private System.Nullable<int> @__226;
+	
+	private System.Nullable<int> @__227;
+	
+	private System.Nullable<int> @__228;
+	
+	private System.Nullable<int> @__229;
+	
+	private System.Nullable<int> @__230;
+	
+	private System.Nullable<int> @__231;
+	
+	private System.Nullable<int> @__232;
+	
+	private System.Nullable<int> @__233;
+	
+	private System.Nullable<int> @__234;
+	
+	private System.Nullable<int> @__235;
+	
+	private System.Nullable<int> @__236;
+	
+	private System.Nullable<int> @__237;
+	
+	private System.Nullable<int> @__238;
+	
+	private System.Nullable<int> @__239;
+	
+	private System.Nullable<int> @__240;
+	
+	private System.Nullable<int> @__241;
+	
+	private System.Nullable<int> @__242;
+	
+	private System.Nullable<int> @__243;
+	
+	private System.Nullable<int> @__244;
+	
+	private System.Nullable<int> @__245;
+	
+	private System.Nullable<int> @__246;
+	
+	private System.Nullable<int> @__247;
+	
+	private System.Nullable<int> @__248;
+	
+	private System.Nullable<int> @__249;
+	
+	private System.Nullable<int> @__250;
+	
+	private System.Nullable<int> @__251;
+	
+	private System.Nullable<int> @__252;
+	
+	private System.Nullable<int> @__253;
+	
+	private System.Nullable<int> @__254;
+	
+	private System.Nullable<int> @__255;
+	
+	private System.Nullable<int> @__256;
+	
+	private System.Nullable<int> @__257;
+	
+	private System.Nullable<int> @__258;
+	
+	private System.Nullable<int> @__259;
+	
+	private System.Nullable<int> @__260;
+	
+	private System.Nullable<int> @__261;
+	
+	private System.Nullable<int> @__262;
+	
+	private System.Nullable<int> @__263;
+	
+	private System.Nullable<int> @__264;
+	
+	private System.Nullable<int> @__265;
+	
+	private System.Nullable<int> @__266;
+	
+	private System.Nullable<int> @__267;
+	
+	private System.Nullable<int> @__268;
+	
+	private System.Nullable<int> @__269;
+	
+	private System.Nullable<int> @__270;
+	
+	private System.Nullable<int> @__271;
+	
+	private System.Nullable<int> @__272;
+	
+	private System.Nullable<int> @__273;
+	
+	private System.Nullable<int> @__274;
+	
+	private System.Nullable<int> @__275;
+	
+	private System.Nullable<int> @__276;
+	
+	private System.Nullable<int> @__277;
+	
+	private System.Nullable<int> @__278;
+	
+	private System.Nullable<int> @__279;
+	
+	private System.Nullable<int> @__280;
+	
+	private System.Nullable<int> @__281;
+	
+	private System.Nullable<int> @__282;
+	
+	private System.Nullable<int> @__283;
+	
+	private System.Nullable<int> @__284;
+	
+	private System.Nullable<int> @__285;
+	
+	private System.Nullable<int> @__286;
+	
+	private System.Nullable<int> @__287;
+	
+	private System.Nullable<int> @__288;
+	
+	private System.Nullable<int> @__289;
+	
+	private System.Nullable<int> @__290;
+	
+	private System.Nullable<int> @__291;
+	
+	private System.Nullable<int> @__292;
+	
+	private System.Nullable<int> @__293;
+	
+	private System.Nullable<int> @__294;
+	
+	private System.Nullable<int> @__295;
+	
+	private System.Nullable<int> @__296;
+	
+	private System.Nullable<int> @__297;
+	
+	private System.Nullable<int> @__298;
+	
+	private System.Nullable<int> @__299;
+	
+	private System.Nullable<int> @__300;
+	
+	private System.Nullable<int> @__301;
+	
+	private System.Nullable<int> @__302;
+	
+	private System.Nullable<int> @__303;
+	
+	private System.Nullable<int> @__304;
+	
+	private System.Nullable<int> @__305;
+	
+	private System.Nullable<int> @__306;
+	
+	private System.Nullable<bool> @__307;
+	
+	private System.Nullable<bool> @__308;
+	
+	private System.Nullable<bool> @__309;
+	
+	private System.Nullable<bool> @__310;
+	
+	private System.Nullable<bool> @__311;
+	
+	private System.Nullable<bool> @__312;
+	
+	private System.Nullable<bool> @__313;
+	
+	private System.Nullable<bool> @__314;
+	
+	private System.Nullable<bool> @__315;
+	
+	private System.Nullable<bool> @__316;
+	
+	private System.Nullable<bool> @__317;
+	
+	private System.Nullable<bool> @__318;
+	
+	private System.Nullable<bool> @__319;
+	
+	private System.Nullable<bool> @__320;
+	
+	private System.Nullable<bool> @__321;
+	
+	private System.Nullable<bool> @__322;
+	
+	private System.Nullable<bool> @__323;
+	
+	private System.Nullable<bool> @__324;
+	
+	private string @__325;
+	
+	private System.Nullable<bool> @__326;
+	
+	private System.Nullable<bool> @__327;
+	
+	private System.Nullable<bool> @__328;
+	
+	private System.Nullable<bool> @__329;
+	
+	private string @__330;
+	
+	private System.Nullable<bool> @__331;
+	
+	private System.Nullable<bool> @__332;
+	
+	private System.Nullable<bool> @__333;
+	
+	private System.Nullable<bool> @__334;
+	
+	private string @__335;
+	
+	private System.Nullable<bool> @__336;
+	
+	private System.Nullable<bool> @__337;
+	
+	private System.Nullable<bool> @__338;
+	
+	private System.Nullable<bool> @__339;
+	
+	private string @__340;
+	
+	private System.Nullable<bool> @__341;
+	
+	private System.Nullable<bool> @__342;
+	
+	private System.Nullable<bool> @__343;
+	
+	private System.Nullable<bool> @__344;
+	
+	private string @__345;
+	
+	private System.Nullable<bool> @__346;
+	
+	private System.Nullable<bool> @__347;
+	
+	private System.Nullable<bool> @__348;
+	
+	private System.Nullable<bool> @__349;
+	
+	private string @__350;
+	
+	private System.Nullable<bool> @__351;
+	
+	private System.Nullable<bool> @__352;
+	
+	private System.Nullable<bool> @__353;
+	
+	private System.Nullable<bool> @__354;
+	
+	private string @__355;
+	
+	private EntityRef<Category> _Category;
+	
+	private EntityRef<Shift> _Shift;
+	
+	private EntityRef<Staff> _Staff;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRIDChanging(int value);
+    partial void OnRIDChanged();
+    partial void OnReportIdChanging(int value);
+    partial void OnReportIdChanged();
+    partial void OnRCatIdChanging(System.Nullable<int> value);
+    partial void OnRCatIdChanged();
+    partial void OnStaffIdChanging(System.Nullable<int> value);
+    partial void OnStaffIdChanged();
+    partial void OnStaffNameChanging(string value);
+    partial void OnStaffNameChanged();
+    partial void OnShiftIdChanging(System.Nullable<int> value);
+    partial void OnShiftIdChanged();
+    partial void OnAuditVersionChanging(System.Nullable<int> value);
+    partial void OnAuditVersionChanged();
+    partial void OnShiftDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnShiftDateChanged();
+    partial void OnModifyDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnModifyDateChanged();
+    partial void OnEntryDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEntryDateChanged();
+    partial void OnShiftDOWChanging(string value);
+    partial void OnShiftDOWChanged();
+    partial void OnReport_TableChanging(string value);
+    partial void OnReport_TableChanged();
+    partial void OnReport_VersionChanging(System.Nullable<int> value);
+    partial void OnReport_VersionChanged();
+    partial void OnReportStatChanging(string value);
+    partial void OnReportStatChanged();
+    partial void OnReadByChanging(string value);
+    partial void OnReadByChanged();
+    partial void OnReadByListChanging(string value);
+    partial void OnReadByListChanged();
+    partial void OnCommentsChanging(string value);
+    partial void OnCommentsChanged();
+    partial void OnStaffSignChanging(string value);
+    partial void OnStaffSignChanged();
+    partial void OnManagerSignChanging(string value);
+    partial void OnManagerSignChanged();
+    partial void OnManagerSignIdChanging(string value);
+    partial void OnManagerSignIdChanged();
+    partial void OnPublishedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPublishedDateChanged();
+    partial void OnPublishedByChanging(string value);
+    partial void OnPublishedByChanged();
+    partial void OnLastChangedChanging(System.Nullable<int> value);
+    partial void OnLastChangedChanged();
+    partial void OnGeneralCommentsChanging(string value);
+    partial void OnGeneralCommentsChanged();
+    partial void On_1Changing(System.Nullable<int> value);
+    partial void On_1Changed();
+    partial void On_2Changing(System.Nullable<int> value);
+    partial void On_2Changed();
+    partial void On_3Changing(System.Nullable<int> value);
+    partial void On_3Changed();
+    partial void On_4Changing(System.Nullable<int> value);
+    partial void On_4Changed();
+    partial void On_5Changing(System.Nullable<int> value);
+    partial void On_5Changed();
+    partial void On_6Changing(System.Nullable<int> value);
+    partial void On_6Changed();
+    partial void On_7Changing(System.Nullable<int> value);
+    partial void On_7Changed();
+    partial void On_8Changing(System.Nullable<int> value);
+    partial void On_8Changed();
+    partial void On_9Changing(System.Nullable<int> value);
+    partial void On_9Changed();
+    partial void On_10Changing(System.Nullable<int> value);
+    partial void On_10Changed();
+    partial void On_11Changing(System.Nullable<int> value);
+    partial void On_11Changed();
+    partial void On_12Changing(System.Nullable<int> value);
+    partial void On_12Changed();
+    partial void On_13Changing(System.Nullable<int> value);
+    partial void On_13Changed();
+    partial void On_14Changing(System.Nullable<int> value);
+    partial void On_14Changed();
+    partial void On_15Changing(System.Nullable<int> value);
+    partial void On_15Changed();
+    partial void On_16Changing(System.Nullable<int> value);
+    partial void On_16Changed();
+    partial void On_17Changing(System.Nullable<int> value);
+    partial void On_17Changed();
+    partial void On_18Changing(System.Nullable<int> value);
+    partial void On_18Changed();
+    partial void On_19Changing(System.Nullable<int> value);
+    partial void On_19Changed();
+    partial void On_20Changing(System.Nullable<int> value);
+    partial void On_20Changed();
+    partial void On_21Changing(System.Nullable<int> value);
+    partial void On_21Changed();
+    partial void On_22Changing(System.Nullable<int> value);
+    partial void On_22Changed();
+    partial void On_23Changing(System.Nullable<int> value);
+    partial void On_23Changed();
+    partial void On_24Changing(System.Nullable<int> value);
+    partial void On_24Changed();
+    partial void On_25Changing(System.Nullable<int> value);
+    partial void On_25Changed();
+    partial void On_26Changing(System.Nullable<int> value);
+    partial void On_26Changed();
+    partial void On_27Changing(System.Nullable<int> value);
+    partial void On_27Changed();
+    partial void On_28Changing(System.Nullable<int> value);
+    partial void On_28Changed();
+    partial void On_29Changing(System.Nullable<int> value);
+    partial void On_29Changed();
+    partial void On_30Changing(System.Nullable<int> value);
+    partial void On_30Changed();
+    partial void On_31Changing(System.Nullable<int> value);
+    partial void On_31Changed();
+    partial void On_32Changing(System.Nullable<int> value);
+    partial void On_32Changed();
+    partial void On_33Changing(System.Nullable<int> value);
+    partial void On_33Changed();
+    partial void On_34Changing(System.Nullable<int> value);
+    partial void On_34Changed();
+    partial void On_35Changing(System.Nullable<int> value);
+    partial void On_35Changed();
+    partial void On_36Changing(System.Nullable<int> value);
+    partial void On_36Changed();
+    partial void On_37Changing(System.Nullable<int> value);
+    partial void On_37Changed();
+    partial void On_38Changing(System.Nullable<int> value);
+    partial void On_38Changed();
+    partial void On_39Changing(System.Nullable<int> value);
+    partial void On_39Changed();
+    partial void On_40Changing(System.Nullable<int> value);
+    partial void On_40Changed();
+    partial void On_41Changing(System.Nullable<int> value);
+    partial void On_41Changed();
+    partial void On_42Changing(System.Nullable<int> value);
+    partial void On_42Changed();
+    partial void On_43Changing(System.Nullable<int> value);
+    partial void On_43Changed();
+    partial void On_44Changing(System.Nullable<int> value);
+    partial void On_44Changed();
+    partial void On_45Changing(System.Nullable<int> value);
+    partial void On_45Changed();
+    partial void On_46Changing(System.Nullable<int> value);
+    partial void On_46Changed();
+    partial void On_47Changing(System.Nullable<int> value);
+    partial void On_47Changed();
+    partial void On_48Changing(System.Nullable<int> value);
+    partial void On_48Changed();
+    partial void On_49Changing(System.Nullable<int> value);
+    partial void On_49Changed();
+    partial void On_50Changing(System.Nullable<int> value);
+    partial void On_50Changed();
+    partial void On_51Changing(System.Nullable<int> value);
+    partial void On_51Changed();
+    partial void On_52Changing(System.Nullable<int> value);
+    partial void On_52Changed();
+    partial void On_53Changing(System.Nullable<int> value);
+    partial void On_53Changed();
+    partial void On_54Changing(System.Nullable<int> value);
+    partial void On_54Changed();
+    partial void On_55Changing(System.Nullable<int> value);
+    partial void On_55Changed();
+    partial void On_56Changing(System.Nullable<int> value);
+    partial void On_56Changed();
+    partial void On_57Changing(System.Nullable<int> value);
+    partial void On_57Changed();
+    partial void On_58Changing(System.Nullable<int> value);
+    partial void On_58Changed();
+    partial void On_59Changing(System.Nullable<int> value);
+    partial void On_59Changed();
+    partial void On_60Changing(System.Nullable<int> value);
+    partial void On_60Changed();
+    partial void On_61Changing(System.Nullable<int> value);
+    partial void On_61Changed();
+    partial void On_62Changing(System.Nullable<int> value);
+    partial void On_62Changed();
+    partial void On_63Changing(System.Nullable<int> value);
+    partial void On_63Changed();
+    partial void On_64Changing(System.Nullable<int> value);
+    partial void On_64Changed();
+    partial void On_65Changing(System.Nullable<int> value);
+    partial void On_65Changed();
+    partial void On_66Changing(System.Nullable<int> value);
+    partial void On_66Changed();
+    partial void On_67Changing(System.Nullable<int> value);
+    partial void On_67Changed();
+    partial void On_68Changing(System.Nullable<int> value);
+    partial void On_68Changed();
+    partial void On_69Changing(System.Nullable<int> value);
+    partial void On_69Changed();
+    partial void On_70Changing(System.Nullable<int> value);
+    partial void On_70Changed();
+    partial void On_71Changing(System.Nullable<int> value);
+    partial void On_71Changed();
+    partial void On_72Changing(System.Nullable<int> value);
+    partial void On_72Changed();
+    partial void On_73Changing(System.Nullable<int> value);
+    partial void On_73Changed();
+    partial void On_74Changing(System.Nullable<int> value);
+    partial void On_74Changed();
+    partial void On_75Changing(System.Nullable<int> value);
+    partial void On_75Changed();
+    partial void On_76Changing(System.Nullable<int> value);
+    partial void On_76Changed();
+    partial void On_77Changing(System.Nullable<int> value);
+    partial void On_77Changed();
+    partial void On_78Changing(System.Nullable<int> value);
+    partial void On_78Changed();
+    partial void On_79Changing(System.Nullable<int> value);
+    partial void On_79Changed();
+    partial void On_80Changing(System.Nullable<int> value);
+    partial void On_80Changed();
+    partial void On_81Changing(System.Nullable<int> value);
+    partial void On_81Changed();
+    partial void On_82Changing(System.Nullable<int> value);
+    partial void On_82Changed();
+    partial void On_83Changing(System.Nullable<int> value);
+    partial void On_83Changed();
+    partial void On_84Changing(System.Nullable<int> value);
+    partial void On_84Changed();
+    partial void On_85Changing(System.Nullable<int> value);
+    partial void On_85Changed();
+    partial void On_86Changing(System.Nullable<int> value);
+    partial void On_86Changed();
+    partial void On_87Changing(System.Nullable<int> value);
+    partial void On_87Changed();
+    partial void On_88Changing(System.Nullable<int> value);
+    partial void On_88Changed();
+    partial void On_89Changing(System.Nullable<int> value);
+    partial void On_89Changed();
+    partial void On_90Changing(System.Nullable<int> value);
+    partial void On_90Changed();
+    partial void On_91Changing(System.Nullable<int> value);
+    partial void On_91Changed();
+    partial void On_92Changing(System.Nullable<int> value);
+    partial void On_92Changed();
+    partial void On_93Changing(System.Nullable<int> value);
+    partial void On_93Changed();
+    partial void On_94Changing(System.Nullable<int> value);
+    partial void On_94Changed();
+    partial void On_95Changing(System.Nullable<int> value);
+    partial void On_95Changed();
+    partial void On_96Changing(System.Nullable<int> value);
+    partial void On_96Changed();
+    partial void On_97Changing(System.Nullable<int> value);
+    partial void On_97Changed();
+    partial void On_98Changing(System.Nullable<int> value);
+    partial void On_98Changed();
+    partial void On_99Changing(System.Nullable<int> value);
+    partial void On_99Changed();
+    partial void On_100Changing(System.Nullable<int> value);
+    partial void On_100Changed();
+    partial void On_101Changing(System.Nullable<int> value);
+    partial void On_101Changed();
+    partial void On_102Changing(System.Nullable<int> value);
+    partial void On_102Changed();
+    partial void On_103Changing(System.Nullable<int> value);
+    partial void On_103Changed();
+    partial void On_104Changing(System.Nullable<int> value);
+    partial void On_104Changed();
+    partial void On_105Changing(System.Nullable<int> value);
+    partial void On_105Changed();
+    partial void On_106Changing(System.Nullable<int> value);
+    partial void On_106Changed();
+    partial void On_107Changing(System.Nullable<int> value);
+    partial void On_107Changed();
+    partial void On_108Changing(System.Nullable<int> value);
+    partial void On_108Changed();
+    partial void On_109Changing(System.Nullable<int> value);
+    partial void On_109Changed();
+    partial void On_110Changing(System.Nullable<int> value);
+    partial void On_110Changed();
+    partial void On_111Changing(System.Nullable<int> value);
+    partial void On_111Changed();
+    partial void On_112Changing(System.Nullable<int> value);
+    partial void On_112Changed();
+    partial void On_113Changing(System.Nullable<int> value);
+    partial void On_113Changed();
+    partial void On_114Changing(System.Nullable<int> value);
+    partial void On_114Changed();
+    partial void On_115Changing(System.Nullable<int> value);
+    partial void On_115Changed();
+    partial void On_116Changing(System.Nullable<int> value);
+    partial void On_116Changed();
+    partial void On_117Changing(System.Nullable<int> value);
+    partial void On_117Changed();
+    partial void On_118Changing(System.Nullable<int> value);
+    partial void On_118Changed();
+    partial void On_119Changing(System.Nullable<int> value);
+    partial void On_119Changed();
+    partial void On_120Changing(System.Nullable<int> value);
+    partial void On_120Changed();
+    partial void On_121Changing(System.Nullable<int> value);
+    partial void On_121Changed();
+    partial void On_122Changing(System.Nullable<int> value);
+    partial void On_122Changed();
+    partial void On_123Changing(System.Nullable<int> value);
+    partial void On_123Changed();
+    partial void On_124Changing(System.Nullable<int> value);
+    partial void On_124Changed();
+    partial void On_125Changing(System.Nullable<int> value);
+    partial void On_125Changed();
+    partial void On_126Changing(System.Nullable<int> value);
+    partial void On_126Changed();
+    partial void On_127Changing(System.Nullable<int> value);
+    partial void On_127Changed();
+    partial void On_128Changing(System.Nullable<int> value);
+    partial void On_128Changed();
+    partial void On_129Changing(System.Nullable<int> value);
+    partial void On_129Changed();
+    partial void On_130Changing(System.Nullable<int> value);
+    partial void On_130Changed();
+    partial void On_131Changing(System.Nullable<int> value);
+    partial void On_131Changed();
+    partial void On_132Changing(System.Nullable<int> value);
+    partial void On_132Changed();
+    partial void On_133Changing(System.Nullable<int> value);
+    partial void On_133Changed();
+    partial void On_134Changing(System.Nullable<int> value);
+    partial void On_134Changed();
+    partial void On_135Changing(System.Nullable<int> value);
+    partial void On_135Changed();
+    partial void On_136Changing(System.Nullable<int> value);
+    partial void On_136Changed();
+    partial void On_137Changing(System.Nullable<int> value);
+    partial void On_137Changed();
+    partial void On_138Changing(System.Nullable<int> value);
+    partial void On_138Changed();
+    partial void On_139Changing(System.Nullable<int> value);
+    partial void On_139Changed();
+    partial void On_140Changing(System.Nullable<int> value);
+    partial void On_140Changed();
+    partial void On_141Changing(System.Nullable<int> value);
+    partial void On_141Changed();
+    partial void On_142Changing(System.Nullable<int> value);
+    partial void On_142Changed();
+    partial void On_143Changing(System.Nullable<int> value);
+    partial void On_143Changed();
+    partial void On_144Changing(System.Nullable<int> value);
+    partial void On_144Changed();
+    partial void On_145Changing(System.Nullable<int> value);
+    partial void On_145Changed();
+    partial void On_146Changing(System.Nullable<int> value);
+    partial void On_146Changed();
+    partial void On_147Changing(System.Nullable<int> value);
+    partial void On_147Changed();
+    partial void On_148Changing(System.Nullable<int> value);
+    partial void On_148Changed();
+    partial void On_149Changing(System.Nullable<int> value);
+    partial void On_149Changed();
+    partial void On_150Changing(System.Nullable<int> value);
+    partial void On_150Changed();
+    partial void On_151Changing(System.Nullable<int> value);
+    partial void On_151Changed();
+    partial void On_152Changing(System.Nullable<int> value);
+    partial void On_152Changed();
+    partial void On_153Changing(System.Nullable<int> value);
+    partial void On_153Changed();
+    partial void On_154Changing(System.Nullable<int> value);
+    partial void On_154Changed();
+    partial void On_155Changing(System.Nullable<int> value);
+    partial void On_155Changed();
+    partial void On_156Changing(System.Nullable<int> value);
+    partial void On_156Changed();
+    partial void On_157Changing(System.Nullable<int> value);
+    partial void On_157Changed();
+    partial void On_158Changing(System.Nullable<int> value);
+    partial void On_158Changed();
+    partial void On_159Changing(System.Nullable<int> value);
+    partial void On_159Changed();
+    partial void On_160Changing(System.Nullable<int> value);
+    partial void On_160Changed();
+    partial void On_161Changing(System.Nullable<int> value);
+    partial void On_161Changed();
+    partial void On_162Changing(System.Nullable<int> value);
+    partial void On_162Changed();
+    partial void On_163Changing(System.Nullable<int> value);
+    partial void On_163Changed();
+    partial void On_164Changing(System.Nullable<int> value);
+    partial void On_164Changed();
+    partial void On_165Changing(System.Nullable<int> value);
+    partial void On_165Changed();
+    partial void On_166Changing(System.Nullable<int> value);
+    partial void On_166Changed();
+    partial void On_167Changing(System.Nullable<int> value);
+    partial void On_167Changed();
+    partial void On_168Changing(System.Nullable<int> value);
+    partial void On_168Changed();
+    partial void On_169Changing(System.Nullable<int> value);
+    partial void On_169Changed();
+    partial void On_170Changing(System.Nullable<int> value);
+    partial void On_170Changed();
+    partial void On_171Changing(System.Nullable<int> value);
+    partial void On_171Changed();
+    partial void On_172Changing(System.Nullable<int> value);
+    partial void On_172Changed();
+    partial void On_173Changing(System.Nullable<int> value);
+    partial void On_173Changed();
+    partial void On_174Changing(System.Nullable<int> value);
+    partial void On_174Changed();
+    partial void On_175Changing(System.Nullable<int> value);
+    partial void On_175Changed();
+    partial void On_176Changing(System.Nullable<int> value);
+    partial void On_176Changed();
+    partial void On_177Changing(System.Nullable<int> value);
+    partial void On_177Changed();
+    partial void On_178Changing(System.Nullable<int> value);
+    partial void On_178Changed();
+    partial void On_179Changing(System.Nullable<int> value);
+    partial void On_179Changed();
+    partial void On_180Changing(System.Nullable<int> value);
+    partial void On_180Changed();
+    partial void On_181Changing(System.Nullable<int> value);
+    partial void On_181Changed();
+    partial void On_182Changing(System.Nullable<int> value);
+    partial void On_182Changed();
+    partial void On_183Changing(System.Nullable<int> value);
+    partial void On_183Changed();
+    partial void On_184Changing(System.Nullable<int> value);
+    partial void On_184Changed();
+    partial void On_185Changing(System.Nullable<int> value);
+    partial void On_185Changed();
+    partial void On_186Changing(System.Nullable<int> value);
+    partial void On_186Changed();
+    partial void On_187Changing(System.Nullable<int> value);
+    partial void On_187Changed();
+    partial void On_188Changing(System.Nullable<int> value);
+    partial void On_188Changed();
+    partial void On_189Changing(System.Nullable<int> value);
+    partial void On_189Changed();
+    partial void On_190Changing(System.Nullable<int> value);
+    partial void On_190Changed();
+    partial void On_191Changing(System.Nullable<int> value);
+    partial void On_191Changed();
+    partial void On_192Changing(System.Nullable<int> value);
+    partial void On_192Changed();
+    partial void On_193Changing(System.Nullable<int> value);
+    partial void On_193Changed();
+    partial void On_194Changing(System.Nullable<int> value);
+    partial void On_194Changed();
+    partial void On_195Changing(System.Nullable<int> value);
+    partial void On_195Changed();
+    partial void On_196Changing(System.Nullable<int> value);
+    partial void On_196Changed();
+    partial void On_197Changing(System.Nullable<int> value);
+    partial void On_197Changed();
+    partial void On_198Changing(System.Nullable<int> value);
+    partial void On_198Changed();
+    partial void On_199Changing(System.Nullable<int> value);
+    partial void On_199Changed();
+    partial void On_200Changing(System.Nullable<int> value);
+    partial void On_200Changed();
+    partial void On_201Changing(System.Nullable<int> value);
+    partial void On_201Changed();
+    partial void On_202Changing(System.Nullable<int> value);
+    partial void On_202Changed();
+    partial void On_203Changing(System.Nullable<int> value);
+    partial void On_203Changed();
+    partial void On_204Changing(System.Nullable<int> value);
+    partial void On_204Changed();
+    partial void On_205Changing(System.Nullable<int> value);
+    partial void On_205Changed();
+    partial void On_206Changing(System.Nullable<int> value);
+    partial void On_206Changed();
+    partial void On_207Changing(System.Nullable<int> value);
+    partial void On_207Changed();
+    partial void On_208Changing(System.Nullable<int> value);
+    partial void On_208Changed();
+    partial void On_209Changing(System.Nullable<int> value);
+    partial void On_209Changed();
+    partial void On_210Changing(System.Nullable<int> value);
+    partial void On_210Changed();
+    partial void On_211Changing(System.Nullable<int> value);
+    partial void On_211Changed();
+    partial void On_212Changing(System.Nullable<int> value);
+    partial void On_212Changed();
+    partial void On_213Changing(System.Nullable<int> value);
+    partial void On_213Changed();
+    partial void On_214Changing(System.Nullable<int> value);
+    partial void On_214Changed();
+    partial void On_215Changing(System.Nullable<int> value);
+    partial void On_215Changed();
+    partial void On_216Changing(System.Nullable<int> value);
+    partial void On_216Changed();
+    partial void On_217Changing(System.Nullable<int> value);
+    partial void On_217Changed();
+    partial void On_218Changing(System.Nullable<int> value);
+    partial void On_218Changed();
+    partial void On_219Changing(System.Nullable<int> value);
+    partial void On_219Changed();
+    partial void On_220Changing(System.Nullable<int> value);
+    partial void On_220Changed();
+    partial void On_221Changing(System.Nullable<int> value);
+    partial void On_221Changed();
+    partial void On_222Changing(System.Nullable<int> value);
+    partial void On_222Changed();
+    partial void On_223Changing(System.Nullable<int> value);
+    partial void On_223Changed();
+    partial void On_224Changing(System.Nullable<int> value);
+    partial void On_224Changed();
+    partial void On_225Changing(System.Nullable<int> value);
+    partial void On_225Changed();
+    partial void On_226Changing(System.Nullable<int> value);
+    partial void On_226Changed();
+    partial void On_227Changing(System.Nullable<int> value);
+    partial void On_227Changed();
+    partial void On_228Changing(System.Nullable<int> value);
+    partial void On_228Changed();
+    partial void On_229Changing(System.Nullable<int> value);
+    partial void On_229Changed();
+    partial void On_230Changing(System.Nullable<int> value);
+    partial void On_230Changed();
+    partial void On_231Changing(System.Nullable<int> value);
+    partial void On_231Changed();
+    partial void On_232Changing(System.Nullable<int> value);
+    partial void On_232Changed();
+    partial void On_233Changing(System.Nullable<int> value);
+    partial void On_233Changed();
+    partial void On_234Changing(System.Nullable<int> value);
+    partial void On_234Changed();
+    partial void On_235Changing(System.Nullable<int> value);
+    partial void On_235Changed();
+    partial void On_236Changing(System.Nullable<int> value);
+    partial void On_236Changed();
+    partial void On_237Changing(System.Nullable<int> value);
+    partial void On_237Changed();
+    partial void On_238Changing(System.Nullable<int> value);
+    partial void On_238Changed();
+    partial void On_239Changing(System.Nullable<int> value);
+    partial void On_239Changed();
+    partial void On_240Changing(System.Nullable<int> value);
+    partial void On_240Changed();
+    partial void On_241Changing(System.Nullable<int> value);
+    partial void On_241Changed();
+    partial void On_242Changing(System.Nullable<int> value);
+    partial void On_242Changed();
+    partial void On_243Changing(System.Nullable<int> value);
+    partial void On_243Changed();
+    partial void On_244Changing(System.Nullable<int> value);
+    partial void On_244Changed();
+    partial void On_245Changing(System.Nullable<int> value);
+    partial void On_245Changed();
+    partial void On_246Changing(System.Nullable<int> value);
+    partial void On_246Changed();
+    partial void On_247Changing(System.Nullable<int> value);
+    partial void On_247Changed();
+    partial void On_248Changing(System.Nullable<int> value);
+    partial void On_248Changed();
+    partial void On_249Changing(System.Nullable<int> value);
+    partial void On_249Changed();
+    partial void On_250Changing(System.Nullable<int> value);
+    partial void On_250Changed();
+    partial void On_251Changing(System.Nullable<int> value);
+    partial void On_251Changed();
+    partial void On_252Changing(System.Nullable<int> value);
+    partial void On_252Changed();
+    partial void On_253Changing(System.Nullable<int> value);
+    partial void On_253Changed();
+    partial void On_254Changing(System.Nullable<int> value);
+    partial void On_254Changed();
+    partial void On_255Changing(System.Nullable<int> value);
+    partial void On_255Changed();
+    partial void On_256Changing(System.Nullable<int> value);
+    partial void On_256Changed();
+    partial void On_257Changing(System.Nullable<int> value);
+    partial void On_257Changed();
+    partial void On_258Changing(System.Nullable<int> value);
+    partial void On_258Changed();
+    partial void On_259Changing(System.Nullable<int> value);
+    partial void On_259Changed();
+    partial void On_260Changing(System.Nullable<int> value);
+    partial void On_260Changed();
+    partial void On_261Changing(System.Nullable<int> value);
+    partial void On_261Changed();
+    partial void On_262Changing(System.Nullable<int> value);
+    partial void On_262Changed();
+    partial void On_263Changing(System.Nullable<int> value);
+    partial void On_263Changed();
+    partial void On_264Changing(System.Nullable<int> value);
+    partial void On_264Changed();
+    partial void On_265Changing(System.Nullable<int> value);
+    partial void On_265Changed();
+    partial void On_266Changing(System.Nullable<int> value);
+    partial void On_266Changed();
+    partial void On_267Changing(System.Nullable<int> value);
+    partial void On_267Changed();
+    partial void On_268Changing(System.Nullable<int> value);
+    partial void On_268Changed();
+    partial void On_269Changing(System.Nullable<int> value);
+    partial void On_269Changed();
+    partial void On_270Changing(System.Nullable<int> value);
+    partial void On_270Changed();
+    partial void On_271Changing(System.Nullable<int> value);
+    partial void On_271Changed();
+    partial void On_272Changing(System.Nullable<int> value);
+    partial void On_272Changed();
+    partial void On_273Changing(System.Nullable<int> value);
+    partial void On_273Changed();
+    partial void On_274Changing(System.Nullable<int> value);
+    partial void On_274Changed();
+    partial void On_275Changing(System.Nullable<int> value);
+    partial void On_275Changed();
+    partial void On_276Changing(System.Nullable<int> value);
+    partial void On_276Changed();
+    partial void On_277Changing(System.Nullable<int> value);
+    partial void On_277Changed();
+    partial void On_278Changing(System.Nullable<int> value);
+    partial void On_278Changed();
+    partial void On_279Changing(System.Nullable<int> value);
+    partial void On_279Changed();
+    partial void On_280Changing(System.Nullable<int> value);
+    partial void On_280Changed();
+    partial void On_281Changing(System.Nullable<int> value);
+    partial void On_281Changed();
+    partial void On_282Changing(System.Nullable<int> value);
+    partial void On_282Changed();
+    partial void On_283Changing(System.Nullable<int> value);
+    partial void On_283Changed();
+    partial void On_284Changing(System.Nullable<int> value);
+    partial void On_284Changed();
+    partial void On_285Changing(System.Nullable<int> value);
+    partial void On_285Changed();
+    partial void On_286Changing(System.Nullable<int> value);
+    partial void On_286Changed();
+    partial void On_287Changing(System.Nullable<int> value);
+    partial void On_287Changed();
+    partial void On_288Changing(System.Nullable<int> value);
+    partial void On_288Changed();
+    partial void On_289Changing(System.Nullable<int> value);
+    partial void On_289Changed();
+    partial void On_290Changing(System.Nullable<int> value);
+    partial void On_290Changed();
+    partial void On_291Changing(System.Nullable<int> value);
+    partial void On_291Changed();
+    partial void On_292Changing(System.Nullable<int> value);
+    partial void On_292Changed();
+    partial void On_293Changing(System.Nullable<int> value);
+    partial void On_293Changed();
+    partial void On_294Changing(System.Nullable<int> value);
+    partial void On_294Changed();
+    partial void On_295Changing(System.Nullable<int> value);
+    partial void On_295Changed();
+    partial void On_296Changing(System.Nullable<int> value);
+    partial void On_296Changed();
+    partial void On_297Changing(System.Nullable<int> value);
+    partial void On_297Changed();
+    partial void On_298Changing(System.Nullable<int> value);
+    partial void On_298Changed();
+    partial void On_299Changing(System.Nullable<int> value);
+    partial void On_299Changed();
+    partial void On_300Changing(System.Nullable<int> value);
+    partial void On_300Changed();
+    partial void On_301Changing(System.Nullable<int> value);
+    partial void On_301Changed();
+    partial void On_302Changing(System.Nullable<int> value);
+    partial void On_302Changed();
+    partial void On_303Changing(System.Nullable<int> value);
+    partial void On_303Changed();
+    partial void On_304Changing(System.Nullable<int> value);
+    partial void On_304Changed();
+    partial void On_305Changing(System.Nullable<int> value);
+    partial void On_305Changed();
+    partial void On_306Changing(System.Nullable<int> value);
+    partial void On_306Changed();
+    partial void On_307Changing(System.Nullable<bool> value);
+    partial void On_307Changed();
+    partial void On_308Changing(System.Nullable<bool> value);
+    partial void On_308Changed();
+    partial void On_309Changing(System.Nullable<bool> value);
+    partial void On_309Changed();
+    partial void On_310Changing(System.Nullable<bool> value);
+    partial void On_310Changed();
+    partial void On_311Changing(System.Nullable<bool> value);
+    partial void On_311Changed();
+    partial void On_312Changing(System.Nullable<bool> value);
+    partial void On_312Changed();
+    partial void On_313Changing(System.Nullable<bool> value);
+    partial void On_313Changed();
+    partial void On_314Changing(System.Nullable<bool> value);
+    partial void On_314Changed();
+    partial void On_315Changing(System.Nullable<bool> value);
+    partial void On_315Changed();
+    partial void On_316Changing(System.Nullable<bool> value);
+    partial void On_316Changed();
+    partial void On_317Changing(System.Nullable<bool> value);
+    partial void On_317Changed();
+    partial void On_318Changing(System.Nullable<bool> value);
+    partial void On_318Changed();
+    partial void On_319Changing(System.Nullable<bool> value);
+    partial void On_319Changed();
+    partial void On_320Changing(System.Nullable<bool> value);
+    partial void On_320Changed();
+    partial void On_321Changing(System.Nullable<bool> value);
+    partial void On_321Changed();
+    partial void On_322Changing(System.Nullable<bool> value);
+    partial void On_322Changed();
+    partial void On_323Changing(System.Nullable<bool> value);
+    partial void On_323Changed();
+    partial void On_324Changing(System.Nullable<bool> value);
+    partial void On_324Changed();
+    partial void On_325Changing(string value);
+    partial void On_325Changed();
+    partial void On_326Changing(System.Nullable<bool> value);
+    partial void On_326Changed();
+    partial void On_327Changing(System.Nullable<bool> value);
+    partial void On_327Changed();
+    partial void On_328Changing(System.Nullable<bool> value);
+    partial void On_328Changed();
+    partial void On_329Changing(System.Nullable<bool> value);
+    partial void On_329Changed();
+    partial void On_330Changing(string value);
+    partial void On_330Changed();
+    partial void On_331Changing(System.Nullable<bool> value);
+    partial void On_331Changed();
+    partial void On_332Changing(System.Nullable<bool> value);
+    partial void On_332Changed();
+    partial void On_333Changing(System.Nullable<bool> value);
+    partial void On_333Changed();
+    partial void On_334Changing(System.Nullable<bool> value);
+    partial void On_334Changed();
+    partial void On_335Changing(string value);
+    partial void On_335Changed();
+    partial void On_336Changing(System.Nullable<bool> value);
+    partial void On_336Changed();
+    partial void On_337Changing(System.Nullable<bool> value);
+    partial void On_337Changed();
+    partial void On_338Changing(System.Nullable<bool> value);
+    partial void On_338Changed();
+    partial void On_339Changing(System.Nullable<bool> value);
+    partial void On_339Changed();
+    partial void On_340Changing(string value);
+    partial void On_340Changed();
+    partial void On_341Changing(System.Nullable<bool> value);
+    partial void On_341Changed();
+    partial void On_342Changing(System.Nullable<bool> value);
+    partial void On_342Changed();
+    partial void On_343Changing(System.Nullable<bool> value);
+    partial void On_343Changed();
+    partial void On_344Changing(System.Nullable<bool> value);
+    partial void On_344Changed();
+    partial void On_345Changing(string value);
+    partial void On_345Changed();
+    partial void On_346Changing(System.Nullable<bool> value);
+    partial void On_346Changed();
+    partial void On_347Changing(System.Nullable<bool> value);
+    partial void On_347Changed();
+    partial void On_348Changing(System.Nullable<bool> value);
+    partial void On_348Changed();
+    partial void On_349Changing(System.Nullable<bool> value);
+    partial void On_349Changed();
+    partial void On_350Changing(string value);
+    partial void On_350Changed();
+    partial void On_351Changing(System.Nullable<bool> value);
+    partial void On_351Changed();
+    partial void On_352Changing(System.Nullable<bool> value);
+    partial void On_352Changed();
+    partial void On_353Changing(System.Nullable<bool> value);
+    partial void On_353Changed();
+    partial void On_354Changing(System.Nullable<bool> value);
+    partial void On_354Changed();
+    partial void On_355Changing(string value);
+    partial void On_355Changed();
+    #endregion
+	
+	public Report_MerrylandsRSLCovidMarshall()
+	{
+		this._Category = default(EntityRef<Category>);
+		this._Shift = default(EntityRef<Shift>);
+		this._Staff = default(EntityRef<Staff>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int RID
+	{
+		get
+		{
+			return this._RID;
+		}
+		set
+		{
+			if ((this._RID != value))
+			{
+				this.OnRIDChanging(value);
+				this.SendPropertyChanging();
+				this._RID = value;
+				this.SendPropertyChanged("RID");
+				this.OnRIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReportId", DbType="Int NOT NULL")]
+	public int ReportId
+	{
+		get
+		{
+			return this._ReportId;
+		}
+		set
+		{
+			if ((this._ReportId != value))
+			{
+				this.OnReportIdChanging(value);
+				this.SendPropertyChanging();
+				this._ReportId = value;
+				this.SendPropertyChanged("ReportId");
+				this.OnReportIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RCatId", DbType="Int")]
+	public System.Nullable<int> RCatId
+	{
+		get
+		{
+			return this._RCatId;
+		}
+		set
+		{
+			if ((this._RCatId != value))
+			{
+				if (this._Category.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnRCatIdChanging(value);
+				this.SendPropertyChanging();
+				this._RCatId = value;
+				this.SendPropertyChanged("RCatId");
+				this.OnRCatIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffId", DbType="Int")]
+	public System.Nullable<int> StaffId
+	{
+		get
+		{
+			return this._StaffId;
+		}
+		set
+		{
+			if ((this._StaffId != value))
+			{
+				if (this._Staff.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnStaffIdChanging(value);
+				this.SendPropertyChanging();
+				this._StaffId = value;
+				this.SendPropertyChanged("StaffId");
+				this.OnStaffIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffName", DbType="VarChar(MAX)")]
+	public string StaffName
+	{
+		get
+		{
+			return this._StaffName;
+		}
+		set
+		{
+			if ((this._StaffName != value))
+			{
+				this.OnStaffNameChanging(value);
+				this.SendPropertyChanging();
+				this._StaffName = value;
+				this.SendPropertyChanged("StaffName");
+				this.OnStaffNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiftId", DbType="Int")]
+	public System.Nullable<int> ShiftId
+	{
+		get
+		{
+			return this._ShiftId;
+		}
+		set
+		{
+			if ((this._ShiftId != value))
+			{
+				if (this._Shift.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnShiftIdChanging(value);
+				this.SendPropertyChanging();
+				this._ShiftId = value;
+				this.SendPropertyChanged("ShiftId");
+				this.OnShiftIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AuditVersion", DbType="Int")]
+	public System.Nullable<int> AuditVersion
+	{
+		get
+		{
+			return this._AuditVersion;
+		}
+		set
+		{
+			if ((this._AuditVersion != value))
+			{
+				this.OnAuditVersionChanging(value);
+				this.SendPropertyChanging();
+				this._AuditVersion = value;
+				this.SendPropertyChanged("AuditVersion");
+				this.OnAuditVersionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiftDate", DbType="Date")]
+	public System.Nullable<System.DateTime> ShiftDate
+	{
+		get
+		{
+			return this._ShiftDate;
+		}
+		set
+		{
+			if ((this._ShiftDate != value))
+			{
+				this.OnShiftDateChanging(value);
+				this.SendPropertyChanging();
+				this._ShiftDate = value;
+				this.SendPropertyChanged("ShiftDate");
+				this.OnShiftDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifyDate", DbType="DateTime")]
+	public System.Nullable<System.DateTime> ModifyDate
+	{
+		get
+		{
+			return this._ModifyDate;
+		}
+		set
+		{
+			if ((this._ModifyDate != value))
+			{
+				this.OnModifyDateChanging(value);
+				this.SendPropertyChanging();
+				this._ModifyDate = value;
+				this.SendPropertyChanged("ModifyDate");
+				this.OnModifyDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EntryDate", DbType="DateTime")]
+	public System.Nullable<System.DateTime> EntryDate
+	{
+		get
+		{
+			return this._EntryDate;
+		}
+		set
+		{
+			if ((this._EntryDate != value))
+			{
+				this.OnEntryDateChanging(value);
+				this.SendPropertyChanging();
+				this._EntryDate = value;
+				this.SendPropertyChanged("EntryDate");
+				this.OnEntryDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiftDOW", DbType="VarChar(50)")]
+	public string ShiftDOW
+	{
+		get
+		{
+			return this._ShiftDOW;
+		}
+		set
+		{
+			if ((this._ShiftDOW != value))
+			{
+				this.OnShiftDOWChanging(value);
+				this.SendPropertyChanging();
+				this._ShiftDOW = value;
+				this.SendPropertyChanged("ShiftDOW");
+				this.OnShiftDOWChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Report_Table", DbType="VarChar(50)")]
+	public string Report_Table
+	{
+		get
+		{
+			return this._Report_Table;
+		}
+		set
+		{
+			if ((this._Report_Table != value))
+			{
+				this.OnReport_TableChanging(value);
+				this.SendPropertyChanging();
+				this._Report_Table = value;
+				this.SendPropertyChanged("Report_Table");
+				this.OnReport_TableChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Report_Version", DbType="Int")]
+	public System.Nullable<int> Report_Version
+	{
+		get
+		{
+			return this._Report_Version;
+		}
+		set
+		{
+			if ((this._Report_Version != value))
+			{
+				this.OnReport_VersionChanging(value);
+				this.SendPropertyChanging();
+				this._Report_Version = value;
+				this.SendPropertyChanged("Report_Version");
+				this.OnReport_VersionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReportStat", DbType="VarChar(MAX)")]
+	public string ReportStat
+	{
+		get
+		{
+			return this._ReportStat;
+		}
+		set
+		{
+			if ((this._ReportStat != value))
+			{
+				this.OnReportStatChanging(value);
+				this.SendPropertyChanging();
+				this._ReportStat = value;
+				this.SendPropertyChanged("ReportStat");
+				this.OnReportStatChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReadBy", DbType="VarChar(MAX)")]
+	public string ReadBy
+	{
+		get
+		{
+			return this._ReadBy;
+		}
+		set
+		{
+			if ((this._ReadBy != value))
+			{
+				this.OnReadByChanging(value);
+				this.SendPropertyChanging();
+				this._ReadBy = value;
+				this.SendPropertyChanged("ReadBy");
+				this.OnReadByChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReadByList", DbType="VarChar(MAX)")]
+	public string ReadByList
+	{
+		get
+		{
+			return this._ReadByList;
+		}
+		set
+		{
+			if ((this._ReadByList != value))
+			{
+				this.OnReadByListChanging(value);
+				this.SendPropertyChanging();
+				this._ReadByList = value;
+				this.SendPropertyChanged("ReadByList");
+				this.OnReadByListChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comments", DbType="VarChar(MAX)")]
+	public string Comments
+	{
+		get
+		{
+			return this._Comments;
+		}
+		set
+		{
+			if ((this._Comments != value))
+			{
+				this.OnCommentsChanging(value);
+				this.SendPropertyChanging();
+				this._Comments = value;
+				this.SendPropertyChanged("Comments");
+				this.OnCommentsChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffSign", DbType="VarChar(MAX)")]
+	public string StaffSign
+	{
+		get
+		{
+			return this._StaffSign;
+		}
+		set
+		{
+			if ((this._StaffSign != value))
+			{
+				this.OnStaffSignChanging(value);
+				this.SendPropertyChanging();
+				this._StaffSign = value;
+				this.SendPropertyChanged("StaffSign");
+				this.OnStaffSignChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManagerSign", DbType="VarChar(MAX)")]
+	public string ManagerSign
+	{
+		get
+		{
+			return this._ManagerSign;
+		}
+		set
+		{
+			if ((this._ManagerSign != value))
+			{
+				this.OnManagerSignChanging(value);
+				this.SendPropertyChanging();
+				this._ManagerSign = value;
+				this.SendPropertyChanged("ManagerSign");
+				this.OnManagerSignChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManagerSignId", DbType="VarChar(50)")]
+	public string ManagerSignId
+	{
+		get
+		{
+			return this._ManagerSignId;
+		}
+		set
+		{
+			if ((this._ManagerSignId != value))
+			{
+				this.OnManagerSignIdChanging(value);
+				this.SendPropertyChanging();
+				this._ManagerSignId = value;
+				this.SendPropertyChanged("ManagerSignId");
+				this.OnManagerSignIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublishedDate", DbType="Date")]
+	public System.Nullable<System.DateTime> PublishedDate
+	{
+		get
+		{
+			return this._PublishedDate;
+		}
+		set
+		{
+			if ((this._PublishedDate != value))
+			{
+				this.OnPublishedDateChanging(value);
+				this.SendPropertyChanging();
+				this._PublishedDate = value;
+				this.SendPropertyChanged("PublishedDate");
+				this.OnPublishedDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublishedBy", DbType="VarChar(50)")]
+	public string PublishedBy
+	{
+		get
+		{
+			return this._PublishedBy;
+		}
+		set
+		{
+			if ((this._PublishedBy != value))
+			{
+				this.OnPublishedByChanging(value);
+				this.SendPropertyChanging();
+				this._PublishedBy = value;
+				this.SendPropertyChanged("PublishedBy");
+				this.OnPublishedByChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastChanged", DbType="Int")]
+	public System.Nullable<int> LastChanged
+	{
+		get
+		{
+			return this._LastChanged;
+		}
+		set
+		{
+			if ((this._LastChanged != value))
+			{
+				this.OnLastChangedChanging(value);
+				this.SendPropertyChanging();
+				this._LastChanged = value;
+				this.SendPropertyChanged("LastChanged");
+				this.OnLastChangedChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GeneralComments", DbType="VarChar(MAX)")]
+	public string GeneralComments
+	{
+		get
+		{
+			return this._GeneralComments;
+		}
+		set
+		{
+			if ((this._GeneralComments != value))
+			{
+				this.OnGeneralCommentsChanging(value);
+				this.SendPropertyChanging();
+				this._GeneralComments = value;
+				this.SendPropertyChanged("GeneralComments");
+				this.OnGeneralCommentsChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[1]", Storage="__1", DbType="Int")]
+	public System.Nullable<int> _1
+	{
+		get
+		{
+			return this.@__1;
+		}
+		set
+		{
+			if ((this.@__1 != value))
+			{
+				this.On_1Changing(value);
+				this.SendPropertyChanging();
+				this.@__1 = value;
+				this.SendPropertyChanged("_1");
+				this.On_1Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[2]", Storage="__2", DbType="Int")]
+	public System.Nullable<int> _2
+	{
+		get
+		{
+			return this.@__2;
+		}
+		set
+		{
+			if ((this.@__2 != value))
+			{
+				this.On_2Changing(value);
+				this.SendPropertyChanging();
+				this.@__2 = value;
+				this.SendPropertyChanged("_2");
+				this.On_2Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[3]", Storage="__3", DbType="Int")]
+	public System.Nullable<int> _3
+	{
+		get
+		{
+			return this.@__3;
+		}
+		set
+		{
+			if ((this.@__3 != value))
+			{
+				this.On_3Changing(value);
+				this.SendPropertyChanging();
+				this.@__3 = value;
+				this.SendPropertyChanged("_3");
+				this.On_3Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[4]", Storage="__4", DbType="Int")]
+	public System.Nullable<int> _4
+	{
+		get
+		{
+			return this.@__4;
+		}
+		set
+		{
+			if ((this.@__4 != value))
+			{
+				this.On_4Changing(value);
+				this.SendPropertyChanging();
+				this.@__4 = value;
+				this.SendPropertyChanged("_4");
+				this.On_4Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[5]", Storage="__5", DbType="Int")]
+	public System.Nullable<int> _5
+	{
+		get
+		{
+			return this.@__5;
+		}
+		set
+		{
+			if ((this.@__5 != value))
+			{
+				this.On_5Changing(value);
+				this.SendPropertyChanging();
+				this.@__5 = value;
+				this.SendPropertyChanged("_5");
+				this.On_5Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[6]", Storage="__6", DbType="Int")]
+	public System.Nullable<int> _6
+	{
+		get
+		{
+			return this.@__6;
+		}
+		set
+		{
+			if ((this.@__6 != value))
+			{
+				this.On_6Changing(value);
+				this.SendPropertyChanging();
+				this.@__6 = value;
+				this.SendPropertyChanged("_6");
+				this.On_6Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[7]", Storage="__7", DbType="Int")]
+	public System.Nullable<int> _7
+	{
+		get
+		{
+			return this.@__7;
+		}
+		set
+		{
+			if ((this.@__7 != value))
+			{
+				this.On_7Changing(value);
+				this.SendPropertyChanging();
+				this.@__7 = value;
+				this.SendPropertyChanged("_7");
+				this.On_7Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[8]", Storage="__8", DbType="Int")]
+	public System.Nullable<int> _8
+	{
+		get
+		{
+			return this.@__8;
+		}
+		set
+		{
+			if ((this.@__8 != value))
+			{
+				this.On_8Changing(value);
+				this.SendPropertyChanging();
+				this.@__8 = value;
+				this.SendPropertyChanged("_8");
+				this.On_8Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[9]", Storage="__9", DbType="Int")]
+	public System.Nullable<int> _9
+	{
+		get
+		{
+			return this.@__9;
+		}
+		set
+		{
+			if ((this.@__9 != value))
+			{
+				this.On_9Changing(value);
+				this.SendPropertyChanging();
+				this.@__9 = value;
+				this.SendPropertyChanged("_9");
+				this.On_9Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[10]", Storage="__10", DbType="Int")]
+	public System.Nullable<int> _10
+	{
+		get
+		{
+			return this.@__10;
+		}
+		set
+		{
+			if ((this.@__10 != value))
+			{
+				this.On_10Changing(value);
+				this.SendPropertyChanging();
+				this.@__10 = value;
+				this.SendPropertyChanged("_10");
+				this.On_10Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[11]", Storage="__11", DbType="Int")]
+	public System.Nullable<int> _11
+	{
+		get
+		{
+			return this.@__11;
+		}
+		set
+		{
+			if ((this.@__11 != value))
+			{
+				this.On_11Changing(value);
+				this.SendPropertyChanging();
+				this.@__11 = value;
+				this.SendPropertyChanged("_11");
+				this.On_11Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[12]", Storage="__12", DbType="Int")]
+	public System.Nullable<int> _12
+	{
+		get
+		{
+			return this.@__12;
+		}
+		set
+		{
+			if ((this.@__12 != value))
+			{
+				this.On_12Changing(value);
+				this.SendPropertyChanging();
+				this.@__12 = value;
+				this.SendPropertyChanged("_12");
+				this.On_12Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[13]", Storage="__13", DbType="Int")]
+	public System.Nullable<int> _13
+	{
+		get
+		{
+			return this.@__13;
+		}
+		set
+		{
+			if ((this.@__13 != value))
+			{
+				this.On_13Changing(value);
+				this.SendPropertyChanging();
+				this.@__13 = value;
+				this.SendPropertyChanged("_13");
+				this.On_13Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[14]", Storage="__14", DbType="Int")]
+	public System.Nullable<int> _14
+	{
+		get
+		{
+			return this.@__14;
+		}
+		set
+		{
+			if ((this.@__14 != value))
+			{
+				this.On_14Changing(value);
+				this.SendPropertyChanging();
+				this.@__14 = value;
+				this.SendPropertyChanged("_14");
+				this.On_14Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[15]", Storage="__15", DbType="Int")]
+	public System.Nullable<int> _15
+	{
+		get
+		{
+			return this.@__15;
+		}
+		set
+		{
+			if ((this.@__15 != value))
+			{
+				this.On_15Changing(value);
+				this.SendPropertyChanging();
+				this.@__15 = value;
+				this.SendPropertyChanged("_15");
+				this.On_15Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[16]", Storage="__16", DbType="Int")]
+	public System.Nullable<int> _16
+	{
+		get
+		{
+			return this.@__16;
+		}
+		set
+		{
+			if ((this.@__16 != value))
+			{
+				this.On_16Changing(value);
+				this.SendPropertyChanging();
+				this.@__16 = value;
+				this.SendPropertyChanged("_16");
+				this.On_16Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[17]", Storage="__17", DbType="Int")]
+	public System.Nullable<int> _17
+	{
+		get
+		{
+			return this.@__17;
+		}
+		set
+		{
+			if ((this.@__17 != value))
+			{
+				this.On_17Changing(value);
+				this.SendPropertyChanging();
+				this.@__17 = value;
+				this.SendPropertyChanged("_17");
+				this.On_17Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[18]", Storage="__18", DbType="Int")]
+	public System.Nullable<int> _18
+	{
+		get
+		{
+			return this.@__18;
+		}
+		set
+		{
+			if ((this.@__18 != value))
+			{
+				this.On_18Changing(value);
+				this.SendPropertyChanging();
+				this.@__18 = value;
+				this.SendPropertyChanged("_18");
+				this.On_18Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[19]", Storage="__19", DbType="Int")]
+	public System.Nullable<int> _19
+	{
+		get
+		{
+			return this.@__19;
+		}
+		set
+		{
+			if ((this.@__19 != value))
+			{
+				this.On_19Changing(value);
+				this.SendPropertyChanging();
+				this.@__19 = value;
+				this.SendPropertyChanged("_19");
+				this.On_19Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[20]", Storage="__20", DbType="Int")]
+	public System.Nullable<int> _20
+	{
+		get
+		{
+			return this.@__20;
+		}
+		set
+		{
+			if ((this.@__20 != value))
+			{
+				this.On_20Changing(value);
+				this.SendPropertyChanging();
+				this.@__20 = value;
+				this.SendPropertyChanged("_20");
+				this.On_20Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[21]", Storage="__21", DbType="Int")]
+	public System.Nullable<int> _21
+	{
+		get
+		{
+			return this.@__21;
+		}
+		set
+		{
+			if ((this.@__21 != value))
+			{
+				this.On_21Changing(value);
+				this.SendPropertyChanging();
+				this.@__21 = value;
+				this.SendPropertyChanged("_21");
+				this.On_21Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[22]", Storage="__22", DbType="Int")]
+	public System.Nullable<int> _22
+	{
+		get
+		{
+			return this.@__22;
+		}
+		set
+		{
+			if ((this.@__22 != value))
+			{
+				this.On_22Changing(value);
+				this.SendPropertyChanging();
+				this.@__22 = value;
+				this.SendPropertyChanged("_22");
+				this.On_22Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[23]", Storage="__23", DbType="Int")]
+	public System.Nullable<int> _23
+	{
+		get
+		{
+			return this.@__23;
+		}
+		set
+		{
+			if ((this.@__23 != value))
+			{
+				this.On_23Changing(value);
+				this.SendPropertyChanging();
+				this.@__23 = value;
+				this.SendPropertyChanged("_23");
+				this.On_23Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[24]", Storage="__24", DbType="Int")]
+	public System.Nullable<int> _24
+	{
+		get
+		{
+			return this.@__24;
+		}
+		set
+		{
+			if ((this.@__24 != value))
+			{
+				this.On_24Changing(value);
+				this.SendPropertyChanging();
+				this.@__24 = value;
+				this.SendPropertyChanged("_24");
+				this.On_24Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[25]", Storage="__25", DbType="Int")]
+	public System.Nullable<int> _25
+	{
+		get
+		{
+			return this.@__25;
+		}
+		set
+		{
+			if ((this.@__25 != value))
+			{
+				this.On_25Changing(value);
+				this.SendPropertyChanging();
+				this.@__25 = value;
+				this.SendPropertyChanged("_25");
+				this.On_25Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[26]", Storage="__26", DbType="Int")]
+	public System.Nullable<int> _26
+	{
+		get
+		{
+			return this.@__26;
+		}
+		set
+		{
+			if ((this.@__26 != value))
+			{
+				this.On_26Changing(value);
+				this.SendPropertyChanging();
+				this.@__26 = value;
+				this.SendPropertyChanged("_26");
+				this.On_26Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[27]", Storage="__27", DbType="Int")]
+	public System.Nullable<int> _27
+	{
+		get
+		{
+			return this.@__27;
+		}
+		set
+		{
+			if ((this.@__27 != value))
+			{
+				this.On_27Changing(value);
+				this.SendPropertyChanging();
+				this.@__27 = value;
+				this.SendPropertyChanged("_27");
+				this.On_27Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[28]", Storage="__28", DbType="Int")]
+	public System.Nullable<int> _28
+	{
+		get
+		{
+			return this.@__28;
+		}
+		set
+		{
+			if ((this.@__28 != value))
+			{
+				this.On_28Changing(value);
+				this.SendPropertyChanging();
+				this.@__28 = value;
+				this.SendPropertyChanged("_28");
+				this.On_28Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[29]", Storage="__29", DbType="Int")]
+	public System.Nullable<int> _29
+	{
+		get
+		{
+			return this.@__29;
+		}
+		set
+		{
+			if ((this.@__29 != value))
+			{
+				this.On_29Changing(value);
+				this.SendPropertyChanging();
+				this.@__29 = value;
+				this.SendPropertyChanged("_29");
+				this.On_29Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[30]", Storage="__30", DbType="Int")]
+	public System.Nullable<int> _30
+	{
+		get
+		{
+			return this.@__30;
+		}
+		set
+		{
+			if ((this.@__30 != value))
+			{
+				this.On_30Changing(value);
+				this.SendPropertyChanging();
+				this.@__30 = value;
+				this.SendPropertyChanged("_30");
+				this.On_30Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[31]", Storage="__31", DbType="Int")]
+	public System.Nullable<int> _31
+	{
+		get
+		{
+			return this.@__31;
+		}
+		set
+		{
+			if ((this.@__31 != value))
+			{
+				this.On_31Changing(value);
+				this.SendPropertyChanging();
+				this.@__31 = value;
+				this.SendPropertyChanged("_31");
+				this.On_31Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[32]", Storage="__32", DbType="Int")]
+	public System.Nullable<int> _32
+	{
+		get
+		{
+			return this.@__32;
+		}
+		set
+		{
+			if ((this.@__32 != value))
+			{
+				this.On_32Changing(value);
+				this.SendPropertyChanging();
+				this.@__32 = value;
+				this.SendPropertyChanged("_32");
+				this.On_32Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[33]", Storage="__33", DbType="Int")]
+	public System.Nullable<int> _33
+	{
+		get
+		{
+			return this.@__33;
+		}
+		set
+		{
+			if ((this.@__33 != value))
+			{
+				this.On_33Changing(value);
+				this.SendPropertyChanging();
+				this.@__33 = value;
+				this.SendPropertyChanged("_33");
+				this.On_33Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[34]", Storage="__34", DbType="Int")]
+	public System.Nullable<int> _34
+	{
+		get
+		{
+			return this.@__34;
+		}
+		set
+		{
+			if ((this.@__34 != value))
+			{
+				this.On_34Changing(value);
+				this.SendPropertyChanging();
+				this.@__34 = value;
+				this.SendPropertyChanged("_34");
+				this.On_34Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[35]", Storage="__35", DbType="Int")]
+	public System.Nullable<int> _35
+	{
+		get
+		{
+			return this.@__35;
+		}
+		set
+		{
+			if ((this.@__35 != value))
+			{
+				this.On_35Changing(value);
+				this.SendPropertyChanging();
+				this.@__35 = value;
+				this.SendPropertyChanged("_35");
+				this.On_35Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[36]", Storage="__36", DbType="Int")]
+	public System.Nullable<int> _36
+	{
+		get
+		{
+			return this.@__36;
+		}
+		set
+		{
+			if ((this.@__36 != value))
+			{
+				this.On_36Changing(value);
+				this.SendPropertyChanging();
+				this.@__36 = value;
+				this.SendPropertyChanged("_36");
+				this.On_36Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[37]", Storage="__37", DbType="Int")]
+	public System.Nullable<int> _37
+	{
+		get
+		{
+			return this.@__37;
+		}
+		set
+		{
+			if ((this.@__37 != value))
+			{
+				this.On_37Changing(value);
+				this.SendPropertyChanging();
+				this.@__37 = value;
+				this.SendPropertyChanged("_37");
+				this.On_37Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[38]", Storage="__38", DbType="Int")]
+	public System.Nullable<int> _38
+	{
+		get
+		{
+			return this.@__38;
+		}
+		set
+		{
+			if ((this.@__38 != value))
+			{
+				this.On_38Changing(value);
+				this.SendPropertyChanging();
+				this.@__38 = value;
+				this.SendPropertyChanged("_38");
+				this.On_38Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[39]", Storage="__39", DbType="Int")]
+	public System.Nullable<int> _39
+	{
+		get
+		{
+			return this.@__39;
+		}
+		set
+		{
+			if ((this.@__39 != value))
+			{
+				this.On_39Changing(value);
+				this.SendPropertyChanging();
+				this.@__39 = value;
+				this.SendPropertyChanged("_39");
+				this.On_39Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[40]", Storage="__40", DbType="Int")]
+	public System.Nullable<int> _40
+	{
+		get
+		{
+			return this.@__40;
+		}
+		set
+		{
+			if ((this.@__40 != value))
+			{
+				this.On_40Changing(value);
+				this.SendPropertyChanging();
+				this.@__40 = value;
+				this.SendPropertyChanged("_40");
+				this.On_40Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[41]", Storage="__41", DbType="Int")]
+	public System.Nullable<int> _41
+	{
+		get
+		{
+			return this.@__41;
+		}
+		set
+		{
+			if ((this.@__41 != value))
+			{
+				this.On_41Changing(value);
+				this.SendPropertyChanging();
+				this.@__41 = value;
+				this.SendPropertyChanged("_41");
+				this.On_41Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[42]", Storage="__42", DbType="Int")]
+	public System.Nullable<int> _42
+	{
+		get
+		{
+			return this.@__42;
+		}
+		set
+		{
+			if ((this.@__42 != value))
+			{
+				this.On_42Changing(value);
+				this.SendPropertyChanging();
+				this.@__42 = value;
+				this.SendPropertyChanged("_42");
+				this.On_42Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[43]", Storage="__43", DbType="Int")]
+	public System.Nullable<int> _43
+	{
+		get
+		{
+			return this.@__43;
+		}
+		set
+		{
+			if ((this.@__43 != value))
+			{
+				this.On_43Changing(value);
+				this.SendPropertyChanging();
+				this.@__43 = value;
+				this.SendPropertyChanged("_43");
+				this.On_43Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[44]", Storage="__44", DbType="Int")]
+	public System.Nullable<int> _44
+	{
+		get
+		{
+			return this.@__44;
+		}
+		set
+		{
+			if ((this.@__44 != value))
+			{
+				this.On_44Changing(value);
+				this.SendPropertyChanging();
+				this.@__44 = value;
+				this.SendPropertyChanged("_44");
+				this.On_44Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[45]", Storage="__45", DbType="Int")]
+	public System.Nullable<int> _45
+	{
+		get
+		{
+			return this.@__45;
+		}
+		set
+		{
+			if ((this.@__45 != value))
+			{
+				this.On_45Changing(value);
+				this.SendPropertyChanging();
+				this.@__45 = value;
+				this.SendPropertyChanged("_45");
+				this.On_45Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[46]", Storage="__46", DbType="Int")]
+	public System.Nullable<int> _46
+	{
+		get
+		{
+			return this.@__46;
+		}
+		set
+		{
+			if ((this.@__46 != value))
+			{
+				this.On_46Changing(value);
+				this.SendPropertyChanging();
+				this.@__46 = value;
+				this.SendPropertyChanged("_46");
+				this.On_46Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[47]", Storage="__47", DbType="Int")]
+	public System.Nullable<int> _47
+	{
+		get
+		{
+			return this.@__47;
+		}
+		set
+		{
+			if ((this.@__47 != value))
+			{
+				this.On_47Changing(value);
+				this.SendPropertyChanging();
+				this.@__47 = value;
+				this.SendPropertyChanged("_47");
+				this.On_47Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[48]", Storage="__48", DbType="Int")]
+	public System.Nullable<int> _48
+	{
+		get
+		{
+			return this.@__48;
+		}
+		set
+		{
+			if ((this.@__48 != value))
+			{
+				this.On_48Changing(value);
+				this.SendPropertyChanging();
+				this.@__48 = value;
+				this.SendPropertyChanged("_48");
+				this.On_48Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[49]", Storage="__49", DbType="Int")]
+	public System.Nullable<int> _49
+	{
+		get
+		{
+			return this.@__49;
+		}
+		set
+		{
+			if ((this.@__49 != value))
+			{
+				this.On_49Changing(value);
+				this.SendPropertyChanging();
+				this.@__49 = value;
+				this.SendPropertyChanged("_49");
+				this.On_49Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[50]", Storage="__50", DbType="Int")]
+	public System.Nullable<int> _50
+	{
+		get
+		{
+			return this.@__50;
+		}
+		set
+		{
+			if ((this.@__50 != value))
+			{
+				this.On_50Changing(value);
+				this.SendPropertyChanging();
+				this.@__50 = value;
+				this.SendPropertyChanged("_50");
+				this.On_50Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[51]", Storage="__51", DbType="Int")]
+	public System.Nullable<int> _51
+	{
+		get
+		{
+			return this.@__51;
+		}
+		set
+		{
+			if ((this.@__51 != value))
+			{
+				this.On_51Changing(value);
+				this.SendPropertyChanging();
+				this.@__51 = value;
+				this.SendPropertyChanged("_51");
+				this.On_51Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[52]", Storage="__52", DbType="Int")]
+	public System.Nullable<int> _52
+	{
+		get
+		{
+			return this.@__52;
+		}
+		set
+		{
+			if ((this.@__52 != value))
+			{
+				this.On_52Changing(value);
+				this.SendPropertyChanging();
+				this.@__52 = value;
+				this.SendPropertyChanged("_52");
+				this.On_52Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[53]", Storage="__53", DbType="Int")]
+	public System.Nullable<int> _53
+	{
+		get
+		{
+			return this.@__53;
+		}
+		set
+		{
+			if ((this.@__53 != value))
+			{
+				this.On_53Changing(value);
+				this.SendPropertyChanging();
+				this.@__53 = value;
+				this.SendPropertyChanged("_53");
+				this.On_53Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[54]", Storage="__54", DbType="Int")]
+	public System.Nullable<int> _54
+	{
+		get
+		{
+			return this.@__54;
+		}
+		set
+		{
+			if ((this.@__54 != value))
+			{
+				this.On_54Changing(value);
+				this.SendPropertyChanging();
+				this.@__54 = value;
+				this.SendPropertyChanged("_54");
+				this.On_54Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[55]", Storage="__55", DbType="Int")]
+	public System.Nullable<int> _55
+	{
+		get
+		{
+			return this.@__55;
+		}
+		set
+		{
+			if ((this.@__55 != value))
+			{
+				this.On_55Changing(value);
+				this.SendPropertyChanging();
+				this.@__55 = value;
+				this.SendPropertyChanged("_55");
+				this.On_55Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[56]", Storage="__56", DbType="Int")]
+	public System.Nullable<int> _56
+	{
+		get
+		{
+			return this.@__56;
+		}
+		set
+		{
+			if ((this.@__56 != value))
+			{
+				this.On_56Changing(value);
+				this.SendPropertyChanging();
+				this.@__56 = value;
+				this.SendPropertyChanged("_56");
+				this.On_56Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[57]", Storage="__57", DbType="Int")]
+	public System.Nullable<int> _57
+	{
+		get
+		{
+			return this.@__57;
+		}
+		set
+		{
+			if ((this.@__57 != value))
+			{
+				this.On_57Changing(value);
+				this.SendPropertyChanging();
+				this.@__57 = value;
+				this.SendPropertyChanged("_57");
+				this.On_57Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[58]", Storage="__58", DbType="Int")]
+	public System.Nullable<int> _58
+	{
+		get
+		{
+			return this.@__58;
+		}
+		set
+		{
+			if ((this.@__58 != value))
+			{
+				this.On_58Changing(value);
+				this.SendPropertyChanging();
+				this.@__58 = value;
+				this.SendPropertyChanged("_58");
+				this.On_58Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[59]", Storage="__59", DbType="Int")]
+	public System.Nullable<int> _59
+	{
+		get
+		{
+			return this.@__59;
+		}
+		set
+		{
+			if ((this.@__59 != value))
+			{
+				this.On_59Changing(value);
+				this.SendPropertyChanging();
+				this.@__59 = value;
+				this.SendPropertyChanged("_59");
+				this.On_59Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[60]", Storage="__60", DbType="Int")]
+	public System.Nullable<int> _60
+	{
+		get
+		{
+			return this.@__60;
+		}
+		set
+		{
+			if ((this.@__60 != value))
+			{
+				this.On_60Changing(value);
+				this.SendPropertyChanging();
+				this.@__60 = value;
+				this.SendPropertyChanged("_60");
+				this.On_60Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[61]", Storage="__61", DbType="Int")]
+	public System.Nullable<int> _61
+	{
+		get
+		{
+			return this.@__61;
+		}
+		set
+		{
+			if ((this.@__61 != value))
+			{
+				this.On_61Changing(value);
+				this.SendPropertyChanging();
+				this.@__61 = value;
+				this.SendPropertyChanged("_61");
+				this.On_61Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[62]", Storage="__62", DbType="Int")]
+	public System.Nullable<int> _62
+	{
+		get
+		{
+			return this.@__62;
+		}
+		set
+		{
+			if ((this.@__62 != value))
+			{
+				this.On_62Changing(value);
+				this.SendPropertyChanging();
+				this.@__62 = value;
+				this.SendPropertyChanged("_62");
+				this.On_62Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[63]", Storage="__63", DbType="Int")]
+	public System.Nullable<int> _63
+	{
+		get
+		{
+			return this.@__63;
+		}
+		set
+		{
+			if ((this.@__63 != value))
+			{
+				this.On_63Changing(value);
+				this.SendPropertyChanging();
+				this.@__63 = value;
+				this.SendPropertyChanged("_63");
+				this.On_63Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[64]", Storage="__64", DbType="Int")]
+	public System.Nullable<int> _64
+	{
+		get
+		{
+			return this.@__64;
+		}
+		set
+		{
+			if ((this.@__64 != value))
+			{
+				this.On_64Changing(value);
+				this.SendPropertyChanging();
+				this.@__64 = value;
+				this.SendPropertyChanged("_64");
+				this.On_64Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[65]", Storage="__65", DbType="Int")]
+	public System.Nullable<int> _65
+	{
+		get
+		{
+			return this.@__65;
+		}
+		set
+		{
+			if ((this.@__65 != value))
+			{
+				this.On_65Changing(value);
+				this.SendPropertyChanging();
+				this.@__65 = value;
+				this.SendPropertyChanged("_65");
+				this.On_65Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[66]", Storage="__66", DbType="Int")]
+	public System.Nullable<int> _66
+	{
+		get
+		{
+			return this.@__66;
+		}
+		set
+		{
+			if ((this.@__66 != value))
+			{
+				this.On_66Changing(value);
+				this.SendPropertyChanging();
+				this.@__66 = value;
+				this.SendPropertyChanged("_66");
+				this.On_66Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[67]", Storage="__67", DbType="Int")]
+	public System.Nullable<int> _67
+	{
+		get
+		{
+			return this.@__67;
+		}
+		set
+		{
+			if ((this.@__67 != value))
+			{
+				this.On_67Changing(value);
+				this.SendPropertyChanging();
+				this.@__67 = value;
+				this.SendPropertyChanged("_67");
+				this.On_67Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[68]", Storage="__68", DbType="Int")]
+	public System.Nullable<int> _68
+	{
+		get
+		{
+			return this.@__68;
+		}
+		set
+		{
+			if ((this.@__68 != value))
+			{
+				this.On_68Changing(value);
+				this.SendPropertyChanging();
+				this.@__68 = value;
+				this.SendPropertyChanged("_68");
+				this.On_68Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[69]", Storage="__69", DbType="Int")]
+	public System.Nullable<int> _69
+	{
+		get
+		{
+			return this.@__69;
+		}
+		set
+		{
+			if ((this.@__69 != value))
+			{
+				this.On_69Changing(value);
+				this.SendPropertyChanging();
+				this.@__69 = value;
+				this.SendPropertyChanged("_69");
+				this.On_69Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[70]", Storage="__70", DbType="Int")]
+	public System.Nullable<int> _70
+	{
+		get
+		{
+			return this.@__70;
+		}
+		set
+		{
+			if ((this.@__70 != value))
+			{
+				this.On_70Changing(value);
+				this.SendPropertyChanging();
+				this.@__70 = value;
+				this.SendPropertyChanged("_70");
+				this.On_70Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[71]", Storage="__71", DbType="Int")]
+	public System.Nullable<int> _71
+	{
+		get
+		{
+			return this.@__71;
+		}
+		set
+		{
+			if ((this.@__71 != value))
+			{
+				this.On_71Changing(value);
+				this.SendPropertyChanging();
+				this.@__71 = value;
+				this.SendPropertyChanged("_71");
+				this.On_71Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[72]", Storage="__72", DbType="Int")]
+	public System.Nullable<int> _72
+	{
+		get
+		{
+			return this.@__72;
+		}
+		set
+		{
+			if ((this.@__72 != value))
+			{
+				this.On_72Changing(value);
+				this.SendPropertyChanging();
+				this.@__72 = value;
+				this.SendPropertyChanged("_72");
+				this.On_72Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[73]", Storage="__73", DbType="Int")]
+	public System.Nullable<int> _73
+	{
+		get
+		{
+			return this.@__73;
+		}
+		set
+		{
+			if ((this.@__73 != value))
+			{
+				this.On_73Changing(value);
+				this.SendPropertyChanging();
+				this.@__73 = value;
+				this.SendPropertyChanged("_73");
+				this.On_73Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[74]", Storage="__74", DbType="Int")]
+	public System.Nullable<int> _74
+	{
+		get
+		{
+			return this.@__74;
+		}
+		set
+		{
+			if ((this.@__74 != value))
+			{
+				this.On_74Changing(value);
+				this.SendPropertyChanging();
+				this.@__74 = value;
+				this.SendPropertyChanged("_74");
+				this.On_74Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[75]", Storage="__75", DbType="Int")]
+	public System.Nullable<int> _75
+	{
+		get
+		{
+			return this.@__75;
+		}
+		set
+		{
+			if ((this.@__75 != value))
+			{
+				this.On_75Changing(value);
+				this.SendPropertyChanging();
+				this.@__75 = value;
+				this.SendPropertyChanged("_75");
+				this.On_75Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[76]", Storage="__76", DbType="Int")]
+	public System.Nullable<int> _76
+	{
+		get
+		{
+			return this.@__76;
+		}
+		set
+		{
+			if ((this.@__76 != value))
+			{
+				this.On_76Changing(value);
+				this.SendPropertyChanging();
+				this.@__76 = value;
+				this.SendPropertyChanged("_76");
+				this.On_76Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[77]", Storage="__77", DbType="Int")]
+	public System.Nullable<int> _77
+	{
+		get
+		{
+			return this.@__77;
+		}
+		set
+		{
+			if ((this.@__77 != value))
+			{
+				this.On_77Changing(value);
+				this.SendPropertyChanging();
+				this.@__77 = value;
+				this.SendPropertyChanged("_77");
+				this.On_77Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[78]", Storage="__78", DbType="Int")]
+	public System.Nullable<int> _78
+	{
+		get
+		{
+			return this.@__78;
+		}
+		set
+		{
+			if ((this.@__78 != value))
+			{
+				this.On_78Changing(value);
+				this.SendPropertyChanging();
+				this.@__78 = value;
+				this.SendPropertyChanged("_78");
+				this.On_78Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[79]", Storage="__79", DbType="Int")]
+	public System.Nullable<int> _79
+	{
+		get
+		{
+			return this.@__79;
+		}
+		set
+		{
+			if ((this.@__79 != value))
+			{
+				this.On_79Changing(value);
+				this.SendPropertyChanging();
+				this.@__79 = value;
+				this.SendPropertyChanged("_79");
+				this.On_79Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[80]", Storage="__80", DbType="Int")]
+	public System.Nullable<int> _80
+	{
+		get
+		{
+			return this.@__80;
+		}
+		set
+		{
+			if ((this.@__80 != value))
+			{
+				this.On_80Changing(value);
+				this.SendPropertyChanging();
+				this.@__80 = value;
+				this.SendPropertyChanged("_80");
+				this.On_80Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[81]", Storage="__81", DbType="Int")]
+	public System.Nullable<int> _81
+	{
+		get
+		{
+			return this.@__81;
+		}
+		set
+		{
+			if ((this.@__81 != value))
+			{
+				this.On_81Changing(value);
+				this.SendPropertyChanging();
+				this.@__81 = value;
+				this.SendPropertyChanged("_81");
+				this.On_81Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[82]", Storage="__82", DbType="Int")]
+	public System.Nullable<int> _82
+	{
+		get
+		{
+			return this.@__82;
+		}
+		set
+		{
+			if ((this.@__82 != value))
+			{
+				this.On_82Changing(value);
+				this.SendPropertyChanging();
+				this.@__82 = value;
+				this.SendPropertyChanged("_82");
+				this.On_82Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[83]", Storage="__83", DbType="Int")]
+	public System.Nullable<int> _83
+	{
+		get
+		{
+			return this.@__83;
+		}
+		set
+		{
+			if ((this.@__83 != value))
+			{
+				this.On_83Changing(value);
+				this.SendPropertyChanging();
+				this.@__83 = value;
+				this.SendPropertyChanged("_83");
+				this.On_83Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[84]", Storage="__84", DbType="Int")]
+	public System.Nullable<int> _84
+	{
+		get
+		{
+			return this.@__84;
+		}
+		set
+		{
+			if ((this.@__84 != value))
+			{
+				this.On_84Changing(value);
+				this.SendPropertyChanging();
+				this.@__84 = value;
+				this.SendPropertyChanged("_84");
+				this.On_84Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[85]", Storage="__85", DbType="Int")]
+	public System.Nullable<int> _85
+	{
+		get
+		{
+			return this.@__85;
+		}
+		set
+		{
+			if ((this.@__85 != value))
+			{
+				this.On_85Changing(value);
+				this.SendPropertyChanging();
+				this.@__85 = value;
+				this.SendPropertyChanged("_85");
+				this.On_85Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[86]", Storage="__86", DbType="Int")]
+	public System.Nullable<int> _86
+	{
+		get
+		{
+			return this.@__86;
+		}
+		set
+		{
+			if ((this.@__86 != value))
+			{
+				this.On_86Changing(value);
+				this.SendPropertyChanging();
+				this.@__86 = value;
+				this.SendPropertyChanged("_86");
+				this.On_86Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[87]", Storage="__87", DbType="Int")]
+	public System.Nullable<int> _87
+	{
+		get
+		{
+			return this.@__87;
+		}
+		set
+		{
+			if ((this.@__87 != value))
+			{
+				this.On_87Changing(value);
+				this.SendPropertyChanging();
+				this.@__87 = value;
+				this.SendPropertyChanged("_87");
+				this.On_87Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[88]", Storage="__88", DbType="Int")]
+	public System.Nullable<int> _88
+	{
+		get
+		{
+			return this.@__88;
+		}
+		set
+		{
+			if ((this.@__88 != value))
+			{
+				this.On_88Changing(value);
+				this.SendPropertyChanging();
+				this.@__88 = value;
+				this.SendPropertyChanged("_88");
+				this.On_88Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[89]", Storage="__89", DbType="Int")]
+	public System.Nullable<int> _89
+	{
+		get
+		{
+			return this.@__89;
+		}
+		set
+		{
+			if ((this.@__89 != value))
+			{
+				this.On_89Changing(value);
+				this.SendPropertyChanging();
+				this.@__89 = value;
+				this.SendPropertyChanged("_89");
+				this.On_89Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[90]", Storage="__90", DbType="Int")]
+	public System.Nullable<int> _90
+	{
+		get
+		{
+			return this.@__90;
+		}
+		set
+		{
+			if ((this.@__90 != value))
+			{
+				this.On_90Changing(value);
+				this.SendPropertyChanging();
+				this.@__90 = value;
+				this.SendPropertyChanged("_90");
+				this.On_90Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[91]", Storage="__91", DbType="Int")]
+	public System.Nullable<int> _91
+	{
+		get
+		{
+			return this.@__91;
+		}
+		set
+		{
+			if ((this.@__91 != value))
+			{
+				this.On_91Changing(value);
+				this.SendPropertyChanging();
+				this.@__91 = value;
+				this.SendPropertyChanged("_91");
+				this.On_91Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[92]", Storage="__92", DbType="Int")]
+	public System.Nullable<int> _92
+	{
+		get
+		{
+			return this.@__92;
+		}
+		set
+		{
+			if ((this.@__92 != value))
+			{
+				this.On_92Changing(value);
+				this.SendPropertyChanging();
+				this.@__92 = value;
+				this.SendPropertyChanged("_92");
+				this.On_92Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[93]", Storage="__93", DbType="Int")]
+	public System.Nullable<int> _93
+	{
+		get
+		{
+			return this.@__93;
+		}
+		set
+		{
+			if ((this.@__93 != value))
+			{
+				this.On_93Changing(value);
+				this.SendPropertyChanging();
+				this.@__93 = value;
+				this.SendPropertyChanged("_93");
+				this.On_93Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[94]", Storage="__94", DbType="Int")]
+	public System.Nullable<int> _94
+	{
+		get
+		{
+			return this.@__94;
+		}
+		set
+		{
+			if ((this.@__94 != value))
+			{
+				this.On_94Changing(value);
+				this.SendPropertyChanging();
+				this.@__94 = value;
+				this.SendPropertyChanged("_94");
+				this.On_94Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[95]", Storage="__95", DbType="Int")]
+	public System.Nullable<int> _95
+	{
+		get
+		{
+			return this.@__95;
+		}
+		set
+		{
+			if ((this.@__95 != value))
+			{
+				this.On_95Changing(value);
+				this.SendPropertyChanging();
+				this.@__95 = value;
+				this.SendPropertyChanged("_95");
+				this.On_95Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[96]", Storage="__96", DbType="Int")]
+	public System.Nullable<int> _96
+	{
+		get
+		{
+			return this.@__96;
+		}
+		set
+		{
+			if ((this.@__96 != value))
+			{
+				this.On_96Changing(value);
+				this.SendPropertyChanging();
+				this.@__96 = value;
+				this.SendPropertyChanged("_96");
+				this.On_96Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[97]", Storage="__97", DbType="Int")]
+	public System.Nullable<int> _97
+	{
+		get
+		{
+			return this.@__97;
+		}
+		set
+		{
+			if ((this.@__97 != value))
+			{
+				this.On_97Changing(value);
+				this.SendPropertyChanging();
+				this.@__97 = value;
+				this.SendPropertyChanged("_97");
+				this.On_97Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[98]", Storage="__98", DbType="Int")]
+	public System.Nullable<int> _98
+	{
+		get
+		{
+			return this.@__98;
+		}
+		set
+		{
+			if ((this.@__98 != value))
+			{
+				this.On_98Changing(value);
+				this.SendPropertyChanging();
+				this.@__98 = value;
+				this.SendPropertyChanged("_98");
+				this.On_98Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[99]", Storage="__99", DbType="Int")]
+	public System.Nullable<int> _99
+	{
+		get
+		{
+			return this.@__99;
+		}
+		set
+		{
+			if ((this.@__99 != value))
+			{
+				this.On_99Changing(value);
+				this.SendPropertyChanging();
+				this.@__99 = value;
+				this.SendPropertyChanged("_99");
+				this.On_99Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[100]", Storage="__100", DbType="Int")]
+	public System.Nullable<int> _100
+	{
+		get
+		{
+			return this.@__100;
+		}
+		set
+		{
+			if ((this.@__100 != value))
+			{
+				this.On_100Changing(value);
+				this.SendPropertyChanging();
+				this.@__100 = value;
+				this.SendPropertyChanged("_100");
+				this.On_100Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[101]", Storage="__101", DbType="Int")]
+	public System.Nullable<int> _101
+	{
+		get
+		{
+			return this.@__101;
+		}
+		set
+		{
+			if ((this.@__101 != value))
+			{
+				this.On_101Changing(value);
+				this.SendPropertyChanging();
+				this.@__101 = value;
+				this.SendPropertyChanged("_101");
+				this.On_101Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[102]", Storage="__102", DbType="Int")]
+	public System.Nullable<int> _102
+	{
+		get
+		{
+			return this.@__102;
+		}
+		set
+		{
+			if ((this.@__102 != value))
+			{
+				this.On_102Changing(value);
+				this.SendPropertyChanging();
+				this.@__102 = value;
+				this.SendPropertyChanged("_102");
+				this.On_102Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[103]", Storage="__103", DbType="Int")]
+	public System.Nullable<int> _103
+	{
+		get
+		{
+			return this.@__103;
+		}
+		set
+		{
+			if ((this.@__103 != value))
+			{
+				this.On_103Changing(value);
+				this.SendPropertyChanging();
+				this.@__103 = value;
+				this.SendPropertyChanged("_103");
+				this.On_103Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[104]", Storage="__104", DbType="Int")]
+	public System.Nullable<int> _104
+	{
+		get
+		{
+			return this.@__104;
+		}
+		set
+		{
+			if ((this.@__104 != value))
+			{
+				this.On_104Changing(value);
+				this.SendPropertyChanging();
+				this.@__104 = value;
+				this.SendPropertyChanged("_104");
+				this.On_104Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[105]", Storage="__105", DbType="Int")]
+	public System.Nullable<int> _105
+	{
+		get
+		{
+			return this.@__105;
+		}
+		set
+		{
+			if ((this.@__105 != value))
+			{
+				this.On_105Changing(value);
+				this.SendPropertyChanging();
+				this.@__105 = value;
+				this.SendPropertyChanged("_105");
+				this.On_105Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[106]", Storage="__106", DbType="Int")]
+	public System.Nullable<int> _106
+	{
+		get
+		{
+			return this.@__106;
+		}
+		set
+		{
+			if ((this.@__106 != value))
+			{
+				this.On_106Changing(value);
+				this.SendPropertyChanging();
+				this.@__106 = value;
+				this.SendPropertyChanged("_106");
+				this.On_106Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[107]", Storage="__107", DbType="Int")]
+	public System.Nullable<int> _107
+	{
+		get
+		{
+			return this.@__107;
+		}
+		set
+		{
+			if ((this.@__107 != value))
+			{
+				this.On_107Changing(value);
+				this.SendPropertyChanging();
+				this.@__107 = value;
+				this.SendPropertyChanged("_107");
+				this.On_107Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[108]", Storage="__108", DbType="Int")]
+	public System.Nullable<int> _108
+	{
+		get
+		{
+			return this.@__108;
+		}
+		set
+		{
+			if ((this.@__108 != value))
+			{
+				this.On_108Changing(value);
+				this.SendPropertyChanging();
+				this.@__108 = value;
+				this.SendPropertyChanged("_108");
+				this.On_108Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[109]", Storage="__109", DbType="Int")]
+	public System.Nullable<int> _109
+	{
+		get
+		{
+			return this.@__109;
+		}
+		set
+		{
+			if ((this.@__109 != value))
+			{
+				this.On_109Changing(value);
+				this.SendPropertyChanging();
+				this.@__109 = value;
+				this.SendPropertyChanged("_109");
+				this.On_109Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[110]", Storage="__110", DbType="Int")]
+	public System.Nullable<int> _110
+	{
+		get
+		{
+			return this.@__110;
+		}
+		set
+		{
+			if ((this.@__110 != value))
+			{
+				this.On_110Changing(value);
+				this.SendPropertyChanging();
+				this.@__110 = value;
+				this.SendPropertyChanged("_110");
+				this.On_110Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[111]", Storage="__111", DbType="Int")]
+	public System.Nullable<int> _111
+	{
+		get
+		{
+			return this.@__111;
+		}
+		set
+		{
+			if ((this.@__111 != value))
+			{
+				this.On_111Changing(value);
+				this.SendPropertyChanging();
+				this.@__111 = value;
+				this.SendPropertyChanged("_111");
+				this.On_111Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[112]", Storage="__112", DbType="Int")]
+	public System.Nullable<int> _112
+	{
+		get
+		{
+			return this.@__112;
+		}
+		set
+		{
+			if ((this.@__112 != value))
+			{
+				this.On_112Changing(value);
+				this.SendPropertyChanging();
+				this.@__112 = value;
+				this.SendPropertyChanged("_112");
+				this.On_112Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[113]", Storage="__113", DbType="Int")]
+	public System.Nullable<int> _113
+	{
+		get
+		{
+			return this.@__113;
+		}
+		set
+		{
+			if ((this.@__113 != value))
+			{
+				this.On_113Changing(value);
+				this.SendPropertyChanging();
+				this.@__113 = value;
+				this.SendPropertyChanged("_113");
+				this.On_113Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[114]", Storage="__114", DbType="Int")]
+	public System.Nullable<int> _114
+	{
+		get
+		{
+			return this.@__114;
+		}
+		set
+		{
+			if ((this.@__114 != value))
+			{
+				this.On_114Changing(value);
+				this.SendPropertyChanging();
+				this.@__114 = value;
+				this.SendPropertyChanged("_114");
+				this.On_114Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[115]", Storage="__115", DbType="Int")]
+	public System.Nullable<int> _115
+	{
+		get
+		{
+			return this.@__115;
+		}
+		set
+		{
+			if ((this.@__115 != value))
+			{
+				this.On_115Changing(value);
+				this.SendPropertyChanging();
+				this.@__115 = value;
+				this.SendPropertyChanged("_115");
+				this.On_115Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[116]", Storage="__116", DbType="Int")]
+	public System.Nullable<int> _116
+	{
+		get
+		{
+			return this.@__116;
+		}
+		set
+		{
+			if ((this.@__116 != value))
+			{
+				this.On_116Changing(value);
+				this.SendPropertyChanging();
+				this.@__116 = value;
+				this.SendPropertyChanged("_116");
+				this.On_116Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[117]", Storage="__117", DbType="Int")]
+	public System.Nullable<int> _117
+	{
+		get
+		{
+			return this.@__117;
+		}
+		set
+		{
+			if ((this.@__117 != value))
+			{
+				this.On_117Changing(value);
+				this.SendPropertyChanging();
+				this.@__117 = value;
+				this.SendPropertyChanged("_117");
+				this.On_117Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[118]", Storage="__118", DbType="Int")]
+	public System.Nullable<int> _118
+	{
+		get
+		{
+			return this.@__118;
+		}
+		set
+		{
+			if ((this.@__118 != value))
+			{
+				this.On_118Changing(value);
+				this.SendPropertyChanging();
+				this.@__118 = value;
+				this.SendPropertyChanged("_118");
+				this.On_118Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[119]", Storage="__119", DbType="Int")]
+	public System.Nullable<int> _119
+	{
+		get
+		{
+			return this.@__119;
+		}
+		set
+		{
+			if ((this.@__119 != value))
+			{
+				this.On_119Changing(value);
+				this.SendPropertyChanging();
+				this.@__119 = value;
+				this.SendPropertyChanged("_119");
+				this.On_119Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[120]", Storage="__120", DbType="Int")]
+	public System.Nullable<int> _120
+	{
+		get
+		{
+			return this.@__120;
+		}
+		set
+		{
+			if ((this.@__120 != value))
+			{
+				this.On_120Changing(value);
+				this.SendPropertyChanging();
+				this.@__120 = value;
+				this.SendPropertyChanged("_120");
+				this.On_120Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[121]", Storage="__121", DbType="Int")]
+	public System.Nullable<int> _121
+	{
+		get
+		{
+			return this.@__121;
+		}
+		set
+		{
+			if ((this.@__121 != value))
+			{
+				this.On_121Changing(value);
+				this.SendPropertyChanging();
+				this.@__121 = value;
+				this.SendPropertyChanged("_121");
+				this.On_121Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[122]", Storage="__122", DbType="Int")]
+	public System.Nullable<int> _122
+	{
+		get
+		{
+			return this.@__122;
+		}
+		set
+		{
+			if ((this.@__122 != value))
+			{
+				this.On_122Changing(value);
+				this.SendPropertyChanging();
+				this.@__122 = value;
+				this.SendPropertyChanged("_122");
+				this.On_122Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[123]", Storage="__123", DbType="Int")]
+	public System.Nullable<int> _123
+	{
+		get
+		{
+			return this.@__123;
+		}
+		set
+		{
+			if ((this.@__123 != value))
+			{
+				this.On_123Changing(value);
+				this.SendPropertyChanging();
+				this.@__123 = value;
+				this.SendPropertyChanged("_123");
+				this.On_123Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[124]", Storage="__124", DbType="Int")]
+	public System.Nullable<int> _124
+	{
+		get
+		{
+			return this.@__124;
+		}
+		set
+		{
+			if ((this.@__124 != value))
+			{
+				this.On_124Changing(value);
+				this.SendPropertyChanging();
+				this.@__124 = value;
+				this.SendPropertyChanged("_124");
+				this.On_124Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[125]", Storage="__125", DbType="Int")]
+	public System.Nullable<int> _125
+	{
+		get
+		{
+			return this.@__125;
+		}
+		set
+		{
+			if ((this.@__125 != value))
+			{
+				this.On_125Changing(value);
+				this.SendPropertyChanging();
+				this.@__125 = value;
+				this.SendPropertyChanged("_125");
+				this.On_125Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[126]", Storage="__126", DbType="Int")]
+	public System.Nullable<int> _126
+	{
+		get
+		{
+			return this.@__126;
+		}
+		set
+		{
+			if ((this.@__126 != value))
+			{
+				this.On_126Changing(value);
+				this.SendPropertyChanging();
+				this.@__126 = value;
+				this.SendPropertyChanged("_126");
+				this.On_126Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[127]", Storage="__127", DbType="Int")]
+	public System.Nullable<int> _127
+	{
+		get
+		{
+			return this.@__127;
+		}
+		set
+		{
+			if ((this.@__127 != value))
+			{
+				this.On_127Changing(value);
+				this.SendPropertyChanging();
+				this.@__127 = value;
+				this.SendPropertyChanged("_127");
+				this.On_127Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[128]", Storage="__128", DbType="Int")]
+	public System.Nullable<int> _128
+	{
+		get
+		{
+			return this.@__128;
+		}
+		set
+		{
+			if ((this.@__128 != value))
+			{
+				this.On_128Changing(value);
+				this.SendPropertyChanging();
+				this.@__128 = value;
+				this.SendPropertyChanged("_128");
+				this.On_128Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[129]", Storage="__129", DbType="Int")]
+	public System.Nullable<int> _129
+	{
+		get
+		{
+			return this.@__129;
+		}
+		set
+		{
+			if ((this.@__129 != value))
+			{
+				this.On_129Changing(value);
+				this.SendPropertyChanging();
+				this.@__129 = value;
+				this.SendPropertyChanged("_129");
+				this.On_129Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[130]", Storage="__130", DbType="Int")]
+	public System.Nullable<int> _130
+	{
+		get
+		{
+			return this.@__130;
+		}
+		set
+		{
+			if ((this.@__130 != value))
+			{
+				this.On_130Changing(value);
+				this.SendPropertyChanging();
+				this.@__130 = value;
+				this.SendPropertyChanged("_130");
+				this.On_130Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[131]", Storage="__131", DbType="Int")]
+	public System.Nullable<int> _131
+	{
+		get
+		{
+			return this.@__131;
+		}
+		set
+		{
+			if ((this.@__131 != value))
+			{
+				this.On_131Changing(value);
+				this.SendPropertyChanging();
+				this.@__131 = value;
+				this.SendPropertyChanged("_131");
+				this.On_131Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[132]", Storage="__132", DbType="Int")]
+	public System.Nullable<int> _132
+	{
+		get
+		{
+			return this.@__132;
+		}
+		set
+		{
+			if ((this.@__132 != value))
+			{
+				this.On_132Changing(value);
+				this.SendPropertyChanging();
+				this.@__132 = value;
+				this.SendPropertyChanged("_132");
+				this.On_132Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[133]", Storage="__133", DbType="Int")]
+	public System.Nullable<int> _133
+	{
+		get
+		{
+			return this.@__133;
+		}
+		set
+		{
+			if ((this.@__133 != value))
+			{
+				this.On_133Changing(value);
+				this.SendPropertyChanging();
+				this.@__133 = value;
+				this.SendPropertyChanged("_133");
+				this.On_133Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[134]", Storage="__134", DbType="Int")]
+	public System.Nullable<int> _134
+	{
+		get
+		{
+			return this.@__134;
+		}
+		set
+		{
+			if ((this.@__134 != value))
+			{
+				this.On_134Changing(value);
+				this.SendPropertyChanging();
+				this.@__134 = value;
+				this.SendPropertyChanged("_134");
+				this.On_134Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[135]", Storage="__135", DbType="Int")]
+	public System.Nullable<int> _135
+	{
+		get
+		{
+			return this.@__135;
+		}
+		set
+		{
+			if ((this.@__135 != value))
+			{
+				this.On_135Changing(value);
+				this.SendPropertyChanging();
+				this.@__135 = value;
+				this.SendPropertyChanged("_135");
+				this.On_135Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[136]", Storage="__136", DbType="Int")]
+	public System.Nullable<int> _136
+	{
+		get
+		{
+			return this.@__136;
+		}
+		set
+		{
+			if ((this.@__136 != value))
+			{
+				this.On_136Changing(value);
+				this.SendPropertyChanging();
+				this.@__136 = value;
+				this.SendPropertyChanged("_136");
+				this.On_136Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[137]", Storage="__137", DbType="Int")]
+	public System.Nullable<int> _137
+	{
+		get
+		{
+			return this.@__137;
+		}
+		set
+		{
+			if ((this.@__137 != value))
+			{
+				this.On_137Changing(value);
+				this.SendPropertyChanging();
+				this.@__137 = value;
+				this.SendPropertyChanged("_137");
+				this.On_137Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[138]", Storage="__138", DbType="Int")]
+	public System.Nullable<int> _138
+	{
+		get
+		{
+			return this.@__138;
+		}
+		set
+		{
+			if ((this.@__138 != value))
+			{
+				this.On_138Changing(value);
+				this.SendPropertyChanging();
+				this.@__138 = value;
+				this.SendPropertyChanged("_138");
+				this.On_138Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[139]", Storage="__139", DbType="Int")]
+	public System.Nullable<int> _139
+	{
+		get
+		{
+			return this.@__139;
+		}
+		set
+		{
+			if ((this.@__139 != value))
+			{
+				this.On_139Changing(value);
+				this.SendPropertyChanging();
+				this.@__139 = value;
+				this.SendPropertyChanged("_139");
+				this.On_139Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[140]", Storage="__140", DbType="Int")]
+	public System.Nullable<int> _140
+	{
+		get
+		{
+			return this.@__140;
+		}
+		set
+		{
+			if ((this.@__140 != value))
+			{
+				this.On_140Changing(value);
+				this.SendPropertyChanging();
+				this.@__140 = value;
+				this.SendPropertyChanged("_140");
+				this.On_140Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[141]", Storage="__141", DbType="Int")]
+	public System.Nullable<int> _141
+	{
+		get
+		{
+			return this.@__141;
+		}
+		set
+		{
+			if ((this.@__141 != value))
+			{
+				this.On_141Changing(value);
+				this.SendPropertyChanging();
+				this.@__141 = value;
+				this.SendPropertyChanged("_141");
+				this.On_141Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[142]", Storage="__142", DbType="Int")]
+	public System.Nullable<int> _142
+	{
+		get
+		{
+			return this.@__142;
+		}
+		set
+		{
+			if ((this.@__142 != value))
+			{
+				this.On_142Changing(value);
+				this.SendPropertyChanging();
+				this.@__142 = value;
+				this.SendPropertyChanged("_142");
+				this.On_142Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[143]", Storage="__143", DbType="Int")]
+	public System.Nullable<int> _143
+	{
+		get
+		{
+			return this.@__143;
+		}
+		set
+		{
+			if ((this.@__143 != value))
+			{
+				this.On_143Changing(value);
+				this.SendPropertyChanging();
+				this.@__143 = value;
+				this.SendPropertyChanged("_143");
+				this.On_143Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[144]", Storage="__144", DbType="Int")]
+	public System.Nullable<int> _144
+	{
+		get
+		{
+			return this.@__144;
+		}
+		set
+		{
+			if ((this.@__144 != value))
+			{
+				this.On_144Changing(value);
+				this.SendPropertyChanging();
+				this.@__144 = value;
+				this.SendPropertyChanged("_144");
+				this.On_144Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[145]", Storage="__145", DbType="Int")]
+	public System.Nullable<int> _145
+	{
+		get
+		{
+			return this.@__145;
+		}
+		set
+		{
+			if ((this.@__145 != value))
+			{
+				this.On_145Changing(value);
+				this.SendPropertyChanging();
+				this.@__145 = value;
+				this.SendPropertyChanged("_145");
+				this.On_145Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[146]", Storage="__146", DbType="Int")]
+	public System.Nullable<int> _146
+	{
+		get
+		{
+			return this.@__146;
+		}
+		set
+		{
+			if ((this.@__146 != value))
+			{
+				this.On_146Changing(value);
+				this.SendPropertyChanging();
+				this.@__146 = value;
+				this.SendPropertyChanged("_146");
+				this.On_146Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[147]", Storage="__147", DbType="Int")]
+	public System.Nullable<int> _147
+	{
+		get
+		{
+			return this.@__147;
+		}
+		set
+		{
+			if ((this.@__147 != value))
+			{
+				this.On_147Changing(value);
+				this.SendPropertyChanging();
+				this.@__147 = value;
+				this.SendPropertyChanged("_147");
+				this.On_147Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[148]", Storage="__148", DbType="Int")]
+	public System.Nullable<int> _148
+	{
+		get
+		{
+			return this.@__148;
+		}
+		set
+		{
+			if ((this.@__148 != value))
+			{
+				this.On_148Changing(value);
+				this.SendPropertyChanging();
+				this.@__148 = value;
+				this.SendPropertyChanged("_148");
+				this.On_148Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[149]", Storage="__149", DbType="Int")]
+	public System.Nullable<int> _149
+	{
+		get
+		{
+			return this.@__149;
+		}
+		set
+		{
+			if ((this.@__149 != value))
+			{
+				this.On_149Changing(value);
+				this.SendPropertyChanging();
+				this.@__149 = value;
+				this.SendPropertyChanged("_149");
+				this.On_149Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[150]", Storage="__150", DbType="Int")]
+	public System.Nullable<int> _150
+	{
+		get
+		{
+			return this.@__150;
+		}
+		set
+		{
+			if ((this.@__150 != value))
+			{
+				this.On_150Changing(value);
+				this.SendPropertyChanging();
+				this.@__150 = value;
+				this.SendPropertyChanged("_150");
+				this.On_150Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[151]", Storage="__151", DbType="Int")]
+	public System.Nullable<int> _151
+	{
+		get
+		{
+			return this.@__151;
+		}
+		set
+		{
+			if ((this.@__151 != value))
+			{
+				this.On_151Changing(value);
+				this.SendPropertyChanging();
+				this.@__151 = value;
+				this.SendPropertyChanged("_151");
+				this.On_151Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[152]", Storage="__152", DbType="Int")]
+	public System.Nullable<int> _152
+	{
+		get
+		{
+			return this.@__152;
+		}
+		set
+		{
+			if ((this.@__152 != value))
+			{
+				this.On_152Changing(value);
+				this.SendPropertyChanging();
+				this.@__152 = value;
+				this.SendPropertyChanged("_152");
+				this.On_152Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[153]", Storage="__153", DbType="Int")]
+	public System.Nullable<int> _153
+	{
+		get
+		{
+			return this.@__153;
+		}
+		set
+		{
+			if ((this.@__153 != value))
+			{
+				this.On_153Changing(value);
+				this.SendPropertyChanging();
+				this.@__153 = value;
+				this.SendPropertyChanged("_153");
+				this.On_153Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[154]", Storage="__154", DbType="Int")]
+	public System.Nullable<int> _154
+	{
+		get
+		{
+			return this.@__154;
+		}
+		set
+		{
+			if ((this.@__154 != value))
+			{
+				this.On_154Changing(value);
+				this.SendPropertyChanging();
+				this.@__154 = value;
+				this.SendPropertyChanged("_154");
+				this.On_154Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[155]", Storage="__155", DbType="Int")]
+	public System.Nullable<int> _155
+	{
+		get
+		{
+			return this.@__155;
+		}
+		set
+		{
+			if ((this.@__155 != value))
+			{
+				this.On_155Changing(value);
+				this.SendPropertyChanging();
+				this.@__155 = value;
+				this.SendPropertyChanged("_155");
+				this.On_155Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[156]", Storage="__156", DbType="Int")]
+	public System.Nullable<int> _156
+	{
+		get
+		{
+			return this.@__156;
+		}
+		set
+		{
+			if ((this.@__156 != value))
+			{
+				this.On_156Changing(value);
+				this.SendPropertyChanging();
+				this.@__156 = value;
+				this.SendPropertyChanged("_156");
+				this.On_156Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[157]", Storage="__157", DbType="Int")]
+	public System.Nullable<int> _157
+	{
+		get
+		{
+			return this.@__157;
+		}
+		set
+		{
+			if ((this.@__157 != value))
+			{
+				this.On_157Changing(value);
+				this.SendPropertyChanging();
+				this.@__157 = value;
+				this.SendPropertyChanged("_157");
+				this.On_157Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[158]", Storage="__158", DbType="Int")]
+	public System.Nullable<int> _158
+	{
+		get
+		{
+			return this.@__158;
+		}
+		set
+		{
+			if ((this.@__158 != value))
+			{
+				this.On_158Changing(value);
+				this.SendPropertyChanging();
+				this.@__158 = value;
+				this.SendPropertyChanged("_158");
+				this.On_158Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[159]", Storage="__159", DbType="Int")]
+	public System.Nullable<int> _159
+	{
+		get
+		{
+			return this.@__159;
+		}
+		set
+		{
+			if ((this.@__159 != value))
+			{
+				this.On_159Changing(value);
+				this.SendPropertyChanging();
+				this.@__159 = value;
+				this.SendPropertyChanged("_159");
+				this.On_159Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[160]", Storage="__160", DbType="Int")]
+	public System.Nullable<int> _160
+	{
+		get
+		{
+			return this.@__160;
+		}
+		set
+		{
+			if ((this.@__160 != value))
+			{
+				this.On_160Changing(value);
+				this.SendPropertyChanging();
+				this.@__160 = value;
+				this.SendPropertyChanged("_160");
+				this.On_160Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[161]", Storage="__161", DbType="Int")]
+	public System.Nullable<int> _161
+	{
+		get
+		{
+			return this.@__161;
+		}
+		set
+		{
+			if ((this.@__161 != value))
+			{
+				this.On_161Changing(value);
+				this.SendPropertyChanging();
+				this.@__161 = value;
+				this.SendPropertyChanged("_161");
+				this.On_161Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[162]", Storage="__162", DbType="Int")]
+	public System.Nullable<int> _162
+	{
+		get
+		{
+			return this.@__162;
+		}
+		set
+		{
+			if ((this.@__162 != value))
+			{
+				this.On_162Changing(value);
+				this.SendPropertyChanging();
+				this.@__162 = value;
+				this.SendPropertyChanged("_162");
+				this.On_162Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[163]", Storage="__163", DbType="Int")]
+	public System.Nullable<int> _163
+	{
+		get
+		{
+			return this.@__163;
+		}
+		set
+		{
+			if ((this.@__163 != value))
+			{
+				this.On_163Changing(value);
+				this.SendPropertyChanging();
+				this.@__163 = value;
+				this.SendPropertyChanged("_163");
+				this.On_163Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[164]", Storage="__164", DbType="Int")]
+	public System.Nullable<int> _164
+	{
+		get
+		{
+			return this.@__164;
+		}
+		set
+		{
+			if ((this.@__164 != value))
+			{
+				this.On_164Changing(value);
+				this.SendPropertyChanging();
+				this.@__164 = value;
+				this.SendPropertyChanged("_164");
+				this.On_164Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[165]", Storage="__165", DbType="Int")]
+	public System.Nullable<int> _165
+	{
+		get
+		{
+			return this.@__165;
+		}
+		set
+		{
+			if ((this.@__165 != value))
+			{
+				this.On_165Changing(value);
+				this.SendPropertyChanging();
+				this.@__165 = value;
+				this.SendPropertyChanged("_165");
+				this.On_165Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[166]", Storage="__166", DbType="Int")]
+	public System.Nullable<int> _166
+	{
+		get
+		{
+			return this.@__166;
+		}
+		set
+		{
+			if ((this.@__166 != value))
+			{
+				this.On_166Changing(value);
+				this.SendPropertyChanging();
+				this.@__166 = value;
+				this.SendPropertyChanged("_166");
+				this.On_166Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[167]", Storage="__167", DbType="Int")]
+	public System.Nullable<int> _167
+	{
+		get
+		{
+			return this.@__167;
+		}
+		set
+		{
+			if ((this.@__167 != value))
+			{
+				this.On_167Changing(value);
+				this.SendPropertyChanging();
+				this.@__167 = value;
+				this.SendPropertyChanged("_167");
+				this.On_167Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[168]", Storage="__168", DbType="Int")]
+	public System.Nullable<int> _168
+	{
+		get
+		{
+			return this.@__168;
+		}
+		set
+		{
+			if ((this.@__168 != value))
+			{
+				this.On_168Changing(value);
+				this.SendPropertyChanging();
+				this.@__168 = value;
+				this.SendPropertyChanged("_168");
+				this.On_168Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[169]", Storage="__169", DbType="Int")]
+	public System.Nullable<int> _169
+	{
+		get
+		{
+			return this.@__169;
+		}
+		set
+		{
+			if ((this.@__169 != value))
+			{
+				this.On_169Changing(value);
+				this.SendPropertyChanging();
+				this.@__169 = value;
+				this.SendPropertyChanged("_169");
+				this.On_169Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[170]", Storage="__170", DbType="Int")]
+	public System.Nullable<int> _170
+	{
+		get
+		{
+			return this.@__170;
+		}
+		set
+		{
+			if ((this.@__170 != value))
+			{
+				this.On_170Changing(value);
+				this.SendPropertyChanging();
+				this.@__170 = value;
+				this.SendPropertyChanged("_170");
+				this.On_170Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[171]", Storage="__171", DbType="Int")]
+	public System.Nullable<int> _171
+	{
+		get
+		{
+			return this.@__171;
+		}
+		set
+		{
+			if ((this.@__171 != value))
+			{
+				this.On_171Changing(value);
+				this.SendPropertyChanging();
+				this.@__171 = value;
+				this.SendPropertyChanged("_171");
+				this.On_171Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[172]", Storage="__172", DbType="Int")]
+	public System.Nullable<int> _172
+	{
+		get
+		{
+			return this.@__172;
+		}
+		set
+		{
+			if ((this.@__172 != value))
+			{
+				this.On_172Changing(value);
+				this.SendPropertyChanging();
+				this.@__172 = value;
+				this.SendPropertyChanged("_172");
+				this.On_172Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[173]", Storage="__173", DbType="Int")]
+	public System.Nullable<int> _173
+	{
+		get
+		{
+			return this.@__173;
+		}
+		set
+		{
+			if ((this.@__173 != value))
+			{
+				this.On_173Changing(value);
+				this.SendPropertyChanging();
+				this.@__173 = value;
+				this.SendPropertyChanged("_173");
+				this.On_173Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[174]", Storage="__174", DbType="Int")]
+	public System.Nullable<int> _174
+	{
+		get
+		{
+			return this.@__174;
+		}
+		set
+		{
+			if ((this.@__174 != value))
+			{
+				this.On_174Changing(value);
+				this.SendPropertyChanging();
+				this.@__174 = value;
+				this.SendPropertyChanged("_174");
+				this.On_174Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[175]", Storage="__175", DbType="Int")]
+	public System.Nullable<int> _175
+	{
+		get
+		{
+			return this.@__175;
+		}
+		set
+		{
+			if ((this.@__175 != value))
+			{
+				this.On_175Changing(value);
+				this.SendPropertyChanging();
+				this.@__175 = value;
+				this.SendPropertyChanged("_175");
+				this.On_175Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[176]", Storage="__176", DbType="Int")]
+	public System.Nullable<int> _176
+	{
+		get
+		{
+			return this.@__176;
+		}
+		set
+		{
+			if ((this.@__176 != value))
+			{
+				this.On_176Changing(value);
+				this.SendPropertyChanging();
+				this.@__176 = value;
+				this.SendPropertyChanged("_176");
+				this.On_176Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[177]", Storage="__177", DbType="Int")]
+	public System.Nullable<int> _177
+	{
+		get
+		{
+			return this.@__177;
+		}
+		set
+		{
+			if ((this.@__177 != value))
+			{
+				this.On_177Changing(value);
+				this.SendPropertyChanging();
+				this.@__177 = value;
+				this.SendPropertyChanged("_177");
+				this.On_177Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[178]", Storage="__178", DbType="Int")]
+	public System.Nullable<int> _178
+	{
+		get
+		{
+			return this.@__178;
+		}
+		set
+		{
+			if ((this.@__178 != value))
+			{
+				this.On_178Changing(value);
+				this.SendPropertyChanging();
+				this.@__178 = value;
+				this.SendPropertyChanged("_178");
+				this.On_178Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[179]", Storage="__179", DbType="Int")]
+	public System.Nullable<int> _179
+	{
+		get
+		{
+			return this.@__179;
+		}
+		set
+		{
+			if ((this.@__179 != value))
+			{
+				this.On_179Changing(value);
+				this.SendPropertyChanging();
+				this.@__179 = value;
+				this.SendPropertyChanged("_179");
+				this.On_179Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[180]", Storage="__180", DbType="Int")]
+	public System.Nullable<int> _180
+	{
+		get
+		{
+			return this.@__180;
+		}
+		set
+		{
+			if ((this.@__180 != value))
+			{
+				this.On_180Changing(value);
+				this.SendPropertyChanging();
+				this.@__180 = value;
+				this.SendPropertyChanged("_180");
+				this.On_180Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[181]", Storage="__181", DbType="Int")]
+	public System.Nullable<int> _181
+	{
+		get
+		{
+			return this.@__181;
+		}
+		set
+		{
+			if ((this.@__181 != value))
+			{
+				this.On_181Changing(value);
+				this.SendPropertyChanging();
+				this.@__181 = value;
+				this.SendPropertyChanged("_181");
+				this.On_181Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[182]", Storage="__182", DbType="Int")]
+	public System.Nullable<int> _182
+	{
+		get
+		{
+			return this.@__182;
+		}
+		set
+		{
+			if ((this.@__182 != value))
+			{
+				this.On_182Changing(value);
+				this.SendPropertyChanging();
+				this.@__182 = value;
+				this.SendPropertyChanged("_182");
+				this.On_182Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[183]", Storage="__183", DbType="Int")]
+	public System.Nullable<int> _183
+	{
+		get
+		{
+			return this.@__183;
+		}
+		set
+		{
+			if ((this.@__183 != value))
+			{
+				this.On_183Changing(value);
+				this.SendPropertyChanging();
+				this.@__183 = value;
+				this.SendPropertyChanged("_183");
+				this.On_183Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[184]", Storage="__184", DbType="Int")]
+	public System.Nullable<int> _184
+	{
+		get
+		{
+			return this.@__184;
+		}
+		set
+		{
+			if ((this.@__184 != value))
+			{
+				this.On_184Changing(value);
+				this.SendPropertyChanging();
+				this.@__184 = value;
+				this.SendPropertyChanged("_184");
+				this.On_184Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[185]", Storage="__185", DbType="Int")]
+	public System.Nullable<int> _185
+	{
+		get
+		{
+			return this.@__185;
+		}
+		set
+		{
+			if ((this.@__185 != value))
+			{
+				this.On_185Changing(value);
+				this.SendPropertyChanging();
+				this.@__185 = value;
+				this.SendPropertyChanged("_185");
+				this.On_185Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[186]", Storage="__186", DbType="Int")]
+	public System.Nullable<int> _186
+	{
+		get
+		{
+			return this.@__186;
+		}
+		set
+		{
+			if ((this.@__186 != value))
+			{
+				this.On_186Changing(value);
+				this.SendPropertyChanging();
+				this.@__186 = value;
+				this.SendPropertyChanged("_186");
+				this.On_186Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[187]", Storage="__187", DbType="Int")]
+	public System.Nullable<int> _187
+	{
+		get
+		{
+			return this.@__187;
+		}
+		set
+		{
+			if ((this.@__187 != value))
+			{
+				this.On_187Changing(value);
+				this.SendPropertyChanging();
+				this.@__187 = value;
+				this.SendPropertyChanged("_187");
+				this.On_187Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[188]", Storage="__188", DbType="Int")]
+	public System.Nullable<int> _188
+	{
+		get
+		{
+			return this.@__188;
+		}
+		set
+		{
+			if ((this.@__188 != value))
+			{
+				this.On_188Changing(value);
+				this.SendPropertyChanging();
+				this.@__188 = value;
+				this.SendPropertyChanged("_188");
+				this.On_188Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[189]", Storage="__189", DbType="Int")]
+	public System.Nullable<int> _189
+	{
+		get
+		{
+			return this.@__189;
+		}
+		set
+		{
+			if ((this.@__189 != value))
+			{
+				this.On_189Changing(value);
+				this.SendPropertyChanging();
+				this.@__189 = value;
+				this.SendPropertyChanged("_189");
+				this.On_189Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[190]", Storage="__190", DbType="Int")]
+	public System.Nullable<int> _190
+	{
+		get
+		{
+			return this.@__190;
+		}
+		set
+		{
+			if ((this.@__190 != value))
+			{
+				this.On_190Changing(value);
+				this.SendPropertyChanging();
+				this.@__190 = value;
+				this.SendPropertyChanged("_190");
+				this.On_190Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[191]", Storage="__191", DbType="Int")]
+	public System.Nullable<int> _191
+	{
+		get
+		{
+			return this.@__191;
+		}
+		set
+		{
+			if ((this.@__191 != value))
+			{
+				this.On_191Changing(value);
+				this.SendPropertyChanging();
+				this.@__191 = value;
+				this.SendPropertyChanged("_191");
+				this.On_191Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[192]", Storage="__192", DbType="Int")]
+	public System.Nullable<int> _192
+	{
+		get
+		{
+			return this.@__192;
+		}
+		set
+		{
+			if ((this.@__192 != value))
+			{
+				this.On_192Changing(value);
+				this.SendPropertyChanging();
+				this.@__192 = value;
+				this.SendPropertyChanged("_192");
+				this.On_192Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[193]", Storage="__193", DbType="Int")]
+	public System.Nullable<int> _193
+	{
+		get
+		{
+			return this.@__193;
+		}
+		set
+		{
+			if ((this.@__193 != value))
+			{
+				this.On_193Changing(value);
+				this.SendPropertyChanging();
+				this.@__193 = value;
+				this.SendPropertyChanged("_193");
+				this.On_193Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[194]", Storage="__194", DbType="Int")]
+	public System.Nullable<int> _194
+	{
+		get
+		{
+			return this.@__194;
+		}
+		set
+		{
+			if ((this.@__194 != value))
+			{
+				this.On_194Changing(value);
+				this.SendPropertyChanging();
+				this.@__194 = value;
+				this.SendPropertyChanged("_194");
+				this.On_194Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[195]", Storage="__195", DbType="Int")]
+	public System.Nullable<int> _195
+	{
+		get
+		{
+			return this.@__195;
+		}
+		set
+		{
+			if ((this.@__195 != value))
+			{
+				this.On_195Changing(value);
+				this.SendPropertyChanging();
+				this.@__195 = value;
+				this.SendPropertyChanged("_195");
+				this.On_195Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[196]", Storage="__196", DbType="Int")]
+	public System.Nullable<int> _196
+	{
+		get
+		{
+			return this.@__196;
+		}
+		set
+		{
+			if ((this.@__196 != value))
+			{
+				this.On_196Changing(value);
+				this.SendPropertyChanging();
+				this.@__196 = value;
+				this.SendPropertyChanged("_196");
+				this.On_196Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[197]", Storage="__197", DbType="Int")]
+	public System.Nullable<int> _197
+	{
+		get
+		{
+			return this.@__197;
+		}
+		set
+		{
+			if ((this.@__197 != value))
+			{
+				this.On_197Changing(value);
+				this.SendPropertyChanging();
+				this.@__197 = value;
+				this.SendPropertyChanged("_197");
+				this.On_197Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[198]", Storage="__198", DbType="Int")]
+	public System.Nullable<int> _198
+	{
+		get
+		{
+			return this.@__198;
+		}
+		set
+		{
+			if ((this.@__198 != value))
+			{
+				this.On_198Changing(value);
+				this.SendPropertyChanging();
+				this.@__198 = value;
+				this.SendPropertyChanged("_198");
+				this.On_198Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[199]", Storage="__199", DbType="Int")]
+	public System.Nullable<int> _199
+	{
+		get
+		{
+			return this.@__199;
+		}
+		set
+		{
+			if ((this.@__199 != value))
+			{
+				this.On_199Changing(value);
+				this.SendPropertyChanging();
+				this.@__199 = value;
+				this.SendPropertyChanged("_199");
+				this.On_199Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[200]", Storage="__200", DbType="Int")]
+	public System.Nullable<int> _200
+	{
+		get
+		{
+			return this.@__200;
+		}
+		set
+		{
+			if ((this.@__200 != value))
+			{
+				this.On_200Changing(value);
+				this.SendPropertyChanging();
+				this.@__200 = value;
+				this.SendPropertyChanged("_200");
+				this.On_200Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[201]", Storage="__201", DbType="Int")]
+	public System.Nullable<int> _201
+	{
+		get
+		{
+			return this.@__201;
+		}
+		set
+		{
+			if ((this.@__201 != value))
+			{
+				this.On_201Changing(value);
+				this.SendPropertyChanging();
+				this.@__201 = value;
+				this.SendPropertyChanged("_201");
+				this.On_201Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[202]", Storage="__202", DbType="Int")]
+	public System.Nullable<int> _202
+	{
+		get
+		{
+			return this.@__202;
+		}
+		set
+		{
+			if ((this.@__202 != value))
+			{
+				this.On_202Changing(value);
+				this.SendPropertyChanging();
+				this.@__202 = value;
+				this.SendPropertyChanged("_202");
+				this.On_202Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[203]", Storage="__203", DbType="Int")]
+	public System.Nullable<int> _203
+	{
+		get
+		{
+			return this.@__203;
+		}
+		set
+		{
+			if ((this.@__203 != value))
+			{
+				this.On_203Changing(value);
+				this.SendPropertyChanging();
+				this.@__203 = value;
+				this.SendPropertyChanged("_203");
+				this.On_203Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[204]", Storage="__204", DbType="Int")]
+	public System.Nullable<int> _204
+	{
+		get
+		{
+			return this.@__204;
+		}
+		set
+		{
+			if ((this.@__204 != value))
+			{
+				this.On_204Changing(value);
+				this.SendPropertyChanging();
+				this.@__204 = value;
+				this.SendPropertyChanged("_204");
+				this.On_204Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[205]", Storage="__205", DbType="Int")]
+	public System.Nullable<int> _205
+	{
+		get
+		{
+			return this.@__205;
+		}
+		set
+		{
+			if ((this.@__205 != value))
+			{
+				this.On_205Changing(value);
+				this.SendPropertyChanging();
+				this.@__205 = value;
+				this.SendPropertyChanged("_205");
+				this.On_205Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[206]", Storage="__206", DbType="Int")]
+	public System.Nullable<int> _206
+	{
+		get
+		{
+			return this.@__206;
+		}
+		set
+		{
+			if ((this.@__206 != value))
+			{
+				this.On_206Changing(value);
+				this.SendPropertyChanging();
+				this.@__206 = value;
+				this.SendPropertyChanged("_206");
+				this.On_206Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[207]", Storage="__207", DbType="Int")]
+	public System.Nullable<int> _207
+	{
+		get
+		{
+			return this.@__207;
+		}
+		set
+		{
+			if ((this.@__207 != value))
+			{
+				this.On_207Changing(value);
+				this.SendPropertyChanging();
+				this.@__207 = value;
+				this.SendPropertyChanged("_207");
+				this.On_207Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[208]", Storage="__208", DbType="Int")]
+	public System.Nullable<int> _208
+	{
+		get
+		{
+			return this.@__208;
+		}
+		set
+		{
+			if ((this.@__208 != value))
+			{
+				this.On_208Changing(value);
+				this.SendPropertyChanging();
+				this.@__208 = value;
+				this.SendPropertyChanged("_208");
+				this.On_208Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[209]", Storage="__209", DbType="Int")]
+	public System.Nullable<int> _209
+	{
+		get
+		{
+			return this.@__209;
+		}
+		set
+		{
+			if ((this.@__209 != value))
+			{
+				this.On_209Changing(value);
+				this.SendPropertyChanging();
+				this.@__209 = value;
+				this.SendPropertyChanged("_209");
+				this.On_209Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[210]", Storage="__210", DbType="Int")]
+	public System.Nullable<int> _210
+	{
+		get
+		{
+			return this.@__210;
+		}
+		set
+		{
+			if ((this.@__210 != value))
+			{
+				this.On_210Changing(value);
+				this.SendPropertyChanging();
+				this.@__210 = value;
+				this.SendPropertyChanged("_210");
+				this.On_210Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[211]", Storage="__211", DbType="Int")]
+	public System.Nullable<int> _211
+	{
+		get
+		{
+			return this.@__211;
+		}
+		set
+		{
+			if ((this.@__211 != value))
+			{
+				this.On_211Changing(value);
+				this.SendPropertyChanging();
+				this.@__211 = value;
+				this.SendPropertyChanged("_211");
+				this.On_211Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[212]", Storage="__212", DbType="Int")]
+	public System.Nullable<int> _212
+	{
+		get
+		{
+			return this.@__212;
+		}
+		set
+		{
+			if ((this.@__212 != value))
+			{
+				this.On_212Changing(value);
+				this.SendPropertyChanging();
+				this.@__212 = value;
+				this.SendPropertyChanged("_212");
+				this.On_212Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[213]", Storage="__213", DbType="Int")]
+	public System.Nullable<int> _213
+	{
+		get
+		{
+			return this.@__213;
+		}
+		set
+		{
+			if ((this.@__213 != value))
+			{
+				this.On_213Changing(value);
+				this.SendPropertyChanging();
+				this.@__213 = value;
+				this.SendPropertyChanged("_213");
+				this.On_213Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[214]", Storage="__214", DbType="Int")]
+	public System.Nullable<int> _214
+	{
+		get
+		{
+			return this.@__214;
+		}
+		set
+		{
+			if ((this.@__214 != value))
+			{
+				this.On_214Changing(value);
+				this.SendPropertyChanging();
+				this.@__214 = value;
+				this.SendPropertyChanged("_214");
+				this.On_214Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[215]", Storage="__215", DbType="Int")]
+	public System.Nullable<int> _215
+	{
+		get
+		{
+			return this.@__215;
+		}
+		set
+		{
+			if ((this.@__215 != value))
+			{
+				this.On_215Changing(value);
+				this.SendPropertyChanging();
+				this.@__215 = value;
+				this.SendPropertyChanged("_215");
+				this.On_215Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[216]", Storage="__216", DbType="Int")]
+	public System.Nullable<int> _216
+	{
+		get
+		{
+			return this.@__216;
+		}
+		set
+		{
+			if ((this.@__216 != value))
+			{
+				this.On_216Changing(value);
+				this.SendPropertyChanging();
+				this.@__216 = value;
+				this.SendPropertyChanged("_216");
+				this.On_216Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[217]", Storage="__217", DbType="Int")]
+	public System.Nullable<int> _217
+	{
+		get
+		{
+			return this.@__217;
+		}
+		set
+		{
+			if ((this.@__217 != value))
+			{
+				this.On_217Changing(value);
+				this.SendPropertyChanging();
+				this.@__217 = value;
+				this.SendPropertyChanged("_217");
+				this.On_217Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[218]", Storage="__218", DbType="Int")]
+	public System.Nullable<int> _218
+	{
+		get
+		{
+			return this.@__218;
+		}
+		set
+		{
+			if ((this.@__218 != value))
+			{
+				this.On_218Changing(value);
+				this.SendPropertyChanging();
+				this.@__218 = value;
+				this.SendPropertyChanged("_218");
+				this.On_218Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[219]", Storage="__219", DbType="Int")]
+	public System.Nullable<int> _219
+	{
+		get
+		{
+			return this.@__219;
+		}
+		set
+		{
+			if ((this.@__219 != value))
+			{
+				this.On_219Changing(value);
+				this.SendPropertyChanging();
+				this.@__219 = value;
+				this.SendPropertyChanged("_219");
+				this.On_219Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[220]", Storage="__220", DbType="Int")]
+	public System.Nullable<int> _220
+	{
+		get
+		{
+			return this.@__220;
+		}
+		set
+		{
+			if ((this.@__220 != value))
+			{
+				this.On_220Changing(value);
+				this.SendPropertyChanging();
+				this.@__220 = value;
+				this.SendPropertyChanged("_220");
+				this.On_220Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[221]", Storage="__221", DbType="Int")]
+	public System.Nullable<int> _221
+	{
+		get
+		{
+			return this.@__221;
+		}
+		set
+		{
+			if ((this.@__221 != value))
+			{
+				this.On_221Changing(value);
+				this.SendPropertyChanging();
+				this.@__221 = value;
+				this.SendPropertyChanged("_221");
+				this.On_221Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[222]", Storage="__222", DbType="Int")]
+	public System.Nullable<int> _222
+	{
+		get
+		{
+			return this.@__222;
+		}
+		set
+		{
+			if ((this.@__222 != value))
+			{
+				this.On_222Changing(value);
+				this.SendPropertyChanging();
+				this.@__222 = value;
+				this.SendPropertyChanged("_222");
+				this.On_222Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[223]", Storage="__223", DbType="Int")]
+	public System.Nullable<int> _223
+	{
+		get
+		{
+			return this.@__223;
+		}
+		set
+		{
+			if ((this.@__223 != value))
+			{
+				this.On_223Changing(value);
+				this.SendPropertyChanging();
+				this.@__223 = value;
+				this.SendPropertyChanged("_223");
+				this.On_223Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[224]", Storage="__224", DbType="Int")]
+	public System.Nullable<int> _224
+	{
+		get
+		{
+			return this.@__224;
+		}
+		set
+		{
+			if ((this.@__224 != value))
+			{
+				this.On_224Changing(value);
+				this.SendPropertyChanging();
+				this.@__224 = value;
+				this.SendPropertyChanged("_224");
+				this.On_224Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[225]", Storage="__225", DbType="Int")]
+	public System.Nullable<int> _225
+	{
+		get
+		{
+			return this.@__225;
+		}
+		set
+		{
+			if ((this.@__225 != value))
+			{
+				this.On_225Changing(value);
+				this.SendPropertyChanging();
+				this.@__225 = value;
+				this.SendPropertyChanged("_225");
+				this.On_225Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[226]", Storage="__226", DbType="Int")]
+	public System.Nullable<int> _226
+	{
+		get
+		{
+			return this.@__226;
+		}
+		set
+		{
+			if ((this.@__226 != value))
+			{
+				this.On_226Changing(value);
+				this.SendPropertyChanging();
+				this.@__226 = value;
+				this.SendPropertyChanged("_226");
+				this.On_226Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[227]", Storage="__227", DbType="Int")]
+	public System.Nullable<int> _227
+	{
+		get
+		{
+			return this.@__227;
+		}
+		set
+		{
+			if ((this.@__227 != value))
+			{
+				this.On_227Changing(value);
+				this.SendPropertyChanging();
+				this.@__227 = value;
+				this.SendPropertyChanged("_227");
+				this.On_227Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[228]", Storage="__228", DbType="Int")]
+	public System.Nullable<int> _228
+	{
+		get
+		{
+			return this.@__228;
+		}
+		set
+		{
+			if ((this.@__228 != value))
+			{
+				this.On_228Changing(value);
+				this.SendPropertyChanging();
+				this.@__228 = value;
+				this.SendPropertyChanged("_228");
+				this.On_228Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[229]", Storage="__229", DbType="Int")]
+	public System.Nullable<int> _229
+	{
+		get
+		{
+			return this.@__229;
+		}
+		set
+		{
+			if ((this.@__229 != value))
+			{
+				this.On_229Changing(value);
+				this.SendPropertyChanging();
+				this.@__229 = value;
+				this.SendPropertyChanged("_229");
+				this.On_229Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[230]", Storage="__230", DbType="Int")]
+	public System.Nullable<int> _230
+	{
+		get
+		{
+			return this.@__230;
+		}
+		set
+		{
+			if ((this.@__230 != value))
+			{
+				this.On_230Changing(value);
+				this.SendPropertyChanging();
+				this.@__230 = value;
+				this.SendPropertyChanged("_230");
+				this.On_230Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[231]", Storage="__231", DbType="Int")]
+	public System.Nullable<int> _231
+	{
+		get
+		{
+			return this.@__231;
+		}
+		set
+		{
+			if ((this.@__231 != value))
+			{
+				this.On_231Changing(value);
+				this.SendPropertyChanging();
+				this.@__231 = value;
+				this.SendPropertyChanged("_231");
+				this.On_231Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[232]", Storage="__232", DbType="Int")]
+	public System.Nullable<int> _232
+	{
+		get
+		{
+			return this.@__232;
+		}
+		set
+		{
+			if ((this.@__232 != value))
+			{
+				this.On_232Changing(value);
+				this.SendPropertyChanging();
+				this.@__232 = value;
+				this.SendPropertyChanged("_232");
+				this.On_232Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[233]", Storage="__233", DbType="Int")]
+	public System.Nullable<int> _233
+	{
+		get
+		{
+			return this.@__233;
+		}
+		set
+		{
+			if ((this.@__233 != value))
+			{
+				this.On_233Changing(value);
+				this.SendPropertyChanging();
+				this.@__233 = value;
+				this.SendPropertyChanged("_233");
+				this.On_233Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[234]", Storage="__234", DbType="Int")]
+	public System.Nullable<int> _234
+	{
+		get
+		{
+			return this.@__234;
+		}
+		set
+		{
+			if ((this.@__234 != value))
+			{
+				this.On_234Changing(value);
+				this.SendPropertyChanging();
+				this.@__234 = value;
+				this.SendPropertyChanged("_234");
+				this.On_234Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[235]", Storage="__235", DbType="Int")]
+	public System.Nullable<int> _235
+	{
+		get
+		{
+			return this.@__235;
+		}
+		set
+		{
+			if ((this.@__235 != value))
+			{
+				this.On_235Changing(value);
+				this.SendPropertyChanging();
+				this.@__235 = value;
+				this.SendPropertyChanged("_235");
+				this.On_235Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[236]", Storage="__236", DbType="Int")]
+	public System.Nullable<int> _236
+	{
+		get
+		{
+			return this.@__236;
+		}
+		set
+		{
+			if ((this.@__236 != value))
+			{
+				this.On_236Changing(value);
+				this.SendPropertyChanging();
+				this.@__236 = value;
+				this.SendPropertyChanged("_236");
+				this.On_236Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[237]", Storage="__237", DbType="Int")]
+	public System.Nullable<int> _237
+	{
+		get
+		{
+			return this.@__237;
+		}
+		set
+		{
+			if ((this.@__237 != value))
+			{
+				this.On_237Changing(value);
+				this.SendPropertyChanging();
+				this.@__237 = value;
+				this.SendPropertyChanged("_237");
+				this.On_237Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[238]", Storage="__238", DbType="Int")]
+	public System.Nullable<int> _238
+	{
+		get
+		{
+			return this.@__238;
+		}
+		set
+		{
+			if ((this.@__238 != value))
+			{
+				this.On_238Changing(value);
+				this.SendPropertyChanging();
+				this.@__238 = value;
+				this.SendPropertyChanged("_238");
+				this.On_238Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[239]", Storage="__239", DbType="Int")]
+	public System.Nullable<int> _239
+	{
+		get
+		{
+			return this.@__239;
+		}
+		set
+		{
+			if ((this.@__239 != value))
+			{
+				this.On_239Changing(value);
+				this.SendPropertyChanging();
+				this.@__239 = value;
+				this.SendPropertyChanged("_239");
+				this.On_239Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[240]", Storage="__240", DbType="Int")]
+	public System.Nullable<int> _240
+	{
+		get
+		{
+			return this.@__240;
+		}
+		set
+		{
+			if ((this.@__240 != value))
+			{
+				this.On_240Changing(value);
+				this.SendPropertyChanging();
+				this.@__240 = value;
+				this.SendPropertyChanged("_240");
+				this.On_240Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[241]", Storage="__241", DbType="Int")]
+	public System.Nullable<int> _241
+	{
+		get
+		{
+			return this.@__241;
+		}
+		set
+		{
+			if ((this.@__241 != value))
+			{
+				this.On_241Changing(value);
+				this.SendPropertyChanging();
+				this.@__241 = value;
+				this.SendPropertyChanged("_241");
+				this.On_241Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[242]", Storage="__242", DbType="Int")]
+	public System.Nullable<int> _242
+	{
+		get
+		{
+			return this.@__242;
+		}
+		set
+		{
+			if ((this.@__242 != value))
+			{
+				this.On_242Changing(value);
+				this.SendPropertyChanging();
+				this.@__242 = value;
+				this.SendPropertyChanged("_242");
+				this.On_242Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[243]", Storage="__243", DbType="Int")]
+	public System.Nullable<int> _243
+	{
+		get
+		{
+			return this.@__243;
+		}
+		set
+		{
+			if ((this.@__243 != value))
+			{
+				this.On_243Changing(value);
+				this.SendPropertyChanging();
+				this.@__243 = value;
+				this.SendPropertyChanged("_243");
+				this.On_243Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[244]", Storage="__244", DbType="Int")]
+	public System.Nullable<int> _244
+	{
+		get
+		{
+			return this.@__244;
+		}
+		set
+		{
+			if ((this.@__244 != value))
+			{
+				this.On_244Changing(value);
+				this.SendPropertyChanging();
+				this.@__244 = value;
+				this.SendPropertyChanged("_244");
+				this.On_244Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[245]", Storage="__245", DbType="Int")]
+	public System.Nullable<int> _245
+	{
+		get
+		{
+			return this.@__245;
+		}
+		set
+		{
+			if ((this.@__245 != value))
+			{
+				this.On_245Changing(value);
+				this.SendPropertyChanging();
+				this.@__245 = value;
+				this.SendPropertyChanged("_245");
+				this.On_245Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[246]", Storage="__246", DbType="Int")]
+	public System.Nullable<int> _246
+	{
+		get
+		{
+			return this.@__246;
+		}
+		set
+		{
+			if ((this.@__246 != value))
+			{
+				this.On_246Changing(value);
+				this.SendPropertyChanging();
+				this.@__246 = value;
+				this.SendPropertyChanged("_246");
+				this.On_246Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[247]", Storage="__247", DbType="Int")]
+	public System.Nullable<int> _247
+	{
+		get
+		{
+			return this.@__247;
+		}
+		set
+		{
+			if ((this.@__247 != value))
+			{
+				this.On_247Changing(value);
+				this.SendPropertyChanging();
+				this.@__247 = value;
+				this.SendPropertyChanged("_247");
+				this.On_247Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[248]", Storage="__248", DbType="Int")]
+	public System.Nullable<int> _248
+	{
+		get
+		{
+			return this.@__248;
+		}
+		set
+		{
+			if ((this.@__248 != value))
+			{
+				this.On_248Changing(value);
+				this.SendPropertyChanging();
+				this.@__248 = value;
+				this.SendPropertyChanged("_248");
+				this.On_248Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[249]", Storage="__249", DbType="Int")]
+	public System.Nullable<int> _249
+	{
+		get
+		{
+			return this.@__249;
+		}
+		set
+		{
+			if ((this.@__249 != value))
+			{
+				this.On_249Changing(value);
+				this.SendPropertyChanging();
+				this.@__249 = value;
+				this.SendPropertyChanged("_249");
+				this.On_249Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[250]", Storage="__250", DbType="Int")]
+	public System.Nullable<int> _250
+	{
+		get
+		{
+			return this.@__250;
+		}
+		set
+		{
+			if ((this.@__250 != value))
+			{
+				this.On_250Changing(value);
+				this.SendPropertyChanging();
+				this.@__250 = value;
+				this.SendPropertyChanged("_250");
+				this.On_250Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[251]", Storage="__251", DbType="Int")]
+	public System.Nullable<int> _251
+	{
+		get
+		{
+			return this.@__251;
+		}
+		set
+		{
+			if ((this.@__251 != value))
+			{
+				this.On_251Changing(value);
+				this.SendPropertyChanging();
+				this.@__251 = value;
+				this.SendPropertyChanged("_251");
+				this.On_251Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[252]", Storage="__252", DbType="Int")]
+	public System.Nullable<int> _252
+	{
+		get
+		{
+			return this.@__252;
+		}
+		set
+		{
+			if ((this.@__252 != value))
+			{
+				this.On_252Changing(value);
+				this.SendPropertyChanging();
+				this.@__252 = value;
+				this.SendPropertyChanged("_252");
+				this.On_252Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[253]", Storage="__253", DbType="Int")]
+	public System.Nullable<int> _253
+	{
+		get
+		{
+			return this.@__253;
+		}
+		set
+		{
+			if ((this.@__253 != value))
+			{
+				this.On_253Changing(value);
+				this.SendPropertyChanging();
+				this.@__253 = value;
+				this.SendPropertyChanged("_253");
+				this.On_253Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[254]", Storage="__254", DbType="Int")]
+	public System.Nullable<int> _254
+	{
+		get
+		{
+			return this.@__254;
+		}
+		set
+		{
+			if ((this.@__254 != value))
+			{
+				this.On_254Changing(value);
+				this.SendPropertyChanging();
+				this.@__254 = value;
+				this.SendPropertyChanged("_254");
+				this.On_254Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[255]", Storage="__255", DbType="Int")]
+	public System.Nullable<int> _255
+	{
+		get
+		{
+			return this.@__255;
+		}
+		set
+		{
+			if ((this.@__255 != value))
+			{
+				this.On_255Changing(value);
+				this.SendPropertyChanging();
+				this.@__255 = value;
+				this.SendPropertyChanged("_255");
+				this.On_255Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[256]", Storage="__256", DbType="Int")]
+	public System.Nullable<int> _256
+	{
+		get
+		{
+			return this.@__256;
+		}
+		set
+		{
+			if ((this.@__256 != value))
+			{
+				this.On_256Changing(value);
+				this.SendPropertyChanging();
+				this.@__256 = value;
+				this.SendPropertyChanged("_256");
+				this.On_256Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[257]", Storage="__257", DbType="Int")]
+	public System.Nullable<int> _257
+	{
+		get
+		{
+			return this.@__257;
+		}
+		set
+		{
+			if ((this.@__257 != value))
+			{
+				this.On_257Changing(value);
+				this.SendPropertyChanging();
+				this.@__257 = value;
+				this.SendPropertyChanged("_257");
+				this.On_257Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[258]", Storage="__258", DbType="Int")]
+	public System.Nullable<int> _258
+	{
+		get
+		{
+			return this.@__258;
+		}
+		set
+		{
+			if ((this.@__258 != value))
+			{
+				this.On_258Changing(value);
+				this.SendPropertyChanging();
+				this.@__258 = value;
+				this.SendPropertyChanged("_258");
+				this.On_258Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[259]", Storage="__259", DbType="Int")]
+	public System.Nullable<int> _259
+	{
+		get
+		{
+			return this.@__259;
+		}
+		set
+		{
+			if ((this.@__259 != value))
+			{
+				this.On_259Changing(value);
+				this.SendPropertyChanging();
+				this.@__259 = value;
+				this.SendPropertyChanged("_259");
+				this.On_259Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[260]", Storage="__260", DbType="Int")]
+	public System.Nullable<int> _260
+	{
+		get
+		{
+			return this.@__260;
+		}
+		set
+		{
+			if ((this.@__260 != value))
+			{
+				this.On_260Changing(value);
+				this.SendPropertyChanging();
+				this.@__260 = value;
+				this.SendPropertyChanged("_260");
+				this.On_260Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[261]", Storage="__261", DbType="Int")]
+	public System.Nullable<int> _261
+	{
+		get
+		{
+			return this.@__261;
+		}
+		set
+		{
+			if ((this.@__261 != value))
+			{
+				this.On_261Changing(value);
+				this.SendPropertyChanging();
+				this.@__261 = value;
+				this.SendPropertyChanged("_261");
+				this.On_261Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[262]", Storage="__262", DbType="Int")]
+	public System.Nullable<int> _262
+	{
+		get
+		{
+			return this.@__262;
+		}
+		set
+		{
+			if ((this.@__262 != value))
+			{
+				this.On_262Changing(value);
+				this.SendPropertyChanging();
+				this.@__262 = value;
+				this.SendPropertyChanged("_262");
+				this.On_262Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[263]", Storage="__263", DbType="Int")]
+	public System.Nullable<int> _263
+	{
+		get
+		{
+			return this.@__263;
+		}
+		set
+		{
+			if ((this.@__263 != value))
+			{
+				this.On_263Changing(value);
+				this.SendPropertyChanging();
+				this.@__263 = value;
+				this.SendPropertyChanged("_263");
+				this.On_263Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[264]", Storage="__264", DbType="Int")]
+	public System.Nullable<int> _264
+	{
+		get
+		{
+			return this.@__264;
+		}
+		set
+		{
+			if ((this.@__264 != value))
+			{
+				this.On_264Changing(value);
+				this.SendPropertyChanging();
+				this.@__264 = value;
+				this.SendPropertyChanged("_264");
+				this.On_264Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[265]", Storage="__265", DbType="Int")]
+	public System.Nullable<int> _265
+	{
+		get
+		{
+			return this.@__265;
+		}
+		set
+		{
+			if ((this.@__265 != value))
+			{
+				this.On_265Changing(value);
+				this.SendPropertyChanging();
+				this.@__265 = value;
+				this.SendPropertyChanged("_265");
+				this.On_265Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[266]", Storage="__266", DbType="Int")]
+	public System.Nullable<int> _266
+	{
+		get
+		{
+			return this.@__266;
+		}
+		set
+		{
+			if ((this.@__266 != value))
+			{
+				this.On_266Changing(value);
+				this.SendPropertyChanging();
+				this.@__266 = value;
+				this.SendPropertyChanged("_266");
+				this.On_266Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[267]", Storage="__267", DbType="Int")]
+	public System.Nullable<int> _267
+	{
+		get
+		{
+			return this.@__267;
+		}
+		set
+		{
+			if ((this.@__267 != value))
+			{
+				this.On_267Changing(value);
+				this.SendPropertyChanging();
+				this.@__267 = value;
+				this.SendPropertyChanged("_267");
+				this.On_267Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[268]", Storage="__268", DbType="Int")]
+	public System.Nullable<int> _268
+	{
+		get
+		{
+			return this.@__268;
+		}
+		set
+		{
+			if ((this.@__268 != value))
+			{
+				this.On_268Changing(value);
+				this.SendPropertyChanging();
+				this.@__268 = value;
+				this.SendPropertyChanged("_268");
+				this.On_268Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[269]", Storage="__269", DbType="Int")]
+	public System.Nullable<int> _269
+	{
+		get
+		{
+			return this.@__269;
+		}
+		set
+		{
+			if ((this.@__269 != value))
+			{
+				this.On_269Changing(value);
+				this.SendPropertyChanging();
+				this.@__269 = value;
+				this.SendPropertyChanged("_269");
+				this.On_269Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[270]", Storage="__270", DbType="Int")]
+	public System.Nullable<int> _270
+	{
+		get
+		{
+			return this.@__270;
+		}
+		set
+		{
+			if ((this.@__270 != value))
+			{
+				this.On_270Changing(value);
+				this.SendPropertyChanging();
+				this.@__270 = value;
+				this.SendPropertyChanged("_270");
+				this.On_270Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[271]", Storage="__271", DbType="Int")]
+	public System.Nullable<int> _271
+	{
+		get
+		{
+			return this.@__271;
+		}
+		set
+		{
+			if ((this.@__271 != value))
+			{
+				this.On_271Changing(value);
+				this.SendPropertyChanging();
+				this.@__271 = value;
+				this.SendPropertyChanged("_271");
+				this.On_271Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[272]", Storage="__272", DbType="Int")]
+	public System.Nullable<int> _272
+	{
+		get
+		{
+			return this.@__272;
+		}
+		set
+		{
+			if ((this.@__272 != value))
+			{
+				this.On_272Changing(value);
+				this.SendPropertyChanging();
+				this.@__272 = value;
+				this.SendPropertyChanged("_272");
+				this.On_272Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[273]", Storage="__273", DbType="Int")]
+	public System.Nullable<int> _273
+	{
+		get
+		{
+			return this.@__273;
+		}
+		set
+		{
+			if ((this.@__273 != value))
+			{
+				this.On_273Changing(value);
+				this.SendPropertyChanging();
+				this.@__273 = value;
+				this.SendPropertyChanged("_273");
+				this.On_273Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[274]", Storage="__274", DbType="Int")]
+	public System.Nullable<int> _274
+	{
+		get
+		{
+			return this.@__274;
+		}
+		set
+		{
+			if ((this.@__274 != value))
+			{
+				this.On_274Changing(value);
+				this.SendPropertyChanging();
+				this.@__274 = value;
+				this.SendPropertyChanged("_274");
+				this.On_274Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[275]", Storage="__275", DbType="Int")]
+	public System.Nullable<int> _275
+	{
+		get
+		{
+			return this.@__275;
+		}
+		set
+		{
+			if ((this.@__275 != value))
+			{
+				this.On_275Changing(value);
+				this.SendPropertyChanging();
+				this.@__275 = value;
+				this.SendPropertyChanged("_275");
+				this.On_275Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[276]", Storage="__276", DbType="Int")]
+	public System.Nullable<int> _276
+	{
+		get
+		{
+			return this.@__276;
+		}
+		set
+		{
+			if ((this.@__276 != value))
+			{
+				this.On_276Changing(value);
+				this.SendPropertyChanging();
+				this.@__276 = value;
+				this.SendPropertyChanged("_276");
+				this.On_276Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[277]", Storage="__277", DbType="Int")]
+	public System.Nullable<int> _277
+	{
+		get
+		{
+			return this.@__277;
+		}
+		set
+		{
+			if ((this.@__277 != value))
+			{
+				this.On_277Changing(value);
+				this.SendPropertyChanging();
+				this.@__277 = value;
+				this.SendPropertyChanged("_277");
+				this.On_277Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[278]", Storage="__278", DbType="Int")]
+	public System.Nullable<int> _278
+	{
+		get
+		{
+			return this.@__278;
+		}
+		set
+		{
+			if ((this.@__278 != value))
+			{
+				this.On_278Changing(value);
+				this.SendPropertyChanging();
+				this.@__278 = value;
+				this.SendPropertyChanged("_278");
+				this.On_278Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[279]", Storage="__279", DbType="Int")]
+	public System.Nullable<int> _279
+	{
+		get
+		{
+			return this.@__279;
+		}
+		set
+		{
+			if ((this.@__279 != value))
+			{
+				this.On_279Changing(value);
+				this.SendPropertyChanging();
+				this.@__279 = value;
+				this.SendPropertyChanged("_279");
+				this.On_279Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[280]", Storage="__280", DbType="Int")]
+	public System.Nullable<int> _280
+	{
+		get
+		{
+			return this.@__280;
+		}
+		set
+		{
+			if ((this.@__280 != value))
+			{
+				this.On_280Changing(value);
+				this.SendPropertyChanging();
+				this.@__280 = value;
+				this.SendPropertyChanged("_280");
+				this.On_280Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[281]", Storage="__281", DbType="Int")]
+	public System.Nullable<int> _281
+	{
+		get
+		{
+			return this.@__281;
+		}
+		set
+		{
+			if ((this.@__281 != value))
+			{
+				this.On_281Changing(value);
+				this.SendPropertyChanging();
+				this.@__281 = value;
+				this.SendPropertyChanged("_281");
+				this.On_281Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[282]", Storage="__282", DbType="Int")]
+	public System.Nullable<int> _282
+	{
+		get
+		{
+			return this.@__282;
+		}
+		set
+		{
+			if ((this.@__282 != value))
+			{
+				this.On_282Changing(value);
+				this.SendPropertyChanging();
+				this.@__282 = value;
+				this.SendPropertyChanged("_282");
+				this.On_282Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[283]", Storage="__283", DbType="Int")]
+	public System.Nullable<int> _283
+	{
+		get
+		{
+			return this.@__283;
+		}
+		set
+		{
+			if ((this.@__283 != value))
+			{
+				this.On_283Changing(value);
+				this.SendPropertyChanging();
+				this.@__283 = value;
+				this.SendPropertyChanged("_283");
+				this.On_283Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[284]", Storage="__284", DbType="Int")]
+	public System.Nullable<int> _284
+	{
+		get
+		{
+			return this.@__284;
+		}
+		set
+		{
+			if ((this.@__284 != value))
+			{
+				this.On_284Changing(value);
+				this.SendPropertyChanging();
+				this.@__284 = value;
+				this.SendPropertyChanged("_284");
+				this.On_284Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[285]", Storage="__285", DbType="Int")]
+	public System.Nullable<int> _285
+	{
+		get
+		{
+			return this.@__285;
+		}
+		set
+		{
+			if ((this.@__285 != value))
+			{
+				this.On_285Changing(value);
+				this.SendPropertyChanging();
+				this.@__285 = value;
+				this.SendPropertyChanged("_285");
+				this.On_285Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[286]", Storage="__286", DbType="Int")]
+	public System.Nullable<int> _286
+	{
+		get
+		{
+			return this.@__286;
+		}
+		set
+		{
+			if ((this.@__286 != value))
+			{
+				this.On_286Changing(value);
+				this.SendPropertyChanging();
+				this.@__286 = value;
+				this.SendPropertyChanged("_286");
+				this.On_286Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[287]", Storage="__287", DbType="Int")]
+	public System.Nullable<int> _287
+	{
+		get
+		{
+			return this.@__287;
+		}
+		set
+		{
+			if ((this.@__287 != value))
+			{
+				this.On_287Changing(value);
+				this.SendPropertyChanging();
+				this.@__287 = value;
+				this.SendPropertyChanged("_287");
+				this.On_287Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[288]", Storage="__288", DbType="Int")]
+	public System.Nullable<int> _288
+	{
+		get
+		{
+			return this.@__288;
+		}
+		set
+		{
+			if ((this.@__288 != value))
+			{
+				this.On_288Changing(value);
+				this.SendPropertyChanging();
+				this.@__288 = value;
+				this.SendPropertyChanged("_288");
+				this.On_288Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[289]", Storage="__289", DbType="Int")]
+	public System.Nullable<int> _289
+	{
+		get
+		{
+			return this.@__289;
+		}
+		set
+		{
+			if ((this.@__289 != value))
+			{
+				this.On_289Changing(value);
+				this.SendPropertyChanging();
+				this.@__289 = value;
+				this.SendPropertyChanged("_289");
+				this.On_289Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[290]", Storage="__290", DbType="Int")]
+	public System.Nullable<int> _290
+	{
+		get
+		{
+			return this.@__290;
+		}
+		set
+		{
+			if ((this.@__290 != value))
+			{
+				this.On_290Changing(value);
+				this.SendPropertyChanging();
+				this.@__290 = value;
+				this.SendPropertyChanged("_290");
+				this.On_290Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[291]", Storage="__291", DbType="Int")]
+	public System.Nullable<int> _291
+	{
+		get
+		{
+			return this.@__291;
+		}
+		set
+		{
+			if ((this.@__291 != value))
+			{
+				this.On_291Changing(value);
+				this.SendPropertyChanging();
+				this.@__291 = value;
+				this.SendPropertyChanged("_291");
+				this.On_291Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[292]", Storage="__292", DbType="Int")]
+	public System.Nullable<int> _292
+	{
+		get
+		{
+			return this.@__292;
+		}
+		set
+		{
+			if ((this.@__292 != value))
+			{
+				this.On_292Changing(value);
+				this.SendPropertyChanging();
+				this.@__292 = value;
+				this.SendPropertyChanged("_292");
+				this.On_292Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[293]", Storage="__293", DbType="Int")]
+	public System.Nullable<int> _293
+	{
+		get
+		{
+			return this.@__293;
+		}
+		set
+		{
+			if ((this.@__293 != value))
+			{
+				this.On_293Changing(value);
+				this.SendPropertyChanging();
+				this.@__293 = value;
+				this.SendPropertyChanged("_293");
+				this.On_293Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[294]", Storage="__294", DbType="Int")]
+	public System.Nullable<int> _294
+	{
+		get
+		{
+			return this.@__294;
+		}
+		set
+		{
+			if ((this.@__294 != value))
+			{
+				this.On_294Changing(value);
+				this.SendPropertyChanging();
+				this.@__294 = value;
+				this.SendPropertyChanged("_294");
+				this.On_294Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[295]", Storage="__295", DbType="Int")]
+	public System.Nullable<int> _295
+	{
+		get
+		{
+			return this.@__295;
+		}
+		set
+		{
+			if ((this.@__295 != value))
+			{
+				this.On_295Changing(value);
+				this.SendPropertyChanging();
+				this.@__295 = value;
+				this.SendPropertyChanged("_295");
+				this.On_295Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[296]", Storage="__296", DbType="Int")]
+	public System.Nullable<int> _296
+	{
+		get
+		{
+			return this.@__296;
+		}
+		set
+		{
+			if ((this.@__296 != value))
+			{
+				this.On_296Changing(value);
+				this.SendPropertyChanging();
+				this.@__296 = value;
+				this.SendPropertyChanged("_296");
+				this.On_296Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[297]", Storage="__297", DbType="Int")]
+	public System.Nullable<int> _297
+	{
+		get
+		{
+			return this.@__297;
+		}
+		set
+		{
+			if ((this.@__297 != value))
+			{
+				this.On_297Changing(value);
+				this.SendPropertyChanging();
+				this.@__297 = value;
+				this.SendPropertyChanged("_297");
+				this.On_297Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[298]", Storage="__298", DbType="Int")]
+	public System.Nullable<int> _298
+	{
+		get
+		{
+			return this.@__298;
+		}
+		set
+		{
+			if ((this.@__298 != value))
+			{
+				this.On_298Changing(value);
+				this.SendPropertyChanging();
+				this.@__298 = value;
+				this.SendPropertyChanged("_298");
+				this.On_298Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[299]", Storage="__299", DbType="Int")]
+	public System.Nullable<int> _299
+	{
+		get
+		{
+			return this.@__299;
+		}
+		set
+		{
+			if ((this.@__299 != value))
+			{
+				this.On_299Changing(value);
+				this.SendPropertyChanging();
+				this.@__299 = value;
+				this.SendPropertyChanged("_299");
+				this.On_299Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[300]", Storage="__300", DbType="Int")]
+	public System.Nullable<int> _300
+	{
+		get
+		{
+			return this.@__300;
+		}
+		set
+		{
+			if ((this.@__300 != value))
+			{
+				this.On_300Changing(value);
+				this.SendPropertyChanging();
+				this.@__300 = value;
+				this.SendPropertyChanged("_300");
+				this.On_300Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[301]", Storage="__301", DbType="Int")]
+	public System.Nullable<int> _301
+	{
+		get
+		{
+			return this.@__301;
+		}
+		set
+		{
+			if ((this.@__301 != value))
+			{
+				this.On_301Changing(value);
+				this.SendPropertyChanging();
+				this.@__301 = value;
+				this.SendPropertyChanged("_301");
+				this.On_301Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[302]", Storage="__302", DbType="Int")]
+	public System.Nullable<int> _302
+	{
+		get
+		{
+			return this.@__302;
+		}
+		set
+		{
+			if ((this.@__302 != value))
+			{
+				this.On_302Changing(value);
+				this.SendPropertyChanging();
+				this.@__302 = value;
+				this.SendPropertyChanged("_302");
+				this.On_302Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[303]", Storage="__303", DbType="Int")]
+	public System.Nullable<int> _303
+	{
+		get
+		{
+			return this.@__303;
+		}
+		set
+		{
+			if ((this.@__303 != value))
+			{
+				this.On_303Changing(value);
+				this.SendPropertyChanging();
+				this.@__303 = value;
+				this.SendPropertyChanged("_303");
+				this.On_303Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[304]", Storage="__304", DbType="Int")]
+	public System.Nullable<int> _304
+	{
+		get
+		{
+			return this.@__304;
+		}
+		set
+		{
+			if ((this.@__304 != value))
+			{
+				this.On_304Changing(value);
+				this.SendPropertyChanging();
+				this.@__304 = value;
+				this.SendPropertyChanged("_304");
+				this.On_304Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[305]", Storage="__305", DbType="Int")]
+	public System.Nullable<int> _305
+	{
+		get
+		{
+			return this.@__305;
+		}
+		set
+		{
+			if ((this.@__305 != value))
+			{
+				this.On_305Changing(value);
+				this.SendPropertyChanging();
+				this.@__305 = value;
+				this.SendPropertyChanged("_305");
+				this.On_305Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[306]", Storage="__306", DbType="Int")]
+	public System.Nullable<int> _306
+	{
+		get
+		{
+			return this.@__306;
+		}
+		set
+		{
+			if ((this.@__306 != value))
+			{
+				this.On_306Changing(value);
+				this.SendPropertyChanging();
+				this.@__306 = value;
+				this.SendPropertyChanged("_306");
+				this.On_306Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[307]", Storage="__307", DbType="Bit")]
+	public System.Nullable<bool> _307
+	{
+		get
+		{
+			return this.@__307;
+		}
+		set
+		{
+			if ((this.@__307 != value))
+			{
+				this.On_307Changing(value);
+				this.SendPropertyChanging();
+				this.@__307 = value;
+				this.SendPropertyChanged("_307");
+				this.On_307Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[308]", Storage="__308", DbType="Bit")]
+	public System.Nullable<bool> _308
+	{
+		get
+		{
+			return this.@__308;
+		}
+		set
+		{
+			if ((this.@__308 != value))
+			{
+				this.On_308Changing(value);
+				this.SendPropertyChanging();
+				this.@__308 = value;
+				this.SendPropertyChanged("_308");
+				this.On_308Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[309]", Storage="__309", DbType="Bit")]
+	public System.Nullable<bool> _309
+	{
+		get
+		{
+			return this.@__309;
+		}
+		set
+		{
+			if ((this.@__309 != value))
+			{
+				this.On_309Changing(value);
+				this.SendPropertyChanging();
+				this.@__309 = value;
+				this.SendPropertyChanged("_309");
+				this.On_309Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[310]", Storage="__310", DbType="Bit")]
+	public System.Nullable<bool> _310
+	{
+		get
+		{
+			return this.@__310;
+		}
+		set
+		{
+			if ((this.@__310 != value))
+			{
+				this.On_310Changing(value);
+				this.SendPropertyChanging();
+				this.@__310 = value;
+				this.SendPropertyChanged("_310");
+				this.On_310Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[311]", Storage="__311", DbType="Bit")]
+	public System.Nullable<bool> _311
+	{
+		get
+		{
+			return this.@__311;
+		}
+		set
+		{
+			if ((this.@__311 != value))
+			{
+				this.On_311Changing(value);
+				this.SendPropertyChanging();
+				this.@__311 = value;
+				this.SendPropertyChanged("_311");
+				this.On_311Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[312]", Storage="__312", DbType="Bit")]
+	public System.Nullable<bool> _312
+	{
+		get
+		{
+			return this.@__312;
+		}
+		set
+		{
+			if ((this.@__312 != value))
+			{
+				this.On_312Changing(value);
+				this.SendPropertyChanging();
+				this.@__312 = value;
+				this.SendPropertyChanged("_312");
+				this.On_312Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[313]", Storage="__313", DbType="Bit")]
+	public System.Nullable<bool> _313
+	{
+		get
+		{
+			return this.@__313;
+		}
+		set
+		{
+			if ((this.@__313 != value))
+			{
+				this.On_313Changing(value);
+				this.SendPropertyChanging();
+				this.@__313 = value;
+				this.SendPropertyChanged("_313");
+				this.On_313Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[314]", Storage="__314", DbType="Bit")]
+	public System.Nullable<bool> _314
+	{
+		get
+		{
+			return this.@__314;
+		}
+		set
+		{
+			if ((this.@__314 != value))
+			{
+				this.On_314Changing(value);
+				this.SendPropertyChanging();
+				this.@__314 = value;
+				this.SendPropertyChanged("_314");
+				this.On_314Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[315]", Storage="__315", DbType="Bit")]
+	public System.Nullable<bool> _315
+	{
+		get
+		{
+			return this.@__315;
+		}
+		set
+		{
+			if ((this.@__315 != value))
+			{
+				this.On_315Changing(value);
+				this.SendPropertyChanging();
+				this.@__315 = value;
+				this.SendPropertyChanged("_315");
+				this.On_315Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[316]", Storage="__316", DbType="Bit")]
+	public System.Nullable<bool> _316
+	{
+		get
+		{
+			return this.@__316;
+		}
+		set
+		{
+			if ((this.@__316 != value))
+			{
+				this.On_316Changing(value);
+				this.SendPropertyChanging();
+				this.@__316 = value;
+				this.SendPropertyChanged("_316");
+				this.On_316Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[317]", Storage="__317", DbType="Bit")]
+	public System.Nullable<bool> _317
+	{
+		get
+		{
+			return this.@__317;
+		}
+		set
+		{
+			if ((this.@__317 != value))
+			{
+				this.On_317Changing(value);
+				this.SendPropertyChanging();
+				this.@__317 = value;
+				this.SendPropertyChanged("_317");
+				this.On_317Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[318]", Storage="__318", DbType="Bit")]
+	public System.Nullable<bool> _318
+	{
+		get
+		{
+			return this.@__318;
+		}
+		set
+		{
+			if ((this.@__318 != value))
+			{
+				this.On_318Changing(value);
+				this.SendPropertyChanging();
+				this.@__318 = value;
+				this.SendPropertyChanged("_318");
+				this.On_318Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[319]", Storage="__319", DbType="Bit")]
+	public System.Nullable<bool> _319
+	{
+		get
+		{
+			return this.@__319;
+		}
+		set
+		{
+			if ((this.@__319 != value))
+			{
+				this.On_319Changing(value);
+				this.SendPropertyChanging();
+				this.@__319 = value;
+				this.SendPropertyChanged("_319");
+				this.On_319Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[320]", Storage="__320", DbType="Bit")]
+	public System.Nullable<bool> _320
+	{
+		get
+		{
+			return this.@__320;
+		}
+		set
+		{
+			if ((this.@__320 != value))
+			{
+				this.On_320Changing(value);
+				this.SendPropertyChanging();
+				this.@__320 = value;
+				this.SendPropertyChanged("_320");
+				this.On_320Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[321]", Storage="__321", DbType="Bit")]
+	public System.Nullable<bool> _321
+	{
+		get
+		{
+			return this.@__321;
+		}
+		set
+		{
+			if ((this.@__321 != value))
+			{
+				this.On_321Changing(value);
+				this.SendPropertyChanging();
+				this.@__321 = value;
+				this.SendPropertyChanged("_321");
+				this.On_321Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[322]", Storage="__322", DbType="Bit")]
+	public System.Nullable<bool> _322
+	{
+		get
+		{
+			return this.@__322;
+		}
+		set
+		{
+			if ((this.@__322 != value))
+			{
+				this.On_322Changing(value);
+				this.SendPropertyChanging();
+				this.@__322 = value;
+				this.SendPropertyChanged("_322");
+				this.On_322Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[323]", Storage="__323", DbType="Bit")]
+	public System.Nullable<bool> _323
+	{
+		get
+		{
+			return this.@__323;
+		}
+		set
+		{
+			if ((this.@__323 != value))
+			{
+				this.On_323Changing(value);
+				this.SendPropertyChanging();
+				this.@__323 = value;
+				this.SendPropertyChanged("_323");
+				this.On_323Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[324]", Storage="__324", DbType="Bit")]
+	public System.Nullable<bool> _324
+	{
+		get
+		{
+			return this.@__324;
+		}
+		set
+		{
+			if ((this.@__324 != value))
+			{
+				this.On_324Changing(value);
+				this.SendPropertyChanging();
+				this.@__324 = value;
+				this.SendPropertyChanged("_324");
+				this.On_324Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[325]", Storage="__325", DbType="VarChar(MAX)")]
+	public string _325
+	{
+		get
+		{
+			return this.@__325;
+		}
+		set
+		{
+			if ((this.@__325 != value))
+			{
+				this.On_325Changing(value);
+				this.SendPropertyChanging();
+				this.@__325 = value;
+				this.SendPropertyChanged("_325");
+				this.On_325Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[326]", Storage="__326", DbType="Bit")]
+	public System.Nullable<bool> _326
+	{
+		get
+		{
+			return this.@__326;
+		}
+		set
+		{
+			if ((this.@__326 != value))
+			{
+				this.On_326Changing(value);
+				this.SendPropertyChanging();
+				this.@__326 = value;
+				this.SendPropertyChanged("_326");
+				this.On_326Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[327]", Storage="__327", DbType="Bit")]
+	public System.Nullable<bool> _327
+	{
+		get
+		{
+			return this.@__327;
+		}
+		set
+		{
+			if ((this.@__327 != value))
+			{
+				this.On_327Changing(value);
+				this.SendPropertyChanging();
+				this.@__327 = value;
+				this.SendPropertyChanged("_327");
+				this.On_327Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[328]", Storage="__328", DbType="Bit")]
+	public System.Nullable<bool> _328
+	{
+		get
+		{
+			return this.@__328;
+		}
+		set
+		{
+			if ((this.@__328 != value))
+			{
+				this.On_328Changing(value);
+				this.SendPropertyChanging();
+				this.@__328 = value;
+				this.SendPropertyChanged("_328");
+				this.On_328Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[329]", Storage="__329", DbType="Bit")]
+	public System.Nullable<bool> _329
+	{
+		get
+		{
+			return this.@__329;
+		}
+		set
+		{
+			if ((this.@__329 != value))
+			{
+				this.On_329Changing(value);
+				this.SendPropertyChanging();
+				this.@__329 = value;
+				this.SendPropertyChanged("_329");
+				this.On_329Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[330]", Storage="__330", DbType="VarChar(MAX)")]
+	public string _330
+	{
+		get
+		{
+			return this.@__330;
+		}
+		set
+		{
+			if ((this.@__330 != value))
+			{
+				this.On_330Changing(value);
+				this.SendPropertyChanging();
+				this.@__330 = value;
+				this.SendPropertyChanged("_330");
+				this.On_330Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[331]", Storage="__331", DbType="Bit")]
+	public System.Nullable<bool> _331
+	{
+		get
+		{
+			return this.@__331;
+		}
+		set
+		{
+			if ((this.@__331 != value))
+			{
+				this.On_331Changing(value);
+				this.SendPropertyChanging();
+				this.@__331 = value;
+				this.SendPropertyChanged("_331");
+				this.On_331Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[332]", Storage="__332", DbType="Bit")]
+	public System.Nullable<bool> _332
+	{
+		get
+		{
+			return this.@__332;
+		}
+		set
+		{
+			if ((this.@__332 != value))
+			{
+				this.On_332Changing(value);
+				this.SendPropertyChanging();
+				this.@__332 = value;
+				this.SendPropertyChanged("_332");
+				this.On_332Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[333]", Storage="__333", DbType="Bit")]
+	public System.Nullable<bool> _333
+	{
+		get
+		{
+			return this.@__333;
+		}
+		set
+		{
+			if ((this.@__333 != value))
+			{
+				this.On_333Changing(value);
+				this.SendPropertyChanging();
+				this.@__333 = value;
+				this.SendPropertyChanged("_333");
+				this.On_333Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[334]", Storage="__334", DbType="Bit")]
+	public System.Nullable<bool> _334
+	{
+		get
+		{
+			return this.@__334;
+		}
+		set
+		{
+			if ((this.@__334 != value))
+			{
+				this.On_334Changing(value);
+				this.SendPropertyChanging();
+				this.@__334 = value;
+				this.SendPropertyChanged("_334");
+				this.On_334Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[335]", Storage="__335", DbType="VarChar(MAX)")]
+	public string _335
+	{
+		get
+		{
+			return this.@__335;
+		}
+		set
+		{
+			if ((this.@__335 != value))
+			{
+				this.On_335Changing(value);
+				this.SendPropertyChanging();
+				this.@__335 = value;
+				this.SendPropertyChanged("_335");
+				this.On_335Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[336]", Storage="__336", DbType="Bit")]
+	public System.Nullable<bool> _336
+	{
+		get
+		{
+			return this.@__336;
+		}
+		set
+		{
+			if ((this.@__336 != value))
+			{
+				this.On_336Changing(value);
+				this.SendPropertyChanging();
+				this.@__336 = value;
+				this.SendPropertyChanged("_336");
+				this.On_336Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[337]", Storage="__337", DbType="Bit")]
+	public System.Nullable<bool> _337
+	{
+		get
+		{
+			return this.@__337;
+		}
+		set
+		{
+			if ((this.@__337 != value))
+			{
+				this.On_337Changing(value);
+				this.SendPropertyChanging();
+				this.@__337 = value;
+				this.SendPropertyChanged("_337");
+				this.On_337Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[338]", Storage="__338", DbType="Bit")]
+	public System.Nullable<bool> _338
+	{
+		get
+		{
+			return this.@__338;
+		}
+		set
+		{
+			if ((this.@__338 != value))
+			{
+				this.On_338Changing(value);
+				this.SendPropertyChanging();
+				this.@__338 = value;
+				this.SendPropertyChanged("_338");
+				this.On_338Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[339]", Storage="__339", DbType="Bit")]
+	public System.Nullable<bool> _339
+	{
+		get
+		{
+			return this.@__339;
+		}
+		set
+		{
+			if ((this.@__339 != value))
+			{
+				this.On_339Changing(value);
+				this.SendPropertyChanging();
+				this.@__339 = value;
+				this.SendPropertyChanged("_339");
+				this.On_339Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[340]", Storage="__340", DbType="VarChar(MAX)")]
+	public string _340
+	{
+		get
+		{
+			return this.@__340;
+		}
+		set
+		{
+			if ((this.@__340 != value))
+			{
+				this.On_340Changing(value);
+				this.SendPropertyChanging();
+				this.@__340 = value;
+				this.SendPropertyChanged("_340");
+				this.On_340Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[341]", Storage="__341", DbType="Bit")]
+	public System.Nullable<bool> _341
+	{
+		get
+		{
+			return this.@__341;
+		}
+		set
+		{
+			if ((this.@__341 != value))
+			{
+				this.On_341Changing(value);
+				this.SendPropertyChanging();
+				this.@__341 = value;
+				this.SendPropertyChanged("_341");
+				this.On_341Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[342]", Storage="__342", DbType="Bit")]
+	public System.Nullable<bool> _342
+	{
+		get
+		{
+			return this.@__342;
+		}
+		set
+		{
+			if ((this.@__342 != value))
+			{
+				this.On_342Changing(value);
+				this.SendPropertyChanging();
+				this.@__342 = value;
+				this.SendPropertyChanged("_342");
+				this.On_342Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[343]", Storage="__343", DbType="Bit")]
+	public System.Nullable<bool> _343
+	{
+		get
+		{
+			return this.@__343;
+		}
+		set
+		{
+			if ((this.@__343 != value))
+			{
+				this.On_343Changing(value);
+				this.SendPropertyChanging();
+				this.@__343 = value;
+				this.SendPropertyChanged("_343");
+				this.On_343Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[344]", Storage="__344", DbType="Bit")]
+	public System.Nullable<bool> _344
+	{
+		get
+		{
+			return this.@__344;
+		}
+		set
+		{
+			if ((this.@__344 != value))
+			{
+				this.On_344Changing(value);
+				this.SendPropertyChanging();
+				this.@__344 = value;
+				this.SendPropertyChanged("_344");
+				this.On_344Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[345]", Storage="__345", DbType="VarChar(MAX)")]
+	public string _345
+	{
+		get
+		{
+			return this.@__345;
+		}
+		set
+		{
+			if ((this.@__345 != value))
+			{
+				this.On_345Changing(value);
+				this.SendPropertyChanging();
+				this.@__345 = value;
+				this.SendPropertyChanged("_345");
+				this.On_345Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[346]", Storage="__346", DbType="Bit")]
+	public System.Nullable<bool> _346
+	{
+		get
+		{
+			return this.@__346;
+		}
+		set
+		{
+			if ((this.@__346 != value))
+			{
+				this.On_346Changing(value);
+				this.SendPropertyChanging();
+				this.@__346 = value;
+				this.SendPropertyChanged("_346");
+				this.On_346Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[347]", Storage="__347", DbType="Bit")]
+	public System.Nullable<bool> _347
+	{
+		get
+		{
+			return this.@__347;
+		}
+		set
+		{
+			if ((this.@__347 != value))
+			{
+				this.On_347Changing(value);
+				this.SendPropertyChanging();
+				this.@__347 = value;
+				this.SendPropertyChanged("_347");
+				this.On_347Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[348]", Storage="__348", DbType="Bit")]
+	public System.Nullable<bool> _348
+	{
+		get
+		{
+			return this.@__348;
+		}
+		set
+		{
+			if ((this.@__348 != value))
+			{
+				this.On_348Changing(value);
+				this.SendPropertyChanging();
+				this.@__348 = value;
+				this.SendPropertyChanged("_348");
+				this.On_348Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[349]", Storage="__349", DbType="Bit")]
+	public System.Nullable<bool> _349
+	{
+		get
+		{
+			return this.@__349;
+		}
+		set
+		{
+			if ((this.@__349 != value))
+			{
+				this.On_349Changing(value);
+				this.SendPropertyChanging();
+				this.@__349 = value;
+				this.SendPropertyChanged("_349");
+				this.On_349Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[350]", Storage="__350", DbType="VarChar(MAX)")]
+	public string _350
+	{
+		get
+		{
+			return this.@__350;
+		}
+		set
+		{
+			if ((this.@__350 != value))
+			{
+				this.On_350Changing(value);
+				this.SendPropertyChanging();
+				this.@__350 = value;
+				this.SendPropertyChanged("_350");
+				this.On_350Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[351]", Storage="__351", DbType="Bit")]
+	public System.Nullable<bool> _351
+	{
+		get
+		{
+			return this.@__351;
+		}
+		set
+		{
+			if ((this.@__351 != value))
+			{
+				this.On_351Changing(value);
+				this.SendPropertyChanging();
+				this.@__351 = value;
+				this.SendPropertyChanged("_351");
+				this.On_351Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[352]", Storage="__352", DbType="Bit")]
+	public System.Nullable<bool> _352
+	{
+		get
+		{
+			return this.@__352;
+		}
+		set
+		{
+			if ((this.@__352 != value))
+			{
+				this.On_352Changing(value);
+				this.SendPropertyChanging();
+				this.@__352 = value;
+				this.SendPropertyChanged("_352");
+				this.On_352Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[353]", Storage="__353", DbType="Bit")]
+	public System.Nullable<bool> _353
+	{
+		get
+		{
+			return this.@__353;
+		}
+		set
+		{
+			if ((this.@__353 != value))
+			{
+				this.On_353Changing(value);
+				this.SendPropertyChanging();
+				this.@__353 = value;
+				this.SendPropertyChanged("_353");
+				this.On_353Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[354]", Storage="__354", DbType="Bit")]
+	public System.Nullable<bool> _354
+	{
+		get
+		{
+			return this.@__354;
+		}
+		set
+		{
+			if ((this.@__354 != value))
+			{
+				this.On_354Changing(value);
+				this.SendPropertyChanging();
+				this.@__354 = value;
+				this.SendPropertyChanged("_354");
+				this.On_354Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[355]", Storage="__355", DbType="VarChar(MAX)")]
+	public string _355
+	{
+		get
+		{
+			return this.@__355;
+		}
+		set
+		{
+			if ((this.@__355 != value))
+			{
+				this.On_355Changing(value);
+				this.SendPropertyChanging();
+				this.@__355 = value;
+				this.SendPropertyChanged("_355");
+				this.On_355Changed();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLCovidMarshall", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
+	public Category Category
+	{
+		get
+		{
+			return this._Category.Entity;
+		}
+		set
+		{
+			Category previousValue = this._Category.Entity;
+			if (((previousValue != value) 
+						|| (this._Category.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Category.Entity = null;
+					previousValue.Report_MerrylandsRSLCovidMarshalls.Remove(this);
+				}
+				this._Category.Entity = value;
+				if ((value != null))
+				{
+					value.Report_MerrylandsRSLCovidMarshalls.Add(this);
+					this._RCatId = value.RCatId;
+				}
+				else
+				{
+					this._RCatId = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Category");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLCovidMarshall", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
+	public Shift Shift
+	{
+		get
+		{
+			return this._Shift.Entity;
+		}
+		set
+		{
+			Shift previousValue = this._Shift.Entity;
+			if (((previousValue != value) 
+						|| (this._Shift.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Shift.Entity = null;
+					previousValue.Report_MerrylandsRSLCovidMarshalls.Remove(this);
+				}
+				this._Shift.Entity = value;
+				if ((value != null))
+				{
+					value.Report_MerrylandsRSLCovidMarshalls.Add(this);
+					this._ShiftId = value.ShiftId;
+				}
+				else
+				{
+					this._ShiftId = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Shift");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLCovidMarshall", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
+	public Staff Staff
+	{
+		get
+		{
+			return this._Staff.Entity;
+		}
+		set
+		{
+			Staff previousValue = this._Staff.Entity;
+			if (((previousValue != value) 
+						|| (this._Staff.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Staff.Entity = null;
+					previousValue.Report_MerrylandsRSLCovidMarshalls.Remove(this);
+				}
+				this._Staff.Entity = value;
+				if ((value != null))
+				{
+					value.Report_MerrylandsRSLCovidMarshalls.Add(this);
 					this._StaffId = value.StaffId;
 				}
 				else
@@ -28980,11 +43588,15 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private string _ShiftName;
 	
+	private EntitySet<Report_ClubUminaCovidMarshall> _Report_ClubUminaCovidMarshalls;
+	
 	private EntitySet<Report_ClubUminaDutyManager> _Report_ClubUminaDutyManagers;
 	
 	private EntitySet<Report_ClubUminaIncident> _Report_ClubUminaIncidents;
 	
 	private EntitySet<Report_ClubUminaReception> _Report_ClubUminaReceptions;
+	
+	private EntitySet<Report_MerrylandsRSLCovidMarshall> _Report_MerrylandsRSLCovidMarshalls;
 	
 	private EntitySet<Report_MerrylandsRSLDutyManager> _Report_MerrylandsRSLDutyManagers;
 	
@@ -29010,9 +43622,11 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	public Shift()
 	{
+		this._Report_ClubUminaCovidMarshalls = new EntitySet<Report_ClubUminaCovidMarshall>(new Action<Report_ClubUminaCovidMarshall>(this.attach_Report_ClubUminaCovidMarshalls), new Action<Report_ClubUminaCovidMarshall>(this.detach_Report_ClubUminaCovidMarshalls));
 		this._Report_ClubUminaDutyManagers = new EntitySet<Report_ClubUminaDutyManager>(new Action<Report_ClubUminaDutyManager>(this.attach_Report_ClubUminaDutyManagers), new Action<Report_ClubUminaDutyManager>(this.detach_Report_ClubUminaDutyManagers));
 		this._Report_ClubUminaIncidents = new EntitySet<Report_ClubUminaIncident>(new Action<Report_ClubUminaIncident>(this.attach_Report_ClubUminaIncidents), new Action<Report_ClubUminaIncident>(this.detach_Report_ClubUminaIncidents));
 		this._Report_ClubUminaReceptions = new EntitySet<Report_ClubUminaReception>(new Action<Report_ClubUminaReception>(this.attach_Report_ClubUminaReceptions), new Action<Report_ClubUminaReception>(this.detach_Report_ClubUminaReceptions));
+		this._Report_MerrylandsRSLCovidMarshalls = new EntitySet<Report_MerrylandsRSLCovidMarshall>(new Action<Report_MerrylandsRSLCovidMarshall>(this.attach_Report_MerrylandsRSLCovidMarshalls), new Action<Report_MerrylandsRSLCovidMarshall>(this.detach_Report_MerrylandsRSLCovidMarshalls));
 		this._Report_MerrylandsRSLDutyManagers = new EntitySet<Report_MerrylandsRSLDutyManager>(new Action<Report_MerrylandsRSLDutyManager>(this.attach_Report_MerrylandsRSLDutyManagers), new Action<Report_MerrylandsRSLDutyManager>(this.detach_Report_MerrylandsRSLDutyManagers));
 		this._Report_MerrylandsRSLFunctionSupervisors = new EntitySet<Report_MerrylandsRSLFunctionSupervisor>(new Action<Report_MerrylandsRSLFunctionSupervisor>(this.attach_Report_MerrylandsRSLFunctionSupervisors), new Action<Report_MerrylandsRSLFunctionSupervisor>(this.detach_Report_MerrylandsRSLFunctionSupervisors));
 		this._Report_MerrylandsRSLIncidents = new EntitySet<Report_MerrylandsRSLIncident>(new Action<Report_MerrylandsRSLIncident>(this.attach_Report_MerrylandsRSLIncidents), new Action<Report_MerrylandsRSLIncident>(this.detach_Report_MerrylandsRSLIncidents));
@@ -29062,6 +43676,19 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_ClubUminaCovidMarshall", Storage="_Report_ClubUminaCovidMarshalls", ThisKey="ShiftId", OtherKey="ShiftId")]
+	public EntitySet<Report_ClubUminaCovidMarshall> Report_ClubUminaCovidMarshalls
+	{
+		get
+		{
+			return this._Report_ClubUminaCovidMarshalls;
+		}
+		set
+		{
+			this._Report_ClubUminaCovidMarshalls.Assign(value);
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_ClubUminaDutyManager", Storage="_Report_ClubUminaDutyManagers", ThisKey="ShiftId", OtherKey="ShiftId")]
 	public EntitySet<Report_ClubUminaDutyManager> Report_ClubUminaDutyManagers
 	{
@@ -29098,6 +43725,19 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 		set
 		{
 			this._Report_ClubUminaReceptions.Assign(value);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLCovidMarshall", Storage="_Report_MerrylandsRSLCovidMarshalls", ThisKey="ShiftId", OtherKey="ShiftId")]
+	public EntitySet<Report_MerrylandsRSLCovidMarshall> Report_MerrylandsRSLCovidMarshalls
+	{
+		get
+		{
+			return this._Report_MerrylandsRSLCovidMarshalls;
+		}
+		set
+		{
+			this._Report_MerrylandsRSLCovidMarshalls.Assign(value);
 		}
 	}
 	
@@ -29199,6 +43839,18 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	private void attach_Report_ClubUminaCovidMarshalls(Report_ClubUminaCovidMarshall entity)
+	{
+		this.SendPropertyChanging();
+		entity.Shift = this;
+	}
+	
+	private void detach_Report_ClubUminaCovidMarshalls(Report_ClubUminaCovidMarshall entity)
+	{
+		this.SendPropertyChanging();
+		entity.Shift = null;
+	}
+	
 	private void attach_Report_ClubUminaDutyManagers(Report_ClubUminaDutyManager entity)
 	{
 		this.SendPropertyChanging();
@@ -29230,6 +43882,18 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 	
 	private void detach_Report_ClubUminaReceptions(Report_ClubUminaReception entity)
+	{
+		this.SendPropertyChanging();
+		entity.Shift = null;
+	}
+	
+	private void attach_Report_MerrylandsRSLCovidMarshalls(Report_MerrylandsRSLCovidMarshall entity)
+	{
+		this.SendPropertyChanging();
+		entity.Shift = this;
+	}
+	
+	private void detach_Report_MerrylandsRSLCovidMarshalls(Report_MerrylandsRSLCovidMarshall entity)
 	{
 		this.SendPropertyChanging();
 		entity.Shift = null;
@@ -29330,11 +43994,15 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<BillPayment> _BillPayments;
 	
+	private EntitySet<Report_ClubUminaCovidMarshall> _Report_ClubUminaCovidMarshalls;
+	
 	private EntitySet<Report_ClubUminaDutyManager> _Report_ClubUminaDutyManagers;
 	
 	private EntitySet<Report_ClubUminaIncident> _Report_ClubUminaIncidents;
 	
 	private EntitySet<Report_ClubUminaReception> _Report_ClubUminaReceptions;
+	
+	private EntitySet<Report_MerrylandsRSLCovidMarshall> _Report_MerrylandsRSLCovidMarshalls;
 	
 	private EntitySet<Report_MerrylandsRSLDutyManager> _Report_MerrylandsRSLDutyManagers;
 	
@@ -29371,9 +44039,11 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 	public Staff()
 	{
 		this._BillPayments = new EntitySet<BillPayment>(new Action<BillPayment>(this.attach_BillPayments), new Action<BillPayment>(this.detach_BillPayments));
+		this._Report_ClubUminaCovidMarshalls = new EntitySet<Report_ClubUminaCovidMarshall>(new Action<Report_ClubUminaCovidMarshall>(this.attach_Report_ClubUminaCovidMarshalls), new Action<Report_ClubUminaCovidMarshall>(this.detach_Report_ClubUminaCovidMarshalls));
 		this._Report_ClubUminaDutyManagers = new EntitySet<Report_ClubUminaDutyManager>(new Action<Report_ClubUminaDutyManager>(this.attach_Report_ClubUminaDutyManagers), new Action<Report_ClubUminaDutyManager>(this.detach_Report_ClubUminaDutyManagers));
 		this._Report_ClubUminaIncidents = new EntitySet<Report_ClubUminaIncident>(new Action<Report_ClubUminaIncident>(this.attach_Report_ClubUminaIncidents), new Action<Report_ClubUminaIncident>(this.detach_Report_ClubUminaIncidents));
 		this._Report_ClubUminaReceptions = new EntitySet<Report_ClubUminaReception>(new Action<Report_ClubUminaReception>(this.attach_Report_ClubUminaReceptions), new Action<Report_ClubUminaReception>(this.detach_Report_ClubUminaReceptions));
+		this._Report_MerrylandsRSLCovidMarshalls = new EntitySet<Report_MerrylandsRSLCovidMarshall>(new Action<Report_MerrylandsRSLCovidMarshall>(this.attach_Report_MerrylandsRSLCovidMarshalls), new Action<Report_MerrylandsRSLCovidMarshall>(this.detach_Report_MerrylandsRSLCovidMarshalls));
 		this._Report_MerrylandsRSLDutyManagers = new EntitySet<Report_MerrylandsRSLDutyManager>(new Action<Report_MerrylandsRSLDutyManager>(this.attach_Report_MerrylandsRSLDutyManagers), new Action<Report_MerrylandsRSLDutyManager>(this.detach_Report_MerrylandsRSLDutyManagers));
 		this._Report_MerrylandsRSLFunctionSupervisors = new EntitySet<Report_MerrylandsRSLFunctionSupervisor>(new Action<Report_MerrylandsRSLFunctionSupervisor>(this.attach_Report_MerrylandsRSLFunctionSupervisors), new Action<Report_MerrylandsRSLFunctionSupervisor>(this.detach_Report_MerrylandsRSLFunctionSupervisors));
 		this._Report_MerrylandsRSLIncidents = new EntitySet<Report_MerrylandsRSLIncident>(new Action<Report_MerrylandsRSLIncident>(this.attach_Report_MerrylandsRSLIncidents), new Action<Report_MerrylandsRSLIncident>(this.detach_Report_MerrylandsRSLIncidents));
@@ -29536,6 +44206,19 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_ClubUminaCovidMarshall", Storage="_Report_ClubUminaCovidMarshalls", ThisKey="StaffId", OtherKey="StaffId")]
+	public EntitySet<Report_ClubUminaCovidMarshall> Report_ClubUminaCovidMarshalls
+	{
+		get
+		{
+			return this._Report_ClubUminaCovidMarshalls;
+		}
+		set
+		{
+			this._Report_ClubUminaCovidMarshalls.Assign(value);
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_ClubUminaDutyManager", Storage="_Report_ClubUminaDutyManagers", ThisKey="StaffId", OtherKey="StaffId")]
 	public EntitySet<Report_ClubUminaDutyManager> Report_ClubUminaDutyManagers
 	{
@@ -29572,6 +44255,19 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 		set
 		{
 			this._Report_ClubUminaReceptions.Assign(value);
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLCovidMarshall", Storage="_Report_MerrylandsRSLCovidMarshalls", ThisKey="StaffId", OtherKey="StaffId")]
+	public EntitySet<Report_MerrylandsRSLCovidMarshall> Report_MerrylandsRSLCovidMarshalls
+	{
+		get
+		{
+			return this._Report_MerrylandsRSLCovidMarshalls;
+		}
+		set
+		{
+			this._Report_MerrylandsRSLCovidMarshalls.Assign(value);
 		}
 	}
 	
@@ -29685,6 +44381,18 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 		entity.Staff = null;
 	}
 	
+	private void attach_Report_ClubUminaCovidMarshalls(Report_ClubUminaCovidMarshall entity)
+	{
+		this.SendPropertyChanging();
+		entity.Staff = this;
+	}
+	
+	private void detach_Report_ClubUminaCovidMarshalls(Report_ClubUminaCovidMarshall entity)
+	{
+		this.SendPropertyChanging();
+		entity.Staff = null;
+	}
+	
 	private void attach_Report_ClubUminaDutyManagers(Report_ClubUminaDutyManager entity)
 	{
 		this.SendPropertyChanging();
@@ -29716,6 +44424,18 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 	
 	private void detach_Report_ClubUminaReceptions(Report_ClubUminaReception entity)
+	{
+		this.SendPropertyChanging();
+		entity.Staff = null;
+	}
+	
+	private void attach_Report_MerrylandsRSLCovidMarshalls(Report_MerrylandsRSLCovidMarshall entity)
+	{
+		this.SendPropertyChanging();
+		entity.Staff = this;
+	}
+	
+	private void detach_Report_MerrylandsRSLCovidMarshalls(Report_MerrylandsRSLCovidMarshall entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = null;

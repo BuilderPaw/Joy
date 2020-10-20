@@ -36,7 +36,7 @@
                         </asp:DropDownList></td>
                     <td style="text-align: right;">Shift Date:</td>
                     <td>
-                        <asp:TextBox ID="txtDatePicker" OnTextChanged="TextChanged_TextChanged" runat="server" Width="245px" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtDatePicker" OnTextChanged="TextChanged_TextChanged" runat="server" Width="245px" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender1" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtDatePicker" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                 </tr>
@@ -97,7 +97,7 @@
                                     <td id="staff11l" runat="server" visible="false" colspan="1"><b>Staff Employee No. : </b>
                                     </td>
                                     <td id="staff11" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtStaffEmpNo1" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtStaffEmpNo1" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member12l" runat="server" visible="false" colspan="1"><b>Card Held : </b>
                                     </td>
@@ -107,7 +107,7 @@
                                     <td id="member11l" runat="server" visible="false" colspan="1"><b>Member No : </b>
                                     </td>
                                     <td id="member11" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtMemberNo1" OnTextChanged="MemberNo_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtMemberNo1" OnTextChanged="MemberNo_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td id="visitor11l" runat="server" visible="false" colspan="1"><b>Sign In Slip : </b>
                                     </td>
@@ -117,14 +117,14 @@
                                     <td id="visitor12l" runat="server" visible="false" colspan="1"><b>Signed In By : </b>
                                     </td>
                                     <td id="visitor12" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtSignInBy1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtSignInBy1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td id="staff12l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="staff12" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtStaffAddress1" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtStaffAddress1" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member13l" runat="server" visible="false" colspan="1"><b>Date of Birth : </b>
                                         <br />
@@ -132,11 +132,11 @@
                                         <b>Member Since : </b>
                                     </td>
                                     <td id="member13" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtDOB1" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtDOB1" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender22" runat="server" Format='dd MMMM yyyy' TargetControlID="txtDOB1" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                         <br />
                                         <br />
-                                        <asp:TextBox ID="txtMemberSince1" Enabled="false" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtMemberSince1" Enabled="false" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member15l" runat="server" visible="false" colspan="1"><b>Member Photo : </b>
                                     </td>
@@ -146,33 +146,33 @@
                                     <td id="visitor13l" runat="server" visible="false" colspan="1"><b>Date of Birth : </b>
                                     </td>
                                     <td id="visitor13" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtDOBv1" OnTextChanged="TextChanged_TextChanged" runat="server" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtDOBv1" OnTextChanged="TextChanged_TextChanged" runat="server" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender23" runat="server" Format='dd MMMM yyyy' TargetControlID="txtDOBv1" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                     </td>
                                     <td id="visitor14l" runat="server" visible="false" colspan="1"><b>Proof of Identity : </b>
                                     </td>
                                     <td id="visitor14" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtIDProof1" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtIDProof1" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td id="member14l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="member14" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtAddress1" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAddress1" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="visitor15l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="visitor15" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtAddressv1" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAddressv1" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"><b>First Name : </b>
-                                        <asp:TextBox ID="txtFirstName1" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtFirstName1" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="2"><b>Last Name : </b>
-                                        <asp:TextBox ID="txtLastName1" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtLastName1" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -181,7 +181,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <asp:TextBox ID="txtAlias1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAlias1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4"><b>Contact Details : (Could be Mobile No., Home No., and Email Address)</b>
@@ -189,12 +189,12 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <asp:TextBox ID="txtContact1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtContact1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
                                     <td colspan="1" style="width: 106px">
                                         <b>Age : </b>
-                                        <asp:TextBox ID="txtAge1" AutoPostBack="true" OnTextChanged="txtAge1_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAge1" AutoPostBack="true" OnTextChanged="txtAge1_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Age Group : </b>
@@ -226,7 +226,7 @@
                                 </tr>
                                 <tr>
                                     <td style="width: 173px">
-                                        <asp:TextBox ID="txtPDate1" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtPDate1" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender3" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtPDate1" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                     </td>
                                     <td colspan="1" style="width: 8px">
@@ -330,7 +330,7 @@
                                 <tr>
                                     <td colspan="1">
                                         <b>Build : </b>
-                                        <%--<asp:TextBox ID="txtWeight1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
+                                        <%--<asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtWeight1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
                                         <asp:DropDownList ID="ddlWeight1" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="TextChanged_TextChanged">
                                             <asp:ListItem Enabled="true" Text="Select One" Value=""></asp:ListItem>
                                             <asp:ListItem Text="Small" Value="Small"></asp:ListItem>
@@ -342,29 +342,29 @@
                                     </td>
                                     <td colspan="1">
                                         <b>Height : </b>
-                                        <asp:TextBox ID="txtHeight1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtHeight1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1" style="width: 106px">
                                         <b>Hair : </b>
-                                        <asp:TextBox ID="txtHair1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtHair1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="1">
                                         <b>Clothing - Top : </b>
-                                        <asp:TextBox ID="txtClothingTop1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtClothingTop1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Clothing - Bottom : </b>
-                                        <asp:TextBox ID="txtClothingBottom1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtClothingBottom1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Shoes : </b>
-                                        <asp:TextBox ID="txtShoes1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtShoes1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="2">
                                         <b>Weapon : </b>
-                                        <asp:TextBox ID="txtWeapon1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtWeapon1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -451,7 +451,7 @@
                                     <td id="staff21l" runat="server" visible="false" colspan="1"><b>Staff Employee No. : </b>
                                     </td>
                                     <td id="staff21" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtStaffEmpNo2" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtStaffEmpNo2" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member22l" runat="server" visible="false" colspan="1"><b>Card Held : </b>
                                     </td>
@@ -461,7 +461,7 @@
                                     <td id="member21l" runat="server" visible="false" colspan="1"><b>Member No : </b>
                                     </td>
                                     <td id="member21" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtMemberNo2" OnTextChanged="MemberNo_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtMemberNo2" OnTextChanged="MemberNo_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td id="visitor21l" runat="server" visible="false" colspan="1"><b>Sign In Slip : </b>
                                     </td>
@@ -471,14 +471,14 @@
                                     <td id="visitor22l" runat="server" visible="false" colspan="1"><b>Signed In By : </b>
                                     </td>
                                     <td id="visitor22" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtSignInBy2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtSignInBy2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td id="staff22l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="staff22" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtStaffAddress2" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtStaffAddress2" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member23l" runat="server" visible="false" colspan="1"><b>Date of Birth : </b>
                                         <br />
@@ -486,11 +486,11 @@
                                         <b>Member Since : </b>
                                     </td>
                                     <td id="member23" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtDOB2" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtDOB2" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender24" runat="server" Format='dd MMMM yyyy' TargetControlID="txtDOB2" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                         <br />
                                         <br />
-                                        <asp:TextBox ID="txtMemberSince2" Enabled="false" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtMemberSince2" Enabled="false" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member25l" runat="server" visible="false" colspan="1"><b>Member Photo : </b>
                                     </td>
@@ -500,33 +500,33 @@
                                     <td id="visitor23l" runat="server" visible="false" colspan="1"><b>Date of Birth : </b>
                                     </td>
                                     <td id="visitor23" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtDOBv2" OnTextChanged="TextChanged_TextChanged" runat="server" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtDOBv2" OnTextChanged="TextChanged_TextChanged" runat="server" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender25" runat="server" Format='dd MMMM yyyy' TargetControlID="txtDOBv2" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                     </td>
                                     <td id="visitor24l" runat="server" visible="false" colspan="1"><b>Proof of Identity : </b>
                                     </td>
                                     <td id="visitor24" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtIDProof2" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtIDProof2" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td id="member24l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="member24" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtAddress2" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAddress2" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="visitor25l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="visitor25" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtAddressv2" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAddressv2" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"><b>First Name : </b>
-                                        <asp:TextBox ID="txtFirstName2" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtFirstName2" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="2"><b>Last Name : </b>
-                                        <asp:TextBox ID="txtLastName2" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtLastName2" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -535,7 +535,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <asp:TextBox ID="txtAlias2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAlias2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4"><b>Contact Details : (Could be Mobile No., Home No., and Email Address)</b>
@@ -543,12 +543,12 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <asp:TextBox ID="txtContact2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtContact2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
                                     <td colspan="1" style="width: 106px">
                                         <b>Age : </b>
-                                        <asp:TextBox ID="txtAge2" AutoPostBack="true" OnTextChanged="txtAge2_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAge2" AutoPostBack="true" OnTextChanged="txtAge2_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Age Group : </b>
@@ -580,7 +580,7 @@
                                 </tr>
                                 <tr>
                                     <td style="width: 173px">
-                                        <asp:TextBox ID="txtPDate2" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtPDate2" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender4" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtPDate2" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                     </td>
                                     <td colspan="1" style="width: 8px">
@@ -684,7 +684,7 @@
                                 <tr>
                                     <td colspan="1">
                                         <b>Build : </b>
-                                        <%--<asp:TextBox ID="txtWeight2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
+                                        <%--<asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtWeight2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
                                         <asp:DropDownList ID="ddlWeight2" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="TextChanged_TextChanged">
                                             <asp:ListItem Enabled="true" Text="Select One" Value=""></asp:ListItem>
                                             <asp:ListItem Text="Small" Value="Small"></asp:ListItem>
@@ -696,29 +696,29 @@
                                     </td>
                                     <td colspan="1">
                                         <b>Height : </b>
-                                        <asp:TextBox ID="txtHeight2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtHeight2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1" style="width: 106px">
                                         <b>Hair : </b>
-                                        <asp:TextBox ID="txtHair2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtHair2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="1">
                                         <b>Clothing - Top : </b>
-                                        <asp:TextBox ID="txtClothingTop2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtClothingTop2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Clothing - Bottom : </b>
-                                        <asp:TextBox ID="txtClothingBottom2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtClothingBottom2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Shoes : </b>
-                                        <asp:TextBox ID="txtShoes2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtShoes2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="2">
                                         <b>Weapon : </b>
-                                        <asp:TextBox ID="txtWeapon2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtWeapon2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -805,7 +805,7 @@
                                     <td id="staff31l" runat="server" visible="false" colspan="1"><b>Staff Employee No. : </b>
                                     </td>
                                     <td id="staff31" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtStaffEmpNo3" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtStaffEmpNo3" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member32l" runat="server" visible="false" colspan="1"><b>Card Held : </b>
                                     </td>
@@ -815,7 +815,7 @@
                                     <td id="member31l" runat="server" visible="false" colspan="1"><b>Member No : </b>
                                     </td>
                                     <td id="member31" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtMemberNo3" OnTextChanged="MemberNo_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtMemberNo3" OnTextChanged="MemberNo_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td id="visitor31l" runat="server" visible="false" colspan="1"><b>Sign In Slip : </b>
                                     </td>
@@ -825,14 +825,14 @@
                                     <td id="visitor32l" runat="server" visible="false" colspan="1"><b>Signed In By : </b>
                                     </td>
                                     <td id="visitor32" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtSignInBy3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtSignInBy3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td id="staff32l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="staff32" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtStaffAddress3" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtStaffAddress3" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member33l" runat="server" visible="false" colspan="1"><b>Date of Birth : </b>
                                         <br />
@@ -840,11 +840,11 @@
                                         <b>Member Since : </b>
                                     </td>
                                     <td id="member33" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtDOB3" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtDOB3" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender26" runat="server" Format='dd MMMM yyyy' TargetControlID="txtDOB3" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                         <br />
                                         <br />
-                                        <asp:TextBox ID="txtMemberSince3" Enabled="false" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtMemberSince3" Enabled="false" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member35l" runat="server" visible="false" colspan="1"><b>Member Photo : </b>
                                     </td>
@@ -854,33 +854,33 @@
                                     <td id="visitor33l" runat="server" visible="false" colspan="1"><b>Date of Birth : </b>
                                     </td>
                                     <td id="visitor33" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtDOBv3" OnTextChanged="TextChanged_TextChanged" runat="server" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtDOBv3" OnTextChanged="TextChanged_TextChanged" runat="server" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender27" runat="server" Format='dd MMMM yyyy' TargetControlID="txtDOBv3" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                     </td>
                                     <td id="visitor34l" runat="server" visible="false" colspan="1"><b>Proof of Identity : </b>
                                     </td>
                                     <td id="visitor34" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtIDProof3" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtIDProof3" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td id="member34l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="member34" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtAddress3" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAddress3" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="visitor35l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="visitor35" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtAddressv3" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAddressv3" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"><b>First Name : </b>
-                                        <asp:TextBox ID="txtFirstName3" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtFirstName3" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="2"><b>Last Name : </b>
-                                        <asp:TextBox ID="txtLastName3" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtLastName3" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -889,7 +889,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <asp:TextBox ID="txtAlias3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAlias3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4"><b>Contact Details : (Could be Mobile No., Home No., and Email Address)</b>
@@ -897,12 +897,12 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <asp:TextBox ID="txtContact3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtContact3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
                                     <td colspan="1" style="width: 106px">
                                         <b>Age : </b>
-                                        <asp:TextBox ID="txtAge3" AutoPostBack="true" OnTextChanged="txtAge3_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAge3" AutoPostBack="true" OnTextChanged="txtAge3_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Age Group : </b>
@@ -934,7 +934,7 @@
                                 </tr>
                                 <tr>
                                     <td style="width: 173px">
-                                        <asp:TextBox ID="txtPDate3" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtPDate3" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender5" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtPDate3" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                     </td>
                                     <td colspan="1" style="width: 8px">
@@ -1038,7 +1038,7 @@
                                 <tr>
                                     <td colspan="1">
                                         <b>Build : </b>
-                                        <%--<asp:TextBox ID="txtWeight3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
+                                        <%--<asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtWeight3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
                                         <asp:DropDownList ID="ddlWeight3" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="TextChanged_TextChanged">
                                             <asp:ListItem Enabled="true" Text="Select One" Value=""></asp:ListItem>
                                             <asp:ListItem Text="Small" Value="Small"></asp:ListItem>
@@ -1050,29 +1050,29 @@
                                     </td>
                                     <td colspan="1">
                                         <b>Height : </b>
-                                        <asp:TextBox ID="txtHeight3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtHeight3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1" style="width: 106px">
                                         <b>Hair : </b>
-                                        <asp:TextBox ID="txtHair3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtHair3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="1">
                                         <b>Clothing - Top : </b>
-                                        <asp:TextBox ID="txtClothingTop3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtClothingTop3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Clothing - Bottom : </b>
-                                        <asp:TextBox ID="txtClothingBottom3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtClothingBottom3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Shoes : </b>
-                                        <asp:TextBox ID="txtShoes3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtShoes3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="2">
                                         <b>Weapon : </b>
-                                        <asp:TextBox ID="txtWeapon3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtWeapon3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1159,7 +1159,7 @@
                                     <td id="staff41l" runat="server" visible="false" colspan="1"><b>Staff Employee No. : </b>
                                     </td>
                                     <td id="staff41" runat="server" visible="false" colspan="4">
-                                        <asp:TextBox ID="txtStaffEmpNo4" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtStaffEmpNo4" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member42l" runat="server" visible="false" colspan="1"><b>Card Held : </b>
                                     </td>
@@ -1169,7 +1169,7 @@
                                     <td id="member41l" runat="server" visible="false" colspan="1"><b>Member No : </b>
                                     </td>
                                     <td id="member41" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtMemberNo4" OnTextChanged="MemberNo_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtMemberNo4" OnTextChanged="MemberNo_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td id="visitor41l" runat="server" visible="false" colspan="1"><b>Sign In Slip : </b>
                                     </td>
@@ -1179,14 +1179,14 @@
                                     <td id="visitor42l" runat="server" visible="false" colspan="1"><b>Signed In By : </b>
                                     </td>
                                     <td id="visitor42" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtSignInBy4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtSignInBy4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td id="staff42l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="staff42" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtStaffAddress4" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtStaffAddress4" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member43l" runat="server" visible="false" colspan="1"><b>Date of Birth : </b>
                                         <br />
@@ -1194,11 +1194,11 @@
                                         <b>Member Since : </b>
                                     </td>
                                     <td id="member43" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtDOB4" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtDOB4" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender28" runat="server" Format='dd MMMM yyyy' TargetControlID="txtDOB4" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                         <br />
                                         <br />
-                                        <asp:TextBox ID="txtMemberSince4" Enabled="false" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtMemberSince4" Enabled="false" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member45l" runat="server" visible="false" colspan="1"><b>Member Photo : </b>
                                     </td>
@@ -1208,33 +1208,33 @@
                                     <td id="visitor43l" runat="server" visible="false" colspan="1"><b>Date of Birth : </b>
                                     </td>
                                     <td id="visitor43" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtDOBv4" OnTextChanged="TextChanged_TextChanged" runat="server" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtDOBv4" OnTextChanged="TextChanged_TextChanged" runat="server" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender29" runat="server" Format='dd MMMM yyyy' TargetControlID="txtDOBv4" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                     </td>
                                     <td id="visitor44l" runat="server" visible="false" colspan="1"><b>Proof of Identity : </b>
                                     </td>
                                     <td id="visitor44" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtIDProof4" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtIDProof4" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td id="member44l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="member44" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtAddress4" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAddress4" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="visitor45l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="visitor45" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtAddressv4" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAddressv4" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"><b>First Name : </b>
-                                        <asp:TextBox ID="txtFirstName4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Width="100%" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtFirstName4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Width="100%" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="2"><b>Last Name : </b>
-                                        <asp:TextBox ID="txtLastName4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtLastName4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1243,7 +1243,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <asp:TextBox ID="txtAlias4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAlias4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4"><b>Contact Details: (Could be Mobile No., Home No., and Email Address)</b>
@@ -1251,12 +1251,12 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <asp:TextBox ID="txtContact4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtContact4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
                                     <td colspan="1" style="width: 106px">
                                         <b>Age : </b>
-                                        <asp:TextBox ID="txtAge4" AutoPostBack="true" OnTextChanged="txtAge4_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAge4" AutoPostBack="true" OnTextChanged="txtAge4_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Age Group : </b>
@@ -1288,7 +1288,7 @@
                                 </tr>
                                 <tr>
                                     <td style="width: 173px">
-                                        <asp:TextBox ID="txtPDate4" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtPDate4" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender6" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtPDate4" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                     </td>
                                     <td colspan="1" style="width: 8px">
@@ -1392,7 +1392,7 @@
                                 <tr>
                                     <td colspan="1">
                                         <b>Build : </b>
-                                        <%--<asp:TextBox ID="txtWeight4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
+                                        <%--<asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtWeight4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
                                         <asp:DropDownList ID="ddlWeight4" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="TextChanged_TextChanged">
                                             <asp:ListItem Enabled="true" Text="Select One" Value=""></asp:ListItem>
                                             <asp:ListItem Text="Small" Value="Small"></asp:ListItem>
@@ -1404,29 +1404,29 @@
                                     </td>
                                     <td colspan="1">
                                         <b>Height : </b>
-                                        <asp:TextBox ID="txtHeight4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtHeight4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1" style="width: 106px">
                                         <b>Hair : </b>
-                                        <asp:TextBox ID="txtHair4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtHair4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="1">
                                         <b>Clothing - Top : </b>
-                                        <asp:TextBox ID="txtClothingTop4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtClothingTop4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Clothing - Bottom : </b>
-                                        <asp:TextBox ID="txtClothingBottom4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtClothingBottom4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Shoes : </b>
-                                        <asp:TextBox ID="txtShoes4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtShoes4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="2">
                                         <b>Weapon : </b>
-                                        <asp:TextBox ID="txtWeapon4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtWeapon4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1513,7 +1513,7 @@
                                     <td id="staff51l" runat="server" visible="false" colspan="1"><b>Staff Employee No. : </b>
                                     </td>
                                     <td id="staff51" runat="server" visible="false" colspan="5">
-                                        <asp:TextBox ID="txtStaffEmpNo5" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtStaffEmpNo5" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member52l" runat="server" visible="false" colspan="1"><b>Card Held : </b>
                                     </td>
@@ -1523,7 +1523,7 @@
                                     <td id="member51l" runat="server" visible="false" colspan="1"><b>Member No : </b>
                                     </td>
                                     <td id="member51" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtMemberNo5" OnTextChanged="MemberNo_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtMemberNo5" OnTextChanged="MemberNo_TextChanged" AutoPostBack="true" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td id="visitor51l" runat="server" visible="false" colspan="1"><b>Sign In Slip : </b>
                                     </td>
@@ -1533,14 +1533,14 @@
                                     <td id="visitor52l" runat="server" visible="false" colspan="1"><b>Signed In By : </b>
                                     </td>
                                     <td id="visitor52" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtSignInBy5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtSignInBy5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td id="staff52l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="staff52" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtStaffAddress5" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtStaffAddress5" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member53l" runat="server" visible="false" colspan="1"><b>Date of Birth : </b>
                                         <br />
@@ -1548,11 +1548,11 @@
                                         <b>Member Since : </b>
                                     </td>
                                     <td id="member53" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtDOB5" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtDOB5" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender30" runat="server" Format='dd MMMM yyyy' TargetControlID="txtDOB5" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                         <br />
                                         <br />
-                                        <asp:TextBox ID="txtMemberSince5" Enabled="false" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtMemberSince5" Enabled="false" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="member55l" runat="server" visible="false" colspan="1"><b>Member Photo : </b>
                                     </td>
@@ -1562,33 +1562,33 @@
                                     <td id="visitor53l" runat="server" visible="false" colspan="1"><b>Date of Birth : </b>
                                     </td>
                                     <td id="visitor53" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtDOBv5" OnTextChanged="TextChanged_TextChanged" runat="server" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtDOBv5" OnTextChanged="TextChanged_TextChanged" runat="server" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender31" runat="server" Format='dd MMMM yyyy' TargetControlID="txtDOBv5" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                     </td>
                                     <td id="visitor54l" runat="server" visible="false" colspan="1"><b>Proof of Identity : </b>
                                     </td>
                                     <td id="visitor54" runat="server" visible="false" colspan="1">
-                                        <asp:TextBox ID="txtIDProof5" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtIDProof5" OnTextChanged="TextChanged_TextChanged" runat="server" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td id="member54l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="member54" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtAddress5" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAddress5" OnTextChanged="TextChanged_TextChanged" runat="server" Width="100%" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                     <td id="visitor55l" runat="server" visible="false" colspan="1"><b>Address : </b>
                                     </td>
                                     <td id="visitor55" runat="server" visible="false" colspan="3">
-                                        <asp:TextBox ID="txtAddressv5" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAddressv5" OnTextChanged="TextChanged_TextChanged" runat="server" Style="resize: none;" class="object-default" autocomplete="off"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="2"><b>First Name : </b>
-                                        <asp:TextBox ID="txtFirstName5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Width="100%" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtFirstName5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Width="100%" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="2"><b>Last Name : </b>
-                                        <asp:TextBox ID="txtLastName5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtLastName5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1597,7 +1597,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <asp:TextBox ID="txtAlias5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAlias5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4"><b>Contact Details: (Could be Mobile No., Home No., and Email Address)</b>
@@ -1605,12 +1605,12 @@
                                 </tr>
                                 <tr>
                                     <td colspan="4">
-                                        <asp:TextBox ID="txtContact5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtContact5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox></td>
                                 </tr>
                                 <tr>
                                     <td colspan="1" style="width: 106px">
                                         <b>Age : </b>
-                                        <asp:TextBox ID="txtAge5" AutoPostBack="true" OnTextChanged="txtAge5_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtAge5" AutoPostBack="true" OnTextChanged="txtAge5_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Age Group : </b>
@@ -1642,7 +1642,7 @@
                                 </tr>
                                 <tr>
                                     <td style="width: 173px">
-                                        <asp:TextBox ID="txtPDate5" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtPDate5" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                                         <asp:CalendarExtender ID="CalendarExtender7" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtPDate5" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                                     </td>
                                     <td colspan="1" style="width: 8px">
@@ -1746,7 +1746,7 @@
                                 <tr>
                                     <td colspan="1">
                                         <b>Build : </b>
-                                        <%--<asp:TextBox ID="txtWeight5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
+                                        <%--<asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtWeight5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>--%>
                                         <asp:DropDownList ID="ddlWeight5" runat="server" CssClass="object-default" Height="35px" Width="170px" OnSelectedIndexChanged="TextChanged_TextChanged">
                                             <asp:ListItem Enabled="true" Text="Select One" Value=""></asp:ListItem>
                                             <asp:ListItem Text="Small" Value="Small"></asp:ListItem>
@@ -1758,29 +1758,29 @@
                                     </td>
                                     <td colspan="1">
                                         <b>Height : </b>
-                                        <asp:TextBox ID="txtHeight5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtHeight5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1" style="width: 106px">
                                         <b>Hair : </b>
-                                        <asp:TextBox ID="txtHair5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtHair5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="1">
                                         <b>Clothing - Top : </b>
-                                        <asp:TextBox ID="txtClothingTop5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtClothingTop5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Clothing - Bottom : </b>
-                                        <asp:TextBox ID="txtClothingBottom5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtClothingBottom5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="1">
                                         <b>Shoes : </b>
-                                        <asp:TextBox ID="txtShoes5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtShoes5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                     <td colspan="2">
                                         <b>Weapon : </b>
-                                        <asp:TextBox ID="txtWeapon5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
+                                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtWeapon5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="35px" Style="resize: none;"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
@@ -1922,7 +1922,7 @@
                 </tr>
                 <tr style="display: inline-block;">
                     <td style="width: 173px">
-                        <asp:TextBox ID="txtDate1" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtDate1" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender2" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtDate1" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 8px">
@@ -2077,7 +2077,7 @@
                         <b>File Path</b>
                     </td>
                     <td colspan="1">
-                        <asp:TextBox ID="txtCamFilePath1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamFilePath1" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                     </td>
                 </tr>
 <%--                <tr>
@@ -2085,7 +2085,7 @@
                         <b>Start Date/Time</b>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtCamSDate1" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamSDate1" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender8" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamSDate1" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">
@@ -2188,7 +2188,7 @@
                         <b>End Date/Time</b>
                     </td>
                     <td style="width: 173px">
-                        <asp:TextBox ID="txtCamEDate1" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamEDate1" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender9" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamEDate1" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">
@@ -2318,7 +2318,7 @@
                         <b>File Path</b>
                     </td>
                     <td colspan="1">
-                        <asp:TextBox ID="txtCamFilePath2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamFilePath2" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                     </td>
                 </tr>
 <%--                <tr>
@@ -2326,7 +2326,7 @@
                         <b>Start Date/Time</b>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtCamSDate2" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamSDate2" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender10" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamSDate2" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">
@@ -2429,7 +2429,7 @@
                         <b>End Date/Time</b>
                     </td>
                     <td style="width: 173px">
-                        <asp:TextBox ID="txtCamEDate2" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamEDate2" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender11" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamEDate2" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">
@@ -2564,7 +2564,7 @@
                         <b>File Path</b>
                     </td>
                     <td colspan="1">
-                        <asp:TextBox ID="txtCamFilePath3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamFilePath3" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                     </td>
                 </tr>
 <%--                <tr>
@@ -2572,7 +2572,7 @@
                         <b>Start Date/Time</b>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtCamSDate3" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamSDate3" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender12" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamSDate3" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">
@@ -2675,7 +2675,7 @@
                         <b>End Date/Time</b>
                     </td>
                     <td style="width: 173px">
-                        <asp:TextBox ID="txtCamEDate3" runat="server" OnTextChanged="TextChanged_TextChanged" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamEDate3" runat="server" OnTextChanged="TextChanged_TextChanged" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender13" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamEDate3" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">
@@ -2810,7 +2810,7 @@
                         <b>File Path</b>
                     </td>
                     <td colspan="1">
-                        <asp:TextBox ID="txtCamFilePath4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamFilePath4" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                     </td>
                 </tr>
 <%--                <tr>
@@ -2818,7 +2818,7 @@
                         <b>Start Date/Time</b>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtCamSDate4" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamSDate4" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender14" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamSDate4" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">
@@ -2921,7 +2921,7 @@
                         <b>End Date/Time</b>
                     </td>
                     <td style="width: 173px">
-                        <asp:TextBox ID="txtCamEDate4" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamEDate4" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender15" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamEDate4" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">
@@ -3056,7 +3056,7 @@
                         <b>File Path</b>
                     </td>
                     <td colspan="1">
-                        <asp:TextBox ID="txtCamFilePath5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamFilePath5" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                     </td>
                 </tr>
 <%--                <tr>
@@ -3064,7 +3064,7 @@
                         <b>Start Date/Time</b>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtCamSDate5" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamSDate5" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender16" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamSDate5" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">
@@ -3167,7 +3167,7 @@
                         <b>End Date/Time</b>
                     </td>
                     <td style="width: 173px">
-                        <asp:TextBox ID="txtCamEDate5" runat="server" OnTextChanged="TextChanged_TextChanged" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamEDate5" runat="server" OnTextChanged="TextChanged_TextChanged" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender17" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamEDate5" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">
@@ -3302,7 +3302,7 @@
                         <b>File Path</b>
                     </td>
                     <td colspan="1">
-                        <asp:TextBox ID="txtCamFilePath6" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamFilePath6" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                     </td>
                 </tr>
 <%--                <tr>
@@ -3310,7 +3310,7 @@
                         <b>Start Date/Time</b>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtCamSDate6" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamSDate6" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender18" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamSDate6" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">
@@ -3413,7 +3413,7 @@
                         <b>End Date/Time</b>
                     </td>
                     <td style="width: 173px">
-                        <asp:TextBox ID="txtCamEDate6" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamEDate6" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender19" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamEDate6" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">
@@ -3548,7 +3548,7 @@
                         <b>File Path</b>
                     </td>
                     <td colspan="1">
-                        <asp:TextBox ID="txtCamFilePath7" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamFilePath7" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Style="resize: none;"></asp:TextBox>
                     </td>
                 </tr>
 <%--                <tr>
@@ -3556,7 +3556,7 @@
                         <b>Start Date/Time</b>
                     </td>
                     <td>
-                        <asp:TextBox ID="txtCamSDate7" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamSDate7" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender20" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamSDate7" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">
@@ -3659,7 +3659,7 @@
                         <b>End Date/Time</b>
                     </td>
                     <td style="width: 173px">
-                        <asp:TextBox ID="txtCamEDate7" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
+                        <asp:TextBox onkeypress="return CancelReturnKey(event)" ID="txtCamEDate7" OnTextChanged="TextChanged_TextChanged" runat="server" Width="220px" Placeholder="Select Date" class="object-default" autocomplete="off"></asp:TextBox>
                         <asp:CalendarExtender ID="CalendarExtender21" runat="server" Format='dddd, dd MMMM yyyy' TargetControlID="txtCamEDate7" TodaysDateFormat="dd/MM/yyyy"></asp:CalendarExtender>
                     </td>
                     <td colspan="1" style="width: 131px">

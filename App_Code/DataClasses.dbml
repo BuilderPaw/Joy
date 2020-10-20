@@ -64,9 +64,11 @@
       <Column Name="RCatId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ReportName" Type="System.String" DbType="VarChar(80) NOT NULL" CanBeNull="false" />
       <Column Name="ManagerSignOffRequired" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Association Name="Category_Report_ClubUminaCovidMarshall" Member="Report_ClubUminaCovidMarshalls" ThisKey="RCatId" OtherKey="RCatId" Type="Report_ClubUminaCovidMarshall" />
       <Association Name="Category_Report_ClubUminaDutyManager" Member="Report_ClubUminaDutyManagers" ThisKey="RCatId" OtherKey="RCatId" Type="Report_ClubUminaDutyManager" />
       <Association Name="Category_Report_ClubUminaIncident" Member="Report_ClubUminaIncidents" ThisKey="RCatId" OtherKey="RCatId" Type="Report_ClubUminaIncident" />
       <Association Name="Category_Report_ClubUminaReception" Member="Report_ClubUminaReceptions" ThisKey="RCatId" OtherKey="RCatId" Type="Report_ClubUminaReception" />
+      <Association Name="Category_Report_MerrylandsRSLCovidMarshall" Member="Report_MerrylandsRSLCovidMarshalls" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLCovidMarshall" />
       <Association Name="Category_Report_MerrylandsRSLDutyManager" Member="Report_MerrylandsRSLDutyManagers" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLDutyManager" />
       <Association Name="Category_Report_MerrylandsRSLFunctionSupervisor" Member="Report_MerrylandsRSLFunctionSupervisors" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLFunctionSupervisor" />
       <Association Name="Category_Report_MerrylandsRSLIncident" Member="Report_MerrylandsRSLIncidents" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLIncident" />
@@ -176,6 +178,226 @@
       <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report_ClubUminaCovidMarshall" Member="Report_ClubUminaCovidMarshalls">
+    <Type Name="Report_ClubUminaCovidMarshall">
+      <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShiftDOW" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Table" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportStat" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadBy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadByList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSignId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PublishedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastChanged" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="[1]" Member="_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[2]" Member="_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[3]" Member="_3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[4]" Member="_4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[5]" Member="_5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[6]" Member="_6" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[7]" Member="_7" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[8]" Member="_8" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[9]" Member="_9" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[10]" Member="_10" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[11]" Member="_11" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[12]" Member="_12" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[13]" Member="_13" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[14]" Member="_14" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[15]" Member="_15" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[16]" Member="_16" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[17]" Member="_17" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[18]" Member="_18" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[19]" Member="_19" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[20]" Member="_20" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[21]" Member="_21" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[22]" Member="_22" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[23]" Member="_23" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[24]" Member="_24" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[25]" Member="_25" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[26]" Member="_26" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[27]" Member="_27" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[28]" Member="_28" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[29]" Member="_29" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[30]" Member="_30" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[31]" Member="_31" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[32]" Member="_32" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[33]" Member="_33" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[34]" Member="_34" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[35]" Member="_35" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[36]" Member="_36" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[37]" Member="_37" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[38]" Member="_38" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[39]" Member="_39" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[40]" Member="_40" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[41]" Member="_41" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[42]" Member="_42" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[43]" Member="_43" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[44]" Member="_44" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[45]" Member="_45" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[46]" Member="_46" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[47]" Member="_47" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[48]" Member="_48" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[49]" Member="_49" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[50]" Member="_50" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[51]" Member="_51" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[52]" Member="_52" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[53]" Member="_53" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[54]" Member="_54" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[55]" Member="_55" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[56]" Member="_56" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[57]" Member="_57" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[58]" Member="_58" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[59]" Member="_59" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[60]" Member="_60" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[61]" Member="_61" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[62]" Member="_62" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[63]" Member="_63" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[64]" Member="_64" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[65]" Member="_65" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[66]" Member="_66" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[67]" Member="_67" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[68]" Member="_68" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[69]" Member="_69" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[70]" Member="_70" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[71]" Member="_71" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[72]" Member="_72" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[73]" Member="_73" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[74]" Member="_74" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[75]" Member="_75" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[76]" Member="_76" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[77]" Member="_77" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[78]" Member="_78" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[79]" Member="_79" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[80]" Member="_80" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[81]" Member="_81" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[82]" Member="_82" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[83]" Member="_83" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[84]" Member="_84" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[85]" Member="_85" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[86]" Member="_86" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[87]" Member="_87" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[88]" Member="_88" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[89]" Member="_89" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[90]" Member="_90" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[91]" Member="_91" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[92]" Member="_92" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[93]" Member="_93" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[94]" Member="_94" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[95]" Member="_95" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[96]" Member="_96" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[97]" Member="_97" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[98]" Member="_98" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[99]" Member="_99" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[100]" Member="_100" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[101]" Member="_101" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[102]" Member="_102" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[103]" Member="_103" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[104]" Member="_104" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[105]" Member="_105" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[106]" Member="_106" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[107]" Member="_107" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[108]" Member="_108" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[109]" Member="_109" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[110]" Member="_110" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[111]" Member="_111" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[112]" Member="_112" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[113]" Member="_113" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[114]" Member="_114" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[115]" Member="_115" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[116]" Member="_116" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[117]" Member="_117" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[118]" Member="_118" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[119]" Member="_119" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[120]" Member="_120" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[121]" Member="_121" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[122]" Member="_122" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[123]" Member="_123" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[124]" Member="_124" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[125]" Member="_125" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[126]" Member="_126" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[127]" Member="_127" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[128]" Member="_128" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[129]" Member="_129" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[130]" Member="_130" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[131]" Member="_131" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[132]" Member="_132" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[133]" Member="_133" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[134]" Member="_134" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[135]" Member="_135" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[136]" Member="_136" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[137]" Member="_137" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[138]" Member="_138" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[139]" Member="_139" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[140]" Member="_140" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[141]" Member="_141" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[142]" Member="_142" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[143]" Member="_143" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[144]" Member="_144" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[145]" Member="_145" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[146]" Member="_146" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[147]" Member="_147" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[148]" Member="_148" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[149]" Member="_149" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[150]" Member="_150" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[151]" Member="_151" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[152]" Member="_152" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[153]" Member="_153" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[154]" Member="_154" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[155]" Member="_155" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[156]" Member="_156" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[157]" Member="_157" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[158]" Member="_158" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[159]" Member="_159" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[160]" Member="_160" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[161]" Member="_161" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[162]" Member="_162" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[163]" Member="_163" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[164]" Member="_164" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[165]" Member="_165" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[166]" Member="_166" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[167]" Member="_167" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[168]" Member="_168" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[169]" Member="_169" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[170]" Member="_170" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[171]" Member="_171" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[172]" Member="_172" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[173]" Member="_173" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[174]" Member="_174" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[175]" Member="_175" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[176]" Member="_176" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[177]" Member="_177" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[178]" Member="_178" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[179]" Member="_179" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="[180]" Member="_180" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[181]" Member="_181" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[182]" Member="_182" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[183]" Member="_183" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[184]" Member="_184" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="[185]" Member="_185" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[186]" Member="_186" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[187]" Member="_187" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[188]" Member="_188" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[189]" Member="_189" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Category_Report_ClubUminaCovidMarshall" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_ClubUminaCovidMarshall" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_ClubUminaCovidMarshall" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Report_ClubUminaDutyManager" Member="Report_ClubUminaDutyManagers">
@@ -649,6 +871,392 @@
       <Association Name="Category_Report_ClubUminaReception" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
       <Association Name="Shift_Report_ClubUminaReception" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
       <Association Name="Staff_Report_ClubUminaReception" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report_MerrylandsRSLCovidMarshall" Member="Report_MerrylandsRSLCovidMarshalls">
+    <Type Name="Report_MerrylandsRSLCovidMarshall">
+      <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShiftDOW" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Table" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportStat" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadBy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadByList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSignId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PublishedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="LastChanged" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="[1]" Member="_1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[2]" Member="_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[3]" Member="_3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[4]" Member="_4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[5]" Member="_5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[6]" Member="_6" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[7]" Member="_7" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[8]" Member="_8" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[9]" Member="_9" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[10]" Member="_10" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[11]" Member="_11" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[12]" Member="_12" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[13]" Member="_13" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[14]" Member="_14" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[15]" Member="_15" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[16]" Member="_16" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[17]" Member="_17" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[18]" Member="_18" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[19]" Member="_19" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[20]" Member="_20" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[21]" Member="_21" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[22]" Member="_22" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[23]" Member="_23" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[24]" Member="_24" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[25]" Member="_25" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[26]" Member="_26" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[27]" Member="_27" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[28]" Member="_28" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[29]" Member="_29" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[30]" Member="_30" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[31]" Member="_31" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[32]" Member="_32" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[33]" Member="_33" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[34]" Member="_34" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[35]" Member="_35" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[36]" Member="_36" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[37]" Member="_37" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[38]" Member="_38" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[39]" Member="_39" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[40]" Member="_40" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[41]" Member="_41" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[42]" Member="_42" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[43]" Member="_43" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[44]" Member="_44" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[45]" Member="_45" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[46]" Member="_46" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[47]" Member="_47" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[48]" Member="_48" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[49]" Member="_49" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[50]" Member="_50" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[51]" Member="_51" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[52]" Member="_52" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[53]" Member="_53" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[54]" Member="_54" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[55]" Member="_55" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[56]" Member="_56" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[57]" Member="_57" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[58]" Member="_58" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[59]" Member="_59" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[60]" Member="_60" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[61]" Member="_61" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[62]" Member="_62" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[63]" Member="_63" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[64]" Member="_64" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[65]" Member="_65" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[66]" Member="_66" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[67]" Member="_67" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[68]" Member="_68" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[69]" Member="_69" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[70]" Member="_70" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[71]" Member="_71" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[72]" Member="_72" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[73]" Member="_73" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[74]" Member="_74" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[75]" Member="_75" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[76]" Member="_76" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[77]" Member="_77" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[78]" Member="_78" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[79]" Member="_79" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[80]" Member="_80" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[81]" Member="_81" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[82]" Member="_82" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[83]" Member="_83" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[84]" Member="_84" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[85]" Member="_85" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[86]" Member="_86" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[87]" Member="_87" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[88]" Member="_88" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[89]" Member="_89" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[90]" Member="_90" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[91]" Member="_91" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[92]" Member="_92" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[93]" Member="_93" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[94]" Member="_94" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[95]" Member="_95" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[96]" Member="_96" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[97]" Member="_97" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[98]" Member="_98" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[99]" Member="_99" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[100]" Member="_100" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[101]" Member="_101" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[102]" Member="_102" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[103]" Member="_103" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[104]" Member="_104" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[105]" Member="_105" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[106]" Member="_106" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[107]" Member="_107" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[108]" Member="_108" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[109]" Member="_109" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[110]" Member="_110" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[111]" Member="_111" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[112]" Member="_112" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[113]" Member="_113" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[114]" Member="_114" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[115]" Member="_115" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[116]" Member="_116" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[117]" Member="_117" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[118]" Member="_118" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[119]" Member="_119" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[120]" Member="_120" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[121]" Member="_121" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[122]" Member="_122" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[123]" Member="_123" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[124]" Member="_124" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[125]" Member="_125" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[126]" Member="_126" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[127]" Member="_127" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[128]" Member="_128" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[129]" Member="_129" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[130]" Member="_130" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[131]" Member="_131" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[132]" Member="_132" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[133]" Member="_133" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[134]" Member="_134" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[135]" Member="_135" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[136]" Member="_136" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[137]" Member="_137" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[138]" Member="_138" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[139]" Member="_139" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[140]" Member="_140" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[141]" Member="_141" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[142]" Member="_142" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[143]" Member="_143" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[144]" Member="_144" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[145]" Member="_145" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[146]" Member="_146" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[147]" Member="_147" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[148]" Member="_148" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[149]" Member="_149" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[150]" Member="_150" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[151]" Member="_151" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[152]" Member="_152" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[153]" Member="_153" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[154]" Member="_154" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[155]" Member="_155" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[156]" Member="_156" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[157]" Member="_157" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[158]" Member="_158" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[159]" Member="_159" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[160]" Member="_160" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[161]" Member="_161" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[162]" Member="_162" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[163]" Member="_163" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[164]" Member="_164" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[165]" Member="_165" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[166]" Member="_166" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[167]" Member="_167" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[168]" Member="_168" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[169]" Member="_169" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[170]" Member="_170" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[171]" Member="_171" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[172]" Member="_172" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[173]" Member="_173" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[174]" Member="_174" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[175]" Member="_175" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[176]" Member="_176" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[177]" Member="_177" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[178]" Member="_178" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[179]" Member="_179" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[180]" Member="_180" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[181]" Member="_181" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[182]" Member="_182" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[183]" Member="_183" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[184]" Member="_184" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[185]" Member="_185" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[186]" Member="_186" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[187]" Member="_187" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[188]" Member="_188" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[189]" Member="_189" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[190]" Member="_190" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[191]" Member="_191" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[192]" Member="_192" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[193]" Member="_193" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[194]" Member="_194" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[195]" Member="_195" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[196]" Member="_196" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[197]" Member="_197" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[198]" Member="_198" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[199]" Member="_199" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[200]" Member="_200" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[201]" Member="_201" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[202]" Member="_202" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[203]" Member="_203" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[204]" Member="_204" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[205]" Member="_205" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[206]" Member="_206" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[207]" Member="_207" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[208]" Member="_208" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[209]" Member="_209" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[210]" Member="_210" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[211]" Member="_211" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[212]" Member="_212" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[213]" Member="_213" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[214]" Member="_214" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[215]" Member="_215" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[216]" Member="_216" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[217]" Member="_217" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[218]" Member="_218" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[219]" Member="_219" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[220]" Member="_220" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[221]" Member="_221" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[222]" Member="_222" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[223]" Member="_223" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[224]" Member="_224" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[225]" Member="_225" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[226]" Member="_226" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[227]" Member="_227" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[228]" Member="_228" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[229]" Member="_229" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[230]" Member="_230" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[231]" Member="_231" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[232]" Member="_232" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[233]" Member="_233" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[234]" Member="_234" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[235]" Member="_235" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[236]" Member="_236" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[237]" Member="_237" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[238]" Member="_238" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[239]" Member="_239" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[240]" Member="_240" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[241]" Member="_241" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[242]" Member="_242" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[243]" Member="_243" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[244]" Member="_244" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[245]" Member="_245" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[246]" Member="_246" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[247]" Member="_247" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[248]" Member="_248" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[249]" Member="_249" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[250]" Member="_250" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[251]" Member="_251" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[252]" Member="_252" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[253]" Member="_253" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[254]" Member="_254" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[255]" Member="_255" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[256]" Member="_256" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[257]" Member="_257" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[258]" Member="_258" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[259]" Member="_259" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[260]" Member="_260" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[261]" Member="_261" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[262]" Member="_262" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[263]" Member="_263" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[264]" Member="_264" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[265]" Member="_265" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[266]" Member="_266" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[267]" Member="_267" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[268]" Member="_268" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[269]" Member="_269" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[270]" Member="_270" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[271]" Member="_271" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[272]" Member="_272" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[273]" Member="_273" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[274]" Member="_274" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[275]" Member="_275" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[276]" Member="_276" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[277]" Member="_277" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[278]" Member="_278" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[279]" Member="_279" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[280]" Member="_280" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[281]" Member="_281" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[282]" Member="_282" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[283]" Member="_283" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[284]" Member="_284" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[285]" Member="_285" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[286]" Member="_286" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[287]" Member="_287" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[288]" Member="_288" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[289]" Member="_289" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[290]" Member="_290" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[291]" Member="_291" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[292]" Member="_292" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[293]" Member="_293" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[294]" Member="_294" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[295]" Member="_295" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[296]" Member="_296" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[297]" Member="_297" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[298]" Member="_298" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[299]" Member="_299" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[300]" Member="_300" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[301]" Member="_301" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[302]" Member="_302" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[303]" Member="_303" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[304]" Member="_304" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[305]" Member="_305" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[306]" Member="_306" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="[307]" Member="_307" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[308]" Member="_308" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[309]" Member="_309" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[310]" Member="_310" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[311]" Member="_311" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[312]" Member="_312" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[313]" Member="_313" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[314]" Member="_314" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[315]" Member="_315" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[316]" Member="_316" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[317]" Member="_317" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[318]" Member="_318" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[319]" Member="_319" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[320]" Member="_320" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[321]" Member="_321" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[322]" Member="_322" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[323]" Member="_323" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[324]" Member="_324" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[325]" Member="_325" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="[326]" Member="_326" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[327]" Member="_327" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[328]" Member="_328" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[329]" Member="_329" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[330]" Member="_330" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="[331]" Member="_331" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[332]" Member="_332" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[333]" Member="_333" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[334]" Member="_334" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[335]" Member="_335" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="[336]" Member="_336" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[337]" Member="_337" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[338]" Member="_338" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[339]" Member="_339" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[340]" Member="_340" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="[341]" Member="_341" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[342]" Member="_342" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[343]" Member="_343" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[344]" Member="_344" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[345]" Member="_345" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="[346]" Member="_346" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[347]" Member="_347" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[348]" Member="_348" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[349]" Member="_349" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[350]" Member="_350" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="[351]" Member="_351" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[352]" Member="_352" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[353]" Member="_353" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[354]" Member="_354" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="[355]" Member="_355" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Association Name="Category_Report_MerrylandsRSLCovidMarshall" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLCovidMarshall" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLCovidMarshall" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.Report_MerrylandsRSLDutyManager" Member="Report_MerrylandsRSLDutyManagers">
@@ -1245,9 +1853,11 @@
     <Type Name="Shift">
       <Column Name="ShiftId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="ShiftName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Shift_Report_ClubUminaCovidMarshall" Member="Report_ClubUminaCovidMarshalls" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_ClubUminaCovidMarshall" />
       <Association Name="Shift_Report_ClubUminaDutyManager" Member="Report_ClubUminaDutyManagers" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_ClubUminaDutyManager" />
       <Association Name="Shift_Report_ClubUminaIncident" Member="Report_ClubUminaIncidents" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_ClubUminaIncident" />
       <Association Name="Shift_Report_ClubUminaReception" Member="Report_ClubUminaReceptions" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_ClubUminaReception" />
+      <Association Name="Shift_Report_MerrylandsRSLCovidMarshall" Member="Report_MerrylandsRSLCovidMarshalls" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLCovidMarshall" />
       <Association Name="Shift_Report_MerrylandsRSLDutyManager" Member="Report_MerrylandsRSLDutyManagers" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLDutyManager" />
       <Association Name="Shift_Report_MerrylandsRSLFunctionSupervisor" Member="Report_MerrylandsRSLFunctionSupervisors" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLFunctionSupervisor" />
       <Association Name="Shift_Report_MerrylandsRSLIncident" Member="Report_MerrylandsRSLIncidents" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLIncident" />
@@ -1266,9 +1876,11 @@
       <Column Name="Password" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="GroupNames" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
       <Association Name="Staff_BillPayment" Member="BillPayments" ThisKey="StaffId" OtherKey="StaffId" Type="BillPayment" />
+      <Association Name="Staff_Report_ClubUminaCovidMarshall" Member="Report_ClubUminaCovidMarshalls" ThisKey="StaffId" OtherKey="StaffId" Type="Report_ClubUminaCovidMarshall" />
       <Association Name="Staff_Report_ClubUminaDutyManager" Member="Report_ClubUminaDutyManagers" ThisKey="StaffId" OtherKey="StaffId" Type="Report_ClubUminaDutyManager" />
       <Association Name="Staff_Report_ClubUminaIncident" Member="Report_ClubUminaIncidents" ThisKey="StaffId" OtherKey="StaffId" Type="Report_ClubUminaIncident" />
       <Association Name="Staff_Report_ClubUminaReception" Member="Report_ClubUminaReceptions" ThisKey="StaffId" OtherKey="StaffId" Type="Report_ClubUminaReception" />
+      <Association Name="Staff_Report_MerrylandsRSLCovidMarshall" Member="Report_MerrylandsRSLCovidMarshalls" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLCovidMarshall" />
       <Association Name="Staff_Report_MerrylandsRSLDutyManager" Member="Report_MerrylandsRSLDutyManagers" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLDutyManager" />
       <Association Name="Staff_Report_MerrylandsRSLFunctionSupervisor" Member="Report_MerrylandsRSLFunctionSupervisors" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLFunctionSupervisor" />
       <Association Name="Staff_Report_MerrylandsRSLIncident" Member="Report_MerrylandsRSLIncidents" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLIncident" />

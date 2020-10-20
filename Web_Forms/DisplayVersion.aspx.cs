@@ -81,6 +81,7 @@ public partial class Web_Forms_DisplayVersion : System.Web.UI.Page
                         {
                             ddlReport.Items.Add(new ListItem("MR Incident Report", "Report_MerrylandsRSLIncident"));
                             ddlReport.Items.Add(new ListItem("MR Duty Managers", "Report_MerrylandsRSLDutyManager"));
+                            ddlReport.Items.Add(new ListItem("MR Covid Marshall", "Report_MerrylandsRSLCovidMarshall"));
                         }
                         else if (int_groups[i] == 2)
                         {
@@ -102,6 +103,7 @@ public partial class Web_Forms_DisplayVersion : System.Web.UI.Page
                         {
                             ddlReport.Items.Add(new ListItem("CU Incident Report", "Report_ClubUminaIncident"));
                             ddlReport.Items.Add(new ListItem("CU Duty Managers", "Report_ClubUminaDutyManager"));
+                            ddlReport.Items.Add(new ListItem("CU Covid Marshall", "Report_ClubUminaCovidMarshall"));
                         }
                         else if (int_groups[i] == 7)
                         {
@@ -117,6 +119,7 @@ public partial class Web_Forms_DisplayVersion : System.Web.UI.Page
                     // CU Incident Report
                     ddlReport.Items.Add(new ListItem("CU Incident Report", "Report_ClubUminaIncident"));
                     ddlReport.Items.Add(new ListItem("MR Duty Managers", "Report_MerrylandsRSLDutyManager"));
+                    ddlReport.Items.Add(new ListItem("MR Covid Marshall", "Report_MerrylandsRSLCovidMarshall"));
                     // MR Supervisor
                     ddlReport.Items.Add(new ListItem("MR Supervisors", "Report_MerrylandsRSLSupervisor"));
                     // MR Function Supervisor
@@ -127,6 +130,7 @@ public partial class Web_Forms_DisplayVersion : System.Web.UI.Page
                     ddlReport.Items.Add(new ListItem("MR Reception", "Report_MerrylandsRSLReception"));
                     // CU Duty Manager
                     ddlReport.Items.Add(new ListItem("CU Duty Managers", "Report_ClubUminaDutyManager"));
+                    ddlReport.Items.Add(new ListItem("CU Covid Marshall", "Report_ClubUminaCovidMarshall"));
                     // CU Reception
                     ddlReport.Items.Add(new ListItem("CU Reception", "Report_ClubUminaReception"));
                 }

@@ -88,6 +88,12 @@ public class SearchReport
             case 10:
                 reportType = "CU Incident Report";
                 break;
+            case 11:
+                reportType = "MR Covid Marshall";
+                break;
+            case 12:
+                reportType = "CU Covid Marshall";
+                break;
         }
 
         // check if user has entered a keyword to be filtered
@@ -121,19 +127,52 @@ public class SearchReport
 
         string selectQuery = "",
                startQuery = "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat], [AuditVersion], [RowNum]" +
-                            " FROM [View_Reports] WHERE [ReportName] ",
+                            " FROM [View_Reports] WHERE ",
                startQuery1= "SELECT [ReportId], [ReportName], [StaffId], [StaffName], [ShiftName], [ShiftDate], [ShiftDOW], [Report_Table], [Report_Version], [ReportStat], [AuditVersion], ROW_NUMBER() OVER(ORDER BY ShiftDate DESC, ShiftId DESC) RowNum" +
-                            " FROM [View_Reports] WHERE ReportName ",
+                            " FROM [View_Reports] WHERE ",
                reportIdQuery = "", dateQuery = "", statusQuery = "", unreadQuery = "", reportQuery = "", authorQuery = "", cuQuery = "", mrQuery = "",
                endQuery = "ORDER BY ShiftDate DESC, ShiftId DESC, RowNum";
 
         if (report == 1) // no report type filter
         {
-            reportQuery = "IN ('" + UserCredentials.GroupsQuery + "') AND ";
+            string groupsUpdate = "";
+            try
+            {
+                groupsUpdate = UserCredentials.GroupsQuery.Remove(UserCredentials.GroupsQuery.LastIndexOf("', 'MR Incident Report"));
+            }
+            catch { }
+            try
+            {
+                groupsUpdate = UserCredentials.GroupsQuery.Remove(UserCredentials.GroupsQuery.LastIndexOf("', 'CU Incident Report"));
+            }
+            catch { }
+
+            if (UnreadList && UserCredentials.GroupsQuery.Contains("Reception") && !UserCredentials.GroupsQuery.Contains("Supervisor") && !UserCredentials.GroupsQuery.Contains("Manager"))
+            {
+                reportQuery = "[ReportName] IN ('" + groupsUpdate + "') AND ";
+            }
+            else
+            {
+                if (UserCredentials.GroupsQuery.Contains("Reception") && !UserCredentials.GroupsQuery.Contains("Supervisor") && !UserCredentials.GroupsQuery.Contains("Manager"))
+                {
+                    reportQuery = "([ReportName] IN ('" + groupsUpdate + "') OR ([ReportName] IN ('" + UserCredentials.GroupsQuery + "') AND [StaffId] = '" + UserCredentials.StaffId + "')) AND ";
+                }
+                else
+                {
+                    reportQuery = "[ReportName] IN ('" + UserCredentials.GroupsQuery + "') AND ";
+                }
+            }
         }
         else // has report type filter
         {
-            reportQuery = "= '" + reportType + "' AND ";
+            if (UserCredentials.GroupsQuery.Contains("Reception") && !UserCredentials.GroupsQuery.Contains("Supervisor") && !UserCredentials.GroupsQuery.Contains("Manager") && (reportType.Equals("MR Incident Report") || reportType.Equals("CU Incident Report")))
+            {
+                reportQuery = "([ReportName] = '" + reportType + "' AND [StaffId] = '" + UserCredentials.StaffId + "') AND ";
+            }
+            else
+            {
+                reportQuery = "[ReportName] = '" + reportType + "' AND ";
+            }
         }
 
         if (string.IsNullOrWhiteSpace(ReportId))

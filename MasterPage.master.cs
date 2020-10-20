@@ -80,7 +80,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 {
                     // sort report list in order
                     Array.Sort(reportList);
-                    bool incidentAdded1 = false, incidentAdded2 = false;
+                    bool incidentAdded1 = false, incidentAdded2 = false, covidAdded1 = false, covidAdded2 = false;
                     // display the reports in proper order, All MR Reports at the top followed by CU Reports
                     for (int i = 0; i < reportList.Length; i++)
                     {
@@ -116,6 +116,16 @@ public partial class MasterPage : System.Web.UI.MasterPage
                             ddlCreateReport.Items.Add(new ListItem("MR Supervisors", "3"));
                             ddlSearchReport.Items.Add(new ListItem("MR Supervisor", "4"));
                         }
+                        // if Duty Manager or Supervisor - Merrylands
+                        if (reportList[i] == 1 || reportList[i] == 2)
+                        {
+                            if (!covidAdded1)
+                            {
+                                //ddlCreateReport.Items.Add(new ListItem("MR Covid Marshall", "10"));
+                                //ddlSearchReport.Items.Add(new ListItem("MR Covid Marshall", "11"));
+                                covidAdded1 = true;
+                            }
+                        }
                         // MR Function Supervisor
                         else if (reportList[i] == 3)
                         {
@@ -139,6 +149,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
                         {
                             ddlCreateReport.Items.Add(new ListItem("CU Duty Managers", "7"));
                             ddlSearchReport.Items.Add(new ListItem("CU Duty Manager", "8"));
+                            //ddlCreateReport.Items.Add(new ListItem("CU Covid Marshall", "11"));
+                            //ddlSearchReport.Items.Add(new ListItem("CU Covid Marshall", "12"));
                         }
                         // CU Reception
                         else if (reportList[i] == 7)
@@ -158,6 +170,10 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     ddlSearchReport.Items.Add(new ListItem("CU Incident Report", "10"));
                     ddlCreateReport.Items.Add(new ListItem("MR Duty Managers", "2"));
                     ddlSearchReport.Items.Add(new ListItem("MR Duty Manager", "3"));
+                    //ddlCreateReport.Items.Add(new ListItem("MR Covid Marshall", "10"));
+                    //ddlSearchReport.Items.Add(new ListItem("MR Covid Marshall", "11"));
+                    //ddlCreateReport.Items.Add(new ListItem("CU Covid Marshall", "11"));
+                    //ddlSearchReport.Items.Add(new ListItem("CU Covid Marshall", "12"));
                     // MR Supervisor
                     ddlCreateReport.Items.Add(new ListItem("MR Supervisors", "3"));
                     ddlSearchReport.Items.Add(new ListItem("MR Supervisor", "4"));
