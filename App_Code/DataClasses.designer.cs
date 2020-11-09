@@ -98,6 +98,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertStaffName(StaffName instance);
   partial void UpdateStaffName(StaffName instance);
   partial void DeleteStaffName(StaffName instance);
+  partial void InsertLog(Log instance);
+  partial void UpdateLog(Log instance);
+  partial void DeleteLog(Log instance);
   #endregion
 	
 	public DataClassesDataContext() : 
@@ -351,6 +354,22 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<StaffName>();
+		}
+	}
+	
+	public System.Data.Linq.Table<LogType> LogTypes
+	{
+		get
+		{
+			return this.GetTable<LogType>();
+		}
+	}
+	
+	public System.Data.Linq.Table<Log> Logs
+	{
+		get
+		{
+			return this.GetTable<Log>();
 		}
 	}
 }
@@ -44623,6 +44642,209 @@ public partial class StaffName : INotifyPropertyChanging, INotifyPropertyChanged
 				this._Active = value;
 				this.SendPropertyChanged("Active");
 				this.OnActiveChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LogType")]
+public partial class LogType
+{
+	
+	private int _LogTypeID;
+	
+	private string _Description;
+	
+	public LogType()
+	{
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogTypeID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+	public int LogTypeID
+	{
+		get
+		{
+			return this._LogTypeID;
+		}
+		set
+		{
+			if ((this._LogTypeID != value))
+			{
+				this._LogTypeID = value;
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(100) NOT NULL", CanBeNull=false)]
+	public string Description
+	{
+		get
+		{
+			return this._Description;
+		}
+		set
+		{
+			if ((this._Description != value))
+			{
+				this._Description = value;
+			}
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.[Log]")]
+public partial class Log : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _LogID;
+	
+	private int _LogTypeID;
+	
+	private int _StaffID;
+	
+	private System.Nullable<int> _ReportID;
+	
+	private System.DateTime _DateStamp;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnLogIDChanging(int value);
+    partial void OnLogIDChanged();
+    partial void OnLogTypeIDChanging(int value);
+    partial void OnLogTypeIDChanged();
+    partial void OnStaffIDChanging(int value);
+    partial void OnStaffIDChanged();
+    partial void OnReportIDChanging(System.Nullable<int> value);
+    partial void OnReportIDChanged();
+    partial void OnDateStampChanging(System.DateTime value);
+    partial void OnDateStampChanged();
+    #endregion
+	
+	public Log()
+	{
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int LogID
+	{
+		get
+		{
+			return this._LogID;
+		}
+		set
+		{
+			if ((this._LogID != value))
+			{
+				this.OnLogIDChanging(value);
+				this.SendPropertyChanging();
+				this._LogID = value;
+				this.SendPropertyChanged("LogID");
+				this.OnLogIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LogTypeID", DbType="Int NOT NULL")]
+	public int LogTypeID
+	{
+		get
+		{
+			return this._LogTypeID;
+		}
+		set
+		{
+			if ((this._LogTypeID != value))
+			{
+				this.OnLogTypeIDChanging(value);
+				this.SendPropertyChanging();
+				this._LogTypeID = value;
+				this.SendPropertyChanged("LogTypeID");
+				this.OnLogTypeIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffID", DbType="Int NOT NULL")]
+	public int StaffID
+	{
+		get
+		{
+			return this._StaffID;
+		}
+		set
+		{
+			if ((this._StaffID != value))
+			{
+				this.OnStaffIDChanging(value);
+				this.SendPropertyChanging();
+				this._StaffID = value;
+				this.SendPropertyChanged("StaffID");
+				this.OnStaffIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReportID", DbType="Int")]
+	public System.Nullable<int> ReportID
+	{
+		get
+		{
+			return this._ReportID;
+		}
+		set
+		{
+			if ((this._ReportID != value))
+			{
+				this.OnReportIDChanging(value);
+				this.SendPropertyChanging();
+				this._ReportID = value;
+				this.SendPropertyChanged("ReportID");
+				this.OnReportIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateStamp", DbType="DateTime NOT NULL")]
+	public System.DateTime DateStamp
+	{
+		get
+		{
+			return this._DateStamp;
+		}
+		set
+		{
+			if ((this._DateStamp != value))
+			{
+				this.OnDateStampChanging(value);
+				this.SendPropertyChanging();
+				this._DateStamp = value;
+				this.SendPropertyChanged("DateStamp");
+				this.OnDateStampChanged();
 			}
 		}
 	}

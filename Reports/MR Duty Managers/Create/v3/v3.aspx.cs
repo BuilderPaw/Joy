@@ -154,6 +154,14 @@ public partial class Reports_MR_Duty_Managers_Create_v3_v3 : System.Web.UI.Page
             dc.SubmitChanges();
         }
 
+        //log the create activity
+        RunStoredProcedure rsp = new RunStoredProcedure();
+        try
+        {
+            rsp.Log(4, Int32.Parse(Report.LastReportId));
+        }
+        catch { }
+
         //showAlert("Report Submitted.");
         //Response.Redirect("Default.aspx", false);
         ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect",

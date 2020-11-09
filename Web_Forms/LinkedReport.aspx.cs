@@ -43,6 +43,14 @@ public partial class Web_Forms_LinkedReport : System.Web.UI.Page
 
     protected void btnPrint_Click(object sender, EventArgs e)
     {
+        // log the print activity
+        RunStoredProcedure rsp = new RunStoredProcedure();
+        try
+        {
+            rsp.Log(3, Int32.Parse(Session["LinkRId"].ToString()));
+        }
+        catch { }
+
         ScriptManager.RegisterStartupScript(this, typeof(string), "OPEN_WINDOW", "var Mleft = (screen.width/2)-(760/2);var Mtop = (screen.height/2)-(700/2);window.open( '/Web_Forms/PrintReport.aspx?LinkReport=1&ReportName=" + Request.QueryString["ReportName"].ToString() + "&Version=" + Request.QueryString["Version"].ToString() + "', null, 'height=2,width=2,status=yes,toolbar=no,scrollbars=yes,menubar=no,location=no,top=\'+Mtop+\', left=\'+Mleft+\'' );", true);
         if (!string.IsNullOrEmpty(Session["LinkAuditVersion"].ToString()))
         {

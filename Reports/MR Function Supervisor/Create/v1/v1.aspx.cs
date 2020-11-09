@@ -143,6 +143,14 @@ public partial class Reports_MR_Function_Supervisor_Create_v1_v1 : System.Web.UI
             dc.SubmitChanges();
         }
 
+        //log the create activity
+        RunStoredProcedure rsp = new RunStoredProcedure();
+        try
+        {
+            rsp.Log(4, Int32.Parse(Report.LastReportId));
+        }
+        catch { }
+
         //showAlert("Report Submitted.");
         //Response.Redirect("Default.aspx", false);
         ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect",

@@ -58,6 +58,13 @@ public partial class UserLogin : System.Web.UI.Page
                     // update password stored in the database
                     rsp.UpdatePassword(txtUsername.Text, encryptedPassword);
 
+                    // log the login activity
+                    try
+                    {
+                        rsp.Log();
+                    }
+                    catch { }
+
                     bool isCookiePersistent = false; // Create the ticket, and add the groups.
                                                      // set expiration of the authentication ticket - current set: 720 minutes / 12 hours
                     FormsAuthenticationTicket authTicket = new FormsAuthenticationTicket(1, txtUsername.Text, DateTime.Now, DateTime.Now.AddMinutes(720), isCookiePersistent, groups);

@@ -474,6 +474,15 @@ public partial class _Default : System.Web.UI.Page
                        " AND rt.AuditVersion=" + Report.AuditVersion;
 
             ViewReport(Report.ActiveReport);
+
+            // log the view activity
+            RunStoredProcedure rsp = new RunStoredProcedure();
+            try
+            {
+                rsp.Log(2);
+            }
+            catch { }
+
             CheckMode(); // check which mode to use, is a user/manager/staff
             ScriptManager.RegisterClientScriptBlock(this, Page.GetType(), "ToTheTop", "ToTopOfPage();", true); // scroll to the top of the page
         }
@@ -638,6 +647,15 @@ public partial class _Default : System.Web.UI.Page
         {
             ViewReport(Report.ActiveReport); // display currently shown report
         }
+
+        // log the view activity
+        RunStoredProcedure rsp = new RunStoredProcedure();
+        try
+        {
+            rsp.Log(2);
+        }
+        catch { }
+
         CheckMode();
         ScriptManager.RegisterClientScriptBlock(this, Page.GetType(), "ToTheTop", "ToTopOfPage();", true); // scroll to the top of the page
     }
@@ -684,6 +702,15 @@ public partial class _Default : System.Web.UI.Page
         {
             ViewReport(Report.ActiveReport); // display currently shown report
         }
+
+        // log the view activity
+        RunStoredProcedure rsp = new RunStoredProcedure();
+        try
+        {
+            rsp.Log(2);
+        }
+        catch { }
+
         CheckMode();
         ScriptManager.RegisterClientScriptBlock(this, Page.GetType(), "ToTheTop", "ToTopOfPage();", true); // scroll to the top of the page
     }
@@ -1757,6 +1784,14 @@ public partial class _Default : System.Web.UI.Page
             cmd.ExecuteNonQuery();
             con.Close();
 
+            //log the signed activity
+            RunStoredProcedure rsp = new RunStoredProcedure();
+            try
+            {
+                rsp.Log(7);
+            }
+            catch { }
+
             UpdateReport();
             UpdateStatus();
 
@@ -1775,6 +1810,14 @@ public partial class _Default : System.Web.UI.Page
     protected void btnEdit_Click(object sender, EventArgs e)
     {
         EditMode();
+
+        //log the edit activity
+        RunStoredProcedure rsp = new RunStoredProcedure();
+        try
+        {
+            rsp.Log(5);
+        }
+        catch { }
     }
     protected void EditMode()
     {
@@ -1926,6 +1969,15 @@ public partial class _Default : System.Web.UI.Page
             Report.WhereChangeHappened = "";
             Report.HasImageChange = false; // change was notified, set this back to unchanged
             ViewReport(Report.ActiveReport);
+
+            //log the update activity
+            RunStoredProcedure rsp = new RunStoredProcedure();
+            try
+            {
+                rsp.Log(6);
+            }
+            catch { }
+
             CheckMode();
         }
     }
@@ -3409,6 +3461,14 @@ public partial class _Default : System.Web.UI.Page
     {
         ViewReport(Report.ActiveReport);
 
+        // log the print activity
+        RunStoredProcedure rsp = new RunStoredProcedure();
+        try
+        {
+            rsp.Log(3);
+        }
+        catch { }
+
         // open a pop up window at the center of the page.
         ScriptManager.RegisterStartupScript(this, typeof(string), "OPEN_WINDOW",
             "var Mleft = (screen.width/2)-(760/2);var Mtop = (screen.height/2)-(700/2);window.open( '/Web_Forms/PrintReport.aspx', null, 'height=2,width=2,status=yes,toolbar=no,scrollbars=yes,menubar=no,location=no,top=\'+Mtop+\', left=\'+Mleft+\'' );", true);
@@ -3674,6 +3734,13 @@ public partial class _Default : System.Web.UI.Page
             Report.LinkedTable = lblTable.Text; // set the linked table name selected & check whether user logged in has access viewing an Incident Report
             ScriptManager.RegisterStartupScript(this, typeof(string), "OPEN_WINDOW", "window.open('/Web_Forms/LinkedReport.aspx?RId=" + lblRId.Text + "&ReportName=" + lblReportName.Text + "&ReportTable=" + lblTable.Text + "&Version=" + lblVersion.Text + "', null, 'channelmode=1, width=1366,height=768,resizable=yes,status=no,toolbar=no,scrollbars=yes,menubar=yes,location=no,left=1,top=1' );", true);
             ViewReport(Report.ActiveReport);
+            // log the view activity
+            RunStoredProcedure rsp = new RunStoredProcedure();
+            try
+            {
+                rsp.Log(2, Int32.Parse(lblRId.Text));
+            }
+            catch { }
         }
         else if (e.CommandName.Equals("View"))
         {
@@ -3718,6 +3785,15 @@ public partial class _Default : System.Web.UI.Page
                             " WHERE rt.StaffId = s.StaffId AND rt.ShiftId = st.ShiftId AND c.RCatId = rt.RCatId AND rt.ReportId=" + lblRId.Text +
                             " AND rt.AuditVersion=" + Report.AuditVersion;
             ViewReport(report);
+
+            // log the view activity
+            RunStoredProcedure rsp = new RunStoredProcedure();
+            try
+            {
+                rsp.Log(2);
+            }
+            catch { }
+
             CheckMode();
             ScriptManager.RegisterClientScriptBlock(this, Page.GetType(), "ToTheTop", "ToTopOfPage();", true); // scroll to the top of the page
         }

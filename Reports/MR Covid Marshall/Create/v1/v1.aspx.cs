@@ -494,6 +494,14 @@ public partial class Reports_MR_Covid_Marshall_Create_v1_v1 : System.Web.UI.Page
             dc.SubmitChanges();
         }
 
+        //log the create activity
+        RunStoredProcedure rsp = new RunStoredProcedure();
+        try
+        {
+            rsp.Log(4, Int32.Parse(Report.LastReportId));
+        }
+        catch { }
+
         ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect",
         "alert('Report Submitted.'); window.location='" +
         Request.ApplicationPath + "Default.aspx';", true);

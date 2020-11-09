@@ -6145,6 +6145,14 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
 
         SearchReport.CreateReport = ""; // reset this variable to set ddlCreateReport to default value
 
+        //log the create activity
+        RunStoredProcedure rsp = new RunStoredProcedure();
+        try
+        {
+            rsp.Log(4, Int32.Parse(Report.LastReportId));
+        }
+        catch { }
+
         ScriptManager.RegisterStartupScript(this, this.GetType(), "redirect",
         "alert('Report Saved.'); window.location='" +
         Request.ApplicationPath + "Default.aspx';", true);

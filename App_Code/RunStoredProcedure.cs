@@ -129,4 +129,72 @@ public class RunStoredProcedure
         string result = new String(decodedChar);
         return result;
     }
+
+    // log the login activity
+    public void Log()
+    {
+        try
+        {
+            using (DataClassesDataContext dc = new DataClassesDataContext())
+            {
+                Log l = new Log();
+                // enter log type which is: Login
+                l.LogTypeID = 1;
+                l.StaffID = Int32.Parse(UserCredentials.StaffId);
+                l.DateStamp = DateTime.Now;
+                dc.Logs.InsertOnSubmit(l);
+                dc.SubmitChanges();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Error: Login method under RunStoredProcedure class: " + ex.Message);
+        }
+    }
+
+    // log the view/print activity
+    public void Log(int logTypeId)
+    {
+        try
+        {
+            using (DataClassesDataContext dc = new DataClassesDataContext())
+            {
+                Log l = new Log();
+                // enter log type it is: 2=View; 3=Print
+                l.LogTypeID = logTypeId;
+                l.StaffID = Int32.Parse(UserCredentials.StaffId);
+                l.ReportID = Int32.Parse(Report.Id);
+                l.DateStamp = DateTime.Now;
+                dc.Logs.InsertOnSubmit(l);
+                dc.SubmitChanges();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Error: Login method under RunStoredProcedure class: " + ex.Message);
+        }
+    }
+
+    // log the view/print activity
+    public void Log(int logTypeId, int reportId)
+    {
+        try
+        {
+            using (DataClassesDataContext dc = new DataClassesDataContext())
+            {
+                Log l = new Log();
+                // enter log type it is: 2=View; 3=Print
+                l.LogTypeID = logTypeId;
+                l.StaffID = Int32.Parse(UserCredentials.StaffId);
+                l.ReportID = reportId;
+                l.DateStamp = DateTime.Now;
+                dc.Logs.InsertOnSubmit(l);
+                dc.SubmitChanges();
+            }
+        }
+        catch (Exception ex)
+        {
+            throw new Exception("Error: Login method under RunStoredProcedure class: " + ex.Message);
+        }
+    }
 }
