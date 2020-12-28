@@ -132,13 +132,13 @@
                                                         <asp:Button ID="btnSearchReport" runat="server" class="btn btn-accordion" OnClick="btnSearchReport_Click" ValidationGroup="Search" ClientIDMode="Static" Text="Filter" />
                                                         <br />
                                                         <asp:Label ID="lblUnreadList" runat="server">Only Unread Reports</asp:Label>
-                                                        <asp:CheckBox ID="cbUnreadList" runat="server" style="height:20px; width:20px; margin-left:12px;" />
+                                                        <asp:CheckBox ID="cbUnreadList" runat="server" Style="height: 20px; width: 20px; margin-left: 12px;" />
                                                         <br />
                                                         <asp:Label ID="lblMROnly" runat="server">Only Merrylands</asp:Label>
-                                                        <asp:CheckBox ID="cbMROnly" runat="server" OnCheckedChanged="cbMROnly_CheckedChanged" AutoPostBack="true" style="height:20px; width:20px; margin-left:46px;" />
+                                                        <asp:CheckBox ID="cbMROnly" runat="server" OnCheckedChanged="cbMROnly_CheckedChanged" AutoPostBack="true" Style="height: 20px; width: 20px; margin-left: 46px;" />
                                                         <br />
                                                         <asp:Label ID="lblCUOnly" runat="server">Only Umina</asp:Label>
-                                                        <asp:CheckBox ID="cbCUOnly" runat="server" OnCheckedChanged="cbCUOnly_CheckedChanged" AutoPostBack="true" style="height:20px; width:20px; margin-left:79px;" />
+                                                        <asp:CheckBox ID="cbCUOnly" runat="server" OnCheckedChanged="cbCUOnly_CheckedChanged" AutoPostBack="true" Style="height: 20px; width: 20px; margin-left: 79px;" />
                                                         <br />
                                                         <br />
                                                         <asp:Label ID="lblReportType" runat="server">Report Type</asp:Label>
@@ -189,7 +189,7 @@
                                                             ErrorMessage="Start & End Date" runat="server"></asp:CompareValidator>
                                                         <br />
                                                         <asp:Label ID="lblArchivedStaff" runat="server">Only Archived Staff</asp:Label>
-                                                        <asp:CheckBox ID="cbArchivedStaff" runat="server" OnCheckedChanged="cbArchivedStaff_CheckedChanged" AutoPostBack="true" style="height:20px; width:20px; margin-left:24px;" />
+                                                        <asp:CheckBox ID="cbArchivedStaff" runat="server" OnCheckedChanged="cbArchivedStaff_CheckedChanged" AutoPostBack="true" Style="height: 20px; width: 20px; margin-left: 24px;" />
                                                         <br />
                                                         <br />
                                                         <asp:Label ID="lblStaffId" Font-Size="100%" runat="server">Staff</asp:Label>
@@ -255,17 +255,29 @@
                                                     </td>
                                                 </tr>
                                             </table>
-                                            <asp:Button ID="btnSearchReport1" runat="server" class="btn btn-accordion" OnClick="btnSearchReport_Click" ValidationGroup="Search" ClientIDMode="Static" Text="Filter" />
+                                            <table runat="server" style="width: 100%; border: none;">
+                                                <tr>
+                                                    <td>
+                                                        <asp:Button ID="btnSearchReport1" runat="server" class="btn btn-accordion" OnClick="btnSearchReport_Click" ValidationGroup="Search" ClientIDMode="Static" Text="Filter" />
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </Content>
                                     </asp:AccordionPane>
                                     <asp:AccordionPane ID="acpDisplayVersion" runat="server" Visible="false">
-                                        <Header> REPORT VERSIONS </Header>
+                                        <Header> OTHER FEATURES </Header>
                                         <Content>
                                             <div class="accordion-table">
                                                 <table>
                                                     <tr>
                                                         <td style="text-align: center;">
                                                             <asp:Button ID="btnDisplayVersion" runat="server" class="btn btn-accordion" OnClientClick="window.open('/Web_Forms/DisplayVersion.aspx');" Text="Report Versions" />
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td style="text-align: center;">
+                                                            <asp:Button ID="btnLogViewer" runat="server" Visible="false" class="btn btn-accordion" OnClientClick="window.open('/Web_Forms/LogViewer.aspx');" Text="Log Viewer" />
                                                             <br />
                                                         </td>
                                                     </tr>
@@ -287,7 +299,7 @@
                             <!-- footer -->
                             <div class="footer-div">
                                 <asp:Label ID="Label1" runat="server"><%: DateTime.Now.ToLongDateString()%></asp:Label>
-                                <asp:HyperLink ID="HyperLink1" runat="server" style="font-weight:700; font-size:12px; float:right;" onclick="return openUpdatesAndReminders(this)">Updates and Reminders</asp:HyperLink>
+                                <asp:HyperLink ID="HyperLink1" runat="server" Style="font-weight: 700; font-size: 12px; float: right;" onclick="return openUpdatesAndReminders(this)">Updates and Reminders</asp:HyperLink>
                                 <div id="username" runat="server">
                                     <asp:Label ID="Label2" class="footer-object" runat="server">Logged in as : <%=Session["Username"]%></asp:Label>
                                     <br />

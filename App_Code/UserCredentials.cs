@@ -96,7 +96,7 @@ public class UserCredentials
 
                 if (groupsQuery.Contains("MRReportsSeniorManagers|"))
                 {
-                    groupsQuery = "CU Reception Supervisors', 'MR Reception Supervisor', 'MR Function Supervisor', 'CU Supervisors', 'CU Reception', 'CU Duty Managers', 'MR Users', 'MR Supervisors', 'MR Reception', 'MR Duty Managers', 'MR Incident Report', 'MR Covid Marshall', 'CU Covid Marshall', 'MR Allegation', 'MR Senior Managers', 'CU Incident Report";
+                    groupsQuery = "CU Reception Supervisors', 'MR Reception Supervisor', 'MR Function Supervisor', 'CU Supervisors', 'CU Reception', 'CU Duty Managers', 'MR Users', 'MR Supervisors', 'MR Reception', 'MR Duty Managers', 'MR Log Viewer', 'MR Incident Report', 'MR Covid Marshall', 'CU Covid Marshall', 'MR Allegation', 'MR Senior Managers', 'CU Incident Report";
                 }
                 else
                 {
@@ -118,6 +118,7 @@ public class UserCredentials
                     groupsQuery = groupsQuery.Replace("CU Duty Managers", "'CU Duty Managers', 'CU Incident Report', 'CU Covid Marshall'");
                     groupsQuery = groupsQuery.Replace("MR Users", "'MR Users'");
                     groupsQuery = groupsQuery.Replace("MR Allegation", "'MR Allegation'");
+                    groupsQuery = groupsQuery.Replace("MR LogViewer", "'MR Log Viewer'");
                     groupsQuery = groupsQuery.Replace("MR Operations", "'MR Operations'");
                     groupsQuery = groupsQuery.Replace("CU ClubManager", "'CU Club Manager'");
                     groupsQuery = groupsQuery.Replace("MR Supervisors", "'MR Supervisors', 'MR Incident Report', 'MR Covid Marshall'");

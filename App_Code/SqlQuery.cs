@@ -454,4 +454,42 @@ public class SqlQuery
 
         UserCredentials.Role = staffRole;
     }
+
+    public static string LogViewerQuery // log viewer query
+    {
+        get
+        {
+            if (HttpContext.Current.Session["SLogViewerQuery"] == null)
+            {
+                return " ";
+            }
+            else
+            {
+                return HttpContext.Current.Session["SLogViewerQuery"].ToString();
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["SLogViewerQuery"] = value;
+        }
+    }
+
+    public static int LogViewerLoad // log viewer load count
+    {
+        get
+        {
+            if (HttpContext.Current.Session["SLogViewerLoad"] == null)
+            {
+                return 0;
+            }
+            else
+            {
+                return (int)HttpContext.Current.Session["SLogViewerLoad"];
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["SLogViewerLoad"] = value;
+        }
+    }
 }

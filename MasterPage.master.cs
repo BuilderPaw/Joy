@@ -70,6 +70,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     || UserCredentials.Groups.Contains("Supervisor"))
                 {
                     acpDisplayVersion.Visible = true;
+
+                    // hide or display the Log Viewer Button depending on the users group
+                    if (UserCredentials.GroupsQuery.Contains("Log Viewer"))
+                    {
+                        btnLogViewer.Visible = true;
+                    }
                 }
 
                 UserCredentials listReports = new UserCredentials();
