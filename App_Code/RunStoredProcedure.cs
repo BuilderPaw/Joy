@@ -234,4 +234,35 @@ public class RunStoredProcedure
         return false;
     }
 
+    // get user password
+    public string GetPassword(string username)
+    {
+        string password = "";
+        using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString))
+        {
+            try
+            {
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("Proc_GetPassword", conn);
+
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // 3. add parameter to command, which will be passed to the stored procedure
+                cmd.Parameters.Add(new SqlParameter("@Username", username));
+                cmd.Parameters.Add("@Password", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                password = (cmd.Parameters["@Password"].Value).ToString();
+
+                return password;
+            }
+            catch (Exception ex) // capture exception
+            {
+                throw new Exception("Error: GetPassword method under RunStoredProcedure class: " + ex.Message);
+            }
+        }
+    }
+
 }

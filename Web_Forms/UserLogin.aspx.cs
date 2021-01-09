@@ -105,10 +105,9 @@ public partial class UserLogin : System.Web.UI.Page
         bool passwordGiven = true;
 
         RunStoredProcedure rsp = new RunStoredProcedure();
-        string getPassword = string.Concat("SELECT Password FROM Staff WHERE Active=1 AND Username='", txtUsername.Text, "'");
-        string password = rsp.ReturnString(getPassword);
+        string userPassword = rsp.GetPassword(txtUsername.Text);
 
-        if (string.Equals(password, txtPassword.Text))
+        if (string.Equals(userPassword, txtPassword.Text))
         {
             // hide the current objetcs displayed and display a textbox to write their new password
             divLogin.Visible = false;

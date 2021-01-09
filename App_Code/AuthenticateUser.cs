@@ -59,9 +59,8 @@ public class AuthenticateUser
 
                 if (userExist) // write an if statement to check whether the username exist in the database
                 {
-                    string getPassword = string.Concat("SELECT Password FROM Staff WHERE Active=1 AND Username='", username, "'");
-                    string encryptedPassword = rsp.ReturnString(getPassword);
-                    string decryptedPassword = rsp.DecryptPassword(encryptedPassword);
+                    string userPassword = rsp.GetPassword(username);
+                    string decryptedPassword = rsp.DecryptPassword(userPassword);
 
                     if (string.Equals(decryptedPassword, password)) // if it is, check if there is any password stored and match if exist return true
                     {
