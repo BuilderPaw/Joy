@@ -53,11 +53,11 @@ public class AuthenticateUser
             }
             catch (Exception ex)
             {
-                string checkIfUsernameExist = string.Concat("SELECT COUNT(*) FROM Staff WHERE Username='", username, "'");
                 RunStoredProcedure rsp = new RunStoredProcedure();
-                int count = rsp.ReturnInteger(checkIfUsernameExist);
+                // check if username exists
+                bool userExist = rsp.UserExist(username);
 
-                if (count > 0) // write an if statement to check whether the username exist in the database
+                if (userExist) // write an if statement to check whether the username exist in the database
                 {
                     string getPassword = string.Concat("SELECT Password FROM Staff WHERE Active=1 AND Username='", username, "'");
                     string encryptedPassword = rsp.ReturnString(getPassword);

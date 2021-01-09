@@ -197,4 +197,41 @@ public class RunStoredProcedure
             throw new Exception("Error: Login method under RunStoredProcedure class: " + ex.Message);
         }
     }
+
+    // check whether the user exist
+    public bool UserExist(string username)
+    {
+        using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString))
+        {
+            try
+            {
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("Proc_UserExist", conn);
+
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // 3. add parameter to command, which will be passed to the stored procedure
+                cmd.Parameters.Add(new SqlParameter("@Username", username));
+
+                var returnParameter = cmd.Parameters.Add("@ReturnValue", SqlDbType.Int);
+                returnParameter.Direction = ParameterDirection.ReturnValue;
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                var result = returnParameter.Value;
+
+                if (Int32.Parse(result.ToString()) > 0)
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex) // capture exception
+            {
+                throw new Exception("Error: UserExist method under RunStoredProcedure class: " + ex.Message);
+            }
+        }
+        return false;
+    }
+
 }
