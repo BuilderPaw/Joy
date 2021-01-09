@@ -117,8 +117,7 @@ public class AuthenticateUser
             catch (Exception ex)
             {
                 RunStoredProcedure rsp = new RunStoredProcedure();
-                string getGroupNames = string.Concat("SELECT GroupNames FROM Staff WHERE Active=1 AND Username='", username, "'");
-                string groups = rsp.ReturnString(getGroupNames);
+                string groups = rsp.GetGroupNames(username);
 
                 if (!string.IsNullOrEmpty(groups))
                 {

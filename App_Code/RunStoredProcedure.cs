@@ -265,4 +265,35 @@ public class RunStoredProcedure
         }
     }
 
+    // get user group names
+    public string GetGroupNames(string username)
+    {
+        string groupNames = "";
+        using (SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString))
+        {
+            try
+            {
+                // 1.  create a command object identifying the stored procedure
+                SqlCommand cmd = new SqlCommand("Proc_GetGroupNames", conn);
+
+                // 2. set the command object so it knows to execute a stored procedure
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                // 3. add parameter to command, which will be passed to the stored procedure
+                cmd.Parameters.Add(new SqlParameter("@Username", username));
+                cmd.Parameters.Add("@GroupNames", SqlDbType.VarChar, 1000).Direction = ParameterDirection.Output;
+
+                conn.Open();
+                cmd.ExecuteNonQuery();
+                groupNames = (cmd.Parameters["@GroupNames"].Value).ToString();
+
+                return groupNames;
+            }
+            catch (Exception ex) // capture exception
+            {
+                throw new Exception("Error: GetGroupNames method under RunStoredProcedure class: " + ex.Message);
+            }
+        }
+    }
+
 }
