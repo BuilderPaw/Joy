@@ -121,11 +121,8 @@ public class AuthenticateUser
 
                 if (!string.IsNullOrEmpty(groups))
                 {
-                    string getStaffNameId = string.Concat("SELECT StaffNameId FROM Staff WHERE Active=1 AND Username='", username, "'");
-                    int staffNameId = rsp.ReturnInteger(getStaffNameId);
-
-                    string getName = string.Concat("SELECT Name FROM StaffName WHERE Active=1 AND StaffNameId=", staffNameId, "");
-                    string name = rsp.ReturnString(getName);
+                    // link the stored procedure created in db
+                    string name = rsp.GetName(username);
 
                     groupNames.Append(groups);
                     groupNames.Append("|");
