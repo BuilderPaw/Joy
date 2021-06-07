@@ -61,7 +61,7 @@
                 </td>
             </tr>
             <tr>
-                <th colspan="4">WHS Issues</th>
+                <th colspan="4">WHS/HACCP</th>
             </tr>
             <tr>
                 <td colspan="4">

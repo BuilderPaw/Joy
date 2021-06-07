@@ -71,7 +71,7 @@
                 </td>
             </tr>
             <tr>
-                <th colspan="4">WHS Issues</th>
+                <th colspan="4">WHS/HACCP</th>
             </tr>
             <tr>
                 <td style="font-size: 12.5px;" colspan="4">

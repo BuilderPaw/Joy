@@ -19,12 +19,12 @@
         function printPage() {
             var getFormView = document.getElementById("<%=fvReport.ClientID%>");
             var MainWindow = window.open('', '', 'height=800,width=650,status=no,toolbar=no,scrollbars=yes');
-                    MainWindow.document.write(getFormView.innerHTML);
-                    MainWindow.document.close();
-                    MainWindow.print();
-                    MainWindow.close();
-                    return false;
-                }
+            MainWindow.document.write(getFormView.innerHTML);
+            MainWindow.document.close();
+            MainWindow.print();
+            MainWindow.close();
+            return false;
+        }
         var redirectTimerId = 0;
         function closeWindow() {
             window.opener = top;
