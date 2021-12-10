@@ -132,8 +132,7 @@ public partial class Web_Forms_BillManager : System.Web.UI.Page
             bp.EnteredDate = currentDate;
 
             if (currentDate.Hour == 0 || currentDate.Hour == 1 || currentDate.Hour == 2 || currentDate.Hour == 3 ||
-                currentDate.Hour == 4 || currentDate.Hour == 5 || currentDate.Hour == 6 ||
-                currentDate.Hour == 7 || currentDate.Hour == 8)
+                currentDate.Hour == 4 || currentDate.Hour == 5)
             {
                 tradingDate = DateTime.Now.AddDays(-1);
             }
