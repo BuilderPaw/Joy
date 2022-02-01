@@ -333,6 +333,10 @@ public class SqlQuery
                     {
                         staffRole = "MR Contractor";
                     }
+                    else if (UserCredentials.Groups.Contains("MRReportsCustomerRelationsOfficer"))
+                    {
+                        staffRole = "MR Customer Relations Officer";
+                    }
 
                     // get the last Staff Name ID stored in the database
                     con1.Open();
@@ -439,6 +443,10 @@ public class SqlQuery
         else if (UserCredentials.Groups.Contains("MRReportsIncident"))
         {
             staffRole = "MR Contractor";
+        }
+        else if (UserCredentials.Groups.Contains("MRReportsCustomerRelationsOfficer"))
+        {
+            staffRole = "MR Customer Relations Officer";
         }
 
         con1.Open(); // Update Staff Role in the database

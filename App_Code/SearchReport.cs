@@ -94,6 +94,9 @@ public class SearchReport
             case 12:
                 reportType = "CU Covid Marshall";
                 break;
+            case 13:
+                reportType = "MR Customer Relations Officer";
+                break;
         }
 
         // check if user has entered a keyword to be filtered

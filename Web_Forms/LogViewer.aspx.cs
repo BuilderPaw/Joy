@@ -103,6 +103,11 @@ public partial class Web_Forms_LogViewer : System.Web.UI.Page
                             int_groups[j] = 7;
                             j++;
                         }
+                        else if (array_groups[i].ToString().Equals("MRReportsCustomerRelationsOfficer"))
+                        {
+                            int_groups[j] = 8;
+                            j++;
+                        }
                     }
 
                     // use Array.Sort to display the Report Types accordingly
@@ -142,6 +147,10 @@ public partial class Web_Forms_LogViewer : System.Web.UI.Page
                         {
                             ddlReport.Items.Add(new ListItem("CU Reception", "Report_ClubUminaReception"));
                         }
+                        else if (int_groups[i] == 8)
+                        {
+                            ddlReport.Items.Add(new ListItem("MR Customer Relations Officer", "Report_MerrylandsRSLCustomerRelationsOfficer"));
+                        }
                     }
                 }
                 else // if the user is a member of Senior Managers
@@ -166,6 +175,8 @@ public partial class Web_Forms_LogViewer : System.Web.UI.Page
                     //ddlReport.Items.Add(new ListItem("CU Covid Marshall", "Report_ClubUminaCovidMarshall"));
                     // CU Reception
                     ddlReport.Items.Add(new ListItem("CU Reception", "Report_ClubUminaReception"));
+                    // MR Customer Relations Officer
+                    ddlReport.Items.Add(new ListItem("MR Customer Relations Officer", "Report_MerrylandsRSLCustomerRelationsOfficer"));
                 }
 
                 // populate the all staff dropdownlist

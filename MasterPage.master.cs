@@ -164,6 +164,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
                             ddlCreateReport.Items.Add(new ListItem("CU Reception", "8"));
                             ddlSearchReport.Items.Add(new ListItem("CU Reception", "9"));
                         }
+                        // MR Customer Relations Customer
+                        else if (reportList[i] == 9)
+                        {
+                            ddlCreateReport.Items.Add(new ListItem("MR Customer Relations Officer", "12"));
+                            ddlSearchReport.Items.Add(new ListItem("MR Customer Relations Officer", "13"));
+                        }
                     }
                 }
                 // if the user has Senior Managers access
@@ -198,6 +204,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     // CU Reception
                     ddlCreateReport.Items.Add(new ListItem("CU Reception", "8"));
                     ddlSearchReport.Items.Add(new ListItem("CU Reception", "9"));
+                    // MR Customer Relations Officer
+                    ddlCreateReport.Items.Add(new ListItem("MR Customer Relations Officer", "12"));
+                    ddlSearchReport.Items.Add(new ListItem("MR Customer Relations Officer", "13"));
                 }
 
                 // populate the staff dropdownlist
