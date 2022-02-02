@@ -3574,6 +3574,11 @@ public partial class _Default : System.Web.UI.Page
                         int_groups[j] = 8;
                         j++;
                     }
+                    else if (array_groups[i].ToString().Equals("MRReportsCustomerRelationsOfficer"))
+                    {
+                        int_groups[j] = 9;
+                        j++;
+                    }
                 }
 
                 // use Array.Sort to display the Report Types accordingly
@@ -3639,6 +3644,10 @@ public partial class _Default : System.Web.UI.Page
                     {
                         ddlReportType.Items.Add(new ListItem("CU Reception", "9"));
                     }
+                    else if (int_groups[i] == 9)
+                    {
+                        ddlReportType.Items.Add(new ListItem("MR Customer Relations Officer", "13"));
+                    }
                 }
             }
             else // if the user is a member of Senior Managers
@@ -3662,6 +3671,8 @@ public partial class _Default : System.Web.UI.Page
                 ddlReportType.Items.Add(new ListItem("CU Covid Marshall", "12"));
                 // CU Reception
                 ddlReportType.Items.Add(new ListItem("CU Reception", "9"));
+                // MR Customer Relations Officer
+                ddlReportType.Items.Add(new ListItem("MR Customer Relations Officer", "13"));
             }
         }
     }
@@ -3892,6 +3903,10 @@ public partial class _Default : System.Web.UI.Page
         else if (ReportType == 12)
         {
             _reportType = "CU Covid Marshall";
+        }
+        else if (ReportType == 13)
+        {
+            _reportType = "MR Customer Relations Officer";
         }
 
         // find appropriate search query
