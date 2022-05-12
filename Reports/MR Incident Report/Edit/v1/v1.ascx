@@ -3820,7 +3820,7 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <asp:TextBox ID="txtDetails" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="130px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="txtDetails" OnTextChanged="TextChanged_TextChanged" class="object-default" runat="server" Height="530px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
