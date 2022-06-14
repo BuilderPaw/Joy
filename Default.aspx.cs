@@ -1479,14 +1479,6 @@ public partial class _Default : System.Web.UI.Page
                 "', @body = '<div style=''font-family:arial;''><H3>Comments Update</H3>" + updateComment.Replace("^", "''") +
                 "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'";
             }
-            else if (Report.Name.Equals("MR Customer Relations Officer"))
-            {
-                site = "@clubumina.com.au;";
-                command = "EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients='paolos@mrsl.com.au;chrisd@mrsl.com.au;davidk@mrsl.com.au;" + username + site +
-                "', @subject = 'Notification | " + Report.Name + " Report " + Report.Id +
-                "', @body = '<div style=''font-family:arial;''><H3>Comments Update</H3>" + updateComment.Replace("^", "''") +
-                "<br/><br/><br/><a href=''http://clubreports:1000''>Open Club Reports</a></div>', @body_format = 'HTML'";
-            }
             else
             {
                 command = "EXEC msdb.dbo.sp_send_dbmail @profile_name = 'ClubReportsProfile', @blind_copy_recipients = 'paolos@mrsl.com.au;davidk@mrsl.com.au;chrisd@mrsl.com.au;" + username + site +
@@ -3579,6 +3571,11 @@ public partial class _Default : System.Web.UI.Page
                         int_groups[j] = 9;
                         j++;
                     }
+                    else if (array_groups[i].ToString().Equals("MRReportsCaretaker"))
+                    {
+                        int_groups[j] = 10;
+                        j++;
+                    }
                 }
 
                 // use Array.Sort to display the Report Types accordingly
@@ -3648,6 +3645,10 @@ public partial class _Default : System.Web.UI.Page
                     {
                         ddlReportType.Items.Add(new ListItem("MR Customer Relations Officer", "13"));
                     }
+                    else if (int_groups[i] == 10)
+                    {
+                        ddlReportType.Items.Add(new ListItem("MR Caretaker", "14"));
+                    }
                 }
             }
             else // if the user is a member of Senior Managers
@@ -3673,6 +3674,8 @@ public partial class _Default : System.Web.UI.Page
                 ddlReportType.Items.Add(new ListItem("CU Reception", "9"));
                 // MR Customer Relations Officer
                 ddlReportType.Items.Add(new ListItem("MR Customer Relations Officer", "13"));
+                // MR Caretaker
+                ddlReportType.Items.Add(new ListItem("MR Caretaker", "14"));
             }
         }
     }
@@ -3907,6 +3910,10 @@ public partial class _Default : System.Web.UI.Page
         else if (ReportType == 13)
         {
             _reportType = "MR Customer Relations Officer";
+        }
+        else if (ReportType == 14)
+        {
+            _reportType = "MR Caretaker";
         }
 
         // find appropriate search query

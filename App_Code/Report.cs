@@ -298,6 +298,13 @@ public class Report
                 " '" + ReportCustomerRelationsOfficerMr.Maintenance + "', '" + ReportCustomerRelationsOfficerMr.GeneralComments + "', " + UserCredentials.StaffId + ");";
         }
 
+        if (Name.Equals("MR Caretaker") && Version.ToString() == "1") // MR Caretaker Version 1
+        {
+            insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, Occupancy, Maintenance, GeneralComments" +
+                ", LastChanged) VALUES(" + Id + ", 13, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion +
+                ", 'Report_MerrylandsRSLCaretaker', 1, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportCaretakerMr.Occupancy + "', '" + ReportCaretakerMr.Maintenance + "', '" + ReportCaretakerMr.GeneralComments + "', " + UserCredentials.StaffId + ");";
+        }
+
         if (Name.Equals("CU Reception") && Version.ToString() == "1") // CU Reception Version 1
         {
             insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, SignInSlip, Refusals, EventsField, GeneralComments, LastChanged) " +
@@ -585,6 +592,11 @@ public class Report
         if (Name.Equals("MR Customer Relations Officer") && Version.ToString() == "1") // MR Customer Relations Officer Version 1
         {
             updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', Gaming='" + ReportCustomerRelationsOfficerMr.Gaming + "', Promotions='" + ReportCustomerRelationsOfficerMr.Promotions + "', NewCustomers='" + ReportCustomerRelationsOfficerMr.NewCustomers + "', MemberContacts='" + ReportCustomerRelationsOfficerMr.MemberContacts + "', CustomerFeedback='" + ReportCustomerRelationsOfficerMr.CustomerFeedback + "', CustomerFollow='" + ReportCustomerRelationsOfficerMr.CustomerFollow + "', Maintenance='" + ReportCustomerRelationsOfficerMr.Maintenance + "', GeneralComments='" + ReportCustomerRelationsOfficerMr.GeneralComments + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
+        }
+
+        if (Name.Equals("MR Caretaker") && Version.ToString() == "1") // MR Caretaker Version 1
+        {
+            updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', Occupancy='" + ReportCaretakerMr.Occupancy + "', Maintenance='" + ReportCaretakerMr.Maintenance + "', GeneralComments='" + ReportCaretakerMr.GeneralComments + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
         }
 
         if (Name.Equals("CU Reception") && Version.ToString() == "1") // UM Reception Version 1

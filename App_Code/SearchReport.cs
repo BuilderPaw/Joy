@@ -97,6 +97,9 @@ public class SearchReport
             case 13:
                 reportType = "MR Customer Relations Officer";
                 break;
+            case 14:
+                reportType = "MR Caretaker";
+                break;
         }
 
         // check if user has entered a keyword to be filtered

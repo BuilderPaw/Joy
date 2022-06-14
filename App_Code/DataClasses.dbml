@@ -76,6 +76,7 @@
       <Association Name="Category_Report_MerrylandsRSLReceptionSupervisor" Member="Report_MerrylandsRSLReceptionSupervisors" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLReceptionSupervisor" />
       <Association Name="Category_Report_MerrylandsRSLSupervisor" Member="Report_MerrylandsRSLSupervisors" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLSupervisor" />
       <Association Name="Category_Report_MerrylandsRSLCustomerRelationsOfficer" Member="Report_MerrylandsRSLCustomerRelationsOfficers" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLCustomerRelationsOfficer" />
+      <Association Name="Category_Report_MerrylandsRSLCaretaker" Member="Report_MerrylandsRSLCaretakers" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLCaretaker" />
     </Type>
   </Table>
   <Table Name="dbo.LinkedReports" Member="LinkedReports">
@@ -1866,6 +1867,7 @@
       <Association Name="Shift_Report_MerrylandsRSLReceptionSupervisor" Member="Report_MerrylandsRSLReceptionSupervisors" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLReceptionSupervisor" />
       <Association Name="Shift_Report_MerrylandsRSLSupervisor" Member="Report_MerrylandsRSLSupervisors" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLSupervisor" />
       <Association Name="Shift_Report_MerrylandsRSLCustomerRelationsOfficer" Member="Report_MerrylandsRSLCustomerRelationsOfficers" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLCustomerRelationsOfficer" />
+      <Association Name="Shift_Report_MerrylandsRSLCaretaker" Member="Report_MerrylandsRSLCaretakers" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLCaretaker" />
     </Type>
   </Table>
   <Table Name="dbo.Staff" Member="Staffs">
@@ -1890,6 +1892,7 @@
       <Association Name="Staff_Report_MerrylandsRSLReceptionSupervisor" Member="Report_MerrylandsRSLReceptionSupervisors" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLReceptionSupervisor" />
       <Association Name="Staff_Report_MerrylandsRSLSupervisor" Member="Report_MerrylandsRSLSupervisors" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLSupervisor" />
       <Association Name="Staff_Report_MerrylandsRSLCustomerRelationsOfficer" Member="Report_MerrylandsRSLCustomerRelationsOfficers" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLCustomerRelationsOfficer" />
+      <Association Name="Staff_Report_MerrylandsRSLCaretaker" Member="Report_MerrylandsRSLCaretakers" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLCaretaker" />
     </Type>
   </Table>
   <Table Name="dbo.StaffName" Member="StaffNames">
@@ -1951,6 +1954,42 @@
       <Association Name="Category_Report_MerrylandsRSLCustomerRelationsOfficer" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
       <Association Name="Shift_Report_MerrylandsRSLCustomerRelationsOfficer" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
       <Association Name="Staff_Report_MerrylandsRSLCustomerRelationsOfficer" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report_MerrylandsRSLCaretaker" Member="Report_MerrylandsRSLCaretakers">
+    <Type Name="Report_MerrylandsRSLCaretaker">
+      <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShiftDOW" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Table" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportStat" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadBy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadByList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSignId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="PublishedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Occupancy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Maintenance" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="GeneralComments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Spare1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Spare2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Spare3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastChanged" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Category_Report_MerrylandsRSLCaretaker" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLCaretaker" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLCaretaker" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>
