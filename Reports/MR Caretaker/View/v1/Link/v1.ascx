@@ -18,21 +18,23 @@
                 <td></td>
             </tr>
             <tr>
-                <td style="width: 19%">Shift Type: 
+                <td style="width: 19%"><%--Shift Type: --%>
                 </td>
                 <td>
-                    <%# (string.IsNullOrWhiteSpace(Eval("ShiftName").ToString())) ? Eval("ShiftName") : (Eval("ShiftName").ToString()).Replace("^", "'") %>
+                   <%-- <%# (string.IsNullOrWhiteSpace(Eval("ShiftName").ToString())) ? Eval("ShiftName") : (Eval("ShiftName").ToString()).Replace("^", "'") %>--%>
                 </td>
                 <td style="text-align: right;">Shift Date:</td>
                 <td>
                     <%# Convert.ToDateTime(Eval("ShiftDate")).ToString("dddd, dd MMMM yyyy") %>
                 </td>
             </tr>
-             <tr>
+            <tr>
                 <th colspan="4">Occupancy</th>
             </tr>
             <tr>
                 <td colspan="4">
+                    <asp:CheckBoxList ID="List_Location" onclick="return false" readonly="true" Font-Size="8" RepeatLayout="table" RepeatColumns="4" RepeatDirection="vertical" runat="server" class="form-control">
+                    </asp:CheckBoxList>
                     <%# (string.IsNullOrWhiteSpace(Eval("Occupancy").ToString())) ? Eval("Occupancy") : (Eval("Occupancy").ToString()).Replace("^", "'") %>                                    
                 </td>
             </tr>

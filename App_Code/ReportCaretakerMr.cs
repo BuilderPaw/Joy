@@ -14,6 +14,24 @@ public class ReportCaretakerMr
         // TODO: Add constructor logic here
         //
     }
+    public static string Location
+    {
+        get
+        {
+            if (HttpContext.Current.Session["RCMLocation"] == null)
+            {
+                return " ";
+            }
+            else
+            {
+                return HttpContext.Current.Session["RCMLocation"].ToString().Replace("'", "^");
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["RCMLocation"] = value;
+        }
+    }
     public static string Occupancy
     {
         get

@@ -14,6 +14,26 @@ public partial class Reports_MR_Caretaker_Create_v1_v1 : System.Web.UI.Page
     {
         if (!IsPostBack)
         {
+            // add the check box items for Location
+            List_Location.Items.Clear();
+            using (SqlCommand cmd = new SqlCommand())
+            {
+                cmd.CommandText = "SELECT * FROM [dbo].[List_GallipoliLocation] WHERE [Active] = 1";
+                cmd.Connection = con;
+                con.Open();
+                using (SqlDataReader sdr = cmd.ExecuteReader())
+                {
+                    while (sdr.Read())
+                    {
+                        ListItem item = new ListItem();
+                        item.Text = sdr["Description"].ToString();
+                        item.Value = sdr["LocationID"].ToString();
+                        List_Location.Items.Add(item);
+                    }
+                }
+                con.Close();
+            }
+
             txtStaffName.Text = Session["DisplayName"].ToString();
 
             // check the current time then set appropriate date
@@ -103,17 +123,37 @@ public partial class Reports_MR_Caretaker_Create_v1_v1 : System.Web.UI.Page
         DateTime entry_date = DateTime.Now;
 
         // pop a message if shift is unchanged
-        if (ddlShift.SelectedItem.Value == "-1")
-        {
-            showAlert("Please select Shift.");
-            ddlShift.Focus();
-            return;
-        }
+        //if (ddlShift.SelectedItem.Value == "-1")
+        //{
+        //    showAlert("Please select Shift.");
+        //    ddlShift.Focus();
+        //    return;
+        //}
 
         // get staff's id
         string cmdText = "SELECT StaffId FROM Staff WHERE Username = '" + Session["Username"] + "'",
                variable = "getStaff";
         readFiles(cmdText, variable);
+
+        // store in a string all the selected item in the checkboxlist
+        // Create the list to store.
+        List<String> YrStrList1 = new List<string>();
+        // Loop through each item.
+        foreach (ListItem item in List_Location.Items)
+        {
+            if (item.Selected)
+            {
+                // If the item is selected, add the value to the list.
+                YrStrList1.Add(item.Value);
+            }
+        }
+        // Join the string together using the ; delimiter.
+        string Location = String.Join(",", YrStrList1.ToArray());
+        if (!Location.Equals(""))
+        {
+            Location += ",";
+        }
+
 
         // insert data to table
         using (DataClassesDataContext dc = new DataClassesDataContext())
@@ -122,7 +162,7 @@ public partial class Reports_MR_Caretaker_Create_v1_v1 : System.Web.UI.Page
             dm.ReportId = Int32.Parse(Report.LastReportId);
             dm.RCatId = 13; // Customer Relations Officer Category
             dm.StaffId = Int32.Parse(Session["currentStaffId"].ToString());
-            dm.ShiftId = Int32.Parse(ddlShift.SelectedItem.Value);
+            //dm.ShiftId = Int32.Parse(ddlShift.SelectedItem.Value);
             dm.StaffName = UserCredentials.DisplayName;
             dm.ShiftDate = shift_date.Date;
             dm.ShiftDOW = shift_DOW;
@@ -132,6 +172,7 @@ public partial class Reports_MR_Caretaker_Create_v1_v1 : System.Web.UI.Page
             dm.ReportStat = "Awaiting Completion";
             dm.Report_Version = 1; // current version
             dm.ReadByList = "," + UserCredentials.StaffId + ",";
+            dm.Spare1 = Location;
             dm.Occupancy = txtOccupancy.Text.Replace("\n", "<br />").Replace("'", "^");
             dm.Maintenance = txtMaintenance.Text.Replace("\n", "<br />").Replace("'", "^");
             dm.GeneralComments = txtGeneralComments.Text.Replace("\n", "<br />").Replace("'", "^");

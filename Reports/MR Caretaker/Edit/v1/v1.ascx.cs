@@ -9,10 +9,16 @@ using System.Web.UI.WebControls;
 public partial class Reports_MR_Caretaker_Edit_v1_v1 : System.Web.UI.UserControl
 {
     SqlConnection con = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString);
+    SqlConnection connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["LocalDb"].ConnectionString);
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        readFiles(Report.ActiveReport, "getFields");
+        if (Report.PopulateFields) // checks whether or not the method reads the fields from the database
+        {
+            List_Location.Items.Clear();
+            readFiles(Report.ActiveReport, "getFields");
+            Report.PopulateFields = false;
+        }
     }
 
     protected void readFiles(string sqlCommand, string method)
@@ -32,12 +38,57 @@ public partial class Reports_MR_Caretaker_Edit_v1_v1 : System.Web.UI.UserControl
                 {
                     if (method.Equals("getFields"))
                     {
+                        /* Populate the Checkbox list for Location and tick necessary checkbox */
+                        string location = rdr["Spare1"].ToString().Replace("<br />", "\n").Replace("^", "'"), populateLocationList;
+                        // set query to populate the location list
+                        if (!string.IsNullOrEmpty(location))
+                        {
+                            location = location.Remove(location.Length - 1); // take off the ','. creates exceptions in passing the values to the dropdown list
+                            // order by query sets the Other value from Description field to be in the last of the the list  "SELECT * FROM [dbo].[List_GallipoliLocation] WHERE [Active] = 1
+                            populateLocationList = "SELECT * FROM [dbo].[List_GallipoliLocation] WHERE ([Active] = 1 OR [LocationID] IN (" + location + "))";
+                        }
+                        else
+                        {
+                            // order by query sets the Other value from Description field to be in the last of the the list
+                            populateLocationList = "SELECT * FROM [dbo].[List_GallipoliLocation] WHERE [Active] = 1";
+                        }
+                        // populate the location list
+                        using (SqlCommand command = new SqlCommand())
+                        {
+                            command.CommandText = populateLocationList;
+                            command.Connection = connection;
+                            connection.Open();
+                            using (SqlDataReader sdr = command.ExecuteReader())
+                            {
+                                while (sdr.Read())
+                                {
+                                    ListItem item = new ListItem();
+                                    item.Text = sdr["Description"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                                    item.Value = sdr["LocationId"].ToString().Replace("<br />", "\n").Replace("^", "'");
+                                    List_Location.Items.Add(item);
+                                }
+                            }
+                            connection.Close();
+                        }
+                        // tick the checkbox for selected location
+                        string[] arrLocation = rdr["Spare1"].ToString().Replace("<br />", "\n").Replace("^", "'").Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                        foreach (ListItem item in List_Location.Items)
+                        {
+                            for (int i = 0; i < arrLocation.Length; i++)
+                            {
+                                if (arrLocation[i].ToString().Replace("<br />", "\n").Replace("^", "'").Equals(item.Value))
+                                {
+                                    item.Selected = true;
+                                }
+                            }
+                        }
+
                         lblReportName.Text = rdr["ReportName"].ToString();
                         lblReportId.Text = rdr["ReportId"].ToString();
                         lblStaffName.Text = rdr["StaffName"].ToString();
                         Report.SelectedStaffId = rdr["StaffId"].ToString();
-                        ddlShift.SelectedIndex = Int32.Parse(rdr["ShiftId"].ToString());
-                        Report.ShiftId = ddlShift.SelectedIndex.ToString();
+                        //ddlShift.SelectedIndex = Int32.Parse(rdr["ShiftId"].ToString());
+                        //Report.ShiftId = ddlShift.SelectedIndex.ToString();
                         txtDatePicker.Text = Convert.ToDateTime(rdr["ShiftDate"]).ToString("dddd, dd MMMM yyyy");
                         Report.ShiftDate = DateTime.Parse(txtDatePicker.Text).ToString();
                         Report.ShiftDOW = DateTime.Parse(Report.ShiftDate.ToString()).DayOfWeek.ToString();
@@ -62,6 +113,11 @@ public partial class Reports_MR_Caretaker_Edit_v1_v1 : System.Web.UI.UserControl
                         {
                             Report.HasChange = true; flag = 1;
                             Report.WhereChangeHappened = "ShiftDate";
+                        }
+                        if (ReportCaretakerMr.Location.ToString() != rdr["Spare1"].ToString())
+                        {
+                            Report.HasChange = true; flag = 1;
+                            Report.WhereChangeHappened = "Location";
                         }
                         if (ReportCaretakerMr.Occupancy != rdr["Occupancy"].ToString())
                         {
@@ -120,6 +176,10 @@ public partial class Reports_MR_Caretaker_Edit_v1_v1 : System.Web.UI.UserControl
     {
         getChanges();
     }
+    protected void List_Location_SelectedIndexChanged(object sender, EventArgs e)
+    {
+        getChanges();
+    }
     protected void getChanges()
     {
         int result;
@@ -132,12 +192,12 @@ public partial class Reports_MR_Caretaker_Edit_v1_v1 : System.Web.UI.UserControl
         Report.HasErrorMessage1 = false;
 
         // General Incident Report Form
-        if (ddlShift.SelectedItem.Value.ToString() == "-1")
-        {
-            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Shift.";
-            ddlShift.Focus();
-            Report.HasErrorMessage1 = true;
-        }
+        //if (ddlShift.SelectedItem.Value.ToString() == "-1")
+        //{
+        //    Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select a Shift.";
+        //    ddlShift.Focus();
+        //    Report.HasErrorMessage1 = true;
+        //}
 
         if (txtDatePicker.Text == "")
         {
@@ -164,7 +224,7 @@ public partial class Reports_MR_Caretaker_Edit_v1_v1 : System.Web.UI.UserControl
         }
 
         Report.RunEditMode = true;
-        Report.ShiftId = ddlShift.SelectedItem.Value;
+        //Report.ShiftId = ddlShift.SelectedItem.Value;
         if (Report.HasErrorMessage1.Equals(false))
         {
             Report.ShiftDate = DateTime.Parse(txtDatePicker.Text).ToString();
@@ -176,6 +236,27 @@ public partial class Reports_MR_Caretaker_Edit_v1_v1 : System.Web.UI.UserControl
 
     protected void SetStaticVariable()
     {
+        string Location;
+        List<String> YrStrList1 = new List<string>();
+        // Loop through each item.
+        foreach (ListItem item in List_Location.Items)
+        {
+            if (item.Selected)
+            {
+                // If the item is selected, add the value to the list.
+                YrStrList1.Add(item.Value);
+            }
+        }
+        // Join the string together using the ; delimiter.
+        Location = String.Join(",", YrStrList1.ToArray());
+        List<string> uniques4 = Location.Split(',').Distinct().ToList(); // to remove duplicate values
+        Location = string.Join(",", uniques4);
+        if (!Location.Equals(""))
+        {
+            Location += ",";
+        }
+
+        ReportCaretakerMr.Location = Location;
         ReportCaretakerMr.Occupancy = txtOccupancy.Text.Replace("\n", "<br />").Replace("'", "^");
         ReportCaretakerMr.Maintenance = txtMaintenance.Text.Replace("\n", "<br />").Replace("'", "^");
         ReportCaretakerMr.GeneralComments = txtGeneralComments.Text.Replace("\n", "<br />").Replace("'", "^");

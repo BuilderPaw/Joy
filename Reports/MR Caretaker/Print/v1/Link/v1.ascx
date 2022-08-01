@@ -13,7 +13,7 @@
         }
     </style>
     <div id="dmReport" runat="server">
-        <span style="font-size: 11px;">printed by: <%=Session["DisplayName"] %></span>        
+        <span style="font-size: 11px;">printed by: <%=Session["DisplayName"] %></span>
         <h4 style="margin-left: 56%; font-family: Arial"><%# (string.IsNullOrWhiteSpace(Eval("ReportName").ToString())) ? Eval("ReportName") : (Eval("ReportName").ToString()).Replace("^", "'") %> ID No. <span style="color: red;"><b><%# (string.IsNullOrWhiteSpace(Eval("ReportId").ToString())) ? Eval("ReportId") : (Eval("ReportId").ToString()).Replace("^", "'") %></b></span></h4>
         <table style="width: 100%; font-family: Arial; border: solid 1px black !important;">
             <tr>
@@ -28,10 +28,10 @@
                 <td style="font-size: 12.5px"><%# Convert.ToDateTime(Eval("EntryDate")).ToString("dd/MM/yyyy HH:mm") %></td>
             </tr>
             <tr>
-                <td style="font-size: 12.5px; width: 19%">Shift Type: 
+                <td style="font-size: 12.5px; width: 19%"><%--Shift Type: --%>
                 </td>
                 <td style="font-size: 12.5px;">
-                    <%# (string.IsNullOrWhiteSpace(Eval("ShiftName").ToString())) ? Eval("ShiftName") : (Eval("ShiftName").ToString()).Replace("^", "'") %>
+                   <%-- <%# (string.IsNullOrWhiteSpace(Eval("ShiftName").ToString())) ? Eval("ShiftName") : (Eval("ShiftName").ToString()).Replace("^", "'") %>--%>
                 </td>
                 <td style="font-size: 12.5px;">Shift Date:</td>
                 <td style="font-size: 12.5px;">
@@ -42,7 +42,10 @@
                 <th colspan="4">Occupancy</th>
             </tr>
             <tr>
-                <td style="font-size: 12.5px;" colspan="4">
+                <td style="font-size: 12.5px; width: 100%;" colspan="4">
+                    <asp:CheckBoxList ID="List_Location" Font-Size="10" onclick="return false" readonly="true" RepeatLayout="table" RepeatColumns="8" RepeatDirection="Vertical" runat="server" style="display: inline-table; padding:6px 12px;" class="object-default">
+                    </asp:CheckBoxList>
+                    <br /><br />
                     <%# (string.IsNullOrWhiteSpace(Eval("Occupancy").ToString())) ? Eval("Occupancy") : (Eval("Occupancy").ToString()).Replace("^", "'") %>                                    
                 </td>
             </tr>

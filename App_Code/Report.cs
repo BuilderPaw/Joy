@@ -300,9 +300,9 @@ public class Report
 
         if (Name.Equals("MR Caretaker") && Version.ToString() == "1") // MR Caretaker Version 1
         {
-            insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, Occupancy, Maintenance, GeneralComments" +
-                ", LastChanged) VALUES(" + Id + ", 13, " + SelectedStaffId + ", '" + SelectedStaffName + "' ," + ShiftId + ", (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion +
-                ", 'Report_MerrylandsRSLCaretaker', 1, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportCaretakerMr.Occupancy + "', '" + ReportCaretakerMr.Maintenance + "', '" + ReportCaretakerMr.GeneralComments + "', " + UserCredentials.StaffId + ");";
+            insertQuery = "INSERT INTO " + Table + " (ReportId, RCatId, StaffId, StaffName, ShiftId, ShiftDate, ShiftDOW, EntryDate, AuditVersion, Report_Table, Report_Version, ModifyDate, ReportStat, ReadByList, Comments, Spare1, Occupancy, Maintenance, GeneralComments" +
+                ", LastChanged) VALUES(" + Id + ", 13, " + SelectedStaffId + ", '" + SelectedStaffName + "' , 1, (CONVERT(DateTime,'" + ShiftDate + "',103)), '" + ShiftDOW + "', (CONVERT(DateTime,'" + EntryDate + "',103)), " + AuditVersion +
+                ", 'Report_MerrylandsRSLCaretaker', 1, current_timestamp, 'Awaiting Completion', ',' + '" + SelectedStaffId + "' + ',', '" + Report.Comment + "', '" + ReportCaretakerMr.Location + "', '" + ReportCaretakerMr.Occupancy + "', '" + ReportCaretakerMr.Maintenance + "', '" + ReportCaretakerMr.GeneralComments + "', " + UserCredentials.StaffId + ");";
         }
 
         if (Name.Equals("CU Reception") && Version.ToString() == "1") // CU Reception Version 1
@@ -596,7 +596,7 @@ public class Report
 
         if (Name.Equals("MR Caretaker") && Version.ToString() == "1") // MR Caretaker Version 1
         {
-            updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='" + ShiftId + "', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', Occupancy='" + ReportCaretakerMr.Occupancy + "', Maintenance='" + ReportCaretakerMr.Maintenance + "', GeneralComments='" + ReportCaretakerMr.GeneralComments + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
+            updateQuery = "UPDATE " + Table + " SET ModifyDate=current_timestamp, ShiftId='1', ShiftDate=(CONVERT(DateTime,'" + ShiftDate + "',103)), ShiftDOW='" + ShiftDOW + "', Spare1='" + ReportCaretakerMr.Location + "', Occupancy='" + ReportCaretakerMr.Occupancy + "', Maintenance='" + ReportCaretakerMr.Maintenance + "', GeneralComments='" + ReportCaretakerMr.GeneralComments + "', LastChanged=" + UserCredentials.StaffId + " WHERE ReportId='" + Id + "' AND AuditVersion='" + AuditVersion + "'";
         }
 
         if (Name.Equals("CU Reception") && Version.ToString() == "1") // UM Reception Version 1

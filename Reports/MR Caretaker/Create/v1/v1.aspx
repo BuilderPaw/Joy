@@ -21,16 +21,16 @@
                 <td></td>
             </tr>
             <tr>
-                <td style="width: 19%">Shift Type: 
+                <td style="width: 19%"><%--Shift Type: --%>
                 </td>
                 <td>
-                    <asp:DropDownList ID="ddlShift" runat="server" CssClass="object-default">
+                    <%--<asp:DropDownList ID="ddlShift" runat="server" CssClass="object-default">
                         <asp:ListItem Enabled="true" Text="Select Shift" Value="-1"></asp:ListItem>
                         <asp:ListItem Text="Morning" Value="1"></asp:ListItem>
                         <asp:ListItem Text="Afternoon" Value="2"></asp:ListItem>
                         <asp:ListItem Text="Evening" Value="3"></asp:ListItem>
                         <asp:ListItem Text="Night" Value="4"></asp:ListItem>
-                    </asp:DropDownList>
+                    </asp:DropDownList>--%>
                 </td>
                 <td>Shift Date:                   
                     <asp:RequiredFieldValidator ID="rfvDatePicker" runat="server" ControlToValidate="txtDatePicker"
@@ -45,7 +45,9 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <asp:TextBox ID="txtOccupancy" class="object-default" runat="server" Height="255px" TextMode="MultiLine" Style="resize: none;"></asp:TextBox>
+                    <asp:CheckBoxList ID="List_Location" RepeatLayout="table" RepeatColumns="5" Font-Size="8" RepeatDirection="vertical" runat="server" style="display: inline-table;" class="object-default">
+                            </asp:CheckBoxList>
+                    <asp:TextBox ID="txtOccupancy" class="object-default" runat="server" Height="205px" TextMode="MultiLine" Style="resize: none;"></asp:TextBox>
                 </td>
             </tr>
             <tr>
