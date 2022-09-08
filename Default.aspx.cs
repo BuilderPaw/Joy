@@ -1509,7 +1509,7 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void ShowManagerSign()
     {
-        body.Style.Add("opacity", "0.15");
+        //body.Style.Add("opacity", "0.15");
         managerSign.Visible = true;
         cbManagerSign.Checked = false;
 
@@ -1731,7 +1731,7 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void ShowUserSign()
     {
-        body.Style.Add("opacity", "0.15");
+        body.Style.Add("opacity", "1");
         userSign.Visible = true;
         cbUserSign.Checked = false;
 
@@ -5670,7 +5670,7 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void btnSignAsManager_Click(object sender, EventArgs e)
     {
-        body.Style.Add("opacity", "0.15");
+        //body.Style.Add("opacity", "0.15");
         signAsManager.Visible = true;
         cbSignAsManager.Checked = false;
     }

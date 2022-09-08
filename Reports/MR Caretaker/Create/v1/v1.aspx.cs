@@ -162,7 +162,7 @@ public partial class Reports_MR_Caretaker_Create_v1_v1 : System.Web.UI.Page
             dm.ReportId = Int32.Parse(Report.LastReportId);
             dm.RCatId = 13; // Customer Relations Officer Category
             dm.StaffId = Int32.Parse(Session["currentStaffId"].ToString());
-            //dm.ShiftId = Int32.Parse(ddlShift.SelectedItem.Value);
+            dm.ShiftId = 1;
             dm.StaffName = UserCredentials.DisplayName;
             dm.ShiftDate = shift_date.Date;
             dm.ShiftDOW = shift_DOW;
