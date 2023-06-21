@@ -100,6 +100,9 @@ public class SearchReport
             case 14:
                 reportType = "MR Caretaker";
                 break;
+            case 15:
+                reportType = "MR Gaming Services";
+                break;
         }
 
         // check if user has entered a keyword to be filtered

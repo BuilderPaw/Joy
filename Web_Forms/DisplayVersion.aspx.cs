@@ -80,6 +80,11 @@ public partial class Web_Forms_DisplayVersion : System.Web.UI.Page
                             int_groups[j] = 9;
                             j++;
                         }
+                        else if (array_groups[i].ToString().Equals("MRReportsGamingServices"))
+                        {
+                            int_groups[j] = 10;
+                            j++;
+                        }
                     }
 
                     // use Array.Sort to display the Report Types accordingly
@@ -127,6 +132,10 @@ public partial class Web_Forms_DisplayVersion : System.Web.UI.Page
                         {
                             ddlReport.Items.Add(new ListItem("MR Caretaker", "Report_MerrylandsRSLCaretaker"));
                         }
+                        else if (int_groups[i] == 10)
+                        {
+                            ddlReport.Items.Add(new ListItem("MR Gaming Services", "Report_MerrylandsRSLGamingServices"));
+                        }
                     }
                 }
                 else // if the user is a member of Senior Managers
@@ -155,6 +164,8 @@ public partial class Web_Forms_DisplayVersion : System.Web.UI.Page
                     ddlReport.Items.Add(new ListItem("MR Customer Relations Officer", "Report_MerrylandsRSLCustomerRelationsOfficer"));
                     // MR Caretaker
                     ddlReport.Items.Add(new ListItem("MR Caretaker", "Report_MerrylandsRSLCaretaker"));
+                    // MR Gaming Services
+                    ddlReport.Items.Add(new ListItem("MR Gaming Services", "Report_MerrylandsRSLGamingServices"));
                 }
             }
         }

@@ -176,6 +176,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
                             ddlCreateReport.Items.Add(new ListItem("MR Caretaker", "13"));
                             ddlSearchReport.Items.Add(new ListItem("MR Caretaker", "14"));
                         }
+                        // MR Gaming Services
+                        else if (reportList[i] == 11)
+                        {
+                            ddlCreateReport.Items.Add(new ListItem("MR Gaming Services", "14"));
+                            ddlSearchReport.Items.Add(new ListItem("MR Gaming Services", "15"));
+                        }
                     }
                 }
                 // if the user has Senior Managers access
@@ -216,6 +222,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     // MR Caretaker
                     ddlCreateReport.Items.Add(new ListItem("MR Caretaker", "13"));
                     ddlSearchReport.Items.Add(new ListItem("MR Caretaker", "14"));
+                    // MR Gaming Services
+                    ddlCreateReport.Items.Add(new ListItem("MR Gaming Services", "14"));
+                    ddlSearchReport.Items.Add(new ListItem("MR Gaming Services", "15"));
                 }
 
                 // populate the staff dropdownlist

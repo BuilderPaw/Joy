@@ -3576,6 +3576,11 @@ public partial class _Default : System.Web.UI.Page
                         int_groups[j] = 10;
                         j++;
                     }
+                    else if (array_groups[i].ToString().Equals("MRReportsGamingServices"))
+                    {
+                        int_groups[j] = 11;
+                        j++;
+                    }
                 }
 
                 // use Array.Sort to display the Report Types accordingly
@@ -3649,6 +3654,10 @@ public partial class _Default : System.Web.UI.Page
                     {
                         ddlReportType.Items.Add(new ListItem("MR Caretaker", "14"));
                     }
+                    else if (int_groups[i] == 11)
+                    {
+                        ddlReportType.Items.Add(new ListItem("MR Gaming Services", "15"));
+                    }
                 }
             }
             else // if the user is a member of Senior Managers
@@ -3676,6 +3685,8 @@ public partial class _Default : System.Web.UI.Page
                 ddlReportType.Items.Add(new ListItem("MR Customer Relations Officer", "13"));
                 // MR Caretaker
                 ddlReportType.Items.Add(new ListItem("MR Caretaker", "14"));
+                // MR Gaming Services
+                ddlReportType.Items.Add(new ListItem("MR Gaming Services", "15"));
             }
         }
     }
@@ -3914,6 +3925,10 @@ public partial class _Default : System.Web.UI.Page
         else if (ReportType == 14)
         {
             _reportType = "MR Caretaker";
+        }
+        else if (ReportType == 15)
+        {
+            _reportType = "MR Gaming Services";
         }
 
         // find appropriate search query
@@ -4380,6 +4395,10 @@ public partial class _Default : System.Web.UI.Page
                 {
                     bcc += "CRO_MR@mrsl.com.au;";
                 }
+                if (ddlGroup.SelectedItem.Text.Contains("MR Gaming Services"))
+                {
+                    bcc += "GS_MR@mrsl.com.au;";
+                }
             }
 
             string selectedRole = "";
@@ -4501,6 +4520,10 @@ public partial class _Default : System.Web.UI.Page
                 if (ddlGroup.SelectedItem.Text.Contains("MR Customer Relations Officer"))
                 {
                     bcc += "CRO_MR@mrsl.com.au;";
+                }
+                if (ddlGroup.SelectedItem.Text.Contains("MR Gaming Services"))
+                {
+                    bcc += "GS_MR@mrsl.com.au;";
                 }
             }
 
@@ -4921,6 +4944,11 @@ public partial class _Default : System.Web.UI.Page
                         int_groups[j] = 8;
                         j++;
                     }
+                    else if (array_groups[i].ToString().Equals("MRReportsGamingServices"))
+                    {
+                        int_groups[j] = 9;
+                        j++;
+                    }
                 }
 
                 // use Array.Sort to display the Report Types accordingly
@@ -4960,6 +4988,10 @@ public partial class _Default : System.Web.UI.Page
                     {
                         ddlGroup.Items.Add(new ListItem("MR Customer Relations Officer", "8"));
                     }
+                    else if (int_groups[i] == 9)
+                    {
+                        ddlGroup.Items.Add(new ListItem("MR Gaming Services", "9"));
+                    }
                 }
             }
             else // if the user is a member of Senior Managers
@@ -4982,6 +5014,8 @@ public partial class _Default : System.Web.UI.Page
                 ddlGroup.Items.Add(new ListItem("CU Reception", "7"));
                 // MR Customer Relations Officer
                 ddlGroup.Items.Add(new ListItem("MR Customer Relations Officer", "8"));
+                // MR Gaming Services
+                ddlGroup.Items.Add(new ListItem("MR Gaming Services", "9"));
             }
             ddlGroup.Items.Add(new ListItem("Select Multiple Groups", "-1"));
         }
@@ -5042,6 +5076,11 @@ public partial class _Default : System.Web.UI.Page
                         int_groups[j] = 8;
                         j++;
                     }
+                    else if (array_groups[i].ToString().Equals("MRReportsGamingServices"))
+                    {
+                        int_groups[j] = 9;
+                        j++;
+                    }
                 }
 
                 // use Array.Sort to display the Report Types accordingly
@@ -5081,6 +5120,10 @@ public partial class _Default : System.Web.UI.Page
                     {
                         cblGroup.Items.Add(new ListItem("MR Customer Relations Officer", "8"));
                     }
+                    else if (int_groups[i] == 9)
+                    {
+                        cblGroup.Items.Add(new ListItem("MR Gaming Services", "9"));
+                    }
                 }
             }
             else // if the user is a member of Senior Managers
@@ -5103,6 +5146,8 @@ public partial class _Default : System.Web.UI.Page
                 cblGroup.Items.Add(new ListItem("CU Reception", "7"));
                 // MR Customer Relations Officer
                 cblGroup.Items.Add(new ListItem("MR Customer Relations Officer", "8"));
+                // MR Gaming Services
+                cblGroup.Items.Add(new ListItem("MR Gaming Services", "9"));
             }
         }
     }

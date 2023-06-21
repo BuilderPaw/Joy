@@ -110,6 +110,9 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
   partial void InsertList_GallipoliLocation(List_GallipoliLocation instance);
   partial void UpdateList_GallipoliLocation(List_GallipoliLocation instance);
   partial void DeleteList_GallipoliLocation(List_GallipoliLocation instance);
+  partial void InsertReport_MerrylandsRSLGamingService(Report_MerrylandsRSLGamingService instance);
+  partial void UpdateReport_MerrylandsRSLGamingService(Report_MerrylandsRSLGamingService instance);
+  partial void DeleteReport_MerrylandsRSLGamingService(Report_MerrylandsRSLGamingService instance);
   #endregion
 	
 	public DataClassesDataContext() : 
@@ -403,6 +406,14 @@ public partial class DataClassesDataContext : System.Data.Linq.DataContext
 		get
 		{
 			return this.GetTable<List_GallipoliLocation>();
+		}
+	}
+	
+	public System.Data.Linq.Table<Report_MerrylandsRSLGamingService> Report_MerrylandsRSLGamingServices
+	{
+		get
+		{
+			return this.GetTable<Report_MerrylandsRSLGamingService>();
 		}
 	}
 }
@@ -1704,6 +1715,8 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<Report_MerrylandsRSLCaretaker> _Report_MerrylandsRSLCaretakers;
 	
+	private EntitySet<Report_MerrylandsRSLGamingService> _Report_MerrylandsRSLGamingServices;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -1731,6 +1744,7 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 		this._Report_MerrylandsRSLSupervisors = new EntitySet<Report_MerrylandsRSLSupervisor>(new Action<Report_MerrylandsRSLSupervisor>(this.attach_Report_MerrylandsRSLSupervisors), new Action<Report_MerrylandsRSLSupervisor>(this.detach_Report_MerrylandsRSLSupervisors));
 		this._Report_MerrylandsRSLCustomerRelationsOfficers = new EntitySet<Report_MerrylandsRSLCustomerRelationsOfficer>(new Action<Report_MerrylandsRSLCustomerRelationsOfficer>(this.attach_Report_MerrylandsRSLCustomerRelationsOfficers), new Action<Report_MerrylandsRSLCustomerRelationsOfficer>(this.detach_Report_MerrylandsRSLCustomerRelationsOfficers));
 		this._Report_MerrylandsRSLCaretakers = new EntitySet<Report_MerrylandsRSLCaretaker>(new Action<Report_MerrylandsRSLCaretaker>(this.attach_Report_MerrylandsRSLCaretakers), new Action<Report_MerrylandsRSLCaretaker>(this.detach_Report_MerrylandsRSLCaretakers));
+		this._Report_MerrylandsRSLGamingServices = new EntitySet<Report_MerrylandsRSLGamingService>(new Action<Report_MerrylandsRSLGamingService>(this.attach_Report_MerrylandsRSLGamingServices), new Action<Report_MerrylandsRSLGamingService>(this.detach_Report_MerrylandsRSLGamingServices));
 		OnCreated();
 	}
 	
@@ -1963,6 +1977,19 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLGamingService", Storage="_Report_MerrylandsRSLGamingServices", ThisKey="RCatId", OtherKey="RCatId")]
+	public EntitySet<Report_MerrylandsRSLGamingService> Report_MerrylandsRSLGamingServices
+	{
+		get
+		{
+			return this._Report_MerrylandsRSLGamingServices;
+		}
+		set
+		{
+			this._Report_MerrylandsRSLGamingServices.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -2134,6 +2161,18 @@ public partial class Category : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 	
 	private void detach_Report_MerrylandsRSLCaretakers(Report_MerrylandsRSLCaretaker entity)
+	{
+		this.SendPropertyChanging();
+		entity.Category = null;
+	}
+	
+	private void attach_Report_MerrylandsRSLGamingServices(Report_MerrylandsRSLGamingService entity)
+	{
+		this.SendPropertyChanging();
+		entity.Category = this;
+	}
+	
+	private void detach_Report_MerrylandsRSLGamingServices(Report_MerrylandsRSLGamingService entity)
 	{
 		this.SendPropertyChanging();
 		entity.Category = null;
@@ -43722,6 +43761,8 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<Report_MerrylandsRSLCaretaker> _Report_MerrylandsRSLCaretakers;
 	
+	private EntitySet<Report_MerrylandsRSLGamingService> _Report_MerrylandsRSLGamingServices;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -43747,6 +43788,7 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 		this._Report_MerrylandsRSLSupervisors = new EntitySet<Report_MerrylandsRSLSupervisor>(new Action<Report_MerrylandsRSLSupervisor>(this.attach_Report_MerrylandsRSLSupervisors), new Action<Report_MerrylandsRSLSupervisor>(this.detach_Report_MerrylandsRSLSupervisors));
 		this._Report_MerrylandsRSLCustomerRelationsOfficers = new EntitySet<Report_MerrylandsRSLCustomerRelationsOfficer>(new Action<Report_MerrylandsRSLCustomerRelationsOfficer>(this.attach_Report_MerrylandsRSLCustomerRelationsOfficers), new Action<Report_MerrylandsRSLCustomerRelationsOfficer>(this.detach_Report_MerrylandsRSLCustomerRelationsOfficers));
 		this._Report_MerrylandsRSLCaretakers = new EntitySet<Report_MerrylandsRSLCaretaker>(new Action<Report_MerrylandsRSLCaretaker>(this.attach_Report_MerrylandsRSLCaretakers), new Action<Report_MerrylandsRSLCaretaker>(this.detach_Report_MerrylandsRSLCaretakers));
+		this._Report_MerrylandsRSLGamingServices = new EntitySet<Report_MerrylandsRSLGamingService>(new Action<Report_MerrylandsRSLGamingService>(this.attach_Report_MerrylandsRSLGamingServices), new Action<Report_MerrylandsRSLGamingService>(this.detach_Report_MerrylandsRSLGamingServices));
 		OnCreated();
 	}
 	
@@ -43959,6 +44001,19 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLGamingService", Storage="_Report_MerrylandsRSLGamingServices", ThisKey="ShiftId", OtherKey="ShiftId")]
+	public EntitySet<Report_MerrylandsRSLGamingService> Report_MerrylandsRSLGamingServices
+	{
+		get
+		{
+			return this._Report_MerrylandsRSLGamingServices;
+		}
+		set
+		{
+			this._Report_MerrylandsRSLGamingServices.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -44134,6 +44189,18 @@ public partial class Shift : INotifyPropertyChanging, INotifyPropertyChanged
 		this.SendPropertyChanging();
 		entity.Shift = null;
 	}
+	
+	private void attach_Report_MerrylandsRSLGamingServices(Report_MerrylandsRSLGamingService entity)
+	{
+		this.SendPropertyChanging();
+		entity.Shift = this;
+	}
+	
+	private void detach_Report_MerrylandsRSLGamingServices(Report_MerrylandsRSLGamingService entity)
+	{
+		this.SendPropertyChanging();
+		entity.Shift = null;
+	}
 }
 
 [global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Staff")]
@@ -44184,6 +44251,8 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private EntitySet<Report_MerrylandsRSLCaretaker> _Report_MerrylandsRSLCaretakers;
 	
+	private EntitySet<Report_MerrylandsRSLGamingService> _Report_MerrylandsRSLGamingServices;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -44220,6 +44289,7 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 		this._Report_MerrylandsRSLSupervisors = new EntitySet<Report_MerrylandsRSLSupervisor>(new Action<Report_MerrylandsRSLSupervisor>(this.attach_Report_MerrylandsRSLSupervisors), new Action<Report_MerrylandsRSLSupervisor>(this.detach_Report_MerrylandsRSLSupervisors));
 		this._Report_MerrylandsRSLCustomerRelationsOfficers = new EntitySet<Report_MerrylandsRSLCustomerRelationsOfficer>(new Action<Report_MerrylandsRSLCustomerRelationsOfficer>(this.attach_Report_MerrylandsRSLCustomerRelationsOfficers), new Action<Report_MerrylandsRSLCustomerRelationsOfficer>(this.detach_Report_MerrylandsRSLCustomerRelationsOfficers));
 		this._Report_MerrylandsRSLCaretakers = new EntitySet<Report_MerrylandsRSLCaretaker>(new Action<Report_MerrylandsRSLCaretaker>(this.attach_Report_MerrylandsRSLCaretakers), new Action<Report_MerrylandsRSLCaretaker>(this.detach_Report_MerrylandsRSLCaretakers));
+		this._Report_MerrylandsRSLGamingServices = new EntitySet<Report_MerrylandsRSLGamingService>(new Action<Report_MerrylandsRSLGamingService>(this.attach_Report_MerrylandsRSLGamingServices), new Action<Report_MerrylandsRSLGamingService>(this.detach_Report_MerrylandsRSLGamingServices));
 		OnCreated();
 	}
 	
@@ -44545,6 +44615,19 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLGamingService", Storage="_Report_MerrylandsRSLGamingServices", ThisKey="StaffId", OtherKey="StaffId")]
+	public EntitySet<Report_MerrylandsRSLGamingService> Report_MerrylandsRSLGamingServices
+	{
+		get
+		{
+			return this._Report_MerrylandsRSLGamingServices;
+		}
+		set
+		{
+			this._Report_MerrylandsRSLGamingServices.Assign(value);
+		}
+	}
+	
 	public event PropertyChangingEventHandler PropertyChanging;
 	
 	public event PropertyChangedEventHandler PropertyChanged;
@@ -44728,6 +44811,18 @@ public partial class Staff : INotifyPropertyChanging, INotifyPropertyChanged
 	}
 	
 	private void detach_Report_MerrylandsRSLCaretakers(Report_MerrylandsRSLCaretaker entity)
+	{
+		this.SendPropertyChanging();
+		entity.Staff = null;
+	}
+	
+	private void attach_Report_MerrylandsRSLGamingServices(Report_MerrylandsRSLGamingService entity)
+	{
+		this.SendPropertyChanging();
+		entity.Staff = this;
+	}
+	
+	private void detach_Report_MerrylandsRSLGamingServices(Report_MerrylandsRSLGamingService entity)
 	{
 		this.SendPropertyChanging();
 		entity.Staff = null;
@@ -46966,6 +47061,911 @@ public partial class List_GallipoliLocation : INotifyPropertyChanging, INotifyPr
 				this._Comments = value;
 				this.SendPropertyChanged("Comments");
 				this.OnCommentsChanged();
+			}
+		}
+	}
+	
+	public event PropertyChangingEventHandler PropertyChanging;
+	
+	public event PropertyChangedEventHandler PropertyChanged;
+	
+	protected virtual void SendPropertyChanging()
+	{
+		if ((this.PropertyChanging != null))
+		{
+			this.PropertyChanging(this, emptyChangingEventArgs);
+		}
+	}
+	
+	protected virtual void SendPropertyChanged(String propertyName)
+	{
+		if ((this.PropertyChanged != null))
+		{
+			this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+		}
+	}
+}
+
+[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Report_MerrylandsRSLGamingServices")]
+public partial class Report_MerrylandsRSLGamingService : INotifyPropertyChanging, INotifyPropertyChanged
+{
+	
+	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+	
+	private int _RID;
+	
+	private int _ReportId;
+	
+	private System.Nullable<int> _RCatId;
+	
+	private System.Nullable<int> _StaffId;
+	
+	private string _StaffName;
+	
+	private System.Nullable<int> _ShiftId;
+	
+	private System.Nullable<int> _AuditVersion;
+	
+	private System.Nullable<System.DateTime> _ShiftDate;
+	
+	private System.Nullable<System.DateTime> _ModifyDate;
+	
+	private System.Nullable<System.DateTime> _EntryDate;
+	
+	private string _ShiftDOW;
+	
+	private string _Report_Table;
+	
+	private System.Nullable<int> _Report_Version;
+	
+	private string _ReportStat;
+	
+	private string _ReadBy;
+	
+	private string _ReadByList;
+	
+	private string _Comments;
+	
+	private string _StaffSign;
+	
+	private string _ManagerSign;
+	
+	private string _ManagerSignId;
+	
+	private System.Nullable<System.DateTime> _PublishedDate;
+	
+	private string _PublishedBy;
+	
+	private string _HarmMinimisation;
+	
+	private string _PromotionalAwareness;
+	
+	private string _SipAndChill;
+	
+	private string _CustomerFeedback;
+	
+	private string _CustomerComplaints;
+	
+	private string _Maintenance;
+	
+	private string _Incidents;
+	
+	private string _GeneralComments;
+	
+	private System.Nullable<int> _LastChanged;
+	
+	private EntityRef<Category> _Category;
+	
+	private EntityRef<Shift> _Shift;
+	
+	private EntityRef<Staff> _Staff;
+	
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnRIDChanging(int value);
+    partial void OnRIDChanged();
+    partial void OnReportIdChanging(int value);
+    partial void OnReportIdChanged();
+    partial void OnRCatIdChanging(System.Nullable<int> value);
+    partial void OnRCatIdChanged();
+    partial void OnStaffIdChanging(System.Nullable<int> value);
+    partial void OnStaffIdChanged();
+    partial void OnStaffNameChanging(string value);
+    partial void OnStaffNameChanged();
+    partial void OnShiftIdChanging(System.Nullable<int> value);
+    partial void OnShiftIdChanged();
+    partial void OnAuditVersionChanging(System.Nullable<int> value);
+    partial void OnAuditVersionChanged();
+    partial void OnShiftDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnShiftDateChanged();
+    partial void OnModifyDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnModifyDateChanged();
+    partial void OnEntryDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEntryDateChanged();
+    partial void OnShiftDOWChanging(string value);
+    partial void OnShiftDOWChanged();
+    partial void OnReport_TableChanging(string value);
+    partial void OnReport_TableChanged();
+    partial void OnReport_VersionChanging(System.Nullable<int> value);
+    partial void OnReport_VersionChanged();
+    partial void OnReportStatChanging(string value);
+    partial void OnReportStatChanged();
+    partial void OnReadByChanging(string value);
+    partial void OnReadByChanged();
+    partial void OnReadByListChanging(string value);
+    partial void OnReadByListChanged();
+    partial void OnCommentsChanging(string value);
+    partial void OnCommentsChanged();
+    partial void OnStaffSignChanging(string value);
+    partial void OnStaffSignChanged();
+    partial void OnManagerSignChanging(string value);
+    partial void OnManagerSignChanged();
+    partial void OnManagerSignIdChanging(string value);
+    partial void OnManagerSignIdChanged();
+    partial void OnPublishedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnPublishedDateChanged();
+    partial void OnPublishedByChanging(string value);
+    partial void OnPublishedByChanged();
+    partial void OnHarmMinimisationChanging(string value);
+    partial void OnHarmMinimisationChanged();
+    partial void OnPromotionalAwarenessChanging(string value);
+    partial void OnPromotionalAwarenessChanged();
+    partial void OnSipAndChillChanging(string value);
+    partial void OnSipAndChillChanged();
+    partial void OnCustomerFeedbackChanging(string value);
+    partial void OnCustomerFeedbackChanged();
+    partial void OnCustomerComplaintsChanging(string value);
+    partial void OnCustomerComplaintsChanged();
+    partial void OnMaintenanceChanging(string value);
+    partial void OnMaintenanceChanged();
+    partial void OnIncidentsChanging(string value);
+    partial void OnIncidentsChanged();
+    partial void OnGeneralCommentsChanging(string value);
+    partial void OnGeneralCommentsChanged();
+    partial void OnLastChangedChanging(System.Nullable<int> value);
+    partial void OnLastChangedChanged();
+    #endregion
+	
+	public Report_MerrylandsRSLGamingService()
+	{
+		this._Category = default(EntityRef<Category>);
+		this._Shift = default(EntityRef<Shift>);
+		this._Staff = default(EntityRef<Staff>);
+		OnCreated();
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+	public int RID
+	{
+		get
+		{
+			return this._RID;
+		}
+		set
+		{
+			if ((this._RID != value))
+			{
+				this.OnRIDChanging(value);
+				this.SendPropertyChanging();
+				this._RID = value;
+				this.SendPropertyChanged("RID");
+				this.OnRIDChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReportId", DbType="Int NOT NULL")]
+	public int ReportId
+	{
+		get
+		{
+			return this._ReportId;
+		}
+		set
+		{
+			if ((this._ReportId != value))
+			{
+				this.OnReportIdChanging(value);
+				this.SendPropertyChanging();
+				this._ReportId = value;
+				this.SendPropertyChanged("ReportId");
+				this.OnReportIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RCatId", DbType="Int")]
+	public System.Nullable<int> RCatId
+	{
+		get
+		{
+			return this._RCatId;
+		}
+		set
+		{
+			if ((this._RCatId != value))
+			{
+				if (this._Category.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnRCatIdChanging(value);
+				this.SendPropertyChanging();
+				this._RCatId = value;
+				this.SendPropertyChanged("RCatId");
+				this.OnRCatIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffId", DbType="Int")]
+	public System.Nullable<int> StaffId
+	{
+		get
+		{
+			return this._StaffId;
+		}
+		set
+		{
+			if ((this._StaffId != value))
+			{
+				if (this._Staff.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnStaffIdChanging(value);
+				this.SendPropertyChanging();
+				this._StaffId = value;
+				this.SendPropertyChanged("StaffId");
+				this.OnStaffIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffName", DbType="VarChar(MAX)")]
+	public string StaffName
+	{
+		get
+		{
+			return this._StaffName;
+		}
+		set
+		{
+			if ((this._StaffName != value))
+			{
+				this.OnStaffNameChanging(value);
+				this.SendPropertyChanging();
+				this._StaffName = value;
+				this.SendPropertyChanged("StaffName");
+				this.OnStaffNameChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiftId", DbType="Int")]
+	public System.Nullable<int> ShiftId
+	{
+		get
+		{
+			return this._ShiftId;
+		}
+		set
+		{
+			if ((this._ShiftId != value))
+			{
+				if (this._Shift.HasLoadedOrAssignedValue)
+				{
+					throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+				}
+				this.OnShiftIdChanging(value);
+				this.SendPropertyChanging();
+				this._ShiftId = value;
+				this.SendPropertyChanged("ShiftId");
+				this.OnShiftIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AuditVersion", DbType="Int")]
+	public System.Nullable<int> AuditVersion
+	{
+		get
+		{
+			return this._AuditVersion;
+		}
+		set
+		{
+			if ((this._AuditVersion != value))
+			{
+				this.OnAuditVersionChanging(value);
+				this.SendPropertyChanging();
+				this._AuditVersion = value;
+				this.SendPropertyChanged("AuditVersion");
+				this.OnAuditVersionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiftDate", DbType="Date")]
+	public System.Nullable<System.DateTime> ShiftDate
+	{
+		get
+		{
+			return this._ShiftDate;
+		}
+		set
+		{
+			if ((this._ShiftDate != value))
+			{
+				this.OnShiftDateChanging(value);
+				this.SendPropertyChanging();
+				this._ShiftDate = value;
+				this.SendPropertyChanged("ShiftDate");
+				this.OnShiftDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ModifyDate", DbType="DateTime")]
+	public System.Nullable<System.DateTime> ModifyDate
+	{
+		get
+		{
+			return this._ModifyDate;
+		}
+		set
+		{
+			if ((this._ModifyDate != value))
+			{
+				this.OnModifyDateChanging(value);
+				this.SendPropertyChanging();
+				this._ModifyDate = value;
+				this.SendPropertyChanged("ModifyDate");
+				this.OnModifyDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EntryDate", DbType="DateTime")]
+	public System.Nullable<System.DateTime> EntryDate
+	{
+		get
+		{
+			return this._EntryDate;
+		}
+		set
+		{
+			if ((this._EntryDate != value))
+			{
+				this.OnEntryDateChanging(value);
+				this.SendPropertyChanging();
+				this._EntryDate = value;
+				this.SendPropertyChanged("EntryDate");
+				this.OnEntryDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ShiftDOW", DbType="VarChar(50)")]
+	public string ShiftDOW
+	{
+		get
+		{
+			return this._ShiftDOW;
+		}
+		set
+		{
+			if ((this._ShiftDOW != value))
+			{
+				this.OnShiftDOWChanging(value);
+				this.SendPropertyChanging();
+				this._ShiftDOW = value;
+				this.SendPropertyChanged("ShiftDOW");
+				this.OnShiftDOWChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Report_Table", DbType="VarChar(50)")]
+	public string Report_Table
+	{
+		get
+		{
+			return this._Report_Table;
+		}
+		set
+		{
+			if ((this._Report_Table != value))
+			{
+				this.OnReport_TableChanging(value);
+				this.SendPropertyChanging();
+				this._Report_Table = value;
+				this.SendPropertyChanged("Report_Table");
+				this.OnReport_TableChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Report_Version", DbType="Int")]
+	public System.Nullable<int> Report_Version
+	{
+		get
+		{
+			return this._Report_Version;
+		}
+		set
+		{
+			if ((this._Report_Version != value))
+			{
+				this.OnReport_VersionChanging(value);
+				this.SendPropertyChanging();
+				this._Report_Version = value;
+				this.SendPropertyChanged("Report_Version");
+				this.OnReport_VersionChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReportStat", DbType="VarChar(MAX)")]
+	public string ReportStat
+	{
+		get
+		{
+			return this._ReportStat;
+		}
+		set
+		{
+			if ((this._ReportStat != value))
+			{
+				this.OnReportStatChanging(value);
+				this.SendPropertyChanging();
+				this._ReportStat = value;
+				this.SendPropertyChanged("ReportStat");
+				this.OnReportStatChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReadBy", DbType="VarChar(MAX)")]
+	public string ReadBy
+	{
+		get
+		{
+			return this._ReadBy;
+		}
+		set
+		{
+			if ((this._ReadBy != value))
+			{
+				this.OnReadByChanging(value);
+				this.SendPropertyChanging();
+				this._ReadBy = value;
+				this.SendPropertyChanged("ReadBy");
+				this.OnReadByChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReadByList", DbType="VarChar(MAX)")]
+	public string ReadByList
+	{
+		get
+		{
+			return this._ReadByList;
+		}
+		set
+		{
+			if ((this._ReadByList != value))
+			{
+				this.OnReadByListChanging(value);
+				this.SendPropertyChanging();
+				this._ReadByList = value;
+				this.SendPropertyChanged("ReadByList");
+				this.OnReadByListChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Comments", DbType="VarChar(MAX)")]
+	public string Comments
+	{
+		get
+		{
+			return this._Comments;
+		}
+		set
+		{
+			if ((this._Comments != value))
+			{
+				this.OnCommentsChanging(value);
+				this.SendPropertyChanging();
+				this._Comments = value;
+				this.SendPropertyChanged("Comments");
+				this.OnCommentsChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StaffSign", DbType="VarChar(MAX)")]
+	public string StaffSign
+	{
+		get
+		{
+			return this._StaffSign;
+		}
+		set
+		{
+			if ((this._StaffSign != value))
+			{
+				this.OnStaffSignChanging(value);
+				this.SendPropertyChanging();
+				this._StaffSign = value;
+				this.SendPropertyChanged("StaffSign");
+				this.OnStaffSignChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManagerSign", DbType="VarChar(MAX)")]
+	public string ManagerSign
+	{
+		get
+		{
+			return this._ManagerSign;
+		}
+		set
+		{
+			if ((this._ManagerSign != value))
+			{
+				this.OnManagerSignChanging(value);
+				this.SendPropertyChanging();
+				this._ManagerSign = value;
+				this.SendPropertyChanged("ManagerSign");
+				this.OnManagerSignChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManagerSignId", DbType="VarChar(50)")]
+	public string ManagerSignId
+	{
+		get
+		{
+			return this._ManagerSignId;
+		}
+		set
+		{
+			if ((this._ManagerSignId != value))
+			{
+				this.OnManagerSignIdChanging(value);
+				this.SendPropertyChanging();
+				this._ManagerSignId = value;
+				this.SendPropertyChanged("ManagerSignId");
+				this.OnManagerSignIdChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublishedDate", DbType="Date")]
+	public System.Nullable<System.DateTime> PublishedDate
+	{
+		get
+		{
+			return this._PublishedDate;
+		}
+		set
+		{
+			if ((this._PublishedDate != value))
+			{
+				this.OnPublishedDateChanging(value);
+				this.SendPropertyChanging();
+				this._PublishedDate = value;
+				this.SendPropertyChanged("PublishedDate");
+				this.OnPublishedDateChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PublishedBy", DbType="VarChar(50)")]
+	public string PublishedBy
+	{
+		get
+		{
+			return this._PublishedBy;
+		}
+		set
+		{
+			if ((this._PublishedBy != value))
+			{
+				this.OnPublishedByChanging(value);
+				this.SendPropertyChanging();
+				this._PublishedBy = value;
+				this.SendPropertyChanged("PublishedBy");
+				this.OnPublishedByChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HarmMinimisation", DbType="VarChar(MAX)")]
+	public string HarmMinimisation
+	{
+		get
+		{
+			return this._HarmMinimisation;
+		}
+		set
+		{
+			if ((this._HarmMinimisation != value))
+			{
+				this.OnHarmMinimisationChanging(value);
+				this.SendPropertyChanging();
+				this._HarmMinimisation = value;
+				this.SendPropertyChanged("HarmMinimisation");
+				this.OnHarmMinimisationChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PromotionalAwareness", DbType="VarChar(MAX)")]
+	public string PromotionalAwareness
+	{
+		get
+		{
+			return this._PromotionalAwareness;
+		}
+		set
+		{
+			if ((this._PromotionalAwareness != value))
+			{
+				this.OnPromotionalAwarenessChanging(value);
+				this.SendPropertyChanging();
+				this._PromotionalAwareness = value;
+				this.SendPropertyChanged("PromotionalAwareness");
+				this.OnPromotionalAwarenessChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SipAndChill", DbType="VarChar(MAX)")]
+	public string SipAndChill
+	{
+		get
+		{
+			return this._SipAndChill;
+		}
+		set
+		{
+			if ((this._SipAndChill != value))
+			{
+				this.OnSipAndChillChanging(value);
+				this.SendPropertyChanging();
+				this._SipAndChill = value;
+				this.SendPropertyChanged("SipAndChill");
+				this.OnSipAndChillChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerFeedback", DbType="VarChar(MAX)")]
+	public string CustomerFeedback
+	{
+		get
+		{
+			return this._CustomerFeedback;
+		}
+		set
+		{
+			if ((this._CustomerFeedback != value))
+			{
+				this.OnCustomerFeedbackChanging(value);
+				this.SendPropertyChanging();
+				this._CustomerFeedback = value;
+				this.SendPropertyChanged("CustomerFeedback");
+				this.OnCustomerFeedbackChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerComplaints", DbType="VarChar(MAX)")]
+	public string CustomerComplaints
+	{
+		get
+		{
+			return this._CustomerComplaints;
+		}
+		set
+		{
+			if ((this._CustomerComplaints != value))
+			{
+				this.OnCustomerComplaintsChanging(value);
+				this.SendPropertyChanging();
+				this._CustomerComplaints = value;
+				this.SendPropertyChanged("CustomerComplaints");
+				this.OnCustomerComplaintsChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Maintenance", DbType="VarChar(MAX)")]
+	public string Maintenance
+	{
+		get
+		{
+			return this._Maintenance;
+		}
+		set
+		{
+			if ((this._Maintenance != value))
+			{
+				this.OnMaintenanceChanging(value);
+				this.SendPropertyChanging();
+				this._Maintenance = value;
+				this.SendPropertyChanged("Maintenance");
+				this.OnMaintenanceChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Incidents", DbType="VarChar(MAX)")]
+	public string Incidents
+	{
+		get
+		{
+			return this._Incidents;
+		}
+		set
+		{
+			if ((this._Incidents != value))
+			{
+				this.OnIncidentsChanging(value);
+				this.SendPropertyChanging();
+				this._Incidents = value;
+				this.SendPropertyChanged("Incidents");
+				this.OnIncidentsChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_GeneralComments", DbType="VarChar(MAX)")]
+	public string GeneralComments
+	{
+		get
+		{
+			return this._GeneralComments;
+		}
+		set
+		{
+			if ((this._GeneralComments != value))
+			{
+				this.OnGeneralCommentsChanging(value);
+				this.SendPropertyChanging();
+				this._GeneralComments = value;
+				this.SendPropertyChanged("GeneralComments");
+				this.OnGeneralCommentsChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastChanged", DbType="Int")]
+	public System.Nullable<int> LastChanged
+	{
+		get
+		{
+			return this._LastChanged;
+		}
+		set
+		{
+			if ((this._LastChanged != value))
+			{
+				this.OnLastChangedChanging(value);
+				this.SendPropertyChanging();
+				this._LastChanged = value;
+				this.SendPropertyChanged("LastChanged");
+				this.OnLastChangedChanged();
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Category_Report_MerrylandsRSLGamingService", Storage="_Category", ThisKey="RCatId", OtherKey="RCatId", IsForeignKey=true)]
+	public Category Category
+	{
+		get
+		{
+			return this._Category.Entity;
+		}
+		set
+		{
+			Category previousValue = this._Category.Entity;
+			if (((previousValue != value) 
+						|| (this._Category.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Category.Entity = null;
+					previousValue.Report_MerrylandsRSLGamingServices.Remove(this);
+				}
+				this._Category.Entity = value;
+				if ((value != null))
+				{
+					value.Report_MerrylandsRSLGamingServices.Add(this);
+					this._RCatId = value.RCatId;
+				}
+				else
+				{
+					this._RCatId = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Category");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Shift_Report_MerrylandsRSLGamingService", Storage="_Shift", ThisKey="ShiftId", OtherKey="ShiftId", IsForeignKey=true)]
+	public Shift Shift
+	{
+		get
+		{
+			return this._Shift.Entity;
+		}
+		set
+		{
+			Shift previousValue = this._Shift.Entity;
+			if (((previousValue != value) 
+						|| (this._Shift.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Shift.Entity = null;
+					previousValue.Report_MerrylandsRSLGamingServices.Remove(this);
+				}
+				this._Shift.Entity = value;
+				if ((value != null))
+				{
+					value.Report_MerrylandsRSLGamingServices.Add(this);
+					this._ShiftId = value.ShiftId;
+				}
+				else
+				{
+					this._ShiftId = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Shift");
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Staff_Report_MerrylandsRSLGamingService", Storage="_Staff", ThisKey="StaffId", OtherKey="StaffId", IsForeignKey=true)]
+	public Staff Staff
+	{
+		get
+		{
+			return this._Staff.Entity;
+		}
+		set
+		{
+			Staff previousValue = this._Staff.Entity;
+			if (((previousValue != value) 
+						|| (this._Staff.HasLoadedOrAssignedValue == false)))
+			{
+				this.SendPropertyChanging();
+				if ((previousValue != null))
+				{
+					this._Staff.Entity = null;
+					previousValue.Report_MerrylandsRSLGamingServices.Remove(this);
+				}
+				this._Staff.Entity = value;
+				if ((value != null))
+				{
+					value.Report_MerrylandsRSLGamingServices.Add(this);
+					this._StaffId = value.StaffId;
+				}
+				else
+				{
+					this._StaffId = default(Nullable<int>);
+				}
+				this.SendPropertyChanged("Staff");
 			}
 		}
 	}
