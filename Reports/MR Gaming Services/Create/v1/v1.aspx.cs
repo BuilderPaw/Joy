@@ -34,7 +34,7 @@ public partial class Reports_MR_Gaming_Services_Create_v1_v1 : System.Web.UI.Pag
             // display appropriate trading date
             txtDatePicker.Text = dateTime.ToString("dddd, dd MMMM yyyy");
 
-            string hm = "Total patron check Ins completed: <br />3 hour checks: <br />Other: <br />Patrons referred to Duty Manager: <br />Comments: ";
+            string hm = "Total patron check Ins completed: <br /><br />3 hour checks: <br />Potential Gambling Harm: <br />Other: <br />Patrons referred to Duty Manager: <br />Comments: ";
             txtHarmMinimisation.Text = hm.ToString().Replace("<br />", "\n");
         }
     }
