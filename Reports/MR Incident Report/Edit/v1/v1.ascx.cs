@@ -1063,7 +1063,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
 
         if (txtAllegation.Text == "")
         {
-            Report.ErrorMessage = Report.ErrorMessage + "\\n* Incidents Allegation shouldn't be empty.";
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Incidents Witness Statement shouldn't be empty.";
 
             returnedFlag = true;
         }

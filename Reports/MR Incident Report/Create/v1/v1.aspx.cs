@@ -320,7 +320,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         }
         if (txtAllegation.Text == "")
         {
-            Report.ErrorMessage = Report.ErrorMessage + "\\n* Incident's Allegation shouldn't be empty.";
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Incident's Witness Statement shouldn't be empty.";
             txtAllegation.Focus();
             returnedFlag = 1;
 

@@ -186,12 +186,12 @@ public partial class Reports_MR_Duty_Managers_Edit_v3_v3 : System.Web.UI.UserCon
             ddlShift.Focus();
             Report.HasErrorMessage1 = true;
         }
-        if (txtSpecialComments.Text == "")
-        {
-            Report.ErrorMessage = Report.ErrorMessage + "\\n* COVID-19 section shouldn't be empty.";
-            txtSpecialComments.Focus();
-            Report.HasErrorMessage1 = true;
-        }
+        //if (txtSpecialComments.Text == "")
+        //{
+        //    Report.ErrorMessage = Report.ErrorMessage + "\\n* COVID-19 section shouldn't be empty.";
+        //    txtSpecialComments.Focus();
+        //    Report.HasErrorMessage1 = true;
+        //}
 
         if (txtDatePicker.Text == "")
         {
