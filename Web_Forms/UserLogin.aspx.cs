@@ -33,6 +33,10 @@ public partial class UserLogin : System.Web.UI.Page
                     Session["Username"] = txtUsername.Text;
                     UserCredentials.Username = txtUsername.Text; // record username
 
+                    SearchReport.UnreadDateLength = "-14"; // set the Unread Date Limit to, currently 14 days earlier
+                    Session["UnreadDateLength"] = SearchReport.UnreadDateLength.Substring(1, SearchReport.UnreadDateLength.Length-1);
+
+
                     displayName = groupArray[groupArray.Length - 1];
                     Session["DisplayName"] = displayName;
                     UserCredentials.DisplayName = displayName;

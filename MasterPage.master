@@ -131,7 +131,7 @@
                                                     <td>
                                                         <asp:Button ID="btnSearchReport" runat="server" class="btn btn-accordion" OnClick="btnSearchReport_Click" ValidationGroup="Search" ClientIDMode="Static" Text="Filter" />
                                                         <br />
-                                                        <asp:Label ID="lblUnreadList" runat="server">Only Unread Reports</asp:Label>
+                                                        <asp:Label ID="lblUnreadList" runat="server"><un style="font-size:12px;">Only Unread Reports</un> <unread style="font-size:9px;font-style:italic;margin:auto;">(Last <%=Session["UnreadDateLength"] %> days if Date Filter not used)</unread></asp:Label>
                                                         <asp:CheckBox ID="cbUnreadList" runat="server" Style="height: 20px; width: 20px; margin-left: 12px;" />
                                                         <br />
                                                         <asp:Label ID="lblMROnly" runat="server">Only Merrylands</asp:Label>

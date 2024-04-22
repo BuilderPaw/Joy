@@ -118,6 +118,11 @@ public partial class Web_Forms_LogViewer : System.Web.UI.Page
                             int_groups[j] = 10;
                             j++;
                         }
+                        else if (array_groups[i].ToString().Equals("MRReportsResponsibleGamingOfficer"))
+                        {
+                            int_groups[j] = 11;
+                            j++;
+                        }
                     }
 
                     // use Array.Sort to display the Report Types accordingly
@@ -169,6 +174,10 @@ public partial class Web_Forms_LogViewer : System.Web.UI.Page
                         {
                             ddlReport.Items.Add(new ListItem("MR Gaming Services", "Report_MerrylandsRSLGamingServices"));
                         }
+                        else if (int_groups[i] == 11)
+                        {
+                            ddlReport.Items.Add(new ListItem("MR Responsible Gaming Officer", "Report_MerrylandsRSLResponsibleGamingOfficer"));
+                        }
                     }
                 }
                 else // if the user is a member of Senior Managers
@@ -199,6 +208,8 @@ public partial class Web_Forms_LogViewer : System.Web.UI.Page
                     ddlReport.Items.Add(new ListItem("MR Caretaker", "Report_MerrylandsRSLCaretaker"));
                     // MR Gaming Services
                     ddlReport.Items.Add(new ListItem("MR Gaming Services", "Report_MerrylandsRSLGamingServices"));
+                    // MR Responsible Gaming Officer
+                    ddlReport.Items.Add(new ListItem("MR Responsible Gaming Officer", "Report_MerrylandsRSLResponsibleGamingOfficer"));
                 }
 
                 // populate the all staff dropdownlist

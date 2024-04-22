@@ -3581,6 +3581,11 @@ public partial class _Default : System.Web.UI.Page
                         int_groups[j] = 11;
                         j++;
                     }
+                    else if (array_groups[i].ToString().Equals("MRReportsResponsibleGamingOfficer"))
+                    {
+                        int_groups[j] = 12;
+                        j++;
+                    }
                 }
 
                 // use Array.Sort to display the Report Types accordingly
@@ -3658,6 +3663,10 @@ public partial class _Default : System.Web.UI.Page
                     {
                         ddlReportType.Items.Add(new ListItem("MR Gaming Services", "15"));
                     }
+                    else if (int_groups[i] == 12)
+                    {
+                        ddlReportType.Items.Add(new ListItem("MR Responsible Gaming Officer", "16"));
+                    }
                 }
             }
             else // if the user is a member of Senior Managers
@@ -3687,6 +3696,8 @@ public partial class _Default : System.Web.UI.Page
                 ddlReportType.Items.Add(new ListItem("MR Caretaker", "14"));
                 // MR Gaming Services
                 ddlReportType.Items.Add(new ListItem("MR Gaming Services", "15"));
+                // MR Responsible Gaming Officer
+                ddlReportType.Items.Add(new ListItem("MR Responsible Gaming Officer", "16"));
             }
         }
     }
@@ -3929,6 +3940,10 @@ public partial class _Default : System.Web.UI.Page
         else if (ReportType == 15)
         {
             _reportType = "MR Gaming Services";
+        }
+        else if (ReportType == 16)
+        {
+            _reportType = "MR Responsible Gaming Officer";
         }
 
         // find appropriate search query
@@ -4949,6 +4964,11 @@ public partial class _Default : System.Web.UI.Page
                         int_groups[j] = 9;
                         j++;
                     }
+                    else if (array_groups[i].ToString().Equals("MRReportsResponsibleGamingOfficer"))
+                    {
+                        int_groups[j] = 9;
+                        j++;
+                    }
                 }
 
                 // use Array.Sort to display the Report Types accordingly
@@ -4992,6 +5012,10 @@ public partial class _Default : System.Web.UI.Page
                     {
                         ddlGroup.Items.Add(new ListItem("MR Gaming Services", "9"));
                     }
+                    else if (int_groups[i] == 10)
+                    {
+                        ddlGroup.Items.Add(new ListItem("MR Responsible Gaming Officer", "10"));
+                    }
                 }
             }
             else // if the user is a member of Senior Managers
@@ -5016,6 +5040,8 @@ public partial class _Default : System.Web.UI.Page
                 ddlGroup.Items.Add(new ListItem("MR Customer Relations Officer", "8"));
                 // MR Gaming Services
                 ddlGroup.Items.Add(new ListItem("MR Gaming Services", "9"));
+                // MR Responsible Gaming Officer
+                ddlGroup.Items.Add(new ListItem("MR Responsible Gaming Officer", "10"));
             }
             ddlGroup.Items.Add(new ListItem("Select Multiple Groups", "-1"));
         }
@@ -5081,6 +5107,11 @@ public partial class _Default : System.Web.UI.Page
                         int_groups[j] = 9;
                         j++;
                     }
+                    else if (array_groups[i].ToString().Equals("MRReportsResponsibleGamingOfficer"))
+                    {
+                        int_groups[j] = 10;
+                        j++;
+                    }
                 }
 
                 // use Array.Sort to display the Report Types accordingly
@@ -5124,6 +5155,10 @@ public partial class _Default : System.Web.UI.Page
                     {
                         cblGroup.Items.Add(new ListItem("MR Gaming Services", "9"));
                     }
+                    else if (int_groups[i] == 10)
+                    {
+                        cblGroup.Items.Add(new ListItem("MR Responsible Gaming Officer", "10"));
+                    }
                 }
             }
             else // if the user is a member of Senior Managers
@@ -5148,6 +5183,8 @@ public partial class _Default : System.Web.UI.Page
                 cblGroup.Items.Add(new ListItem("MR Customer Relations Officer", "8"));
                 // MR Gaming Services
                 cblGroup.Items.Add(new ListItem("MR Gaming Services", "9"));
+                // MR Responsible Gaming Officer
+                cblGroup.Items.Add(new ListItem("MR Responsible Gaming Officer", "10"));
             }
         }
     }

@@ -182,6 +182,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
                             ddlCreateReport.Items.Add(new ListItem("MR Gaming Services", "14"));
                             ddlSearchReport.Items.Add(new ListItem("MR Gaming Services", "15"));
                         }
+                        // MR Responsible Gaming Officer
+                        else if (reportList[i] == 12)
+                        {
+                            ddlCreateReport.Items.Add(new ListItem("MR Responsible Gaming Officer", "15"));
+                            ddlSearchReport.Items.Add(new ListItem("MR Responsible Gaming Officer", "16"));
+                        }
                     }
                 }
                 // if the user has Senior Managers access
@@ -225,6 +231,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     // MR Gaming Services
                     ddlCreateReport.Items.Add(new ListItem("MR Gaming Services", "14"));
                     ddlSearchReport.Items.Add(new ListItem("MR Gaming Services", "15"));
+                    // MR Responsible Gaming Officer
+                    ddlCreateReport.Items.Add(new ListItem("MR Responsible Gaming Officer", "15"));
+                    ddlSearchReport.Items.Add(new ListItem("MR Responsible Gaming Officer", "16"));
                 }
 
                 // populate the staff dropdownlist

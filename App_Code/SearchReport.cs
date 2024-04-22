@@ -103,6 +103,9 @@ public class SearchReport
             case 15:
                 reportType = "MR Gaming Services";
                 break;
+            case 16:
+                reportType = "MR Responsible Gaming Officer";
+                break;
         }
 
         // check if user has entered a keyword to be filtered
@@ -247,7 +250,14 @@ public class SearchReport
 
         if(UnreadList && string.IsNullOrEmpty(ListPlayerIdIncidents)) // unread tickbox has been checked
         {
-            unreadQuery = "AND ([ReadByList] NOT LIKE '%," + UserCredentials.StaffId + ",%' OR [ReadByList] IS NULL) AND ([ManagerSignId] NOT LIKE '%" + UserCredentials.StaffId + ",%' OR [ManagerSignId] IS NULL) ";
+            if (dateGroup != 1) // has date filter
+            {
+                unreadQuery = "AND ([ReadByList] NOT LIKE '%," + UserCredentials.StaffId + ",%' OR [ReadByList] IS NULL) AND ([ManagerSignId] NOT LIKE '%" + UserCredentials.StaffId + ",%' OR [ManagerSignId] IS NULL) ";
+            }
+            else
+            {
+                unreadQuery = "AND ([ReadByList] NOT LIKE '%," + UserCredentials.StaffId + ",%' OR [ReadByList] IS NULL) AND ([ManagerSignId] NOT LIKE '%" + UserCredentials.StaffId + ",%' OR [ManagerSignId] IS NULL) AND ShiftDate BETWEEN '" + DateTime.Today.AddDays(Int32.Parse(UnreadDateLength)).ToString("yyyy-MM-dd") + "' AND '" + DateTime.Today.ToString("yyyy-MM-dd") + "'";
+            }
         }
         else // no unread list filter
         {
@@ -488,6 +498,25 @@ public class SearchReport
         set
         {
             HttpContext.Current.Session["SREndDate"] = value;
+        }
+    }
+
+    public static string UnreadDateLength
+    {
+        get
+        {
+            if (HttpContext.Current.Session["SRUnreadDateLength"] == null)
+            {
+                return "";
+            }
+            else
+            {
+                return HttpContext.Current.Session["SRUnreadDateLength"].ToString();
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["SRUnreadDateLength"] = value;
         }
     }
 

@@ -78,6 +78,7 @@
       <Association Name="Category_Report_MerrylandsRSLCustomerRelationsOfficer" Member="Report_MerrylandsRSLCustomerRelationsOfficers" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLCustomerRelationsOfficer" />
       <Association Name="Category_Report_MerrylandsRSLCaretaker" Member="Report_MerrylandsRSLCaretakers" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLCaretaker" />
       <Association Name="Category_Report_MerrylandsRSLGamingService" Member="Report_MerrylandsRSLGamingServices" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLGamingService" />
+      <Association Name="Category_Report_MerrylandsRSLRGO" Member="Report_MerrylandsRSLRGOs" ThisKey="RCatId" OtherKey="RCatId" Type="Report_MerrylandsRSLRGO" />
     </Type>
   </Table>
   <Table Name="dbo.LinkedReports" Member="LinkedReports">
@@ -1870,6 +1871,7 @@
       <Association Name="Shift_Report_MerrylandsRSLCustomerRelationsOfficer" Member="Report_MerrylandsRSLCustomerRelationsOfficers" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLCustomerRelationsOfficer" />
       <Association Name="Shift_Report_MerrylandsRSLCaretaker" Member="Report_MerrylandsRSLCaretakers" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLCaretaker" />
       <Association Name="Shift_Report_MerrylandsRSLGamingService" Member="Report_MerrylandsRSLGamingServices" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLGamingService" />
+      <Association Name="Shift_Report_MerrylandsRSLRGO" Member="Report_MerrylandsRSLRGOs" ThisKey="ShiftId" OtherKey="ShiftId" Type="Report_MerrylandsRSLRGO" />
     </Type>
   </Table>
   <Table Name="dbo.Staff" Member="Staffs">
@@ -1896,6 +1898,7 @@
       <Association Name="Staff_Report_MerrylandsRSLCustomerRelationsOfficer" Member="Report_MerrylandsRSLCustomerRelationsOfficers" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLCustomerRelationsOfficer" />
       <Association Name="Staff_Report_MerrylandsRSLCaretaker" Member="Report_MerrylandsRSLCaretakers" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLCaretaker" />
       <Association Name="Staff_Report_MerrylandsRSLGamingService" Member="Report_MerrylandsRSLGamingServices" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLGamingService" />
+      <Association Name="Staff_Report_MerrylandsRSLRGO" Member="Report_MerrylandsRSLRGOs" ThisKey="StaffId" OtherKey="StaffId" Type="Report_MerrylandsRSLRGO" />
     </Type>
   </Table>
   <Table Name="dbo.StaffName" Member="StaffNames">
@@ -2040,6 +2043,68 @@
       <Association Name="Category_Report_MerrylandsRSLGamingService" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
       <Association Name="Shift_Report_MerrylandsRSLGamingService" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
       <Association Name="Staff_Report_MerrylandsRSLGamingService" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Report_MerrylandsRSLRGO" Member="Report_MerrylandsRSLRGOs">
+    <Type Name="Report_MerrylandsRSLRGO">
+      <Column Name="RID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ReportId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RCatId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StaffName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ShiftId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="AuditVersion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ShiftDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ModifyDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EntryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ShiftDOW" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Table" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Report_Version" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ReportStat" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadBy" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReadByList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Comments" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="StaffSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSign" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="ManagerSignId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PublishedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="PublishedBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PartyType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TxtPartyType" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PlayerId" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberPhoto" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="MemberNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberSince" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberDOB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="MemberAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="SignInSlip" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SignedInBy" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorDOB" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="VisitorProofID" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="VisitorAddress" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="FirstName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="LastName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Alias" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Contact" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EventType" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="EventTypeOtherDesc" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Date" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TimeH" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtTimeH" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="TimeM" Type="System.String" DbType="VarChar(5)" CanBeNull="true" />
+      <Column Name="TxtTimeM" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RGONotifiedList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PatronSigns" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PatronsSignsList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="InitialActionList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="PatronResponseList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EventOutcomeList" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="EventOutcomeAskedToLeave" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="IncidentReportCompleted" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="LastChanged" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Category_Report_MerrylandsRSLRGO" Member="Category" ThisKey="RCatId" OtherKey="RCatId" Type="Category" IsForeignKey="true" />
+      <Association Name="Shift_Report_MerrylandsRSLRGO" Member="Shift" ThisKey="ShiftId" OtherKey="ShiftId" Type="Shift" IsForeignKey="true" />
+      <Association Name="Staff_Report_MerrylandsRSLRGO" Member="Staff" ThisKey="StaffId" OtherKey="StaffId" Type="Staff" IsForeignKey="true" />
     </Type>
   </Table>
 </Database>

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 23.75, 219.625" name="DataClasses">
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 48.75, 78.25" name="DataClasses">
   <DataContextMoniker Name="/DataClassesDataContext" />
   <nestedChildShapes>
     <classShape Id="6a277c69-7134-4e33-822b-4afa85e10791" absoluteBounds="0.75, 0.75, 2, 5.4246240234375">
@@ -14,16 +14,16 @@
         <elementListCompartment Id="ed5ea130-cb23-48a2-bdb9-4f46f529fffc" absoluteBounds="3.765, 1.21, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="d4ac7e79-b6f8-4be6-b645-013f0c83e3c7" absoluteBounds="3.5, 178.875, 2, 4.4631168619791879">
+    <classShape Id="d4ac7e79-b6f8-4be6-b645-013f0c83e3c7" absoluteBounds="14.75, 8.125, 2, 4.4631168619791879">
       <DataClassMoniker Name="/DataClassesDataContext/BillPayment" />
       <nestedChildShapes>
-        <elementListCompartment Id="696cc7bc-a07a-4b9b-9c95-cf6781255018" absoluteBounds="3.515, 179.335, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="696cc7bc-a07a-4b9b-9c95-cf6781255018" absoluteBounds="14.765, 8.585000000000008, 1.9700000000000002, 3.903116861979167" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" absoluteBounds="3.75, 165.375, 2, 1.3862939453125023">
+    <classShape Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" absoluteBounds="27.125, 1.75, 2, 1.3862939453125023">
       <DataClassMoniker Name="/DataClassesDataContext/Category" />
       <nestedChildShapes>
-        <elementListCompartment Id="d3abdff8-a7a2-48da-9bcf-4d2f4db106d1" absoluteBounds="3.765, 165.835, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="d3abdff8-a7a2-48da-9bcf-4d2f4db106d1" absoluteBounds="27.14, 2.210000000000008, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="ad35c4e7-5488-494a-bf25-d2bae8887563" absoluteBounds="3.75, 3.75, 2, 2.347801106770834">
@@ -86,82 +86,82 @@
         <elementListCompartment Id="239b4285-0e28-4da6-b55c-cfb6543c704d" absoluteBounds="6.765, 10.21, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="963ce743-2ba3-492f-9615-a8c76b3259cd" absoluteBounds="12.5, 160.25, 2, 41.7695947265625">
+    <classShape Id="963ce743-2ba3-492f-9615-a8c76b3259cd" absoluteBounds="37.5, 18.875, 2, 41.7695947265625">
       <DataClassMoniker Name="/DataClassesDataContext/Report_ClubUminaCovidMarshall" />
       <nestedChildShapes>
-        <elementListCompartment Id="29064c81-9216-444a-8fcc-4124bef74679" absoluteBounds="12.515, 160.71, 1.9700000000000002, 41.2095947265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="29064c81-9216-444a-8fcc-4124bef74679" absoluteBounds="37.515, 19.335000000000008, 1.9700000000000002, 41.2095947265625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b7030286-fe29-4377-a7b8-b6e662e83e6a" absoluteBounds="6.5, 169.125, 2, 7.9245426432291879">
+    <classShape Id="b7030286-fe29-4377-a7b8-b6e662e83e6a" absoluteBounds="31.5, 27.75, 2, 7.9245426432291879">
       <DataClassMoniker Name="/DataClassesDataContext/Report_ClubUminaDutyManager" />
       <nestedChildShapes>
-        <elementListCompartment Id="1eda3a36-537a-482e-9a17-b5fff63552da" absoluteBounds="6.515, 169.585, 1.9700000000000002, 7.3645426432291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="1eda3a36-537a-482e-9a17-b5fff63552da" absoluteBounds="31.515, 28.210000000000008, 1.9700000000000002, 7.3645426432291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="04ea49a0-7f12-4299-80c1-9b4d686528fb" absoluteBounds="18.5, 143.5, 2, 75.2300439453125">
+    <classShape Id="04ea49a0-7f12-4299-80c1-9b4d686528fb" absoluteBounds="43.5, 2.125, 2, 75.2300439453125">
       <DataClassMoniker Name="/DataClassesDataContext/Report_ClubUminaIncident" />
       <nestedChildShapes>
-        <elementListCompartment Id="c2b4a37c-c8be-4a70-b711-1107c0e26809" absoluteBounds="18.515, 143.96, 1.9700000000000002, 74.6700439453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c2b4a37c-c8be-4a70-b711-1107c0e26809" absoluteBounds="43.515, 2.585000000000008, 1.9700000000000002, 74.6700439453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="01083af6-acaf-4065-822c-5d2f397c0c2c" absoluteBounds="6.5, 178, 2, 6.1938297526041879">
+    <classShape Id="01083af6-acaf-4065-822c-5d2f397c0c2c" absoluteBounds="31.5, 36.625, 2, 6.1938297526041879">
       <DataClassMoniker Name="/DataClassesDataContext/Report_ClubUminaReception" />
       <nestedChildShapes>
-        <elementListCompartment Id="fd1331da-2c2e-44da-b1a4-4f148f3edbdb" absoluteBounds="6.515, 178.46, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="fd1331da-2c2e-44da-b1a4-4f148f3edbdb" absoluteBounds="31.515, 37.085000000000008, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="8017beea-978b-4d9c-8db2-163024c2a5d9" absoluteBounds="15.5, 144.25, 2, 73.691632486979131">
+    <classShape Id="8017beea-978b-4d9c-8db2-163024c2a5d9" absoluteBounds="40.5, 2.875, 2, 73.691632486979131">
       <DataClassMoniker Name="/DataClassesDataContext/Report_MerrylandsRSLCovidMarshall" />
       <nestedChildShapes>
-        <elementListCompartment Id="edd17641-c597-4db3-83a5-0d5b743f5749" absoluteBounds="15.515, 144.71, 1.9700000000000002, 73.131632486979157" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="edd17641-c597-4db3-83a5-0d5b743f5749" absoluteBounds="40.515, 3.335000000000008, 1.9700000000000002, 73.131632486979157" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="4e0ddfd8-01ed-4062-8023-6f27b45d9e87" absoluteBounds="6.5, 185.125, 2, 7.9245426432291879">
+    <classShape Id="4e0ddfd8-01ed-4062-8023-6f27b45d9e87" absoluteBounds="31.5, 43.75, 2, 7.9245426432291879">
       <DataClassMoniker Name="/DataClassesDataContext/Report_MerrylandsRSLDutyManager" />
       <nestedChildShapes>
-        <elementListCompartment Id="bcedec71-b092-4f9f-8cae-837101271401" absoluteBounds="6.515, 185.585, 1.9700000000000002, 7.3645426432291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="bcedec71-b092-4f9f-8cae-837101271401" absoluteBounds="31.515, 44.210000000000008, 1.9700000000000002, 7.3645426432291661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="f5f2def8-7c3b-480d-a9c7-655b0a5ced2a" absoluteBounds="3.5, 184.75, 2, 6.5784326171875023">
+    <classShape Id="f5f2def8-7c3b-480d-a9c7-655b0a5ced2a" absoluteBounds="28.5, 43.375, 2, 6.5784326171875023">
       <DataClassMoniker Name="/DataClassesDataContext/Report_MerrylandsRSLFunctionSupervisor" />
       <nestedChildShapes>
-        <elementListCompartment Id="016f3df6-090a-4bca-ad4c-96e24cb8bc33" absoluteBounds="3.515, 185.21, 1.9700000000000002, 6.0184326171875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="016f3df6-090a-4bca-ad4c-96e24cb8bc33" absoluteBounds="28.515, 43.835000000000008, 1.9700000000000002, 6.0184326171875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="81036cab-c746-417f-8c78-4c2dbf5a3867" absoluteBounds="21.5, 143.5, 2, 75.2300439453125">
+    <classShape Id="81036cab-c746-417f-8c78-4c2dbf5a3867" absoluteBounds="46.5, 2.125, 2, 75.2300439453125">
       <DataClassMoniker Name="/DataClassesDataContext/Report_MerrylandsRSLIncident" />
       <nestedChildShapes>
-        <elementListCompartment Id="c4d8b0be-2090-4037-a81d-e86faa43279e" absoluteBounds="21.515, 143.96, 1.9700000000000002, 74.6700439453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="c4d8b0be-2090-4037-a81d-e86faa43279e" absoluteBounds="46.515, 2.585000000000008, 1.9700000000000002, 74.6700439453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="e2046f3c-adbe-4eda-a7f0-81e7e976e020" absoluteBounds="9.5, 178, 2, 6.1938297526041879">
+    <classShape Id="e2046f3c-adbe-4eda-a7f0-81e7e976e020" absoluteBounds="34.5, 36.625, 2, 6.1938297526041879">
       <DataClassMoniker Name="/DataClassesDataContext/Report_MerrylandsRSLReception" />
       <nestedChildShapes>
-        <elementListCompartment Id="afc81715-dae3-4a58-8355-c822d28b3ad6" absoluteBounds="9.515, 178.46, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="afc81715-dae3-4a58-8355-c822d28b3ad6" absoluteBounds="34.515, 37.085000000000008, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="b0e39888-ab7c-43d7-923a-827b8ff9c409" absoluteBounds="3.5, 171, 2, 6.1938297526041879">
+    <classShape Id="b0e39888-ab7c-43d7-923a-827b8ff9c409" absoluteBounds="28.5, 29.625, 2, 6.1938297526041879">
       <DataClassMoniker Name="/DataClassesDataContext/Report_MerrylandsRSLReceptionSupervisor" />
       <nestedChildShapes>
-        <elementListCompartment Id="f8342739-ed93-4555-8ecf-eeea5ca5a005" absoluteBounds="3.515, 171.46, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="f8342739-ed93-4555-8ecf-eeea5ca5a005" absoluteBounds="28.515, 30.085000000000008, 1.9700000000000002, 5.6338297526041661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="546df85d-4d26-48b7-959b-22338c710e52" absoluteBounds="9.5, 169, 2, 8.1168440755208167">
+    <classShape Id="546df85d-4d26-48b7-959b-22338c710e52" absoluteBounds="34.5, 27.625, 2, 8.1168440755208167">
       <DataClassMoniker Name="/DataClassesDataContext/Report_MerrylandsRSLSupervisor" />
       <nestedChildShapes>
-        <elementListCompartment Id="a310b71b-fc17-40f0-98e6-e5533a471aa3" absoluteBounds="9.515, 169.46, 1.9700000000000002, 7.556844075520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="a310b71b-fc17-40f0-98e6-e5533a471aa3" absoluteBounds="34.515, 28.085000000000008, 1.9700000000000002, 7.556844075520833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="3a042b71-09c5-4889-8675-057d5cc87ba2" absoluteBounds="3.75, 168.375, 2, 1.1939925130208167">
+    <classShape Id="3a042b71-09c5-4889-8675-057d5cc87ba2" absoluteBounds="17.375, 0.75, 2, 1.1939925130208167">
       <DataClassMoniker Name="/DataClassesDataContext/Shift" />
       <nestedChildShapes>
-        <elementListCompartment Id="116273af-ab34-4bbd-a94a-a73709e9b821" absoluteBounds="3.765, 168.835, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="116273af-ab34-4bbd-a94a-a73709e9b821" absoluteBounds="17.39, 1.210000000000008, 1.9700000000000002, 0.63399251302083326" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="fc1cf831-2fac-4025-9d08-c14054008e38" absoluteBounds="0.75, 180, 2, 2.1554996744791879">
+    <classShape Id="fc1cf831-2fac-4025-9d08-c14054008e38" absoluteBounds="20.75, 5.875, 2, 2.1554996744791879">
       <DataClassMoniker Name="/DataClassesDataContext/Staff" />
       <nestedChildShapes>
-        <elementListCompartment Id="5fa0bf4c-92c6-4e30-9df1-dbecf076d2bb" absoluteBounds="0.765, 180.46, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="5fa0bf4c-92c6-4e30-9df1-dbecf076d2bb" absoluteBounds="20.765, 6.335000000000008, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
     <classShape Id="201cf1b6-cd11-43d4-8d09-bc25d0264727" absoluteBounds="9.75, 9.75, 2, 1.5785953776041666">
@@ -170,238 +170,238 @@
         <elementListCompartment Id="4590e54a-aafe-477b-aeb1-6d4273cae28e" absoluteBounds="9.765, 10.21, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.75 : 165.376065379958); (5.87857443490112 : 165.247490945057 : JumpStart); (5.99642556509888 : 165.129639814859 : JumpEnd); (6.125 : 165.001065379958); (6.125 : 159.875); (6.29166666666667 : 159.875 : JumpStart); (6.45833333333333 : 159.875 : JumpEnd); (12.1265374615385 : 159.875); (12.5015374615385 : 160.25)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(28.3437525 : 3.1362939453125); (28.3437525 : 57.0356680989583); (37.5 : 57.0356680989583)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_ClubUminaCovidMarshall" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="963ce743-2ba3-492f-9615-a8c76b3259cd" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.71587584134615 : 166.761293945313); (5.87857443490112 : 166.923992538867 : JumpStart); (5.99642556509888 : 167.041843669065 : JumpEnd); (6.1875 : 167.232918103966); (6.1875 : 173.837270821615); (6.19791666666667 : 173.837270821615 : JumpStart); (6.48958333333333 : 173.837270821615 : JumpEnd); (6.5 : 173.837270821615)]" fixedFrom="NotFixed" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(29.125 : 2.44314697265625); (32.28125 : 2.44314697265625); (32.28125 : 27.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_ClubUminaDutyManager" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="b7030286-fe29-4377-a7b8-b6e662e83e6a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.75 : 165.375); (4.75 : 143.84375); (5.85416666666667 : 143.84375 : JumpStart); (6.02083333333333 : 143.84375 : JumpEnd); (6.29166666666667 : 143.84375 : JumpStart); (6.45833333333333 : 143.84375 : JumpEnd); (18.5 : 143.84375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(29.125 : 2.69032348632813); (32.1979166666667 : 2.69032348632813 : JumpStart); (32.3645833333333 : 2.69032348632813 : JumpEnd); (32.6197941666667 : 2.69032348632813 : JumpStart); (32.7864608333333 : 2.69032348632813 : JumpEnd); (35.6666666666667 : 2.69032348632812 : JumpStart); (36.0833333333333 : 2.69032348632813 : JumpEnd); (36.1979191666667 : 2.69032348632813 : JumpStart); (36.3645858333333 : 2.69032348632813 : JumpEnd); (41.4166666666667 : 2.69032348632813 : JumpStart); (41.5833333333333 : 2.69032348632813 : JumpEnd); (43.5 : 2.69032348632813)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_ClubUminaIncident" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="04ea49a0-7f12-4299-80c1-9b4d686528fb" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.90750058969351 : 166.761293945313); (5.85977601608325 : 167.129553481204 : JumpStart); (6.01522398391675 : 167.1896675983 : JumpEnd); (6.0488134776217 : 167.202657171505 : JumpStart); (6.2042614454552 : 167.262771288601 : JumpEnd); (6.28125 : 167.292543945313); (6.28125 : 181.096914876302); (6.5 : 181.096914876302)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(28.1875 : 3.1362939453125); (28.1875 : 36.7968725); (28.2604191666667 : 36.7968725 : JumpStart); (28.4583383333333 : 36.7968725 : JumpEnd); (31.5 : 36.7968725)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_ClubUminaReception" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="01083af6-acaf-4065-822c-5d2f397c0c2c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.2812525 : 165.375); (5.2812525 : 152.21875); (5.85416666666667 : 152.21875 : JumpStart); (6.02083333333333 : 152.21875 : JumpEnd); (6.29166666666667 : 152.21875 : JumpStart); (6.45833333333333 : 152.21875 : JumpEnd); (15.5 : 152.21875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(29.125 : 2.06532098632813); (32.6197941666667 : 2.06532098632813 : JumpStart); (32.7864608333333 : 2.06532098632813 : JumpEnd); (35.6666666666667 : 2.06532098632813 : JumpStart); (35.9583333333333 : 2.06532098632813 : JumpEnd); (36.1979191666667 : 2.06532098632813 : JumpStart); (36.3645858333333 : 2.06532098632813 : JumpEnd); (41.5 : 2.06532098632813); (41.5 : 2.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_MerrylandsRSLCovidMarshall" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="8017beea-978b-4d9c-8db2-163024c2a5d9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.54954470402644 : 166.761293945313); (5.51845506582496 : 167.008208868197 : JumpStart); (5.67995997077784 : 167.049366412511 : JumpEnd); (5.85674754752356 : 167.094418558303 : JumpStart); (6.01825245247644 : 167.135576102616 : JumpEnd); (6.15625 : 167.170743085186); (6.15625 : 189.087271321615); (6.5 : 189.087271321615)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(28.375005 : 3.1362939453125); (28.375005 : 51.1239282592774); (31.5 : 51.1239282592774)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_MerrylandsRSLDutyManager" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="4e0ddfd8-01ed-4062-8023-6f27b45d9e87" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 166.693044628005); (5.88313954171803 : 166.847739858763 : JumpStart); (5.99186045828197 : 166.974063016099 : JumpEnd); (6.12653746153845 : 167.130544628005); (6.12653746153845 : 184.125); (5.77767681509889 : 184.473860646439 : JumpStart); (5.56607193490111 : 184.685465526637 : JumpEnd); (5.5 : 184.751537461538)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(28.1562475 : 3.1362939453125); (28.1562475 : 46.6642163085938); (28.2604191666667 : 46.6642163085938 : JumpStart); (28.4583383333333 : 46.6642163085938 : JumpEnd); (28.5 : 46.6642163085938)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_MerrylandsRSLFunctionSupervisor" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="f5f2def8-7c3b-480d-a9c7-655b0a5ced2a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 165.376065379958); (5.87857443490112 : 165.247490945057 : JumpStart); (5.99642556509888 : 165.129639814859 : JumpEnd); (6.375 : 164.751065379958); (6.375 : 143.25); (21.2853836153846 : 143.25); (21.5353836153846 : 143.5)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(29.125 : 1.75); (29.5 : 1.375); (29.5 : 1.875); (32.6197941666667 : 1.875 : JumpStart); (32.7864608333333 : 1.875 : JumpEnd); (35.6666666666667 : 1.875 : JumpStart); (35.9583333333333 : 1.875 : JumpEnd); (36.1979191666667 : 1.875 : JumpStart); (36.3645858333333 : 1.875 : JumpEnd); (44.4166666666667 : 1.875 : JumpStart); (44.5833333333333 : 1.875 : JumpEnd); (46.2853836153846 : 1.875); (46.5353836153846 : 2.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_MerrylandsRSLIncident" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="81036cab-c746-417f-8c78-4c2dbf5a3867" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 166.727168786659); (5.87857443490112 : 166.85574322156 : JumpStart); (6.01969474238336 : 166.996863529042 : JumpEnd); (6.40625 : 167.383418786659); (6.40625 : 177.25); (7.41666666666667 : 177.25 : JumpStart); (7.58333333333333 : 177.25 : JumpEnd); (8.80076823076922 : 177.25); (9.01919693490113 : 177.468428704132 : JumpStart); (9.18140613788825 : 177.630637907119 : JumpEnd); (9.55076823076923 : 178)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(29.125 : 2.94456071582031); (32.1979166666667 : 2.94456071582031 : JumpStart); (32.3645833333333 : 2.94456071582031 : JumpEnd); (32.6197941666667 : 2.94456071582031 : JumpStart); (32.7864608333333 : 2.94456071582031 : JumpEnd); (35.5 : 2.94456071582031); (35.5 : 27.125); (35.3333333333333 : 27.125 : JumpStart); (35.1666666666667 : 27.125 : JumpEnd); (34.375 : 27.125); (34.375 : 36.25); (35.531252 : 36.25); (35.531252 : 36.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_MerrylandsRSLReception" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="e2046f3c-adbe-4eda-a7f0-81e7e976e020" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.72760602088341 : 166.761293945313); (5.87857443490108 : 166.91226235933 : JumpStart); (5.99642556509892 : 167.030113489528 : JumpEnd); (6.125 : 167.158687924429); (6.125 : 170.625); (5.87653746153845 : 170.625); (5.77767681509892 : 170.723860646439 : JumpStart); (5.56607193490108 : 170.935465526637 : JumpEnd); (5.5 : 171.001537461538)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(28.63281375 : 3.1362939453125); (28.63281375 : 29.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_MerrylandsRSLReceptionSupervisor" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="b0e39888-ab7c-43d7-923a-827b8ff9c409" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 166.693044628005); (5.87857443490112 : 166.821619062906 : JumpStart); (5.99642556509888 : 166.939470193104 : JumpEnd); (6.546875 : 167.489919628005); (6.546875 : 168.375); (8.87653746153848 : 168.375); (9.50153746153846 : 169)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(29.125 : 2.25423397949219); (32.6197941666667 : 2.25423397949219 : JumpStart); (32.7864608333333 : 2.25423397949219 : JumpEnd); (35.6666666666667 : 2.25423397949219 : JumpStart); (35.9583333333333 : 2.25423397949219 : JumpEnd); (36 : 2.25423397949219); (36 : 27.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_MerrylandsRSLSupervisor" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="546df85d-4d26-48b7-959b-22338c710e52" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 168.60156375); (6.04166666666667 : 168.60156375 : JumpStart); (6.48958333333333 : 168.60156375 : JumpEnd); (9.01976787820513 : 168.60156375 : JumpStart); (9.1864345448718 : 168.60156375 : JumpEnd); (12.5 : 168.60156375)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(18.492189375 : 1.94399251302082); (18.492189375 : 55.1999522851563); (22.2755103205128 : 55.1999522851563 : JumpStart); (22.4421769871795 : 55.1999522851563 : JumpEnd); (22.4549346474359 : 55.1999522851563 : JumpStart); (22.6216013141026 : 55.1999522851563 : JumpEnd); (23.3541666666667 : 55.1999522851563 : JumpStart); (23.5208333333333 : 55.1999522851563 : JumpEnd); (28.2604191666667 : 55.1999522851563 : JumpStart); (28.4270858333333 : 55.1999522851563 : JumpEnd); (37.5 : 55.1999522851563)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_ClubUminaCovidMarshall" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="963ce743-2ba3-492f-9615-a8c76b3259cd" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 169.34699625651); (6.04166666666667 : 169.34699625651 : JumpStart); (6.48958333333333 : 169.34699625651 : JumpEnd); (6.5 : 169.34699625651)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(19.375 : 1.21875); (32.7031275 : 1.21875); (32.7031275 : 27.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_ClubUminaDutyManager" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="b7030286-fe29-4377-a7b8-b6e662e83e6a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.65625 : 169.568992513021); (5.65625 : 218.367088216146); (18.5 : 218.367088216146)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(19.375 : 1.48437749999999); (29.3072891666667 : 1.48437749999999 : JumpStart); (29.5833333333333 : 1.48437749999999 : JumpEnd); (32.6197941666667 : 1.48437749999999 : JumpStart); (32.7864608333333 : 1.48437749999999 : JumpEnd); (35.6666666666667 : 1.48437749999999 : JumpStart); (35.9583333333333 : 1.48437749999999 : JumpEnd); (44.5 : 1.48437749999999); (44.5 : 2.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_ClubUminaIncident" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="04ea49a0-7f12-4299-80c1-9b4d686528fb" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.6875025 : 169.568992513021); (5.6875025 : 178.40625); (6.04320412820512 : 178.40625 : JumpStart); (6.36458333333333 : 178.40625 : JumpEnd); (6.5 : 178.40625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(18.7656275 : 1.94399251302082); (18.7656275 : 39.8391036263021); (22.2755103205128 : 39.8391036263021 : JumpStart); (22.4421769871795 : 39.8391036263021 : JumpEnd); (22.4549346474359 : 39.8391036263021 : JumpStart); (22.7859269871795 : 39.8391036263021 : JumpEnd); (23.3541666666667 : 39.8391036263021 : JumpStart); (23.5208333333333 : 39.8391036263021 : JumpEnd); (28.0729141666667 : 39.8391036263021 : JumpStart); (28.2395808333333 : 39.8391036263021 : JumpEnd); (28.2604191666667 : 39.8391036263021 : JumpStart); (28.4583383333333 : 39.8391036263021 : JumpEnd); (31.5 : 39.8391036263021)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_ClubUminaReception" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="01083af6-acaf-4065-822c-5d2f397c0c2c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.6249975 : 169.568992513021); (5.6249975 : 210.011863606771); (15.5 : 210.011863606771)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(17.8437475 : 1.94399251302082); (17.8437475 : 68.6368636067708); (22.4549346474359 : 68.6368636067708 : JumpStart); (22.6216013141026 : 68.6368636067708 : JumpEnd); (23.3541666666667 : 68.6368636067708 : JumpStart); (23.5208333333333 : 68.6368636067708 : JumpEnd); (40.5 : 68.6368636067708)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_MerrylandsRSLCovidMarshall" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="8017beea-978b-4d9c-8db2-163024c2a5d9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.71875125 : 169.568992513021); (5.71875125 : 192.220237630208); (6.5 : 192.220237630208)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(18.3007815625 : 1.94399251302082); (18.3007815625 : 50.8173685673014); (18.4088560416667 : 50.8173685673014 : JumpStart); (18.5755227083333 : 50.8173685673014 : JumpEnd); (22.2755103205128 : 50.8173685673014 : JumpStart); (22.4421769871795 : 50.8173685673014 : JumpEnd); (22.4549346474359 : 50.8173685673014 : JumpStart); (22.6216013141026 : 50.8173685673014 : JumpEnd); (23.3541666666667 : 50.8173685673014 : JumpStart); (23.5208333333333 : 50.8173685673014 : JumpEnd); (28.2604191666667 : 50.8173685673014 : JumpStart); (28.4583383333333 : 50.8173685673014 : JumpEnd); (31.5 : 50.8173685673014)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_MerrylandsRSLDutyManager" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="4e0ddfd8-01ed-4062-8023-6f27b45d9e87" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.73071242863582 : 169.568992513021); (6.0660744349011 : 169.904354519286 : JumpStart); (6.3401755650989 : 170.178455649484 : JumpEnd); (6.4375 : 170.275780084385); (6.4375 : 184.375); (6.31770833333333 : 184.375 : JumpStart); (6.07291666666667 : 184.375 : JumpEnd); (5.87653746153845 : 184.375); (5.77767681509892 : 184.473860646439 : JumpStart); (5.56607193490108 : 184.685465526637 : JumpEnd); (5.5 : 184.751537461538)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(17.976560625 : 1.94399251302082); (17.976560625 : 44.9883556542969); (18.2174482291667 : 44.9883556542969 : JumpStart); (18.3841148958333 : 44.9883556542969 : JumpEnd); (18.4088560416667 : 44.9883556542969 : JumpStart); (18.5755227083333 : 44.9883556542969 : JumpEnd); (22.2755103205128 : 44.9883556542969 : JumpStart); (22.4421769871795 : 44.9883556542969 : JumpEnd); (22.4549346474359 : 44.9883556542969 : JumpStart); (22.7859269871795 : 44.9883556542969 : JumpEnd); (23.3541666666667 : 44.9883556542969 : JumpStart); (23.5208333333333 : 44.9883556542969 : JumpEnd); (28.0729141666667 : 44.9883556542969 : JumpStart); (28.2395808333333 : 44.9883556542969 : JumpEnd); (28.2604191666667 : 44.9883556542969 : JumpStart); (28.4583383333333 : 44.9883556542969 : JumpEnd); (28.5 : 44.9883556542969)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_MerrylandsRSLFunctionSupervisor" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="f5f2def8-7c3b-480d-a9c7-655b0a5ced2a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 168.434698625651); (5.9375 : 168.247198625651); (5.9375 : 143.125); (21.0926923076923 : 143.125); (21.5 : 143.532307692308)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(19.375 : 0.953122500000006); (47.5489443076923 : 0.953122500000006); (47.5489443076923 : 2.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_MerrylandsRSLIncident" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="81036cab-c746-417f-8c78-4c2dbf5a3867" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 169.548785485877); (6.06607443490112 : 169.864859920778 : JumpStart); (6.34017556509888 : 170.138961050976 : JumpEnd); (6.375 : 170.173785485877); (6.375 : 177.375); (7.41666666666667 : 177.375 : JumpStart); (7.58333333333333 : 177.375 : JumpEnd); (8.87653746153848 : 177.375); (9.01919693490112 : 177.517659473363 : JumpStart); (9.15902851551064 : 177.657491053972 : JumpEnd); (9.50153746153846 : 178)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(19.375 : 1.08593625); (35.875 : 1.08593625); (35.875 : 27.25); (35.8333333333333 : 27.25 : JumpStart); (35.5416666666667 : 27.25 : JumpEnd); (35.3333333333333 : 27.25 : JumpStart); (35.1666666666667 : 27.25 : JumpEnd); (34.4583333333333 : 27.25 : JumpStart); (34.2916666666667 : 27.25 : JumpEnd); (34.2083333333333 : 27.25 : JumpStart); (34.0416666666667 : 27.25 : JumpEnd); (33.875 : 27.25); (33.875 : 36.375); (33.9166666666667 : 36.375 : JumpStart); (34.3333333333333 : 36.375 : JumpEnd); (34.984374 : 36.375); (34.984374 : 36.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_MerrylandsRSLReception" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="e2046f3c-adbe-4eda-a7f0-81e7e976e020" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(4.84375 : 169.568992513021); (4.84375 : 171)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(18.10937375 : 1.94399251302082); (18.10937375 : 31.8536783268229); (18.2174482291667 : 31.8536783268229 : JumpStart); (18.3841148958333 : 31.8536783268229 : JumpEnd); (18.4088560416667 : 31.8536783268229 : JumpStart); (18.5755227083333 : 31.8536783268229 : JumpEnd); (18.6822941666667 : 31.8536783268229 : JumpStart); (18.8489608333333 : 31.8536783268229 : JumpEnd); (22.0960859935897 : 31.8536783268229 : JumpStart); (22.2627526602564 : 31.8536783268229 : JumpEnd); (22.2755103205128 : 31.8536783268229 : JumpStart); (22.4421769871795 : 31.8536783268229 : JumpEnd); (22.4549346474359 : 31.8536783268229 : JumpStart); (22.7859269871795 : 31.8536783268229 : JumpEnd); (23.0416666666667 : 31.8536783268229 : JumpStart); (23.2083333333333 : 31.8536783268229 : JumpEnd); (23.3541666666667 : 31.8536783268229 : JumpStart); (23.5208333333333 : 31.8536783268229 : JumpEnd); (28.0729141666667 : 31.8536783268229 : JumpStart); (28.4583383333333 : 31.8536783268229 : JumpEnd); (28.5 : 31.8536783268229)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_MerrylandsRSLReceptionSupervisor" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="b0e39888-ab7c-43d7-923a-827b8ff9c409" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 169.03125); (6.04166666666667 : 169.03125 : JumpStart); (6.48958333333333 : 169.03125 : JumpEnd); (8.99478916666667 : 169.03125 : JumpStart); (9.16145583333333 : 169.03125 : JumpEnd); (9.5 : 169.03125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(19.375 : 1.61719124999999); (29.1744754166667 : 1.61719124999999 : JumpStart); (29.3411420833333 : 1.61719124999999 : JumpEnd); (29.4166666666667 : 1.61719124999999 : JumpStart); (29.5833333333333 : 1.61719124999999 : JumpEnd); (32.6197941666667 : 1.61719124999999 : JumpStart); (32.7864608333333 : 1.61719124999999 : JumpEnd); (35.6666666666667 : 1.61719124999999 : JumpStart); (35.9583333333333 : 1.61719124999999 : JumpEnd); (36.2812525 : 1.61719124999999); (36.2812525 : 27.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_MerrylandsRSLSupervisor" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="546df85d-4d26-48b7-959b-22338c710e52" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 181.07774983724); (3.5 : 181.07774983724)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(20.75 : 6.95274983723959); (19.3528689583333 : 6.95274983723959 : JumpStart); (19.1862022916667 : 6.95274983723959 : JumpEnd); (19.1848995833333 : 6.95274983723959 : JumpStart); (19.0182329166667 : 6.95274983723959 : JumpEnd); (18.8489608333333 : 6.95274983723959 : JumpStart); (18.6822941666667 : 6.95274983723959 : JumpEnd); (18.5755227083333 : 6.95274983723959 : JumpStart); (18.4088560416667 : 6.95274983723959 : JumpEnd); (18.3841148958333 : 6.95274983723959 : JumpStart); (18.2174482291667 : 6.95274983723959 : JumpEnd); (18.1927070833333 : 6.95274983723959 : JumpStart); (17.7604141666667 : 6.95274983723959 : JumpEnd); (17.6614545833333 : 6.95274983723959 : JumpStart); (17.4947879166667 : 6.95274983723959 : JumpEnd); (15.75 : 6.95274983723959); (15.75 : 8.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_BillPayment" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
         <classShapeMoniker Id="d4ac7e79-b6f8-4be6-b645-013f0c83e3c7" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.75 : 182.155499674479); (1.75 : 197.565818684896); (12.5 : 197.565818684896)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.3588436538462 : 8.03049967447919); (22.3588436538462 : 58.8713839127604); (22.4549346474359 : 58.8713839127604 : JumpStart); (22.6216013141026 : 58.8713839127604 : JumpEnd); (23.3541666666667 : 58.8713839127604 : JumpStart); (23.5208333333333 : 58.8713839127604 : JumpEnd); (37.5 : 58.8713839127604)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_ClubUminaCovidMarshall" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
         <classShapeMoniker Id="963ce743-2ba3-492f-9615-a8c76b3259cd" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 180.50762291862); (2.75234028865458 : 180.50762291862 : JumpStart); (2.93856799065176 : 180.50762291862 : JumpEnd); (3.25 : 180.50762291862); (3.25 : 177.75); (5.54166416666667 : 177.75 : JumpStart); (5.80208458333333 : 177.75 : JumpEnd); (6.04320412820512 : 177.75 : JumpStart); (6.52083333333333 : 177.75 : JumpEnd); (7.5 : 177.75); (7.5 : 177.049542643229)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.75 : 6.95274983723959); (27.4791666666667 : 6.95274983723959 : JumpStart); (27.6458333333333 : 6.95274983723959 : JumpEnd); (27.7760404166667 : 6.95274983723959 : JumpStart); (27.9427070833333 : 6.95274983723959 : JumpEnd); (28.0729141666667 : 6.95274983723959 : JumpStart); (28.4583383333333 : 6.95274983723959 : JumpEnd); (28.5494804166667 : 6.95274983723959 : JumpStart); (28.7161470833333 : 6.95274983723959 : JumpEnd); (28.8072941666667 : 6.95274983723959 : JumpStart); (28.9739608333333 : 6.95274983723959 : JumpEnd); (31.8593725 : 6.95274983723959); (31.8593725 : 27.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_ClubUminaDutyManager" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
         <classShapeMoniker Id="b7030286-fe29-4377-a7b8-b6e662e83e6a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.2812525 : 182.155499674479); (2.2812525 : 218.154357851562); (2.85416666666667 : 218.154357851562 : JumpStart); (3.02083333333333 : 218.154357851562 : JumpEnd); (18.5 : 218.154357851562)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.5382679807692 : 8.03049967447919); (22.5382679807692 : 76.9920882161458); (23.3541666666667 : 76.9920882161458 : JumpStart); (23.5208333333333 : 76.9920882161458 : JumpEnd); (43.5 : 76.9920882161458)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_ClubUminaIncident" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
         <classShapeMoniker Id="04ea49a0-7f12-4299-80c1-9b4d686528fb" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.2187475 : 182.155499674479); (1.2187475 : 183.797223307292); (1.40104041666667 : 183.797223307292 : JumpStart); (1.56770708333333 : 183.797223307292 : JumpEnd); (1.66666666666667 : 183.797223307292 : JumpStart); (1.83333333333333 : 183.797223307292 : JumpEnd); (1.93229291666667 : 183.797223307292 : JumpStart); (2.09895958333333 : 183.797223307292 : JumpEnd); (2.19791916666667 : 183.797223307292 : JumpStart); (2.36458583333333 : 183.797223307292 : JumpEnd); (2.46354541666667 : 183.797223307292 : JumpStart); (2.63021208333333 : 183.797223307292 : JumpEnd); (2.85416666666667 : 183.797223307292 : JumpStart); (3.02083333333333 : 183.797223307292 : JumpEnd); (3.16666666666667 : 183.797223307292 : JumpStart); (3.33333333333333 : 183.797223307292 : JumpEnd); (5.54166416666667 : 183.797223307292 : JumpStart); (5.80208458333333 : 183.797223307292 : JumpEnd); (6.04320412820512 : 183.797223307292 : JumpStart); (6.31770833333333 : 183.797223307292 : JumpEnd); (6.5 : 183.797223307292)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.1794193269231 : 8.03049967447919); (22.1794193269231 : 38.317988063151); (22.2755103205128 : 38.317988063151 : JumpStart); (22.4421769871795 : 38.317988063151 : JumpEnd); (22.4549346474359 : 38.317988063151 : JumpStart); (22.7859269871795 : 38.317988063151 : JumpEnd); (23.3541666666667 : 38.317988063151 : JumpStart); (23.5208333333333 : 38.317988063151 : JumpEnd); (28.0729141666667 : 38.317988063151 : JumpStart); (28.2395808333333 : 38.317988063151 : JumpEnd); (28.2604191666667 : 38.317988063151 : JumpStart); (28.4583383333333 : 38.317988063151 : JumpEnd); (31.5 : 38.317988063151)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_ClubUminaReception" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
         <classShapeMoniker Id="01083af6-acaf-4065-822c-5d2f397c0c2c" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.54687875 : 182.155499674479); (2.54687875 : 206.015726666667); (2.85416666666667 : 206.015726666667 : JumpStart); (3.02083333333333 : 206.015726666667 : JumpEnd); (5.54166416666667 : 206.015726666667 : JumpStart); (5.73958333333333 : 206.015726666667 : JumpEnd); (15.5 : 206.015726666667)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.75 : 6.3513749186198); (27.4791666666667 : 6.3513749186198 : JumpStart); (27.6458333333333 : 6.3513749186198 : JumpEnd); (27.7760404166667 : 6.3513749186198 : JumpStart); (27.9427070833333 : 6.3513749186198 : JumpEnd); (28.0729141666667 : 6.3513749186198 : JumpStart); (28.4583383333333 : 6.3513749186198 : JumpEnd); (28.5494804166667 : 6.3513749186198 : JumpStart); (28.7161470833333 : 6.3513749186198 : JumpEnd); (28.8072941666667 : 6.3513749186198 : JumpStart); (28.9739608333333 : 6.3513749186198 : JumpEnd); (32.1979166666667 : 6.3513749186198 : JumpStart); (32.3645833333333 : 6.3513749186198 : JumpEnd); (32.6197941666667 : 6.3513749186198 : JumpStart); (32.7864608333333 : 6.3513749186198 : JumpEnd); (35.2916666666667 : 6.3513749186198 : JumpStart); (35.5833333333333 : 6.3513749186198 : JumpEnd); (35.6666666666667 : 6.3513749186198 : JumpStart); (36.0833333333333 : 6.3513749186198 : JumpEnd); (36.1979191666667 : 6.3513749186198 : JumpStart); (36.3645858333333 : 6.3513749186198 : JumpEnd); (40.5 : 6.3513749186198)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_MerrylandsRSLCovidMarshall" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
         <classShapeMoniker Id="8017beea-978b-4d9c-8db2-163024c2a5d9" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.01562625 : 182.155499674479); (2.01562625 : 191.774332623698); (6.5 : 191.774332623698)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.7025936538462 : 8.03049967447919); (22.7025936538462 : 50.3853980922445); (23.3541666666667 : 50.3853980922445 : JumpStart); (23.5208333333333 : 50.3853980922445 : JumpEnd); (28.2604191666667 : 50.3853980922445 : JumpStart); (28.4583383333333 : 50.3853980922445 : JumpEnd); (31.5 : 50.3853980922445)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_MerrylandsRSLDutyManager" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
         <classShapeMoniker Id="4e0ddfd8-01ed-4062-8023-6f27b45d9e87" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.48437375 : 182.155499674479); (1.48437375 : 188.039216308594); (1.66666666666667 : 188.039216308594 : JumpStart); (1.83333333333333 : 188.039216308594 : JumpEnd); (1.93229291666667 : 188.039216308594 : JumpStart); (2.09895958333333 : 188.039216308594 : JumpEnd); (2.85416666666667 : 188.039216308594 : JumpStart); (3.02083333333333 : 188.039216308594 : JumpEnd); (3.5 : 188.039216308594)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.6713411538462 : 8.03049967447919); (22.6713411538462 : 48.3400769628906); (23.3541666666667 : 48.3400769628906 : JumpStart); (23.5208333333333 : 48.3400769628906 : JumpEnd); (28.2604191666667 : 48.3400769628906 : JumpStart); (28.4583383333333 : 48.3400769628906 : JumpEnd); (28.5 : 48.3400769628906)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_MerrylandsRSLFunctionSupervisor" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
         <classShapeMoniker Id="f5f2def8-7c3b-480d-a9c7-655b0a5ced2a" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 181.378595941006); (2.9375 : 182.656460212941); (2.9375 : 219.105043945313); (21.1265374615385 : 219.105043945313); (21.50153746154 : 218.730043945313)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.75 : 7.93511405909457); (23.4375 : 8.62261405909457); (23.4375 : 77.7300439453125); (46.1265374615385 : 77.7300439453125); (46.5015374615385 : 77.3550439453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_MerrylandsRSLIncident" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
         <classShapeMoniker Id="81036cab-c746-417f-8c78-4c2dbf5a3867" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 181.062707532051); (2.9375 : 179.847883615385); (2.9375 : 177.5); (5.54166416666667 : 177.5 : JumpStart); (5.80208458333333 : 177.5 : JumpEnd); (6.04320412820512 : 177.5 : JumpStart); (6.52083333333333 : 177.5 : JumpEnd); (7.41666666666667 : 177.5 : JumpStart); (7.58333333333333 : 177.5 : JumpEnd); (8.95076923076923 : 177.5); (9.01810091678138 : 177.567331686012 : JumpStart); (9.13704806509887 : 177.68627883433 : JumpEnd); (9.5 : 178.049230769231)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.7176923076923 : 8.03049967447919); (23.125 : 8.43780736678688); (23.125 : 36.125); (23.3541666666667 : 36.125 : JumpStart); (23.5208333333333 : 36.125 : JumpEnd); (28.0729141666667 : 36.125 : JumpStart); (28.4583383333333 : 36.125 : JumpEnd); (33.7916666666667 : 36.125 : JumpStart); (33.9583333333333 : 36.125 : JumpEnd); (33.9676923076923 : 36.125); (34.0660744349011 : 36.2233821272088 : JumpStart); (34.1839255650989 : 36.3412332574066 : JumpEnd); (34.1910744349011 : 36.3483821272088 : JumpStart); (34.3089255650989 : 36.4662332574066 : JumpEnd); (34.5 : 36.6573076923077)]" fixedFrom="NotFixed" fixedTo="NotFixed">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_MerrylandsRSLReception" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
         <classShapeMoniker Id="e2046f3c-adbe-4eda-a7f0-81e7e976e020" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(1.40625 : 180); (1.40625 : 175.69623046875); (2.05729166666667 : 175.69623046875 : JumpStart); (2.22395833333333 : 175.69623046875 : JumpEnd); (3.5 : 175.69623046875)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.6400886538461 : 8.03049967447919); (22.6400886538461 : 33.8675065397136); (23.0416666666667 : 33.8675065397136 : JumpStart); (23.2083333333333 : 33.8675065397136 : JumpEnd); (23.3541666666667 : 33.8675065397136 : JumpStart); (23.5208333333333 : 33.8675065397136 : JumpEnd); (28.0729141666667 : 33.8675065397136 : JumpStart); (28.4583383333333 : 33.8675065397136 : JumpEnd); (28.5 : 33.8675065397136)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_MerrylandsRSLReceptionSupervisor" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
         <classShapeMoniker Id="b0e39888-ab7c-43d7-923a-827b8ff9c409" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 180.746819123097); (2.79154434585935 : 180.652389682262 : JumpStart); (2.85866121106839 : 180.499834432656 : JumpEnd); (3.21644156739548 : 179.686607065831 : JumpStart); (3.28355843260452 : 179.534051816225 : JumpEnd); (3.3125 : 179.468268230769); (3.3125 : 177.866844075521); (5.54166416666667 : 177.866844075521 : JumpStart); (5.80208458333333 : 177.866844075521 : JumpEnd); (6.04320412820512 : 177.866844075521 : JumpStart); (6.52083333333333 : 177.866844075521 : JumpEnd); (8.87653746153848 : 177.866844075521); (9.02477380002794 : 177.688960469334 : JumpStart); (9.13147119997206 : 177.560923589401 : JumpEnd); (9.50153746153894 : 177.116844075521)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.75 : 7.44393194816708); (27.4791666666667 : 7.44393194816708 : JumpStart); (27.6458333333333 : 7.44393194816708 : JumpEnd); (27.7760404166667 : 7.44393194816708 : JumpStart); (27.9427070833333 : 7.44393194816708 : JumpEnd); (28.0729141666667 : 7.44393194816708 : JumpStart); (28.4583383333333 : 7.44393194816708 : JumpEnd); (28.5494804166667 : 7.44393194816708 : JumpStart); (28.7161470833333 : 7.44393194816708 : JumpEnd); (28.8072941666667 : 7.44393194816708 : JumpStart); (28.9739608333333 : 7.44393194816708 : JumpEnd); (31.7760391666667 : 7.44393194816708 : JumpStart); (31.9427058333333 : 7.44393194816708 : JumpEnd); (32.1979166666667 : 7.44393194816708 : JumpStart); (32.3645833333333 : 7.44393194816708 : JumpEnd); (32.6197941666667 : 7.44393194816708 : JumpStart); (32.7864608333333 : 7.44393194816708 : JumpEnd); (35.1666666666667 : 7.44393194816708 : JumpStart); (35.5833333333333 : 7.44393194816708 : JumpEnd); (35.625 : 7.44393194816708); (35.625 : 27.625)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_MerrylandsRSLSupervisor" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
@@ -420,54 +420,54 @@
         <elementListCompartment Id="07392fce-c53d-428b-9490-246637043300" absoluteBounds="1.0150000000000001, 10.71, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="ccaaa008-3f19-4417-9c5b-4a67109c3b99" absoluteBounds="9, 185.125, 2, 6.7707340494791657">
+    <classShape Id="ccaaa008-3f19-4417-9c5b-4a67109c3b99" absoluteBounds="34, 43.75, 2, 6.7707340494791657">
       <DataClassMoniker Name="/DataClassesDataContext/Report_MerrylandsRSLCustomerRelationsOfficer" />
       <nestedChildShapes>
-        <elementListCompartment Id="aa58fdb3-d6d5-4236-bd27-ebdd22af1212" absoluteBounds="9.015, 185.585, 1.9700000000000002, 6.2107340494791661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="aa58fdb3-d6d5-4236-bd27-ebdd22af1212" absoluteBounds="34.015, 44.210000000000008, 1.9700000000000002, 6.2107340494791661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.74999999999999 : 166.761293945313); (5.87857443490112 : 166.889868380214 : JumpStart); (5.99642556509888 : 167.007719510411 : JumpEnd); (6.234375 : 167.245668945313); (6.234375 : 184.75); (8.62653746153848 : 184.75); (9.00153746153846 : 185.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(29.125 : 3.0716793305664); (32.1979166666667 : 3.0716793305664 : JumpStart); (32.3645833333333 : 3.0716793305664 : JumpEnd); (32.6197941666667 : 3.0716793305664 : JumpStart); (32.7864608333333 : 3.0716793305664 : JumpEnd); (35.375 : 3.0716793305664); (35.375 : 27); (35.3333333333333 : 27 : JumpStart); (35.1666666666667 : 27 : JumpEnd); (34.125 : 27); (34.125 : 43.375); (34.703127875 : 43.375); (34.703127875 : 43.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_MerrylandsRSLCustomerRelationsOfficer" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="ccaaa008-3f19-4417-9c5b-4a67109c3b99" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 168.8281275); (6.04166666666667 : 168.8281275 : JumpStart); (6.48958333333333 : 168.8281275 : JumpEnd); (9.0781225 : 168.8281275); (9.0781225 : 185.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(19.375 : 1.35156375); (32.6197941666667 : 1.35156375 : JumpStart); (32.7864608333333 : 1.35156375 : JumpEnd); (35.75 : 1.35156375); (35.75 : 27.375); (35.7083333333333 : 27.375 : JumpStart); (35.5416666666667 : 27.375 : JumpEnd); (35.3333333333333 : 27.375 : JumpStart); (35.1666666666667 : 27.375 : JumpEnd); (34.4583333333333 : 27.375 : JumpStart); (34.2916666666667 : 27.375 : JumpEnd); (34.25 : 27.375); (34.25 : 43.125); (35.552737953125 : 43.125); (35.552737953125 : 43.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_MerrylandsRSLCustomerRelationsOfficer" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="ccaaa008-3f19-4417-9c5b-4a67109c3b99" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.75 : 181.07774983724); (3.25 : 181.07774983724); (3.25 : 184.568829752604); (5.54166416666667 : 184.568829752604 : JumpStart); (5.80208458333333 : 184.568829752604 : JumpEnd); (6.07291666666667 : 184.568829752604 : JumpStart); (6.31770833333333 : 184.568829752604 : JumpEnd); (8.99478916666667 : 184.568829752604 : JumpStart); (9.16145583333333 : 184.568829752604 : JumpEnd); (10.140627 : 184.568829752604); (10.140627 : 185.125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.75 : 6.6520623779297); (27.4791666666667 : 6.65206237792969 : JumpStart); (27.6458333333333 : 6.6520623779297 : JumpEnd); (27.7760404166667 : 6.65206237792969 : JumpStart); (27.9427070833333 : 6.6520623779297 : JumpEnd); (28.0729141666667 : 6.65206237792969 : JumpStart); (28.4583383333333 : 6.6520623779297 : JumpEnd); (28.5494804166667 : 6.65206237792969 : JumpStart); (28.7161470833333 : 6.6520623779297 : JumpEnd); (28.8072941666667 : 6.65206237792969 : JumpStart); (28.9739608333333 : 6.6520623779297 : JumpEnd); (32.1979166666667 : 6.65206237792969 : JumpStart); (32.3645833333333 : 6.6520623779297 : JumpEnd); (32.6197941666667 : 6.65206237792969 : JumpStart); (32.7864608333333 : 6.6520623779297 : JumpEnd); (35.25 : 6.6520623779297); (35.25 : 27.5); (34.4583333333333 : 27.5 : JumpStart); (34.0416666666667 : 27.5 : JumpEnd); (34 : 27.5); (34 : 43.5); (34.6197945416667 : 43.5 : JumpStart); (34.7864612083333 : 43.5 : JumpEnd); (35.04297190625 : 43.5); (35.04297190625 : 43.75)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_MerrylandsRSLCustomerRelationsOfficer" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
         <classShapeMoniker Id="ccaaa008-3f19-4417-9c5b-4a67109c3b99" />
       </nodes>
     </associationConnector>
-    <classShape Id="223ef6c7-3454-4367-bce9-c49358f2ba81" absoluteBounds="1, 165.5, 2, 6.3861311848958326">
+    <classShape Id="223ef6c7-3454-4367-bce9-c49358f2ba81" absoluteBounds="26, 24.125, 2, 6.3861311848958326">
       <DataClassMoniker Name="/DataClassesDataContext/Report_MerrylandsRSLCaretaker" />
       <nestedChildShapes>
-        <elementListCompartment Id="581a72a6-4689-4e3e-84df-d81fa13c2d31" absoluteBounds="1.0150000000000001, 165.96, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="581a72a6-4689-4e3e-84df-d81fa13c2d31" absoluteBounds="26.015, 24.585000000000008, 1.9700000000000002, 5.826131184895833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(3.75 : 166.130646972656); (3 : 166.130646972656)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(27.5625 : 3.1362939453125); (27.5625 : 24.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_MerrylandsRSLCaretaker" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="223ef6c7-3454-4367-bce9-c49358f2ba81" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(3.75 : 168.97199625651); (3 : 168.97199625651)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(17.57812125 : 1.94399251302082); (17.57812125 : 25.690280296224); (17.7604141666667 : 25.690280296224 : JumpStart); (18.1927070833333 : 25.690280296224 : JumpEnd); (18.2174482291667 : 25.690280296224 : JumpStart); (18.3841148958333 : 25.690280296224 : JumpEnd); (18.4088560416667 : 25.690280296224 : JumpStart); (18.5755227083333 : 25.690280296224 : JumpEnd); (18.6822941666667 : 25.690280296224 : JumpStart); (18.8489608333333 : 25.690280296224 : JumpEnd); (22.0960859935897 : 25.690280296224 : JumpStart); (22.2627526602564 : 25.690280296224 : JumpEnd); (22.2755103205128 : 25.690280296224 : JumpStart); (22.7859269871795 : 25.690280296224 : JumpEnd); (23.0416666666667 : 25.690280296224 : JumpStart); (23.2083333333333 : 25.690280296224 : JumpEnd); (23.3541666666667 : 25.690280296224 : JumpStart); (23.5208333333333 : 25.690280296224 : JumpEnd); (26 : 25.690280296224)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_MerrylandsRSLCaretaker" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="223ef6c7-3454-4367-bce9-c49358f2ba81" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(2.140625 : 180); (2.140625 : 171.886131184896)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+    <associationConnector edgePoints="[(22.5070154807692 : 8.03049967447919); (22.5070154807692 : 28.1319582405599); (22.5567553205128 : 28.1319582405599 : JumpStart); (22.7859269871795 : 28.1319582405599 : JumpEnd); (23.0416666666667 : 28.1319582405599 : JumpStart); (23.2083333333333 : 28.1319582405599 : JumpEnd); (23.3541666666667 : 28.1319582405599 : JumpStart); (23.5208333333333 : 28.1319582405599 : JumpEnd); (26 : 28.1319582405599)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_MerrylandsRSLCaretaker" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
@@ -480,31 +480,58 @@
         <elementListCompartment Id="010bf084-3e10-45b0-a341-a129669e5706" absoluteBounds="3.7650000000000006, 12.46, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="5ae8a3e1-15c2-4c5b-9091-1801a0f5f0db" absoluteBounds="8.125, 160.25, 2, 6.7707340494791657">
+    <classShape Id="5ae8a3e1-15c2-4c5b-9091-1801a0f5f0db" absoluteBounds="33.125, 18.875, 2, 6.7707340494791657">
       <DataClassMoniker Name="/DataClassesDataContext/Report_MerrylandsRSLGamingService" />
       <nestedChildShapes>
-        <elementListCompartment Id="9cf6a3b7-8845-4ac9-ac3b-f6a1b4aad448" absoluteBounds="8.14, 160.71, 1.9700000000000002, 6.2107340494791661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="9cf6a3b7-8845-4ac9-ac3b-f6a1b4aad448" absoluteBounds="33.14, 19.335000000000008, 1.9700000000000002, 6.2107340494791661" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <associationConnector edgePoints="[(5.75 : 166.034555003981); (5.85416666666667 : 166.034555003981 : JumpStart); (6.02083333333333 : 166.034555003981 : JumpEnd); (8.125 : 166.034555003981)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(28.8906275 : 3.1362939453125); (28.8906275 : 20.9559459863281); (31.7760391666667 : 20.9559459863281 : JumpStart); (31.9427058333333 : 20.9559459863281 : JumpEnd); (32.1979166666667 : 20.9559459863281 : JumpStart); (32.3645833333333 : 20.9559459863281 : JumpEnd); (32.6197941666667 : 20.9559459863281 : JumpStart); (32.7864608333333 : 20.9559459863281 : JumpEnd); (33.125 : 20.9559459863281)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_MerrylandsRSLGamingService" />
       <nodes>
         <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
         <classShapeMoniker Id="5ae8a3e1-15c2-4c5b-9091-1801a0f5f0db" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(5.75 : 168.436101812825); (6.04166666666667 : 168.436101812825 : JumpStart); (6.48958333333333 : 168.436101812825 : JumpEnd); (8.82031125 : 168.436101812825); (8.82031125 : 167.020734049479)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(19.10156625 : 1.94399251302082); (19.10156625 : 23.1929842122396); (22.0960859935897 : 23.1929842122396 : JumpStart); (22.2627526602564 : 23.1929842122396 : JumpEnd); (22.2755103205128 : 23.1929842122396 : JumpStart); (22.7859269871795 : 23.1929842122396 : JumpEnd); (23.0416666666667 : 23.1929842122396 : JumpStart); (23.2083333333333 : 23.1929842122396 : JumpEnd); (23.3541666666667 : 23.1929842122396 : JumpStart); (23.5208333333333 : 23.1929842122396 : JumpEnd); (27.4791666666667 : 23.1929842122396 : JumpStart); (27.6458333333333 : 23.1929842122396 : JumpEnd); (28.0729141666667 : 23.1929842122396 : JumpStart); (28.4583383333333 : 23.1929842122396 : JumpEnd); (28.5494804166667 : 23.1929842122396 : JumpStart); (28.7161470833333 : 23.1929842122396 : JumpEnd); (31.7760391666667 : 23.1929842122396 : JumpStart); (31.9427058333333 : 23.1929842122396 : JumpEnd); (32.1979166666667 : 23.1929842122396 : JumpStart); (32.3645833333333 : 23.1929842122396 : JumpEnd); (32.6197941666667 : 23.1929842122396 : JumpStart); (32.7864608333333 : 23.1929842122396 : JumpEnd); (33.125 : 23.1929842122396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_MerrylandsRSLGamingService" />
       <nodes>
         <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
         <classShapeMoniker Id="5ae8a3e1-15c2-4c5b-9091-1801a0f5f0db" />
       </nodes>
     </associationConnector>
-    <associationConnector edgePoints="[(0.84375 : 180); (0.84375 : 162.78125); (4.66666666666667 : 162.78125 : JumpStart); (4.83333333333333 : 162.78125 : JumpEnd); (5.19791916666667 : 162.78125 : JumpStart); (5.36458583333333 : 162.78125 : JumpEnd); (5.85416666666667 : 162.78125 : JumpStart); (6.02083333333333 : 162.78125 : JumpEnd); (6.04166666666667 : 162.78125 : JumpStart); (6.20833333333333 : 162.78125 : JumpEnd); (6.29166666666667 : 162.78125 : JumpStart); (6.45833333333333 : 162.78125 : JumpEnd); (8.125 : 162.78125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+    <associationConnector edgePoints="[(22.4757629807692 : 8.03049967447919); (22.4757629807692 : 22.7269738183594); (22.5567553205128 : 22.7269738183594 : JumpStart); (22.7859269871795 : 22.7269738183594 : JumpEnd); (23.0416666666667 : 22.7269738183594 : JumpStart); (23.2083333333333 : 22.7269738183594 : JumpEnd); (23.3541666666667 : 22.7269738183594 : JumpStart); (23.5208333333333 : 22.7269738183594 : JumpEnd); (27.4791666666667 : 22.7269738183594 : JumpStart); (27.6458333333333 : 22.7269738183594 : JumpEnd); (28.0729141666667 : 22.7269738183594 : JumpStart); (28.4583383333333 : 22.7269738183594 : JumpEnd); (28.5494804166667 : 22.7269738183594 : JumpStart); (28.7161470833333 : 22.7269738183594 : JumpEnd); (31.7760391666667 : 22.7269738183594 : JumpStart); (31.9427058333333 : 22.7269738183594 : JumpEnd); (32.1979166666667 : 22.7269738183594 : JumpStart); (32.3645833333333 : 22.7269738183594 : JumpEnd); (32.6197941666667 : 22.7269738183594 : JumpStart); (32.7864608333333 : 22.7269738183594 : JumpEnd); (33.125 : 22.7269738183594)]" fixedFrom="Algorithm" fixedTo="Algorithm">
       <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_MerrylandsRSLGamingService" />
       <nodes>
         <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
         <classShapeMoniker Id="5ae8a3e1-15c2-4c5b-9091-1801a0f5f0db" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="f9540644-b5c7-4ccc-805c-19e68db6a78f" absoluteBounds="20, 10.875, 2, 11.385968424479165">
+      <DataClassMoniker Name="/DataClassesDataContext/Report_MerrylandsRSLRGO" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b26c7de7-1555-4d04-9146-e00415bfb18c" absoluteBounds="20.015, 11.335, 1.9700000000000002, 10.825968424479166" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(27.85937375 : 3.1362939453125); (27.85937375 : 15.9154729931641); (27.6458333333333 : 15.9154729931641 : JumpStart); (27.4791666666667 : 15.9154729931641 : JumpEnd); (23.5208333333333 : 15.9154729931641 : JumpStart); (23.3541666666667 : 15.9154729931641 : JumpEnd); (23.2083333333333 : 15.9154729931641 : JumpStart); (23.0416666666667 : 15.9154729931641 : JumpEnd); (22.7859269871795 : 15.9154729931641 : JumpStart); (22.2755103205128 : 15.9154729931641 : JumpEnd); (22.2627526602564 : 15.9154729931641 : JumpStart); (22.0960859935897 : 15.9154729931641 : JumpEnd); (22 : 15.9154729931641)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Category/Category_Report_MerrylandsRSLRGO" />
+      <nodes>
+        <classShapeMoniker Id="8a5aca58-7636-4f21-a6f4-13022e8bfc54" />
+        <classShapeMoniker Id="f9540644-b5c7-4ccc-805c-19e68db6a78f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(19.269535625 : 1.94399251302082); (19.269535625 : 16.5679842122396); (20 : 16.5679842122396)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Shift/Shift_Report_MerrylandsRSLRGO" />
+      <nodes>
+        <classShapeMoniker Id="3a042b71-09c5-4889-8675-057d5cc87ba2" />
+        <classShapeMoniker Id="f9540644-b5c7-4ccc-805c-19e68db6a78f" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(21.375 : 8.03049967447919); (21.375 : 10.875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClassesDataContext/Staff/Staff_Report_MerrylandsRSLRGO" />
+      <nodes>
+        <classShapeMoniker Id="fc1cf831-2fac-4025-9d08-c14054008e38" />
+        <classShapeMoniker Id="f9540644-b5c7-4ccc-805c-19e68db6a78f" />
       </nodes>
     </associationConnector>
   </nestedChildShapes>
