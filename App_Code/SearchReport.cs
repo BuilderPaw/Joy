@@ -256,7 +256,7 @@ public class SearchReport
             }
             else
             {
-                unreadQuery = "AND ([ReadByList] NOT LIKE '%," + UserCredentials.StaffId + ",%' OR [ReadByList] IS NULL) AND ([ManagerSignId] NOT LIKE '%" + UserCredentials.StaffId + ",%' OR [ManagerSignId] IS NULL) AND ShiftDate BETWEEN '" + DateTime.Today.AddDays(Int32.Parse(UnreadDateLength)).ToString("yyyy-MM-dd") + "' AND '" + DateTime.Today.ToString("yyyy-MM-dd") + "'";
+                unreadQuery = "AND ([ReadByList] NOT LIKE '%," + UserCredentials.StaffId + ",%' OR [ReadByList] IS NULL) AND ([ManagerSignId] NOT LIKE '%" + UserCredentials.StaffId + ",%' OR [ManagerSignId] IS NULL) AND ShiftDate BETWEEN '" + DateTime.Today.AddDays(Int32.Parse(UnreadDateLength)).ToString("yyyy-MM-dd") + "' AND '" + DateTime.Today.ToString("yyyy-MM-dd") + "' ";
             }
         }
         else // no unread list filter
