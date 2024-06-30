@@ -149,6 +149,10 @@
                                                             <asp:ListItem Enabled="true" Text="Select Report" Value="-1"></asp:ListItem>
                                                             <asp:ListItem Text="All" Value="1"></asp:ListItem>
                                                         </asp:DropDownList>
+                                                        <asp:Label ID="lblGamingRelatedReportList" Visible="false" runat="server">Only Gaming Related Incidents</asp:Label>
+                                                        <asp:CheckBox ID="cbGamingRelatedIncidentList" Visible="false" runat="server" Style="height: 20px; width: 20px; margin-left: 12px;" />
+                                                        <br />
+                                                        <br />
                                                         <asp:Label ID="lblDateGroup" Font-Size="100%" runat="server">Date Group</asp:Label>
                                                         <asp:RequiredFieldValidator ID="refvDateGroup" runat="server" ControlToValidate="ddlDateGroup" InitialValue="-1"
                                                             Font-Bold="True" Font-Size="12px" ForeColor="Red" ValidationGroup="Search">Select Date Group</asp:RequiredFieldValidator>
@@ -221,6 +225,7 @@
                                             <table runat="server" id="advancedFilter" visible="false" style="width: 100%; border: none;">
                                                 <tr>
                                                     <td>
+                                                        <br />
                                                         <asp:Label ID="lblIncidentHappened" Font-Size="100%" Visible="false" runat="server">Incident Type</asp:Label>
                                                         <br />
                                                         <asp:DropDownList ID="ddlIncidentHappened" runat="server" Visible="false" class="object-default">

@@ -81,6 +81,11 @@ public partial class UserLogin : System.Web.UI.Page
 
                     Response.Cookies.Add(authCookie); //Add the cookie to the outgoing cookies collection.
                     Response.Redirect(FormsAuthentication.GetRedirectUrl(txtUsername.Text, false), false); //You can redirect now.
+
+                    //to resolve the exception thrown system threading threadabortexception in mscorlib dll https://stackoverflow.com/questions/42350624/exception-thrown-system-threading-threadabortexception-in-mscorlib-dll-when
+                    HttpContext.Current.Response.Flush(); // Sends all currently buffered output to the client.
+                    HttpContext.Current.Response.SuppressContent = true;  // Gets or sets a value indicating whether to send HTTP content to the client.
+                    HttpContext.Current.ApplicationInstance.CompleteRequest(); // Causes ASP.NET to bypass all events and filtering in the HTTP pipeline chain of execution and directly execute the EndRequest event.   
                 }
                 else
                 {

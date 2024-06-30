@@ -154,7 +154,12 @@ public partial class _Default : System.Web.UI.Page
         SearchReport searchReport = new SearchReport();
         string selectQuery;
 
-        if (!string.IsNullOrWhiteSpace(Request.QueryString["PlayerId"]))
+        if (!string.IsNullOrWhiteSpace(Request.QueryString["PlayerId"]) && !string.IsNullOrWhiteSpace(Request.QueryString["RGO"]))
+        {
+            SearchReport.ListPlayerIdIncidents = Request.QueryString["PlayerId"].ToString();
+            selectQuery = searchReport.Search(1, 1, "", 1, "ListPlayerIdRGO", SearchReport.ListPlayerIdIncidents);
+        }
+        else if (!string.IsNullOrWhiteSpace(Request.QueryString["PlayerId"]))
         {
             SearchReport.ListPlayerIdIncidents = Request.QueryString["PlayerId"].ToString();
             selectQuery = searchReport.Search(1, 1, "", 1, "ListPlayerIdIncidents", SearchReport.ListPlayerIdIncidents);
@@ -2399,6 +2404,51 @@ public partial class _Default : System.Web.UI.Page
                 con.Close();
             }
         }
+        if(Report.Name.Contains("MR Responsible Gaming Officer"))
+        {
+            if (ReportResponsibleGamingOfficerMr.MemberPhoto != null)
+            { // update the Member Image Photo
+                con.Open();
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLRGO SET MemberPhoto=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                IDataParameter par = command.CreateParameter();
+                par.ParameterName = "image";
+                par.DbType = DbType.Binary;
+                par.Value = ReportResponsibleGamingOfficerMr.MemberPhoto;
+                command.Parameters.Add(par);
+                command.ExecuteNonQuery();
+                con.Close();
+            }
+            else
+            {
+                con.Open();
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLRGO SET MemberPhoto=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                command.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        if (Report.Name.Contains("CU Responsible Gaming Officer"))
+        {
+            if (ReportResponsibleGamingOfficerCu.MemberPhoto != null)
+            { // update the Member Image Photo
+                con.Open();
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaRGO SET MemberPhoto=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                IDataParameter par = command.CreateParameter();
+                par.ParameterName = "image";
+                par.DbType = DbType.Binary;
+                par.Value = ReportResponsibleGamingOfficerCu.MemberPhoto;
+                command.Parameters.Add(par);
+                command.ExecuteNonQuery();
+                con.Close();
+            }
+            else
+            {
+                con.Open();
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaRGO SET MemberPhoto=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                command.ExecuteNonQuery();
+                con.Close();
+            }
+        }
 
         // update all actions with this report status - Make it the updated Status
         con.Open();
@@ -2810,6 +2860,51 @@ public partial class _Default : System.Web.UI.Page
             {
                 con.Open();
                 SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaIncident SET Image5=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                command.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+        if(Report.Name.Contains("MR Responsible Gaming Officer"))
+        {
+            if (ReportResponsibleGamingOfficerMr.MemberPhoto != null)
+            { // update the Member Image Photo
+                con.Open();
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLRGO SET MemberPhoto=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                IDataParameter par = command.CreateParameter();
+                par.ParameterName = "image";
+                par.DbType = DbType.Binary;
+                par.Value = ReportResponsibleGamingOfficerMr.MemberPhoto;
+                command.Parameters.Add(par);
+                command.ExecuteNonQuery();
+                con.Close();
+            }
+            else
+            {
+                con.Open();
+                SqlCommand command = new SqlCommand("UPDATE Report_MerrylandsRSLRGO SET MemberPhoto=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                command.ExecuteNonQuery();
+                con.Close();
+            }
+        }
+
+        if (Report.Name.Contains("CU Responsible Gaming Officer"))
+        {
+            if (ReportResponsibleGamingOfficerCu.MemberPhoto != null)
+            { // update the Member Image Photo
+                con.Open();
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaRGO SET MemberPhoto=@image WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
+                IDataParameter par = command.CreateParameter();
+                par.ParameterName = "image";
+                par.DbType = DbType.Binary;
+                par.Value = ReportResponsibleGamingOfficerCu.MemberPhoto;
+                command.Parameters.Add(par);
+                command.ExecuteNonQuery();
+                con.Close();
+            }
+            else
+            {
+                con.Open();
+                SqlCommand command = new SqlCommand("UPDATE Report_ClubUminaRGO SET MemberPhoto=NULL WHERE ReportId=" + Report.Id + " AND AuditVersion=" + Report.AuditVersion, con);
                 command.ExecuteNonQuery();
                 con.Close();
             }
@@ -3586,6 +3681,11 @@ public partial class _Default : System.Web.UI.Page
                         int_groups[j] = 12;
                         j++;
                     }
+                    else if (array_groups[i].ToString().Equals("CUReportsResponsibleGamingOfficer"))
+                    {
+                        int_groups[j] = 13;
+                        j++;
+                    }
                 }
 
                 // use Array.Sort to display the Report Types accordingly
@@ -3667,6 +3767,10 @@ public partial class _Default : System.Web.UI.Page
                     {
                         ddlReportType.Items.Add(new ListItem("MR Responsible Gaming Officer", "16"));
                     }
+                    else if (int_groups[i] == 13)
+                    {
+                        ddlReportType.Items.Add(new ListItem("CU Responsible Gaming Officer", "17"));
+                    }
                 }
             }
             else // if the user is a member of Senior Managers
@@ -3698,6 +3802,8 @@ public partial class _Default : System.Web.UI.Page
                 ddlReportType.Items.Add(new ListItem("MR Gaming Services", "15"));
                 // MR Responsible Gaming Officer
                 ddlReportType.Items.Add(new ListItem("MR Responsible Gaming Officer", "16"));
+                // CU Responsible Gaming Officer
+                ddlReportType.Items.Add(new ListItem("CU Responsible Gaming Officer", "17"));
             }
         }
     }
@@ -3944,6 +4050,10 @@ public partial class _Default : System.Web.UI.Page
         else if (ReportType == 16)
         {
             _reportType = "MR Responsible Gaming Officer";
+        }
+        else if (ReportType == 17)
+        {
+            _reportType = "CU Responsible Gaming Officer";
         }
 
         // find appropriate search query
@@ -4966,7 +5076,12 @@ public partial class _Default : System.Web.UI.Page
                     }
                     else if (array_groups[i].ToString().Equals("MRReportsResponsibleGamingOfficer"))
                     {
-                        int_groups[j] = 9;
+                        int_groups[j] = 10;
+                        j++;
+                    }
+                    else if (array_groups[i].ToString().Equals("CUReportsResponsibleGamingOfficer"))
+                    {
+                        int_groups[j] = 11;
                         j++;
                     }
                 }
@@ -5016,6 +5131,10 @@ public partial class _Default : System.Web.UI.Page
                     {
                         ddlGroup.Items.Add(new ListItem("MR Responsible Gaming Officer", "10"));
                     }
+                    else if (int_groups[i] == 11)
+                    {
+                        ddlGroup.Items.Add(new ListItem("CU Responsible Gaming Officer", "11"));
+                    }
                 }
             }
             else // if the user is a member of Senior Managers
@@ -5042,6 +5161,8 @@ public partial class _Default : System.Web.UI.Page
                 ddlGroup.Items.Add(new ListItem("MR Gaming Services", "9"));
                 // MR Responsible Gaming Officer
                 ddlGroup.Items.Add(new ListItem("MR Responsible Gaming Officer", "10"));
+                // CU Responsible Gaming Officer
+                ddlGroup.Items.Add(new ListItem("CU Responsible Gaming Officer", "11"));
             }
             ddlGroup.Items.Add(new ListItem("Select Multiple Groups", "-1"));
         }
@@ -5112,6 +5233,11 @@ public partial class _Default : System.Web.UI.Page
                         int_groups[j] = 10;
                         j++;
                     }
+                    else if (array_groups[i].ToString().Equals("CUReportsResponsibleGamingOfficer"))
+                    {
+                        int_groups[j] = 11;
+                        j++;
+                    }
                 }
 
                 // use Array.Sort to display the Report Types accordingly
@@ -5159,6 +5285,10 @@ public partial class _Default : System.Web.UI.Page
                     {
                         cblGroup.Items.Add(new ListItem("MR Responsible Gaming Officer", "10"));
                     }
+                    else if (int_groups[i] == 11)
+                    {
+                        cblGroup.Items.Add(new ListItem("CU Responsible Gaming Officer", "11"));
+                    }
                 }
             }
             else // if the user is a member of Senior Managers
@@ -5185,6 +5315,8 @@ public partial class _Default : System.Web.UI.Page
                 cblGroup.Items.Add(new ListItem("MR Gaming Services", "9"));
                 // MR Responsible Gaming Officer
                 cblGroup.Items.Add(new ListItem("MR Responsible Gaming Officer", "10"));
+                // CU Responsible Gaming Officer
+                cblGroup.Items.Add(new ListItem("CU Responsible Gaming Officer", "11"));
             }
         }
     }

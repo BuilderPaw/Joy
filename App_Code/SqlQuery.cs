@@ -51,6 +51,23 @@ public class SqlQuery
             cmd.Parameters.Add("FirstName", SqlDbType.VarChar).Value = SearchReport.FirstName;
             cmd.Parameters.Add("LastName", SqlDbType.VarChar).Value = SearchReport.LastName;
             cmd.Parameters.Add("Alias", SqlDbType.VarChar).Value = SearchReport.Alias;
+            cmd.Parameters.Add("GamingRelatedIncident", SqlDbType.VarChar).Value = 1;
+            SearchReport.GamingRelatedIncidentList = false;
+        }
+
+        // Proc_KeywordSearchRGOReports - RGO Events ONLY)
+        if (sqlQuery.Equals("Proc_KeywordSearchRGOReports"))
+        {
+            cmd.CommandTimeout = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SqlCommandTimeOut"]);
+            string keyword = SearchReport.Keyword.Replace("+", " ");
+            cmd.CommandType = CommandType.StoredProcedure; // runs stored procedure Proc_KeywordSearchRGOReports
+            cmd.Parameters.Add("SearchStr", SqlDbType.VarChar).Value = keyword;
+            cmd.Parameters.Add("MemNo", SqlDbType.VarChar).Value = SearchReport.MemberNo;
+            cmd.Parameters.Add("FirstName", SqlDbType.VarChar).Value = SearchReport.FirstName;
+            cmd.Parameters.Add("LastName", SqlDbType.VarChar).Value = SearchReport.LastName;
+            SearchReport.MemberNo = "0";
+            SearchReport.FirstName = "0";
+            SearchReport.LastName = "0";
         }
 
         // List all reports related to selected Player Id
@@ -92,6 +109,24 @@ public class SqlQuery
             }
             cmd.CommandTimeout = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SqlCommandTimeOut"]);
             cmd.CommandType = CommandType.StoredProcedure; // runs stored procedure Proc_ListPriorIncidents
+            cmd.Parameters.Add("PlayerId", SqlDbType.VarChar).Value = playerId;
+        }
+
+        // List all reports related to selected Player Id
+        if (sqlQuery.Equals("Proc_ListPriorRGOEvents"))
+        {
+            string playerId = "";
+            switch (SearchReport.ListPlayerIdIncidents)
+            {
+                case "1":
+                    playerId = ReportResponsibleGamingOfficerMr.ViewPlayerId;
+                    break;
+                case "2":
+                    playerId = ReportResponsibleGamingOfficerCu.ViewPlayerId;
+                    break;
+            }
+            cmd.CommandTimeout = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SqlCommandTimeOut"]);
+            cmd.CommandType = CommandType.StoredProcedure; // runs stored procedure Proc_ListPriorRGOEvents
             cmd.Parameters.Add("PlayerId", SqlDbType.VarChar).Value = playerId;
         }
 
@@ -349,6 +384,10 @@ public class SqlQuery
                     {
                         staffRole = "MR Responsible Gaming Officer";
                     }
+                    else if (UserCredentials.Groups.Contains("CUReportsResponsibleGamingOfficer"))
+                    {
+                        staffRole = "CU Responsible Gaming Officer";
+                    }
 
                     // get the last Staff Name ID stored in the database
                     con1.Open();
@@ -471,6 +510,10 @@ public class SqlQuery
         else if (UserCredentials.Groups.Contains("MRReportsResponsibleGamingOfficer"))
         {
             staffRole = "MR Responsible Gaming Officer";
+        }
+        else if (UserCredentials.Groups.Contains("CUReportsResponsibleGamingOfficer"))
+        {
+            staffRole = "CU Responsible Gaming Officer";
         }
 
         con1.Open(); // Update Staff Role in the database

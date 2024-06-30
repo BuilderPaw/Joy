@@ -6494,6 +6494,24 @@ public class ReportIncidentMr
             HttpContext.Current.Session["RIMDetails"] = value;
         }
     }
+    public static string GamingRelatedIncident
+    {
+        get
+        {
+            if (HttpContext.Current.Session["RIMGamingRelatedIncident"] == null)
+            {
+                return "";
+            }
+            else
+            {
+                return HttpContext.Current.Session["RIMGamingRelatedIncident"].ToString().Replace("'", "^");
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["RIMGamingRelatedIncident"] = value;
+        }
+    }
     public static string SecurityAttend
     {
         get

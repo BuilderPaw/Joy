@@ -264,11 +264,10 @@ public class SearchReport
             unreadQuery = " ";
         }
 
-
         if (!hasKeyword && (WhatHappened.Equals("0") || string.IsNullOrEmpty(WhatHappened)) && (Location.Equals("0") || string.IsNullOrEmpty(Location))
             && (ActionTaken.Equals("0") || string.IsNullOrEmpty(ActionTaken)) && (MemberNo.Equals("0") || string.IsNullOrEmpty(MemberNo))
             && (FirstName.Equals("0") || string.IsNullOrEmpty(FirstName)) && (LastName.Equals("0") || string.IsNullOrEmpty(LastName))
-            && (Alias.Equals("0") || string.IsNullOrEmpty(Alias))) // if Keyword and advanced filters are empty
+            && (Alias.Equals("0") || string.IsNullOrEmpty(Alias)) && !GamingRelatedIncidentList) // if Keyword and advanced filters are empty
         {
             selectQuery = startQuery + reportQuery + reportIdQuery + dateQuery + mrQuery + cuQuery + statusQuery + authorQuery + unreadQuery + endQuery;
         }
@@ -278,7 +277,19 @@ public class SearchReport
             SqlQuery sqlQuery = new SqlQuery();
             if (!string.IsNullOrEmpty(listPlayerIdIncidents)) // run all the list of incidents for the selected player id
             {
-                sqlQuery.RetrieveData("Proc_ListPriorIncidents", "SearchKeyword");
+                int result;
+                //if listPlayerIdIncidents is an integer, listpriorRGOEvents otherwise, listpriorincidents
+                if (int.TryParse(listPlayerIdIncidents, out result))
+                {
+                    // user input a valid integer
+                    // result varaible have the input integer
+                    sqlQuery.RetrieveData("Proc_ListPriorRGOEvents", "SearchKeyword");
+                }
+                else
+                {
+                    // user input none integer, not mr1, mr2, mr3, etc...
+                    sqlQuery.RetrieveData("Proc_ListPriorIncidents", "SearchKeyword");
+                }
             }
             else // no player id is selected, filter via keyword and report filters
             {
@@ -286,6 +297,10 @@ public class SearchReport
                 if (reportType.Contains("Incident"))
                 {
                     sqlQuery.RetrieveData("Proc_KeywordSearchIncidentReports", "SearchKeyword");
+                }
+                else if (reportType.Contains("Responsible Gaming"))
+                {
+                    sqlQuery.RetrieveData("Proc_KeywordSearchRGOReports", "SearchKeyword");
                 }
                 else
                 {
@@ -596,6 +611,25 @@ public class SearchReport
         }
     }
 
+    public static bool GamingRelatedIncidentList
+    {
+        get
+        {
+            if (HttpContext.Current.Session["SRGamingRelatedIncidentList"] == null)
+            {
+                return false;
+            }
+            else
+            {
+                return (bool)HttpContext.Current.Session["SRGamingRelatedIncidentList"];
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["SRGamingRelatedIncidentList"] = value;
+        }
+    }
+
     public static bool CUOnly
     {
         get
@@ -681,6 +715,7 @@ public class SearchReport
     { 
         CreateReportReset(); // takes off the selected report in ddlCreateReport
         UnreadList = true; // ticks this checkbox just in case it's been unticked
+        GamingRelatedIncidentList = false; // untick this checkbox just in case it's been ticked; unticked by default 
         Report.SortReset(); // reset sort static properties
     }
 
@@ -700,6 +735,25 @@ public class SearchReport
         set
         {
             HttpContext.Current.Session["SRListPlayerIdIncidents"] = value;
+        }
+    }
+
+    public static string ListPlayerIdRGOs
+    {
+        get
+        {
+            if (HttpContext.Current.Session["SRListPlayerIdRGOs"] == null)
+            {
+                return "";
+            }
+            else
+            {
+                return HttpContext.Current.Session["SRListPlayerIdRGOs"].ToString();
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["SRListPlayerIdRGOs"] = value;
         }
     }
 

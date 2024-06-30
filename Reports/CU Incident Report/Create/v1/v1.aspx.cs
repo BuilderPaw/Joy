@@ -5495,6 +5495,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             dm.ActionTaken = ActionTaken;
             dm.Details = txtDetails.Text.Replace("\n", "<br />").Replace("'", "^");
             dm.Allegation = txtAllegation.Text.Replace("\n", "<br />").Replace("'", "^");
+            dm.GamingRelatedIncident = cbGamingRelatedIncident.Checked;
             dm.IncidentHappened = WhatHappened;
             dm.ActionTakenOther = txtActionTakenOther.Text.Replace("\n", "<br />").Replace("'", "^");
             dm.HappenedOther = txtOthers.Text.Replace("\n", "<br />").Replace("'", "^");
@@ -6410,6 +6411,7 @@ public partial class Reports_CU_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                 dm.ActionTaken = ActionTaken;
                 dm.Details = txtDetails.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.Allegation = txtAllegation.Text.Replace("\n", "<br />").Replace("'", "^");
+                dm.GamingRelatedIncident = cbGamingRelatedIncident.Checked;
                 dm.IncidentHappened = WhatHappened;
                 dm.ActionTakenOther = txtActionTakenOther.Text.Replace("\n", "<br />").Replace("'", "^");
                 dm.HappenedOther = txtOthers.Text.Replace("\n", "<br />").Replace("'", "^");

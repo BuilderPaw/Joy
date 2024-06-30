@@ -2943,6 +2943,8 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                         ddlMinutes.SelectedIndex = Int32.Parse(rdr["TimeM"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         // ddlTimeCon.SelectedIndex = Int32.Parse(rdr["TimeTC"].ToString().Replace("<br />", "\n").Replace("^", "'")); // Take off the AM/PM dropdownlist
 
+                        cbGamingRelatedIncident.Checked = Convert.ToBoolean(rdr["GamingRelatedIncident"]);
+
                         /* Populate the Checkbox list for Incident Type and tick selected checkbox from the report */
                         string incidentType = rdr["IncidentHappened"].ToString().Replace("<br />", "\n").Replace("^", "'"), populateIncidentList;
                         // set query to populate the incident type list
@@ -4139,6 +4141,11 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                         {
                             Report.HasChange = true; flag = 1;
                             Report.WhereChangeHappened = "Happened Asked To Leave";
+                        }
+                        if (ReportIncidentCu.GamingRelatedIncident.ToString() != Convert.ToBoolean(rdr["GamingRelatedIncident"]).ToString())
+                        {
+                            Report.HasChange = true; flag = 1;
+                            Report.WhereChangeHappened = "Gaming Related Incident";
                         }
                         if (ReportIncidentCu.SecurityAttend.ToString() != Convert.ToBoolean(rdr["SecurityAttend"]).ToString())
                         {
@@ -5773,6 +5780,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         ReportIncidentCu.ActionTaken = ActionTaken;
         ReportIncidentCu.ActionTakenOther = txtActionTakenOther.Text.Replace("\n", "<br />");
         ReportIncidentCu.ActionTakenOther = ReportIncidentCu.ActionTakenOther;
+        ReportIncidentCu.GamingRelatedIncident = cbGamingRelatedIncident.Checked.ToString();
         ReportIncidentCu.WhatHappened = WhatHappened;
         ReportIncidentCu.HappenedOther = txtOthers.Text.Replace("\n", "<br />");
         ReportIncidentCu.HappenedOther = ReportIncidentCu.HappenedOther;

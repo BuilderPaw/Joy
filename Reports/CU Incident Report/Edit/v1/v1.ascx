@@ -6,7 +6,7 @@
     <ContentTemplate>
         <div class="body3">
             <h4 style="margin-left: 57.5%">
-                <asp:Label ID="lblReportName" runat="server" Text=""></asp:Label>
+                <asp:Label ID="lblReportName" runat="server" Text="MR RGO Event Report"></asp:Label>
                 Report ID No.
         <b>
             <asp:Label ID="lblReportId" Style="color: red;" runat="server" Text=""></asp:Label></b>
@@ -3768,6 +3768,14 @@
                 </tr>
             </table>
             <table class="table-incident">
+                <tr>
+                    <th colspan="4">Is this a Gaming related Incident?</th>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:CheckBox ID="cbGamingRelatedIncident" runat="server" />
+                    </td>
+                </tr>
                 <tr>
                     <th colspan="4">What Happened?</th>
                 </tr>

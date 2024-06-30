@@ -188,6 +188,12 @@ public partial class MasterPage : System.Web.UI.MasterPage
                             ddlCreateReport.Items.Add(new ListItem("MR Responsible Gaming Officer", "15"));
                             ddlSearchReport.Items.Add(new ListItem("MR Responsible Gaming Officer", "16"));
                         }
+                        // CU Responsible Gaming Officer
+                        else if (reportList[i] == 13)
+                        {
+                            ddlCreateReport.Items.Add(new ListItem("CU Responsible Gaming Officer", "16"));
+                            ddlSearchReport.Items.Add(new ListItem("CU Responsible Gaming Officer", "17"));
+                        }
                     }
                 }
                 // if the user has Senior Managers access
@@ -234,6 +240,9 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     // MR Responsible Gaming Officer
                     ddlCreateReport.Items.Add(new ListItem("MR Responsible Gaming Officer", "15"));
                     ddlSearchReport.Items.Add(new ListItem("MR Responsible Gaming Officer", "16"));
+                    // CU Responsible Gaming Officer
+                    ddlCreateReport.Items.Add(new ListItem("CU Responsible Gaming Officer", "16"));
+                    ddlSearchReport.Items.Add(new ListItem("CU Responsible Gaming Officer", "17"));
                 }
 
                 // populate the staff dropdownlist
@@ -278,6 +287,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     else
                     {
                         cbMROnly.Checked = false;
+                    }
+
+                    if (SearchReport.GamingRelatedIncidentList)
+                    {
+                        cbGamingRelatedIncidentList.Checked = true;
+                    }
+                    else
+                    {
+                        cbGamingRelatedIncidentList.Checked = false;
                     }
 
                     if (SearchReport.ArchivedStaff)
@@ -402,6 +420,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                     if (SearchReport.FromCreateReport)
                     {
                         SearchReport.UnreadList = false;
+                        SearchReport.GamingRelatedIncidentList = false;
                         SearchReport.FromCreateReport = false;
                     }
                     else
@@ -587,6 +606,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
         }
         if (ddlSearchReport.SelectedItem.Text.Contains("Incident")) // set incident report filters
         {
+            SearchReport.GamingRelatedIncidentList = cbGamingRelatedIncidentList.Checked;
             if (ddlIncidentHappened.SelectedItem.Value == "")
             {
                 SearchReport.WhatHappened = "0";
@@ -650,8 +670,43 @@ public partial class MasterPage : System.Web.UI.MasterPage
                 SearchReport.Alias = txtAlias.Text;
             }
         }
+        else if (ddlSearchReport.SelectedItem.Text.Contains("Responsible Gaming"))
+        {
+            if (txtMemNo.Text == "")
+            {
+                SearchReport.MemberNo = "0";
+            }
+            else
+            {
+                SearchReport.MemberNo = txtMemNo.Text;
+            }
+            if (txtFirstName.Text == "")
+            {
+                SearchReport.FirstName = "0";
+            }
+            else
+            {
+                SearchReport.FirstName = txtFirstName.Text;
+            }
+
+            if (txtLastName.Text == "")
+            {
+                SearchReport.LastName = "0";
+            }
+            else
+            {
+                SearchReport.LastName = txtLastName.Text;
+            }
+
+            SearchReport.GamingRelatedIncidentList = false;
+            SearchReport.WhatHappened = "0";
+            SearchReport.Location = "0";
+            SearchReport.ActionTaken = "0";
+            SearchReport.Alias = "0";
+        }
         else
         {
+            SearchReport.GamingRelatedIncidentList = false;
             SearchReport.WhatHappened = "0";
             SearchReport.Location = "0";
             SearchReport.MemberNo = "0";
@@ -676,6 +731,8 @@ public partial class MasterPage : System.Web.UI.MasterPage
         {
             // toggle advanced filter visibility
             advancedFilter.Visible = true;
+            lblGamingRelatedReportList.Visible = true;
+            cbGamingRelatedIncidentList.Visible = true;
             lblIncidentHappened.Visible = true;
             lblLocation.Visible = true;
             lblMemNo.Visible = true;
@@ -754,10 +811,33 @@ public partial class MasterPage : System.Web.UI.MasterPage
             // add blank item at index 0
             ddlActionTaken.Items.Insert(0, new ListItem("All", ""));
         }
+        else if (ddlSearchReport.SelectedItem.Text.Contains("Responsible Gaming"))
+        {
+            advancedFilter.Visible = true;
+            lblMemNo.Visible = true;
+            lblFirstName.Visible = true;
+            lblLastName.Visible = true;
+            txtMemNo.Visible = true;
+            txtFirstName.Visible = true;
+            txtLastName.Visible = true;
+
+            lblGamingRelatedReportList.Visible = false;
+            cbGamingRelatedIncidentList.Visible = false;
+            lblIncidentHappened.Visible = false;
+            lblLocation.Visible = false;
+            lblActionTaken.Visible = false;
+            lblAlias.Visible = false;
+            txtAlias.Visible = false;
+            ddlIncidentHappened.Visible = false;
+            ddlLocation.Visible = false;
+            ddlActionTaken.Visible = false;
+        }
         // if report type is not an incident report, hide incident report filters
         else
         {
             advancedFilter.Visible = false;
+            lblGamingRelatedReportList.Visible = false;
+            cbGamingRelatedIncidentList.Visible = false;
             lblIncidentHappened.Visible = false;
             lblLocation.Visible = false;
             lblMemNo.Visible = false;

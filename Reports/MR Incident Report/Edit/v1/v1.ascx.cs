@@ -2945,6 +2945,8 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         ddlMinutes.SelectedIndex = Int32.Parse(rdr["TimeM"].ToString().Replace("<br />", "\n").Replace("^", "'"));
                         // ddlTimeCon.SelectedIndex = Int32.Parse(rdr["TimeTC"].ToString().Replace("<br />", "\n").Replace("^", "'")); // Take off the AM/PM dropdownlist
 
+                        cbGamingRelatedIncident.Checked = Convert.ToBoolean(rdr["GamingRelatedIncident"]);
+
                         /* Populate the Checkbox list for Incident Type and tick selected checkbox from the report */
                         string incidentType = rdr["IncidentHappened"].ToString().Replace("<br />", "\n").Replace("^", "'"), populateIncidentList;
                         // set query to populate the incident type list
@@ -4141,6 +4143,11 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
                         {
                             Report.HasChange = true; flag = 1;
                             Report.WhereChangeHappened = "Happened Asked To Leave";
+                        }
+                        if (ReportIncidentCu.GamingRelatedIncident.ToString() != Convert.ToBoolean(rdr["GamingRelatedIncident"]).ToString())
+                        {
+                            Report.HasChange = true; flag = 1;
+                            Report.WhereChangeHappened = "Gaming Related Incident";
                         }
                         if (ReportIncidentMr.SecurityAttend.ToString() != Convert.ToBoolean(rdr["SecurityAttend"]).ToString())
                         {
@@ -5782,6 +5789,7 @@ public partial class Reports_MR_Incident_Report_Edit_v1 : System.Web.UI.UserCont
         ReportIncidentMr.HappenedSerious = ReportIncidentMr.HappenedSerious.Replace("'", "^");
         ReportIncidentMr.HappenedRefuseEntry = RefuseReason;
         ReportIncidentMr.HappenedAskedLeave = AskedLeave;
+        ReportIncidentMr.GamingRelatedIncident = cbGamingRelatedIncident.Checked.ToString();
         ReportIncidentMr.SecurityAttend = cbSecurity.Checked.ToString();
         ReportIncidentMr.SecurityName = txtSecurityName.Text;
         ReportIncidentMr.SecurityName = ReportIncidentMr.SecurityName.Replace("'", "^");

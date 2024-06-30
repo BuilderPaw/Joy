@@ -6495,6 +6495,24 @@ public class ReportIncidentCu
             HttpContext.Current.Session["RICDetails"] = value;
         }
     }
+    public static string GamingRelatedIncident
+    {
+        get
+        {
+            if (HttpContext.Current.Session["RICGamingRelatedIncident"] == null)
+            {
+                return "";
+            }
+            else
+            {
+                return HttpContext.Current.Session["RICGamingRelatedIncident"].ToString().Replace("'", "^");
+            }
+        }
+        set
+        {
+            HttpContext.Current.Session["RICGamingRelatedIncident"] = value;
+        }
+    }
     public static string SecurityAttend
     {
         get

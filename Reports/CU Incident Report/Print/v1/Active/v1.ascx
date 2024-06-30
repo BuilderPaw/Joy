@@ -1274,6 +1274,15 @@
             </tr>
         </table>
         <table style="width: 100%; border: solid 1px black !important;">
+             <tr>
+                <th colspan="4">Is this a Gaming related Incident?</th>
+            </tr>
+            <tr>
+                <td style="font-size: 12.5px" colspan="4">
+                    <b>Yes/No : </b>
+                    <asp:CheckBox runat="server" Enabled="false" Checked='<%# Eval("GamingRelatedIncident") %>' />
+                </td>
+            </tr>
             <tr>
                 <th colspan="4">What Happened</th>
             </tr>

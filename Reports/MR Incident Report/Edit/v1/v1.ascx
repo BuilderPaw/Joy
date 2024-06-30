@@ -3769,6 +3769,14 @@
             </table>
             <table class="table-incident">
                 <tr>
+                    <th colspan="4">Is this a Gaming related Incident?</th>
+                </tr>
+                <tr>
+                    <td>
+                        <asp:CheckBox ID="cbGamingRelatedIncident" runat="server" />
+                    </td>
+                </tr>
+                <tr>
                     <th colspan="4">What Happened?</th>
                 </tr>
                 <tr>

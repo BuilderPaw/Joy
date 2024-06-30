@@ -1252,7 +1252,7 @@
                     <b>File Path : </b><%# (string.IsNullOrWhiteSpace(Eval("CamFilePath7").ToString())) ? Eval("CamFilePath7") : (Eval("CamFilePath7").ToString()).Replace("^", "'") %>
                 </td>
             </tr>
-<%--            <tr>
+            <%--            <tr>
                 <td colspan="4"><b>Start Date & Time : </b><%# ProcessMyDataItem(Eval("CamSDate7")) %> - <%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeH7").ToString())) ? Eval("TxtCamSTimeH7") : (Eval("TxtCamSTimeH7").ToString()).Replace("^", "'") %>:<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeM7").ToString())) ? Eval("TxtCamSTimeM7") : (Eval("TxtCamSTimeM7").ToString()).Replace("^", "'") %>
                     <!--<%# (string.IsNullOrWhiteSpace(Eval("TxtCamSTimeTC7").ToString())) ? Eval("TxtCamSTimeTC7") : (Eval("TxtCamSTimeTC7").ToString()).Replace("^", "'") %>-->
                 </td>
@@ -1264,6 +1264,15 @@
             </tr>--%>
         </table>
         <table class="table-view">
+            <tr>
+                <th colspan="4">Is this a Gaming related Incident?</th>
+            </tr>
+            <tr>
+                <td colspan="4">
+                    <b>Yes/No : </b>
+                    <asp:CheckBox runat="server" Enabled="false" Checked='<%# Eval("GamingRelatedIncident") %>' />
+                </td>
+            </tr>
             <tr>
                 <th colspan="4">What Happened</th>
             </tr>
