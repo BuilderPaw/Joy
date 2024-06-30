@@ -1165,8 +1165,13 @@ public partial class Reports_MR_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                         }
 
                         cbIncidentReportCompleted.Checked = Convert.ToBoolean(rdr["IncidentReportCompleted"]);
-                        cbAssistedCompletingIncidentReport.Checked = Convert.ToBoolean(rdr["AssitedCompletingIncidentReport"]);
+                        cbAssistedCompletingIncidentReport.Checked = Convert.ToBoolean(rdr["AssistedCompletingIncidentReport"]);
 
+                        if (Convert.ToBoolean(rdr["IncidentReportCompleted"]) == true)
+                        {
+                            trassistedcompletingincidentreport.Visible = true;
+                            trassistedcompletingincidentreport1.Visible = true;
+                        }
                     }
                     if (method.Equals("SearchMember")) // Get the Member Details from IGT Advantage Database
                     {
