@@ -51,7 +51,7 @@ public class SqlQuery
             cmd.Parameters.Add("FirstName", SqlDbType.VarChar).Value = SearchReport.FirstName;
             cmd.Parameters.Add("LastName", SqlDbType.VarChar).Value = SearchReport.LastName;
             cmd.Parameters.Add("Alias", SqlDbType.VarChar).Value = SearchReport.Alias;
-            cmd.Parameters.Add("GamingRelatedIncident", SqlDbType.VarChar).Value = 1;
+            cmd.Parameters.Add("GamingRelatedIncident", SqlDbType.VarChar).Value = SearchReport.GamingRelatedIncidentList;
             SearchReport.GamingRelatedIncidentList = false;
         }
 
