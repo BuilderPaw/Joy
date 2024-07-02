@@ -106,6 +106,9 @@ public class SearchReport
             case 16:
                 reportType = "MR Responsible Gaming Officer";
                 break;
+            case 17:
+                reportType = "CU Responsible Gaming Officer";
+                break;
         }
 
         // check if user has entered a keyword to be filtered
