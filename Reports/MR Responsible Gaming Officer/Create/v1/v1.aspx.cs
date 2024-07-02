@@ -1491,11 +1491,28 @@ public partial class Reports_MR_Responsible_Gaming_Officer_Create_v1_v1 : System
         // change the format of the entry date to timestamp format
         DateTime entry_date = DateTime.Now;
 
+        // validate objects in the form
+        int returnedValue = 0;
+        if (ddlShift.SelectedItem.Value == "-1")
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select Shift.";
+            ddlShift.Focus();
+            returnedValue = 1;
+        }
+
+        if (returnedValue == 1)
+        {
+            alert.DisplayMessage(Report.ErrorMessage);
+            Report.ErrorMessage = "";
+            return;
+        }
+
         // change the format of the shift date to timestamp format
         DateTime shift_date = DateTime.Parse(txtDatePicker.Text);
         string shift_tDate = shift_date.ToString("yyyyMMdd");
         // separate the shift date day of week value
         string shift_DOW = shift_date.DayOfWeek.ToString();
+
 
         // get staff's id
         string cmdText = "SELECT StaffId FROM Staff WHERE Username = '" + Session["Username"] + "'",

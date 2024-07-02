@@ -691,7 +691,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                         // add the check box items for RGO Notified List
                         using (SqlCommand command = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT * FROM [dbo].[List_RGONotified] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            cmd.CommandText = "SELECT * FROM [dbo].[List_RGONotified] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                             cmd.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -724,7 +724,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
 
                         using (SqlCommand command = new SqlCommand())
                         {
-                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 1 AND [Active] = 1 AND [Class1]='General Warning Signs' AND [Class2]='Length of play' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 2 AND [Active] = 1 AND [Class1]='General Warning Signs' AND [Class2]='Length of play' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())
@@ -739,7 +739,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                             }
                             connection.Close();
 
-                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 1 AND [Active] = 1 AND [Class1]='General Warning Signs' AND [Class2]='Money' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 2 AND [Active] = 1 AND [Class1]='General Warning Signs' AND [Class2]='Money' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())
@@ -754,7 +754,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                             }
                             connection.Close();
 
-                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 1 AND [Active] = 1 AND [Class1]='General Warning Signs' AND [Class2]='Behaviour during play' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 2 AND [Active] = 1 AND [Class1]='General Warning Signs' AND [Class2]='Behaviour during play' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())
@@ -769,7 +769,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                             }
                             connection.Close();
 
-                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 1 AND [Active] = 1 AND [Class1]='Probable Warning Signs' AND [Class2]='Length of play' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 2 AND [Active] = 1 AND [Class1]='Probable Warning Signs' AND [Class2]='Length of play' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())
@@ -784,7 +784,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                             }
                             connection.Close();
 
-                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 1 AND [Active] = 1 AND [Class1]='Probable Warning Signs' AND [Class2]='Money' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 2 AND [Active] = 1 AND [Class1]='Probable Warning Signs' AND [Class2]='Money' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())
@@ -799,7 +799,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                             }
                             connection.Close();
 
-                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 1 AND [Active] = 1 AND [Class1]='Probable Warning Signs' AND [Class2]='Behaviour during play' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 2 AND [Active] = 1 AND [Class1]='Probable Warning Signs' AND [Class2]='Behaviour during play' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())
@@ -814,7 +814,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                             }
                             connection.Close();
 
-                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 1 AND [Active] = 1 AND [Class1]='Probable Warning Signs' AND [Class2]='Social behaviours' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 2 AND [Active] = 1 AND [Class1]='Probable Warning Signs' AND [Class2]='Social behaviours' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())
@@ -829,7 +829,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                             }
                             connection.Close();
 
-                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 1 AND [Active] = 1 AND [Class1]='Strong Warning Signs' AND [Class2]='Length of play' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 2 AND [Active] = 1 AND [Class1]='Strong Warning Signs' AND [Class2]='Length of play' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())
@@ -844,7 +844,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                             }
                             connection.Close();
 
-                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 1 AND [Active] = 1 AND [Class1]='Strong Warning Signs' AND [Class2]='Money' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 2 AND [Active] = 1 AND [Class1]='Strong Warning Signs' AND [Class2]='Money' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())
@@ -859,7 +859,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                             }
                             connection.Close();
 
-                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 1 AND [Active] = 1 AND [Class1]='Strong Warning Signs' AND [Class2]='Behaviour during play' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 2 AND [Active] = 1 AND [Class1]='Strong Warning Signs' AND [Class2]='Behaviour during play' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())
@@ -874,7 +874,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                             }
                             connection.Close();
 
-                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 1 AND [Active] = 1 AND [Class1]='Strong Warning Signs' AND [Class2]='Social behaviours' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_PatronSigns] WHERE [SiteID] = 2 AND [Active] = 1 AND [Class1]='Strong Warning Signs' AND [Class2]='Social behaviours' ORDER BY CASE WHEN [Description] = 'Other' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())
@@ -1018,7 +1018,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                         // get and set check box list items for initial actions taken in the event
                         using (SqlCommand command = new SqlCommand())
                         {
-                            command.CommandText = "SELECT * FROM [dbo].[List_InitialAction] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'N/A' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_InitialAction] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'N/A' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())
@@ -1050,7 +1050,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                         // add the check box items for 3hr Alert Response List
                         using (SqlCommand command = new SqlCommand())
                         {
-                            cmd.CommandText = "SELECT * FROM [dbo].[List_3hrsAlertResponse] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'N/A' THEN 1 ELSE 0 END, [Description]";
+                            cmd.CommandText = "SELECT * FROM [dbo].[List_3hrsAlertResponse] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'N/A' THEN 1 ELSE 0 END, [Description]";
                             cmd.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = cmd.ExecuteReader())
@@ -1083,7 +1083,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                         // get and set check box list items for patron responses in the event
                         using (SqlCommand command = new SqlCommand())
                         {
-                            command.CommandText = "SELECT * FROM [dbo].[List_PatronResponse] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'N/A' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_PatronResponse] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'N/A' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())
@@ -1116,7 +1116,7 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
                         // get and set check box list items for the event outcome
                         using (SqlCommand command = new SqlCommand())
                         {
-                            command.CommandText = "SELECT * FROM [dbo].[List_EventOutcome] WHERE [SiteID] = 1 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'N/A' THEN 1 ELSE 0 END, [Description]";
+                            command.CommandText = "SELECT * FROM [dbo].[List_EventOutcome] WHERE [SiteID] = 2 AND [Active] = 1 ORDER BY CASE WHEN [Description] = 'N/A' THEN 1 ELSE 0 END, [Description]";
                             command.Connection = connection;
                             connection.Open();
                             using (SqlDataReader sdr = command.ExecuteReader())

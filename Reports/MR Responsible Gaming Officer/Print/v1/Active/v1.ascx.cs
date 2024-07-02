@@ -14,7 +14,7 @@ public partial class Reports_MR_Responsible_Gaming_Officer_Print_v1_Active_v1 : 
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Report.SelectedStaffId == UserCredentials.StaffId || UserCredentials.GroupsQuery.Contains("Supervisor") || UserCredentials.GroupsQuery.Contains("Duty Manager") || UserCredentials.GroupsQuery.Contains("Senior Manager") || UserCredentials.GroupsQuery.Contains("Override")) // if it is a member of Duty or Senior Manager display the Responsible Gaming Officer Report
+        if (Report.SelectedStaffId == UserCredentials.StaffId || UserCredentials.GroupsQuery.Contains("Supervisor") || UserCredentials.GroupsQuery.Contains("Duty Manager") || UserCredentials.GroupsQuery.Contains("Senior Manager") || UserCredentials.GroupsQuery.Contains("Override") || UserCredentials.GroupsQuery.Contains("Responsible Gaming")) // if it is a member of Duty or Senior Manager display the Responsible Gaming Officer Report
         {
             viewReport.Visible = true;
             readFiles(Report.ActiveReport, "getFields");

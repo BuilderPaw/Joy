@@ -44,7 +44,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             // display an alert message if user has any existing unsigned report(s)
             if (UserCredentials.StaffId != "0")
             {
-                if (Report.HasDisplayedUnsignedReport <3)
+                if (Report.HasDisplayedUnsignedReport < 3)
                 {
                     con.Open();
                     SqlCommand count = new SqlCommand("Proc_CountUserUnsignedReports", con);
@@ -66,7 +66,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
             if (!string.IsNullOrWhiteSpace(UserCredentials.Groups))
             {
                 // hide or display the Report Version Button depending on the users group
-                if (UserCredentials.Groups.Contains("SeniorManager") || UserCredentials.Groups.Contains("DutyManager") 
+                if (UserCredentials.Groups.Contains("SeniorManager") || UserCredentials.Groups.Contains("DutyManager")
                     || UserCredentials.Groups.Contains("Supervisor"))
                 {
                     acpDisplayVersion.Visible = true;
@@ -111,7 +111,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
                             }
                         }
                         // MR Duty Manager 
-                        if (reportList[i] == 1)                                                 
+                        if (reportList[i] == 1)
                         {
                             ddlCreateReport.Items.Add(new ListItem("MR Duty Managers", "2"));
                             ddlSearchReport.Items.Add(new ListItem("MR Duty Manager", "3"));
@@ -870,7 +870,7 @@ public partial class MasterPage : System.Web.UI.MasterPage
 
         // display the appropriate report to create 
         Response.Redirect("~/Reports/" + ddlCreateReport.SelectedItem.ToString() + "/Create/v" + version.ToString() + "/v" + version.ToString() + ".aspx", false);
-        
+
         // set accordion active selected index back to Reports Panel
         SearchReport.SetAccordion = "0";
         SearchReport.CreateReport = ddlCreateReport.SelectedItem.Value.ToString();
@@ -925,10 +925,15 @@ public partial class MasterPage : System.Web.UI.MasterPage
     protected void DefaultSearch()
     {
         // reset the incident filters
+        SearchReport.GamingRelatedIncidentList = false;
         SearchReport.WhatHappened = "0";
         SearchReport.Location = "0";
         SearchReport.MemberNo = "0";
         SearchReport.ActionTaken = "0";
+        SearchReport.FirstName = "0";
+        SearchReport.LastName = "0";
+        SearchReport.Alias = "0";
+        SearchReport.Keyword = "0";
         SearchReport.ReportId = "";
 
         // counts the number of times ReadFiles method is called in Incident Report. It should only run one time (Run like an initial Post Back)
