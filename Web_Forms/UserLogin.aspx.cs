@@ -58,9 +58,9 @@ public partial class UserLogin : System.Web.UI.Page
 
                     RunStoredProcedure rsp = new RunStoredProcedure();
                     // encrypt password
-                    string encryptedPassword = rsp.EncryptPassword(txtPassword.Text);
+                    //string encryptedPassword = rsp.EncryptPassword(txtPassword.Text);
                     // update password stored in the database
-                    rsp.UpdatePassword(txtUsername.Text, encryptedPassword);
+                    //rsp.UpdatePassword(txtUsername.Text, encryptedPassword);
 
                     // log the login activity
                     try
@@ -89,23 +89,23 @@ public partial class UserLogin : System.Web.UI.Page
                 }
                 else
                 {
-                    bool passwordGiven = CheckIfPasswordIsGiven();
+                    //bool passwordGiven = CheckIfPasswordIsGiven();
 
-                    if (!passwordGiven)
-                    {
+                    //if (!passwordGiven)
+                    //{
                         errorLabel.Text = "Invalid details. Please check your username and password.";
-                    }
+                    //}
                 }
             }
         }
         catch (Exception ex)
         {
-            bool passwordGiven = CheckIfPasswordIsGiven();
+            //bool passwordGiven = CheckIfPasswordIsGiven();
 
-            if (!passwordGiven)
-            {
+            //if (!passwordGiven)
+            //{
                 errorLabel.Text = "Error logging in user. " + ex.Message;
-            }
+            //}
         }
     }
 
