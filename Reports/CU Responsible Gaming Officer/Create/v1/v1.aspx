@@ -513,7 +513,7 @@
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <asp:TextBox ID="txtFurtherComments" class="object-default" runat="server" Height="70px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox ID="txtFurtherComments" class="object-default" runat="server" Height="130px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                         </td>
                     </tr>
                 </table>
@@ -531,7 +531,7 @@
                     </tr>
                     <tr id="witness1" runat="server" visible="false">
                         <td colspan="4">
-                            <asp:TextBox ID="txtWitnessDetails" class="object-default" runat="server" Height="70px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox ID="txtWitnessDetails" class="object-default" runat="server" Height="130px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                         </td>
                     </tr>
                 </table>
@@ -549,7 +549,7 @@
                     </tr>
                     <tr id="police1" runat="server" visible="false">
                         <td colspan="4">
-                            <asp:TextBox ID="txtPoliceDetails" class="object-default" runat="server" Height="70px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
+                            <asp:TextBox ID="txtPoliceDetails" class="object-default" runat="server" Height="130px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                         </td>
                     </tr>
                 </table>

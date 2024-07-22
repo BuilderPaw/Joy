@@ -474,7 +474,7 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <asp:CheckBoxList ID="List_3hrAlertResponse" RepeatLayout="table" RepeatColumns="4" Font-Size="8" RepeatDirection="vertical" runat="server" class="object-default">
+                        <asp:CheckBoxList ID="List_3hrAlertResponse" RepeatLayout="table" RepeatColumns="4" Font-Size="8" RepeatDirection="vertical" runat="server" class="object-default" OnSelectedIndexChanged="SelectedIndexChanged_SelectedIndexChanged">
                         </asp:CheckBoxList>
                     </td>
                 </tr>
@@ -505,7 +505,7 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <asp:TextBox ID="txtFurtherComments" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="70px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="txtFurtherComments" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="130px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                     </td>
                 </tr>
             </table>
@@ -523,7 +523,7 @@
                 </tr>
                 <tr id="witness1" runat="server" visible="false">
                     <td colspan="4">
-                        <asp:TextBox ID="txtWitnessDetails" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="70px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="txtWitnessDetails" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="130px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                     </td>
                 </tr>
             </table>
@@ -541,7 +541,7 @@
                 </tr>
                 <tr id="police1" runat="server" visible="false">
                     <td colspan="4">
-                        <asp:TextBox ID="txtPoliceDetails" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="70px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
+                        <asp:TextBox ID="txtPoliceDetails" class="object-default" OnTextChanged="TextChanged_TextChanged" runat="server" Height="130px" Style="resize: none;" TextMode="MultiLine"></asp:TextBox>
                     </td>
                 </tr>
             </table>
