@@ -524,6 +524,35 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Create_v1_v1 : System
             returnedFlag = 1;
         }
 
+        // make sure user selects at least a Yes or No
+        if (cbPatronDetailsRecorded.Checked == false && cbPatronDetailsRecorded1.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether patron details were recorded.";
+            cbPatronDetailsRecorded.Focus();
+            returnedFlag = 1;
+        }
+
+        if (cbWitnessRecorded.Checked == false && cbWitnessRecorded1.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether witness details were recorded.";
+            cbWitnessRecorded.Focus();
+            returnedFlag = 1;
+        }
+
+        if (cbPoliceRecorded.Checked == false && cbPoliceRecorded1.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether police details were recorded.";
+            cbPoliceRecorded.Focus();
+            returnedFlag = 1;
+        }
+
+        if (cbIncidentReportCompleted.Checked == false && cbIncidentReportCompleted1.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether incident report was completed.";
+            cbIncidentReportCompleted.Focus();
+            returnedFlag = 1;
+        }
+
         if (cbWitnessRecorded.Checked)
         {
             if (txtWitnessDetails.Text == "")
@@ -643,6 +672,15 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Create_v1_v1 : System
                         }
                     }
                 }
+            }
+        }
+        else
+        {
+            if (cbAssistedCompletingIncidentReport.Checked == false && cbAssistedCompletingIncidentReport1.Checked == false)
+            {
+                Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether you have assisted in completing an incident report.";
+                cbAssistedCompletingIncidentReport.Focus();
+                returnedFlag = 1;
             }
         }
 
@@ -1065,9 +1103,18 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Create_v1_v1 : System
         if (cbPatronDetailsRecorded.Checked == true)
         {
             tblPerson1.Visible = true;
+            cbPatronDetailsRecorded1.Checked = false;
         }
         else
         {
+            tblPerson1.Visible = false;
+        }
+    }
+    protected void cbPatronDetailsRecorded1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbPatronDetailsRecorded1.Checked == true)
+        {
+            cbPatronDetailsRecorded.Checked = false;
             tblPerson1.Visible = false;
         }
     }
@@ -1077,11 +1124,35 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Create_v1_v1 : System
         {
             trassistedcompletingincidentreport.Visible = true;
             trassistedcompletingincidentreport1.Visible = true;
+            cbIncidentReportCompleted1.Checked = false;
         }
         else
         {
             trassistedcompletingincidentreport.Visible = false;
             trassistedcompletingincidentreport1.Visible = false;
+        }
+    }
+    protected void cbIncidentReportCompleted1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbIncidentReportCompleted1.Checked == true)
+        {
+            cbIncidentReportCompleted.Checked = false;
+            trassistedcompletingincidentreport.Visible = false;
+            trassistedcompletingincidentreport1.Visible = false;
+        }
+    }
+    protected void cbAssistedCompletingIncidentReport_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbAssistedCompletingIncidentReport.Checked == true)
+        {
+            cbAssistedCompletingIncidentReport1.Checked = false;
+        }
+    }
+    protected void cbAssistedCompletingIncidentReport1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbAssistedCompletingIncidentReport1.Checked == true)
+        {
+            cbAssistedCompletingIncidentReport.Checked = false;
         }
     }
     protected void cbWitnessRecorded_CheckedChanged(object sender, EventArgs e)
@@ -1090,9 +1161,28 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Create_v1_v1 : System
         {
             witness.Visible = true;
             witness1.Visible = true;
+            cbWitnessRecorded1.Checked = false;
         }
         else
         {
+            witness.Visible = false;
+            witness1.Visible = false;
+            txtWitnessDetails.Text = "";
+        }
+
+        if (cbWitnessRecorded1.Checked == true)
+        {
+            cbWitnessRecorded.Checked = false;
+            witness.Visible = false;
+            witness1.Visible = false;
+            txtWitnessDetails.Text = "";
+        }
+    }
+    protected void cbWitnessRecorded1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbWitnessRecorded1.Checked == true)
+        {
+            cbWitnessRecorded.Checked = false;
             witness.Visible = false;
             witness1.Visible = false;
             txtWitnessDetails.Text = "";
@@ -1104,9 +1194,28 @@ public partial class Reports_CU_Responsible_Gaming_Officer_Create_v1_v1 : System
         {
             police.Visible = true;
             police1.Visible = true;
+            cbPoliceRecorded1.Checked = false;
         }
         else
         {
+            police.Visible = false;
+            police1.Visible = false;
+            txtPoliceDetails.Text = "";
+        }
+
+        if (cbPoliceRecorded1.Checked == true)
+        {
+            cbPoliceRecorded.Checked = false;
+            police.Visible = false;
+            police1.Visible = false;
+            txtPoliceDetails.Text = "";
+        }
+    }
+    protected void cbPoliceRecorded1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbPoliceRecorded1.Checked == true)
+        {
+            cbPoliceRecorded.Checked = false;
             police.Visible = false;
             police1.Visible = false;
             txtPoliceDetails.Text = "";

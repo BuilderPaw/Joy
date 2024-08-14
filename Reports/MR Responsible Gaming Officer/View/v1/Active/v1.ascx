@@ -57,7 +57,11 @@
             </tr>
             <tr>
                 <td>
-                    <b>Yes/No : </b><asp:CheckBox Enabled="false" Checked='<%# Eval("PatronDetailsRecorded") %>' runat="server" />
+                    <b>Yes : </b>
+                    <asp:CheckBox Enabled="false" Checked='<%# Eval("PatronDetailsRecorded") %>' runat="server" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>No : </b>
+                    <asp:CheckBox ID="cbPatronDetailsRecorded" Enabled="false" runat="server" />
                 </td>
             </tr>
         </table>
@@ -382,7 +386,11 @@
             </tr>
             <tr>
                 <td>
-                    <b>Yes/No : </b><asp:CheckBox Enabled="false" Checked='<%# Eval("WitnessRecorded") %>' runat="server" />
+                    <b>Yes : </b>
+                    <asp:CheckBox Enabled="false" Checked='<%# Eval("WitnessRecorded") %>' runat="server" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>No : </b>
+                    <asp:CheckBox ID="cbWitnessRecorded" Enabled="false" runat="server" />
                 </td>
             </tr>
             <tr id="trwitness" runat="server" visible="false">
@@ -396,7 +404,11 @@
             </tr>
             <tr>
                 <td>
-                    <b>Yes/No : </b><asp:CheckBox Enabled="false" Checked='<%# Eval("PoliceNotified") %>' runat="server" />
+                    <b>Yes : </b>
+                    <asp:CheckBox Enabled="false" Checked='<%# Eval("PoliceNotified") %>' runat="server" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>No : </b>
+                    <asp:CheckBox ID="cbPoliceRecorded" Enabled="false" runat="server" />
                 </td>
             </tr>
             <tr id="trpolice" runat="server" visible="false">
@@ -412,7 +424,11 @@
             </tr>
             <tr>
                 <td>
-                    <b>Yes/No : </b><asp:CheckBox Enabled="false" Checked='<%# Eval("IncidentReportCompleted") %>' runat="server" />
+                    <b>Yes : </b>
+                    <asp:CheckBox Enabled="false" Checked='<%# Eval("IncidentReportCompleted") %>' runat="server" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>No : </b>
+                    <asp:CheckBox ID="cbIncidentReportCompleted" Enabled="false" runat="server" />
                 </td>
             </tr>
             <tr>
@@ -420,7 +436,11 @@
             </tr>
             <tr>
                 <td>
-                    <b>Yes/No : </b><asp:CheckBox Enabled="false" Checked='<%# Eval("AssistedCompletingIncidentReport") %>' runat="server" />
+                    <b>Yes : </b>
+                    <asp:CheckBox Enabled="false" Checked='<%# Eval("AssistedCompletingIncidentReport") %>' runat="server" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>No : </b>
+                    <asp:CheckBox ID="cbAssistedCompletingIncidentReport" Enabled="false" runat="server" />
                 </td>
             </tr>
         </table>

@@ -1217,6 +1217,38 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             }
         }
 
+        // make sure user selects at least a Yes or No
+        if (cbAddPerson1.Checked == false && cbAddPerson.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether patron details were recorded.";
+            cbAddPerson1.Focus();
+            returnedFlag = 1;
+        }
+        if (cbCamera.Checked == false && cbCamera1.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether camera footage details were recorded.";
+            cbCamera.Focus();
+            returnedFlag = 1;
+        }
+        if (cbGamingRelatedIncident.Checked == false && cbGamingRelatedIncident1.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether the report is a Gaming related Incident.";
+            cbGamingRelatedIncident.Focus();
+            returnedFlag = 1;
+        }
+        if (cbSecurity.Checked == false && cbSecurity1.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether security attended.";
+            cbSecurity.Focus();
+            returnedFlag = 1;
+        }
+        if (cbPolice.Checked == false && cbPolice1.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether police were notified.";
+            cbPolice.Focus();
+            returnedFlag = 1;
+        }
+
         // Security Officer
         if (cbSecurity.Checked == true)
         {
@@ -4420,6 +4452,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             noOfPerson.Visible = true;
             lblNoOfPerson.Text = "1";
             noOfPerson1.Visible = true;
+            cbAddPerson.Checked = false;
         }
         else
         {
@@ -4437,6 +4470,27 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             noOfPerson.Visible = false;
             lblNoOfPerson.Text = "0";
             noOfPerson1.Visible = false;
+        }
+    }
+    protected void cbAddPerson_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbAddPerson.Checked == true)
+        {
+            // hide the Add Person no. 2 button
+            tblAddPerson2.Visible = false;
+            tblAddPerson3.Visible = false;
+            tblAddPerson4.Visible = false;
+            tblAddPerson5.Visible = false;
+            // hide the added Person form
+            acpPerson1.Visible = false;
+            acpPerson2.Visible = false;
+            acpPerson3.Visible = false;
+            acpPerson4.Visible = false;
+            acpPerson5.Visible = false;
+            noOfPerson.Visible = false;
+            lblNoOfPerson.Text = "0";
+            noOfPerson1.Visible = false;
+            cbAddPerson1.Checked = false;
         }
     }
     protected void btnAddPerson2_Click(object sender, EventArgs e)
@@ -4989,6 +5043,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             // show the added Camera form
             tblCamera1.Visible = true;
             tblAddCam2.Visible = true;
+            cbCamera1.Checked = false;
         }
         else
         {
@@ -5009,6 +5064,27 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             tblDelCam7.Visible = false;
         }
 
+    }
+    protected void cbCamera1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbCamera1.Checked == true)
+        {
+            tblCamera1.Visible = false;
+            tblAddCam2.Visible = false;
+            tblCamera2.Visible = false;
+            tblAddCam3.Visible = false;
+            tblCamera3.Visible = false;
+            tblAddCam4.Visible = false;
+            tblCamera4.Visible = false;
+            tblAddCam5.Visible = false;
+            tblCamera5.Visible = false;
+            tblAddCam6.Visible = false;
+            tblCamera6.Visible = false;
+            tblAddCam7.Visible = false;
+            tblCamera7.Visible = false;
+            tblDelCam7.Visible = false;
+            cbCamera.Checked = false;
+        }
     }
     protected void btnAddCam2_Click(object sender, EventArgs e)
     {
@@ -5255,6 +5331,22 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
         }
     }
 
+    // toggle checkboxes for gaming related incident
+    protected void cbGamingRelatedIncident_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbGamingRelatedIncident.Checked == true)
+        {
+            cbGamingRelatedIncident1.Checked = false;
+        }
+    }
+    protected void cbGamingRelatedIncident1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbGamingRelatedIncident1.Checked == true)
+        {
+            cbGamingRelatedIncident.Checked = false;
+        }
+    }
+
     // add/delete security/police info
     protected void cbPolice_CheckedChanged(object sender, EventArgs e)
     {
@@ -5266,6 +5358,7 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             tdPolice4.Visible = true;
             tdPolice5.Visible = true;
             tdPolice6.Visible = true;
+            cbPolice1.Checked = false;
         }
         else
         {
@@ -5280,18 +5373,45 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
             txtPoliceAction.Text = "";
         }
     }
+    protected void cbPolice1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbPolice1.Checked == true)
+        {
+            tdPolice1.Visible = false;
+            tdPolice2.Visible = false;
+            tdPolice3.Visible = false;
+            tdPolice4.Visible = false;
+            tdPolice5.Visible = false;
+            tdPolice6.Visible = false;
+            txtPoliceStation.Text = "";
+            txtOfficersName.Text = "";
+            txtPoliceAction.Text = "";
+            cbPolice.Checked = false;
+        }
+    }
     protected void cbSecurity_CheckedChanged(object sender, EventArgs e)
     {
         if (cbSecurity.Checked == true)
         {
             tdSecurity1.Visible = true;
             tdSecurity2.Visible = true;
+            cbSecurity1.Checked = false;
         }
         else
         {
             tdSecurity1.Visible = false;
             tdSecurity2.Visible = false;
             txtSecurityName.Text = "";
+        }
+    }
+    protected void cbSecurity1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbSecurity1.Checked == true)
+        {
+            tdSecurity1.Visible = false;
+            tdSecurity2.Visible = false;
+            txtSecurityName.Text = "";
+            cbSecurity.Checked = false;
         }
     }
 

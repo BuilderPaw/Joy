@@ -995,6 +995,7 @@ public partial class Reports_MR_Incident_Report_Print_v1_Active_v1 : System.Web.
                         if (String.IsNullOrEmpty(rdr["CamDesc1"].ToString()))
                         {
                             tblCam1.Visible = false;
+                            cbCameraFootage1.Checked = true;
                         }
                         else
                         {
@@ -1385,10 +1386,16 @@ public partial class Reports_MR_Incident_Report_Print_v1_Active_v1 : System.Web.
                             visitor55l.Visible = false;
                         }
 
+                        if (Convert.ToBoolean(rdr["GamingRelatedIncident"]) == false)
+                        {
+                            cbGamingRelatedIncident.Checked = true;
+                        }
+
                         if (Convert.ToBoolean(rdr["SecurityAttend"]) == false)
                         {
                             // Hide Security Details by Default
                             tdSecurity1.Visible = false;
+                            cbSecurity.Checked = true;
                         }
 
                         if (Convert.ToBoolean(rdr["PoliceNotify"]) == false)
@@ -1397,6 +1404,7 @@ public partial class Reports_MR_Incident_Report_Print_v1_Active_v1 : System.Web.
                             tdPolice1.Visible = false;
                             tdPolice2.Visible = false;
                             tdPolice3.Visible = false;
+                            cbPolice.Checked = true;
                         }
 
                         // Populate the Checkbox for Incident Type and tick necessary checkbox

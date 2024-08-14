@@ -1052,8 +1052,11 @@
             </tr>
             <tr>
                 <td colspan="5">
-                    <b>Yes/No : </b>
+                    <b>Yes : </b>
                     <asp:CheckBox ID="cbCameraFootage" runat="server" Enabled="false" Checked="false" />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>No : </b>
+                    <asp:CheckBox ID="cbCameraFootage1" runat="server" Enabled="false" Checked="false" />
                 </td>
             </tr>
         </table>
@@ -1269,8 +1272,11 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <b>Yes/No : </b>
+                    <b>Yes : </b>
                     <asp:CheckBox runat="server" Enabled="false" Checked='<%# Eval("GamingRelatedIncident") %>' />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>No : </b>
+                    <asp:CheckBox ID="cbGamingRelatedIncident" Enabled="false" runat="server" />
                 </td>
             </tr>
             <tr>
@@ -1361,8 +1367,11 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <b>Yes/No : </b>
+                    <b>Yes : </b>
                     <asp:CheckBox runat="server" Enabled="false" Checked='<%# Eval("SecurityAttend") %>' />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>No : </b>
+                    <asp:CheckBox ID="cbSecurity" Enabled="false" runat="server" />
                 </td>
             </tr>
             <tr>
@@ -1374,8 +1383,11 @@
             </tr>
             <tr>
                 <td colspan="4">
-                    <b>Yes/No : </b>
+                    <b>Yes : </b>
                     <asp:CheckBox runat="server" Enabled="false" Checked='<%# Eval("PoliceNotify") %>' />
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <b>No : </b>
+                    <asp:CheckBox ID="cbPolice" Enabled="false" runat="server" />
                 </td>
             </tr>
             <tr>

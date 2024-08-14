@@ -74,7 +74,11 @@
                     </tr>
                     <tr>
                         <td>
-                            <b>Yes/No : </b><asp:CheckBox ID="cbPatronDetailsRecorded" AutoPostBack="true" OnCheckedChanged="cbPatronDetailsRecorded_CheckedChanged" runat="server" />
+                            <b>Yes : </b>
+                            <asp:CheckBox ID="cbPatronDetailsRecorded" AutoPostBack="true" OnCheckedChanged="cbPatronDetailsRecorded_CheckedChanged" runat="server" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>No : </b>
+                            <asp:CheckBox ID="cbPatronDetailsRecorded1" AutoPostBack="true" OnCheckedChanged="cbPatronDetailsRecorded1_CheckedChanged" runat="server" />
                         </td>
                     </tr>
                 </table>
@@ -523,7 +527,11 @@
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <b>Yes/No : </b><asp:CheckBox ID="cbWitnessRecorded" AutoPostBack="true" OnCheckedChanged="cbWitnessRecorded_CheckedChanged" runat="server" />
+                            <b>Yes : </b>
+                            <asp:CheckBox ID="cbWitnessRecorded" AutoPostBack="true" OnCheckedChanged="cbWitnessRecorded_CheckedChanged" runat="server" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>No : </b>
+                            <asp:CheckBox ID="cbWitnessRecorded1" AutoPostBack="true" OnCheckedChanged="cbWitnessRecorded1_CheckedChanged"  runat="server" />
                         </td>
                     </tr>
                     <tr id="witness" runat="server" visible="false">
@@ -541,7 +549,11 @@
                     </tr>
                     <tr >
                         <td colspan="4">
-                            <b>Yes/No : </b><asp:CheckBox ID="cbPoliceRecorded" AutoPostBack="true" OnCheckedChanged="cbPoliceRecorded_CheckedChanged" runat="server" />
+                            <b>Yes : </b>
+                            <asp:CheckBox ID="cbPoliceRecorded" AutoPostBack="true" OnCheckedChanged="cbPoliceRecorded_CheckedChanged" runat="server" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>No : </b>
+                            <asp:CheckBox ID="cbPoliceRecorded1" AutoPostBack="true" OnCheckedChanged="cbPoliceRecorded1_CheckedChanged" runat="server" />
                         </td>
                     </tr>
                     <tr id="police" runat="server" visible="false">
@@ -559,7 +571,9 @@
                     </tr>
                     <tr>
                         <td colspan="4">
-                            <b>Yes/No : </b><asp:CheckBox ID="cbIncidentReportCompleted" AutoPostBack="true" OnCheckedChanged="cbIncidentReportCompleted_CheckedChanged" runat="server" />
+                            <b>Yes : </b><asp:CheckBox ID="cbIncidentReportCompleted" AutoPostBack="true" OnCheckedChanged="cbIncidentReportCompleted_CheckedChanged" runat="server" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>No : </b><asp:CheckBox ID="cbIncidentReportCompleted1" AutoPostBack="true" OnCheckedChanged="cbIncidentReportCompleted1_CheckedChanged" runat="server" />
                         </td>
                     </tr>
                     <tr id="trassistedcompletingincidentreport" runat="server" visible="false">
@@ -567,7 +581,9 @@
                     </tr>
                     <tr id="trassistedcompletingincidentreport1" runat="server" visible="false">
                         <td colspan="4">
-                            <b>Yes/No : </b><asp:CheckBox ID="cbAssistedCompletingIncidentReport" runat="server" />
+                            <b>Yes : </b><asp:CheckBox ID="cbAssistedCompletingIncidentReport" AutoPostBack="true" OnCheckedChanged="cbAssistedCompletingIncidentReport_CheckedChanged" runat="server" />
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>No : </b><asp:CheckBox ID="cbAssistedCompletingIncidentReport1" AutoPostBack="true" OnCheckedChanged="cbAssistedCompletingIncidentReport1_CheckedChanged" runat="server" />
                         </td>
                     </tr>
                 </table>

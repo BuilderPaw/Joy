@@ -328,7 +328,7 @@ public class Report
                 ReportResponsibleGamingOfficerMr.EventOutcomeFurtherComments + "', '" + ReportResponsibleGamingOfficerMr.IncidentReportCompleted + "', '" +
                 ReportResponsibleGamingOfficerMr.LocationList + "', '" + ReportResponsibleGamingOfficerMr.LocationOther + "', '" + ReportResponsibleGamingOfficerMr.LocationMachine + "', '" +
                 ReportResponsibleGamingOfficerMr.WitnessRecorded + "', '" + ReportResponsibleGamingOfficerMr.WitnessDetails + "', '" + ReportResponsibleGamingOfficerMr.PoliceNotified + "', '" +
-                ReportResponsibleGamingOfficerMr.WitnessDetails + "', '" + ReportResponsibleGamingOfficerMr.AssistedCompletingIncidentReport + "'," + " " + UserCredentials.StaffId + ");";
+                ReportResponsibleGamingOfficerMr.PoliceDetails + "', '" + ReportResponsibleGamingOfficerMr.AssistedCompletingIncidentReport + "'," + " " + UserCredentials.StaffId + ");";
         }
 
         if (Name.Equals("CU Responsible Gaming Officer") && Version.ToString() == "1") // CU Responsible Gaming Officer Version 1
@@ -354,7 +354,7 @@ public class Report
                 ReportResponsibleGamingOfficerCu.EventOutcomeFurtherComments + "', '" + ReportResponsibleGamingOfficerCu.IncidentReportCompleted + "', '" +
                 ReportResponsibleGamingOfficerCu.LocationList + "', '" + ReportResponsibleGamingOfficerCu.LocationOther + "', '" + ReportResponsibleGamingOfficerCu.LocationMachine + "', '" +
                 ReportResponsibleGamingOfficerCu.WitnessRecorded + "', '" + ReportResponsibleGamingOfficerCu.WitnessDetails + "', '" + ReportResponsibleGamingOfficerCu.PoliceNotified + "', '" +
-                ReportResponsibleGamingOfficerCu.WitnessDetails + "', '" + ReportResponsibleGamingOfficerCu.AssistedCompletingIncidentReport + "'," + " " + UserCredentials.StaffId + ");";
+                ReportResponsibleGamingOfficerCu.PoliceDetails + "', '" + ReportResponsibleGamingOfficerCu.AssistedCompletingIncidentReport + "'," + " " + UserCredentials.StaffId + ");";
         }
 
         if (Name.Equals("MR Caretaker") && Version.ToString() == "1") // MR Caretaker Version 1

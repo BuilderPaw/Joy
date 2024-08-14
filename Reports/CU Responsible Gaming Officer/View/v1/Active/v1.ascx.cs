@@ -677,15 +677,35 @@ public partial class Reports_CU_Responsible_Gaming_Officer_View_v1_Active_v1 : S
                             trwitness.Visible = true;
                             trwitness1.Visible = true;
                         }
+                        else
+                        {
+                            cbWitnessRecorded.Checked = true;
+                        }
+
                         if (Convert.ToBoolean(rdr["PoliceNotified"]) == true)
                         {
                             trpolice.Visible = true;
                             trpolice1.Visible = true;
                         }
+                        else
+                        {
+                            cbPoliceRecorded.Checked = true;
+                        }
+
+                        if (Convert.ToBoolean(rdr["AssistedCompletingIncidentReport"]) == false)
+                        {
+                            cbAssistedCompletingIncidentReport.Checked = true;
+                        }
+
+                        if (Convert.ToBoolean(rdr["IncidentReportCompleted"]) == false)
+                        {
+                            cbIncidentReportCompleted.Checked = true;
+                        }
 
                         if (Convert.ToBoolean(rdr["PatronDetailsRecorded"]) == false)
                         {
                             tblPerson1.Visible = false;
+                            cbPatronDetailsRecorded.Checked = true;
                         }
                         else
                         {

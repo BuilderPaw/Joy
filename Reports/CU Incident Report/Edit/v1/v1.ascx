@@ -49,7 +49,12 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:CheckBox ID="cbAddPerson1" AutoPostBack="true" OnCheckedChanged="cbAddPerson1_CheckedChanged" Checked="false" runat="server" /></td>
+                        <b>Yes : </b>
+                        <asp:CheckBox ID="cbAddPerson1" AutoPostBack="true" OnCheckedChanged="cbAddPerson1_CheckedChanged" runat="server" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>No : </b>
+                        <asp:CheckBox ID="cbAddPerson" AutoPostBack="true" OnCheckedChanged="cbAddPerson_CheckedChanged" runat="server" />
+                    </td>
                     <td id="noOfPerson1" visible="false" runat="server">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblNoOfPerson" runat="server" Text="0"></asp:Label>
                     </td>
@@ -2052,7 +2057,12 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:CheckBox ID="cbCamera" AutoPostBack="true" OnCheckedChanged="cbCamera_CheckedChanged" Checked="false" runat="server" /></td>
+                        <b>Yes : </b>
+                        <asp:CheckBox ID="cbCamera" AutoPostBack="true" OnCheckedChanged="cbCamera_CheckedChanged" runat="server" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>No : </b>
+                        <asp:CheckBox ID="cbCamera1" AutoPostBack="true" OnCheckedChanged="cbCamera1_CheckedChanged" runat="server" />
+                    </td>
                 </tr>
             </table>
             <table class="table-incident" id="tblCamera1" runat="server">
@@ -3772,8 +3782,12 @@
                     <th colspan="4">Is this a Gaming related Incident?</th>
                 </tr>
                 <tr>
-                    <td>
-                        <asp:CheckBox ID="cbGamingRelatedIncident" runat="server" />
+                    <td colspan="4">
+                        <b>Yes : </b>
+                        <asp:CheckBox ID="cbGamingRelatedIncident" AutoPostBack="true" OnCheckedChanged="cbGamingRelatedIncident_CheckedChanged" runat="server" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <b>No : </b>
+                        <asp:CheckBox ID="cbGamingRelatedIncident1" AutoPostBack="true" OnCheckedChanged="cbGamingRelatedIncident1_CheckedChanged" runat="server" />
                     </td>
                 </tr>
                 <tr>
@@ -3867,7 +3881,11 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <asp:CheckBox ID="cbSecurity" Checked="false" OnCheckedChanged="cbSecurity_CheckedChanged" AutoPostBack="true" runat="server" />
+                        <b>Yes : </b>
+                        <asp:CheckBox ID="cbSecurity" AutoPostBack="true" Checked="false" OnCheckedChanged="cbSecurity_CheckedChanged" runat="server" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>No : </b>
+                        <asp:CheckBox ID="cbSecurity1" AutoPostBack="true" Checked="false" OnCheckedChanged="cbSecurity1_CheckedChanged" runat="server" />
                     </td>
                 </tr>
                 <tr>
@@ -3885,7 +3903,11 @@
                 </tr>
                 <tr>
                     <td colspan="4">
-                        <asp:CheckBox ID="cbPolice" Checked="false" AutoPostBack="true" OnCheckedChanged="cbPolice_CheckedChanged" runat="server" />
+                        <b>Yes : </b>
+                        <asp:CheckBox ID="cbPolice" AutoPostBack="true" Checked="false" OnCheckedChanged="cbPolice_CheckedChanged" runat="server" />
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <b>No : </b>
+                        <asp:CheckBox ID="cbPolice1" AutoPostBack="true" Checked="false" OnCheckedChanged="cbPolice1_CheckedChanged" runat="server" />
                     </td>
                 </tr>
                 <tr>

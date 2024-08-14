@@ -1059,6 +1059,38 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             }
         }
 
+        // make sure user selects at least a Yes or No
+        if (cbAddPerson1.Checked == false && cbAddPerson.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether patron details were recorded.";
+            cbAddPerson1.Focus();
+            returnedFlag = true;
+        }
+        if (cbCamera.Checked == false && cbCamera1.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether camera footage details were recorded.";
+            cbCamera.Focus();
+            returnedFlag = true;
+        }
+        if (cbGamingRelatedIncident.Checked == false && cbGamingRelatedIncident1.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether the report is a Gaming related Incident.";
+            cbGamingRelatedIncident.Focus();
+            returnedFlag = true;
+        }
+        if (cbSecurity.Checked == false && cbSecurity1.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether security attended.";
+            cbSecurity.Focus();
+            returnedFlag = true;
+        }
+        if (cbPolice.Checked == false && cbPolice1.Checked == false)
+        {
+            Report.ErrorMessage = Report.ErrorMessage + "\\n* Please select either Yes or No on whether police were notified.";
+            cbPolice.Focus();
+            returnedFlag = true;
+        }
+
         if (txtAllegation.Text == "")
         {
             Report.ErrorMessage = Report.ErrorMessage + "\\n* Incidents Allegation shouldn't be empty.";
@@ -2944,6 +2976,10 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                         // ddlTimeCon.SelectedIndex = Int32.Parse(rdr["TimeTC"].ToString().Replace("<br />", "\n").Replace("^", "'")); // Take off the AM/PM dropdownlist
 
                         cbGamingRelatedIncident.Checked = Convert.ToBoolean(rdr["GamingRelatedIncident"]);
+                        if (Convert.ToBoolean(rdr["GamingRelatedIncident"]) == false)
+                        {
+                            cbGamingRelatedIncident1.Checked = true;
+                        }
 
                         /* Populate the Checkbox list for Incident Type and tick selected checkbox from the report */
                         string incidentType = rdr["IncidentHappened"].ToString().Replace("<br />", "\n").Replace("^", "'"), populateIncidentList;
@@ -3360,8 +3396,16 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
                         txtDetails.Text = rdr["Details"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtAllegation.Text = rdr["Allegation"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbSecurity.Checked = Convert.ToBoolean(rdr["SecurityAttend"]);
+                        if (Convert.ToBoolean(rdr["SecurityAttend"]) == false)
+                        {
+                            cbSecurity1.Checked = true;
+                        }
                         txtSecurityName.Text = rdr["SecurityName"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         cbPolice.Checked = Convert.ToBoolean(rdr["PoliceNotify"]);
+                        if (Convert.ToBoolean(rdr["PoliceNotify"]) == false)
+                        {
+                            cbPolice1.Checked = true;
+                        }
                         txtPoliceStation.Text = rdr["PoliceStation"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtOfficersName.Text = rdr["OfficersName"].ToString().Replace("<br />", "\n").Replace("^", "'");
                         txtPoliceAction.Text = rdr["PoliceAction"].ToString().Replace("<br />", "\n").Replace("^", "'");
@@ -6672,6 +6716,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             tblCamera1.Visible = false;
             tblAddCam2.Visible = false;
             cbCamera.Checked = false;
+            cbCamera1.Checked = true;
         }
         else
         {
@@ -6784,6 +6829,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             acpPerson1.Visible = false;
             tblAddPerson2.Visible = false;
             cbAddPerson1.Checked = false;
+            cbAddPerson.Checked = true;
         }
         else
         {
@@ -8698,6 +8744,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             noOfPerson.Visible = true;
             lblNoOfPerson.Text = "1";
             noOfPerson1.Visible = true;
+            cbAddPerson.Checked = false;
             // validate objects in the form
             bool returnedValue = checkFields();
             if (returnedValue == true)
@@ -8952,6 +8999,265 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             noOfPerson.Visible = false;
             lblNoOfPerson.Text = "0";
             noOfPerson1.Visible = false;
+
+            // validate objects in the form
+            bool returnedValue = deleteHumanBodyForm(personNo);
+            if (returnedValue == true)
+            {
+                return;
+            }
+        }
+    }
+    protected void cbAddPerson_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbAddPerson.Checked == true)
+        {
+            // hide the Add Person no. 2 button
+            tblAddPerson2.Visible = false;
+            tblAddPerson3.Visible = false;
+            tblAddPerson4.Visible = false;
+            tblAddPerson5.Visible = false;
+            // hide the added Person form
+            acpPerson1.Visible = false;
+            acpPerson2.Visible = false;
+            acpPerson3.Visible = false;
+            acpPerson4.Visible = false;
+            acpPerson5.Visible = false;
+
+            // delete all contents in Person 1 Form
+            string personNo = "P1";
+            ReportIncidentCu.First1 = "";
+            ReportIncidentCu.Last1 = "";
+            ReportIncidentCu.Alias1 = "";
+            ReportIncidentCu.Contact1 = "";
+            ReportIncidentCu.Type1 = "-1";
+            ReportIncidentCu.TxtPartyType1 = "Select Type";
+            ReportIncidentCu.Witness1 = "false";
+
+            ReportIncidentCu.Card1 = "false";
+            ReportIncidentCu.Member1 = "";
+            ReportIncidentCu.MDOB1 = "";
+            ReportIncidentCu.MAddress1 = "";
+            ReportIncidentCu.MemberSince1 = "";
+
+            ReportIncidentCu.SignInSlip1 = "false";
+            ReportIncidentCu.SignInBy1 = "";
+            ReportIncidentCu.VDOB1 = "";
+            ReportIncidentCu.VProofID1 = "";
+            ReportIncidentCu.VAddress1 = "";
+
+            ReportIncidentCu.StaffEmp1 = "";
+            ReportIncidentCu.StaffAddress1 = "";
+
+            ReportIncidentCu.PDate1 = "";
+            ReportIncidentCu.TxtPTimeH1 = "Select Hour";
+            ReportIncidentCu.PTimeH1 = "-1";
+            ReportIncidentCu.TxtPTimeM1 = "Select Hour";
+            ReportIncidentCu.PTimeM1 = "-1";
+            ReportIncidentCu.Age1 = "";
+            ReportIncidentCu.AgeGroup1 = "-1";
+            ReportIncidentCu.Weight1 = "";
+            ReportIncidentCu.Height1 = "";
+            ReportIncidentCu.Hair1 = "";
+            ReportIncidentCu.ClothingTop1 = "";
+            ReportIncidentCu.ClothingBottom1 = "";
+            ReportIncidentCu.Shoes1 = "";
+            ReportIncidentCu.Weapon1 = "";
+            ReportIncidentCu.TxtGender1 = "Select Gender";
+            ReportIncidentCu.Gender1 = "-1";
+            ReportIncidentCu.DistFeat1 = "";
+            ReportIncidentCu.InjuryDesc1 = "";
+            ReportIncidentCu.InjuryCause1 = "";
+            ReportIncidentCu.InjuryComm1 = "";
+            ReportIncidentCu.PlayerId1 = "";
+            ReportIncidentCu.MemberPhoto1 = null;
+
+            ReportIncidentCu.First2 = "";
+            ReportIncidentCu.Last2 = "";
+            ReportIncidentCu.Contact2 = "";
+            ReportIncidentCu.Type2 = "-1";
+            ReportIncidentCu.TxtPartyType2 = "Select Type";
+            ReportIncidentCu.Witness2 = "false";
+
+            ReportIncidentCu.Card2 = "false";
+            ReportIncidentCu.Member2 = "";
+            ReportIncidentCu.MDOB2 = "";
+            ReportIncidentCu.MAddress2 = "";
+            ReportIncidentCu.MemberSince2 = "";
+
+            ReportIncidentCu.SignInSlip2 = "false";
+            ReportIncidentCu.SignInBy2 = "";
+            ReportIncidentCu.VDOB2 = "";
+            ReportIncidentCu.VProofID2 = "";
+            ReportIncidentCu.VAddress2 = "";
+
+            ReportIncidentCu.StaffEmp2 = "";
+            ReportIncidentCu.StaffAddress2 = "";
+
+            ReportIncidentCu.PDate2 = "";
+            ReportIncidentCu.TxtPTimeH2 = "Select Hour";
+            ReportIncidentCu.PTimeH2 = "-1";
+            ReportIncidentCu.TxtPTimeM2 = "Select Hour";
+            ReportIncidentCu.PTimeM2 = "-1";
+            ReportIncidentCu.Age2 = "";
+            ReportIncidentCu.AgeGroup2 = "-1";
+            ReportIncidentCu.Weight2 = "";
+            ReportIncidentCu.Height2 = "";
+            ReportIncidentCu.Hair2 = "";
+            ReportIncidentCu.ClothingTop2 = "";
+            ReportIncidentCu.ClothingBottom2 = "";
+            ReportIncidentCu.Shoes2 = "";
+            ReportIncidentCu.Weapon2 = "";
+            ReportIncidentCu.TxtGender2 = "Select Gender";
+            ReportIncidentCu.Gender2 = "-1";
+            ReportIncidentCu.DistFeat2 = "";
+            ReportIncidentCu.InjuryDesc2 = "";
+            ReportIncidentCu.InjuryCause2 = "";
+            ReportIncidentCu.InjuryComm2 = "";
+            ReportIncidentCu.PlayerId2 = "";
+            ReportIncidentCu.MemberPhoto2 = null;
+
+            ReportIncidentCu.First3 = "";
+            ReportIncidentCu.Last3 = "";
+            ReportIncidentCu.Contact3 = "";
+            ReportIncidentCu.Type3 = "-1";
+            ReportIncidentCu.TxtPartyType3 = "Select Type";
+            ReportIncidentCu.Witness3 = "false";
+
+            ReportIncidentCu.Card3 = "false";
+            ReportIncidentCu.Member3 = "";
+            ReportIncidentCu.MDOB3 = "";
+            ReportIncidentCu.MAddress3 = "";
+            ReportIncidentCu.MemberSince3 = "";
+
+            ReportIncidentCu.SignInSlip3 = "false";
+            ReportIncidentCu.SignInBy3 = "";
+            ReportIncidentCu.VDOB3 = "";
+            ReportIncidentCu.VProofID3 = "";
+            ReportIncidentCu.VAddress3 = "";
+
+            ReportIncidentCu.StaffEmp3 = "";
+            ReportIncidentCu.StaffAddress3 = "";
+
+            ReportIncidentCu.PDate3 = "";
+            ReportIncidentCu.TxtPTimeH3 = "Select Hour";
+            ReportIncidentCu.PTimeH3 = "-1";
+            ReportIncidentCu.TxtPTimeM3 = "Select Hour";
+            ReportIncidentCu.PTimeM3 = "-1";
+            ReportIncidentCu.Age3 = "";
+            ReportIncidentCu.AgeGroup3 = "-1";
+            ReportIncidentCu.Weight3 = "";
+            ReportIncidentCu.Height3 = "";
+            ReportIncidentCu.Hair3 = "";
+            ReportIncidentCu.ClothingTop3 = "";
+            ReportIncidentCu.ClothingBottom3 = "";
+            ReportIncidentCu.Shoes3 = "";
+            ReportIncidentCu.Weapon3 = "";
+            ReportIncidentCu.TxtGender3 = "Select Gender";
+            ReportIncidentCu.Gender3 = "-1";
+            ReportIncidentCu.DistFeat3 = "";
+            ReportIncidentCu.InjuryDesc3 = "";
+            ReportIncidentCu.InjuryCause3 = "";
+            ReportIncidentCu.InjuryComm3 = "";
+            ReportIncidentCu.PlayerId3 = "";
+            ReportIncidentCu.MemberPhoto3 = null;
+
+            ReportIncidentCu.First4 = "";
+            ReportIncidentCu.Last4 = "";
+            ReportIncidentCu.Contact4 = "";
+            ReportIncidentCu.Type4 = "-1";
+            ReportIncidentCu.TxtPartyType4 = "Select Type";
+            ReportIncidentCu.Witness4 = "false";
+
+            ReportIncidentCu.Card4 = "false";
+            ReportIncidentCu.Member4 = "";
+            ReportIncidentCu.MDOB4 = "";
+            ReportIncidentCu.MAddress4 = "";
+            ReportIncidentCu.MemberSince4 = "";
+
+            ReportIncidentCu.SignInSlip4 = "false";
+            ReportIncidentCu.SignInBy4 = "";
+            ReportIncidentCu.VDOB4 = "";
+            ReportIncidentCu.VProofID4 = "";
+            ReportIncidentCu.VAddress4 = "";
+
+            ReportIncidentCu.StaffEmp4 = "";
+            ReportIncidentCu.StaffAddress4 = "";
+
+            ReportIncidentCu.PDate4 = "";
+            ReportIncidentCu.TxtPTimeH4 = "Select Hour";
+            ReportIncidentCu.PTimeH4 = "-1";
+            ReportIncidentCu.TxtPTimeM4 = "Select Hour";
+            ReportIncidentCu.PTimeM4 = "-1";
+            ReportIncidentCu.Age4 = "";
+            ReportIncidentCu.AgeGroup4 = "-1";
+            ReportIncidentCu.Weight4 = "";
+            ReportIncidentCu.Height4 = "";
+            ReportIncidentCu.Hair4 = "";
+            ReportIncidentCu.ClothingTop4 = "";
+            ReportIncidentCu.ClothingBottom4 = "";
+            ReportIncidentCu.Shoes4 = "";
+            ReportIncidentCu.Weapon4 = "";
+            ReportIncidentCu.TxtGender4 = "Select Gender";
+            ReportIncidentCu.Gender4 = "-1";
+            ReportIncidentCu.DistFeat4 = "";
+            ReportIncidentCu.InjuryDesc4 = "";
+            ReportIncidentCu.InjuryCause4 = "";
+            ReportIncidentCu.InjuryComm4 = "";
+            ReportIncidentCu.PlayerId4 = "";
+            ReportIncidentCu.MemberPhoto4 = null;
+
+            ReportIncidentCu.First5 = "";
+            ReportIncidentCu.Last5 = "";
+            ReportIncidentCu.Contact5 = "";
+            ReportIncidentCu.Type5 = "-1";
+            ReportIncidentCu.TxtPartyType5 = "Select Type";
+            ReportIncidentCu.Witness5 = "false";
+
+            ReportIncidentCu.Card5 = "false";
+            ReportIncidentCu.Member5 = "";
+            ReportIncidentCu.MDOB5 = "";
+            ReportIncidentCu.MAddress5 = "";
+            ReportIncidentCu.MemberSince5 = "";
+
+            ReportIncidentCu.SignInSlip5 = "false";
+            ReportIncidentCu.SignInBy5 = "";
+            ReportIncidentCu.VDOB5 = "";
+            ReportIncidentCu.VProofID5 = "";
+            ReportIncidentCu.VAddress5 = "";
+
+            ReportIncidentCu.StaffEmp5 = "";
+            ReportIncidentCu.StaffAddress5 = "";
+
+            ReportIncidentCu.PDate5 = "";
+            ReportIncidentCu.TxtPTimeH5 = "Select Hour";
+            ReportIncidentCu.PTimeH5 = "-1";
+            ReportIncidentCu.TxtPTimeM5 = "Select Hour";
+            ReportIncidentCu.PTimeM5 = "-1";
+            ReportIncidentCu.Age5 = "";
+            ReportIncidentCu.AgeGroup5 = "-1";
+            ReportIncidentCu.Weight5 = "";
+            ReportIncidentCu.Height5 = "";
+            ReportIncidentCu.Hair5 = "";
+            ReportIncidentCu.ClothingTop5 = "";
+            ReportIncidentCu.ClothingBottom5 = "";
+            ReportIncidentCu.Shoes5 = "";
+            ReportIncidentCu.Weapon5 = "";
+            ReportIncidentCu.TxtGender5 = "Select Gender";
+            ReportIncidentCu.Gender5 = "-1";
+            ReportIncidentCu.DistFeat5 = "";
+            ReportIncidentCu.InjuryDesc5 = "";
+            ReportIncidentCu.InjuryCause5 = "";
+            ReportIncidentCu.InjuryComm5 = "";
+            ReportIncidentCu.PlayerId5 = "";
+            ReportIncidentCu.MemberPhoto5 = null;
+
+            // Add global variables to update Age, Hair, Clothing, etc.
+
+            noOfPerson.Visible = false;
+            lblNoOfPerson.Text = "0";
+            noOfPerson1.Visible = false;
+            cbAddPerson1.Checked = false;
 
             // validate objects in the form
             bool returnedValue = deleteHumanBodyForm(personNo);
@@ -9909,6 +10215,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             tblCamera1.Visible = true;
             tblAddCam2.Visible = true;
             txtCamDesc1.Text = "Camera No. ";
+            cbCamera1.Checked = false;
         }
         else
         {
@@ -9932,6 +10239,40 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             txtCamFilePath1.Text = "";
             txtCamSDate1.Text = "";
             txtCamEDate1.Text = "";
+        }
+
+        // validate objects in the form
+        bool returnedValue = checkFields();
+        if (returnedValue == true)
+        {
+            return;
+        }
+    }
+    protected void cbCamera1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbCamera1.Checked == true)
+        {
+            // hide all Camera forms
+            tblCamera1.Visible = false;
+            tblAddCam2.Visible = false;
+            tblCamera2.Visible = false;
+            tblAddCam3.Visible = false;
+            tblCamera3.Visible = false;
+            tblAddCam4.Visible = false;
+            tblCamera4.Visible = false;
+            tblAddCam5.Visible = false;
+            tblCamera5.Visible = false;
+            tblAddCam6.Visible = false;
+            tblCamera6.Visible = false;
+            tblAddCam7.Visible = false;
+            tblCamera7.Visible = false;
+            tblDelCam7.Visible = false;
+            txtCamDesc1.Text = "";
+            cbRecorded1.Checked = false;
+            txtCamFilePath1.Text = "";
+            txtCamSDate1.Text = "";
+            txtCamEDate1.Text = "";
+            cbCamera.Checked = false;
         }
 
         // validate objects in the form
@@ -10288,6 +10629,36 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         }
     }
 
+    // toggle checkboxes for gaming related incident
+    protected void cbGamingRelatedIncident_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbGamingRelatedIncident.Checked == true)
+        {
+            cbGamingRelatedIncident1.Checked = false;
+        }
+
+        // validate objects in the form
+        bool returnedValue = checkFields();
+        if (returnedValue == true)
+        {
+            return;
+        }
+    }
+    protected void cbGamingRelatedIncident1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbGamingRelatedIncident1.Checked == true)
+        {
+            cbGamingRelatedIncident.Checked = false;
+        }
+
+        // validate objects in the form
+        bool returnedValue = checkFields();
+        if (returnedValue == true)
+        {
+            return;
+        }
+    }
+
     // add/delete security/police info
     protected void cbSecurity_CheckedChanged(object sender, EventArgs e)
     {
@@ -10295,12 +10666,29 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
         {
             tdSecurity1.Visible = true;
             tdSecurity2.Visible = true;
+            cbSecurity1.Checked = false;
         }
         else
         {
             tdSecurity1.Visible = false;
             tdSecurity2.Visible = false;
             txtSecurityName.Text = "";
+        }
+        // validate objects in the form
+        bool returnedValue = checkFields();
+        if (returnedValue == true)
+        {
+            return;
+        }
+    }
+    protected void cbSecurity1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbSecurity1.Checked == true)
+        {
+            tdSecurity1.Visible = false;
+            tdSecurity2.Visible = false;
+            txtSecurityName.Text = "";
+            cbSecurity.Checked = false;
         }
         // validate objects in the form
         bool returnedValue = checkFields();
@@ -10319,6 +10707,7 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             tdPolice4.Visible = true;
             tdPolice5.Visible = true;
             tdPolice6.Visible = true;
+            cbPolice1.Checked = false;
         }
         else
         {
@@ -10331,6 +10720,28 @@ public partial class Reports_CU_Incident_Report_Edit_v1_v1 : System.Web.UI.UserC
             txtPoliceStation.Text = "";
             txtOfficersName.Text = "";
             txtPoliceAction.Text = "";
+        }
+        // validate objects in the form
+        bool returnedValue = checkFields();
+        if (returnedValue == true)
+        {
+            return;
+        }
+    }
+    protected void cbPolice1_CheckedChanged(object sender, EventArgs e)
+    {
+        if (cbPolice1.Checked == true)
+        {
+            tdPolice1.Visible = false;
+            tdPolice2.Visible = false;
+            tdPolice3.Visible = false;
+            tdPolice4.Visible = false;
+            tdPolice5.Visible = false;
+            tdPolice6.Visible = false;
+            txtPoliceStation.Text = "";
+            txtOfficersName.Text = "";
+            txtPoliceAction.Text = "";
+            cbPolice.Checked = false;
         }
         // validate objects in the form
         bool returnedValue = checkFields();
