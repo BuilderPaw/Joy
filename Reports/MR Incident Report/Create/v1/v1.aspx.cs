@@ -1032,8 +1032,15 @@ public partial class Reports_MR_Incident_Report_Create_v1_v1 : System.Web.UI.Pag
                         }
                         else if (acpPerson1.Visible == false && item.ToString() != "Other")
                         {
-                            Report.ErrorMessage = Report.ErrorMessage + "\\n* Mandatory Fields required with this type of Incident. Please add details of Person(s) involved.";
-                            returnedFlag = 1;
+                            if (item.ToString() == "False Fire Alarm")
+                            {
+                                // do nothing
+                            }
+                            else
+                            {
+                                Report.ErrorMessage = Report.ErrorMessage + "\\n* Mandatory Fields required with this type of Incident. Please add details of Person(s) involved.";
+                                returnedFlag = 1;
+                            }
                         }
                         if (acpPerson2.Visible == true)
                         {
