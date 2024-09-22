@@ -281,18 +281,21 @@ public class SearchReport
             if (!string.IsNullOrEmpty(listPlayerIdIncidents)) // run all the list of incidents for the selected player id
             {
                 int result;
-                //if listPlayerIdIncidents is an integer, listpriorRGOEvents otherwise, listpriorincidents
-                if (int.TryParse(listPlayerIdIncidents, out result))
-                {
-                    // user input a valid integer
-                    // result varaible have the input integer
-                    sqlQuery.RetrieveData("Proc_ListPriorRGOEvents", "SearchKeyword");
-                }
-                else
-                {
-                    // user input none integer, not mr1, mr2, mr3, etc...
-                    sqlQuery.RetrieveData("Proc_ListPriorIncidents", "SearchKeyword");
-                }
+
+                sqlQuery.RetrieveData("Proc_ListPriorIncidentRGOReports", "SearchKeyword");
+
+                ////if listPlayerIdIncidents is an integer, listpriorRGOEvents otherwise, listpriorincidents
+                //if (int.TryParse(listPlayerIdIncidents, out result))
+                //{
+                //    // user input a valid integer
+                //    // result varaible have the input integer
+                //    sqlQuery.RetrieveData("Proc_ListPriorRGOEvents", "SearchKeyword");
+                //}
+                //else
+                //{
+                //    // user input none integer, not mr1, mr2, mr3, etc...
+                //    sqlQuery.RetrieveData("Proc_ListPriorIncidents", "SearchKeyword");
+                //}
             }
             else // no player id is selected, filter via keyword and report filters
             {

@@ -130,6 +130,54 @@ public class SqlQuery
             cmd.Parameters.Add("PlayerId", SqlDbType.VarChar).Value = playerId;
         }
 
+        // List all reports related to selected Player Id
+        if (sqlQuery.Equals("Proc_ListPriorIncidentRGOReports"))
+        {
+            string playerId = "";
+            switch (SearchReport.ListPlayerIdIncidents)
+            {
+                case "1":
+                    playerId = ReportResponsibleGamingOfficerMr.ViewPlayerId;
+                    break;
+                case "2":
+                    playerId = ReportResponsibleGamingOfficerCu.ViewPlayerId;
+                    break;
+                case "mr1":
+                    playerId = ReportIncidentMr.ViewPlayerId1;
+                    break;
+                case "mr2":
+                    playerId = ReportIncidentMr.ViewPlayerId2;
+                    break;
+                case "mr3":
+                    playerId = ReportIncidentMr.ViewPlayerId3;
+                    break;
+                case "mr4":
+                    playerId = ReportIncidentMr.ViewPlayerId4;
+                    break;
+                case "mr5":
+                    playerId = ReportIncidentMr.ViewPlayerId5;
+                    break;
+                case "cu1":
+                    playerId = ReportIncidentCu.ViewPlayerId1;
+                    break;
+                case "cu2":
+                    playerId = ReportIncidentCu.ViewPlayerId2;
+                    break;
+                case "cu3":
+                    playerId = ReportIncidentCu.ViewPlayerId3;
+                    break;
+                case "cu4":
+                    playerId = ReportIncidentCu.ViewPlayerId4;
+                    break;
+                case "cu5":
+                    playerId = ReportIncidentCu.ViewPlayerId5;
+                    break;
+            }
+            cmd.CommandTimeout = Convert.ToInt32(System.Configuration.ConfigurationManager.AppSettings["SqlCommandTimeOut"]);
+            cmd.CommandType = CommandType.StoredProcedure; // runs stored procedure Proc_ListPriorIncidentRGOReports
+            cmd.Parameters.Add("PlayerId", SqlDbType.VarChar).Value = playerId;
+        }
+
         try
         {
             con.Open();

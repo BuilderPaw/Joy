@@ -1658,6 +1658,7 @@ public partial class Reports_MR_Responsible_Gaming_Officer_Create_v1_v1 : System
                 dm.MemberDOB = txtDOB.Text;
                 dm.MemberAddress = txtAddress.Text;
                 dm.MemberSince = txtMemberSince.Text;
+                dm.Contact = txtContact.Text;
                 dm.SignInSlip = false;
             }
             else if (ddlPartyType.SelectedItem.Value == "2")
@@ -2173,6 +2174,7 @@ public partial class Reports_MR_Responsible_Gaming_Officer_Create_v1_v1 : System
                     dm.MemberDOB = txtDOB.Text;
                     dm.MemberAddress = txtAddress.Text;
                     dm.MemberSince = txtMemberSince.Text;
+                    dm.Contact = txtContact.Text;
                     dm.SignInSlip = false;
                 }
                 else if (ddlPartyType.SelectedItem.Value == "2")

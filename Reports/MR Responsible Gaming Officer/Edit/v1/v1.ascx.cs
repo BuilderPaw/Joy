@@ -1603,6 +1603,7 @@ public partial class Reports_MR_Responsible_Gaming_Officer_Edit_v1_v1 : System.W
             ReportResponsibleGamingOfficerMr.Member = txtMemberNo.Text.Replace("'", "^");
             ReportResponsibleGamingOfficerMr.MDOB = txtDOB.Text;
             ReportResponsibleGamingOfficerMr.MemberSince = txtMemberSince.Text;
+            ReportResponsibleGamingOfficerMr.Contact = txtContact.Text;
             ReportResponsibleGamingOfficerMr.MAddress = txtAddress.Text.Replace("'", "^");
             ReportResponsibleGamingOfficerMr.SignInSlip = "false";
 
